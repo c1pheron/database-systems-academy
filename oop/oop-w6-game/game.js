@@ -96,7 +96,7 @@
     const elPoints = document.getElementById("hudRatingPoints");
     if (elPoints) {
       const isEn = currentLang === "en";
-      elPoints.textContent = solvedQuestions.size * 50 + (isEn ? " Pts" : " Ball");
+      elPoints.textContent = solvedQuestions.size * 50 + (isRu ? " Очков" : (isEn ? " Pts" : " Ball"));
     }
   }
 
@@ -112,8 +112,9 @@
     const elToggleHint = document.getElementById("solutionToggleHint");
 
     const isEn = currentLang === "en";
-    if (elBadge) elBadge.textContent = isEn ? ("Module 6 • Challenge " + ch.id) : ("6-Modul • " + ch.id + "-Topshiriq");
-    if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
+    const isRu = currentLang === "ru";
+    if (elBadge) elBadge.textContent = isRu ? ("Модуль 6 • Задание " + ch.id) : (isEn ? ("Module 6 • Challenge " + ch.id) : ("6-Modul • " + ch.id + "-Topshiriq"));
+    if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (isRu ? (ch.title?.ru || ch.title?.en || ch.title?.uz) : (isEn ? (ch.title?.en || ch.title?.uz) : (ch.title?.uz || "")));
     if (elScenario) {
       if (typeof window.formatChallengeScenarioHTML === "function") {
         elScenario.innerHTML = window.formatChallengeScenarioHTML(ch, currentLang);
@@ -127,7 +128,7 @@
       window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
     }
     if (elSolutionCard) elSolutionCard.style.display = "none";
-    if (elToggleHint) elToggleHint.textContent = isEn ? "[View ▾]" : "[Ko'rish ▾]";
+    if (elToggleHint) elToggleHint.textContent = isRu ? "[Смотреть ▾]" : (isEn ? "[View ▾]" : "[Ko'rish ▾]");
 
     // Update requirements list
     const reqList = document.getElementById("taskReqList");

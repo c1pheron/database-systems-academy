@@ -1,12 +1,6 @@
 // WIUT OOP (5COSC018C) — WEEK 6 DATASET (150 PROGRESSIVE CHALLENGES)
-// Comprehensive syllabus alignment: Software Architecture, NFRs, Abstraction,
-// Abstract Classes, Abstract Methods, Protected Helpers, Interfaces, public static final,
-// Java 8 default/static methods, Multiple Interface Implementation, Diamond Problem,
-// Polymorphic Collections, Collections Framework (List, Set, Queue, Map), Program to Interface,
-// Workshop TW 6 Printing System (IPrintable, File, TextFile, ImageFile), and CW2 Week 6
-// Enterprise Milestone (Payable, CashbackEligible, BankCard, BonusBalance, GiftCard, Notification).
-// Generated strictly following the 1-5 step format and 100% verified with JavaAnalyzer.
-window.OOP_CHALLENGES_W6 = [
+// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
+(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W6 = [
   {
     "id": 1,
     "tier": 1,
@@ -14,11 +8,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "1. Uzum Market — Dasturiy Arxitektura va No-Funksional Talablar (NFR)",
-      "en": "1. Uzum Market — Software Architecture and Non-Functional Requirements"
+      "en": "1. Uzum Market — Software Architecture and Non-Functional Requirements",
+      "ru": "1. Uzum Market — архитектура программного обеспечения и нефункциональные требования"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasiga binoan, dasturiy ta'minot arxitekturasi tizimning unumdorlik (Performance), xavfsizlik (Security) va kengayuvchanlik (Scalability) kabi no-funksional talablarini belgilaydi. Uzum Market tizimi uchun arxitektura konfiguratsiyasini saqlovchi va 'getArchitectureSummary()' orqali hisobot beruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'ArchitectureConfig' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getArchitectureSummary(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'",
-      "en": "📖 Real-World Scenario & Context\nSoftware architecture defines non-functional requirements such as Performance, Security, and Scalability. Implement an architecture configuration manager providing a summary report.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ArchitectureConfig' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getArchitectureSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'"
+      "en": "📖 Real-World Scenario & Context\nSoftware architecture defines non-functional requirements such as Performance, Security, and Scalability. Implement an architecture configuration manager providing a summary report.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ArchitectureConfig' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getArchitectureSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'",
+      "ru": "📖 Контекст и описание задачи\nАрхитектура программного обеспечения определяет нефункциональные требования, такие как производительность, безопасность и масштабируемость. Внедрите менеджер конфигурации архитектуры, предоставляющий сводный отчет.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «ArchitectureConfig», моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getArchitectureSummary(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'"
     },
     "requirements": {
       "classes": [
@@ -37,6 +33,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ArchitectureConfig</code>: arxitektura va abstraksiya qatlami.",
         "<code>getArchitectureSummary</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>ArchitectureConfig</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getArchitectureSummary</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasiga binoan, dasturiy ta'minot arxitekturasi tizimning unumdorlik (Performance), xavfsizlik (Security) va kengayuvchanlik (Scalability) kabi no-funksional talablarini belgilaydi. Uzum Market tizimi uchun arxitektura konfiguratsiyasini saqlovchi va 'getArchitectureSummary()' orqali hisobot beruvchi klass tuzing.\n\n📋",
+      "en": "Software architecture defines non-functional requirements such as Performance, Security, and Scalability. Implement an architecture configuration manager providing a summary report.\n\n📋",
+      "ru": "Архитектура программного обеспечения определяет нефункциональные требования, такие как производительность, безопасность и масштабируемость. Внедрите менеджер конфигурации архитектуры, предоставляющий сводный отчет."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'ArchitectureConfig' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getArchitectureSummary(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'ArchitectureConfig' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getArchitectureSummary(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'"
+      ],
+      "ru": [
+        "Объявите класс «ArchitectureConfig», моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getArchitectureSummary(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'ArchitectureConfig cfg = new ArchitectureConfig(\"Uzum Market\", 99.9, 50000);         System.out.println(cfg.getArchitectureSummary());'"
       ]
     }
   },
@@ -47,11 +78,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "2. Payme — Xavfsizlik (Security) Abstraksiyasi va Shifrlash",
-      "en": "2. Payme — Security Abstraction and Masking Layer"
+      "en": "2. Payme — Security Abstraction and Masking Layer",
+      "ru": "2. Payme — абстракция безопасности и маскирующий уровень"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Abstraksiya — foydalanuvchiga faqat muhim ma'lumotni ko'rsatib, ichki murakkab detallarni yashirishdir'. Payme to'lov tizimida karta raqamini xavfsiz niqoblovchi ('8600 **** **** 1234') abstrakt xavfsizlik modelini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'SecurityLayer' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'maskCardNumber(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Niqoblangan karta: \" + sec.maskCardNumber(\"8600123456781234\"));'",
-      "en": "📖 Real-World Scenario & Context\nModel security abstraction in Payme by masking card numbers to hide sensitive cryptographic details.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SecurityLayer' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'maskCardNumber(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Niqoblangan karta: \" + sec.maskCardNumber(\"8600123456781234\"));'"
+      "en": "📖 Real-World Scenario & Context\nModel security abstraction in Payme by masking card numbers to hide sensitive cryptographic details.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SecurityLayer' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'maskCardNumber(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Niqoblangan karta: \" + sec.maskCardNumber(\"8600123456781234\"));'",
+      "ru": "📖 Контекст и описание задачи\nМоделируйте абстракцию безопасности в Payme, маскируя номера карт, чтобы скрыть конфиденциальные криптографические детали.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SecurityLayer, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод «maskCardNumber(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Никобланганская карта: \" + sec.maskCardNumber(\"8600123456781234\"));'"
     },
     "requirements": {
       "classes": [
@@ -70,6 +103,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SecurityLayer</code>: arxitektura va abstraksiya qatlami.",
         "<code>maskCardNumber</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>SecurityLayer</code>: arxitektura va abstraksiya qatlami.",
+        "<code>maskCardNumber</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Abstraksiya — foydalanuvchiga faqat muhim ma'lumotni ko'rsatib, ichki murakkab detallarni yashirishdir'. Payme to'lov tizimida karta raqamini xavfsiz niqoblovchi ('8600 **** **** 1234') abstrakt xavfsizlik modelini yozing.\n\n📋",
+      "en": "Model security abstraction in Payme by masking card numbers to hide sensitive cryptographic details.\n\n📋",
+      "ru": "Моделируйте абстракцию безопасности в Payme, маскируя номера карт, чтобы скрыть конфиденциальные криптографические детали."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'SecurityLayer' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'maskCardNumber(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Niqoblangan karta: \" + sec.maskCardNumber(\"8600123456781234\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'SecurityLayer' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'maskCardNumber(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Niqoblangan karta: \" + sec.maskCardNumber(\"8600123456781234\"));'"
+      ],
+      "ru": [
+        "Объявите класс SecurityLayer, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод «maskCardNumber(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'SecurityLayer sec = new SecurityLayer();         System.out.println(\"Никобланганская карта: \" + sec.maskCardNumber(\"8600123456781234\"));'"
       ]
     }
   },
@@ -80,11 +148,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "3. Korzinka Go — Kengayuvchanlik (Scalability) va Savat Abstraksiyasi",
-      "en": "3. Korzinka Go — Scalability and Shopping Cart Abstraction"
+      "en": "3. Korzinka Go — Scalability and Shopping Cart Abstraction",
+      "ru": "3. Korzinka Go — масштабируемость и абстракция корзины для покупок"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKatta e-commerce tizimlarida savat arxitekturasi millionlab mahsulotlarni qabul qila olishi kerak. Korzinka Go savati uchun umumiy mahsulotlar soni va umumiy narxni hisoblovchi abstrakt shartnomani bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'ScalableCart' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getCartSummary(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'ScalableCart cart = new ScalableCart();         cart.addItem(15000.0, 3);         cart.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'",
-      "en": "📖 Real-World Scenario & Context\nBuild a scalable shopping cart abstraction computing total quantity and cost without exposing inner storage arrays.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ScalableCart' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getCartSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ScalableCart cart = new ScalableCart();         cart.addItem(15000.0, 3);         cart.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'"
+      "en": "📖 Real-World Scenario & Context\nBuild a scalable shopping cart abstraction computing total quantity and cost without exposing inner storage arrays.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ScalableCart' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getCartSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ScalableCart cart = new ScalableCart();         cart.addItem(15000.0, 3);         cart.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте масштабируемую абстракцию корзины покупок, вычисляющую общее количество и стоимость, не раскрывая внутренние массивы хранения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ScalableCart, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getCartSummary(...), инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'ScalableCart cars = new ScalableCart();         корзину.addItem(15000.0, 3);         корзину.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'"
     },
     "requirements": {
       "classes": [
@@ -103,6 +173,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ScalableCart</code>: arxitektura va abstraksiya qatlami.",
         "<code>getCartSummary</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>ScalableCart</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getCartSummary</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Katta e-commerce tizimlarida savat arxitekturasi millionlab mahsulotlarni qabul qila olishi kerak. Korzinka Go savati uchun umumiy mahsulotlar soni va umumiy narxni hisoblovchi abstrakt shartnomani bajaring.\n\n📋",
+      "en": "Build a scalable shopping cart abstraction computing total quantity and cost without exposing inner storage arrays.\n\n📋",
+      "ru": "Создайте масштабируемую абстракцию корзины покупок, вычисляющую общее количество и стоимость, не раскрывая внутренние массивы хранения."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'ScalableCart' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getCartSummary(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'ScalableCart cart = new ScalableCart();         cart.addItem(15000.0, 3);         cart.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'ScalableCart' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getCartSummary(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'ScalableCart cart = new ScalableCart();         cart.addItem(15000.0, 3);         cart.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'"
+      ],
+      "ru": [
+        "Объявите класс ScalableCart, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getCartSummary(...), инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'ScalableCart cars = new ScalableCart();         корзину.addItem(15000.0, 3);         корзину.addItem(25000.0, 2);         System.out.println(cart.getCartSummary());'"
       ]
     }
   },
@@ -113,11 +218,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "4. Yandex Go — Unumdorlik (Performance) va Marshrut Hisoblagich",
-      "en": "4. Yandex Go — Performance and Route Estimation Abstraction"
+      "en": "4. Yandex Go — Performance and Route Estimation Abstraction",
+      "ru": "4. Yandex Go — абстракция оценки производительности и маршрута"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTizim arxitekturasida Performance — buyurtmani soniya ulushlarida hisoblashdir. GPS marshrut masofasi (km) va tirbandlik koeffitsiyenti asosida safar vaqtini aniqlovchi abstrakt modelni tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'RoutePerformanceService' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'estimateDurationMinutes(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nModel route estimation abstraction calculating trip duration from distance and traffic factor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'RoutePerformanceService' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'estimateDurationMinutes(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nModel route estimation abstraction calculating trip duration from distance and traffic factor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'RoutePerformanceService' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'estimateDurationMinutes(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nАбстракция оценки маршрута модели, рассчитывающая продолжительность поездки на основе расстояния и коэффициента загруженности дорог.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс RoutePerformanceService, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод 'estimateDurationMinutes(...)', инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -136,6 +243,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>RoutePerformanceService</code>: arxitektura va abstraksiya qatlami.",
         "<code>estimateDurationMinutes</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>RoutePerformanceService</code>: arxitektura va abstraksiya qatlami.",
+        "<code>estimateDurationMinutes</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Tizim arxitekturasida Performance — buyurtmani soniya ulushlarida hisoblashdir. GPS marshrut masofasi (km) va tirbandlik koeffitsiyenti asosida safar vaqtini aniqlovchi abstrakt modelni tuzing.\n\n📋",
+      "en": "Model route estimation abstraction calculating trip duration from distance and traffic factor.\n\n📋",
+      "ru": "Абстракция оценки маршрута модели, рассчитывающая продолжительность поездки на основе расстояния и коэффициента загруженности дорог."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'RoutePerformanceService' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'estimateDurationMinutes(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'RoutePerformanceService' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'estimateDurationMinutes(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите класс RoutePerformanceService, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод 'estimateDurationMinutes(...)', инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'RoutePerformanceService rps = new RoutePerformanceService();         System.out.println(\"Kutilayotgan vaqt: \" + rps.estimateDurationMinutes(12.0, 1.5) + \" daqiqa\");'"
       ]
     }
   },
@@ -146,11 +288,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "5. Click — O'zgartirish Qulayligi (Modifiability) va To'lov Shlyuzi",
-      "en": "5. Click — Modifiability and Payment Gateway Abstraction"
+      "en": "5. Click — Modifiability and Payment Gateway Abstraction",
+      "ru": "5. Клик — модифицируемость и абстракция платежного шлюза"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nModifiability talabi: yangi to'lov provayderi qo'shilganda asosiy kod o'zgarmasligi kerak. Click uchun komissiya foizini hisoblovchi moslashuvchan shlyuz klassini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'GatewayDispatcher' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'calculateFee(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Komissiya: \" + gd.calculateFee(200000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nDesign a modifiable payment gateway model computing commission without tight coupling.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GatewayDispatcher' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'calculateFee(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Komissiya: \" + gd.calculateFee(200000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nDesign a modifiable payment gateway model computing commission without tight coupling.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GatewayDispatcher' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'calculateFee(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Komissiya: \" + gd.calculateFee(200000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРазработайте изменяемую вычислительную комиссию модели платежного шлюза без жесткой связи.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс GatewayDispatcher, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод «calculateFee(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Комиссия: \" + gd.calculateFee(200000.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -169,6 +313,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>GatewayDispatcher</code>: arxitektura va abstraksiya qatlami.",
         "<code>calculateFee</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>GatewayDispatcher</code>: arxitektura va abstraksiya qatlami.",
+        "<code>calculateFee</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Modifiability talabi: yangi to'lov provayderi qo'shilganda asosiy kod o'zgarmasligi kerak. Click uchun komissiya foizini hisoblovchi moslashuvchan shlyuz klassini yozing.\n\n📋",
+      "en": "Design a modifiable payment gateway model computing commission without tight coupling.\n\n📋",
+      "ru": "Разработайте изменяемую вычислительную комиссию модели платежного шлюза без жесткой связи."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'GatewayDispatcher' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'calculateFee(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Komissiya: \" + gd.calculateFee(200000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'GatewayDispatcher' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'calculateFee(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Komissiya: \" + gd.calculateFee(200000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс GatewayDispatcher, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод «calculateFee(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'GatewayDispatcher gd = new GatewayDispatcher(0.015);         System.out.println(\"Комиссия: \" + gd.calculateFee(200000.0) + \" UZS\");'"
       ]
     }
   },
@@ -179,11 +358,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "6. Safia — Axborotni Yashirish (Information Hiding) va Shirinlik Retsepti",
-      "en": "6. Safia — Information Hiding in Bakery Recipe Abstraction"
+      "en": "6. Safia — Information Hiding in Bakery Recipe Abstraction",
+      "ru": "6. Сафия — информация, скрытая в абстракции рецепта выпечки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia qandolatchiligida pishiriqning maxfiy retsept formulasi inkapsulyatsiya qilinadi, faqat umumiy kaloriyani hisoblovchi tashqi interfeys ochiq qoladi. Axborotni yashirish tamoyilini dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'BakeryRecipe' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'calculateCalories(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Umumiy kaloriya: \" + cake.calculateCalories() + \" kkal\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement information hiding by keeping recipe ingredients encapsulated and exposing only public calorie calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BakeryRecipe' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'calculateCalories(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Umumiy kaloriya: \" + cake.calculateCalories() + \" kkal\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement information hiding by keeping recipe ingredients encapsulated and exposing only public calorie calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BakeryRecipe' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'calculateCalories(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Umumiy kaloriya: \" + cake.calculateCalories() + \" kkal\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте сокрытие информации, сохраняя ингредиенты рецепта инкапсулированными и предоставляя только общедоступный расчет калорий.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BakeryRecipe, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод «calculateCalories(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Умий калория: \" + cake.calculateCalories() + \" ккал\");'"
     },
     "requirements": {
       "classes": [
@@ -202,6 +383,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BakeryRecipe</code>: arxitektura va abstraksiya qatlami.",
         "<code>calculateCalories</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>BakeryRecipe</code>: arxitektura va abstraksiya qatlami.",
+        "<code>calculateCalories</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Safia qandolatchiligida pishiriqning maxfiy retsept formulasi inkapsulyatsiya qilinadi, faqat umumiy kaloriyani hisoblovchi tashqi interfeys ochiq qoladi. Axborotni yashirish tamoyilini dasturlang.\n\n📋",
+      "en": "Implement information hiding by keeping recipe ingredients encapsulated and exposing only public calorie calculation.\n\n📋",
+      "ru": "Реализуйте сокрытие информации, сохраняя ингредиенты рецепта инкапсулированными и предоставляя только общедоступный расчет калорий."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'BakeryRecipe' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'calculateCalories(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Umumiy kaloriya: \" + cake.calculateCalories() + \" kkal\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'BakeryRecipe' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'calculateCalories(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Umumiy kaloriya: \" + cake.calculateCalories() + \" kkal\");'"
+      ],
+      "ru": [
+        "Объявите класс BakeryRecipe, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод «calculateCalories(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'BakeryRecipe cake = new BakeryRecipe(250, 180, 50);         System.out.println(\"Умий калория: \" + cake.calculateCalories() + \" ккал\");'"
       ]
     }
   },
@@ -212,11 +428,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "7. Dodo Pizza — Buyurtma Holati Abstraksiyasi (State Tracking)",
-      "en": "7. Dodo Pizza — Order State Tracking Abstraction"
+      "en": "7. Dodo Pizza — Order State Tracking Abstraction",
+      "ru": "7. Dodo Pizza — абстракция отслеживания состояния заказа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijozga oshxonadagi yuzlab detallar ko'rsatilmaydi, faqat 'Qabul qilindi', 'Pishirilmoqda', 'Yetkazilmoqda' kabi yuqori darajali abstraksiyalar beriladi. Holat monitoringini amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'OrderStateTracker' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getStatusDescription(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'",
-      "en": "📖 Real-World Scenario & Context\nTrack high-level order state transitions hiding low-level kitchen workflows.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'OrderStateTracker' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getStatusDescription(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'"
+      "en": "📖 Real-World Scenario & Context\nTrack high-level order state transitions hiding low-level kitchen workflows.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'OrderStateTracker' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getStatusDescription(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'",
+      "ru": "📖 Контекст и описание задачи\nОтслеживайте переходы состояний заказа на высоком уровне, скрывая рабочие процессы на кухне на низком уровне.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderStateTracker, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getStatusDescription(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'"
     },
     "requirements": {
       "classes": [
@@ -235,6 +453,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OrderStateTracker</code>: arxitektura va abstraksiya qatlami.",
         "<code>getStatusDescription</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>OrderStateTracker</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getStatusDescription</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Mijozga oshxonadagi yuzlab detallar ko'rsatilmaydi, faqat 'Qabul qilindi', 'Pishirilmoqda', 'Yetkazilmoqda' kabi yuqori darajali abstraksiyalar beriladi. Holat monitoringini amalga oshiring.\n\n📋",
+      "en": "Track high-level order state transitions hiding low-level kitchen workflows.\n\n📋",
+      "ru": "Отслеживайте переходы состояний заказа на высоком уровне, скрывая рабочие процессы на кухне на низком уровне."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'OrderStateTracker' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getStatusDescription(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'OrderStateTracker' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getStatusDescription(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'"
+      ],
+      "ru": [
+        "Объявите класс OrderStateTracker, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getStatusDescription(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'OrderStateTracker tracker = new OrderStateTracker(\"ORD-771\");         tracker.advanceToKitchen();         System.out.println(tracker.getStatusDescription());'"
       ]
     }
   },
@@ -245,11 +498,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "8. Texnomart — Narxlash Abstraksiyasi va QQS Hisobi",
-      "en": "8. Texnomart — Pricing and VAT Abstraction"
+      "en": "8. Texnomart — Pricing and VAT Abstraction",
+      "ru": "8. Texnomart — ценообразование и абстракция НДС"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart do'konida xaridor yakuniy narxni ko'radi, ichki soliq va bojxona koeffitsiyentlari esa abstraksiya qatlamida avtomatik hisoblanadi. 12% QQS bilan narxlovchi klassni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'PriceCalculator' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getFinalPrice(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'PriceCalculator calc = new PriceCalculator(4000000.0);         System.out.println(\"Yakuniy narx: \" + calc.getFinalPrice() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate VAT calculation details behind a clean pricing abstraction method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCalculator' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getFinalPrice(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'PriceCalculator calc = new PriceCalculator(4000000.0);         System.out.println(\"Yakuniy narx: \" + calc.getFinalPrice() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nEncapsulate VAT calculation details behind a clean pricing abstraction method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCalculator' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getFinalPrice(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'PriceCalculator calc = new PriceCalculator(4000000.0);         System.out.println(\"Yakuniy narx: \" + calc.getFinalPrice() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулируйте детали расчета НДС с помощью чистого метода абстракции цен.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PriceCalculator, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getFinalPrice(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'PriceCalculator Calc = new PriceCalculator(4000000.0);         System.out.println(\"Якуний нарх: \" +calc.getFinalPrice() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -268,6 +523,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PriceCalculator</code>: arxitektura va abstraksiya qatlami.",
         "<code>getFinalPrice</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>PriceCalculator</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getFinalPrice</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart do'konida xaridor yakuniy narxni ko'radi, ichki soliq va bojxona koeffitsiyentlari esa abstraksiya qatlamida avtomatik hisoblanadi. 12% QQS bilan narxlovchi klassni yozing.\n\n📋",
+      "en": "Encapsulate VAT calculation details behind a clean pricing abstraction method.\n\n📋",
+      "ru": "Инкапсулируйте детали расчета НДС с помощью чистого метода абстракции цен."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'PriceCalculator' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getFinalPrice(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'PriceCalculator calc = new PriceCalculator(4000000.0);         System.out.println(\"Yakuniy narx: \" + calc.getFinalPrice() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'PriceCalculator' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getFinalPrice(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'PriceCalculator calc = new PriceCalculator(4000000.0);         System.out.println(\"Yakuniy narx: \" + calc.getFinalPrice() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс PriceCalculator, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getFinalPrice(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'PriceCalculator Calc = new PriceCalculator(4000000.0);         System.out.println(\"Якуний нарх: \" +calc.getFinalPrice() + \" UZS\");'"
       ]
     }
   },
@@ -278,11 +568,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "9. Medion — Tibbiy Ko'rik Holati Abstraksiyasi",
-      "en": "9. Medion — Medical Checkup Record Abstraction"
+      "en": "9. Medion — Medical Checkup Record Abstraction",
+      "ru": "9. Medion — абстракция записи медицинского осмотра"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion klinikasida bemorning shaxsiy kasallik varaqasi yashirin bo'lib, tashqi tizimlarga faqat 'tahlil tayyor/kutilmoqda' shaklidagi abstrakt xulosa beriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'MedicalCheckup' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getSummary(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'MedicalCheckup check = new MedicalCheckup(\"Aliyev B.\", true);         System.out.println(check.getSummary());'",
-      "en": "📖 Real-World Scenario & Context\nExpose clean test status while encapsulating raw clinical test markers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MedicalCheckup' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'MedicalCheckup check = new MedicalCheckup(\"Aliyev B.\", true);         System.out.println(check.getSummary());'"
+      "en": "📖 Real-World Scenario & Context\nExpose clean test status while encapsulating raw clinical test markers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MedicalCheckup' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getSummary(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'MedicalCheckup check = new MedicalCheckup(\"Aliyev B.\", true);         System.out.println(check.getSummary());'",
+      "ru": "📖 Контекст и описание задачи\nПодтверждайте статус чистого теста, инкапсулируя необработанные маркеры клинических испытаний.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс MedicalCheckup, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getSummary(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'MedicalCheckup check = new MedicalCheckup(\"Алиев Б.\", true);         System.out.println(check.getSummary());'"
     },
     "requirements": {
       "classes": [
@@ -301,6 +593,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>MedicalCheckup</code>: arxitektura va abstraksiya qatlami.",
         "<code>getSummary</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>MedicalCheckup</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getSummary</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Medion klinikasida bemorning shaxsiy kasallik varaqasi yashirin bo'lib, tashqi tizimlarga faqat 'tahlil tayyor/kutilmoqda' shaklidagi abstrakt xulosa beriladi.\n\n📋",
+      "en": "Expose clean test status while encapsulating raw clinical test markers.\n\n📋",
+      "ru": "Подтверждайте статус чистого теста, инкапсулируя необработанные маркеры клинических испытаний."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'MedicalCheckup' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getSummary(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'MedicalCheckup check = new MedicalCheckup(\"Aliyev B.\", true);         System.out.println(check.getSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'MedicalCheckup' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getSummary(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'MedicalCheckup check = new MedicalCheckup(\"Aliyev B.\", true);         System.out.println(check.getSummary());'"
+      ],
+      "ru": [
+        "Объявите класс MedicalCheckup, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getSummary(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'MedicalCheckup check = new MedicalCheckup(\"Алиев Б.\", true);         System.out.println(check.getSummary());'"
       ]
     }
   },
@@ -311,11 +638,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "10. Express24 — Kuryer Taqsimoti Abstraksiyasi",
-      "en": "10. Express24 — Courier Dispatch Allocation Abstraction"
+      "en": "10. Express24 — Courier Dispatch Allocation Abstraction",
+      "ru": "10. Express24 — абстракция распределения курьерской отправки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 da buyurtma qaysi kuryerga tushishi murakkab algoritm bilan hal qilinadi, lekin tashqi tizim uchun oddiygina 'assignCourier()' chaqiruvi yetarlidir. Ushbu abstraksiyani yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'CourierDispatch' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getAssignmentReport(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Sardor\");         System.out.println(cd.getAssignmentReport());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate courier dispatch abstraction hiding routing internals from the ordering API.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierDispatch' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getAssignmentReport(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Sardor\");         System.out.println(cd.getAssignmentReport());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate courier dispatch abstraction hiding routing internals from the ordering API.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierDispatch' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getAssignmentReport(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Sardor\");         System.out.println(cd.getAssignmentReport());'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте абстракцию курьерской отправки, скрывая внутренние данные маршрутизации от API заказа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CourierDispatch, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getAssignmentReport(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Сардор\");         System.out.println(cd.getAssignmentReport());'"
     },
     "requirements": {
       "classes": [
@@ -334,6 +663,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>CourierDispatch</code>: arxitektura va abstraksiya qatlami.",
         "<code>getAssignmentReport</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>CourierDispatch</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getAssignmentReport</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Express24 da buyurtma qaysi kuryerga tushishi murakkab algoritm bilan hal qilinadi, lekin tashqi tizim uchun oddiygina 'assignCourier()' chaqiruvi yetarlidir. Ushbu abstraksiyani yarating.\n\n📋",
+      "en": "Simulate courier dispatch abstraction hiding routing internals from the ordering API.\n\n📋",
+      "ru": "Имитируйте абстракцию курьерской отправки, скрывая внутренние данные маршрутизации от API заказа."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'CourierDispatch' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getAssignmentReport(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Sardor\");         System.out.println(cd.getAssignmentReport());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'CourierDispatch' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getAssignmentReport(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Sardor\");         System.out.println(cd.getAssignmentReport());'"
+      ],
+      "ru": [
+        "Объявите класс CourierDispatch, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getAssignmentReport(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'CourierDispatch cd = new CourierDispatch(\"EXP-909\");         cd.assignCourier(\"Сардор\");         System.out.println(cd.getAssignmentReport());'"
       ]
     }
   },
@@ -344,11 +708,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "11. Asaxiy — Kitob Formatlari Abstraksiyasi",
-      "en": "11. Asaxiy — Book Format Abstraction"
+      "en": "11. Asaxiy — Book Format Abstraction",
+      "ru": "11. Асаксий — Абстракция книжного формата"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy kutubxonasida qog'oz, elektron yoki audio kitob bo'lishidan qat'i nazar, xaridor uchun 'Kitob' abstraksiyasi uning sarlavhasi va asosiy narxini ifodalaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'CatalogBook' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getBookInfo(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'",
-      "en": "📖 Real-World Scenario & Context\nModel book catalog abstraction providing essential metadata regardless of physical format.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CatalogBook' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBookInfo(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'"
+      "en": "📖 Real-World Scenario & Context\nModel book catalog abstraction providing essential metadata regardless of physical format.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CatalogBook' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBookInfo(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'",
+      "ru": "📖 Контекст и описание задачи\nМодель абстракции каталога книг, предоставляющая необходимые метаданные независимо от физического формата.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CatalogBook», моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getBookInfo(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Вывести результат на консоль: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'"
     },
     "requirements": {
       "classes": [
@@ -367,6 +733,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>CatalogBook</code>: arxitektura va abstraksiya qatlami.",
         "<code>getBookInfo</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>CatalogBook</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getBookInfo</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy kutubxonasida qog'oz, elektron yoki audio kitob bo'lishidan qat'i nazar, xaridor uchun 'Kitob' abstraksiyasi uning sarlavhasi va asosiy narxini ifodalaydi.\n\n📋",
+      "en": "Model book catalog abstraction providing essential metadata regardless of physical format.\n\n📋",
+      "ru": "Модель абстракции каталога книг, предоставляющая необходимые метаданные независимо от физического формата."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'CatalogBook' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getBookInfo(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'CatalogBook' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getBookInfo(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'"
+      ],
+      "ru": [
+        "Объявите класс «CatalogBook», моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getBookInfo(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Вывести результат на консоль: 'CatalogBook b = new CatalogBook(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 65000.0);         System.out.println(b.getBookInfo());'"
       ]
     }
   },
@@ -377,11 +778,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "12. Kapitalbank — Hisob Balansi va Tranzaksiya Limitlari",
-      "en": "12. Kapitalbank — Account Balance and Limit Abstraction"
+      "en": "12. Kapitalbank — Account Balance and Limit Abstraction",
+      "ru": "12. Капиталбанк — баланс счета и абстракция лимита"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBank tizimlarida hisob balansi to'g'ridan-to'g'ri o'zgartirilmaydi, barcha harakatlar abstrakt depozit va yechish operatsiyalari orqali xavfsiz amalga oshiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'SecureAccount' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getBalanceInfo(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         acc.deposit(150000.0);         System.out.println(acc.getBalanceInfo());'",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate bank balance modifications behind deposit and withdrawal business rules.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SecureAccount' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBalanceInfo(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         acc.deposit(150000.0);         System.out.println(acc.getBalanceInfo());'"
+      "en": "📖 Real-World Scenario & Context\nEncapsulate bank balance modifications behind deposit and withdrawal business rules.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SecureAccount' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBalanceInfo(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         acc.deposit(150000.0);         System.out.println(acc.getBalanceInfo());'",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулируйте изменения банковского баланса в бизнес-правилах ввода и вывода средств.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SecureAccount, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getBalanceInfo(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         акк.депозит(150000.0);         System.out.println(acc.getBalanceInfo());'"
     },
     "requirements": {
       "classes": [
@@ -400,6 +803,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SecureAccount</code>: arxitektura va abstraksiya qatlami.",
         "<code>getBalanceInfo</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>SecureAccount</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getBalanceInfo</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Bank tizimlarida hisob balansi to'g'ridan-to'g'ri o'zgartirilmaydi, barcha harakatlar abstrakt depozit va yechish operatsiyalari orqali xavfsiz amalga oshiriladi.\n\n📋",
+      "en": "Encapsulate bank balance modifications behind deposit and withdrawal business rules.\n\n📋",
+      "ru": "Инкапсулируйте изменения банковского баланса в бизнес-правилах ввода и вывода средств."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'SecureAccount' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getBalanceInfo(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         acc.deposit(150000.0);         System.out.println(acc.getBalanceInfo());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'SecureAccount' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getBalanceInfo(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         acc.deposit(150000.0);         System.out.println(acc.getBalanceInfo());'"
+      ],
+      "ru": [
+        "Объявите класс SecureAccount, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getBalanceInfo(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'SecureAccount acc = new SecureAccount(\"ACC-101\", 500000.0);         акк.депозит(150000.0);         System.out.println(acc.getBalanceInfo());'"
       ]
     }
   },
@@ -410,11 +848,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "13. Beeline — Tarif Rejasi Oylik To'lovi Abstraksiyasi",
-      "en": "13. Beeline — Tariff Plan Monthly Fee Abstraction"
+      "en": "13. Beeline — Tariff Plan Monthly Fee Abstraction",
+      "ru": "13. Билайн — Абстракция ежемесячной платы за тарифный план"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUyali aloqa operatorida tarif minutlari, megabaytlari va SMSlari alohida bo'lsa-da, hisob-kitob moduli uchun tarifning oylik abonent to'lovi umumiy abstraksiya sifatida xizmat qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'MobileTariff' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getTariffDetails(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'",
-      "en": "📖 Real-World Scenario & Context\nModel mobile tariff plan fee abstraction summarizing plan tier and monthly charge.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MobileTariff' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getTariffDetails(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'"
+      "en": "📖 Real-World Scenario & Context\nModel mobile tariff plan fee abstraction summarizing plan tier and monthly charge.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MobileTariff' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getTariffDetails(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'",
+      "ru": "📖 Контекст и описание задачи\nАбстракция платы за модель мобильного тарифного плана с суммированием уровня плана и ежемесячной платы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс MobileTariff, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getTariffDetails(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'"
     },
     "requirements": {
       "classes": [
@@ -433,6 +873,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>MobileTariff</code>: arxitektura va abstraksiya qatlami.",
         "<code>getTariffDetails</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>MobileTariff</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getTariffDetails</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "Uyali aloqa operatorida tarif minutlari, megabaytlari va SMSlari alohida bo'lsa-da, hisob-kitob moduli uchun tarifning oylik abonent to'lovi umumiy abstraksiya sifatida xizmat qiladi.\n\n📋",
+      "en": "Model mobile tariff plan fee abstraction summarizing plan tier and monthly charge.\n\n📋",
+      "ru": "Абстракция платы за модель мобильного тарифного плана с суммированием уровня плана и ежемесячной платы."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'MobileTariff' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getTariffDetails(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'MobileTariff' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getTariffDetails(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'"
+      ],
+      "ru": [
+        "Объявите класс MobileTariff, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getTariffDetails(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'MobileTariff t = new MobileTariff(\"Yorqin 50\", 50000.0, 30);         System.out.println(t.getTariffDetails());'"
       ]
     }
   },
@@ -443,11 +918,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "14. UzAirways — Parvoz Reysi va Joy Band Qilish Abstraksiyasi",
-      "en": "14. UzAirways — Flight Booking Seat Allocation Abstraction"
+      "en": "14. UzAirways — Flight Booking Seat Allocation Abstraction",
+      "ru": "14. UzAirways — Абстракция распределения мест для бронирования рейсов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways samolyotidagi yuzlab o'rindiqlarni boshqarish uchun reys raqami va bo'sh o'rinlar sonini ifodalovchi yuqori darajadagi abstrakt modelni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'FlightBooking' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getBookingStatus(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'",
-      "en": "📖 Real-World Scenario & Context\nProvide flight seat booking abstraction tracking available seats and flight status.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'FlightBooking' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBookingStatus(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'"
+      "en": "📖 Real-World Scenario & Context\nProvide flight seat booking abstraction tracking available seats and flight status.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'FlightBooking' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getBookingStatus(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'",
+      "ru": "📖 Контекст и описание задачи\nПредоставьте абстракцию бронирования мест на рейс, отслеживающую доступные места и статус рейса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FlightBooking, моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getBookingStatus(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'"
     },
     "requirements": {
       "classes": [
@@ -466,6 +943,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>FlightBooking</code>: arxitektura va abstraksiya qatlami.",
         "<code>getBookingStatus</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>FlightBooking</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getBookingStatus</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways samolyotidagi yuzlab o'rindiqlarni boshqarish uchun reys raqami va bo'sh o'rinlar sonini ifodalovchi yuqori darajadagi abstrakt modelni yozing.\n\n📋",
+      "en": "Provide flight seat booking abstraction tracking available seats and flight status.\n\n📋",
+      "ru": "Предоставьте абстракцию бронирования мест на рейс, отслеживающую доступные места и статус рейса."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'FlightBooking' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getBookingStatus(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'FlightBooking' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getBookingStatus(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'"
+      ],
+      "ru": [
+        "Объявите класс FlightBooking, моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getBookingStatus(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'FlightBooking fb = new FlightBooking(\"HY-101\", 180);         fb.bookSeats(3);         System.out.println(fb.getBookingStatus());'"
       ]
     }
   },
@@ -476,11 +988,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "1-15: Architecture & Abstraction Fundamentals",
     "title": {
       "uz": "15. WIUT SRS — Talaba Akademik Bahosi Abstraksiyasi",
-      "en": "15. WIUT SRS — Student Academic Grade Abstraction"
+      "en": "15. WIUT SRS — Student Academic Grade Abstraction",
+      "ru": "15. МВУТ СРС — Реферат студенческого академического уровня."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Student Record System (SRS) da talabaning modul natijasi harflar (A, B, C, F) orqali ifodalanadi. Ballarni harfga o'giruvchi akademik abstraksiyani yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Dasturiy arxitektura modeli uchun 'ModuleGrade' sinfini e'lon qiling.\n2. Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.\n3. Ichki murakkab hisob-kitoblarni yashiruvchi 'getGradeClassification(...)' ochiq metodini yozing.\n4. 'Main' metodida sinf ob'yektini yarating.\n5. Natijani chop eting: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'",
-      "en": "📖 Real-World Scenario & Context\nCreate academic grade abstraction translating raw CW marks into official letter grades.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ModuleGrade' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getGradeClassification(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'"
+      "en": "📖 Real-World Scenario & Context\nCreate academic grade abstraction translating raw CW marks into official letter grades.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ModuleGrade' modeling software architecture abstraction.\n2. Define private fields and initialize them via constructor.\n3. Implement public method 'getGradeClassification(...)' encapsulating complex internals.\n4. Instantiate the class in 'main'.\n5. Print result to console: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте абстракцию академической оценки, переводя необработанные оценки CW в официальные буквенные оценки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «ModuleGrade», моделирующий абстракцию архитектуры программного обеспечения.\n2. Определите частные поля и инициализируйте их с помощью конструктора.\n3. Реализуйте общедоступный метод getGradeClassification(...)», инкапсулирующий сложные внутренние компоненты.\n4. Создайте экземпляр класса в «main».\n5. Выведите результат на консоль: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'"
     },
     "requirements": {
       "classes": [
@@ -499,6 +1013,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ModuleGrade</code>: arxitektura va abstraksiya qatlami.",
         "<code>getGradeClassification</code>: tashqi interfeys ochiq metodi."
+      ],
+      "theoryRu": "Dasturiy ta'minot arxitekturasi tizimning unumdorlik (Производительность), xavfsizlik (Безопасность) и kengayuvchanlik (Масштабируемость) также нефункциональные функции. Абстраксия — фойдаланувчига факат мухим интерфейсни корсатиб, мураккаб ички механизмларни яширишдир.",
+      "breakdownRu": [
+        "<code>ModuleGrade</code>: arxitektura va abstraksiya qatlami.",
+        "<code>getGradeClassification</code>: tashqi interfeys ochiq metodi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT Student Record System (SRS) da talabaning modul natijasi harflar (A, B, C, F) orqali ifodalanadi. Ballarni harfga o'giruvchi akademik abstraksiyani yarating.\n\n📋",
+      "en": "Create academic grade abstraction translating raw CW marks into official letter grades.\n\n📋",
+      "ru": "Создайте абстракцию академической оценки, переводя необработанные оценки CW в официальные буквенные оценки."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Dasturiy arxitektura modeli uchun 'ModuleGrade' sinfini e'lon qiling.",
+        "Xususiy (private) maydonlarni bering va konstruktor orqali initsializatsiya qiling.",
+        "Ichki murakkab hisob-kitoblarni yashiruvchi 'getGradeClassification(...)' ochiq metodini yozing.",
+        "'Main' metodida sinf ob'yektini yarating.",
+        "Natijani chop eting: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'ModuleGrade' modeling software architecture abstraction.",
+        "Define private fields and initialize them via constructor.",
+        "Implement public method 'getGradeClassification(...)' encapsulating complex internals.",
+        "Instantiate the class in 'main'.",
+        "Print result to console: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'"
+      ],
+      "ru": [
+        "Объявите класс «ModuleGrade», моделирующий абстракцию архитектуры программного обеспечения.",
+        "Определите частные поля и инициализируйте их с помощью конструктора.",
+        "Реализуйте общедоступный метод getGradeClassification(...)», инкапсулирующий сложные внутренние компоненты.",
+        "Создайте экземпляр класса в «main».",
+        "Выведите результат на консоль: 'ModuleGrade mg = new ModuleGrade(\"OOP\", 78);         System.out.println(mg.getGradeClassification());'"
       ]
     }
   },
@@ -509,11 +1058,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "16. Uzum Market — Abstrakt Tovarlar va Yetkazish Narxi",
-      "en": "16. Uzum Market — Abstract Product and Delivery Cost Calculation"
+      "en": "16. Uzum Market — Abstract Product and Delivery Cost Calculation",
+      "ru": "16. Рынок Узум — абстрактный расчет продукта и стоимости доставки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimida 'Product' sinfi abstrakt qilib o'zgartirildi: 'public abstract double calculateDeliveryCost()'. Oddiy mahsulot bo'lmaydi, har doim aniq tur (jismoniy yoki raqamli) bo'ladi. Ushbu ierarxiyani dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractProduct' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'calculateDeliveryCost(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'PhysicalGood' voris sinfini 'extends AbstractProduct' orqali bog'lang.\n4. Voris sinfda 'calculateDeliveryCost(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractProduct item = new PhysicalGood(\"Monitor\", 1800000.0, 5.2);         System.out.println(\"Mahsulot: \" + item.getName() + \" | Yetkazish: \" + item.calculateDeliveryCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement abstract class AbstractProduct with abstract calculateDeliveryCost() overridden by PhysicalGood.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractProduct'.\n2. Declare abstract method 'calculateDeliveryCost(...)' without body.\n3. Create concrete subclass 'PhysicalGood' extending 'AbstractProduct'.\n4. Override and implement 'calculateDeliveryCost(...)' in child class.\n5. Verify in 'main': 'AbstractProduct item = new PhysicalGood(\"Monitor\", 1800000.0, 5.2);         System.out.println(\"Mahsulot: \" + item.getName() + \" | Yetkazish: \" + item.calculateDeliveryCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement abstract class AbstractProduct with abstract calculateDeliveryCost() overridden by PhysicalGood.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractProduct'.\n2. Declare abstract method 'calculateDeliveryCost(...)' without body.\n3. Create concrete subclass 'PhysicalGood' extending 'AbstractProduct'.\n4. Override and implement 'calculateDeliveryCost(...)' in child class.\n5. Verify in 'main': 'AbstractProduct item = new PhysicalGood(\"Monitor\", 1800000.0, 5.2);         System.out.println(\"Mahsulot: \" + item.getName() + \" | Yetkazish: \" + item.calculateDeliveryCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте абстрактный класс AbstractProduct с абстрактным CalculatedDeliveryCost(), переопределенным PhysicalGood.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractProduct».\n2. Объявите абстрактный метод «calculateDeliveryCost(...)» без тела.\n3. Создайте конкретный подкласс «PhysicalGood», расширяющий «AbstractProduct».\n4. Переопределить и реализовать «calculateDeliveryCost(...)» в дочернем классе.\n5. Проверьте в «main»: «AbstractProduct item = new PhysicalGood («Монитор», 1800000.0, 5.2);         System.out.println(\"Махсулот: \" + item.getName() + \" | Йетказиш: \" + item.calculateDeliveryCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -537,6 +1088,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractProduct</code>: abstrakt baza sinf.",
         "<code>PhysicalGood</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractProduct</code>: abstrakt baza sinf.",
+        "<code>PhysicalGood</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimida 'Product' sinfi abstrakt qilib o'zgartirildi: 'public abstract double calculateDeliveryCost()'. Oddiy mahsulot bo'lmaydi, har doim aniq tur (jismoniy yoki raqamli) bo'ladi. Ushbu ierarxiyani dasturlang.\n\n📋",
+      "en": "Implement abstract class AbstractProduct with abstract calculateDeliveryCost() overridden by PhysicalGood.\n\n📋",
+      "ru": "Реализуйте абстрактный класс AbstractProduct с абстрактным CalculatedDeliveryCost(), переопределенным PhysicalGood."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractProduct' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'calculateDeliveryCost(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'PhysicalGood' voris sinfini 'extends AbstractProduct' orqali bog'lang.",
+        "Voris sinfda 'calculateDeliveryCost(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractProduct item = new PhysicalGood(\"Monitor\", 1800000.0, 5.2);         System.out.println(\"Mahsulot: \" + item.getName() + \" | Yetkazish: \" + item.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractProduct'.",
+        "Declare abstract method 'calculateDeliveryCost(...)' without body.",
+        "Create concrete subclass 'PhysicalGood' extending 'AbstractProduct'.",
+        "Override and implement 'calculateDeliveryCost(...)' in child class.",
+        "Verify in 'main': 'AbstractProduct item = new PhysicalGood(\"Monitor\", 1800000.0, 5.2);         System.out.println(\"Mahsulot: \" + item.getName() + \" | Yetkazish: \" + item.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractProduct».",
+        "Объявите абстрактный метод «calculateDeliveryCost(...)» без тела.",
+        "Создайте конкретный подкласс «PhysicalGood», расширяющий «AbstractProduct».",
+        "Переопределить и реализовать «calculateDeliveryCost(...)» в дочернем классе.",
+        "Проверьте в «main»: «AbstractProduct item = new PhysicalGood («Монитор», 1800000.0, 5.2);         System.out.println(\"Махсулот: \" + item.getName() + \" | Йетказиш: \" + item.calculateDeliveryCost() + \" UZS\");'"
       ]
     }
   },
@@ -547,11 +1133,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "17. Payme — Abstrakt To'lov Usuli (AbstractPayment)",
-      "en": "17. Payme — Abstract Payment Method Hierarchy"
+      "en": "17. Payme — Abstract Payment Method Hierarchy",
+      "ru": "17. Payme — абстрактная иерархия способов оплаты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme tizimida 'AbstractPayment' abstrakt sinf bo'lib, uning 'process(double amount)' metodi mavjud. 'CardPayment' uni to'ldirib karta balansidan pul yechadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractPayment' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'process(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'CardPayment' voris sinfini 'extends AbstractPayment' orqali bog'lang.\n4. Voris sinfda 'process(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPayment payment = new CardPayment(\"8600111122223333\", 500000.0);         boolean ok = payment.process(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'",
-      "en": "📖 Real-World Scenario & Context\nDeclare abstract class AbstractPayment with abstract process(amount) method implemented by CardPayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPayment'.\n2. Declare abstract method 'process(...)' without body.\n3. Create concrete subclass 'CardPayment' extending 'AbstractPayment'.\n4. Override and implement 'process(...)' in child class.\n5. Verify in 'main': 'AbstractPayment payment = new CardPayment(\"8600111122223333\", 500000.0);         boolean ok = payment.process(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'"
+      "en": "📖 Real-World Scenario & Context\nDeclare abstract class AbstractPayment with abstract process(amount) method implemented by CardPayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPayment'.\n2. Declare abstract method 'process(...)' without body.\n3. Create concrete subclass 'CardPayment' extending 'AbstractPayment'.\n4. Override and implement 'process(...)' in child class.\n5. Verify in 'main': 'AbstractPayment payment = new CardPayment(\"8600111122223333\", 500000.0);         boolean ok = payment.process(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите абстрактный класс AbstractPayment с абстрактным методом процесса (суммы), реализованным CardPayment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractPayment».\n2. Объявите абстрактный метод 'process(...)' без тела.\n3. Создайте конкретный подкласс «CardPayment», расширяющий «AbstractPayment».\n4. Переопределить и реализовать «процесс (...)» в дочернем классе.\n5. Проверьте в 'main': 'AbstractPayment Payment = new CardPayment(\"8600111122223333\", 500000.0);         логическое значение ок = платеж.процесс(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'"
     },
     "requirements": {
       "classes": [
@@ -575,6 +1163,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractPayment</code>: abstrakt baza sinf.",
         "<code>CardPayment</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractPayment</code>: abstrakt baza sinf.",
+        "<code>CardPayment</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Payme tizimida 'AbstractPayment' abstrakt sinf bo'lib, uning 'process(double amount)' metodi mavjud. 'CardPayment' uni to'ldirib karta balansidan pul yechadi.\n\n📋",
+      "en": "Declare abstract class AbstractPayment with abstract process(amount) method implemented by CardPayment.\n\n📋",
+      "ru": "Объявите абстрактный класс AbstractPayment с абстрактным методом процесса (суммы), реализованным CardPayment."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractPayment' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'process(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'CardPayment' voris sinfini 'extends AbstractPayment' orqali bog'lang.",
+        "Voris sinfda 'process(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPayment payment = new CardPayment(\"8600111122223333\", 500000.0);         boolean ok = payment.process(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractPayment'.",
+        "Declare abstract method 'process(...)' without body.",
+        "Create concrete subclass 'CardPayment' extending 'AbstractPayment'.",
+        "Override and implement 'process(...)' in child class.",
+        "Verify in 'main': 'AbstractPayment payment = new CardPayment(\"8600111122223333\", 500000.0);         boolean ok = payment.process(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractPayment».",
+        "Объявите абстрактный метод 'process(...)' без тела.",
+        "Создайте конкретный подкласс «CardPayment», расширяющий «AbstractPayment».",
+        "Переопределить и реализовать «процесс (...)» в дочернем классе.",
+        "Проверьте в 'main': 'AbstractPayment Payment = new CardPayment(\"8600111122223333\", 500000.0);         логическое значение ок = платеж.процесс(150000.0);         System.out.println(\"To'lov muvaffaqiyatli: \" + ok);'"
       ]
     }
   },
@@ -585,11 +1208,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "18. Korzinka — Abstrakt Chegirma Qoidasi (AbstractDiscount)",
-      "en": "18. Korzinka — Abstract Discount Strategy"
+      "en": "18. Korzinka — Abstract Discount Strategy",
+      "ru": "18. Корзинка — абстрактная стратегия скидок"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka do'konida chegirma turlari turlicha: foizli, vaucherli yoki qat'iy. 'AbstractDiscount' sinfida 'apply(double subtotal)' abstrakt metodini e'lon qiling va 'PercentageDiscount' vorisida amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractDiscount' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'apply(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'PercentageDiscount' voris sinfini 'extends AbstractDiscount' orqali bog'lang.\n4. Voris sinfda 'apply(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractDiscount disc = new PercentageDiscount(10.0);         System.out.println(\"Chegirmadan keyin: \" + disc.apply(200000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nDefine abstract class AbstractDiscount and concrete PercentageDiscount overriding apply().\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractDiscount'.\n2. Declare abstract method 'apply(...)' without body.\n3. Create concrete subclass 'PercentageDiscount' extending 'AbstractDiscount'.\n4. Override and implement 'apply(...)' in child class.\n5. Verify in 'main': 'AbstractDiscount disc = new PercentageDiscount(10.0);         System.out.println(\"Chegirmadan keyin: \" + disc.apply(200000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nDefine abstract class AbstractDiscount and concrete PercentageDiscount overriding apply().\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractDiscount'.\n2. Declare abstract method 'apply(...)' without body.\n3. Create concrete subclass 'PercentageDiscount' extending 'AbstractDiscount'.\n4. Override and implement 'apply(...)' in child class.\n5. Verify in 'main': 'AbstractDiscount disc = new PercentageDiscount(10.0);         System.out.println(\"Chegirmadan keyin: \" + disc.apply(200000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nОпределите абстрактный класс AbstractDiscount и конкретное переопределение PercentageDiscount apply().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractDiscount».\n2. Объявите абстрактный метод apply(...) без тела.\n3. Создайте конкретный подкласс PercentageDiscount, расширяющий AbstractDiscount.\n4. Переопределить и реализовать «применить(...)» в дочернем классе.\n5. Проверьте в «main»: «AbstractDiscount disk = new PercentageDiscount(10.0);         System.out.println(\"Ввод ключей: \" + disk.apply(200000.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -613,6 +1238,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractDiscount</code>: abstrakt baza sinf.",
         "<code>PercentageDiscount</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractDiscount</code>: abstrakt baza sinf.",
+        "<code>PercentageDiscount</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Korzinka do'konida chegirma turlari turlicha: foizli, vaucherli yoki qat'iy. 'AbstractDiscount' sinfida 'apply(double subtotal)' abstrakt metodini e'lon qiling va 'PercentageDiscount' vorisida amalga oshiring.\n\n📋",
+      "en": "Define abstract class AbstractDiscount and concrete PercentageDiscount overriding apply().\n\n📋",
+      "ru": "Определите абстрактный класс AbstractDiscount и конкретное переопределение PercentageDiscount apply()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractDiscount' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'apply(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'PercentageDiscount' voris sinfini 'extends AbstractDiscount' orqali bog'lang.",
+        "Voris sinfda 'apply(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractDiscount disc = new PercentageDiscount(10.0);         System.out.println(\"Chegirmadan keyin: \" + disc.apply(200000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractDiscount'.",
+        "Declare abstract method 'apply(...)' without body.",
+        "Create concrete subclass 'PercentageDiscount' extending 'AbstractDiscount'.",
+        "Override and implement 'apply(...)' in child class.",
+        "Verify in 'main': 'AbstractDiscount disc = new PercentageDiscount(10.0);         System.out.println(\"Chegirmadan keyin: \" + disc.apply(200000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractDiscount».",
+        "Объявите абстрактный метод apply(...) без тела.",
+        "Создайте конкретный подкласс PercentageDiscount, расширяющий AbstractDiscount.",
+        "Переопределить и реализовать «применить(...)» в дочернем классе.",
+        "Проверьте в «main»: «AbstractDiscount disk = new PercentageDiscount(10.0);         System.out.println(\"Ввод ключей: \" + disk.apply(200000.0) + \" UZS\");'"
       ]
     }
   },
@@ -623,11 +1283,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "19. Yandex Go — Abstrakt Tarif Narxlash Modeli",
-      "en": "19. Yandex Go — Abstract Ride Fare Model"
+      "en": "19. Yandex Go — Abstract Ride Fare Model",
+      "ru": "19. Yandex Go — абстрактная модель оплаты проезда"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go da barcha tariflar (Ekonom, Komfort, Biznes) 'AbstractFare' dan meros oladi va 'computeFare(double km)' abstrakt metodini o'ziga xos narxlar bilan to'ldiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractFare' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'computeFare(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'ComfortRide' voris sinfini 'extends AbstractFare' orqali bog'lang.\n4. Voris sinfda 'computeFare(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Komfort safar narxi: \" + ride.computeFare(8.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement AbstractFare base class with abstract computeFare() realized by ComfortRide.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractFare'.\n2. Declare abstract method 'computeFare(...)' without body.\n3. Create concrete subclass 'ComfortRide' extending 'AbstractFare'.\n4. Override and implement 'computeFare(...)' in child class.\n5. Verify in 'main': 'AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Komfort safar narxi: \" + ride.computeFare(8.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement AbstractFare base class with abstract computeFare() realized by ComfortRide.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractFare'.\n2. Declare abstract method 'computeFare(...)' without body.\n3. Create concrete subclass 'ComfortRide' extending 'AbstractFare'.\n4. Override and implement 'computeFare(...)' in child class.\n5. Verify in 'main': 'AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Komfort safar narxi: \" + ride.computeFare(8.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте базовый класс AbstractFare с помощью абстрактного вычисленияFare(), реализованного ComfortRide.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractFare».\n2. Объявите абстрактный метод «computeFare(...)» без тела.\n3. Создайте конкретный подкласс ComfortRide, расширяющий AbstractFare.\n4. Переопределить и реализовать «computeFare(...)» в дочернем классе.\n5. Проверьте в «main»: «AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Комфорт сафар наркси: \" + ride.computeFare(8.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -651,6 +1313,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractFare</code>: abstrakt baza sinf.",
         "<code>ComfortRide</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractFare</code>: abstrakt baza sinf.",
+        "<code>ComfortRide</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Yandex Go da barcha tariflar (Ekonom, Komfort, Biznes) 'AbstractFare' dan meros oladi va 'computeFare(double km)' abstrakt metodini o'ziga xos narxlar bilan to'ldiradi.\n\n📋",
+      "en": "Implement AbstractFare base class with abstract computeFare() realized by ComfortRide.\n\n📋",
+      "ru": "Реализуйте базовый класс AbstractFare с помощью абстрактного вычисленияFare(), реализованного ComfortRide."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractFare' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'computeFare(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'ComfortRide' voris sinfini 'extends AbstractFare' orqali bog'lang.",
+        "Voris sinfda 'computeFare(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Komfort safar narxi: \" + ride.computeFare(8.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractFare'.",
+        "Declare abstract method 'computeFare(...)' without body.",
+        "Create concrete subclass 'ComfortRide' extending 'AbstractFare'.",
+        "Override and implement 'computeFare(...)' in child class.",
+        "Verify in 'main': 'AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Komfort safar narxi: \" + ride.computeFare(8.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractFare».",
+        "Объявите абстрактный метод «computeFare(...)» без тела.",
+        "Создайте конкретный подкласс ComfortRide, расширяющий AbstractFare.",
+        "Переопределить и реализовать «computeFare(...)» в дочернем классе.",
+        "Проверьте в «main»: «AbstractFare ride = new ComfortRide(10000.0, 3500.0);         System.out.println(\"Комфорт сафар наркси: \" + ride.computeFare(8.0) + \" UZS\");'"
       ]
     }
   },
@@ -661,11 +1358,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "20. Click — Abstrakt Pul O'tkazmasi va Komissiya",
-      "en": "20. Click — Abstract Fund Transfer Commission"
+      "en": "20. Click — Abstract Fund Transfer Commission",
+      "ru": "20. Нажмите — абстрактная комиссия по переводу средств."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick ilovasida karta-karta yoki hamyon o'tkazmalari 'AbstractTransfer' ga tayanadi. Undagi 'calculateFee(double amount)' abstrakt metodini 'P2PTransfer' sinfida 1% qilib yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractTransfer' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'calculateFee(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'P2PTransfer' voris sinfini 'extends AbstractTransfer' orqali bog'lang.\n4. Voris sinfda 'calculateFee(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P komissiyasi: \" + p2p.calculateFee(500000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nModel abstract AbstractTransfer with calculateFee() implemented by P2PTransfer.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTransfer'.\n2. Declare abstract method 'calculateFee(...)' without body.\n3. Create concrete subclass 'P2PTransfer' extending 'AbstractTransfer'.\n4. Override and implement 'calculateFee(...)' in child class.\n5. Verify in 'main': 'AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P komissiyasi: \" + p2p.calculateFee(500000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nModel abstract AbstractTransfer with calculateFee() implemented by P2PTransfer.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTransfer'.\n2. Declare abstract method 'calculateFee(...)' without body.\n3. Create concrete subclass 'P2PTransfer' extending 'AbstractTransfer'.\n4. Override and implement 'calculateFee(...)' in child class.\n5. Verify in 'main': 'AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P komissiyasi: \" + p2p.calculateFee(500000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактная модель AbstractTransfer с функцией расчетаFee(), реализованная P2PTransfer.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractTransfer».\n2. Объявите абстрактный метод «calculateFee(...)» без тела.\n3. Создайте конкретный подкласс «P2PTransfer», расширяющий «AbstractTransfer».\n4. Переопределить и реализовать «calculateFee(...)» в дочернем классе.\n5. Проверьте в «main»: «AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P комиссии: \" + p2p.calculateFee(500000.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -689,6 +1388,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractTransfer</code>: abstrakt baza sinf.",
         "<code>P2PTransfer</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractTransfer</code>: abstrakt baza sinf.",
+        "<code>P2PTransfer</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Click ilovasida karta-karta yoki hamyon o'tkazmalari 'AbstractTransfer' ga tayanadi. Undagi 'calculateFee(double amount)' abstrakt metodini 'P2PTransfer' sinfida 1% qilib yozing.\n\n📋",
+      "en": "Model abstract AbstractTransfer with calculateFee() implemented by P2PTransfer.\n\n📋",
+      "ru": "Абстрактная модель AbstractTransfer с функцией расчетаFee(), реализованная P2PTransfer."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractTransfer' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'calculateFee(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'P2PTransfer' voris sinfini 'extends AbstractTransfer' orqali bog'lang.",
+        "Voris sinfda 'calculateFee(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P komissiyasi: \" + p2p.calculateFee(500000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractTransfer'.",
+        "Declare abstract method 'calculateFee(...)' without body.",
+        "Create concrete subclass 'P2PTransfer' extending 'AbstractTransfer'.",
+        "Override and implement 'calculateFee(...)' in child class.",
+        "Verify in 'main': 'AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P komissiyasi: \" + p2p.calculateFee(500000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractTransfer».",
+        "Объявите абстрактный метод «calculateFee(...)» без тела.",
+        "Создайте конкретный подкласс «P2PTransfer», расширяющий «AbstractTransfer».",
+        "Переопределить и реализовать «calculateFee(...)» в дочернем классе.",
+        "Проверьте в «main»: «AbstractTransfer p2p = new P2PTransfer();         System.out.println(\"P2P комиссии: \" + p2p.calculateFee(500000.0) + \" UZS\");'"
       ]
     }
   },
@@ -699,11 +1433,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "21. Safia — Abstrakt Qandolat Mahsuloti (AbstractPastry)",
-      "en": "21. Safia — Abstract Pastry Item and Shelf Life"
+      "en": "21. Safia — Abstract Pastry Item and Shelf Life",
+      "ru": "21. Сафия — абстрактное кондитерское изделие и срок годности."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia pishiriqlari 'AbstractPastry' dan vorislik oladi. Undagi 'getShelfLifeDays()' abstrakt metodini 'CreamCake' da 3 kun, tortlarda esa boshqa muddat qilib qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractPastry' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getShelfLifeDays(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'CreamCake' voris sinfini 'extends AbstractPastry' orqali bog'lang.\n4. Voris sinfda 'getShelfLifeDays(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish muddati: \" + cake.getShelfLifeDays() + \" kun\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement abstract AbstractPastry requiring getShelfLifeDays() overridden in CreamCake.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPastry'.\n2. Declare abstract method 'getShelfLifeDays(...)' without body.\n3. Create concrete subclass 'CreamCake' extending 'AbstractPastry'.\n4. Override and implement 'getShelfLifeDays(...)' in child class.\n5. Verify in 'main': 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish muddati: \" + cake.getShelfLifeDays() + \" kun\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement abstract AbstractPastry requiring getShelfLifeDays() overridden in CreamCake.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPastry'.\n2. Declare abstract method 'getShelfLifeDays(...)' without body.\n3. Create concrete subclass 'CreamCake' extending 'AbstractPastry'.\n4. Override and implement 'getShelfLifeDays(...)' in child class.\n5. Verify in 'main': 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish muddati: \" + cake.getShelfLifeDays() + \" kun\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте абстрактную AbstractPastry, требующую переопределения getShelfLifeDays() в CreamCake.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractPastry».\n2. Объявите абстрактный метод getShelfLifeDays(...) без тела.\n3. Создайте конкретный подкласс CreamCake, расширяющий AbstractPastry.\n4. Переопределить и реализовать getShelfLifeDays(...) в дочернем классе.\n5. Проверьте в 'main': 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish maddati: \" + cake.getShelfLifeDays() + \" kun\");'"
     },
     "requirements": {
       "classes": [
@@ -727,6 +1463,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractPastry</code>: abstrakt baza sinf.",
         "<code>CreamCake</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractPastry</code>: abstrakt baza sinf.",
+        "<code>CreamCake</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Safia pishiriqlari 'AbstractPastry' dan vorislik oladi. Undagi 'getShelfLifeDays()' abstrakt metodini 'CreamCake' da 3 kun, tortlarda esa boshqa muddat qilib qaytaring.\n\n📋",
+      "en": "Implement abstract AbstractPastry requiring getShelfLifeDays() overridden in CreamCake.\n\n📋",
+      "ru": "Реализуйте абстрактную AbstractPastry, требующую переопределения getShelfLifeDays() в CreamCake."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractPastry' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getShelfLifeDays(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'CreamCake' voris sinfini 'extends AbstractPastry' orqali bog'lang.",
+        "Voris sinfda 'getShelfLifeDays(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish muddati: \" + cake.getShelfLifeDays() + \" kun\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractPastry'.",
+        "Declare abstract method 'getShelfLifeDays(...)' without body.",
+        "Create concrete subclass 'CreamCake' extending 'AbstractPastry'.",
+        "Override and implement 'getShelfLifeDays(...)' in child class.",
+        "Verify in 'main': 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish muddati: \" + cake.getShelfLifeDays() + \" kun\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractPastry».",
+        "Объявите абстрактный метод getShelfLifeDays(...) без тела.",
+        "Создайте конкретный подкласс CreamCake, расширяющий AbstractPastry.",
+        "Переопределить и реализовать getShelfLifeDays(...) в дочернем классе.",
+        "Проверьте в 'main': 'AbstractPastry cake = new CreamCake(\"Napoleon\", 120000.0);         System.out.println(cake.getName() + \" saqlanish maddati: \" + cake.getShelfLifeDays() + \" kun\");'"
       ]
     }
   },
@@ -737,11 +1508,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "22. Dodo Pizza — Abstrakt Pitsa Xamiri (AbstractPizza)",
-      "en": "22. Dodo Pizza — Abstract Pizza Base and Prep Time"
+      "en": "22. Dodo Pizza — Abstract Pizza Base and Prep Time",
+      "ru": "22. Додо Пицца — абстрактная основа пиццы и время приготовления"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo da har bir pitsa 'AbstractPizza' ga asoslanadi. Har bir pitsaning o'z tayyorlanish vaqti ('getBakeTimeMinutes()') bo'lishi shart. 'Pepperoni' sinfida uni 12 daqiqa qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractPizza' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getBakeTimeMinutes(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'Pepperoni' voris sinfini 'extends AbstractPizza' orqali bog'lang.\n4. Voris sinfda 'getBakeTimeMinutes(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPizza pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" pishish vaqti: \" + pizza.getBakeTimeMinutes() + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nCreate AbstractPizza enforcing getBakeTimeMinutes() implemented by Pepperoni.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPizza'.\n2. Declare abstract method 'getBakeTimeMinutes(...)' without body.\n3. Create concrete subclass 'Pepperoni' extending 'AbstractPizza'.\n4. Override and implement 'getBakeTimeMinutes(...)' in child class.\n5. Verify in 'main': 'AbstractPizza pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" pishish vaqti: \" + pizza.getBakeTimeMinutes() + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nCreate AbstractPizza enforcing getBakeTimeMinutes() implemented by Pepperoni.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPizza'.\n2. Declare abstract method 'getBakeTimeMinutes(...)' without body.\n3. Create concrete subclass 'Pepperoni' extending 'AbstractPizza'.\n4. Override and implement 'getBakeTimeMinutes(...)' in child class.\n5. Verify in 'main': 'AbstractPizza pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" pishish vaqti: \" + pizza.getBakeTimeMinutes() + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте AbstractPizza, применяя метод getBakeTimeMinutes(), реализованный Pepperoni.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractPizza».\n2. Объявите абстрактный метод getBakeTimeMinutes(...) без тела.\n3. Создайте конкретный подкласс «Pepperoni», расширяющий «AbstractPizza».\n4. Переопределить и реализовать getBakeTimeMinutes(...) в дочернем классе.\n5. Проверьте в 'main': 'AbstractPizza Pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" зловонный ответ: \" + Pizza.getBakeTimeMinutes() + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -765,6 +1538,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractPizza</code>: abstrakt baza sinf.",
         "<code>Pepperoni</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractPizza</code>: abstrakt baza sinf.",
+        "<code>Pepperoni</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Dodo da har bir pitsa 'AbstractPizza' ga asoslanadi. Har bir pitsaning o'z tayyorlanish vaqti ('getBakeTimeMinutes()') bo'lishi shart. 'Pepperoni' sinfida uni 12 daqiqa qiling.\n\n📋",
+      "en": "Create AbstractPizza enforcing getBakeTimeMinutes() implemented by Pepperoni.\n\n📋",
+      "ru": "Создайте AbstractPizza, применяя метод getBakeTimeMinutes(), реализованный Pepperoni."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractPizza' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getBakeTimeMinutes(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'Pepperoni' voris sinfini 'extends AbstractPizza' orqali bog'lang.",
+        "Voris sinfda 'getBakeTimeMinutes(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPizza pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" pishish vaqti: \" + pizza.getBakeTimeMinutes() + \" daqiqa\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractPizza'.",
+        "Declare abstract method 'getBakeTimeMinutes(...)' without body.",
+        "Create concrete subclass 'Pepperoni' extending 'AbstractPizza'.",
+        "Override and implement 'getBakeTimeMinutes(...)' in child class.",
+        "Verify in 'main': 'AbstractPizza pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" pishish vaqti: \" + pizza.getBakeTimeMinutes() + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractPizza».",
+        "Объявите абстрактный метод getBakeTimeMinutes(...) без тела.",
+        "Создайте конкретный подкласс «Pepperoni», расширяющий «AbstractPizza».",
+        "Переопределить и реализовать getBakeTimeMinutes(...) в дочернем классе.",
+        "Проверьте в 'main': 'AbstractPizza Pizza = new Pepperoni(\"Katta Pepperoni\", 85000.0);         System.out.println(pizza.getName() + \" зловонный ответ: \" + Pizza.getBakeTimeMinutes() + \" daqiqa\");'"
       ]
     }
   },
@@ -775,11 +1583,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "23. Texnomart — Abstrakt Kafolat Siyosati (AbstractWarranty)",
-      "en": "23. Texnomart — Abstract Warranty Policy"
+      "en": "23. Texnomart — Abstract Warranty Policy",
+      "ru": "23. Texnomart — Абстрактная гарантийная политика"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nElektronika kafolati 'AbstractWarranty' abstrakt sinfida 'getCoverageMonths()' metodi orqali ifodalanadi. 'ExtendedWarranty' uni 24 oy qilib taqdim etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractWarranty' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getCoverageMonths(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'ExtendedWarranty' voris sinfini 'extends AbstractWarranty' orqali bog'lang.\n4. Voris sinfda 'getCoverageMonths(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractWarranty w = new ExtendedWarranty(\"Televizor\", 12);         System.out.println(\"Kafolat muddati: \" + w.getCoverageMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nModel AbstractWarranty requiring getCoverageMonths() in ExtendedWarranty.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractWarranty'.\n2. Declare abstract method 'getCoverageMonths(...)' without body.\n3. Create concrete subclass 'ExtendedWarranty' extending 'AbstractWarranty'.\n4. Override and implement 'getCoverageMonths(...)' in child class.\n5. Verify in 'main': 'AbstractWarranty w = new ExtendedWarranty(\"Televizor\", 12);         System.out.println(\"Kafolat muddati: \" + w.getCoverageMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nModel AbstractWarranty requiring getCoverageMonths() in ExtendedWarranty.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractWarranty'.\n2. Declare abstract method 'getCoverageMonths(...)' without body.\n3. Create concrete subclass 'ExtendedWarranty' extending 'AbstractWarranty'.\n4. Override and implement 'getCoverageMonths(...)' in child class.\n5. Verify in 'main': 'AbstractWarranty w = new ExtendedWarranty(\"Televizor\", 12);         System.out.println(\"Kafolat muddati: \" + w.getCoverageMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nМодель AbstractWarranty требует getCoverageMonths() в ExtendedWarranty.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractWarranty».\n2. Объявите абстрактный метод getCoverageMonths(...) без тела.\n3. Создайте конкретный подкласс «ExtendedWarranty», расширяющий «AbstractWarranty».\n4. Переопределить и реализовать getCoverageMonths(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractWarranty w = new ExtendedWarranty («Телевизор», 12);         System.out.println(\"Кафолат муддати: \" + w.getCoverageMonths() + \" ой\");'"
     },
     "requirements": {
       "classes": [
@@ -803,6 +1613,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractWarranty</code>: abstrakt baza sinf.",
         "<code>ExtendedWarranty</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractWarranty</code>: abstrakt baza sinf.",
+        "<code>ExtendedWarranty</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Elektronika kafolati 'AbstractWarranty' abstrakt sinfida 'getCoverageMonths()' metodi orqali ifodalanadi. 'ExtendedWarranty' uni 24 oy qilib taqdim etadi.\n\n📋",
+      "en": "Model AbstractWarranty requiring getCoverageMonths() in ExtendedWarranty.\n\n📋",
+      "ru": "Модель AbstractWarranty требует getCoverageMonths() в ExtendedWarranty."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractWarranty' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getCoverageMonths(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'ExtendedWarranty' voris sinfini 'extends AbstractWarranty' orqali bog'lang.",
+        "Voris sinfda 'getCoverageMonths(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractWarranty w = new ExtendedWarranty(\"Televizor\", 12);         System.out.println(\"Kafolat muddati: \" + w.getCoverageMonths() + \" oy\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractWarranty'.",
+        "Declare abstract method 'getCoverageMonths(...)' without body.",
+        "Create concrete subclass 'ExtendedWarranty' extending 'AbstractWarranty'.",
+        "Override and implement 'getCoverageMonths(...)' in child class.",
+        "Verify in 'main': 'AbstractWarranty w = new ExtendedWarranty(\"Televizor\", 12);         System.out.println(\"Kafolat muddati: \" + w.getCoverageMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractWarranty».",
+        "Объявите абстрактный метод getCoverageMonths(...) без тела.",
+        "Создайте конкретный подкласс «ExtendedWarranty», расширяющий «AbstractWarranty».",
+        "Переопределить и реализовать getCoverageMonths(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractWarranty w = new ExtendedWarranty («Телевизор», 12);         System.out.println(\"Кафолат муддати: \" + w.getCoverageMonths() + \" ой\");'"
       ]
     }
   },
@@ -813,11 +1658,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "24. Medion — Abstrakt Laboratoriya Tahlili (AbstractLabTest)",
-      "en": "24. Medion — Abstract Lab Test Turnaround Time"
+      "en": "24. Medion — Abstract Lab Test Turnaround Time",
+      "ru": "24. Medion — время выполнения абстрактных лабораторных испытаний"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedionda qon tahlili, MRT yoki rentgen tekshiruvlari 'AbstractLabTest' sinfida 'getEstimatedHours()' abstrakt metodini o'z vaqtiga ko'ra realizatsiya qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractLabTest' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getEstimatedHours(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'BloodTest' voris sinfini 'extends AbstractLabTest' orqali bog'lang.\n4. Voris sinfda 'getEstimatedHours(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'",
-      "en": "📖 Real-World Scenario & Context\nDeclare AbstractLabTest with abstract getEstimatedHours() overridden by BloodTest.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractLabTest'.\n2. Declare abstract method 'getEstimatedHours(...)' without body.\n3. Create concrete subclass 'BloodTest' extending 'AbstractLabTest'.\n4. Override and implement 'getEstimatedHours(...)' in child class.\n5. Verify in 'main': 'AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'"
+      "en": "📖 Real-World Scenario & Context\nDeclare AbstractLabTest with abstract getEstimatedHours() overridden by BloodTest.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractLabTest'.\n2. Declare abstract method 'getEstimatedHours(...)' without body.\n3. Create concrete subclass 'BloodTest' extending 'AbstractLabTest'.\n4. Override and implement 'getEstimatedHours(...)' in child class.\n5. Verify in 'main': 'AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите AbstractLabTest с абстрактным getEstimatedHours(), переопределенным BloodTest.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractLabTest».\n2. Объявите абстрактный метод getEstimatedHours(...) без тела.\n3. Создайте конкретный подкласс BloodTest, расширяющий AbstractLabTest.\n4. Переопределить и реализовать getEstimatedHours(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'"
     },
     "requirements": {
       "classes": [
@@ -841,6 +1688,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractLabTest</code>: abstrakt baza sinf.",
         "<code>BloodTest</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractLabTest</code>: abstrakt baza sinf.",
+        "<code>BloodTest</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Medionda qon tahlili, MRT yoki rentgen tekshiruvlari 'AbstractLabTest' sinfida 'getEstimatedHours()' abstrakt metodini o'z vaqtiga ko'ra realizatsiya qiladi.\n\n📋",
+      "en": "Declare AbstractLabTest with abstract getEstimatedHours() overridden by BloodTest.\n\n📋",
+      "ru": "Объявите AbstractLabTest с абстрактным getEstimatedHours(), переопределенным BloodTest."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractLabTest' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getEstimatedHours(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'BloodTest' voris sinfini 'extends AbstractLabTest' orqali bog'lang.",
+        "Voris sinfda 'getEstimatedHours(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractLabTest'.",
+        "Declare abstract method 'getEstimatedHours(...)' without body.",
+        "Create concrete subclass 'BloodTest' extending 'AbstractLabTest'.",
+        "Override and implement 'getEstimatedHours(...)' in child class.",
+        "Verify in 'main': 'AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractLabTest».",
+        "Объявите абстрактный метод getEstimatedHours(...) без тела.",
+        "Создайте конкретный подкласс BloodTest, расширяющий AbstractLabTest.",
+        "Переопределить и реализовать getEstimatedHours(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractLabTest test = new BloodTest(\"Umumiy Qon Tahlili\");         System.out.println(test.getTestName() + \" tayyorlanish vaqti: \" + test.getEstimatedHours() + \" soat\");'"
       ]
     }
   },
@@ -851,11 +1733,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "25. Express24 — Abstrakt Yetkazish Transporti (AbstractTransport)",
-      "en": "25. Express24 — Abstract Transport Vehicle Capacity"
+      "en": "25. Express24 — Abstract Transport Vehicle Capacity",
+      "ru": "25. Express24 — абстрактная емкость транспортного средства"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryerlar velosiped, skuter yoki avtomobilda yurishadi. 'AbstractTransport' dagi 'getMaxWeightKg()' abstrakt metodini 'MotorcycleDelivery' da 20.0 kg qilib belgilang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractTransport' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getMaxWeightKg(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'MotorcycleDelivery' voris sinfini 'extends AbstractTransport' orqali bog'lang.\n4. Voris sinfda 'getMaxWeightKg(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTransport transport = new MotorcycleDelivery(\"Skuter\");         System.out.println(transport.getType() + \" maksimal vazni: \" + transport.getMaxWeightKg() + \" kg\");'",
-      "en": "📖 Real-World Scenario & Context\nCreate AbstractTransport with abstract getMaxWeightKg() implemented in MotorcycleDelivery.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTransport'.\n2. Declare abstract method 'getMaxWeightKg(...)' without body.\n3. Create concrete subclass 'MotorcycleDelivery' extending 'AbstractTransport'.\n4. Override and implement 'getMaxWeightKg(...)' in child class.\n5. Verify in 'main': 'AbstractTransport transport = new MotorcycleDelivery(\"Skuter\");         System.out.println(transport.getType() + \" maksimal vazni: \" + transport.getMaxWeightKg() + \" kg\");'"
+      "en": "📖 Real-World Scenario & Context\nCreate AbstractTransport with abstract getMaxWeightKg() implemented in MotorcycleDelivery.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTransport'.\n2. Declare abstract method 'getMaxWeightKg(...)' without body.\n3. Create concrete subclass 'MotorcycleDelivery' extending 'AbstractTransport'.\n4. Override and implement 'getMaxWeightKg(...)' in child class.\n5. Verify in 'main': 'AbstractTransport transport = new MotorcycleDelivery(\"Skuter\");         System.out.println(transport.getType() + \" maksimal vazni: \" + transport.getMaxWeightKg() + \" kg\");'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте AbstractTransport с помощью абстрактного getMaxWeightKg(), реализованного в MotorcycleDelivery.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractTransport».\n2. Объявите абстрактный метод getMaxWeightKg(...) без тела.\n3. Создайте конкретный подкласс «MotorcycleDelivery», расширяющий «AbstractTransport».\n4. Переопределить и реализовать getMaxWeightKg(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractTransport Transport = new MotorcycleDelivery («Skuter»);         System.out.println(transport.getType() + \" максимальное значение: \" + Transport.getMaxWeightKg() + \" кг\");'"
     },
     "requirements": {
       "classes": [
@@ -879,6 +1763,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractTransport</code>: abstrakt baza sinf.",
         "<code>MotorcycleDelivery</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractTransport</code>: abstrakt baza sinf.",
+        "<code>MotorcycleDelivery</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Kuryerlar velosiped, skuter yoki avtomobilda yurishadi. 'AbstractTransport' dagi 'getMaxWeightKg()' abstrakt metodini 'MotorcycleDelivery' da 20.0 kg qilib belgilang.\n\n📋",
+      "en": "Create AbstractTransport with abstract getMaxWeightKg() implemented in MotorcycleDelivery.\n\n📋",
+      "ru": "Создайте AbstractTransport с помощью абстрактного getMaxWeightKg(), реализованного в MotorcycleDelivery."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractTransport' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getMaxWeightKg(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'MotorcycleDelivery' voris sinfini 'extends AbstractTransport' orqali bog'lang.",
+        "Voris sinfda 'getMaxWeightKg(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTransport transport = new MotorcycleDelivery(\"Skuter\");         System.out.println(transport.getType() + \" maksimal vazni: \" + transport.getMaxWeightKg() + \" kg\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractTransport'.",
+        "Declare abstract method 'getMaxWeightKg(...)' without body.",
+        "Create concrete subclass 'MotorcycleDelivery' extending 'AbstractTransport'.",
+        "Override and implement 'getMaxWeightKg(...)' in child class.",
+        "Verify in 'main': 'AbstractTransport transport = new MotorcycleDelivery(\"Skuter\");         System.out.println(transport.getType() + \" maksimal vazni: \" + transport.getMaxWeightKg() + \" kg\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractTransport».",
+        "Объявите абстрактный метод getMaxWeightKg(...) без тела.",
+        "Создайте конкретный подкласс «MotorcycleDelivery», расширяющий «AbstractTransport».",
+        "Переопределить и реализовать getMaxWeightKg(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractTransport Transport = new MotorcycleDelivery («Skuter»);         System.out.println(transport.getType() + \" максимальное значение: \" + Transport.getMaxWeightKg() + \" кг\");'"
       ]
     }
   },
@@ -889,11 +1808,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "26. Asaxiy — Abstrakt Nashr va Fayl Hajmi",
-      "en": "26. Asaxiy — Abstract Publication and Digital File Size"
+      "en": "26. Asaxiy — Abstract Publication and Digital File Size",
+      "ru": "26. Асаксий — реферат публикации и размер цифрового файла"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy media katalogida barcha nashrlar 'AbstractPublication' ga tegishli. 'DigitalMagazine' vorisi 'getFileSizeMb()' abstrakt metodini aniq MB o'lchovida qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractPublication' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getFileSizeMb(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'DigitalMagazine' voris sinfini 'extends AbstractPublication' orqali bog'lang.\n4. Voris sinfda 'getFileSizeMb(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPublication mag = new DigitalMagazine(\"IT Weekly\", 35.5);         System.out.println(mag.getTitle() + \" fayl hajmi: \" + mag.getFileSizeMb() + \" MB\");'",
-      "en": "📖 Real-World Scenario & Context\nDefine AbstractPublication with abstract getFileSizeMb() overridden by DigitalMagazine.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPublication'.\n2. Declare abstract method 'getFileSizeMb(...)' without body.\n3. Create concrete subclass 'DigitalMagazine' extending 'AbstractPublication'.\n4. Override and implement 'getFileSizeMb(...)' in child class.\n5. Verify in 'main': 'AbstractPublication mag = new DigitalMagazine(\"IT Weekly\", 35.5);         System.out.println(mag.getTitle() + \" fayl hajmi: \" + mag.getFileSizeMb() + \" MB\");'"
+      "en": "📖 Real-World Scenario & Context\nDefine AbstractPublication with abstract getFileSizeMb() overridden by DigitalMagazine.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractPublication'.\n2. Declare abstract method 'getFileSizeMb(...)' without body.\n3. Create concrete subclass 'DigitalMagazine' extending 'AbstractPublication'.\n4. Override and implement 'getFileSizeMb(...)' in child class.\n5. Verify in 'main': 'AbstractPublication mag = new DigitalMagazine(\"IT Weekly\", 35.5);         System.out.println(mag.getTitle() + \" fayl hajmi: \" + mag.getFileSizeMb() + \" MB\");'",
+      "ru": "📖 Контекст и описание задачи\nОпределите AbstractPublication с абстрактным getFileSizeMb(), переопределенным DigitalMagazine.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractPublication».\n2. Объявите абстрактный метод getFileSizeMb(...) без тела.\n3. Создайте конкретный подкласс «DigitalMagazine», расширяющий «AbstractPublication».\n4. Переопределить и реализовать getFileSizeMb(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractPublication mag = new DigitalMagazine («IT Weekly», 35.5);         System.out.println(mag.getTitle() + \" файл hajmi: \" + mag.getFileSizeMb() + \" MB\");'"
     },
     "requirements": {
       "classes": [
@@ -917,6 +1838,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractPublication</code>: abstrakt baza sinf.",
         "<code>DigitalMagazine</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractPublication</code>: abstrakt baza sinf.",
+        "<code>DigitalMagazine</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy media katalogida barcha nashrlar 'AbstractPublication' ga tegishli. 'DigitalMagazine' vorisi 'getFileSizeMb()' abstrakt metodini aniq MB o'lchovida qaytaradi.\n\n📋",
+      "en": "Define AbstractPublication with abstract getFileSizeMb() overridden by DigitalMagazine.\n\n📋",
+      "ru": "Определите AbstractPublication с абстрактным getFileSizeMb(), переопределенным DigitalMagazine."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractPublication' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getFileSizeMb(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'DigitalMagazine' voris sinfini 'extends AbstractPublication' orqali bog'lang.",
+        "Voris sinfda 'getFileSizeMb(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractPublication mag = new DigitalMagazine(\"IT Weekly\", 35.5);         System.out.println(mag.getTitle() + \" fayl hajmi: \" + mag.getFileSizeMb() + \" MB\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractPublication'.",
+        "Declare abstract method 'getFileSizeMb(...)' without body.",
+        "Create concrete subclass 'DigitalMagazine' extending 'AbstractPublication'.",
+        "Override and implement 'getFileSizeMb(...)' in child class.",
+        "Verify in 'main': 'AbstractPublication mag = new DigitalMagazine(\"IT Weekly\", 35.5);         System.out.println(mag.getTitle() + \" fayl hajmi: \" + mag.getFileSizeMb() + \" MB\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractPublication».",
+        "Объявите абстрактный метод getFileSizeMb(...) без тела.",
+        "Создайте конкретный подкласс «DigitalMagazine», расширяющий «AbstractPublication».",
+        "Переопределить и реализовать getFileSizeMb(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractPublication mag = new DigitalMagazine («IT Weekly», 35.5);         System.out.println(mag.getTitle() + \" файл hajmi: \" + mag.getFileSizeMb() + \" MB\");'"
       ]
     }
   },
@@ -927,11 +1883,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "27. Kapitalbank — Abstrakt Depozit va Foiz Hisobi",
-      "en": "27. Kapitalbank — Abstract Deposit and Interest Accrual"
+      "en": "27. Kapitalbank — Abstract Deposit and Interest Accrual",
+      "ru": "27. Капиталбанк — Аннотация вклада и начисления процентов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank jamg'arma depozitlari 'AbstractDeposit' dan olinadi. 'FixedTermDeposit' vorisi 'calculateMonthlyInterest()' orqali oylik foiz summasini hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractDeposit' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'calculateMonthlyInterest(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'FixedTermDeposit' voris sinfini 'extends AbstractDeposit' orqali bog'lang.\n4. Voris sinfda 'calculateMonthlyInterest(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Oylik foiz: \" + dep.calculateMonthlyInterest() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nModel AbstractDeposit with abstract calculateMonthlyInterest() implemented by FixedTermDeposit.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractDeposit'.\n2. Declare abstract method 'calculateMonthlyInterest(...)' without body.\n3. Create concrete subclass 'FixedTermDeposit' extending 'AbstractDeposit'.\n4. Override and implement 'calculateMonthlyInterest(...)' in child class.\n5. Verify in 'main': 'AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Oylik foiz: \" + dep.calculateMonthlyInterest() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nModel AbstractDeposit with abstract calculateMonthlyInterest() implemented by FixedTermDeposit.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractDeposit'.\n2. Declare abstract method 'calculateMonthlyInterest(...)' without body.\n3. Create concrete subclass 'FixedTermDeposit' extending 'AbstractDeposit'.\n4. Override and implement 'calculateMonthlyInterest(...)' in child class.\n5. Verify in 'main': 'AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Oylik foiz: \" + dep.calculateMonthlyInterest() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nМодель AbstractDeposit с абстрактным CalculationMonthlyInterest(), реализованным с помощью FixTermDeposit.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractDeposit».\n2. Объявите абстрактный метод «calculateMonthlyInterest(...)» без тела.\n3. Создайте конкретный подкласс «FixedTermDeposit», расширяющий «AbstractDeposit».\n4. Переопределить и реализовать «calculateMonthlyInterest(...)» в дочернем классе.\n5. Проверьте в «main»: «AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Ойлик фоиз: \" + dep.calculateMonthlyInterest() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -955,6 +1913,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractDeposit</code>: abstrakt baza sinf.",
         "<code>FixedTermDeposit</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractDeposit</code>: abstrakt baza sinf.",
+        "<code>FixedTermDeposit</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank jamg'arma depozitlari 'AbstractDeposit' dan olinadi. 'FixedTermDeposit' vorisi 'calculateMonthlyInterest()' orqali oylik foiz summasini hisoblaydi.\n\n📋",
+      "en": "Model AbstractDeposit with abstract calculateMonthlyInterest() implemented by FixedTermDeposit.\n\n📋",
+      "ru": "Модель AbstractDeposit с абстрактным CalculationMonthlyInterest(), реализованным с помощью FixTermDeposit."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractDeposit' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'calculateMonthlyInterest(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'FixedTermDeposit' voris sinfini 'extends AbstractDeposit' orqali bog'lang.",
+        "Voris sinfda 'calculateMonthlyInterest(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Oylik foiz: \" + dep.calculateMonthlyInterest() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractDeposit'.",
+        "Declare abstract method 'calculateMonthlyInterest(...)' without body.",
+        "Create concrete subclass 'FixedTermDeposit' extending 'AbstractDeposit'.",
+        "Override and implement 'calculateMonthlyInterest(...)' in child class.",
+        "Verify in 'main': 'AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Oylik foiz: \" + dep.calculateMonthlyInterest() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractDeposit».",
+        "Объявите абстрактный метод «calculateMonthlyInterest(...)» без тела.",
+        "Создайте конкретный подкласс «FixedTermDeposit», расширяющий «AbstractDeposit».",
+        "Переопределить и реализовать «calculateMonthlyInterest(...)» в дочернем классе.",
+        "Проверьте в «main»: «AbstractDeposit dep = new FixedTermDeposit(10000000.0, 24.0);         System.out.println(\"Ойлик фоиз: \" + dep.calculateMonthlyInterest() + \" UZS\");'"
       ]
     }
   },
@@ -965,11 +1958,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "28. Beeline — Abstrakt Xizmat Paketi (AbstractServicePack)",
-      "en": "28. Beeline — Abstract Telecom Service Package"
+      "en": "28. Beeline — Abstract Telecom Service Package",
+      "ru": "28. Билайн — абстрактный пакет услуг связи."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline rouming yoki internet to'plamlari 'AbstractServicePack' dan keladi. 'RoamingPack' vorisi 'getDurationDays()' abstrakt metodini 30 kun qilib qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractServicePack' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getDurationDays(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'RoamingPack' voris sinfini 'extends AbstractServicePack' orqali bog'lang.\n4. Voris sinfda 'getDurationDays(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractServicePack pack = new RoamingPack(\"Turkiya Rouming\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish muddati: \" + pack.getDurationDays() + \" kun\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement AbstractServicePack with abstract getDurationDays() realized by RoamingPack.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractServicePack'.\n2. Declare abstract method 'getDurationDays(...)' without body.\n3. Create concrete subclass 'RoamingPack' extending 'AbstractServicePack'.\n4. Override and implement 'getDurationDays(...)' in child class.\n5. Verify in 'main': 'AbstractServicePack pack = new RoamingPack(\"Turkiya Rouming\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish muddati: \" + pack.getDurationDays() + \" kun\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement AbstractServicePack with abstract getDurationDays() realized by RoamingPack.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractServicePack'.\n2. Declare abstract method 'getDurationDays(...)' without body.\n3. Create concrete subclass 'RoamingPack' extending 'AbstractServicePack'.\n4. Override and implement 'getDurationDays(...)' in child class.\n5. Verify in 'main': 'AbstractServicePack pack = new RoamingPack(\"Turkiya Rouming\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish muddati: \" + pack.getDurationDays() + \" kun\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте AbstractServicePack с абстрактным getDurationDays(), реализованным RoamingPack.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractServicePack».\n2. Объявите абстрактный метод getDurationDays(...) без тела.\n3. Создайте конкретный подкласс RoamingPack, расширяющий AbstractServicePack.\n4. Переопределить и реализовать getDurationDays(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractServicePack package = new RoamingPack(\"Туркия Роуминг\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish maddati: \" + package.getDurationDays() + \" kun\");'"
     },
     "requirements": {
       "classes": [
@@ -993,6 +1988,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractServicePack</code>: abstrakt baza sinf.",
         "<code>RoamingPack</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractServicePack</code>: abstrakt baza sinf.",
+        "<code>RoamingPack</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Beeline rouming yoki internet to'plamlari 'AbstractServicePack' dan keladi. 'RoamingPack' vorisi 'getDurationDays()' abstrakt metodini 30 kun qilib qaytaradi.\n\n📋",
+      "en": "Implement AbstractServicePack with abstract getDurationDays() realized by RoamingPack.\n\n📋",
+      "ru": "Реализуйте AbstractServicePack с абстрактным getDurationDays(), реализованным RoamingPack."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractServicePack' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getDurationDays(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'RoamingPack' voris sinfini 'extends AbstractServicePack' orqali bog'lang.",
+        "Voris sinfda 'getDurationDays(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractServicePack pack = new RoamingPack(\"Turkiya Rouming\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish muddati: \" + pack.getDurationDays() + \" kun\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractServicePack'.",
+        "Declare abstract method 'getDurationDays(...)' without body.",
+        "Create concrete subclass 'RoamingPack' extending 'AbstractServicePack'.",
+        "Override and implement 'getDurationDays(...)' in child class.",
+        "Verify in 'main': 'AbstractServicePack pack = new RoamingPack(\"Turkiya Rouming\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish muddati: \" + pack.getDurationDays() + \" kun\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractServicePack».",
+        "Объявите абстрактный метод getDurationDays(...) без тела.",
+        "Создайте конкретный подкласс RoamingPack, расширяющий AbstractServicePack.",
+        "Переопределить и реализовать getDurationDays(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractServicePack package = new RoamingPack(\"Туркия Роуминг\", 150000.0);         System.out.println(pack.getPackName() + \" amal qilish maddati: \" + package.getDurationDays() + \" kun\");'"
       ]
     }
   },
@@ -1003,11 +2033,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "29. UzAirways — Abstrakt Aviachipta Klassi (AbstractTicket)",
-      "en": "29. UzAirways — Abstract Flight Ticket Baggage Allowance"
+      "en": "29. UzAirways — Abstract Flight Ticket Baggage Allowance",
+      "ru": "29. UzAirways — Абстрактная норма провоза багажа на авиабилеты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways da barcha chiptalar 'AbstractTicket' ga asoslanadi. 'BusinessClassTicket' vorisida 'getBaggageAllowanceKg()' abstrakt metodi 40 kg yuk limitini qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractTicket' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getBaggageAllowanceKg(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'BusinessClassTicket' voris sinfini 'extends AbstractTicket' orqali bog'lang.\n4. Voris sinfda 'getBaggageAllowanceKg(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTicket ticket = new BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Yuk limiti: \" + ticket.getBaggageAllowanceKg() + \" kg\");'",
-      "en": "📖 Real-World Scenario & Context\nDeclare AbstractTicket with abstract getBaggageAllowanceKg() implemented by BusinessClassTicket.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTicket'.\n2. Declare abstract method 'getBaggageAllowanceKg(...)' without body.\n3. Create concrete subclass 'BusinessClassTicket' extending 'AbstractTicket'.\n4. Override and implement 'getBaggageAllowanceKg(...)' in child class.\n5. Verify in 'main': 'AbstractTicket ticket = new BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Yuk limiti: \" + ticket.getBaggageAllowanceKg() + \" kg\");'"
+      "en": "📖 Real-World Scenario & Context\nDeclare AbstractTicket with abstract getBaggageAllowanceKg() implemented by BusinessClassTicket.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractTicket'.\n2. Declare abstract method 'getBaggageAllowanceKg(...)' without body.\n3. Create concrete subclass 'BusinessClassTicket' extending 'AbstractTicket'.\n4. Override and implement 'getBaggageAllowanceKg(...)' in child class.\n5. Verify in 'main': 'AbstractTicket ticket = new BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Yuk limiti: \" + ticket.getBaggageAllowanceKg() + \" kg\");'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите AbstractTicket с помощью абстрактного getBaggageAllowanceKg(), реализованного BusinessClassTicket.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractTicket».\n2. Объявите абстрактный метод getBaggageAllowanceKg(...) без тела.\n3. Создайте конкретный подкласс BusinessClassTicket, расширяющий AbstractTicket.\n4. Переопределить и реализовать getBaggageAllowanceKg(...) в дочернем классе.\n5. Проверьте в «main»: «Билет AbstractTicket = новый BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Ну, ограничения: \" + Ticket.getBaggageAllowanceKg() + \" кг\");'"
     },
     "requirements": {
       "classes": [
@@ -1031,6 +2063,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractTicket</code>: abstrakt baza sinf.",
         "<code>BusinessClassTicket</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractTicket</code>: abstrakt baza sinf.",
+        "<code>BusinessClassTicket</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways da barcha chiptalar 'AbstractTicket' ga asoslanadi. 'BusinessClassTicket' vorisida 'getBaggageAllowanceKg()' abstrakt metodi 40 kg yuk limitini qaytaradi.\n\n📋",
+      "en": "Declare AbstractTicket with abstract getBaggageAllowanceKg() implemented by BusinessClassTicket.\n\n📋",
+      "ru": "Объявите AbstractTicket с помощью абстрактного getBaggageAllowanceKg(), реализованного BusinessClassTicket."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractTicket' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getBaggageAllowanceKg(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'BusinessClassTicket' voris sinfini 'extends AbstractTicket' orqali bog'lang.",
+        "Voris sinfda 'getBaggageAllowanceKg(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractTicket ticket = new BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Yuk limiti: \" + ticket.getBaggageAllowanceKg() + \" kg\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractTicket'.",
+        "Declare abstract method 'getBaggageAllowanceKg(...)' without body.",
+        "Create concrete subclass 'BusinessClassTicket' extending 'AbstractTicket'.",
+        "Override and implement 'getBaggageAllowanceKg(...)' in child class.",
+        "Verify in 'main': 'AbstractTicket ticket = new BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Yuk limiti: \" + ticket.getBaggageAllowanceKg() + \" kg\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractTicket».",
+        "Объявите абстрактный метод getBaggageAllowanceKg(...) без тела.",
+        "Создайте конкретный подкласс BusinessClassTicket, расширяющий AbstractTicket.",
+        "Переопределить и реализовать getBaggageAllowanceKg(...) в дочернем классе.",
+        "Проверьте в «main»: «Билет AbstractTicket = новый BusinessClassTicket(\"HY-271\", 4500000.0);         System.out.println(\"Ну, ограничения: \" + Ticket.getBaggageAllowanceKg() + \" кг\");'"
       ]
     }
   },
@@ -1041,11 +2108,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "16-30: Abstract Classes & Abstract Methods",
     "title": {
       "uz": "30. WIUT SRS — Abstrakt Kurs Topshirig'i (AbstractAssessment)",
-      "en": "30. WIUT SRS — Abstract Coursework Weight Assessment"
+      "en": "30. WIUT SRS — Abstract Coursework Weight Assessment",
+      "ru": "30. МВУТ СРС — Оценка веса реферативной курсовой работы."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT modul baholari 'AbstractAssessment' ga asoslanadi. Undagi 'getWeightPercent()' abstrakt metodi 'CourseworkAssessment' da 50% vaznni qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractAssessment' abstrakt sinfini e'lon qiling ('abstract class').\n2. Unda 'getWeightPercent(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').\n3. 'CourseworkAssessment' voris sinfini 'extends AbstractAssessment' orqali bog'lang.\n4. Voris sinfda 'getWeightPercent(...)' metodini to'liq (@Override) realizatsiya qiling.\n5. 'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractAssessment cw = new CourseworkAssessment(\"OOP CW2 Group Project\");         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'",
-      "en": "📖 Real-World Scenario & Context\nDefine AbstractAssessment requiring getWeightPercent() implemented in CourseworkAssessment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractAssessment'.\n2. Declare abstract method 'getWeightPercent(...)' without body.\n3. Create concrete subclass 'CourseworkAssessment' extending 'AbstractAssessment'.\n4. Override and implement 'getWeightPercent(...)' in child class.\n5. Verify in 'main': 'AbstractAssessment cw = new CourseworkAssessment(\"OOP CW2 Group Project\");         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'"
+      "en": "📖 Real-World Scenario & Context\nDefine AbstractAssessment requiring getWeightPercent() implemented in CourseworkAssessment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract superclass 'AbstractAssessment'.\n2. Declare abstract method 'getWeightPercent(...)' without body.\n3. Create concrete subclass 'CourseworkAssessment' extending 'AbstractAssessment'.\n4. Override and implement 'getWeightPercent(...)' in child class.\n5. Verify in 'main': 'AbstractAssessment cw = new CourseworkAssessment(\"OOP CW2 Group Project\");         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'",
+      "ru": "📖 Контекст и описание задачи\nОпределите AbstractAssessment, требующий getWeightPercent(), реализованный в CourseworkAssessment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный суперкласс «AbstractAssessment».\n2. Объявите абстрактный метод getWeightPercent(...) без тела.\n3. Создайте конкретный подкласс CourseworkAssessment, расширяющий AbstractAssessment.\n4. Переопределить и реализовать getWeightPercent(...) в дочернем классе.\n5. Проверьте в «main»: «AbstractAssessment cw = new CourseworkAssessment («Групповой проект OOP CW2»);         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'"
     },
     "requirements": {
       "classes": [
@@ -1069,6 +2138,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractAssessment</code>: abstrakt baza sinf.",
         "<code>CourseworkAssessment</code>: aniq voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар bevosita 'новый' orqali ob'yekt ololmaydi. Улар умумий ойла учун андаза бо'либоб, барча ворислар учун умумий майдонлар ва абстрактный метод шартномаларини такдим этади. Хар бир неабстрактные ворис барча абстрактные методы реализации qilishi шарт.",
+      "breakdownRu": [
+        "<code>AbstractAssessment</code>: abstrakt baza sinf.",
+        "<code>CourseworkAssessment</code>: aniq voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT modul baholari 'AbstractAssessment' ga asoslanadi. Undagi 'getWeightPercent()' abstrakt metodi 'CourseworkAssessment' da 50% vaznni qaytaradi.\n\n📋",
+      "en": "Define AbstractAssessment requiring getWeightPercent() implemented in CourseworkAssessment.\n\n📋",
+      "ru": "Определите AbstractAssessment, требующий getWeightPercent(), реализованный в CourseworkAssessment."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractAssessment' abstrakt sinfini e'lon qiling ('abstract class').",
+        "Unda 'getWeightPercent(...)' abstrakt metodini tanasiz e'lon qiling ('abstract ...;').",
+        "'CourseworkAssessment' voris sinfini 'extends AbstractAssessment' orqali bog'lang.",
+        "Voris sinfda 'getWeightPercent(...)' metodini to'liq (@Override) realizatsiya qiling.",
+        "'Main' metodida polimorfik ob'yekt yaratib natijani chop eting: 'AbstractAssessment cw = new CourseworkAssessment(\"OOP CW2 Group Project\");         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract superclass 'AbstractAssessment'.",
+        "Declare abstract method 'getWeightPercent(...)' without body.",
+        "Create concrete subclass 'CourseworkAssessment' extending 'AbstractAssessment'.",
+        "Override and implement 'getWeightPercent(...)' in child class.",
+        "Verify in 'main': 'AbstractAssessment cw = new CourseworkAssessment(\"OOP CW2 Group Project\");         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный суперкласс «AbstractAssessment».",
+        "Объявите абстрактный метод getWeightPercent(...) без тела.",
+        "Создайте конкретный подкласс CourseworkAssessment, расширяющий AbstractAssessment.",
+        "Переопределить и реализовать getWeightPercent(...) в дочернем классе.",
+        "Проверьте в «main»: «AbstractAssessment cw = new CourseworkAssessment («Групповой проект OOP CW2»);         System.out.println(cw.getTitle() + \" ulushi: \" + cw.getWeightPercent() + \"%\");'"
       ]
     }
   },
@@ -1079,11 +2183,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "31. Uzum Market — Abstrakt Sinfda Yaxlitlash Yordamchisi (roundToTwoDecimals)",
-      "en": "31. Uzum Market — Protected Helper Method in Abstract Product"
+      "en": "31. Uzum Market — Protected Helper Method in Abstract Product",
+      "ru": "31. Uzum Market — защищенный вспомогательный метод в абстрактном продукте"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta 'Product.java' yechimida ko'rsatilganidek: 'protected double roundToTwoDecimals(double value)' metodi faqat sinf oilasi (vorislar) foydalanishi uchun berilgan. 'AbstractItem' dan voris oling va 12% QQS ni 2 xona aniqlikda hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractItem' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'RetailGood' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getPriceWithTax(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'AbstractItem item = new RetailGood(\"Naushnik\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nUse protected helper method roundToTwoDecimals in abstract class hierarchy matching Week 6 Product.java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractItem' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'RetailGood', invoke super(...) constructor.\n4. Implement 'getPriceWithTax(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractItem item = new RetailGood(\"Naushnik\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nUse protected helper method roundToTwoDecimals in abstract class hierarchy matching Week 6 Product.java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractItem' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'RetailGood', invoke super(...) constructor.\n4. Implement 'getPriceWithTax(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractItem item = new RetailGood(\"Naushnik\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте защищенный вспомогательный метод roundToTwoDecimals в иерархии абстрактных классов, соответствующей неделе 6 Product.java.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс «AbstractItem» с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В RetailGood вызовите конструктор super(...).\n4. Реализуйте getPriceWithTax(...) с использованием защищенных членов.\n5. Проверяем выполнение в 'main': 'AbstractItem item = new RetailGood(\"Наушник\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -1108,6 +2214,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractItem</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>RetailGood</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>AbstractItem</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>RetailGood</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta 'Product.java' yechimida ko'rsatilganidek: 'protected double roundToTwoDecimals(double value)' metodi faqat sinf oilasi (vorislar) foydalanishi uchun berilgan. 'AbstractItem' dan voris oling va 12% QQS ni 2 xona aniqlikda hisoblang.\n\n📋",
+      "en": "Use protected helper method roundToTwoDecimals in abstract class hierarchy matching Week 6 Product.java.\n\n📋",
+      "ru": "Используйте защищенный вспомогательный метод roundToTwoDecimals в иерархии абстрактных классов, соответствующей неделе 6 Product.java."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractItem' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'RetailGood' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getPriceWithTax(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'AbstractItem item = new RetailGood(\"Naushnik\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'AbstractItem' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'RetailGood', invoke super(...) constructor.",
+        "Implement 'getPriceWithTax(...)' utilizing protected members.",
+        "Verify execution in 'main': 'AbstractItem item = new RetailGood(\"Naushnik\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс «AbstractItem» с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В RetailGood вызовите конструктор super(...).",
+        "Реализуйте getPriceWithTax(...) с использованием защищенных членов.",
+        "Проверяем выполнение в 'main': 'AbstractItem item = new RetailGood(\"Наушник\", 149999.5);         System.out.println(\"QQS bilan narx: \" + item.getPriceWithTax() + \" UZS\");'"
       ]
     }
   },
@@ -1118,11 +2259,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "32. Payme — Abstrakt Hamyonda Himoyalangan Qoldiq Tekshiruvi",
-      "en": "32. Payme — Protected Balance Verification in Abstract Wallet"
+      "en": "32. Payme — Protected Balance Verification in Abstract Wallet",
+      "ru": "32. Payme — проверка защищенного баланса в абстрактном кошельке"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme 'BaseWallet' abstrakt sinfida 'protected double balance' maydoni va 'protected boolean canDeduct(double amt)' yordamchi metodi berilgan. 'UserWallet' vorisida to'lovni tasdiqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseWallet' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'UserWallet' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'makePayment(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseWallet wallet = new UserWallet(250000.0);         boolean res = wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + wallet.getBalance() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nSubclass BaseWallet utilizing protected state and deduction verification method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseWallet' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'UserWallet', invoke super(...) constructor.\n4. Implement 'makePayment(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseWallet wallet = new UserWallet(250000.0);         boolean res = wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + wallet.getBalance() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nSubclass BaseWallet utilizing protected state and deduction verification method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseWallet' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'UserWallet', invoke super(...) constructor.\n4. Implement 'makePayment(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseWallet wallet = new UserWallet(250000.0);         boolean res = wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + wallet.getBalance() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nПодкласс BaseWallet, использующий защищенное состояние и метод проверки вычетов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseWallet с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «UserWallet» вызовите конструктор super(...).\n4. Реализуйте makePayment(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseWallet Wallet = new UserWallet(250000.0);         логическое значение res = Wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + Wallet.getBalance() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -1147,6 +2290,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseWallet</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>UserWallet</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseWallet</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>UserWallet</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Payme 'BaseWallet' abstrakt sinfida 'protected double balance' maydoni va 'protected boolean canDeduct(double amt)' yordamchi metodi berilgan. 'UserWallet' vorisida to'lovni tasdiqlang.\n\n📋",
+      "en": "Subclass BaseWallet utilizing protected state and deduction verification method.\n\n📋",
+      "ru": "Подкласс BaseWallet, использующий защищенное состояние и метод проверки вычетов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseWallet' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'UserWallet' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'makePayment(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseWallet wallet = new UserWallet(250000.0);         boolean res = wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + wallet.getBalance() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseWallet' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'UserWallet', invoke super(...) constructor.",
+        "Implement 'makePayment(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseWallet wallet = new UserWallet(250000.0);         boolean res = wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + wallet.getBalance() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseWallet с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «UserWallet» вызовите конструктор super(...).",
+        "Реализуйте makePayment(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseWallet Wallet = new UserWallet(250000.0);         логическое значение res = Wallet.makePayment(100000.0);         System.out.println(\"To'lov qilindi: \" + res + \" | Qoldiq: \" + Wallet.getBalance() + \" UZS\");'"
       ]
     }
   },
@@ -1157,11 +2335,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "33. Korzinka — Abstrakt Konstruktorda super(...) Initsializatsiyasi",
-      "en": "33. Korzinka — Super Constructor Chaining in Abstract Loyalty Program"
+      "en": "33. Korzinka — Super Constructor Chaining in Abstract Loyalty Program",
+      "ru": "33. Корзинка — Суперконструктор цепочки в абстрактной программе лояльности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Abstrakt sinflar bevosita new qilinmasa ham, ularda konstruktor bo'ladi va vorislar super(...) orqali uni chaqiradi'. Korzinka 'BaseLoyalty' konstruktori orqali karta egasi va ballarini o'rnating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseLoyalty' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'ClubCard' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getLoyaltySummary(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'",
-      "en": "📖 Real-World Scenario & Context\nInvoke abstract class constructor with super(...) initializing shared loyalty fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseLoyalty' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'ClubCard', invoke super(...) constructor.\n4. Implement 'getLoyaltySummary(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'"
+      "en": "📖 Real-World Scenario & Context\nInvoke abstract class constructor with super(...) initializing shared loyalty fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseLoyalty' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'ClubCard', invoke super(...) constructor.\n4. Implement 'getLoyaltySummary(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'",
+      "ru": "📖 Контекст и описание задачи\nВызовите конструктор абстрактного класса с помощью super(...), инициализирующего общие поля лояльности.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseLoyalty с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «ClubCard» вызовите конструктор super(...).\n4. Реализуйте getLoyaltySummary(...) с использованием защищенных членов.\n5. Проверьте выполнение в 'main': 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'"
     },
     "requirements": {
       "classes": [
@@ -1186,6 +2366,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseLoyalty</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>ClubCard</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseLoyalty</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>ClubCard</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Abstrakt sinflar bevosita new qilinmasa ham, ularda konstruktor bo'ladi va vorislar super(...) orqali uni chaqiradi'. Korzinka 'BaseLoyalty' konstruktori orqali karta egasi va ballarini o'rnating.\n\n📋",
+      "en": "Invoke abstract class constructor with super(...) initializing shared loyalty fields.\n\n📋",
+      "ru": "Вызовите конструктор абстрактного класса с помощью super(...), инициализирующего общие поля лояльности."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseLoyalty' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'ClubCard' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getLoyaltySummary(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseLoyalty' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'ClubCard', invoke super(...) constructor.",
+        "Implement 'getLoyaltySummary(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseLoyalty с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «ClubCard» вызовите конструктор super(...).",
+        "Реализуйте getLoyaltySummary(...) с использованием защищенных членов.",
+        "Проверьте выполнение в 'main': 'BaseLoyalty card = new ClubCard(\"Nodirbek\", 450);         System.out.println(card.getLoyaltySummary());'"
       ]
     }
   },
@@ -1196,11 +2411,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "34. Yandex Go — Abstrakt Sinfda Umumiy va Abstrakt Metodlar Birga Kelishi",
-      "en": "34. Yandex Go — Concrete and Abstract Methods Coexisting"
+      "en": "34. Yandex Go — Concrete and Abstract Methods Coexisting",
+      "ru": "34. Yandex Go — сосуществование конкретных и абстрактных методов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida aytilganidek: 'An abstract class can include both abstract and non-abstract methods'. 'BaseRide' da umumiy 'printReceipt()' aniq metodi va 'calculateFare()' abstrakt metodi mavjud.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseRide' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'ExpressTaxi' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'calculateFare(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Yakuniy narx: \" + ride.calculateFare() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate abstract class holding both concrete helper methods and abstract operations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseRide' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'ExpressTaxi', invoke super(...) constructor.\n4. Implement 'calculateFare(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Yakuniy narx: \" + ride.calculateFare() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate abstract class holding both concrete helper methods and abstract operations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseRide' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'ExpressTaxi', invoke super(...) constructor.\n4. Implement 'calculateFare(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Yakuniy narx: \" + ride.calculateFare() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте абстрактный класс, содержащий как конкретные вспомогательные методы, так и абстрактные операции.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseRide с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «ЭкспрессТакси» вызовите конструктор super(...).\n4. Реализуйте 'calculateFare(...)', используя защищенные члены.\n5. Проверьте выполнение в «main»: «BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Якуний нарх: \" + ride.calculateFare() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -1225,6 +2442,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseRide</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>ExpressTaxi</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseRide</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>ExpressTaxi</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida aytilganidek: 'An abstract class can include both abstract and non-abstract methods'. 'BaseRide' da umumiy 'printReceipt()' aniq metodi va 'calculateFare()' abstrakt metodi mavjud.\n\n📋",
+      "en": "Demonstrate abstract class holding both concrete helper methods and abstract operations.\n\n📋",
+      "ru": "Продемонстрируйте абстрактный класс, содержащий как конкретные вспомогательные методы, так и абстрактные операции."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseRide' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'ExpressTaxi' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'calculateFare(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Yakuniy narx: \" + ride.calculateFare() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseRide' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'ExpressTaxi', invoke super(...) constructor.",
+        "Implement 'calculateFare(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Yakuniy narx: \" + ride.calculateFare() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseRide с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «ЭкспрессТакси» вызовите конструктор super(...).",
+        "Реализуйте 'calculateFare(...)', используя защищенные члены.",
+        "Проверьте выполнение в «main»: «BaseRide ride = new ExpressTaxi(15.0);         ride.printReceipt();         System.out.println(\"Якуний нарх: \" + ride.calculateFare() + \" UZS\");'"
       ]
     }
   },
@@ -1235,11 +2487,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "35. Click — Avtomatik Tranzaksiya ID si va Himoyalangan Konstruktor",
-      "en": "35. Click — Transaction ID Generator in Abstract Base"
+      "en": "35. Click — Transaction ID Generator in Abstract Base",
+      "ru": "35. Click — генератор идентификаторов транзакций в абстрактной базе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick 'BaseTransaction' abstrakt sinfi har bir tranzaksiyaga avtomatik tartib raqam ('TXN-101') generatsiya qiluvchi protected konstruktorga ega. 'MerchantPayment' orqali uni chaqiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseTransaction' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'MerchantPayment' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getTransactionReceipt(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'",
-      "en": "📖 Real-World Scenario & Context\nAbstract superclass auto-generates transaction IDs in its protected constructor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseTransaction' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'MerchantPayment', invoke super(...) constructor.\n4. Implement 'getTransactionReceipt(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'"
+      "en": "📖 Real-World Scenario & Context\nAbstract superclass auto-generates transaction IDs in its protected constructor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseTransaction' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'MerchantPayment', invoke super(...) constructor.\n4. Implement 'getTransactionReceipt(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактный суперкласс автоматически генерирует идентификаторы транзакций в своем защищенном конструкторе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseTransaction с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «MerchantPayment» вызовите конструктор super(...).\n4. Реализуйте getTransactionReceipt(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'"
     },
     "requirements": {
       "classes": [
@@ -1264,6 +2518,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseTransaction</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>MerchantPayment</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseTransaction</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>MerchantPayment</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Click 'BaseTransaction' abstrakt sinfi har bir tranzaksiyaga avtomatik tartib raqam ('TXN-101') generatsiya qiluvchi protected konstruktorga ega. 'MerchantPayment' orqali uni chaqiring.\n\n📋",
+      "en": "Abstract superclass auto-generates transaction IDs in its protected constructor.\n\n📋",
+      "ru": "Абстрактный суперкласс автоматически генерирует идентификаторы транзакций в своем защищенном конструкторе."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseTransaction' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'MerchantPayment' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getTransactionReceipt(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseTransaction' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'MerchantPayment', invoke super(...) constructor.",
+        "Implement 'getTransactionReceipt(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseTransaction с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «MerchantPayment» вызовите конструктор super(...).",
+        "Реализуйте getTransactionReceipt(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseTransaction tx = new MerchantPayment(101, 80000.0);         System.out.println(tx.getTransactionReceipt());'"
       ]
     }
   },
@@ -1274,11 +2563,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "36. Safia — Himoyalangan Ustama (Markup) Formulali Abstrakt Desert",
-      "en": "36. Safia — Protected Pricing Formula in Abstract Pastry"
+      "en": "36. Safia — Protected Pricing Formula in Abstract Pastry",
+      "ru": "36. Safia — формула защищенного ценообразования в абстрактной выпечке."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia 'AbstractPastry' sinfida 'protected double applyStandardMarkup(double cost)' metodi mavjud bo'lib, u xomashyo narxiga 30% ustama qo'shadi. 'Eclair' vorisida sotuv narxini chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractPastry' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'Eclair' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'calculateRetailPrice(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Sotuv narxi: \" + p.calculateRetailPrice() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nUse protected markup method inside subclass to compute retail pastry pricing.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractPastry' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'Eclair', invoke super(...) constructor.\n4. Implement 'calculateRetailPrice(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Sotuv narxi: \" + p.calculateRetailPrice() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nUse protected markup method inside subclass to compute retail pastry pricing.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractPastry' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'Eclair', invoke super(...) constructor.\n4. Implement 'calculateRetailPrice(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Sotuv narxi: \" + p.calculateRetailPrice() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте защищенный метод разметки внутри подкласса для расчета розничных цен на кондитерские изделия.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс «AbstractPastry» с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «Эклере» вызовите конструктор super(...).\n4. Реализуйте 'calculateRetailPrice(...)', используя защищенные члены.\n5. Проверьте выполнение в 'main': 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Сотув наркси: \" + p.calculateRetailPrice() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -1303,6 +2594,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractPastry</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>Eclair</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>AbstractPastry</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>Eclair</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Safia 'AbstractPastry' sinfida 'protected double applyStandardMarkup(double cost)' metodi mavjud bo'lib, u xomashyo narxiga 30% ustama qo'shadi. 'Eclair' vorisida sotuv narxini chiqaring.\n\n📋",
+      "en": "Use protected markup method inside subclass to compute retail pastry pricing.\n\n📋",
+      "ru": "Используйте защищенный метод разметки внутри подкласса для расчета розничных цен на кондитерские изделия."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractPastry' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'Eclair' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'calculateRetailPrice(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Sotuv narxi: \" + p.calculateRetailPrice() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'AbstractPastry' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'Eclair', invoke super(...) constructor.",
+        "Implement 'calculateRetailPrice(...)' utilizing protected members.",
+        "Verify execution in 'main': 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Sotuv narxi: \" + p.calculateRetailPrice() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс «AbstractPastry» с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «Эклере» вызовите конструктор super(...).",
+        "Реализуйте 'calculateRetailPrice(...)', используя защищенные члены.",
+        "Проверьте выполнение в 'main': 'AbstractPastry p = new Eclair(\"Shokoladli Ekler\", 15000.0);         System.out.println(\"Сотув наркси: \" + p.calculateRetailPrice() + \" UZS\");'"
       ]
     }
   },
@@ -1313,11 +2639,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "37. Dodo Pizza — Abstrakt Buyurtmada Kolleksiyani Saqlash",
-      "en": "37. Dodo Pizza — Encapsulated State in Abstract Order Base"
+      "en": "37. Dodo Pizza — Encapsulated State in Abstract Order Base",
+      "ru": "37. Додо Пицца — инкапсулированное состояние в базе абстрактного порядка"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo da 'AbstractOrder' sinfi ichida buyurtma qilingan pitssalar ro'yxatini saqlaydi va 'getItemCount()' aniq metodini beradi. 'DeliveryOrder' vorisida yangi buyurtma yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AbstractOrder' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'DeliveryOrder' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getItemCount(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'AbstractOrder ord = new DeliveryOrder(\"ORD-55\");         ord.addItem(\"Margarita\");         ord.addItem(\"Qo'ziqorinli\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'",
-      "en": "📖 Real-World Scenario & Context\nAbstract base maintains private/protected items collection while child provides specific dispatch logic.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractOrder' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'DeliveryOrder', invoke super(...) constructor.\n4. Implement 'getItemCount(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractOrder ord = new DeliveryOrder(\"ORD-55\");         ord.addItem(\"Margarita\");         ord.addItem(\"Qo'ziqorinli\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'"
+      "en": "📖 Real-World Scenario & Context\nAbstract base maintains private/protected items collection while child provides specific dispatch logic.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'AbstractOrder' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'DeliveryOrder', invoke super(...) constructor.\n4. Implement 'getItemCount(...)' utilizing protected members.\n5. Verify execution in 'main': 'AbstractOrder ord = new DeliveryOrder(\"ORD-55\");         ord.addItem(\"Margarita\");         ord.addItem(\"Qo'ziqorinli\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактная база поддерживает коллекцию частных/защищенных элементов, в то время как дочерняя база обеспечивает определенную логику отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс «AbstractOrder» с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «DeliveryOrder» вызовите конструктор super(...).\n4. Реализуйте 'getItemCount(...)', используя защищенные члены.\n5. Проверьте выполнение в «main»: «AbstractOrder ord = new DeliveryOrder(»ORD-55»);         ord.addItem(\"Маргарита\");         ord.addItem(\"Ко'зикоринли\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'"
     },
     "requirements": {
       "classes": [
@@ -1342,6 +2670,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AbstractOrder</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>DeliveryOrder</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>AbstractOrder</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>DeliveryOrder</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Dodo da 'AbstractOrder' sinfi ichida buyurtma qilingan pitssalar ro'yxatini saqlaydi va 'getItemCount()' aniq metodini beradi. 'DeliveryOrder' vorisida yangi buyurtma yarating.\n\n📋",
+      "en": "Abstract base maintains private/protected items collection while child provides specific dispatch logic.\n\n📋",
+      "ru": "Абстрактная база поддерживает коллекцию частных/защищенных элементов, в то время как дочерняя база обеспечивает определенную логику отправки."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'AbstractOrder' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'DeliveryOrder' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getItemCount(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'AbstractOrder ord = new DeliveryOrder(\"ORD-55\");         ord.addItem(\"Margarita\");         ord.addItem(\"Qo'ziqorinli\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'AbstractOrder' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'DeliveryOrder', invoke super(...) constructor.",
+        "Implement 'getItemCount(...)' utilizing protected members.",
+        "Verify execution in 'main': 'AbstractOrder ord = new DeliveryOrder(\"ORD-55\");         ord.addItem(\"Margarita\");         ord.addItem(\"Qo'ziqorinli\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс «AbstractOrder» с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «DeliveryOrder» вызовите конструктор super(...).",
+        "Реализуйте 'getItemCount(...)', используя защищенные члены.",
+        "Проверьте выполнение в «main»: «AbstractOrder ord = new DeliveryOrder(»ORD-55»);         ord.addItem(\"Маргарита\");         ord.addItem(\"Ко'зикоринли\");         System.out.println(\"Buyurtmadagi mahsulotlar: \" + ord.getItemCount() + \" dona\");'"
       ]
     }
   },
@@ -1352,11 +2715,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "38. Texnomart — Himoyalangan Quvvat va Energiya Samaradorligi",
-      "en": "38. Texnomart — Protected Energy Class Evaluation"
+      "en": "38. Texnomart — Protected Energy Class Evaluation",
+      "ru": "38. Texnomart — Оценка защищенного энергетического класса"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart 'BaseAppliance' sinfida 'protected int powerWatts' saqlanadi. 'getEnergyClass()' aniq metodi 1000W dan past bo'lsa 'A++', aks holda 'A' qaytaradi. 'WashingMachine' vorisida tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseAppliance' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'WashingMachine' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getEnergyClass(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseAppliance app = new WashingMachine(\"LG Inverter\", 800);         System.out.println(app.getModel() + \" energiya klassi: \" + app.getEnergyClass());'",
-      "en": "📖 Real-World Scenario & Context\nBaseAppliance evaluates energy rating using protected power fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseAppliance' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'WashingMachine', invoke super(...) constructor.\n4. Implement 'getEnergyClass(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseAppliance app = new WashingMachine(\"LG Inverter\", 800);         System.out.println(app.getModel() + \" energiya klassi: \" + app.getEnergyClass());'"
+      "en": "📖 Real-World Scenario & Context\nBaseAppliance evaluates energy rating using protected power fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseAppliance' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'WashingMachine', invoke super(...) constructor.\n4. Implement 'getEnergyClass(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseAppliance app = new WashingMachine(\"LG Inverter\", 800);         System.out.println(app.getModel() + \" energiya klassi: \" + app.getEnergyClass());'",
+      "ru": "📖 Контекст и описание задачи\nBaseAppliance оценивает энергетический рейтинг, используя защищенные силовые поля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseAppliance с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «WashingMachine» вызовите конструктор super(...).\n4. Реализуйте getEnergyClass(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseAppliance app = new WashingMachine («LG Inverter», 800);         System.out.println(app.getModel() + \"энергия класса: \" + app.getEnergyClass());'"
     },
     "requirements": {
       "classes": [
@@ -1381,6 +2746,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseAppliance</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>WashingMachine</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseAppliance</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>WashingMachine</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart 'BaseAppliance' sinfida 'protected int powerWatts' saqlanadi. 'getEnergyClass()' aniq metodi 1000W dan past bo'lsa 'A++', aks holda 'A' qaytaradi. 'WashingMachine' vorisida tekshiring.\n\n📋",
+      "en": "BaseAppliance evaluates energy rating using protected power fields.\n\n📋",
+      "ru": "BaseAppliance оценивает энергетический рейтинг, используя защищенные силовые поля."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseAppliance' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'WashingMachine' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getEnergyClass(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseAppliance app = new WashingMachine(\"LG Inverter\", 800);         System.out.println(app.getModel() + \" energiya klassi: \" + app.getEnergyClass());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseAppliance' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'WashingMachine', invoke super(...) constructor.",
+        "Implement 'getEnergyClass(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseAppliance app = new WashingMachine(\"LG Inverter\", 800);         System.out.println(app.getModel() + \" energiya klassi: \" + app.getEnergyClass());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseAppliance с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «WashingMachine» вызовите конструктор super(...).",
+        "Реализуйте getEnergyClass(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseAppliance app = new WashingMachine («LG Inverter», 800);         System.out.println(app.getModel() + \"энергия класса: \" + app.getEnergyClass());'"
       ]
     }
   },
@@ -1391,11 +2791,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "39. Medion — Himoyalangan Bemor Shaxsiy Karta Boshqaruvi",
-      "en": "39. Medion — Protected Patient Identifier in Base Health Record"
+      "en": "39. Medion — Protected Patient Identifier in Base Health Record",
+      "ru": "39. Medion — защищенный идентификатор пациента в базовой медицинской карте"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion 'BasePatientRecord' abstrakt sinfida 'protected String patientId' saqlanadi. 'OutpatientRecord' sinfida qabul vaqtini hisobga oluvchi shartnomani bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BasePatientRecord' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'OutpatientRecord' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getRecordHeader(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BasePatientRecord rec = new OutpatientRecord(\"MED-994\", \"Rustamov D.\");         System.out.println(rec.getRecordHeader());'",
-      "en": "📖 Real-World Scenario & Context\nManage patient identifiers safely via abstract superclass protected access.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BasePatientRecord' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'OutpatientRecord', invoke super(...) constructor.\n4. Implement 'getRecordHeader(...)' utilizing protected members.\n5. Verify execution in 'main': 'BasePatientRecord rec = new OutpatientRecord(\"MED-994\", \"Rustamov D.\");         System.out.println(rec.getRecordHeader());'"
+      "en": "📖 Real-World Scenario & Context\nManage patient identifiers safely via abstract superclass protected access.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BasePatientRecord' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'OutpatientRecord', invoke super(...) constructor.\n4. Implement 'getRecordHeader(...)' utilizing protected members.\n5. Verify execution in 'main': 'BasePatientRecord rec = new OutpatientRecord(\"MED-994\", \"Rustamov D.\");         System.out.println(rec.getRecordHeader());'",
+      "ru": "📖 Контекст и описание задачи\nБезопасно управляйте идентификаторами пациентов с помощью защищенного доступа абстрактного суперкласса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BasePatientRecord с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «OutpathientRecord» вызовите конструктор super(...).\n4. Реализуйте getRecordHeader(...) с использованием защищенных членов.\n5. Проверьте выполнение в 'main': 'BasePatientRecord Rec = new OutpathientRecord(\"MED-994\", \"Рустамов Д.\");         System.out.println(rec.getRecordHeader());'"
     },
     "requirements": {
       "classes": [
@@ -1420,6 +2822,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BasePatientRecord</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>OutpatientRecord</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BasePatientRecord</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>OutpatientRecord</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Medion 'BasePatientRecord' abstrakt sinfida 'protected String patientId' saqlanadi. 'OutpatientRecord' sinfida qabul vaqtini hisobga oluvchi shartnomani bajaring.\n\n📋",
+      "en": "Manage patient identifiers safely via abstract superclass protected access.\n\n📋",
+      "ru": "Безопасно управляйте идентификаторами пациентов с помощью защищенного доступа абстрактного суперкласса."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BasePatientRecord' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'OutpatientRecord' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getRecordHeader(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BasePatientRecord rec = new OutpatientRecord(\"MED-994\", \"Rustamov D.\");         System.out.println(rec.getRecordHeader());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BasePatientRecord' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'OutpatientRecord', invoke super(...) constructor.",
+        "Implement 'getRecordHeader(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BasePatientRecord rec = new OutpatientRecord(\"MED-994\", \"Rustamov D.\");         System.out.println(rec.getRecordHeader());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BasePatientRecord с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «OutpathientRecord» вызовите конструктор super(...).",
+        "Реализуйте getRecordHeader(...) с использованием защищенных членов.",
+        "Проверьте выполнение в 'main': 'BasePatientRecord Rec = new OutpathientRecord(\"MED-994\", \"Рустамов Д.\");         System.out.println(rec.getRecordHeader());'"
       ]
     }
   },
@@ -1430,11 +2867,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "40. Express24 — Abstrakt Marshrutda Masofa va Yoqilg'i Xarajati",
-      "en": "40. Express24 — Distance State and Fuel Allowance Calculation"
+      "en": "40. Express24 — Distance State and Fuel Allowance Calculation",
+      "ru": "40. Express24 — Расчет расстояния и запаса топлива."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 'BaseRoute' abstrakt sinfi masofani saqlaydi va 'calculateFuelAllowance()' yordamchi metodi orqali har 10 km ga 8000 UZS yoqilg'i kompensatsiyasini aniqlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseRoute' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'CityDeliveryRoute' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'calculateFuelAllowance(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseRoute route = new CityDeliveryRoute(25.0);         System.out.println(\"Yoqilg'i kompensatsiyasi: \" + route.calculateFuelAllowance() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nBaseRoute stores route distance and calculates fuel allowance for subclasses.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseRoute' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CityDeliveryRoute', invoke super(...) constructor.\n4. Implement 'calculateFuelAllowance(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseRoute route = new CityDeliveryRoute(25.0);         System.out.println(\"Yoqilg'i kompensatsiyasi: \" + route.calculateFuelAllowance() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nBaseRoute stores route distance and calculates fuel allowance for subclasses.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseRoute' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CityDeliveryRoute', invoke super(...) constructor.\n4. Implement 'calculateFuelAllowance(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseRoute route = new CityDeliveryRoute(25.0);         System.out.println(\"Yoqilg'i kompensatsiyasi: \" + route.calculateFuelAllowance() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nBaseRoute хранит расстояние маршрута и рассчитывает запас топлива для подклассов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseRoute с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В CityDeliveryRoute вызовите конструктор super(...).\n4. Реализуйте 'calculateFuelAllowance(...)', используя защищенные члены.\n5. Проверьте выполнение в «main»: «BaseRoute Route = new CityDeliveryRoute(25.0);         System.out.println(\"Есть компенсации: \" +route.calculateFuelAllowance() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -1459,6 +2898,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseRoute</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>CityDeliveryRoute</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseRoute</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>CityDeliveryRoute</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Express24 'BaseRoute' abstrakt sinfi masofani saqlaydi va 'calculateFuelAllowance()' yordamchi metodi orqali har 10 km ga 8000 UZS yoqilg'i kompensatsiyasini aniqlaydi.\n\n📋",
+      "en": "BaseRoute stores route distance and calculates fuel allowance for subclasses.\n\n📋",
+      "ru": "BaseRoute хранит расстояние маршрута и рассчитывает запас топлива для подклассов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseRoute' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'CityDeliveryRoute' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'calculateFuelAllowance(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseRoute route = new CityDeliveryRoute(25.0);         System.out.println(\"Yoqilg'i kompensatsiyasi: \" + route.calculateFuelAllowance() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseRoute' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'CityDeliveryRoute', invoke super(...) constructor.",
+        "Implement 'calculateFuelAllowance(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseRoute route = new CityDeliveryRoute(25.0);         System.out.println(\"Yoqilg'i kompensatsiyasi: \" + route.calculateFuelAllowance() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseRoute с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В CityDeliveryRoute вызовите конструктор super(...).",
+        "Реализуйте 'calculateFuelAllowance(...)', используя защищенные члены.",
+        "Проверьте выполнение в «main»: «BaseRoute Route = new CityDeliveryRoute(25.0);         System.out.println(\"Есть компенсации: \" +route.calculateFuelAllowance() + \" UZS\");'"
       ]
     }
   },
@@ -1469,11 +2943,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "41. Asaxiy — Abstrakt Media Nashrida ISBN Formatlash",
-      "en": "41. Asaxiy — Catalog Formatting in Base Media Entity"
+      "en": "41. Asaxiy — Catalog Formatting in Base Media Entity",
+      "ru": "41. Asaxyy — форматирование каталога в базовом медиа-объекте"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy 'BaseMediaItem' abstrakt sinfida kitob kodi va nomi formatlanadi. 'PrintedBook' sinfida sahifalar sonini qo'shib to'liq tavsif qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseMediaItem' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'PrintedBook' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getFormattedEntry(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'",
-      "en": "📖 Real-World Scenario & Context\nAbstract class encapsulates shared metadata formatting while child provides physical attributes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseMediaItem' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'PrintedBook', invoke super(...) constructor.\n4. Implement 'getFormattedEntry(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'"
+      "en": "📖 Real-World Scenario & Context\nAbstract class encapsulates shared metadata formatting while child provides physical attributes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseMediaItem' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'PrintedBook', invoke super(...) constructor.\n4. Implement 'getFormattedEntry(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактный класс инкапсулирует общее форматирование метаданных, а дочерний класс предоставляет физические атрибуты.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseMediaItem с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В PrintedBook вызовите конструктор super(...).\n4. Реализуйте getFormattedEntry(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'"
     },
     "requirements": {
       "classes": [
@@ -1498,6 +2974,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseMediaItem</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>PrintedBook</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseMediaItem</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>PrintedBook</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy 'BaseMediaItem' abstrakt sinfida kitob kodi va nomi formatlanadi. 'PrintedBook' sinfida sahifalar sonini qo'shib to'liq tavsif qaytaring.\n\n📋",
+      "en": "Abstract class encapsulates shared metadata formatting while child provides physical attributes.\n\n📋",
+      "ru": "Абстрактный класс инкапсулирует общее форматирование метаданных, а дочерний класс предоставляет физические атрибуты."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseMediaItem' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'PrintedBook' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getFormattedEntry(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseMediaItem' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'PrintedBook', invoke super(...) constructor.",
+        "Implement 'getFormattedEntry(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseMediaItem с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В PrintedBook вызовите конструктор super(...).",
+        "Реализуйте getFormattedEntry(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseMediaItem b = new PrintedBook(\"Sariq Devni Minib\", \"978-9943\", 240);         System.out.println(b.getFormattedEntry());'"
       ]
     }
   },
@@ -1508,11 +3019,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "42. Kapitalbank — Abstrakt Xizmatda Filial Kategoriya Boshqaruvi",
-      "en": "42. Kapitalbank — Branch Categorization in Banking Service Hierarchy"
+      "en": "42. Kapitalbank — Branch Categorization in Banking Service Hierarchy",
+      "ru": "42. Капиталбанк — Категоризация филиалов в иерархии банковских услуг."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank 'BaseBankService' abstrakt sinfi filial kodi ('TASH-01') bilan ishlaydi va barcha xizmatlar uchun yagona filial nomini qaytaradi. 'CurrencyExchange' vorisini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseBankService' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'CurrencyExchange' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getServiceSummary(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseBankService srv = new CurrencyExchange(\"TASH-01\", 12600.0);         System.out.println(srv.getServiceSummary());'",
-      "en": "📖 Real-World Scenario & Context\nBaseBankService maintains branch context shared across currency and loan service classes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseBankService' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CurrencyExchange', invoke super(...) constructor.\n4. Implement 'getServiceSummary(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseBankService srv = new CurrencyExchange(\"TASH-01\", 12600.0);         System.out.println(srv.getServiceSummary());'"
+      "en": "📖 Real-World Scenario & Context\nBaseBankService maintains branch context shared across currency and loan service classes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseBankService' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CurrencyExchange', invoke super(...) constructor.\n4. Implement 'getServiceSummary(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseBankService srv = new CurrencyExchange(\"TASH-01\", 12600.0);         System.out.println(srv.getServiceSummary());'",
+      "ru": "📖 Контекст и описание задачи\nBaseBankService поддерживает контекст филиала, общий для всех классов обслуживания валют и кредитов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseBankService с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «CurrencyExchange» вызовите конструктор super(...).\n4. Реализуйте getServiceSummary(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseBankService srv = new CurrencyExchange(»TASH-01», 12600.0);         System.out.println(srv.getServiceSummary());'"
     },
     "requirements": {
       "classes": [
@@ -1537,6 +3050,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseBankService</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>CurrencyExchange</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseBankService</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>CurrencyExchange</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank 'BaseBankService' abstrakt sinfi filial kodi ('TASH-01') bilan ishlaydi va barcha xizmatlar uchun yagona filial nomini qaytaradi. 'CurrencyExchange' vorisini yozing.\n\n📋",
+      "en": "BaseBankService maintains branch context shared across currency and loan service classes.\n\n📋",
+      "ru": "BaseBankService поддерживает контекст филиала, общий для всех классов обслуживания валют и кредитов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseBankService' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'CurrencyExchange' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getServiceSummary(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseBankService srv = new CurrencyExchange(\"TASH-01\", 12600.0);         System.out.println(srv.getServiceSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseBankService' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'CurrencyExchange', invoke super(...) constructor.",
+        "Implement 'getServiceSummary(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseBankService srv = new CurrencyExchange(\"TASH-01\", 12600.0);         System.out.println(srv.getServiceSummary());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseBankService с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «CurrencyExchange» вызовите конструктор super(...).",
+        "Реализуйте getServiceSummary(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseBankService srv = new CurrencyExchange(»TASH-01», 12600.0);         System.out.println(srv.getServiceSummary());'"
       ]
     }
   },
@@ -1547,11 +3095,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "43. Beeline — Abstrakt Obunada Avto-Uzaytirish (autoRenew)",
-      "en": "43. Beeline — Auto-Renewal State in Telecom Subscription"
+      "en": "43. Beeline — Auto-Renewal State in Telecom Subscription",
+      "ru": "43. Билайн — Автопродление подписки на услуги связи"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline 'BaseSubscription' abstrakt sinfi obunaning faollik holati va 'protected boolean autoRenew' bayrog'ini saqlaydi. 'toggleRenewal()' orqali uni boshqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseSubscription' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'MusicStreamSub' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'isAutoRenewEnabled(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseSubscription sub = new MusicStreamSub(\"Yandex Music\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \" avto-uzaytirish: \" + sub.isAutoRenewEnabled());'",
-      "en": "📖 Real-World Scenario & Context\nAbstract superclass tracks renewal state with concrete mutator methods.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseSubscription' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'MusicStreamSub', invoke super(...) constructor.\n4. Implement 'isAutoRenewEnabled(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseSubscription sub = new MusicStreamSub(\"Yandex Music\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \" avto-uzaytirish: \" + sub.isAutoRenewEnabled());'"
+      "en": "📖 Real-World Scenario & Context\nAbstract superclass tracks renewal state with concrete mutator methods.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseSubscription' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'MusicStreamSub', invoke super(...) constructor.\n4. Implement 'isAutoRenewEnabled(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseSubscription sub = new MusicStreamSub(\"Yandex Music\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \" avto-uzaytirish: \" + sub.isAutoRenewEnabled());'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактный суперкласс отслеживает состояние обновления с помощью конкретных методов-мутаторов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseSubscription с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В MusicStreamSub вызовите конструктор super(...).\n4. Реализуйте isAutoRenewEnabled(...)», используя защищенные члены.\n5. Проверяем выполнение в main: 'BaseSubscription sub = new MusicStreamSub(\"Яндекс Музыка\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \"авто-узайтириш: \" + sub.isAutoRenewEnabled());'"
     },
     "requirements": {
       "classes": [
@@ -1576,6 +3126,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseSubscription</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>MusicStreamSub</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseSubscription</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>MusicStreamSub</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "Beeline 'BaseSubscription' abstrakt sinfi obunaning faollik holati va 'protected boolean autoRenew' bayrog'ini saqlaydi. 'toggleRenewal()' orqali uni boshqaring.\n\n📋",
+      "en": "Abstract superclass tracks renewal state with concrete mutator methods.\n\n📋",
+      "ru": "Абстрактный суперкласс отслеживает состояние обновления с помощью конкретных методов-мутаторов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseSubscription' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'MusicStreamSub' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'isAutoRenewEnabled(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseSubscription sub = new MusicStreamSub(\"Yandex Music\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \" avto-uzaytirish: \" + sub.isAutoRenewEnabled());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseSubscription' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'MusicStreamSub', invoke super(...) constructor.",
+        "Implement 'isAutoRenewEnabled(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseSubscription sub = new MusicStreamSub(\"Yandex Music\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \" avto-uzaytirish: \" + sub.isAutoRenewEnabled());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseSubscription с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В MusicStreamSub вызовите конструктор super(...).",
+        "Реализуйте isAutoRenewEnabled(...)», используя защищенные члены.",
+        "Проверяем выполнение в main: 'BaseSubscription sub = new MusicStreamSub(\"Яндекс Музыка\");         sub.toggleRenewal();         System.out.println(sub.getServiceName() + \"авто-узайтириш: \" + sub.isAutoRenewEnabled());'"
       ]
     }
   },
@@ -1586,11 +3171,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "44. UzAirways — Abstrakt Qo'nish Talonida Chiqish Darvozasi (Gate)",
-      "en": "44. UzAirways — Boarding Pass Base Class Gate Formatting"
+      "en": "44. UzAirways — Boarding Pass Base Class Gate Formatting",
+      "ru": "44. UzAirways — Формат выхода на посадку базового класса для посадочного талона"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways 'BaseBoardingPass' abstrakt sinfida reys va darvoza (Gate) saqlanadi. 'EconomyPass' vorisida yo'lovchi o'rindig'i bilan birga to'liq talon ma'lumotini chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseBoardingPass' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'EconomyPass' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getPassDetails(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseBoardingPass pass = new EconomyPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'",
-      "en": "📖 Real-World Scenario & Context\nFormat flight boarding pass utilizing protected gate and flight variables in abstract base.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseBoardingPass' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'EconomyPass', invoke super(...) constructor.\n4. Implement 'getPassDetails(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseBoardingPass pass = new EconomyPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'"
+      "en": "📖 Real-World Scenario & Context\nFormat flight boarding pass utilizing protected gate and flight variables in abstract base.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseBoardingPass' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'EconomyPass', invoke super(...) constructor.\n4. Implement 'getPassDetails(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseBoardingPass pass = new EconomyPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'",
+      "ru": "📖 Контекст и описание задачи\nФорматирование посадочного талона на рейс с использованием защищенных выходов на посадку и переменных полета в абстрактной базе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseBoardingPass с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «EconomyPass» вызовите конструктор super(...).\n4. Реализуйте getPassDetails(...) с использованием защищенных членов.\n5. Проверьте выполнение в 'main': 'BaseBoardingPass pass = new EconomicPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'"
     },
     "requirements": {
       "classes": [
@@ -1615,6 +3202,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseBoardingPass</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>EconomyPass</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseBoardingPass</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>EconomyPass</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways 'BaseBoardingPass' abstrakt sinfida reys va darvoza (Gate) saqlanadi. 'EconomyPass' vorisida yo'lovchi o'rindig'i bilan birga to'liq talon ma'lumotini chiqaring.\n\n📋",
+      "en": "Format flight boarding pass utilizing protected gate and flight variables in abstract base.\n\n📋",
+      "ru": "Форматирование посадочного талона на рейс с использованием защищенных выходов на посадку и переменных полета в абстрактной базе."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseBoardingPass' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'EconomyPass' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getPassDetails(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseBoardingPass pass = new EconomyPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseBoardingPass' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'EconomyPass', invoke super(...) constructor.",
+        "Implement 'getPassDetails(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseBoardingPass pass = new EconomyPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseBoardingPass с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «EconomyPass» вызовите конструктор super(...).",
+        "Реализуйте getPassDetails(...) с использованием защищенных членов.",
+        "Проверьте выполнение в 'main': 'BaseBoardingPass pass = new EconomicPass(\"HY-051\", \"B-14\", \"21C\");         System.out.println(pass.getPassDetails());'"
       ]
     }
   },
@@ -1625,11 +3247,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "31-45: Abstract Class Constructors, State & Helpers",
     "title": {
       "uz": "45. WIUT SRS — Abstrakt Modulda ECTS Kreditlarini Hisoblash",
-      "en": "45. WIUT SRS — ECTS Credit Calculation in Base Module Entity"
+      "en": "45. WIUT SRS — ECTS Credit Calculation in Base Module Entity",
+      "ru": "45. WIUT SRS — Расчет кредитов ECTS в сущности базового модуля"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT da har bir modul 'BaseCourseModule' dan kelib chiqadi. Unda kreditlar (UK credits) saqlanadi va 'getEctsCredits()' metodi uni Yevropa ECTS ga (kredit / 2) o'giradi. 20 kreditlik modulni tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaseCourseModule' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.\n2. Abstrakt sinf konstruktorini taqdim eting.\n3. 'CoreModule' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.\n4. 'getEctsCredits(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.\n5. 'Main' metodida tekshiring: 'BaseCourseModule m = new CoreModule(\"Object-Oriented Programming\", 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'",
-      "en": "📖 Real-World Scenario & Context\nBaseCourseModule provides conversion from UK credits to European ECTS standard.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseCourseModule' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CoreModule', invoke super(...) constructor.\n4. Implement 'getEctsCredits(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseCourseModule m = new CoreModule(\"Object-Oriented Programming\", 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'"
+      "en": "📖 Real-World Scenario & Context\nBaseCourseModule provides conversion from UK credits to European ECTS standard.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare abstract class 'BaseCourseModule' with protected fields or helper methods.\n2. Provide superclass constructor.\n3. In 'CoreModule', invoke super(...) constructor.\n4. Implement 'getEctsCredits(...)' utilizing protected members.\n5. Verify execution in 'main': 'BaseCourseModule m = new CoreModule(\"Object-Oriented Programming\", 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'",
+      "ru": "📖 Контекст и описание задачи\nBaseCourseModule обеспечивает конвертацию британских кредитов в европейский стандарт ECTS.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите абстрактный класс BaseCourseModule с защищенными полями или вспомогательными методами.\n2. Предоставьте конструктор суперкласса.\n3. В «CoreModule» вызовите конструктор super(...).\n4. Реализуйте getEctsCredits(...) с использованием защищенных членов.\n5. Проверьте выполнение в «main»: «BaseCourseModule m = new CoreModule («Объектно-ориентированное программирование», 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'"
     },
     "requirements": {
       "classes": [
@@ -1654,6 +3278,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BaseCourseModule</code>: protected a'zolarga ega abstrakt sinf.",
         "<code>CoreModule</code>: super(...) bilan bog'langan voris sinf."
+      ],
+      "theoryRu": "Абстракт синфлар интерфейслардан фаркли восторгда объект холатини (состояние) саклай олади. Himoyalangan («защищенный») a'zolar tashqi kod uchun yopiq, lekin sinfoilasi (vorislar) uchun ochiq yordamchi funksiyalardir (masalan, Product dagi roundToTwoDecimals).",
+      "breakdownRu": [
+        "<code>BaseCourseModule</code>: protected a'zolarga ega abstrakt sinf.",
+        "<code>CoreModule</code>: super(...) bilan bog'langan voris sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT da har bir modul 'BaseCourseModule' dan kelib chiqadi. Unda kreditlar (UK credits) saqlanadi va 'getEctsCredits()' metodi uni Yevropa ECTS ga (kredit / 2) o'giradi. 20 kreditlik modulni tekshiring.\n\n📋",
+      "en": "BaseCourseModule provides conversion from UK credits to European ECTS standard.\n\n📋",
+      "ru": "BaseCourseModule обеспечивает конвертацию британских кредитов в европейский стандарт ECTS."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'BaseCourseModule' abstrakt sinfini yarating va 'protected' maydon yoki yordamchi metod bering.",
+        "Abstrakt sinf konstruktorini taqdim eting.",
+        "'CoreModule' voris sinfida 'super(...)' orqali ota konstruktorni chaqiring.",
+        "'getEctsCredits(...)' metodida himoyalangan a'zodan foydalanib hisob-kitob qiling.",
+        "'Main' metodida tekshiring: 'BaseCourseModule m = new CoreModule(\"Object-Oriented Programming\", 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare abstract class 'BaseCourseModule' with protected fields or helper methods.",
+        "Provide superclass constructor.",
+        "In 'CoreModule', invoke super(...) constructor.",
+        "Implement 'getEctsCredits(...)' utilizing protected members.",
+        "Verify execution in 'main': 'BaseCourseModule m = new CoreModule(\"Object-Oriented Programming\", 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'"
+      ],
+      "ru": [
+        "Объявите абстрактный класс BaseCourseModule с защищенными полями или вспомогательными методами.",
+        "Предоставьте конструктор суперкласса.",
+        "В «CoreModule» вызовите конструктор super(...).",
+        "Реализуйте getEctsCredits(...) с использованием защищенных членов.",
+        "Проверьте выполнение в «main»: «BaseCourseModule m = new CoreModule («Объектно-ориентированное программирование», 20);         System.out.println(m.getModuleName() + \" ECTS: \" + m.getEctsCredits());'"
       ]
     }
   },
@@ -1664,11 +3323,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "46. Uzum Market — Interfeys Maydonlarining public static final Xususiyati",
-      "en": "46. Uzum Market — Implicit Public Static Final Fields in Interfaces"
+      "en": "46. Uzum Market — Implicit Public Static Final Fields in Interfaces",
+      "ru": "46. Uzum Market — неявные публичные статические конечные поля в интерфейсах"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida (Slide 21): 'Fields in an interface are implicitly public, static, and final (constants). No instance fields: an interface holds no object state'. 'IChargeable' interfeysida 'MAX_BATTERY = 100' konstantasini e'lon qiling va 'PowerBank' sinfida quvvatlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IChargeable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'chargeToFull(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'PowerBank' sinfini 'implements IChargeable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IChargeable pb = new PowerBank();         pb.chargeToFull();         System.out.println(\"Maksimal quvvat: \" + IChargeable.MAX_BATTERY + \"% | Joriy: \" + pb.getCurrentBattery() + \"%\");'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate implicit public static final constant in interface matching Slide 21.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IChargeable' with public static final constant.\n2. Declare abstract method 'chargeToFull(...)'.\n3. Implement interface in 'PowerBank' using 'implements'.\n4. Access interface constant directly via 'IChargeable.CONSTANT'.\n5. Print verified result: 'IChargeable pb = new PowerBank();         pb.chargeToFull();         System.out.println(\"Maksimal quvvat: \" + IChargeable.MAX_BATTERY + \"% | Joriy: \" + pb.getCurrentBattery() + \"%\");'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate implicit public static final constant in interface matching Slide 21.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IChargeable' with public static final constant.\n2. Declare abstract method 'chargeToFull(...)'.\n3. Implement interface in 'PowerBank' using 'implements'.\n4. Access interface constant directly via 'IChargeable.CONSTANT'.\n5. Print verified result: 'IChargeable pb = new PowerBank();         pb.chargeToFull();         System.out.println(\"Maksimal quvvat: \" + IChargeable.MAX_BATTERY + \"% | Joriy: \" + pb.getCurrentBattery() + \"%\");'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте неявную общедоступную статическую конечную константу в интерфейсе, соответствующем слайду 21.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IChargeable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод chargeToFull(...)'.\n3. Реализуйте интерфейс в «PowerBank», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IChargeable.CONSTANT.\n5. Распечатайте проверенный результат: 'IChargeable pb = new PowerBank();         пб.chargeToFull();         System.out.println(\"Максимальное количество: \" + IChargeable.MAX_BATTERY + \"% | Джорий: \" + pb.getCurrentBattery() + \"%\");'"
     },
     "requirements": {
       "classes": [
@@ -1694,6 +3355,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IChargeable</code>: public static final konstantaga ega interfeys.",
         "<code>PowerBank</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IChargeable</code>: public static final konstantaga ega interfeys.",
+        "<code>PowerBank</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida (Slide 21): 'Fields in an interface are implicitly public, static, and final (constants). No instance fields: an interface holds no object state'. 'IChargeable' interfeysida 'MAX_BATTERY = 100' konstantasini e'lon qiling va 'PowerBank' sinfida quvvatlang.\n\n📋",
+      "en": "Demonstrate implicit public static final constant in interface matching Slide 21.\n\n📋",
+      "ru": "Продемонстрируйте неявную общедоступную статическую конечную константу в интерфейсе, соответствующем слайду 21."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IChargeable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'chargeToFull(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'PowerBank' sinfini 'implements IChargeable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IChargeable pb = new PowerBank();         pb.chargeToFull();         System.out.println(\"Maksimal quvvat: \" + IChargeable.MAX_BATTERY + \"% | Joriy: \" + pb.getCurrentBattery() + \"%\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IChargeable' with public static final constant.",
+        "Declare abstract method 'chargeToFull(...)'.",
+        "Implement interface in 'PowerBank' using 'implements'.",
+        "Access interface constant directly via 'IChargeable.CONSTANT'.",
+        "Print verified result: 'IChargeable pb = new PowerBank();         pb.chargeToFull();         System.out.println(\"Maksimal quvvat: \" + IChargeable.MAX_BATTERY + \"% | Joriy: \" + pb.getCurrentBattery() + \"%\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IChargeable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод chargeToFull(...)'.",
+        "Реализуйте интерфейс в «PowerBank», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IChargeable.CONSTANT.",
+        "Распечатайте проверенный результат: 'IChargeable pb = new PowerBank();         пб.chargeToFull();         System.out.println(\"Максимальное количество: \" + IChargeable.MAX_BATTERY + \"% | Джорий: \" + pb.getCurrentBattery() + \"%\");'"
       ]
     }
   },
@@ -1704,11 +3400,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "47. Payme — Interfeysda Kunlik To'lov Limiti Konstantasi",
-      "en": "47. Payme — Interface Constant for Daily Transaction Limit"
+      "en": "47. Payme — Interface Constant for Daily Transaction Limit",
+      "ru": "47. Payme — константа интерфейса для дневного лимита транзакций"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme 'ISecurePayment' interfeysida 'double DAILY_LIMIT = 5000000.0;' konstantasini belgilang. 'OnlinePayment' sinfida to'lov miqdori limitdan oshmasligini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ISecurePayment' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'validateAndPay(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'OnlinePayment' sinfini 'implements ISecurePayment' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'ISecurePayment p = new OnlinePayment();         boolean valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'",
-      "en": "📖 Real-World Scenario & Context\nImplement ISecurePayment interface with DAILY_LIMIT constant enforced in OnlinePayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISecurePayment' with public static final constant.\n2. Declare abstract method 'validateAndPay(...)'.\n3. Implement interface in 'OnlinePayment' using 'implements'.\n4. Access interface constant directly via 'ISecurePayment.CONSTANT'.\n5. Print verified result: 'ISecurePayment p = new OnlinePayment();         boolean valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'"
+      "en": "📖 Real-World Scenario & Context\nImplement ISecurePayment interface with DAILY_LIMIT constant enforced in OnlinePayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISecurePayment' with public static final constant.\n2. Declare abstract method 'validateAndPay(...)'.\n3. Implement interface in 'OnlinePayment' using 'implements'.\n4. Access interface constant directly via 'ISecurePayment.CONSTANT'.\n5. Print verified result: 'ISecurePayment p = new OnlinePayment();         boolean valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'",
+      "ru": "📖 Контекст и описание задачи\nРеализовать интерфейс ISecurePayment с константой DAILY_LIMIT, включенной в OnlinePayment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс «ISecurePayment» с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «validateAndPay(...)».\n3. Реализовать интерфейс в «Онлайн-оплате», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через «ISecurePayment.CONSTANT».\n5. Распечатайте проверенный результат: 'ISecurePayment p = new OnlinePayment();         логическое значение valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'"
     },
     "requirements": {
       "classes": [
@@ -1734,6 +3432,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ISecurePayment</code>: public static final konstantaga ega interfeys.",
         "<code>OnlinePayment</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>ISecurePayment</code>: public static final konstantaga ega interfeys.",
+        "<code>OnlinePayment</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Payme 'ISecurePayment' interfeysida 'double DAILY_LIMIT = 5000000.0;' konstantasini belgilang. 'OnlinePayment' sinfida to'lov miqdori limitdan oshmasligini tekshiring.\n\n📋",
+      "en": "Implement ISecurePayment interface with DAILY_LIMIT constant enforced in OnlinePayment.\n\n📋",
+      "ru": "Реализовать интерфейс ISecurePayment с константой DAILY_LIMIT, включенной в OnlinePayment."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ISecurePayment' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'validateAndPay(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'OnlinePayment' sinfini 'implements ISecurePayment' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'ISecurePayment p = new OnlinePayment();         boolean valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ISecurePayment' with public static final constant.",
+        "Declare abstract method 'validateAndPay(...)'.",
+        "Implement interface in 'OnlinePayment' using 'implements'.",
+        "Access interface constant directly via 'ISecurePayment.CONSTANT'.",
+        "Print verified result: 'ISecurePayment p = new OnlinePayment();         boolean valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'"
+      ],
+      "ru": [
+        "Объявите интерфейс «ISecurePayment» с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «validateAndPay(...)».",
+        "Реализовать интерфейс в «Онлайн-оплате», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через «ISecurePayment.CONSTANT».",
+        "Распечатайте проверенный результат: 'ISecurePayment p = new OnlinePayment();         логическое значение valid = p.validateAndPay(3500000.0);         System.out.println(\"Limit: \" + ISecurePayment.DAILY_LIMIT + \" | To'lov mumkinmi: \" + valid);'"
       ]
     }
   },
@@ -1744,11 +3477,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "48. Korzinka — Barkod Standarti Uzunligi Konstantasi (EAN-13)",
-      "en": "48. Korzinka — Barcode Standard Length Constant in Interface"
+      "en": "48. Korzinka — Barcode Standard Length Constant in Interface",
+      "ru": "48. Корзинка — Константа стандартной длины штрих-кода в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka skaneri 'IScannable' interfeysiga tayanadi. Unda 'int BARCODE_LENGTH = 13;' konstantasi mavjud. 'ProductBarcode' sinfida barkod to'g'ri uzunlikdaligini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IScannable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isValidBarcode(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'ProductBarcode' sinfini 'implements IScannable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Barkod to'g'rimi: \" + s.isValidBarcode());'",
-      "en": "📖 Real-World Scenario & Context\nDeclare BARCODE_LENGTH in IScannable interface and validate code string length.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IScannable' with public static final constant.\n2. Declare abstract method 'isValidBarcode(...)'.\n3. Implement interface in 'ProductBarcode' using 'implements'.\n4. Access interface constant directly via 'IScannable.CONSTANT'.\n5. Print verified result: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Barkod to'g'rimi: \" + s.isValidBarcode());'"
+      "en": "📖 Real-World Scenario & Context\nDeclare BARCODE_LENGTH in IScannable interface and validate code string length.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IScannable' with public static final constant.\n2. Declare abstract method 'isValidBarcode(...)'.\n3. Implement interface in 'ProductBarcode' using 'implements'.\n4. Access interface constant directly via 'IScannable.CONSTANT'.\n5. Print verified result: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Barkod to'g'rimi: \" + s.isValidBarcode());'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите BARCODE_LENGTH в интерфейсе IScannable и проверьте длину строки кода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IScannable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isValidBarcode(...)».\n3. Реализуйте интерфейс в «ProductBarcode», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IScannable.CONSTANT.\n5. Распечатайте проверенный результат: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Баркод to'g'rimi: \" + s.isValidBarcode());'"
     },
     "requirements": {
       "classes": [
@@ -1774,6 +3509,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IScannable</code>: public static final konstantaga ega interfeys.",
         "<code>ProductBarcode</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IScannable</code>: public static final konstantaga ega interfeys.",
+        "<code>ProductBarcode</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Korzinka skaneri 'IScannable' interfeysiga tayanadi. Unda 'int BARCODE_LENGTH = 13;' konstantasi mavjud. 'ProductBarcode' sinfida barkod to'g'ri uzunlikdaligini tekshiring.\n\n📋",
+      "en": "Declare BARCODE_LENGTH in IScannable interface and validate code string length.\n\n📋",
+      "ru": "Объявите BARCODE_LENGTH в интерфейсе IScannable и проверьте длину строки кода."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IScannable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isValidBarcode(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'ProductBarcode' sinfini 'implements IScannable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Barkod to'g'rimi: \" + s.isValidBarcode());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IScannable' with public static final constant.",
+        "Declare abstract method 'isValidBarcode(...)'.",
+        "Implement interface in 'ProductBarcode' using 'implements'.",
+        "Access interface constant directly via 'IScannable.CONSTANT'.",
+        "Print verified result: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Barkod to'g'rimi: \" + s.isValidBarcode());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IScannable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isValidBarcode(...)».",
+        "Реализуйте интерфейс в «ProductBarcode», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IScannable.CONSTANT.",
+        "Распечатайте проверенный результат: 'IScannable s = new ProductBarcode(\"4780012345678\");         System.out.println(\"Баркод to'g'rimi: \" + s.isValidBarcode());'"
       ]
     }
   },
@@ -1784,11 +3554,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "49. Yandex Go — GPS Protokoli Standarti Konstantasi",
-      "en": "49. Yandex Go — GPS Tracking Interface and Standard Coordinate System"
+      "en": "49. Yandex Go — GPS Tracking Interface and Standard Coordinate System",
+      "ru": "49. Yandex Go — интерфейс GPS-слежения и стандартная система координат."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go da mashinalar joylashuvini uzatuvchi 'IGpsTrackable' interfeysi 'String COORDINATE_SYSTEM = \"WGS-84\";' konstantasiga ega. 'TaxiTracker' sinfida koordinata chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IGpsTrackable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'getCoordinates(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'TaxiTracker' sinfini 'implements IGpsTrackable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'",
-      "en": "📖 Real-World Scenario & Context\nInterface defines COORDINATE_SYSTEM constant and getCoordinates() method contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IGpsTrackable' with public static final constant.\n2. Declare abstract method 'getCoordinates(...)'.\n3. Implement interface in 'TaxiTracker' using 'implements'.\n4. Access interface constant directly via 'IGpsTrackable.CONSTANT'.\n5. Print verified result: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'"
+      "en": "📖 Real-World Scenario & Context\nInterface defines COORDINATE_SYSTEM constant and getCoordinates() method contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IGpsTrackable' with public static final constant.\n2. Declare abstract method 'getCoordinates(...)'.\n3. Implement interface in 'TaxiTracker' using 'implements'.\n4. Access interface constant directly via 'IGpsTrackable.CONSTANT'.\n5. Print verified result: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс определяет константу COORDINATE_SYSTEM и контракт метода getCoordinates().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IGpsTrackable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод getCoordinates(...)'.\n3. Реализовать интерфейс в «TaxiTracker», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IGpsTrackable.CONSTANT.\n5. Распечатайте проверенный результат: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'"
     },
     "requirements": {
       "classes": [
@@ -1814,6 +3586,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IGpsTrackable</code>: public static final konstantaga ega interfeys.",
         "<code>TaxiTracker</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IGpsTrackable</code>: public static final konstantaga ega interfeys.",
+        "<code>TaxiTracker</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Yandex Go da mashinalar joylashuvini uzatuvchi 'IGpsTrackable' interfeysi 'String COORDINATE_SYSTEM = \"WGS-84\";' konstantasiga ega. 'TaxiTracker' sinfida koordinata chiqaring.\n\n📋",
+      "en": "Interface defines COORDINATE_SYSTEM constant and getCoordinates() method contract.\n\n📋",
+      "ru": "Интерфейс определяет константу COORDINATE_SYSTEM и контракт метода getCoordinates()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IGpsTrackable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'getCoordinates(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'TaxiTracker' sinfini 'implements IGpsTrackable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IGpsTrackable' with public static final constant.",
+        "Declare abstract method 'getCoordinates(...)'.",
+        "Implement interface in 'TaxiTracker' using 'implements'.",
+        "Access interface constant directly via 'IGpsTrackable.CONSTANT'.",
+        "Print verified result: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IGpsTrackable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод getCoordinates(...)'.",
+        "Реализовать интерфейс в «TaxiTracker», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IGpsTrackable.CONSTANT.",
+        "Распечатайте проверенный результат: 'IGpsTrackable t = new TaxiTracker(41.311, 69.240);         System.out.println(\"Standart: \" + IGpsTrackable.COORDINATE_SYSTEM + \" | Manzil: \" + t.getCoordinates());'"
       ]
     }
   },
@@ -1824,11 +3631,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "50. Click — Valyuta Kodu Konstantasi va Faktura Interfeysi",
-      "en": "50. Click — National Currency Constant in Invoice Interface"
+      "en": "50. Click — National Currency Constant in Invoice Interface",
+      "ru": "50. Нажмите — Константа национальной валюты в интерфейсе счета."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick hisob-fakturalari 'IInvoiceable' interfeysi orqali yaratiladi. 'String CURRENCY = \"UZS\";' konstantasi hamma uchun umumiy. 'UtilityBill' sinfida chek matnini shakllantiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IInvoiceable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'generateInvoiceText(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'UtilityBill' sinfini 'implements IInvoiceable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'",
-      "en": "📖 Real-World Scenario & Context\nModel IInvoiceable with CURRENCY constant implemented by UtilityBill.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IInvoiceable' with public static final constant.\n2. Declare abstract method 'generateInvoiceText(...)'.\n3. Implement interface in 'UtilityBill' using 'implements'.\n4. Access interface constant directly via 'IInvoiceable.CONSTANT'.\n5. Print verified result: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'"
+      "en": "📖 Real-World Scenario & Context\nModel IInvoiceable with CURRENCY constant implemented by UtilityBill.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IInvoiceable' with public static final constant.\n2. Declare abstract method 'generateInvoiceText(...)'.\n3. Implement interface in 'UtilityBill' using 'implements'.\n4. Access interface constant directly via 'IInvoiceable.CONSTANT'.\n5. Print verified result: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'",
+      "ru": "📖 Контекст и описание задачи\nМодель IInvoiceable с константой CURRENCY, реализованная UtilityBill.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IInvoiceable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «generateInvoiceText(...)».\n3. Реализуйте интерфейс в «UtilityBill», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IInvoiceable.CONSTANT.\n5. Распечатайте проверенный результат: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'"
     },
     "requirements": {
       "classes": [
@@ -1854,6 +3663,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IInvoiceable</code>: public static final konstantaga ega interfeys.",
         "<code>UtilityBill</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IInvoiceable</code>: public static final konstantaga ega interfeys.",
+        "<code>UtilityBill</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Click hisob-fakturalari 'IInvoiceable' interfeysi orqali yaratiladi. 'String CURRENCY = \"UZS\";' konstantasi hamma uchun umumiy. 'UtilityBill' sinfida chek matnini shakllantiring.\n\n📋",
+      "en": "Model IInvoiceable with CURRENCY constant implemented by UtilityBill.\n\n📋",
+      "ru": "Модель IInvoiceable с константой CURRENCY, реализованная UtilityBill."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IInvoiceable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'generateInvoiceText(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'UtilityBill' sinfini 'implements IInvoiceable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IInvoiceable' with public static final constant.",
+        "Declare abstract method 'generateInvoiceText(...)'.",
+        "Implement interface in 'UtilityBill' using 'implements'.",
+        "Access interface constant directly via 'IInvoiceable.CONSTANT'.",
+        "Print verified result: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IInvoiceable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «generateInvoiceText(...)».",
+        "Реализуйте интерфейс в «UtilityBill», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IInvoiceable.CONSTANT.",
+        "Распечатайте проверенный результат: 'IInvoiceable bill = new UtilityBill(\"Elektr\", 120000.0);         System.out.println(bill.generateInvoiceText());'"
       ]
     }
   },
@@ -1864,11 +3708,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "51. Safia — Yaroqlilik Soati Konstantasi va Sifat Nazorati",
-      "en": "51. Safia — Quality Control Expiration Threshold Constant"
+      "en": "51. Safia — Quality Control Expiration Threshold Constant",
+      "ru": "51. Сафия — Пороговая константа контроля качества."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia desertlari sifatini tekshiruvchi 'IQualityControlled' interfeysi 'int MAX_FRESH_HOURS = 48;' konstantasiga ega. 'Cheesecake' sinfida mahsulot yangiligini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IQualityControlled' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isFresh(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'Cheesecake' sinfini 'implements IQualityControlled' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Chizkeyk yangimi: \" + cake.isFresh() + \" (Maksimal: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement IQualityControlled interface validating elapsed hours against MAX_FRESH_HOURS.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IQualityControlled' with public static final constant.\n2. Declare abstract method 'isFresh(...)'.\n3. Implement interface in 'Cheesecake' using 'implements'.\n4. Access interface constant directly via 'IQualityControlled.CONSTANT'.\n5. Print verified result: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Chizkeyk yangimi: \" + cake.isFresh() + \" (Maksimal: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement IQualityControlled interface validating elapsed hours against MAX_FRESH_HOURS.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IQualityControlled' with public static final constant.\n2. Declare abstract method 'isFresh(...)'.\n3. Implement interface in 'Cheesecake' using 'implements'.\n4. Access interface constant directly via 'IQualityControlled.CONSTANT'.\n5. Print verified result: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Chizkeyk yangimi: \" + cake.isFresh() + \" (Maksimal: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте интерфейс IQualityControlled, проверяющий количество прошедших часов по MAX_FRESH_HOURS.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IQualityControlled с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isFresh(...)».\n3. Реализуйте интерфейс в «Чизкейке», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IQualityControlled.CONSTANT.\n5. Распечатайте проверенный результат: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Чизкейк янгими: \" + cake.isFresh() + \" (Максимал: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'"
     },
     "requirements": {
       "classes": [
@@ -1894,6 +3740,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IQualityControlled</code>: public static final konstantaga ega interfeys.",
         "<code>Cheesecake</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IQualityControlled</code>: public static final konstantaga ega interfeys.",
+        "<code>Cheesecake</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Safia desertlari sifatini tekshiruvchi 'IQualityControlled' interfeysi 'int MAX_FRESH_HOURS = 48;' konstantasiga ega. 'Cheesecake' sinfida mahsulot yangiligini tekshiring.\n\n📋",
+      "en": "Implement IQualityControlled interface validating elapsed hours against MAX_FRESH_HOURS.\n\n📋",
+      "ru": "Реализуйте интерфейс IQualityControlled, проверяющий количество прошедших часов по MAX_FRESH_HOURS."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IQualityControlled' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isFresh(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'Cheesecake' sinfini 'implements IQualityControlled' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Chizkeyk yangimi: \" + cake.isFresh() + \" (Maksimal: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IQualityControlled' with public static final constant.",
+        "Declare abstract method 'isFresh(...)'.",
+        "Implement interface in 'Cheesecake' using 'implements'.",
+        "Access interface constant directly via 'IQualityControlled.CONSTANT'.",
+        "Print verified result: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Chizkeyk yangimi: \" + cake.isFresh() + \" (Maksimal: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IQualityControlled с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isFresh(...)».",
+        "Реализуйте интерфейс в «Чизкейке», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IQualityControlled.CONSTANT.",
+        "Распечатайте проверенный результат: 'IQualityControlled cake = new Cheesecake(24);         System.out.println(\"Чизкейк янгими: \" + cake.isFresh() + \" (Максимал: \" + IQualityControlled.MAX_FRESH_HOURS + \" soat)\");'"
       ]
     }
   },
@@ -1904,11 +3785,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "52. Dodo Pizza — Termo-Sumka Harorat Konstantasi",
-      "en": "52. Dodo Pizza — Thermal Bag Optimal Temperature Constant"
+      "en": "52. Dodo Pizza — Thermal Bag Optimal Temperature Constant",
+      "ru": "52. Додо Пицца — термосумка с оптимальной постоянной температурой"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo pitsa issiqligini saqlash uchun 'IThermalProtected' interfeysida 'int MIN_DELIVERY_TEMP_C = 60;' konstantasini beradi. 'PizzaBox' sinfida yetkazish harorati to'g'riligini tasdiqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IThermalProtected' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isTemperatureValid(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'PizzaBox' sinfini 'implements IThermalProtected' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IThermalProtected box = new PizzaBox(68);         System.out.println(\"Harorat me'yordami: \" + box.isTemperatureValid());'",
-      "en": "📖 Real-World Scenario & Context\nDeclare temperature threshold constant in IThermalProtected and verify in PizzaBox.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IThermalProtected' with public static final constant.\n2. Declare abstract method 'isTemperatureValid(...)'.\n3. Implement interface in 'PizzaBox' using 'implements'.\n4. Access interface constant directly via 'IThermalProtected.CONSTANT'.\n5. Print verified result: 'IThermalProtected box = new PizzaBox(68);         System.out.println(\"Harorat me'yordami: \" + box.isTemperatureValid());'"
+      "en": "📖 Real-World Scenario & Context\nDeclare temperature threshold constant in IThermalProtected and verify in PizzaBox.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IThermalProtected' with public static final constant.\n2. Declare abstract method 'isTemperatureValid(...)'.\n3. Implement interface in 'PizzaBox' using 'implements'.\n4. Access interface constant directly via 'IThermalProtected.CONSTANT'.\n5. Print verified result: 'IThermalProtected box = new PizzaBox(68);         System.out.println(\"Harorat me'yordami: \" + box.isTemperatureValid());'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите пороговую константу температуры в IthermalProtected и проверьте в PizzaBox.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс «IThermalProtected» с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isTemperatureValid(...)».\n3. Реализуйте интерфейс в «PizzaBox», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IThermalProtected.CONSTANT.\n5. Распечатайте проверенный результат: 'ITermalProtected box = new PizzaBox(68);         System.out.println(\"Пожалуйста, дайте мне ёрдами: \" + box.isTemperatureValid());'"
     },
     "requirements": {
       "classes": [
@@ -1934,6 +3817,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IThermalProtected</code>: public static final konstantaga ega interfeys.",
         "<code>PizzaBox</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IThermalProtected</code>: public static final konstantaga ega interfeys.",
+        "<code>PizzaBox</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Dodo pitsa issiqligini saqlash uchun 'IThermalProtected' interfeysida 'int MIN_DELIVERY_TEMP_C = 60;' konstantasini beradi. 'PizzaBox' sinfida yetkazish harorati to'g'riligini tasdiqlang.\n\n📋",
+      "en": "Declare temperature threshold constant in IThermalProtected and verify in PizzaBox.\n\n📋",
+      "ru": "Объявите пороговую константу температуры в IthermalProtected и проверьте в PizzaBox."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IThermalProtected' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isTemperatureValid(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'PizzaBox' sinfini 'implements IThermalProtected' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IThermalProtected box = new PizzaBox(68);         System.out.println(\"Harorat me'yordami: \" + box.isTemperatureValid());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IThermalProtected' with public static final constant.",
+        "Declare abstract method 'isTemperatureValid(...)'.",
+        "Implement interface in 'PizzaBox' using 'implements'.",
+        "Access interface constant directly via 'IThermalProtected.CONSTANT'.",
+        "Print verified result: 'IThermalProtected box = new PizzaBox(68);         System.out.println(\"Harorat me'yordami: \" + box.isTemperatureValid());'"
+      ],
+      "ru": [
+        "Объявите интерфейс «IThermalProtected» с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isTemperatureValid(...)».",
+        "Реализуйте интерфейс в «PizzaBox», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IThermalProtected.CONSTANT.",
+        "Распечатайте проверенный результат: 'ITermalProtected box = new PizzaBox(68);         System.out.println(\"Пожалуйста, дайте мне ёрдами: \" + box.isTemperatureValid());'"
       ]
     }
   },
@@ -1944,11 +3862,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "53. Texnomart — Standart Kuchlanish Konstantasi (220V)",
-      "en": "53. Texnomart — Grid Voltage Constant in Electrical Interface"
+      "en": "53. Texnomart — Grid Voltage Constant in Electrical Interface",
+      "ru": "53. Texnomart — постоянная напряжения сети в электрическом интерфейсе."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart elektr jihozlari 'IElectricalDevice' interfeysida 'int STANDARD_VOLTAGE = 220;' konstantasini ishlatadi. 'ElectricKettle' sinfida moslikni tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IElectricalDevice' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isVoltageCompatible(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'ElectricKettle' sinfini 'implements IElectricalDevice' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IElectricalDevice kettle = new ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + kettle.isVoltageCompatible());'",
-      "en": "📖 Real-World Scenario & Context\nInterface provides STANDARD_VOLTAGE constant verified in ElectricKettle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IElectricalDevice' with public static final constant.\n2. Declare abstract method 'isVoltageCompatible(...)'.\n3. Implement interface in 'ElectricKettle' using 'implements'.\n4. Access interface constant directly via 'IElectricalDevice.CONSTANT'.\n5. Print verified result: 'IElectricalDevice kettle = new ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + kettle.isVoltageCompatible());'"
+      "en": "📖 Real-World Scenario & Context\nInterface provides STANDARD_VOLTAGE constant verified in ElectricKettle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IElectricalDevice' with public static final constant.\n2. Declare abstract method 'isVoltageCompatible(...)'.\n3. Implement interface in 'ElectricKettle' using 'implements'.\n4. Access interface constant directly via 'IElectricalDevice.CONSTANT'.\n5. Print verified result: 'IElectricalDevice kettle = new ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + kettle.isVoltageCompatible());'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс обеспечивает константу STANDARD_VOLTAGE, проверенную в ElectricKettle.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IElectricalDevice с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isVoltageCompatible(...)».\n3. Реализуйте интерфейс в «ElectricKettle», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IElectricalDevice.CONSTANT.\n5. Распечатайте проверенный результат: 'IElectricalDevice чайник = новый ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + teat.isVoltageCompatible());'"
     },
     "requirements": {
       "classes": [
@@ -1974,6 +3894,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IElectricalDevice</code>: public static final konstantaga ega interfeys.",
         "<code>ElectricKettle</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IElectricalDevice</code>: public static final konstantaga ega interfeys.",
+        "<code>ElectricKettle</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart elektr jihozlari 'IElectricalDevice' interfeysida 'int STANDARD_VOLTAGE = 220;' konstantasini ishlatadi. 'ElectricKettle' sinfida moslikni tekshiring.\n\n📋",
+      "en": "Interface provides STANDARD_VOLTAGE constant verified in ElectricKettle.\n\n📋",
+      "ru": "Интерфейс обеспечивает константу STANDARD_VOLTAGE, проверенную в ElectricKettle."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IElectricalDevice' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isVoltageCompatible(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'ElectricKettle' sinfini 'implements IElectricalDevice' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IElectricalDevice kettle = new ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + kettle.isVoltageCompatible());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IElectricalDevice' with public static final constant.",
+        "Declare abstract method 'isVoltageCompatible(...)'.",
+        "Implement interface in 'ElectricKettle' using 'implements'.",
+        "Access interface constant directly via 'IElectricalDevice.CONSTANT'.",
+        "Print verified result: 'IElectricalDevice kettle = new ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + kettle.isVoltageCompatible());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IElectricalDevice с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isVoltageCompatible(...)».",
+        "Реализуйте интерфейс в «ElectricKettle», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IElectricalDevice.CONSTANT.",
+        "Распечатайте проверенный результат: 'IElectricalDevice чайник = новый ElectricKettle(220);         System.out.println(\"Kuchlanish mos: \" + teat.isVoltageCompatible());'"
       ]
     }
   },
@@ -1984,11 +3939,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "54. Medion — Autoklav Sterilizatsiya Harorat Konstantasi",
-      "en": "54. Medion — Sterilization Threshold Constant in Clinic Interface"
+      "en": "54. Medion — Sterilization Threshold Constant in Clinic Interface",
+      "ru": "54. Medion — константа порога стерилизации в интерфейсе клиники."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion stomatologik asboblari 'ISterilizable' interfeysida 'int STERILE_TEMP_C = 134;' konstantasiga tayanadi. 'DentalTool' sinfida sterilizatsiya haroratini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ISterilizable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isSterilized(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'DentalTool' sinfini 'implements ISterilizable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'ISterilizable tool = new DentalTool(135);         System.out.println(\"Asbob steril: \" + tool.isSterilized());'",
-      "en": "📖 Real-World Scenario & Context\nModel ISterilizable with STERILE_TEMP_C constant overridden by DentalTool.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISterilizable' with public static final constant.\n2. Declare abstract method 'isSterilized(...)'.\n3. Implement interface in 'DentalTool' using 'implements'.\n4. Access interface constant directly via 'ISterilizable.CONSTANT'.\n5. Print verified result: 'ISterilizable tool = new DentalTool(135);         System.out.println(\"Asbob steril: \" + tool.isSterilized());'"
+      "en": "📖 Real-World Scenario & Context\nModel ISterilizable with STERILE_TEMP_C constant overridden by DentalTool.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISterilizable' with public static final constant.\n2. Declare abstract method 'isSterilized(...)'.\n3. Implement interface in 'DentalTool' using 'implements'.\n4. Access interface constant directly via 'ISterilizable.CONSTANT'.\n5. Print verified result: 'ISterilizable tool = new DentalTool(135);         System.out.println(\"Asbob steril: \" + tool.isSterilized());'",
+      "ru": "📖 Контекст и описание задачи\nМодель ISстерилизуема с константой STERILE_TEMP_C, переопределенной DentalTool.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ISterilizable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isSterilized(...)».\n3. Реализуйте интерфейс в «DentalTool», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через ISterilizable.CONSTANT.\n5. Распечатайте проверенный результат: 'ISterilizable инструмент = новый DentalTool(135);         System.out.println(\"Стерильный Асбоб: \" +tool.isSterilized());'"
     },
     "requirements": {
       "classes": [
@@ -2014,6 +3971,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ISterilizable</code>: public static final konstantaga ega interfeys.",
         "<code>DentalTool</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>ISterilizable</code>: public static final konstantaga ega interfeys.",
+        "<code>DentalTool</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Medion stomatologik asboblari 'ISterilizable' interfeysida 'int STERILE_TEMP_C = 134;' konstantasiga tayanadi. 'DentalTool' sinfida sterilizatsiya haroratini tekshiring.\n\n📋",
+      "en": "Model ISterilizable with STERILE_TEMP_C constant overridden by DentalTool.\n\n📋",
+      "ru": "Модель ISстерилизуема с константой STERILE_TEMP_C, переопределенной DentalTool."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ISterilizable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isSterilized(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'DentalTool' sinfini 'implements ISterilizable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'ISterilizable tool = new DentalTool(135);         System.out.println(\"Asbob steril: \" + tool.isSterilized());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ISterilizable' with public static final constant.",
+        "Declare abstract method 'isSterilized(...)'.",
+        "Implement interface in 'DentalTool' using 'implements'.",
+        "Access interface constant directly via 'ISterilizable.CONSTANT'.",
+        "Print verified result: 'ISterilizable tool = new DentalTool(135);         System.out.println(\"Asbob steril: \" + tool.isSterilized());'"
+      ],
+      "ru": [
+        "Объявите интерфейс ISterilizable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isSterilized(...)».",
+        "Реализуйте интерфейс в «DentalTool», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через ISterilizable.CONSTANT.",
+        "Распечатайте проверенный результат: 'ISterilizable инструмент = новый DentalTool(135);         System.out.println(\"Стерильный Асбоб: \" +tool.isSterilized());'"
       ]
     }
   },
@@ -2024,11 +4016,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "55. Express24 — Shahar Tezlik Cheklovi Konstantasi",
-      "en": "55. Express24 — City Speed Limit Constant in Delivery Interface"
+      "en": "55. Express24 — City Speed Limit Constant in Delivery Interface",
+      "ru": "55. Express24 — константа ограничения скорости в городе в интерфейсе доставки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 kuryerlari xavfsizligi uchun 'ISpeedRegulated' interfeysida 'int MAX_CITY_SPEED_KMH = 60;' belgilanadi. 'ScooterCourier' sinfida tezlik oshmaganini tasdiqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ISpeedRegulated' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isSpeedSafe(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'ScooterCourier' sinfini 'implements ISpeedRegulated' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'",
-      "en": "📖 Real-World Scenario & Context\nInterface specifies MAX_CITY_SPEED_KMH constant evaluated in ScooterCourier.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISpeedRegulated' with public static final constant.\n2. Declare abstract method 'isSpeedSafe(...)'.\n3. Implement interface in 'ScooterCourier' using 'implements'.\n4. Access interface constant directly via 'ISpeedRegulated.CONSTANT'.\n5. Print verified result: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'"
+      "en": "📖 Real-World Scenario & Context\nInterface specifies MAX_CITY_SPEED_KMH constant evaluated in ScooterCourier.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISpeedRegulated' with public static final constant.\n2. Declare abstract method 'isSpeedSafe(...)'.\n3. Implement interface in 'ScooterCourier' using 'implements'.\n4. Access interface constant directly via 'ISpeedRegulated.CONSTANT'.\n5. Print verified result: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс определяет константу MAX_CITY_SPEED_KMH, оцененную в ScooterCourier.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ISpeedRegulated с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isSpeedSafe(...)».\n3. Реализуйте интерфейс в ScooterCourier, используя «инструменты».\n4. Доступ к константе интерфейса напрямую через ISpeedRegulated.CONSTANT.\n5. Распечатайте проверенный результат: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'"
     },
     "requirements": {
       "classes": [
@@ -2054,6 +4048,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ISpeedRegulated</code>: public static final konstantaga ega interfeys.",
         "<code>ScooterCourier</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>ISpeedRegulated</code>: public static final konstantaga ega interfeys.",
+        "<code>ScooterCourier</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Express24 kuryerlari xavfsizligi uchun 'ISpeedRegulated' interfeysida 'int MAX_CITY_SPEED_KMH = 60;' belgilanadi. 'ScooterCourier' sinfida tezlik oshmaganini tasdiqlang.\n\n📋",
+      "en": "Interface specifies MAX_CITY_SPEED_KMH constant evaluated in ScooterCourier.\n\n📋",
+      "ru": "Интерфейс определяет константу MAX_CITY_SPEED_KMH, оцененную в ScooterCourier."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ISpeedRegulated' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isSpeedSafe(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'ScooterCourier' sinfini 'implements ISpeedRegulated' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ISpeedRegulated' with public static final constant.",
+        "Declare abstract method 'isSpeedSafe(...)'.",
+        "Implement interface in 'ScooterCourier' using 'implements'.",
+        "Access interface constant directly via 'ISpeedRegulated.CONSTANT'.",
+        "Print verified result: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'"
+      ],
+      "ru": [
+        "Объявите интерфейс ISpeedRegulated с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isSpeedSafe(...)».",
+        "Реализуйте интерфейс в ScooterCourier, используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через ISpeedRegulated.CONSTANT.",
+        "Распечатайте проверенный результат: 'ISpeedRegulated sc = new ScooterCourier(45.0);         System.out.println(\"Tezlik xavfsizmi: \" + sc.isSpeedSafe());'"
       ]
     }
   },
@@ -2064,11 +4093,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "56. Asaxiy — Maksimal Yuklab Olish Oqimlari Konstantasi",
-      "en": "56. Asaxiy — Download Stream Concurrency Constant in Interface"
+      "en": "56. Asaxiy — Download Stream Concurrency Constant in Interface",
+      "ru": "56. Asaxyy — загрузка константы параллелизма потока в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy elektron kitob yuklab olish moduli 'IDownloadable' interfeysida 'int MAX_THREADS = 4;' konstantasini beradi. 'EBookDownloader' sinfida oqimlar sonini cheklang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IDownloadable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isThreadCountAllowed(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'EBookDownloader' sinfini 'implements IDownloadable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'",
-      "en": "📖 Real-World Scenario & Context\nDeclare MAX_THREADS constant in IDownloadable and verify allowed thread allocation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IDownloadable' with public static final constant.\n2. Declare abstract method 'isThreadCountAllowed(...)'.\n3. Implement interface in 'EBookDownloader' using 'implements'.\n4. Access interface constant directly via 'IDownloadable.CONSTANT'.\n5. Print verified result: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'"
+      "en": "📖 Real-World Scenario & Context\nDeclare MAX_THREADS constant in IDownloadable and verify allowed thread allocation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IDownloadable' with public static final constant.\n2. Declare abstract method 'isThreadCountAllowed(...)'.\n3. Implement interface in 'EBookDownloader' using 'implements'.\n4. Access interface constant directly via 'IDownloadable.CONSTANT'.\n5. Print verified result: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите константу MAX_THREADS в IDownloadable и проверьте разрешенное распределение потоков.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IDownloadable с общедоступной статической конечной константой.\n2. Объявите абстрактный метод isThreadCountAllowed(...)'.\n3. Реализуйте интерфейс в «EBookDownloader», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IDownloadable.CONSTANT.\n5. Распечатайте проверенный результат: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'"
     },
     "requirements": {
       "classes": [
@@ -2094,6 +4125,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IDownloadable</code>: public static final konstantaga ega interfeys.",
         "<code>EBookDownloader</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IDownloadable</code>: public static final konstantaga ega interfeys.",
+        "<code>EBookDownloader</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy elektron kitob yuklab olish moduli 'IDownloadable' interfeysida 'int MAX_THREADS = 4;' konstantasini beradi. 'EBookDownloader' sinfida oqimlar sonini cheklang.\n\n📋",
+      "en": "Declare MAX_THREADS constant in IDownloadable and verify allowed thread allocation.\n\n📋",
+      "ru": "Объявите константу MAX_THREADS в IDownloadable и проверьте разрешенное распределение потоков."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IDownloadable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isThreadCountAllowed(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'EBookDownloader' sinfini 'implements IDownloadable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IDownloadable' with public static final constant.",
+        "Declare abstract method 'isThreadCountAllowed(...)'.",
+        "Implement interface in 'EBookDownloader' using 'implements'.",
+        "Access interface constant directly via 'IDownloadable.CONSTANT'.",
+        "Print verified result: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IDownloadable с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод isThreadCountAllowed(...)'.",
+        "Реализуйте интерфейс в «EBookDownloader», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IDownloadable.CONSTANT.",
+        "Распечатайте проверенный результат: 'IDownloadable dl = new EBookDownloader(3);         System.out.println(\"Oqimlar soni to'g'rimi: \" + dl.isThreadCountAllowed());'"
       ]
     }
   },
@@ -2104,11 +4170,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "57. Kapitalbank — Regulyator Tizim Nomi Konstantasi",
-      "en": "57. Kapitalbank — Central Bank Regulatory Constant in Interface"
+      "en": "57. Kapitalbank — Central Bank Regulatory Constant in Interface",
+      "ru": "57. Капиталбанк — константа регулирования центрального банка в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank audit interfeysi 'IAuditable' da 'String REGULATOR = \"CentralBank_UZ\";' konstantasi o'rnatilgan. 'BankAuditLog' sinfida audit satrini hosil qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IAuditable' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'getAuditStamp(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'BankAuditLog' sinfini 'implements IAuditable' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IAuditable audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'",
-      "en": "📖 Real-World Scenario & Context\nModel IAuditable with REGULATOR constant formatting official audit trail.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IAuditable' with public static final constant.\n2. Declare abstract method 'getAuditStamp(...)'.\n3. Implement interface in 'BankAuditLog' using 'implements'.\n4. Access interface constant directly via 'IAuditable.CONSTANT'.\n5. Print verified result: 'IAuditable audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'"
+      "en": "📖 Real-World Scenario & Context\nModel IAuditable with REGULATOR constant formatting official audit trail.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IAuditable' with public static final constant.\n2. Declare abstract method 'getAuditStamp(...)'.\n3. Implement interface in 'BankAuditLog' using 'implements'.\n4. Access interface constant directly via 'IAuditable.CONSTANT'.\n5. Print verified result: 'IAuditable audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'",
+      "ru": "📖 Контекст и описание задачи\nМодель IAuditable с постоянным форматированием официального контрольного журнала REGULATOR.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс «IAuditable» с общедоступной статической конечной константой.\n2. Объявите абстрактный метод getAuditStamp(...)'.\n3. Внедрите интерфейс в «BankAuditLog», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через «IAuditable.CONSTANT».\n5. Распечатайте проверенный результат: 'IAuditable Audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'"
     },
     "requirements": {
       "classes": [
@@ -2134,6 +4202,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IAuditable</code>: public static final konstantaga ega interfeys.",
         "<code>BankAuditLog</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IAuditable</code>: public static final konstantaga ega interfeys.",
+        "<code>BankAuditLog</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank audit interfeysi 'IAuditable' da 'String REGULATOR = \"CentralBank_UZ\";' konstantasi o'rnatilgan. 'BankAuditLog' sinfida audit satrini hosil qiling.\n\n📋",
+      "en": "Model IAuditable with REGULATOR constant formatting official audit trail.\n\n📋",
+      "ru": "Модель IAuditable с постоянным форматированием официального контрольного журнала REGULATOR."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IAuditable' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'getAuditStamp(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'BankAuditLog' sinfini 'implements IAuditable' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IAuditable audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IAuditable' with public static final constant.",
+        "Declare abstract method 'getAuditStamp(...)'.",
+        "Implement interface in 'BankAuditLog' using 'implements'.",
+        "Access interface constant directly via 'IAuditable.CONSTANT'.",
+        "Print verified result: 'IAuditable audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'"
+      ],
+      "ru": [
+        "Объявите интерфейс «IAuditable» с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод getAuditStamp(...)'.",
+        "Внедрите интерфейс в «BankAuditLog», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через «IAuditable.CONSTANT».",
+        "Распечатайте проверенный результат: 'IAuditable Audit = new BankAuditLog(\"TX-7788\");         System.out.println(audit.getAuditStamp());'"
       ]
     }
   },
@@ -2144,11 +4247,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "58. Beeline — PIN-kod Maksimal Urinishlar Soni Konstantasi",
-      "en": "58. Beeline — PIN Verification Maximum Attempts Constant"
+      "en": "58. Beeline — PIN Verification Maximum Attempts Constant",
+      "ru": "58. Билайн — Максимальное количество попыток проверки PIN-кода постоянное"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline SIM-karta xavfsizligi 'ISimSecurity' interfeysida 'int MAX_PIN_ATTEMPTS = 3;' konstantasiga ega. 'SimCardLock' sinfida urinishlar sonini nazorat qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ISimSecurity' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'canAttemptPin(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'SimCardLock' sinfini 'implements ISimSecurity' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN terish mumkin: \" + sim.canAttemptPin());'",
-      "en": "📖 Real-World Scenario & Context\nISimSecurity interface specifies MAX_PIN_ATTEMPTS constant handled by SimCardLock.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISimSecurity' with public static final constant.\n2. Declare abstract method 'canAttemptPin(...)'.\n3. Implement interface in 'SimCardLock' using 'implements'.\n4. Access interface constant directly via 'ISimSecurity.CONSTANT'.\n5. Print verified result: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN terish mumkin: \" + sim.canAttemptPin());'"
+      "en": "📖 Real-World Scenario & Context\nISimSecurity interface specifies MAX_PIN_ATTEMPTS constant handled by SimCardLock.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISimSecurity' with public static final constant.\n2. Declare abstract method 'canAttemptPin(...)'.\n3. Implement interface in 'SimCardLock' using 'implements'.\n4. Access interface constant directly via 'ISimSecurity.CONSTANT'.\n5. Print verified result: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN terish mumkin: \" + sim.canAttemptPin());'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс ISimSecurity определяет константу MAX_PIN_ATTEMPTS, обрабатываемую SimCardLock.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ISimSecurity с общедоступной статической конечной константой.\n2. Объявите абстрактный метод canAttemptPin(...)'.\n3. Реализуйте интерфейс в «SimCardLock», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через ISimSecurity.CONSTANT.\n5. Распечатайте проверенный результат: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN-териш мамкин: \" + sim.canAttemptPin());'"
     },
     "requirements": {
       "classes": [
@@ -2174,6 +4279,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ISimSecurity</code>: public static final konstantaga ega interfeys.",
         "<code>SimCardLock</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>ISimSecurity</code>: public static final konstantaga ega interfeys.",
+        "<code>SimCardLock</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "Beeline SIM-karta xavfsizligi 'ISimSecurity' interfeysida 'int MAX_PIN_ATTEMPTS = 3;' konstantasiga ega. 'SimCardLock' sinfida urinishlar sonini nazorat qiling.\n\n📋",
+      "en": "ISimSecurity interface specifies MAX_PIN_ATTEMPTS constant handled by SimCardLock.\n\n📋",
+      "ru": "Интерфейс ISimSecurity определяет константу MAX_PIN_ATTEMPTS, обрабатываемую SimCardLock."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ISimSecurity' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'canAttemptPin(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'SimCardLock' sinfini 'implements ISimSecurity' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN terish mumkin: \" + sim.canAttemptPin());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ISimSecurity' with public static final constant.",
+        "Declare abstract method 'canAttemptPin(...)'.",
+        "Implement interface in 'SimCardLock' using 'implements'.",
+        "Access interface constant directly via 'ISimSecurity.CONSTANT'.",
+        "Print verified result: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN terish mumkin: \" + sim.canAttemptPin());'"
+      ],
+      "ru": [
+        "Объявите интерфейс ISimSecurity с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод canAttemptPin(...)'.",
+        "Реализуйте интерфейс в «SimCardLock», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через ISimSecurity.CONSTANT.",
+        "Распечатайте проверенный результат: 'ISimSecurity sim = new SimCardLock(2);         System.out.println(\"PIN-териш мамкин: \" + sim.canAttemptPin());'"
       ]
     }
   },
@@ -2184,11 +4324,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "59. UzAirways — Minimal Bort Kuzatuvchilari Konstantasi",
-      "en": "59. UzAirways — Minimum Cabin Crew Constant in Flight Safety"
+      "en": "59. UzAirways — Minimum Cabin Crew Constant in Flight Safety",
+      "ru": "59. UzAirways — Минимальная постоянная бортпроводников в обеспечении безопасности полетов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways parvoz xavfsizligi 'IFlightReady' interfeysida 'int MIN_CREW_COUNT = 4;' konstantasini talab qiladi. 'PreFlightInspection' sinfida reys uchishga tayyorligini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IFlightReady' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isFlightApproved(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'PreFlightInspection' sinfini 'implements IFlightReady' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'",
-      "en": "📖 Real-World Scenario & Context\nDeclare MIN_CREW_COUNT constant in IFlightReady verified in PreFlightInspection.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IFlightReady' with public static final constant.\n2. Declare abstract method 'isFlightApproved(...)'.\n3. Implement interface in 'PreFlightInspection' using 'implements'.\n4. Access interface constant directly via 'IFlightReady.CONSTANT'.\n5. Print verified result: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'"
+      "en": "📖 Real-World Scenario & Context\nDeclare MIN_CREW_COUNT constant in IFlightReady verified in PreFlightInspection.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IFlightReady' with public static final constant.\n2. Declare abstract method 'isFlightApproved(...)'.\n3. Implement interface in 'PreFlightInspection' using 'implements'.\n4. Access interface constant directly via 'IFlightReady.CONSTANT'.\n5. Print verified result: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите константу MIN_CREW_COUNT в IFlightReady, проверенную в PreFlightInspection.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IFlightReady с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isFlightApproved(...)».\n3. Реализуйте интерфейс в PreFlightInspection, используя «инструменты».\n4. Доступ к константе интерфейса напрямую через IFlightReady.CONSTANT.\n5. Распечатайте проверенный результат: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'"
     },
     "requirements": {
       "classes": [
@@ -2214,6 +4356,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IFlightReady</code>: public static final konstantaga ega interfeys.",
         "<code>PreFlightInspection</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IFlightReady</code>: public static final konstantaga ega interfeys.",
+        "<code>PreFlightInspection</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways parvoz xavfsizligi 'IFlightReady' interfeysida 'int MIN_CREW_COUNT = 4;' konstantasini talab qiladi. 'PreFlightInspection' sinfida reys uchishga tayyorligini tekshiring.\n\n📋",
+      "en": "Declare MIN_CREW_COUNT constant in IFlightReady verified in PreFlightInspection.\n\n📋",
+      "ru": "Объявите константу MIN_CREW_COUNT в IFlightReady, проверенную в PreFlightInspection."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IFlightReady' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isFlightApproved(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'PreFlightInspection' sinfini 'implements IFlightReady' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IFlightReady' with public static final constant.",
+        "Declare abstract method 'isFlightApproved(...)'.",
+        "Implement interface in 'PreFlightInspection' using 'implements'.",
+        "Access interface constant directly via 'IFlightReady.CONSTANT'.",
+        "Print verified result: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'"
+      ],
+      "ru": [
+        "Объявите интерфейс IFlightReady с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isFlightApproved(...)».",
+        "Реализуйте интерфейс в PreFlightInspection, используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через IFlightReady.CONSTANT.",
+        "Распечатайте проверенный результат: 'IFlightReady f = new PreFlightInspection(5);         System.out.println(\"Parvozga ruxsat: \" + f.isFlightApproved());'"
       ]
     }
   },
@@ -2224,11 +4401,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "46-60: Interface Basics & Constants",
     "title": {
       "uz": "60. WIUT SRS — Moduldan O'tish Balli Konstantasi (40%)",
-      "en": "60. WIUT SRS — Passing Grade Threshold Constant in Module Interface"
+      "en": "60. WIUT SRS — Passing Grade Threshold Constant in Module Interface",
+      "ru": "60. WIUT SRS — Пороговая константа проходного балла в интерфейсе модуля"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT o'quv dasturi 'IAcademicGrading' interfeysida 'int PASS_THRESHOLD = 40;' konstantasini belgilaydi. 'ModuleResult' sinfida talabaning yiqilmaganini aniqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IAcademicGrading' interfeysini e'lon qiling va unga konstanta maydonini bering.\n2. Interfeys ichida 'isModulePassed(...)' abstrakt metod shartnomasini taqdim eting.\n3. 'ModuleResult' sinfini 'implements IAcademicGrading' orqali realizatsiya qiling.\n4. Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.\n5. Natijani chop eting: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"O'tish chegarasi: \" + IAcademicGrading.PASS_THRESHOLD + \" | Natija: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'",
-      "en": "📖 Real-World Scenario & Context\nIAcademicGrading interface defines PASS_THRESHOLD constant evaluated in ModuleResult.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IAcademicGrading' with public static final constant.\n2. Declare abstract method 'isModulePassed(...)'.\n3. Implement interface in 'ModuleResult' using 'implements'.\n4. Access interface constant directly via 'IAcademicGrading.CONSTANT'.\n5. Print verified result: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"O'tish chegarasi: \" + IAcademicGrading.PASS_THRESHOLD + \" | Natija: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'"
+      "en": "📖 Real-World Scenario & Context\nIAcademicGrading interface defines PASS_THRESHOLD constant evaluated in ModuleResult.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IAcademicGrading' with public static final constant.\n2. Declare abstract method 'isModulePassed(...)'.\n3. Implement interface in 'ModuleResult' using 'implements'.\n4. Access interface constant directly via 'IAcademicGrading.CONSTANT'.\n5. Print verified result: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"O'tish chegarasi: \" + IAcademicGrading.PASS_THRESHOLD + \" | Natija: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс IAcademicGrading определяет константу PASS_THRESHOLD, оцениваемую в ModuleResult.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс «IAcademicGrading» с общедоступной статической конечной константой.\n2. Объявите абстрактный метод «isModulePassed(...)».\n3. Реализуйте интерфейс в «ModuleResult», используя «инструменты».\n4. Доступ к константе интерфейса напрямую через «IAcademicGrading.CONSTANT».\n5. Распечатайте проверенный результат: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"Отменить проверку: \" + IAcademicGrading.PASS_THRESHOLD + \" | Натиджа: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'"
     },
     "requirements": {
       "classes": [
@@ -2254,6 +4433,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IAcademicGrading</code>: public static final konstantaga ega interfeys.",
         "<code>ModuleResult</code>: interfeysni realizatsiya qilgan sinf."
+      ],
+      "theoryRu": "ВИУТ 6-лексиясига (Слайд 21) Кора: Интерфейсдаги barcha maydonlar avtomatik tarzda 'public static Final' konstantalar hisoblanadi. Ularni e'lon qilingan joyda qiymat bilan to'ldirish shart. Интерфейслар объект холатини (государственный) сакламайди.",
+      "breakdownRu": [
+        "<code>IAcademicGrading</code>: public static final konstantaga ega interfeys.",
+        "<code>ModuleResult</code>: interfeysni realizatsiya qilgan sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT o'quv dasturi 'IAcademicGrading' interfeysida 'int PASS_THRESHOLD = 40;' konstantasini belgilaydi. 'ModuleResult' sinfida talabaning yiqilmaganini aniqlang.\n\n📋",
+      "en": "IAcademicGrading interface defines PASS_THRESHOLD constant evaluated in ModuleResult.\n\n📋",
+      "ru": "Интерфейс IAcademicGrading определяет константу PASS_THRESHOLD, оцениваемую в ModuleResult."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IAcademicGrading' interfeysini e'lon qiling va unga konstanta maydonini bering.",
+        "Interfeys ichida 'isModulePassed(...)' abstrakt metod shartnomasini taqdim eting.",
+        "'ModuleResult' sinfini 'implements IAcademicGrading' orqali realizatsiya qiling.",
+        "Interfeys konstantasidan sinf metodlarida yoki 'Main' da foydalaning.",
+        "Natijani chop eting: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"O'tish chegarasi: \" + IAcademicGrading.PASS_THRESHOLD + \" | Natija: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IAcademicGrading' with public static final constant.",
+        "Declare abstract method 'isModulePassed(...)'.",
+        "Implement interface in 'ModuleResult' using 'implements'.",
+        "Access interface constant directly via 'IAcademicGrading.CONSTANT'.",
+        "Print verified result: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"O'tish chegarasi: \" + IAcademicGrading.PASS_THRESHOLD + \" | Natija: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'"
+      ],
+      "ru": [
+        "Объявите интерфейс «IAcademicGrading» с общедоступной статической конечной константой.",
+        "Объявите абстрактный метод «isModulePassed(...)».",
+        "Реализуйте интерфейс в «ModuleResult», используя «инструменты».",
+        "Доступ к константе интерфейса напрямую через «IAcademicGrading.CONSTANT».",
+        "Распечатайте проверенный результат: 'IAcademicGrading res = new ModuleResult(65);         System.out.println(\"Отменить проверку: \" + IAcademicGrading.PASS_THRESHOLD + \" | Натиджа: \" + (res.isModulePassed() ? \"O'tdi\" : \"Yiqildi\"));'"
       ]
     }
   },
@@ -2264,11 +4478,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "61. Uzum Market — Interfeysda default Metodi va Standart Bildirishnoma",
-      "en": "61. Uzum Market — Default Methods in Interfaces for Backward Compatibility"
+      "en": "61. Uzum Market — Default Methods in Interfaces for Backward Compatibility",
+      "ru": "61. Uzum Market — методы по умолчанию в интерфейсах для обратной совместимости."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida (Slide 20): 'Since Java 8, interfaces can contain default methods with a body, introduced for backward compatibility'. 'INotifiable' interfeysida 'default String getAlertHeader()' metodini bering va 'OrderAlert' da undan foydalaning.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'INotifiable' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'OrderAlert' sinfini 'implements INotifiable' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'INotifiable alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate default method in interface providing reusable fallback implementation without breaking subclasses.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'INotifiable' containing default or static methods.\n2. Implement interface in 'OrderAlert'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'INotifiable alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate default method in interface providing reusable fallback implementation without breaking subclasses.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'INotifiable' containing default or static methods.\n2. Implement interface in 'OrderAlert'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'INotifiable alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте метод по умолчанию в интерфейсе, обеспечивающий возможность повторного использования резервной реализации без нарушения подклассов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс INotifying, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в OrderAlert.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'INotifying alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'"
     },
     "requirements": {
       "classes": [
@@ -2291,6 +4507,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>INotifiable</code>: default yoki static a'zoli interfeys.",
         "<code>OrderAlert</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>INotifiable</code>: default yoki static a'zoli interfeys.",
+        "<code>OrderAlert</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida (Slide 20): 'Since Java 8, interfaces can contain default methods with a body, introduced for backward compatibility'. 'INotifiable' interfeysida 'default String getAlertHeader()' metodini bering va 'OrderAlert' da undan foydalaning.\n\n📋",
+      "en": "Demonstrate default method in interface providing reusable fallback implementation without breaking subclasses.\n\n📋",
+      "ru": "Продемонстрируйте метод по умолчанию в интерфейсе, обеспечивающий возможность повторного использования резервной реализации без нарушения подклассов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'INotifiable' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'OrderAlert' sinfini 'implements INotifiable' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'INotifiable alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'INotifiable' containing default or static methods.",
+        "Implement interface in 'OrderAlert'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'INotifiable alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'"
+      ],
+      "ru": [
+        "Объявите интерфейс INotifying, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в OrderAlert.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'INotifying alert = new OrderAlert(\"Buyurtma qabul qilindi\");         System.out.println(alert.getAlertHeader() + \": \" + alert.getMessage());'"
       ]
     }
   },
@@ -2301,11 +4552,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "62. Payme — default To'lov Komissiyasi Formulasi",
-      "en": "62. Payme — Default Payment Fee Calculation Method"
+      "en": "62. Payme — Default Payment Fee Calculation Method",
+      "ru": "62. Payme — метод расчета комиссии за платеж по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme 'IPaymentCalculator' interfeysida 'default double calculateFee(double amount)' metodi sukut bo'yicha 1% komissiya hisoblaydi. 'StandardCardPayment' uni to'g'ridan-to'g'ri meros qilib oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IPaymentCalculator' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'StandardCardPayment' sinfini 'implements IPaymentCalculator' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'IPaymentCalculator calc = new StandardCardPayment();         System.out.println(\"Standart komissiya: \" + calc.calculateFee(300000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nUse default interface method calculateFee returning standard 1% fee unless overridden.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IPaymentCalculator' containing default or static methods.\n2. Implement interface in 'StandardCardPayment'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IPaymentCalculator calc = new StandardCardPayment();         System.out.println(\"Standart komissiya: \" + calc.calculateFee(300000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nUse default interface method calculateFee returning standard 1% fee unless overridden.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IPaymentCalculator' containing default or static methods.\n2. Implement interface in 'StandardCardPayment'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IPaymentCalculator calc = new StandardCardPayment();         System.out.println(\"Standart komissiya: \" + calc.calculateFee(300000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте метод интерфейса CalcFee по умолчанию, возвращающий стандартную комиссию в размере 1 %, если она не переопределена.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IPaymentCalculator, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в StandardCardPayment.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'IPaymentCalculator Calc = new StandardCardPayment();         System.out.println(\"Стандартная комиссия: \" +calc.calculateFee(300000.0) + \"UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -2328,6 +4581,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IPaymentCalculator</code>: default yoki static a'zoli interfeys.",
         "<code>StandardCardPayment</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IPaymentCalculator</code>: default yoki static a'zoli interfeys.",
+        "<code>StandardCardPayment</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Payme 'IPaymentCalculator' interfeysida 'default double calculateFee(double amount)' metodi sukut bo'yicha 1% komissiya hisoblaydi. 'StandardCardPayment' uni to'g'ridan-to'g'ri meros qilib oladi.\n\n📋",
+      "en": "Use default interface method calculateFee returning standard 1% fee unless overridden.\n\n📋",
+      "ru": "Используйте метод интерфейса CalcFee по умолчанию, возвращающий стандартную комиссию в размере 1 %, если она не переопределена."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IPaymentCalculator' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'StandardCardPayment' sinfini 'implements IPaymentCalculator' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'IPaymentCalculator calc = new StandardCardPayment();         System.out.println(\"Standart komissiya: \" + calc.calculateFee(300000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IPaymentCalculator' containing default or static methods.",
+        "Implement interface in 'StandardCardPayment'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'IPaymentCalculator calc = new StandardCardPayment();         System.out.println(\"Standart komissiya: \" + calc.calculateFee(300000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IPaymentCalculator, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в StandardCardPayment.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'IPaymentCalculator Calc = new StandardCardPayment();         System.out.println(\"Стандартная комиссия: \" +calc.calculateFee(300000.0) + \"UZS\");'"
       ]
     }
   },
@@ -2338,11 +4626,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "63. Korzinka — Interfeysda static Metod va Barkod Generatori",
-      "en": "63. Korzinka — Static Utility Method in Interface"
+      "en": "63. Korzinka — Static Utility Method in Interface",
+      "ru": "63. Корзинка — Статический служебный метод в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Static methods in interfaces belong to the interface itself, not an instance'. 'IBarcodeHelper' interfeysida 'static String generateEan13(long code)' statik metodini yozing va chaqiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IBarcodeHelper' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'ReceiptBarcode' sinfini 'implements IBarcodeHelper' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Generatsiya qilingan EAN-13: \" + ean);'",
-      "en": "📖 Real-World Scenario & Context\nCall interface static method directly via InterfaceName.method() as explained in Slide 20.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IBarcodeHelper' containing default or static methods.\n2. Implement interface in 'ReceiptBarcode'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Generatsiya qilingan EAN-13: \" + ean);'"
+      "en": "📖 Real-World Scenario & Context\nCall interface static method directly via InterfaceName.method() as explained in Slide 20.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IBarcodeHelper' containing default or static methods.\n2. Implement interface in 'ReceiptBarcode'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Generatsiya qilingan EAN-13: \" + ean);'",
+      "ru": "📖 Контекст и описание задачи\nВызовите статический метод интерфейса напрямую через InterfaceName.method(), как описано на слайде 20.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IBarcodeHelper, содержащий методы по умолчанию или статические методы.\n2. Реализуйте интерфейс в ReceiptBarcode.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Генерация цилингана EAN-13: \" + ean);'"
     },
     "requirements": {
       "classes": [
@@ -2365,6 +4655,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IBarcodeHelper</code>: default yoki static a'zoli interfeys.",
         "<code>ReceiptBarcode</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IBarcodeHelper</code>: default yoki static a'zoli interfeys.",
+        "<code>ReceiptBarcode</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Static methods in interfaces belong to the interface itself, not an instance'. 'IBarcodeHelper' interfeysida 'static String generateEan13(long code)' statik metodini yozing va chaqiring.\n\n📋",
+      "en": "Call interface static method directly via InterfaceName.method() as explained in Slide 20.\n\n📋",
+      "ru": "Вызовите статический метод интерфейса напрямую через InterfaceName.method(), как описано на слайде 20."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IBarcodeHelper' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'ReceiptBarcode' sinfini 'implements IBarcodeHelper' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Generatsiya qilingan EAN-13: \" + ean);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IBarcodeHelper' containing default or static methods.",
+        "Implement interface in 'ReceiptBarcode'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Generatsiya qilingan EAN-13: \" + ean);'"
+      ],
+      "ru": [
+        "Объявите интерфейс IBarcodeHelper, содержащий методы по умолчанию или статические методы.",
+        "Реализуйте интерфейс в ReceiptBarcode.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'String ean = IBarcodeHelper.generateEan13(123456789012L);         System.out.println(\"Генерация цилингана EAN-13: \" + ean);'"
       ]
     }
   },
@@ -2375,11 +4700,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "64. Yandex Go — default Tirbandlik Koeffitsiyenti (Surge Multiplier)",
-      "en": "64. Yandex Go — Default Surge Multiplier in Pricing Interface"
+      "en": "64. Yandex Go — Default Surge Multiplier in Pricing Interface",
+      "ru": "64. Yandex Go — множитель скачка по умолчанию в интерфейсе ценообразования"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go 'ITrafficPricing' interfeysida 'default double getSurgeMultiplier()' 1.0 (oddiy holat) qaytaradi. 'NightRushPricing' sinfi uni 1.4 ga qayta yozadi (@Override).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ITrafficPricing' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'NightRushPricing' sinfini 'implements ITrafficPricing' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Tirbandlik koeffitsiyenti: \" + p.getSurgeMultiplier());'",
-      "en": "📖 Real-World Scenario & Context\nOverride default method in subclass providing customized rush-hour surge pricing.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ITrafficPricing' containing default or static methods.\n2. Implement interface in 'NightRushPricing'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Tirbandlik koeffitsiyenti: \" + p.getSurgeMultiplier());'"
+      "en": "📖 Real-World Scenario & Context\nOverride default method in subclass providing customized rush-hour surge pricing.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ITrafficPricing' containing default or static methods.\n2. Implement interface in 'NightRushPricing'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Tirbandlik koeffitsiyenti: \" + p.getSurgeMultiplier());'",
+      "ru": "📖 Контекст и описание задачи\nПереопределить метод по умолчанию в подклассе, обеспечивающий индивидуальные цены в часы пик.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ITrafficPricing, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в NightRushPricing.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Увеличение коэффициентов: \" + p.getSurgeMultiplier());'"
     },
     "requirements": {
       "classes": [
@@ -2402,6 +4729,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ITrafficPricing</code>: default yoki static a'zoli interfeys.",
         "<code>NightRushPricing</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>ITrafficPricing</code>: default yoki static a'zoli interfeys.",
+        "<code>NightRushPricing</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Yandex Go 'ITrafficPricing' interfeysida 'default double getSurgeMultiplier()' 1.0 (oddiy holat) qaytaradi. 'NightRushPricing' sinfi uni 1.4 ga qayta yozadi (@Override).\n\n📋",
+      "en": "Override default method in subclass providing customized rush-hour surge pricing.\n\n📋",
+      "ru": "Переопределить метод по умолчанию в подклассе, обеспечивающий индивидуальные цены в часы пик."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ITrafficPricing' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'NightRushPricing' sinfini 'implements ITrafficPricing' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Tirbandlik koeffitsiyenti: \" + p.getSurgeMultiplier());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ITrafficPricing' containing default or static methods.",
+        "Implement interface in 'NightRushPricing'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Tirbandlik koeffitsiyenti: \" + p.getSurgeMultiplier());'"
+      ],
+      "ru": [
+        "Объявите интерфейс ITrafficPricing, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в NightRushPricing.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'ITrafficPricing p = new NightRushPricing();         System.out.println(\"Увеличение коэффициентов: \" + p.getSurgeMultiplier());'"
       ]
     }
   },
@@ -2412,11 +4774,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "65. Click — Interfeysda static Valyuta Konvertatsiyasi",
-      "en": "65. Click — Static Currency Conversion in Payment Interface"
+      "en": "65. Click — Static Currency Conversion in Payment Interface",
+      "ru": "65. Нажмите — статическая конвертация валюты в платежном интерфейсе."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick 'ICurrencyConverter' interfeysida 'static double usdToUzs(double usd, double rate)' statik metodini bering va 100 USD ni so'mga aylantiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ICurrencyConverter' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'FxPayment' sinfini 'implements ICurrencyConverter' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 USD so'mda: \" + sum + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement static helper inside interface to convert currencies without creating instances.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ICurrencyConverter' containing default or static methods.\n2. Implement interface in 'FxPayment'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 USD so'mda: \" + sum + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement static helper inside interface to convert currencies without creating instances.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ICurrencyConverter' containing default or static methods.\n2. Implement interface in 'FxPayment'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 USD so'mda: \" + sum + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nВнедрите статический помощник внутри интерфейса для конвертации валют без создания экземпляров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ICurrencyConverter, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в «FxPayment».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 долларов США сумма: \" + сумма + \" сум\");'"
     },
     "requirements": {
       "classes": [
@@ -2439,6 +4803,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ICurrencyConverter</code>: default yoki static a'zoli interfeys.",
         "<code>FxPayment</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>ICurrencyConverter</code>: default yoki static a'zoli interfeys.",
+        "<code>FxPayment</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Click 'ICurrencyConverter' interfeysida 'static double usdToUzs(double usd, double rate)' statik metodini bering va 100 USD ni so'mga aylantiring.\n\n📋",
+      "en": "Implement static helper inside interface to convert currencies without creating instances.\n\n📋",
+      "ru": "Внедрите статический помощник внутри интерфейса для конвертации валют без создания экземпляров."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ICurrencyConverter' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'FxPayment' sinfini 'implements ICurrencyConverter' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 USD so'mda: \" + sum + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ICurrencyConverter' containing default or static methods.",
+        "Implement interface in 'FxPayment'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 USD so'mda: \" + sum + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс ICurrencyConverter, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в «FxPayment».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'double sum = ICurrencyConverter.usdToUzs(100.0, 12600.0);         System.out.println(\"100 долларов США сумма: \" + сумма + \" сум\");'"
       ]
     }
   },
@@ -2449,11 +4848,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "66. Safia — default Qadoqlash Xarajati",
-      "en": "66. Safia — Default Packaging Cost in Bakery Order Interface"
+      "en": "66. Safia — Default Packaging Cost in Bakery Order Interface",
+      "ru": "66. Safia — стоимость упаковки по умолчанию в интерфейсе заказа выпечки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia 'IPackageable' interfeysida 'default double getPackagingFee()' 3000 UZS qaytaradi. 'StandardPastryOrder' uni o'zgartirmasdan ishlatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IPackageable' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'StandardPastryOrder' sinfini 'implements IPackageable' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nInherit default packaging charge in bakery order without needing explicit override.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IPackageable' containing default or static methods.\n2. Implement interface in 'StandardPastryOrder'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nInherit default packaging charge in bakery order without needing explicit override.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IPackageable' containing default or static methods.\n2. Implement interface in 'StandardPastryOrder'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nНаследовать стоимость упаковки по умолчанию в заказе на выпечку без необходимости явного переопределения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IPackageable, содержащий методы по умолчанию или статические методы.\n2. Реализуйте интерфейс в StandardPastryOrder.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -2476,6 +4877,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IPackageable</code>: default yoki static a'zoli interfeys.",
         "<code>StandardPastryOrder</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IPackageable</code>: default yoki static a'zoli interfeys.",
+        "<code>StandardPastryOrder</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Safia 'IPackageable' interfeysida 'default double getPackagingFee()' 3000 UZS qaytaradi. 'StandardPastryOrder' uni o'zgartirmasdan ishlatadi.\n\n📋",
+      "en": "Inherit default packaging charge in bakery order without needing explicit override.\n\n📋",
+      "ru": "Наследовать стоимость упаковки по умолчанию в заказе на выпечку без необходимости явного переопределения."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IPackageable' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'StandardPastryOrder' sinfini 'implements IPackageable' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IPackageable' containing default or static methods.",
+        "Implement interface in 'StandardPastryOrder'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IPackageable, содержащий методы по умолчанию или статические методы.",
+        "Реализуйте интерфейс в StandardPastryOrder.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'IPackageable ord = new StandardPastryOrder(\"Desert Box\");         System.out.println(ord.getOrderName() + \" qadoqlash haqi: \" + ord.getPackagingFee() + \" UZS\");'"
       ]
     }
   },
@@ -2486,11 +4922,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "67. Dodo Pizza — default Yetkazish Kafolati (30 Daqiqa)",
-      "en": "67. Dodo Pizza — Default Delivery Guarantee Time in Interface"
+      "en": "67. Dodo Pizza — Default Delivery Guarantee Time in Interface",
+      "ru": "67. Додо Пицца — гарантированное время доставки по умолчанию в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo 'IDeliveryGuaranteed' interfeysida 'default int getGuaranteedMinutes()' metodi sukut bo'yicha 30 daqiqa qaytaradi. 'FastTrackDelivery' sinfida undan foydalaning.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IDeliveryGuaranteed' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'FastTrackDelivery' sinfini 'implements IDeliveryGuaranteed' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nUse default delivery guarantee time provided by IDeliveryGuaranteed interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IDeliveryGuaranteed' containing default or static methods.\n2. Implement interface in 'FastTrackDelivery'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nUse default delivery guarantee time provided by IDeliveryGuaranteed interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IDeliveryGuaranteed' containing default or static methods.\n2. Implement interface in 'FastTrackDelivery'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте гарантированное время доставки по умолчанию, предоставляемое интерфейсом IDeliveryGuaranteed.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IDeliveryGuaranteed, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в FastTrackDelivery.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan Yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -2513,6 +4951,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IDeliveryGuaranteed</code>: default yoki static a'zoli interfeys.",
         "<code>FastTrackDelivery</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IDeliveryGuaranteed</code>: default yoki static a'zoli interfeys.",
+        "<code>FastTrackDelivery</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Dodo 'IDeliveryGuaranteed' interfeysida 'default int getGuaranteedMinutes()' metodi sukut bo'yicha 30 daqiqa qaytaradi. 'FastTrackDelivery' sinfida undan foydalaning.\n\n📋",
+      "en": "Use default delivery guarantee time provided by IDeliveryGuaranteed interface.\n\n📋",
+      "ru": "Используйте гарантированное время доставки по умолчанию, предоставляемое интерфейсом IDeliveryGuaranteed."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IDeliveryGuaranteed' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'FastTrackDelivery' sinfini 'implements IDeliveryGuaranteed' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IDeliveryGuaranteed' containing default or static methods.",
+        "Implement interface in 'FastTrackDelivery'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IDeliveryGuaranteed, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в FastTrackDelivery.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'IDeliveryGuaranteed del = new FastTrackDelivery();         System.out.println(\"Kafolatlangan Yetkazish: \" + del.getGuaranteedMinutes() + \" daqiqa\");'"
       ]
     }
   },
@@ -2523,11 +4996,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "68. Texnomart — static Energiya Samaradorligi Tekshiruvi",
-      "en": "68. Texnomart — Static Energy Rating Validator in Interface"
+      "en": "68. Texnomart — Static Energy Rating Validator in Interface",
+      "ru": "68. Texnomart — средство проверки статического энергопотребления в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart 'IEnergyStandard' interfeysida 'static boolean isAClass(int annualKwh)' statik metodini e'lon qiling. Yillik 200 kVt dan kam bo'lsa tejamkor deb topilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IEnergyStandard' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'EcoFridge' sinfini 'implements IEnergyStandard' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 kVt A-klassga mosmi: \" + ok);'",
-      "en": "📖 Real-World Scenario & Context\nValidate energy efficiency via interface static method without instantiating objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IEnergyStandard' containing default or static methods.\n2. Implement interface in 'EcoFridge'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 kVt A-klassga mosmi: \" + ok);'"
+      "en": "📖 Real-World Scenario & Context\nValidate energy efficiency via interface static method without instantiating objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IEnergyStandard' containing default or static methods.\n2. Implement interface in 'EcoFridge'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 kVt A-klassga mosmi: \" + ok);'",
+      "ru": "📖 Контекст и описание задачи\nПроверка энергоэффективности с помощью статического метода интерфейса без создания экземпляров объектов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IEnergyStandard, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в EcoFridge.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 кВт А-класса максимум: \" + ok);'"
     },
     "requirements": {
       "classes": [
@@ -2550,6 +5025,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IEnergyStandard</code>: default yoki static a'zoli interfeys.",
         "<code>EcoFridge</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IEnergyStandard</code>: default yoki static a'zoli interfeys.",
+        "<code>EcoFridge</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart 'IEnergyStandard' interfeysida 'static boolean isAClass(int annualKwh)' statik metodini e'lon qiling. Yillik 200 kVt dan kam bo'lsa tejamkor deb topilsin.\n\n📋",
+      "en": "Validate energy efficiency via interface static method without instantiating objects.\n\n📋",
+      "ru": "Проверка энергоэффективности с помощью статического метода интерфейса без создания экземпляров объектов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IEnergyStandard' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'EcoFridge' sinfini 'implements IEnergyStandard' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 kVt A-klassga mosmi: \" + ok);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IEnergyStandard' containing default or static methods.",
+        "Implement interface in 'EcoFridge'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 kVt A-klassga mosmi: \" + ok);'"
+      ],
+      "ru": [
+        "Объявите интерфейс IEnergyStandard, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в EcoFridge.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'boolean ok = IEnergyStandard.isAClass(180);         System.out.println(\"180 кВт А-класса максимум: \" + ok);'"
       ]
     }
   },
@@ -2560,11 +5070,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "69. Medion — default Navbat Chiptasi Prefiksi",
-      "en": "69. Medion — Default Ticket Prefix Formatting in Interface"
+      "en": "69. Medion — Default Ticket Prefix Formatting in Interface",
+      "ru": "69. Medion — форматирование префикса заявки по умолчанию в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion 'ITicketDispenser' interfeysida 'default String formatTicket(int num)' metodi 'MED-' prefiksini qo'shadi. 'CheckupTicket' sinfida 105-chi raqamni chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ITicketDispenser' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'CheckupTicket' sinfini 'implements ITicketDispenser' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Navbat raqami: \" + td.formatTicket(105));'",
-      "en": "📖 Real-World Scenario & Context\nProvide default ticket prefix formatting in clinic interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ITicketDispenser' containing default or static methods.\n2. Implement interface in 'CheckupTicket'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Navbat raqami: \" + td.formatTicket(105));'"
+      "en": "📖 Real-World Scenario & Context\nProvide default ticket prefix formatting in clinic interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ITicketDispenser' containing default or static methods.\n2. Implement interface in 'CheckupTicket'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Navbat raqami: \" + td.formatTicket(105));'",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте форматирование префикса билета по умолчанию в интерфейсе клиники.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ITicketDispenser, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в CheckupTicket.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Навбат раками: \" + td.formatTicket(105));'"
     },
     "requirements": {
       "classes": [
@@ -2587,6 +5099,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ITicketDispenser</code>: default yoki static a'zoli interfeys.",
         "<code>CheckupTicket</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>ITicketDispenser</code>: default yoki static a'zoli interfeys.",
+        "<code>CheckupTicket</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Medion 'ITicketDispenser' interfeysida 'default String formatTicket(int num)' metodi 'MED-' prefiksini qo'shadi. 'CheckupTicket' sinfida 105-chi raqamni chiqaring.\n\n📋",
+      "en": "Provide default ticket prefix formatting in clinic interface.\n\n📋",
+      "ru": "Обеспечьте форматирование префикса билета по умолчанию в интерфейсе клиники."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ITicketDispenser' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'CheckupTicket' sinfini 'implements ITicketDispenser' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Navbat raqami: \" + td.formatTicket(105));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ITicketDispenser' containing default or static methods.",
+        "Implement interface in 'CheckupTicket'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Navbat raqami: \" + td.formatTicket(105));'"
+      ],
+      "ru": [
+        "Объявите интерфейс ITicketDispenser, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в CheckupTicket.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'ITicketDispenser td = new CheckupTicket();         System.out.println(\"Навбат раками: \" + td.formatTicket(105));'"
       ]
     }
   },
@@ -2597,11 +5144,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "70. Express24 — default Tungi Yetkazish Ustamasi",
-      "en": "70. Express24 — Default Night Surcharge Method in Delivery Interface"
+      "en": "70. Express24 — Default Night Surcharge Method in Delivery Interface",
+      "ru": "70. Express24 — метод надбавки за ночь по умолчанию в интерфейсе доставки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 'INightDelivery' interfeysida 'default double getNightSurcharge()' 5000 UZS qo'shimcha to'lov beradi. 'LateNightOrder' uni bazaviy 15000 UZS ga qo'shib hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'INightDelivery' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'LateNightOrder' sinfini 'implements INightDelivery' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'LateNightOrder ord = new LateNightOrder(15000.0);         System.out.println(\"Tungi buyurtma jami: \" + ord.calculateTotalCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nCalculate night delivery cost utilizing interface default surcharge method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'INightDelivery' containing default or static methods.\n2. Implement interface in 'LateNightOrder'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'LateNightOrder ord = new LateNightOrder(15000.0);         System.out.println(\"Tungi buyurtma jami: \" + ord.calculateTotalCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nCalculate night delivery cost utilizing interface default surcharge method.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'INightDelivery' containing default or static methods.\n2. Implement interface in 'LateNightOrder'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'LateNightOrder ord = new LateNightOrder(15000.0);         System.out.println(\"Tungi buyurtma jami: \" + ord.calculateTotalCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте стоимость ночной доставки, используя метод надбавки по умолчанию в интерфейсе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс INightDelivery, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в «LateNightOrder».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'LateNightOrder or = new LateNightOrder(15000.0);         System.out.println(\"Тунги байюртма джами: \" + ord.calculateTotalCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -2624,6 +5173,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>INightDelivery</code>: default yoki static a'zoli interfeys.",
         "<code>LateNightOrder</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>INightDelivery</code>: default yoki static a'zoli interfeys.",
+        "<code>LateNightOrder</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Express24 'INightDelivery' interfeysida 'default double getNightSurcharge()' 5000 UZS qo'shimcha to'lov beradi. 'LateNightOrder' uni bazaviy 15000 UZS ga qo'shib hisoblaydi.\n\n📋",
+      "en": "Calculate night delivery cost utilizing interface default surcharge method.\n\n📋",
+      "ru": "Рассчитайте стоимость ночной доставки, используя метод надбавки по умолчанию в интерфейсе."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'INightDelivery' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'LateNightOrder' sinfini 'implements INightDelivery' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'LateNightOrder ord = new LateNightOrder(15000.0);         System.out.println(\"Tungi buyurtma jami: \" + ord.calculateTotalCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'INightDelivery' containing default or static methods.",
+        "Implement interface in 'LateNightOrder'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'LateNightOrder ord = new LateNightOrder(15000.0);         System.out.println(\"Tungi buyurtma jami: \" + ord.calculateTotalCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс INightDelivery, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в «LateNightOrder».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'LateNightOrder or = new LateNightOrder(15000.0);         System.out.println(\"Тунги байюртма джами: \" + ord.calculateTotalCost() + \" UZS\");'"
       ]
     }
   },
@@ -2634,11 +5218,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "71. Asaxiy — static Mutolaa Vaqtini Baholash (Reading Estimation)",
-      "en": "71. Asaxiy — Static Reading Duration Calculator in Book Interface"
+      "en": "71. Asaxiy — Static Reading Duration Calculator in Book Interface",
+      "ru": "71. Asaxyy — Статический калькулятор длительности чтения в интерфейсе книги"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy 'IReadingEstimator' interfeysida 'static int estimateMinutes(int pages)' statik metodini tuzing (har 1 sahifa = 2 daqiqa). 150 sahifalik kitob vaqtini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IReadingEstimator' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'EBookReader' sinfini 'implements IReadingEstimator' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 sahifa o'qish vaqti: \" + mins + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nInterface static method calculates expected reading duration based on page count.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IReadingEstimator' containing default or static methods.\n2. Implement interface in 'EBookReader'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 sahifa o'qish vaqti: \" + mins + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nInterface static method calculates expected reading duration based on page count.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IReadingEstimator' containing default or static methods.\n2. Implement interface in 'EBookReader'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 sahifa o'qish vaqti: \" + mins + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nСтатический метод интерфейса вычисляет ожидаемую продолжительность чтения на основе количества страниц.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IReadingEstimator, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в «EBookReader».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 сахифа о'киш вакти: \" + минут + \" дакика\");'"
     },
     "requirements": {
       "classes": [
@@ -2661,6 +5247,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IReadingEstimator</code>: default yoki static a'zoli interfeys.",
         "<code>EBookReader</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IReadingEstimator</code>: default yoki static a'zoli interfeys.",
+        "<code>EBookReader</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy 'IReadingEstimator' interfeysida 'static int estimateMinutes(int pages)' statik metodini tuzing (har 1 sahifa = 2 daqiqa). 150 sahifalik kitob vaqtini hisoblang.\n\n📋",
+      "en": "Interface static method calculates expected reading duration based on page count.\n\n📋",
+      "ru": "Статический метод интерфейса вычисляет ожидаемую продолжительность чтения на основе количества страниц."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IReadingEstimator' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'EBookReader' sinfini 'implements IReadingEstimator' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 sahifa o'qish vaqti: \" + mins + \" daqiqa\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IReadingEstimator' containing default or static methods.",
+        "Implement interface in 'EBookReader'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 sahifa o'qish vaqti: \" + mins + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс IReadingEstimator, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в «EBookReader».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'int mins = IReadingEstimator.estimateMinutes(150);         System.out.println(\"150 сахифа о'киш вакти: \" + минут + \" дакика\");'"
       ]
     }
   },
@@ -2671,11 +5292,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "72. Kapitalbank — default SMS Xabarnoma To'lovi",
-      "en": "72. Kapitalbank — Default SMS Notification Monthly Fee"
+      "en": "72. Kapitalbank — Default SMS Notification Monthly Fee",
+      "ru": "72. Капиталбанк — Ежемесячная плата за SMS-уведомление по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank 'ISmsAlert' interfeysida 'default double getSmsMonthlyFee()' metodi 1000 UZS beradi. 'PremiumCardAccount' esa bepul (0.0) qilish uchun metodni qayta yozadi (@Override).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ISmsAlert' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'PremiumCardAccount' sinfini 'implements ISmsAlert' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Premium SMS to'lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nSubclass overrides default interface method to offer free SMS alerts on premium cards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISmsAlert' containing default or static methods.\n2. Implement interface in 'PremiumCardAccount'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Premium SMS to'lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nSubclass overrides default interface method to offer free SMS alerts on premium cards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ISmsAlert' containing default or static methods.\n2. Implement interface in 'PremiumCardAccount'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Premium SMS to'lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nПодкласс переопределяет метод интерфейса по умолчанию, чтобы предлагать бесплатные SMS-оповещения о премиальных картах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ISmsAlert, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в «PremiumCardAccount».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Премиум SMS на \"lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -2698,6 +5321,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ISmsAlert</code>: default yoki static a'zoli interfeys.",
         "<code>PremiumCardAccount</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>ISmsAlert</code>: default yoki static a'zoli interfeys.",
+        "<code>PremiumCardAccount</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank 'ISmsAlert' interfeysida 'default double getSmsMonthlyFee()' metodi 1000 UZS beradi. 'PremiumCardAccount' esa bepul (0.0) qilish uchun metodni qayta yozadi (@Override).\n\n📋",
+      "en": "Subclass overrides default interface method to offer free SMS alerts on premium cards.\n\n📋",
+      "ru": "Подкласс переопределяет метод интерфейса по умолчанию, чтобы предлагать бесплатные SMS-оповещения о премиальных картах."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ISmsAlert' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'PremiumCardAccount' sinfini 'implements ISmsAlert' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Premium SMS to'lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ISmsAlert' containing default or static methods.",
+        "Implement interface in 'PremiumCardAccount'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Premium SMS to'lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейс ISmsAlert, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в «PremiumCardAccount».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'ISmsAlert card = new PremiumCardAccount();         System.out.println(\"Премиум SMS на \"lovi: \" + card.getSmsMonthlyFee() + \" UZS\");'"
       ]
     }
   },
@@ -2708,11 +5366,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "73. Beeline — static Telefon Prefiksi Tekshiruvchisi",
-      "en": "73. Beeline — Static Phone Prefix Validator in Interface"
+      "en": "73. Beeline — Static Phone Prefix Validator in Interface",
+      "ru": "73. Билайн — валидатор статического префикса телефона в интерфейсе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline 'IBeelineValidator' interfeysida 'static boolean isBeeline(String prefix)' metodini yozing ('90' va '91' prefikslari uchun true). '90' prefiksini tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IBeelineValidator' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'PhoneChecker' sinfini 'implements IBeelineValidator' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 Beeline prefiksimi: \" + ok);'",
-      "en": "📖 Real-World Scenario & Context\nCheck mobile operator prefix using interface static validator.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IBeelineValidator' containing default or static methods.\n2. Implement interface in 'PhoneChecker'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 Beeline prefiksimi: \" + ok);'"
+      "en": "📖 Real-World Scenario & Context\nCheck mobile operator prefix using interface static validator.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IBeelineValidator' containing default or static methods.\n2. Implement interface in 'PhoneChecker'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 Beeline prefiksimi: \" + ok);'",
+      "ru": "📖 Контекст и описание задачи\nПроверьте префикс мобильного оператора с помощью статического валидатора интерфейса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IBeelineValidator, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в PhoneChecker.\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 префиксов Билайн: \" + ok);'"
     },
     "requirements": {
       "classes": [
@@ -2735,6 +5395,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IBeelineValidator</code>: default yoki static a'zoli interfeys.",
         "<code>PhoneChecker</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IBeelineValidator</code>: default yoki static a'zoli interfeys.",
+        "<code>PhoneChecker</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "Beeline 'IBeelineValidator' interfeysida 'static boolean isBeeline(String prefix)' metodini yozing ('90' va '91' prefikslari uchun true). '90' prefiksini tekshiring.\n\n📋",
+      "en": "Check mobile operator prefix using interface static validator.\n\n📋",
+      "ru": "Проверьте префикс мобильного оператора с помощью статического валидатора интерфейса."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IBeelineValidator' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'PhoneChecker' sinfini 'implements IBeelineValidator' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 Beeline prefiksimi: \" + ok);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IBeelineValidator' containing default or static methods.",
+        "Implement interface in 'PhoneChecker'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 Beeline prefiksimi: \" + ok);'"
+      ],
+      "ru": [
+        "Объявите интерфейс IBeelineValidator, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в PhoneChecker.",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'boolean ok = IBeelineValidator.isBeeline(\"90\");         System.out.println(\"90 префиксов Билайн: \" + ok);'"
       ]
     }
   },
@@ -2745,11 +5440,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "74. UzAirways — default Bepul Ovqatlanish Varianti",
-      "en": "74. UzAirways — Default In-Flight Meal Option in Airline Interface"
+      "en": "74. UzAirways — Default In-Flight Meal Option in Airline Interface",
+      "ru": "74. UzAirways — Опция бортового питания по умолчанию в интерфейсе авиакомпании"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways 'ICateringService' interfeysida 'default String getStandardMeal()' metodi 'Issiq taom va choy' qaytaradi. 'EconomyMeal' undan bevosita foydalanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ICateringService' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'EconomyMeal' sinfini 'implements ICateringService' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'ICateringService meal = new EconomyMeal();         System.out.println(\"Bort taomi: \" + meal.getStandardMeal());'",
-      "en": "📖 Real-World Scenario & Context\nAirline meal interface supplies default hot meal description.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ICateringService' containing default or static methods.\n2. Implement interface in 'EconomyMeal'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ICateringService meal = new EconomyMeal();         System.out.println(\"Bort taomi: \" + meal.getStandardMeal());'"
+      "en": "📖 Real-World Scenario & Context\nAirline meal interface supplies default hot meal description.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'ICateringService' containing default or static methods.\n2. Implement interface in 'EconomyMeal'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'ICateringService meal = new EconomyMeal();         System.out.println(\"Bort taomi: \" + meal.getStandardMeal());'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс питания авиакомпании предоставляет описание горячего питания по умолчанию.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс ICateringService, содержащий методы по умолчанию или статические методы.\n2. Реализовать интерфейс в «EconomyMeal».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'ICateringService food = new EconomicMeal();         System.out.println(\"Выбрать таоми: \" + food.getStandardMeal());'"
     },
     "requirements": {
       "classes": [
@@ -2772,6 +5469,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ICateringService</code>: default yoki static a'zoli interfeys.",
         "<code>EconomyMeal</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>ICateringService</code>: default yoki static a'zoli interfeys.",
+        "<code>EconomyMeal</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways 'ICateringService' interfeysida 'default String getStandardMeal()' metodi 'Issiq taom va choy' qaytaradi. 'EconomyMeal' undan bevosita foydalanadi.\n\n📋",
+      "en": "Airline meal interface supplies default hot meal description.\n\n📋",
+      "ru": "Интерфейс питания авиакомпании предоставляет описание горячего питания по умолчанию."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ICateringService' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'EconomyMeal' sinfini 'implements ICateringService' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'ICateringService meal = new EconomyMeal();         System.out.println(\"Bort taomi: \" + meal.getStandardMeal());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'ICateringService' containing default or static methods.",
+        "Implement interface in 'EconomyMeal'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'ICateringService meal = new EconomyMeal();         System.out.println(\"Bort taomi: \" + meal.getStandardMeal());'"
+      ],
+      "ru": [
+        "Объявите интерфейс ICateringService, содержащий методы по умолчанию или статические методы.",
+        "Реализовать интерфейс в «EconomyMeal».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'ICateringService food = new EconomicMeal();         System.out.println(\"Выбрать таоми: \" + food.getStandardMeal());'"
       ]
     }
   },
@@ -2782,11 +5514,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "61-75: Interface Default & Static Methods",
     "title": {
       "uz": "75. WIUT SRS — default GPA Konvertatsiya Formulasi",
-      "en": "75. WIUT SRS — Default GPA Conversion Method in Grading Interface"
+      "en": "75. WIUT SRS — Default GPA Conversion Method in Grading Interface",
+      "ru": "75. WIUT SRS — метод преобразования среднего балла по умолчанию в интерфейсе оценивания."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 'IGpaCalculator' interfeysida 'default double convertToGpa(int mark)' metodi 70+ bo'lsa 4.0, 60+ bo'lsa 3.0, aks holda 2.0 qaytaradi. 'StudentGpaProfile' sinfida 75 ballni konvertatsiya qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IGpaCalculator' interfeysida 'default' yoki 'static' metodini e'lon qiling.\n2. 'StudentGpaProfile' sinfini 'implements IGpaCalculator' orqali bog'lang.\n3. Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.\n4. 'Main' metodida natijani tekshiring.\n5. Konsolga chiqaring: 'IGpaCalculator calc = new StudentGpaProfile();         System.out.println(\"75 ball GPA: \" + calc.convertToGpa(75));'",
-      "en": "📖 Real-World Scenario & Context\nTranslate percentage mark into GPA using default interface calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IGpaCalculator' containing default or static methods.\n2. Implement interface in 'StudentGpaProfile'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IGpaCalculator calc = new StudentGpaProfile();         System.out.println(\"75 ball GPA: \" + calc.convertToGpa(75));'"
+      "en": "📖 Real-World Scenario & Context\nTranslate percentage mark into GPA using default interface calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interface 'IGpaCalculator' containing default or static methods.\n2. Implement interface in 'StudentGpaProfile'.\n3. Optionally override default method or call static interface helper.\n4. Verify in 'main'.\n5. Print result to console: 'IGpaCalculator calc = new StudentGpaProfile();         System.out.println(\"75 ball GPA: \" + calc.convertToGpa(75));'",
+      "ru": "📖 Контекст и описание задачи\nПереведите процентную отметку в средний балл, используя расчет интерфейса по умолчанию.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейс IGpaCalculator, содержащий методы по умолчанию или статические методы.\n2. Реализуйте интерфейс в «StudentGpaProfile».\n3. При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.\n4. Проверьте в «главном».\n5. Выведите результат на консоль: 'IGpaCalculator Calc = new StudentGpaProfile();         System.out.println(\"GPA 75 шаров: \" +calc.convertToGpa(75));'"
     },
     "requirements": {
       "classes": [
@@ -2809,6 +5543,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IGpaCalculator</code>: default yoki static a'zoli interfeys.",
         "<code>StudentGpaProfile</code>: interfeysdan foydalanuvchi sinf."
+      ],
+      "theoryRu": "Java 8 и стандартный интерфейс интерфейса «по умолчанию» (стандартный вариант), а также «статический» метод и многое другое. Интерфейс использует метод qo'shilganda, который может быть использован в качестве buzilib qolmasligi uchun ishlab chiqilgan.",
+      "breakdownRu": [
+        "<code>IGpaCalculator</code>: default yoki static a'zoli interfeys.",
+        "<code>StudentGpaProfile</code>: interfeysdan foydalanuvchi sinf."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 'IGpaCalculator' interfeysida 'default double convertToGpa(int mark)' metodi 70+ bo'lsa 4.0, 60+ bo'lsa 3.0, aks holda 2.0 qaytaradi. 'StudentGpaProfile' sinfida 75 ballni konvertatsiya qiling.\n\n📋",
+      "en": "Translate percentage mark into GPA using default interface calculation.\n\n📋",
+      "ru": "Переведите процентную отметку в средний балл, используя расчет интерфейса по умолчанию."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IGpaCalculator' interfeysida 'default' yoki 'static' metodini e'lon qiling.",
+        "'StudentGpaProfile' sinfini 'implements IGpaCalculator' orqali bog'lang.",
+        "Zarur bo'lsa default metodni @Override qiling yoki interfeys statik metodini chaqiring.",
+        "'Main' metodida natijani tekshiring.",
+        "Konsolga chiqaring: 'IGpaCalculator calc = new StudentGpaProfile();         System.out.println(\"75 ball GPA: \" + calc.convertToGpa(75));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interface 'IGpaCalculator' containing default or static methods.",
+        "Implement interface in 'StudentGpaProfile'.",
+        "Optionally override default method or call static interface helper.",
+        "Verify in 'main'.",
+        "Print result to console: 'IGpaCalculator calc = new StudentGpaProfile();         System.out.println(\"75 ball GPA: \" + calc.convertToGpa(75));'"
+      ],
+      "ru": [
+        "Объявите интерфейс IGpaCalculator, содержащий методы по умолчанию или статические методы.",
+        "Реализуйте интерфейс в «StudentGpaProfile».",
+        "При необходимости переопределите метод по умолчанию или вызовите помощник статического интерфейса.",
+        "Проверьте в «главном».",
+        "Выведите результат на консоль: 'IGpaCalculator Calc = new StudentGpaProfile();         System.out.println(\"GPA 75 шаров: \" +calc.convertToGpa(75));'"
       ]
     }
   },
@@ -2819,11 +5588,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "76. Uzum Market — BankCard: Payable va CashbackEligible Birgalikda",
-      "en": "76. Uzum Market — BankCard Implementing Payable and CashbackEligible"
+      "en": "76. Uzum Market — BankCard Implementing Payable and CashbackEligible",
+      "ru": "76. Uzum Market — банковская карта с поддержкой Payable и CashbackEligible."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimidagi eng asosiy arxitektura: 'public class BankCard implements Payable, CashbackEligible'. Karta ham to'lov qiladi ('processPayment'), ham 1% keshbek hisoblaydi ('calculateCashback'). Ushbu sinfni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'Payable' va 'CashbackEligible' interfeyslarini e'lon qiling.\n2. 'BankCard' sinfini 'implements Payable, CashbackEligible' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'BankCard card = new BankCard(\"8600123456789012\", \"Jamshid\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(200000.0) + \" UZS | Karta: \" + card.getMaskedNumber());'",
-      "en": "📖 Real-World Scenario & Context\nImplement official Week 6 BankCard realizing both Payable and CashbackEligible interfaces.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'Payable' and 'CashbackEligible'.\n2. Implement both in 'BankCard' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'BankCard card = new BankCard(\"8600123456789012\", \"Jamshid\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(200000.0) + \" UZS | Karta: \" + card.getMaskedNumber());'"
+      "en": "📖 Real-World Scenario & Context\nImplement official Week 6 BankCard realizing both Payable and CashbackEligible interfaces.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'Payable' and 'CashbackEligible'.\n2. Implement both in 'BankCard' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'BankCard card = new BankCard(\"8600123456789012\", \"Jamshid\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(200000.0) + \" UZS | Karta: \" + card.getMaskedNumber());'",
+      "ru": "📖 Контекст и описание задачи\nВнедрить официальную банковскую карту шестой недели, реализуя интерфейсы Payable и CashbackEligible.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы Payable и CashbackEligible.\n2. Реализуйте оба в BankCard, используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в 'main': 'BankCard card = new BankCard(\"8600123456789012\", \"Джамшид\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Кешбек: \" + card.calculateCashback(200000.0) + \" UZS | Карта: \" + card.getMaskedNumber());'"
     },
     "requirements": {
       "classes": [
@@ -2849,6 +5620,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BankCard</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>calculateCashback</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>BankCard</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>calculateCashback</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimidagi eng asosiy arxitektura: 'public class BankCard implements Payable, CashbackEligible'. Karta ham to'lov qiladi ('processPayment'), ham 1% keshbek hisoblaydi ('calculateCashback'). Ushbu sinfni dasturlang.\n\n📋",
+      "en": "Implement official Week 6 BankCard realizing both Payable and CashbackEligible interfaces.\n\n📋",
+      "ru": "Внедрить официальную банковскую карту шестой недели, реализуя интерфейсы Payable и CashbackEligible."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'Payable' va 'CashbackEligible' interfeyslarini e'lon qiling.",
+        "'BankCard' sinfini 'implements Payable, CashbackEligible' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'BankCard card = new BankCard(\"8600123456789012\", \"Jamshid\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(200000.0) + \" UZS | Karta: \" + card.getMaskedNumber());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'Payable' and 'CashbackEligible'.",
+        "Implement both in 'BankCard' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'BankCard card = new BankCard(\"8600123456789012\", \"Jamshid\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(200000.0) + \" UZS | Karta: \" + card.getMaskedNumber());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы Payable и CashbackEligible.",
+        "Реализуйте оба в BankCard, используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в 'main': 'BankCard card = new BankCard(\"8600123456789012\", \"Джамшид\", 500000.0);         card.processPayment(200000.0);         System.out.println(\"Кешбек: \" + card.calculateCashback(200000.0) + \" UZS | Карта: \" + card.getMaskedNumber());'"
       ]
     }
   },
@@ -2859,11 +5665,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "77. Payme — Biometrik va PIN Xavfsizlik Interfeyslari Birga",
-      "en": "77. Payme — Dual Security Interfaces: Biometric and PIN Authentication"
+      "en": "77. Payme — Dual Security Interfaces: Biometric and PIN Authentication",
+      "ru": "77. Payme — интерфейсы двойной безопасности: биометрическая аутентификация и аутентификация по PIN-коду."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme 'SmartLogin' sinfi 'IBiometricAuth' (barmoq izi) va 'IPinAuth' (PIN-kod) interfeyslarini barobariga amalga oshiradi. Har ikkala autentifikatsiya usulini taqdim eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IBiometricAuth' va 'IPinAuth' interfeyslarini e'lon qiling.\n2. 'SmartLogin' sinfini 'implements IBiometricAuth, IPinAuth' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'SmartLogin auth = new SmartLogin();         System.out.println(\"Biometriya: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'",
-      "en": "📖 Real-World Scenario & Context\nClass implements two unrelated security interfaces to enable multi-factor authentication.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IBiometricAuth' and 'IPinAuth'.\n2. Implement both in 'SmartLogin' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SmartLogin auth = new SmartLogin();         System.out.println(\"Biometriya: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'"
+      "en": "📖 Real-World Scenario & Context\nClass implements two unrelated security interfaces to enable multi-factor authentication.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IBiometricAuth' and 'IPinAuth'.\n2. Implement both in 'SmartLogin' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SmartLogin auth = new SmartLogin();         System.out.println(\"Biometriya: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'",
+      "ru": "📖 Контекст и описание задачи\nКласс реализует два несвязанных интерфейса безопасности для обеспечения многофакторной аутентификации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IBiometricAuth и IPinAuth.\n2. Реализуйте оба варианта в «SmartLogin», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «SmartLogin auth = new SmartLogin();         System.out.println(\"Биометрия: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'"
     },
     "requirements": {
       "classes": [
@@ -2889,6 +5697,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SmartLogin</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>authenticateUser</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>SmartLogin</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>authenticateUser</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Payme 'SmartLogin' sinfi 'IBiometricAuth' (barmoq izi) va 'IPinAuth' (PIN-kod) interfeyslarini barobariga amalga oshiradi. Har ikkala autentifikatsiya usulini taqdim eting.\n\n📋",
+      "en": "Class implements two unrelated security interfaces to enable multi-factor authentication.\n\n📋",
+      "ru": "Класс реализует два несвязанных интерфейса безопасности для обеспечения многофакторной аутентификации."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IBiometricAuth' va 'IPinAuth' interfeyslarini e'lon qiling.",
+        "'SmartLogin' sinfini 'implements IBiometricAuth, IPinAuth' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'SmartLogin auth = new SmartLogin();         System.out.println(\"Biometriya: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IBiometricAuth' and 'IPinAuth'.",
+        "Implement both in 'SmartLogin' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'SmartLogin auth = new SmartLogin();         System.out.println(\"Biometriya: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IBiometricAuth и IPinAuth.",
+        "Реализуйте оба варианта в «SmartLogin», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «SmartLogin auth = new SmartLogin();         System.out.println(\"Биометрия: \" + auth.verifyFingerprint(true) + \" | PIN: \" + auth.verifyPin(\"1234\"));'"
       ]
     }
   },
@@ -2899,11 +5742,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "78. Korzinka — Skanerlanuvchi va Tortiluvchi Tovar (Weighable & Scannable)",
-      "en": "78. Korzinka — Weighable and Scannable Multiple Realization"
+      "en": "78. Korzinka — Weighable and Scannable Multiple Realization",
+      "ru": "78. Корзинка — Взвешиваемая и сканируемая множественная реализация."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka o'z-o'ziga xizmat kassasida mevalar ham skaner qilinadi ('IScannable'), ham tarozida tortiladi ('IWeighable'). 'WeightProduct' sinfida umumiy narxni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IScannable' va 'IWeighable' interfeyslarini e'lon qiling.\n2. 'WeightProduct' sinfini 'implements IScannable, IWeighable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Jami: \" + apples.calculateTotalCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nProduct class implements both IScannable and IWeighable to calculate total cost by weight.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IScannable' and 'IWeighable'.\n2. Implement both in 'WeightProduct' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Jami: \" + apples.calculateTotalCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nProduct class implements both IScannable and IWeighable to calculate total cost by weight.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IScannable' and 'IWeighable'.\n2. Implement both in 'WeightProduct' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Jami: \" + apples.calculateTotalCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nКласс продуктов реализует как IScannable, так и IWeighable для расчета общей стоимости по весу.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IScannable и IWeighable.\n2. Реализуйте оба в «WeightProduct», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Джами: \" + apples.calculateTotalCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -2929,6 +5774,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>WeightProduct</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>calculateTotalCost</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>WeightProduct</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>calculateTotalCost</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Korzinka o'z-o'ziga xizmat kassasida mevalar ham skaner qilinadi ('IScannable'), ham tarozida tortiladi ('IWeighable'). 'WeightProduct' sinfida umumiy narxni hisoblang.\n\n📋",
+      "en": "Product class implements both IScannable and IWeighable to calculate total cost by weight.\n\n📋",
+      "ru": "Класс продуктов реализует как IScannable, так и IWeighable для расчета общей стоимости по весу."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IScannable' va 'IWeighable' interfeyslarini e'lon qiling.",
+        "'WeightProduct' sinfini 'implements IScannable, IWeighable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Jami: \" + apples.calculateTotalCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IScannable' and 'IWeighable'.",
+        "Implement both in 'WeightProduct' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Jami: \" + apples.calculateTotalCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IScannable и IWeighable.",
+        "Реализуйте оба в «WeightProduct», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «WeightProduct apples = new WeightProduct(\"Olma\", 12000.0, 2.5);         System.out.println(apples.getName() + \" [\" + apples.getBarcode() + \"] Джами: \" + apples.calculateTotalCost() + \" UZS\");'"
       ]
     }
   },
@@ -2939,11 +5819,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "79. Yandex Go — Boshqariluvchi va Yo'lovchi Tashuvchi Mashina",
-      "en": "79. Yandex Go — Drivable and PassengerCarrying Multi-Interface"
+      "en": "79. Yandex Go — Drivable and PassengerCarrying Multi-Interface",
+      "ru": "79. Yandex Go — мультиинтерфейс для водителей и пассажиров"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go 'TaxiVehicle' sinfi 'IDrivable' (yoqilg'i sarfi) va 'IPassengerCarrier' (yo'lovchilar soni) interfeyslarini qanoatlantiradi. Mashina tafsilotlarini chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IDrivable' va 'IPassengerCarrier' interfeyslarini e'lon qiling.\n2. 'TaxiVehicle' sinfini 'implements IDrivable, IPassengerCarrier' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'",
-      "en": "📖 Real-World Scenario & Context\nTaxiVehicle implements IDrivable and IPassengerCarrier modeling transport specifications.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDrivable' and 'IPassengerCarrier'.\n2. Implement both in 'TaxiVehicle' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'"
+      "en": "📖 Real-World Scenario & Context\nTaxiVehicle implements IDrivable and IPassengerCarrier modeling transport specifications.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDrivable' and 'IPassengerCarrier'.\n2. Implement both in 'TaxiVehicle' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'",
+      "ru": "📖 Контекст и описание задачи\nTaxiVehicle реализует транспортные спецификации моделирования IDrivable и IPassengerCarrier.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы «IDrivable» и «IPassengerCarrier».\n2. Реализуйте оба в «TaxiVehicle», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в 'main': 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'"
     },
     "requirements": {
       "classes": [
@@ -2969,6 +5851,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>TaxiVehicle</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getVehicleDetails</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>TaxiVehicle</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getVehicleDetails</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Yandex Go 'TaxiVehicle' sinfi 'IDrivable' (yoqilg'i sarfi) va 'IPassengerCarrier' (yo'lovchilar soni) interfeyslarini qanoatlantiradi. Mashina tafsilotlarini chiqaring.\n\n📋",
+      "en": "TaxiVehicle implements IDrivable and IPassengerCarrier modeling transport specifications.\n\n📋",
+      "ru": "TaxiVehicle реализует транспортные спецификации моделирования IDrivable и IPassengerCarrier."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IDrivable' va 'IPassengerCarrier' interfeyslarini e'lon qiling.",
+        "'TaxiVehicle' sinfini 'implements IDrivable, IPassengerCarrier' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IDrivable' and 'IPassengerCarrier'.",
+        "Implement both in 'TaxiVehicle' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы «IDrivable» и «IPassengerCarrier».",
+        "Реализуйте оба в «TaxiVehicle», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в 'main': 'TaxiVehicle car = new TaxiVehicle(\"Cobalt\", 8.0, 4);         System.out.println(car.getVehicleDetails());'"
       ]
     }
   },
@@ -2979,11 +5896,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "80. Click — Kvitansiya Yaratish va SMS Yuborish Interfeyslari",
-      "en": "80. Click — Receipt Generation and SMS Notification Multiple Interface"
+      "en": "80. Click — Receipt Generation and SMS Notification Multiple Interface",
+      "ru": "80. Нажмите — множественный интерфейс генерации квитанций и SMS-уведомлений."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick 'PaymentAuditService' to'lov muvaffaqiyatli bo'lgach kvitansiya chop etadi ('IReceiptGenerator') va SMS jo'natadi ('ISmsSender'). Ikkala vazifani bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IReceiptGenerator' va 'ISmsSender' interfeyslarini e'lon qiling.\n2. 'PaymentAuditService' sinfini 'implements IReceiptGenerator, ISmsSender' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'",
-      "en": "📖 Real-World Scenario & Context\nService implements receipt creation and SMS dispatch simultaneously.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IReceiptGenerator' and 'ISmsSender'.\n2. Implement both in 'PaymentAuditService' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'"
+      "en": "📖 Real-World Scenario & Context\nService implements receipt creation and SMS dispatch simultaneously.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IReceiptGenerator' and 'ISmsSender'.\n2. Implement both in 'PaymentAuditService' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'",
+      "ru": "📖 Контекст и описание задачи\nСервис осуществляет одновременно создание квитанций и отправку СМС.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IReceiptGenerator и ISmsSender.\n2. Реализуйте оба варианта в «PaymentAuditService», используя реализации, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'"
     },
     "requirements": {
       "classes": [
@@ -3009,6 +5928,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PaymentAuditService</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>processReceiptAndNotify</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>PaymentAuditService</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>processReceiptAndNotify</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Click 'PaymentAuditService' to'lov muvaffaqiyatli bo'lgach kvitansiya chop etadi ('IReceiptGenerator') va SMS jo'natadi ('ISmsSender'). Ikkala vazifani bajaring.\n\n📋",
+      "en": "Service implements receipt creation and SMS dispatch simultaneously.\n\n📋",
+      "ru": "Сервис осуществляет одновременно создание квитанций и отправку СМС."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IReceiptGenerator' va 'ISmsSender' interfeyslarini e'lon qiling.",
+        "'PaymentAuditService' sinfini 'implements IReceiptGenerator, ISmsSender' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IReceiptGenerator' and 'ISmsSender'.",
+        "Implement both in 'PaymentAuditService' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IReceiptGenerator и ISmsSender.",
+        "Реализуйте оба варианта в «PaymentAuditService», используя реализации, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «PaymentAuditService srv = new PaymentAuditService();         System.out.println(srv.processReceiptAndNotify(\"TX-500\", 50000.0));'"
       ]
     }
   },
@@ -3019,11 +5973,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "81. Safia — Pishiriluvchi va Tez Buziluvchi Qandolat Tovari",
-      "en": "81. Safia — Cookable and Perishable Double Interface Implementation"
+      "en": "81. Safia — Cookable and Perishable Double Interface Implementation",
+      "ru": "81. Safia — реализация двойного интерфейса готовой и скоропортящейся продукции"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia issiq shirinliklari 'ICookable' (pishirish harorati) va 'IPerishable' (yaroqlilik kuni) interfeyslarini birlashtiradi. 'HotCroissant' sinfida ikkala parametrni ko'rsating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ICookable' va 'IPerishable' interfeyslarini e'lon qiling.\n2. 'HotCroissant' sinfini 'implements ICookable, IPerishable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'",
-      "en": "📖 Real-World Scenario & Context\nHotCroissant combines baking temperature and perishable shelf life contracts.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'ICookable' and 'IPerishable'.\n2. Implement both in 'HotCroissant' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'"
+      "en": "📖 Real-World Scenario & Context\nHotCroissant combines baking temperature and perishable shelf life contracts.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'ICookable' and 'IPerishable'.\n2. Implement both in 'HotCroissant' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'",
+      "ru": "📖 Контекст и описание задачи\nHotCroissant сочетает в себе температуру выпечки и срок годности скоропортящихся продуктов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы ICookable и IPerishable.\n2. Реализуйте оба в «HotCroissant», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'"
     },
     "requirements": {
       "classes": [
@@ -3049,6 +6005,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>HotCroissant</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getCroissantSummary</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>HotCroissant</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getCroissantSummary</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Safia issiq shirinliklari 'ICookable' (pishirish harorati) va 'IPerishable' (yaroqlilik kuni) interfeyslarini birlashtiradi. 'HotCroissant' sinfida ikkala parametrni ko'rsating.\n\n📋",
+      "en": "HotCroissant combines baking temperature and perishable shelf life contracts.\n\n📋",
+      "ru": "HotCroissant сочетает в себе температуру выпечки и срок годности скоропортящихся продуктов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ICookable' va 'IPerishable' interfeyslarini e'lon qiling.",
+        "'HotCroissant' sinfini 'implements ICookable, IPerishable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'ICookable' and 'IPerishable'.",
+        "Implement both in 'HotCroissant' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы ICookable и IPerishable.",
+        "Реализуйте оба в «HotCroissant», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «HotCroissant cr = new HotCroissant(180, 2);         System.out.println(cr.getCroissantSummary());'"
       ]
     }
   },
@@ -3059,11 +6050,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "82. Dodo Pizza — Maxsus Tarkibli va Chegirmali Pitsa",
-      "en": "82. Dodo Pizza — Customizable and Discountable Pizza Realization"
+      "en": "82. Dodo Pizza — Customizable and Discountable Pizza Realization",
+      "ru": "82. Додо Пицца — реализация пиццы по индивидуальному заказу и со скидкой"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo 'CustomPizza' pishirig'i 'ICustomizable' (qo'shimcha pishloq) va 'IDiscountable' (promo kod chegirmasi) interfeyslarini amalga oshiradi. Yakuniy narxni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ICustomizable' va 'IDiscountable' interfeyslarini e'lon qiling.\n2. 'CustomPizza' sinfini 'implements ICustomizable, IDiscountable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Moslashtirilgan narx: \" + p.getAdjustedPrice() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nCustomPizza handles ingredient addition and discount coupon deduction.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'ICustomizable' and 'IDiscountable'.\n2. Implement both in 'CustomPizza' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Moslashtirilgan narx: \" + p.getAdjustedPrice() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nCustomPizza handles ingredient addition and discount coupon deduction.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'ICustomizable' and 'IDiscountable'.\n2. Implement both in 'CustomPizza' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Moslashtirilgan narx: \" + p.getAdjustedPrice() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nCustomPizza занимается добавлением ингредиентов и вычетом купонов на скидку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы ICustomizable и IDiscountable.\n2. Реализуйте оба в «CustomPizza», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Нарх Мослаштирилгана: \" + p.getAdjustedPrice() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3089,6 +6082,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>CustomPizza</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getAdjustedPrice</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>CustomPizza</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getAdjustedPrice</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Dodo 'CustomPizza' pishirig'i 'ICustomizable' (qo'shimcha pishloq) va 'IDiscountable' (promo kod chegirmasi) interfeyslarini amalga oshiradi. Yakuniy narxni hisoblang.\n\n📋",
+      "en": "CustomPizza handles ingredient addition and discount coupon deduction.\n\n📋",
+      "ru": "CustomPizza занимается добавлением ингредиентов и вычетом купонов на скидку."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'ICustomizable' va 'IDiscountable' interfeyslarini e'lon qiling.",
+        "'CustomPizza' sinfini 'implements ICustomizable, IDiscountable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Moslashtirilgan narx: \" + p.getAdjustedPrice() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'ICustomizable' and 'IDiscountable'.",
+        "Implement both in 'CustomPizza' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Moslashtirilgan narx: \" + p.getAdjustedPrice() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейсы ICustomizable и IDiscountable.",
+        "Реализуйте оба в «CustomPizza», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «CustomPizza p = new CustomPizza(70000.0, 10000.0, 5000.0);         System.out.println(\"Нарх Мослаштирилгана: \" + p.getAdjustedPrice() + \" UZS\");'"
       ]
     }
   },
@@ -3099,11 +6127,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "83. Texnomart — Elektron Jihoz va Kafolatli Mahsulot",
-      "en": "83. Texnomart — Electronic and WarrantyCovered Multi-Contract Device"
+      "en": "83. Texnomart — Electronic and WarrantyCovered Multi-Contract Device",
+      "ru": "83. Texnomart — электронное многоконтрактное устройство с гарантийным покрытием"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart 'SmartTV' televizori 'IElectronic' (quvvat iste'moli) va 'IWarrantyCovered' (bepul servis muddati) shartnomalarini birlashtiradi. Xususiyatlarini chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IElectronic' va 'IWarrantyCovered' interfeyslarini e'lon qiling.\n2. 'SmartTV' sinfini 'implements IElectronic, IWarrantyCovered' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'SmartTV tv = new SmartTV(\"Samsung 55\", 120, 24);         System.out.println(tv.getDeviceSpecs());'",
-      "en": "📖 Real-World Scenario & Context\nSmartTV satisfies power consumption specifications and warranty service terms.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IElectronic' and 'IWarrantyCovered'.\n2. Implement both in 'SmartTV' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SmartTV tv = new SmartTV(\"Samsung 55\", 120, 24);         System.out.println(tv.getDeviceSpecs());'"
+      "en": "📖 Real-World Scenario & Context\nSmartTV satisfies power consumption specifications and warranty service terms.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IElectronic' and 'IWarrantyCovered'.\n2. Implement both in 'SmartTV' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SmartTV tv = new SmartTV(\"Samsung 55\", 120, 24);         System.out.println(tv.getDeviceSpecs());'",
+      "ru": "📖 Контекст и описание задачи\nSmartTV соответствует требованиям по энергопотреблению и условиям гарантийного обслуживания.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IElectronic и IWarrantyCovered.\n2. Реализуйте оба варианта в «SmartTV», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «SmartTV tv = новый SmartTV («Samsung 55», 120, 24);         System.out.println(tv.getDeviceSpecs());'"
     },
     "requirements": {
       "classes": [
@@ -3129,6 +6159,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SmartTV</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getDeviceSpecs</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>SmartTV</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getDeviceSpecs</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart 'SmartTV' televizori 'IElectronic' (quvvat iste'moli) va 'IWarrantyCovered' (bepul servis muddati) shartnomalarini birlashtiradi. Xususiyatlarini chiqaring.\n\n📋",
+      "en": "SmartTV satisfies power consumption specifications and warranty service terms.\n\n📋",
+      "ru": "SmartTV соответствует требованиям по энергопотреблению и условиям гарантийного обслуживания."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IElectronic' va 'IWarrantyCovered' interfeyslarini e'lon qiling.",
+        "'SmartTV' sinfini 'implements IElectronic, IWarrantyCovered' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'SmartTV tv = new SmartTV(\"Samsung 55\", 120, 24);         System.out.println(tv.getDeviceSpecs());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IElectronic' and 'IWarrantyCovered'.",
+        "Implement both in 'SmartTV' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'SmartTV tv = new SmartTV(\"Samsung 55\", 120, 24);         System.out.println(tv.getDeviceSpecs());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IElectronic и IWarrantyCovered.",
+        "Реализуйте оба варианта в «SmartTV», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «SmartTV tv = новый SmartTV («Samsung 55», 120, 24);         System.out.println(tv.getDeviceSpecs());'"
       ]
     }
   },
@@ -3139,11 +6204,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "84. Medion — Tibbiy Xizmat va Sug'urta Qoplanishi",
-      "en": "84. Medion — Medical Service with Insurance Coverage Realization"
+      "en": "84. Medion — Medical Service with Insurance Coverage Realization",
+      "ru": "84. Медион — Медицинские услуги с осуществлением страховой защиты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion shifokor konsultatsiyasi 'IMedicalService' (xizmat haqi) va 'IInsuranceCovered' (sug'urta qoplaydigan foiz) interfeyslariga tayanadi. Bemor to'laydigan qoldiqni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IMedicalService' va 'IInsuranceCovered' interfeyslarini e'lon qiling.\n2. 'InsuredConsultation' sinfini 'implements IMedicalService, IInsuranceCovered' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Bemor to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nCalculate out-of-pocket patient copay by combining medical cost and insurance coverage.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IMedicalService' and 'IInsuranceCovered'.\n2. Implement both in 'InsuredConsultation' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Bemor to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nCalculate out-of-pocket patient copay by combining medical cost and insurance coverage.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IMedicalService' and 'IInsuranceCovered'.\n2. Implement both in 'InsuredConsultation' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Bemor to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте доплату пациента из своего кармана, объединив расходы на медицинское обслуживание и страховое покрытие.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы «IMedicalService» и «IInsuranceCovered».\n2. Реализуйте оба варианта в InsuredConsultation, используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Бемор to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3169,6 +6236,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>InsuredConsultation</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>calculatePatientCopay</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>InsuredConsultation</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>calculatePatientCopay</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Medion shifokor konsultatsiyasi 'IMedicalService' (xizmat haqi) va 'IInsuranceCovered' (sug'urta qoplaydigan foiz) interfeyslariga tayanadi. Bemor to'laydigan qoldiqni hisoblang.\n\n📋",
+      "en": "Calculate out-of-pocket patient copay by combining medical cost and insurance coverage.\n\n📋",
+      "ru": "Рассчитайте доплату пациента из своего кармана, объединив расходы на медицинское обслуживание и страховое покрытие."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IMedicalService' va 'IInsuranceCovered' interfeyslarini e'lon qiling.",
+        "'InsuredConsultation' sinfini 'implements IMedicalService, IInsuranceCovered' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Bemor to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IMedicalService' and 'IInsuranceCovered'.",
+        "Implement both in 'InsuredConsultation' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Bemor to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейсы «IMedicalService» и «IInsuranceCovered».",
+        "Реализуйте оба варианта в InsuredConsultation, используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «InsuredConsultation c = new InsuredConsultation(200000.0, 0.7);         System.out.println(\"Бемор to'laydi: \" + c.calculatePatientCopay() + \" UZS\");'"
       ]
     }
   },
@@ -3179,11 +6281,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "85. Express24 — Ekspress Marshrut va Termo-Nazoratli Yetkazish",
-      "en": "85. Express24 — Express Speed and Temperature Controlled Delivery"
+      "en": "85. Express24 — Express Speed and Temperature Controlled Delivery",
+      "ru": "85. Express24 — экспресс-доставка с контролируемой скоростью и температурой."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 muzqaymoq yetkazishda 'IExpressRoute' (maksimal 25 daqiqa) va 'ITemperatureControlled' (-5 daraja) interfeyslarini talab qiladi. Shartlarni tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IExpressRoute' va 'ITemperatureControlled' interfeyslarini e'lon qiling.\n2. 'IceCreamDelivery' sinfini 'implements IExpressRoute, ITemperatureControlled' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'",
-      "en": "📖 Real-World Scenario & Context\nDelivery order satisfies express time deadline and refrigeration temperature criteria.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IExpressRoute' and 'ITemperatureControlled'.\n2. Implement both in 'IceCreamDelivery' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'"
+      "en": "📖 Real-World Scenario & Context\nDelivery order satisfies express time deadline and refrigeration temperature criteria.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IExpressRoute' and 'ITemperatureControlled'.\n2. Implement both in 'IceCreamDelivery' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'",
+      "ru": "📖 Контекст и описание задачи\nЗаказ на доставку соответствует критериям срочного срока и температуры охлаждения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IExpressRoute и ITemperatureControlled.\n2. Реализуйте оба в «IceCreamDelivery», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'"
     },
     "requirements": {
       "classes": [
@@ -3209,6 +6313,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>IceCreamDelivery</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getDeliveryCompliance</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>IceCreamDelivery</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getDeliveryCompliance</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Express24 muzqaymoq yetkazishda 'IExpressRoute' (maksimal 25 daqiqa) va 'ITemperatureControlled' (-5 daraja) interfeyslarini talab qiladi. Shartlarni tekshiring.\n\n📋",
+      "en": "Delivery order satisfies express time deadline and refrigeration temperature criteria.\n\n📋",
+      "ru": "Заказ на доставку соответствует критериям срочного срока и температуры охлаждения."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IExpressRoute' va 'ITemperatureControlled' interfeyslarini e'lon qiling.",
+        "'IceCreamDelivery' sinfini 'implements IExpressRoute, ITemperatureControlled' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IExpressRoute' and 'ITemperatureControlled'.",
+        "Implement both in 'IceCreamDelivery' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IExpressRoute и ITemperatureControlled.",
+        "Реализуйте оба в «IceCreamDelivery», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «IceCreamDelivery ic = new IceCreamDelivery(20, -6);         System.out.println(ic.getDeliveryCompliance());'"
       ]
     }
   },
@@ -3219,11 +6358,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "86. Asaxiy — Yuklab Olinadigan va Chop Etiladigan Resurs (Dual Format)",
-      "en": "86. Asaxiy — Downloadable and Printable Dual Media Resource"
+      "en": "86. Asaxiy — Downloadable and Printable Dual Media Resource",
+      "ru": "86. Asaxy — двойной медиа-ресурс, который можно загрузить и распечатать."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy o'quv qo'llanmasi 'IDownloadable' (PDF havolasi) va 'IPrintable' (sahifalar chop etish) imkoniyatlariga ega. Ikkala harakatni birlashtiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IDownloadable' va 'IPrintable' interfeyslarini e'lon qiling.\n2. 'DualFormatManual' sinfini 'implements IDownloadable, IPrintable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'",
-      "en": "📖 Real-World Scenario & Context\nDual-format educational book implements download URL provider and print preview.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDownloadable' and 'IPrintable'.\n2. Implement both in 'DualFormatManual' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'"
+      "en": "📖 Real-World Scenario & Context\nDual-format educational book implements download URL provider and print preview.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDownloadable' and 'IPrintable'.\n2. Implement both in 'DualFormatManual' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'",
+      "ru": "📖 Контекст и описание задачи\nУчебная книга двойного формата реализует поставщик URL-адресов для загрузки и предварительный просмотр печати.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы «IDownloadable» и «IPrintable».\n2. Реализуйте оба в «DualFormatManual», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'"
     },
     "requirements": {
       "classes": [
@@ -3249,6 +6390,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>DualFormatManual</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getResourceDetails</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>DualFormatManual</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getResourceDetails</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy o'quv qo'llanmasi 'IDownloadable' (PDF havolasi) va 'IPrintable' (sahifalar chop etish) imkoniyatlariga ega. Ikkala harakatni birlashtiring.\n\n📋",
+      "en": "Dual-format educational book implements download URL provider and print preview.\n\n📋",
+      "ru": "Учебная книга двойного формата реализует поставщик URL-адресов для загрузки и предварительный просмотр печати."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IDownloadable' va 'IPrintable' interfeyslarini e'lon qiling.",
+        "'DualFormatManual' sinfini 'implements IDownloadable, IPrintable' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IDownloadable' and 'IPrintable'.",
+        "Implement both in 'DualFormatManual' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы «IDownloadable» и «IPrintable».",
+        "Реализуйте оба в «DualFormatManual», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «DualFormatManual manual = new DualFormatManual(\"Java Qo'llanma\", \"asaxiy.uz/dl/java\", 180);         System.out.println(manual.getResourceDetails());'"
       ]
     }
   },
@@ -3259,11 +6435,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "87. Kapitalbank — Depozit Hisobi va Foiz Jamg'armasi",
-      "en": "87. Kapitalbank — Deposit Account and Interest Accrual Multi-Interface"
+      "en": "87. Kapitalbank — Deposit Account and Interest Accrual Multi-Interface",
+      "ru": "87. Капиталбанк — Мультиинтерфейс депозитного счета и начисления процентов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank 'SavingsAccount' sinfi 'IDepositAccount' (mablag' kiritish) va 'IInterestAccruing' (oylik foiz olish) interfeyslariga javob beradi. Bir oylik daromad bilan balansni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IDepositAccount' va 'IInterestAccruing' interfeyslarini e'lon qiling.\n2. 'SavingsAccount' sinfini 'implements IDepositAccount, IInterestAccruing' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Yillik 20% bo'yicha oylik daromad: \" + sa.calculateMonthlyYield() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nSavingsAccount implements deposit transaction handling and monthly interest calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDepositAccount' and 'IInterestAccruing'.\n2. Implement both in 'SavingsAccount' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Yillik 20% bo'yicha oylik daromad: \" + sa.calculateMonthlyYield() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nSavingsAccount implements deposit transaction handling and monthly interest calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IDepositAccount' and 'IInterestAccruing'.\n2. Implement both in 'SavingsAccount' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Yillik 20% bo'yicha oylik daromad: \" + sa.calculateMonthlyYield() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nSavingsAccount осуществляет обработку депозитных транзакций и ежемесячный расчет процентов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IDepositAccount и IInterestAcruing.\n2. Реализуйте оба варианта в SavingsAccount, используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Йиллик 20% боьича ойлик даромад: \" + sa.calculateMonthlyYield() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3289,6 +6467,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SavingsAccount</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>calculateMonthlyYield</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>SavingsAccount</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>calculateMonthlyYield</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank 'SavingsAccount' sinfi 'IDepositAccount' (mablag' kiritish) va 'IInterestAccruing' (oylik foiz olish) interfeyslariga javob beradi. Bir oylik daromad bilan balansni hisoblang.\n\n📋",
+      "en": "SavingsAccount implements deposit transaction handling and monthly interest calculation.\n\n📋",
+      "ru": "SavingsAccount осуществляет обработку депозитных транзакций и ежемесячный расчет процентов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IDepositAccount' va 'IInterestAccruing' interfeyslarini e'lon qiling.",
+        "'SavingsAccount' sinfini 'implements IDepositAccount, IInterestAccruing' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Yillik 20% bo'yicha oylik daromad: \" + sa.calculateMonthlyYield() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IDepositAccount' and 'IInterestAccruing'.",
+        "Implement both in 'SavingsAccount' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Yillik 20% bo'yicha oylik daromad: \" + sa.calculateMonthlyYield() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IDepositAccount и IInterestAcruing.",
+        "Реализуйте оба варианта в SavingsAccount, используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «SavingsAccount sa = new SavingsAccount(10000000.0, 0.20);         System.out.println(\"Йиллик 20% боьича ойлик даромад: \" + sa.calculateMonthlyYield() + \" UZS\");'"
       ]
     }
   },
@@ -3299,11 +6512,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "88. Beeline — Ovozli Qo'ng'iroq va Mobil Internet Birlashmasi",
-      "en": "88. Beeline — Voice Call and Mobile Data Combo Interface"
+      "en": "88. Beeline — Voice Call and Mobile Data Combo Interface",
+      "ru": "88. Beeline — комбинированный интерфейс голосовых вызовов и мобильных данных"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline 'ComboPlan' tarif rejasi 'IVoicePlan' (daqiqalar) va 'IDataPlan' (gigabaytlar) interfeyslarini o'zida birlashtirib mijozga umumiy xizmat paketini taqdim etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IVoicePlan' va 'IDataPlan' interfeyslarini e'lon qiling.\n2. 'ComboPlan' sinfini 'implements IVoicePlan, IDataPlan' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'",
-      "en": "📖 Real-World Scenario & Context\nComboPlan combines voice minutes and data traffic interfaces into a single subscriber entity.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IVoicePlan' and 'IDataPlan'.\n2. Implement both in 'ComboPlan' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'"
+      "en": "📖 Real-World Scenario & Context\nComboPlan combines voice minutes and data traffic interfaces into a single subscriber entity.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IVoicePlan' and 'IDataPlan'.\n2. Implement both in 'ComboPlan' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'",
+      "ru": "📖 Контекст и описание задачи\nComboPlan объединяет голосовые минуты и интерфейсы трафика данных в единый абонентский объект.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IVoicePlan и IDataPlan.\n2. Реализуйте оба варианта в ComboPlan, используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в 'main': 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'"
     },
     "requirements": {
       "classes": [
@@ -3329,6 +6544,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ComboPlan</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getPlanDetails</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>ComboPlan</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getPlanDetails</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "Beeline 'ComboPlan' tarif rejasi 'IVoicePlan' (daqiqalar) va 'IDataPlan' (gigabaytlar) interfeyslarini o'zida birlashtirib mijozga umumiy xizmat paketini taqdim etadi.\n\n📋",
+      "en": "ComboPlan combines voice minutes and data traffic interfaces into a single subscriber entity.\n\n📋",
+      "ru": "ComboPlan объединяет голосовые минуты и интерфейсы трафика данных в единый абонентский объект."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IVoicePlan' va 'IDataPlan' interfeyslarini e'lon qiling.",
+        "'ComboPlan' sinfini 'implements IVoicePlan, IDataPlan' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IVoicePlan' and 'IDataPlan'.",
+        "Implement both in 'ComboPlan' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IVoicePlan и IDataPlan.",
+        "Реализуйте оба варианта в ComboPlan, используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в 'main': 'ComboPlan plan = new ComboPlan(\"Status Silver\", 1000, 25);         System.out.println(plan.getPlanDetails());'"
       ]
     }
   },
@@ -3339,11 +6589,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "89. UzAirways — Parvoz Xizmati va Yuk Sug'urtasi",
-      "en": "89. UzAirways — Flight Passenger Service and Baggage Insurance"
+      "en": "89. UzAirways — Flight Passenger Service and Baggage Insurance",
+      "ru": "89. UzAirways — Обслуживание авиапассажиров и страхование багажа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways 'PremiumFlightBooking' sinfi 'IPassengerService' (ovqat tanlash) va 'IBaggageInsurance' (yo'qolgan yuk uchun kompensatsiya) interfeyslariga tayanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IPassengerService' va 'IBaggageInsurance' interfeyslarini e'lon qiling.\n2. 'PremiumFlightBooking' sinfini 'implements IPassengerService, IBaggageInsurance' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'",
-      "en": "📖 Real-World Scenario & Context\nBooking model realizes passenger meal service and baggage insurance coverage simultaneously.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IPassengerService' and 'IBaggageInsurance'.\n2. Implement both in 'PremiumFlightBooking' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'"
+      "en": "📖 Real-World Scenario & Context\nBooking model realizes passenger meal service and baggage insurance coverage simultaneously.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IPassengerService' and 'IBaggageInsurance'.\n2. Implement both in 'PremiumFlightBooking' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'",
+      "ru": "📖 Контекст и описание задачи\nМодель бронирования одновременно реализует питание пассажиров и страхование багажа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы IPassengerService и IBaggageInsurance.\n2. Реализуйте оба варианта в «PremiumFlightBooking», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'"
     },
     "requirements": {
       "classes": [
@@ -3369,6 +6621,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PremiumFlightBooking</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getPremiumSummary</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>PremiumFlightBooking</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getPremiumSummary</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways 'PremiumFlightBooking' sinfi 'IPassengerService' (ovqat tanlash) va 'IBaggageInsurance' (yo'qolgan yuk uchun kompensatsiya) interfeyslariga tayanadi.\n\n📋",
+      "en": "Booking model realizes passenger meal service and baggage insurance coverage simultaneously.\n\n📋",
+      "ru": "Модель бронирования одновременно реализует питание пассажиров и страхование багажа."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IPassengerService' va 'IBaggageInsurance' interfeyslarini e'lon qiling.",
+        "'PremiumFlightBooking' sinfini 'implements IPassengerService, IBaggageInsurance' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IPassengerService' and 'IBaggageInsurance'.",
+        "Implement both in 'PremiumFlightBooking' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы IPassengerService и IBaggageInsurance.",
+        "Реализуйте оба варианта в «PremiumFlightBooking», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «PremiumFlightBooking bk = new PremiumFlightBooking(\"Muslim Meal\", 2000000.0);         System.out.println(bk.getPremiumSummary());'"
       ]
     }
   },
@@ -3379,11 +6666,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "76-90: Multiple Interfaces & Conflict Resolution",
     "title": {
       "uz": "90. WIUT SRS — Diamond Problem va default Metodlar To'qnashuvi",
-      "en": "90. WIUT SRS — Resolving Diamond Problem with Interface.super.method()"
+      "en": "90. WIUT SRS — Resolving Diamond Problem with Interface.super.method()",
+      "ru": "90. WIUT SRS — Решение проблемы алмаза с помощью Interface.super.method()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida (Slide 29): 'If two interfaces have a default method with the same signature, the implementing class must override that method to resolve the conflict'. 'IOnlineExam' va 'IClassroomExam' da 'default String getExamMode()' mavjud. 'BlendedExam' sinfida to'qnashuvni hal qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IOnlineExam' va 'IClassroomExam' interfeyslarini e'lon qiling.\n2. 'BlendedExam' sinfini 'implements IOnlineExam, IClassroomExam' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.\n3. Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).\n4. To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.\n5. 'Main' metodida tekshiring: 'BlendedExam exam = new BlendedExam();         System.out.println(\"Imtihon shakli: \" + exam.getExamMode());'",
-      "en": "📖 Real-World Scenario & Context\nResolve default method signature collision using InterfaceName.super.method() syntax from Slide 29.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IOnlineExam' and 'IClassroomExam'.\n2. Implement both in 'BlendedExam' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'BlendedExam exam = new BlendedExam();         System.out.println(\"Imtihon shakli: \" + exam.getExamMode());'"
+      "en": "📖 Real-World Scenario & Context\nResolve default method signature collision using InterfaceName.super.method() syntax from Slide 29.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare interfaces 'IOnlineExam' and 'IClassroomExam'.\n2. Implement both in 'BlendedExam' using comma-separated implements.\n3. Override and provide logic for methods from both contracts.\n4. Resolve default method collisions using Interface.super syntax.\n5. Verify in 'main': 'BlendedExam exam = new BlendedExam();         System.out.println(\"Imtihon shakli: \" + exam.getExamMode());'",
+      "ru": "📖 Контекст и описание задачи\nУстраните конфликт сигнатур метода по умолчанию, используя синтаксис InterfaceName.super.method() из слайда 29.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите интерфейсы «IONlineExam» и «IClassroomExam».\n2. Реализуйте оба в «BlendedExam», используя инструменты, разделенные запятыми.\n3. Переопределить и предоставить логику для методов из обоих контрактов.\n4. Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.\n5. Проверьте в «main»: «Экзамен BlendedExam = new BlendedExam();         System.out.println(\"Имтихон шакли: \" +exam.getExamMode());'"
     },
     "requirements": {
       "classes": [
@@ -3409,6 +6698,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BlendedExam</code>: ikkita interfeysni birlashtirgan klass.",
         "<code>getExamMode</code>: polimorfik operatsiya."
+      ],
+      "theoryRu": "Java da bitta sinf faqat bitta sinfdan meros olishi mumkin, lekin istalgancha ko'p interfeyslarni («реализует A, B») amalga oshirishi mumkin. Если вы используете интерфейс по умолчанию, то вы можете использовать один из главных интерфейсов, чтобы получить йозиб то'кнашувни хал килиши шарт.",
+      "breakdownRu": [
+        "<code>BlendedExam</code>: ikkita interfeysni birlashtirgan klass.",
+        "<code>getExamMode</code>: polimorfik operatsiya."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida (Slide 29): 'If two interfaces have a default method with the same signature, the implementing class must override that method to resolve the conflict'. 'IOnlineExam' va 'IClassroomExam' da 'default String getExamMode()' mavjud. 'BlendedExam' sinfida to'qnashuvni hal qiling.\n\n📋",
+      "en": "Resolve default method signature collision using InterfaceName.super.method() syntax from Slide 29.\n\n📋",
+      "ru": "Устраните конфликт сигнатур метода по умолчанию, используя синтаксис InterfaceName.super.method() из слайда 29."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "'IOnlineExam' va 'IClassroomExam' interfeyslarini e'lon qiling.",
+        "'BlendedExam' sinfini 'implements IOnlineExam, IClassroomExam' orqali bir vaqtning o'zida ikkala interfeysga bog'lang.",
+        "Har ikkala interfeys shartnomalarini sinf ichida to'liq bajaring (@Override).",
+        "To'qnashuv bo'lsa 'Interface.super.method()' orqali mojaroni hal qiling.",
+        "'Main' metodida tekshiring: 'BlendedExam exam = new BlendedExam();         System.out.println(\"Imtihon shakli: \" + exam.getExamMode());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare interfaces 'IOnlineExam' and 'IClassroomExam'.",
+        "Implement both in 'BlendedExam' using comma-separated implements.",
+        "Override and provide logic for methods from both contracts.",
+        "Resolve default method collisions using Interface.super syntax.",
+        "Verify in 'main': 'BlendedExam exam = new BlendedExam();         System.out.println(\"Imtihon shakli: \" + exam.getExamMode());'"
+      ],
+      "ru": [
+        "Объявите интерфейсы «IONlineExam» и «IClassroomExam».",
+        "Реализуйте оба в «BlendedExam», используя инструменты, разделенные запятыми.",
+        "Переопределить и предоставить логику для методов из обоих контрактов.",
+        "Устраните конфликты методов по умолчанию, используя синтаксис Interface.super.",
+        "Проверьте в «main»: «Экзамен BlendedExam = new BlendedExam();         System.out.println(\"Имтихон шакли: \" +exam.getExamMode());'"
       ]
     }
   },
@@ -3419,11 +6743,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "91. Uzum Market — Polimorfik To'lov Vositalari To'plami (List<Payable>)",
-      "en": "91. Uzum Market — Polymorphic Processing with List<Payable>"
+      "en": "91. Uzum Market — Polymorphic Processing with List<Payable>",
+      "ru": "91. Узум Маркет — Полиморфная обработка со списком<Оплата>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida aytilganidek: dasturchi aniq sinflarga emas, umumiy 'Payable' interfeysiga qarab kod yozishi kerak. 'PaymentProcessor' klassida turli to'lov usullarini (BankCard, BonusBalance) 'List<Payable>' ro'yxatida yig'ib to'lovlarni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'PaymentBatchService' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'processAllPayments(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'PaymentBatchService batch = new PaymentBatchService();         batch.addPaymentMethod(new SimCardWallet(100000.0));         batch.addPaymentMethod(new SimBonusWallet(50000.0));         int success = batch.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + success);'",
-      "en": "📖 Real-World Scenario & Context\nProcess diverse payment objects polymorphically via a List of Payable interface references.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'PaymentBatchService'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'processAllPayments(...)'.\n5. Verify result in 'main': 'PaymentBatchService batch = new PaymentBatchService();         batch.addPaymentMethod(new SimCardWallet(100000.0));         batch.addPaymentMethod(new SimBonusWallet(50000.0));         int success = batch.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + success);'"
+      "en": "📖 Real-World Scenario & Context\nProcess diverse payment objects polymorphically via a List of Payable interface references.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'PaymentBatchService'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'processAllPayments(...)'.\n5. Verify result in 'main': 'PaymentBatchService batch = new PaymentBatchService();         batch.addPaymentMethod(new SimCardWallet(100000.0));         batch.addPaymentMethod(new SimBonusWallet(50000.0));         int success = batch.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + success);'",
+      "ru": "📖 Контекст и описание задачи\nОбрабатывайте разнообразные объекты платежей полиморфно с помощью ссылок на интерфейс List of Payable.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления PaymentBatchService.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'processAllPayments(...)'.\n5. Проверьте результат в «main»: «PaymentBatchService package = new PaymentBatchService();         пакетный.addPaymentMethod(новый SimCardWallet(100000.0));         пакетный.addPaymentMethod(новый SimBonusWallet(50000.0));         int успех = пакетный процесс.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + успех);'"
     },
     "requirements": {
       "classes": [
@@ -3442,6 +6768,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PaymentBatchService</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>processAllPayments</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>PaymentBatchService</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>processAllPayments</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida aytilganidek: dasturchi aniq sinflarga emas, umumiy 'Payable' interfeysiga qarab kod yozishi kerak. 'PaymentProcessor' klassida turli to'lov usullarini (BankCard, BonusBalance) 'List<Payable>' ro'yxatida yig'ib to'lovlarni bajaring.\n\n📋",
+      "en": "Process diverse payment objects polymorphically via a List of Payable interface references.\n\n📋",
+      "ru": "Обрабатывайте разнообразные объекты платежей полиморфно с помощью ссылок на интерфейс List of Payable."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'PaymentBatchService' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'processAllPayments(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'PaymentBatchService batch = new PaymentBatchService();         batch.addPaymentMethod(new SimCardWallet(100000.0));         batch.addPaymentMethod(new SimBonusWallet(50000.0));         int success = batch.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + success);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'PaymentBatchService'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'processAllPayments(...)'.",
+        "Verify result in 'main': 'PaymentBatchService batch = new PaymentBatchService();         batch.addPaymentMethod(new SimCardWallet(100000.0));         batch.addPaymentMethod(new SimBonusWallet(50000.0));         int success = batch.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + success);'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления PaymentBatchService.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'processAllPayments(...)'.",
+        "Проверьте результат в «main»: «PaymentBatchService package = new PaymentBatchService();         пакетный.addPaymentMethod(новый SimCardWallet(100000.0));         пакетный.addPaymentMethod(новый SimBonusWallet(50000.0));         int успех = пакетный процесс.processAllPayments(40000.0);         System.out.println(\"Muvaffaqiyatli to'lovlar soni: \" + успех);'"
       ]
     }
   },
@@ -3452,11 +6813,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "92. Payme — Is-A vs Can-Do Arxitektura Tanlovi",
-      "en": "92. Payme — Is-A Hierarchy vs Can-Do Capability Design"
+      "en": "92. Payme — Is-A Hierarchy vs Can-Do Capability Design",
+      "ru": "92. Payme — иерархия «является» против проектирования возможностей «можно сделать»"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Abstract class is used when classes share code and state (is-a); Interface is used for cross-cutting capabilities (can-do)'. 'AbstractAccount' dan meros oluvchi va 'ITransferable' interfeysini bajaruvchi 'CheckingAccount' tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'CheckingAccount' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'transferFunds(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'CheckingAccount acc = new CheckingAccount(\"ACC-55\", 400000.0);         boolean ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | O'tkazma: \" + ok);'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate combining abstract class is-a inheritance with capability interface realization.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'CheckingAccount'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'transferFunds(...)'.\n5. Verify result in 'main': 'CheckingAccount acc = new CheckingAccount(\"ACC-55\", 400000.0);         boolean ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | O'tkazma: \" + ok);'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate combining abstract class is-a inheritance with capability interface realization.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'CheckingAccount'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'transferFunds(...)'.\n5. Verify result in 'main': 'CheckingAccount acc = new CheckingAccount(\"ACC-55\", 400000.0);         boolean ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | O'tkazma: \" + ok);'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте объединение абстрактного класса-наследования с реализацией интерфейса возможностей.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления CheckingAccount.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'transferFunds(...)'.\n5. Проверьте результат в «main»: «CheckingAccount acc = new CheckingAccount(»ACC-55», 400000.0);         логическое значение ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | Отказма: \" + ok);'"
     },
     "requirements": {
       "classes": [
@@ -3475,6 +6838,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>CheckingAccount</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>transferFunds</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>CheckingAccount</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>transferFunds</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Abstract class is used when classes share code and state (is-a); Interface is used for cross-cutting capabilities (can-do)'. 'AbstractAccount' dan meros oluvchi va 'ITransferable' interfeysini bajaruvchi 'CheckingAccount' tuzing.\n\n📋",
+      "en": "Demonstrate combining abstract class is-a inheritance with capability interface realization.\n\n📋",
+      "ru": "Продемонстрируйте объединение абстрактного класса-наследования с реализацией интерфейса возможностей."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'CheckingAccount' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'transferFunds(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'CheckingAccount acc = new CheckingAccount(\"ACC-55\", 400000.0);         boolean ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | O'tkazma: \" + ok);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'CheckingAccount'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'transferFunds(...)'.",
+        "Verify result in 'main': 'CheckingAccount acc = new CheckingAccount(\"ACC-55\", 400000.0);         boolean ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | O'tkazma: \" + ok);'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления CheckingAccount.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'transferFunds(...)'.",
+        "Проверьте результат в «main»: «CheckingAccount acc = new CheckingAccount(»ACC-55», 400000.0);         логическое значение ok = acc.transferFunds(\"ACC-99\", 150000.0);         System.out.println(acc.getAccountSummary() + \" | Отказма: \" + ok);'"
       ]
     }
   },
@@ -3485,11 +6883,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "93. Korzinka — Polimorfik Chegirmalar Ketma-ketligi (List<IDiscount>)",
-      "en": "93. Korzinka — Sequential Polymorphic Discount Application"
+      "en": "93. Korzinka — Sequential Polymorphic Discount Application",
+      "ru": "93. Корзинка — последовательное полиморфное приложение со скидкой"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka savatchasiga bir nechta chegirma qoidalari (vaucher, pensioner, sodiqlik) ketma-ket qo'llaniladi. 'DiscountEngine' klassida 'List<IDiscount>' bo'yicha yakuniy summani hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'DiscountEngine' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'calculateDiscountedTotal(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'DiscountEngine engine = new DiscountEngine();         engine.addDiscount(new FixedCoupon(10000.0));         engine.addDiscount(new PercentageCut(0.05));         System.out.println(\"Chegirmali jami: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nIterate over a list of IDiscount interfaces to apply multiple discounts sequentially.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'DiscountEngine'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateDiscountedTotal(...)'.\n5. Verify result in 'main': 'DiscountEngine engine = new DiscountEngine();         engine.addDiscount(new FixedCoupon(10000.0));         engine.addDiscount(new PercentageCut(0.05));         System.out.println(\"Chegirmali jami: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nIterate over a list of IDiscount interfaces to apply multiple discounts sequentially.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'DiscountEngine'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateDiscountedTotal(...)'.\n5. Verify result in 'main': 'DiscountEngine engine = new DiscountEngine();         engine.addDiscount(new FixedCoupon(10000.0));         engine.addDiscount(new PercentageCut(0.05));         System.out.println(\"Chegirmali jami: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nПереберите список интерфейсов IDiscount, чтобы последовательно применить несколько скидок.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления «DiscountEngine».\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'calculateDiscountedTotal(...)'.\n5. Проверьте результат в «main»: «DiscountEngine engine = new DiscountEngine();         engine.addDiscount(новый фиксированный купон(10000.0));         engine.addDiscount(новый PercentageCut(0.05));         System.out.println(\"Чегирмали жами: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3508,6 +6908,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>DiscountEngine</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>calculateDiscountedTotal</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>DiscountEngine</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>calculateDiscountedTotal</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Korzinka savatchasiga bir nechta chegirma qoidalari (vaucher, pensioner, sodiqlik) ketma-ket qo'llaniladi. 'DiscountEngine' klassida 'List<IDiscount>' bo'yicha yakuniy summani hisoblang.\n\n📋",
+      "en": "Iterate over a list of IDiscount interfaces to apply multiple discounts sequentially.\n\n📋",
+      "ru": "Переберите список интерфейсов IDiscount, чтобы последовательно применить несколько скидок."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'DiscountEngine' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'calculateDiscountedTotal(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'DiscountEngine engine = new DiscountEngine();         engine.addDiscount(new FixedCoupon(10000.0));         engine.addDiscount(new PercentageCut(0.05));         System.out.println(\"Chegirmali jami: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'DiscountEngine'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'calculateDiscountedTotal(...)'.",
+        "Verify result in 'main': 'DiscountEngine engine = new DiscountEngine();         engine.addDiscount(new FixedCoupon(10000.0));         engine.addDiscount(new PercentageCut(0.05));         System.out.println(\"Chegirmali jami: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления «DiscountEngine».",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'calculateDiscountedTotal(...)'.",
+        "Проверьте результат в «main»: «DiscountEngine engine = new DiscountEngine();         engine.addDiscount(новый фиксированный купон(10000.0));         engine.addDiscount(новый PercentageCut(0.05));         System.out.println(\"Чегирмали жами: \" + engine.calculateDiscountedTotal(200000.0) + \" UZS\");'"
       ]
     }
   },
@@ -3518,11 +6953,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "94. Yandex Go — Polimorfik GPS Flot Monitoringi (List<IGpsVehicle>)",
-      "en": "94. Yandex Go — Fleet GPS Tracking via Interface List"
+      "en": "94. Yandex Go — Fleet GPS Tracking via Interface List",
+      "ru": "94. Yandex Go — GPS-отслеживание автопарка через список интерфейсов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go parkida taksi, yuk mashinasi va kuryer skuterlari bor. Ularning barchasi 'IGpsVehicle' interfeysiga ega. 'FleetMonitor' klassida jami faol mashinalar koordinatasini hisobot qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'FleetMonitor' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getFleetReport(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'FleetMonitor monitor = new FleetMonitor();         monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Faol flot: \" + monitor.getActiveCount() + \" ta transport\");'",
-      "en": "📖 Real-World Scenario & Context\nAggregate multiple vehicle types implementing IGpsVehicle in a central fleet management service.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'FleetMonitor'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getFleetReport(...)'.\n5. Verify result in 'main': 'FleetMonitor monitor = new FleetMonitor();         monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Faol flot: \" + monitor.getActiveCount() + \" ta transport\");'"
+      "en": "📖 Real-World Scenario & Context\nAggregate multiple vehicle types implementing IGpsVehicle in a central fleet management service.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'FleetMonitor'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getFleetReport(...)'.\n5. Verify result in 'main': 'FleetMonitor monitor = new FleetMonitor();         monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Faol flot: \" + monitor.getActiveCount() + \" ta transport\");'",
+      "ru": "📖 Контекст и описание задачи\nОбъедините несколько типов транспортных средств, реализуя IGpsVehicle, в центральном сервисе управления автопарком.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления FleetMonitor.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getFleetReport(...)'.\n5. Проверьте результат в «main»: «FleetMonitor Monitor = new FleetMonitor();         Monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         Monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Фаол флот: \" + Monitor.getActiveCount() + \" та транспорт\");'"
     },
     "requirements": {
       "classes": [
@@ -3541,6 +6978,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>FleetMonitor</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getFleetReport</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>FleetMonitor</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getFleetReport</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Yandex Go parkida taksi, yuk mashinasi va kuryer skuterlari bor. Ularning barchasi 'IGpsVehicle' interfeysiga ega. 'FleetMonitor' klassida jami faol mashinalar koordinatasini hisobot qiling.\n\n📋",
+      "en": "Aggregate multiple vehicle types implementing IGpsVehicle in a central fleet management service.\n\n📋",
+      "ru": "Объедините несколько типов транспортных средств, реализуя IGpsVehicle, в центральном сервисе управления автопарком."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'FleetMonitor' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getFleetReport(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'FleetMonitor monitor = new FleetMonitor();         monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Faol flot: \" + monitor.getActiveCount() + \" ta transport\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'FleetMonitor'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getFleetReport(...)'.",
+        "Verify result in 'main': 'FleetMonitor monitor = new FleetMonitor();         monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Faol flot: \" + monitor.getActiveCount() + \" ta transport\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления FleetMonitor.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getFleetReport(...)'.",
+        "Проверьте результат в «main»: «FleetMonitor Monitor = new FleetMonitor();         Monitor.registerVehicle(new TaxiCar(\"01A777AA\"));         Monitor.registerVehicle(new CargoTruck(\"01B888BB\"));         System.out.println(\"Фаол флот: \" + Monitor.getActiveCount() + \" та транспорт\");'"
       ]
     }
   },
@@ -3551,11 +7023,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "95. Click — Polimorfik Tranzaksiyalar Auditi (List<IAuditable>)",
-      "en": "95. Click — Transaction Audit Processing via IAuditable Interface"
+      "en": "95. Click — Transaction Audit Processing via IAuditable Interface",
+      "ru": "95. Нажмите — обработка аудита транзакций через интерфейс IAuditable."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick audit servisi to'lov, qaytarish yoki konvertatsiya harakatlarini 'IAuditable' interfeysi orqali bir xil tartibda log faylga yozadi. Ro'yxatdagi barcha loglarni chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'AuditLogger' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'generateAuditReport(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Audit yozuvlari: \" + logger.getLogCount() + \" ta\");'",
-      "en": "📖 Real-World Scenario & Context\nProcess audit records polymorphically using IAuditable contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'AuditLogger'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'generateAuditReport(...)'.\n5. Verify result in 'main': 'AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Audit yozuvlari: \" + logger.getLogCount() + \" ta\");'"
+      "en": "📖 Real-World Scenario & Context\nProcess audit records polymorphically using IAuditable contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'AuditLogger'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'generateAuditReport(...)'.\n5. Verify result in 'main': 'AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Audit yozuvlari: \" + logger.getLogCount() + \" ta\");'",
+      "ru": "📖 Контекст и описание задачи\nОбработка записей аудита полиморфно с использованием контракта IAuditable.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления AuditLogger.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'generateAuditReport(...)'.\n5. Проверьте результат в «main»: «AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Аудит выполняется: \" + logger.getLogCount() + \" ta\");'"
     },
     "requirements": {
       "classes": [
@@ -3574,6 +7048,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>AuditLogger</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>generateAuditReport</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>AuditLogger</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>generateAuditReport</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Click audit servisi to'lov, qaytarish yoki konvertatsiya harakatlarini 'IAuditable' interfeysi orqali bir xil tartibda log faylga yozadi. Ro'yxatdagi barcha loglarni chiqaring.\n\n📋",
+      "en": "Process audit records polymorphically using IAuditable contract.\n\n📋",
+      "ru": "Обработка записей аудита полиморфно с использованием контракта IAuditable."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'AuditLogger' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'generateAuditReport(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Audit yozuvlari: \" + logger.getLogCount() + \" ta\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'AuditLogger'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'generateAuditReport(...)'.",
+        "Verify result in 'main': 'AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Audit yozuvlari: \" + logger.getLogCount() + \" ta\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления AuditLogger.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'generateAuditReport(...)'.",
+        "Проверьте результат в «main»: «AuditLogger logger = new AuditLogger();         logger.addLog(new PaymentTxLog(\"P-101\", 50000.0));         logger.addLog(new RefundTxLog(\"R-202\", 12000.0));         System.out.println(\"Аудит выполняется: \" + logger.getLogCount() + \" ta\");'"
       ]
     }
   },
@@ -3584,11 +7093,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "96. Safia — Muddati O'tayotgan Mahsulotlar Filtrlash (List<IPerishable>)",
-      "en": "96. Safia — Filtering Expiring Inventory via IPerishable Interface"
+      "en": "96. Safia — Filtering Expiring Inventory via IPerishable Interface",
+      "ru": "96. Safia — фильтрация запасов с истекающим сроком действия через интерфейс IPerishable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia do'konida ombordagi tortlar va piroglar 'IPerishable' interfeysiga ega. 'InventoryAudit' klassida 2 kundan kam qolgan tovarlar sonini aniqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'InventoryAudit' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'countExpiringSoon(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Pechenye\", 10));         System.out.println(\"Muddati yaqin tovarlar: \" + inv.countExpiringSoon(2) + \" ta\");'",
-      "en": "📖 Real-World Scenario & Context\nInspect collection of IPerishable items and count products nearing expiration threshold.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'InventoryAudit'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'countExpiringSoon(...)'.\n5. Verify result in 'main': 'InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Pechenye\", 10));         System.out.println(\"Muddati yaqin tovarlar: \" + inv.countExpiringSoon(2) + \" ta\");'"
+      "en": "📖 Real-World Scenario & Context\nInspect collection of IPerishable items and count products nearing expiration threshold.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'InventoryAudit'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'countExpiringSoon(...)'.\n5. Verify result in 'main': 'InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Pechenye\", 10));         System.out.println(\"Muddati yaqin tovarlar: \" + inv.countExpiringSoon(2) + \" ta\");'",
+      "ru": "📖 Контекст и описание задачи\nПроверяйте сбор скоропортящихся продуктов и подсчитывайте продукты, срок годности которых приближается к порогу.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления InventoryAudit.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'countExpiringSoon(...)'.\n5. Проверьте результат в «main»: «InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Печеные\", 10));         System.out.println(\"Муддати якин товар: \" + inv.countExpiringSoon(2) + \" ta\");'"
     },
     "requirements": {
       "classes": [
@@ -3607,6 +7118,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>InventoryAudit</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>countExpiringSoon</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>InventoryAudit</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>countExpiringSoon</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Safia do'konida ombordagi tortlar va piroglar 'IPerishable' interfeysiga ega. 'InventoryAudit' klassida 2 kundan kam qolgan tovarlar sonini aniqlang.\n\n📋",
+      "en": "Inspect collection of IPerishable items and count products nearing expiration threshold.\n\n📋",
+      "ru": "Проверяйте сбор скоропортящихся продуктов и подсчитывайте продукты, срок годности которых приближается к порогу."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'InventoryAudit' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'countExpiringSoon(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Pechenye\", 10));         System.out.println(\"Muddati yaqin tovarlar: \" + inv.countExpiringSoon(2) + \" ta\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'InventoryAudit'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'countExpiringSoon(...)'.",
+        "Verify result in 'main': 'InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Pechenye\", 10));         System.out.println(\"Muddati yaqin tovarlar: \" + inv.countExpiringSoon(2) + \" ta\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления InventoryAudit.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'countExpiringSoon(...)'.",
+        "Проверьте результат в «main»: «InventoryAudit inv = new InventoryAudit();         inv.addItem(new BakeryItem(\"Tort\", 1));         inv.addItem(new BakeryItem(\"Печеные\", 10));         System.out.println(\"Муддати якин товар: \" + inv.countExpiringSoon(2) + \" ta\");'"
       ]
     }
   },
@@ -3617,11 +7163,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "97. Dodo Pizza — Polimorfik Pishirish Navbati (List<ICookable>)",
-      "en": "97. Dodo Pizza — Polymorphic Kitchen Oven Batch via ICookable"
+      "en": "97. Dodo Pizza — Polymorphic Kitchen Oven Batch via ICookable",
+      "ru": "97. Додо Пицца — полиморфная запеканка для кухонной духовки через ICookable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo oshxonasida pitsa va qanotchalar 'ICookable' interfeysiga ega. 'OvenManager' pechkada jami pishirish vaqtini hisoblovchi polimorfik metodni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'OvenManager' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getTotalBakeMinutes(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'OvenManager oven = new OvenManager();         oven.addDish(new PizzaDish(12));         oven.addDish(new WingsDish(8));         System.out.println(\"Umumiy pishish vaqti: \" + oven.getTotalBakeMinutes() + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nCalculate cumulative kitchen cooking time over diverse ICookable orders.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'OvenManager'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalBakeMinutes(...)'.\n5. Verify result in 'main': 'OvenManager oven = new OvenManager();         oven.addDish(new PizzaDish(12));         oven.addDish(new WingsDish(8));         System.out.println(\"Umumiy pishish vaqti: \" + oven.getTotalBakeMinutes() + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nCalculate cumulative kitchen cooking time over diverse ICookable orders.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'OvenManager'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalBakeMinutes(...)'.\n5. Verify result in 'main': 'OvenManager oven = new OvenManager();         oven.addDish(new PizzaDish(12));         oven.addDish(new WingsDish(8));         System.out.println(\"Umumiy pishish vaqti: \" + oven.getTotalBakeMinutes() + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте совокупное время приготовления на кухне для различных заказов ICookable.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления «OvenManager».\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getTotalBakeMinutes(...)'.\n5. Проверьте результат в «main»: «OvenManager духовка = новый OvenManager();         печь.addDish(новая PizzaDish(12));         духовка.addDish(новый WingsDish(8));         System.out.println(\"Умумий пишиш вакти: \" + духовка.getTotalBakeMinutes() + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -3640,6 +7188,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OvenManager</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getTotalBakeMinutes</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>OvenManager</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getTotalBakeMinutes</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Dodo oshxonasida pitsa va qanotchalar 'ICookable' interfeysiga ega. 'OvenManager' pechkada jami pishirish vaqtini hisoblovchi polimorfik metodni yozing.\n\n📋",
+      "en": "Calculate cumulative kitchen cooking time over diverse ICookable orders.\n\n📋",
+      "ru": "Рассчитайте совокупное время приготовления на кухне для различных заказов ICookable."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'OvenManager' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getTotalBakeMinutes(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'OvenManager oven = new OvenManager();         oven.addDish(new PizzaDish(12));         oven.addDish(new WingsDish(8));         System.out.println(\"Umumiy pishish vaqti: \" + oven.getTotalBakeMinutes() + \" daqiqa\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'OvenManager'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getTotalBakeMinutes(...)'.",
+        "Verify result in 'main': 'OvenManager oven = new OvenManager();         oven.addDish(new PizzaDish(12));         oven.addDish(new WingsDish(8));         System.out.println(\"Umumiy pishish vaqti: \" + oven.getTotalBakeMinutes() + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления «OvenManager».",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getTotalBakeMinutes(...)'.",
+        "Проверьте результат в «main»: «OvenManager духовка = новый OvenManager();         печь.addDish(новая PizzaDish(12));         духовка.addDish(новый WingsDish(8));         System.out.println(\"Умумий пишиш вакти: \" + духовка.getTotalBakeMinutes() + \" daqiqa\");'"
       ]
     }
   },
@@ -3650,11 +7233,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "98. Texnomart — Polimorfik Kafolat Servisi (List<IWarrantyItem>)",
-      "en": "98. Texnomart — Warranty Service Aggregation over Diverse Products"
+      "en": "98. Texnomart — Warranty Service Aggregation over Diverse Products",
+      "ru": "98. Texnomart — объединение гарантийных услуг для различных продуктов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart servis markazi televizor va muzlatgichlarni 'IWarrantyItem' interfeysi orqali qabul qiladi. O'rtacha kafolat muddatini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'WarrantyRegistry' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getAverageCoverageMonths(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'WarrantyRegistry reg = new WarrantyRegistry();         reg.register(new TechItem(12));         reg.register(new TechItem(24));         System.out.println(\"O'rtacha kafolat: \" + reg.getAverageCoverageMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nCompute average warranty coverage duration across collection of IWarrantyItem instances.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'WarrantyRegistry'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getAverageCoverageMonths(...)'.\n5. Verify result in 'main': 'WarrantyRegistry reg = new WarrantyRegistry();         reg.register(new TechItem(12));         reg.register(new TechItem(24));         System.out.println(\"O'rtacha kafolat: \" + reg.getAverageCoverageMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nCompute average warranty coverage duration across collection of IWarrantyItem instances.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'WarrantyRegistry'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getAverageCoverageMonths(...)'.\n5. Verify result in 'main': 'WarrantyRegistry reg = new WarrantyRegistry();         reg.register(new TechItem(12));         reg.register(new TechItem(24));         System.out.println(\"O'rtacha kafolat: \" + reg.getAverageCoverageMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте среднюю продолжительность гарантийного обслуживания по коллекции экземпляров IWarrantyItem.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления WarrantyRegistry.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getAverageCoverageMonths(...)'.\n5. Проверьте результат в «main»: «WarrantyRegistry reg = new WarrantyRegistry();         reg.register(новый TechItem(12));         reg.register(новый TechItem(24));         System.out.println(\"О'ртача кафолат: \" + reg.getAverageCoverageMonths() + \" ой\");'"
     },
     "requirements": {
       "classes": [
@@ -3673,6 +7258,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>WarrantyRegistry</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getAverageCoverageMonths</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>WarrantyRegistry</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getAverageCoverageMonths</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Texnomart servis markazi televizor va muzlatgichlarni 'IWarrantyItem' interfeysi orqali qabul qiladi. O'rtacha kafolat muddatini hisoblang.\n\n📋",
+      "en": "Compute average warranty coverage duration across collection of IWarrantyItem instances.\n\n📋",
+      "ru": "Рассчитайте среднюю продолжительность гарантийного обслуживания по коллекции экземпляров IWarrantyItem."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'WarrantyRegistry' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getAverageCoverageMonths(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'WarrantyRegistry reg = new WarrantyRegistry();         reg.register(new TechItem(12));         reg.register(new TechItem(24));         System.out.println(\"O'rtacha kafolat: \" + reg.getAverageCoverageMonths() + \" oy\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'WarrantyRegistry'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getAverageCoverageMonths(...)'.",
+        "Verify result in 'main': 'WarrantyRegistry reg = new WarrantyRegistry();         reg.register(new TechItem(12));         reg.register(new TechItem(24));         System.out.println(\"O'rtacha kafolat: \" + reg.getAverageCoverageMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления WarrantyRegistry.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getAverageCoverageMonths(...)'.",
+        "Проверьте результат в «main»: «WarrantyRegistry reg = new WarrantyRegistry();         reg.register(новый TechItem(12));         reg.register(новый TechItem(24));         System.out.println(\"О'ртача кафолат: \" + reg.getAverageCoverageMonths() + \" ой\");'"
       ]
     }
   },
@@ -3683,11 +7303,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "99. Medion — Bemor Muolajalari Ro'yxati (List<IMedicalProcedure>)",
-      "en": "99. Medion — Medical Procedure Billing via Interface Collection"
+      "en": "99. Medion — Medical Procedure Billing via Interface Collection",
+      "ru": "99. Medion — оплата медицинских процедур через интерфейс сбора данных"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedionda qon tahlili, MRT va UZI 'IMedicalProcedure' interfeysi orqali ifodalanadi. Bemorning barcha muolajalari umumiy narxini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'PatientBilling' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'calculateTotalBill(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'PatientBilling bill = new PatientBilling();         bill.addProcedure(new ClinicalTest(50000.0));         bill.addProcedure(new ClinicalTest(150000.0));         System.out.println(\"Muolajalar summasi: \" + bill.calculateTotalBill() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nSum costs of varied clinical procedures polymorphically through IMedicalProcedure interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'PatientBilling'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateTotalBill(...)'.\n5. Verify result in 'main': 'PatientBilling bill = new PatientBilling();         bill.addProcedure(new ClinicalTest(50000.0));         bill.addProcedure(new ClinicalTest(150000.0));         System.out.println(\"Muolajalar summasi: \" + bill.calculateTotalBill() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nSum costs of varied clinical procedures polymorphically through IMedicalProcedure interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'PatientBilling'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateTotalBill(...)'.\n5. Verify result in 'main': 'PatientBilling bill = new PatientBilling();         bill.addProcedure(new ClinicalTest(50000.0));         bill.addProcedure(new ClinicalTest(150000.0));         System.out.println(\"Muolajalar summasi: \" + bill.calculateTotalBill() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nПолиморфно суммируйте затраты на различные клинические процедуры через интерфейс IMedicalProcedure.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления PatientBilling.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'calculateTotalBill(...)'.\n5. Проверьте результат в «main»: «PatientBilling bill = new PatientBilling();         bill.addProcedure(новый ClinicalTest(50000.0));         bill.addProcedure(новый ClinicalTest(150000.0));         System.out.println(\"Вывести сумму: \" + bill.calculateTotalBill() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3706,6 +7328,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PatientBilling</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>calculateTotalBill</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>PatientBilling</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>calculateTotalBill</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Medionda qon tahlili, MRT va UZI 'IMedicalProcedure' interfeysi orqali ifodalanadi. Bemorning barcha muolajalari umumiy narxini hisoblang.\n\n📋",
+      "en": "Sum costs of varied clinical procedures polymorphically through IMedicalProcedure interface.\n\n📋",
+      "ru": "Полиморфно суммируйте затраты на различные клинические процедуры через интерфейс IMedicalProcedure."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'PatientBilling' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'calculateTotalBill(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'PatientBilling bill = new PatientBilling();         bill.addProcedure(new ClinicalTest(50000.0));         bill.addProcedure(new ClinicalTest(150000.0));         System.out.println(\"Muolajalar summasi: \" + bill.calculateTotalBill() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'PatientBilling'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'calculateTotalBill(...)'.",
+        "Verify result in 'main': 'PatientBilling bill = new PatientBilling();         bill.addProcedure(new ClinicalTest(50000.0));         bill.addProcedure(new ClinicalTest(150000.0));         System.out.println(\"Muolajalar summasi: \" + bill.calculateTotalBill() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления PatientBilling.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'calculateTotalBill(...)'.",
+        "Проверьте результат в «main»: «PatientBilling bill = new PatientBilling();         bill.addProcedure(новый ClinicalTest(50000.0));         bill.addProcedure(новый ClinicalTest(150000.0));         System.out.println(\"Вывести сумму: \" + bill.calculateTotalBill() + \" UZS\");'"
       ]
     }
   },
@@ -3716,11 +7373,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "100. Express24 — Buyurtmalarni Kuzatish Servisi (List<ITrackable>)",
-      "en": "100. Express24 — Live Order Tracking via ITrackable Interface"
+      "en": "100. Express24 — Live Order Tracking via ITrackable Interface",
+      "ru": "100. Express24 — отслеживание заказов в реальном времени через интерфейс ITrackable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 kuryerlari va posilkalari 'ITrackable' interfeysiga ega. 'TrackingHub' klassida barcha faol yetkazishlarni matnli hisobotga aylantiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'TrackingHub' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getDispatchCount(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'TrackingHub hub = new TrackingHub();         hub.track(new TrackableParcel(\"EXP-1\"));         hub.track(new TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" + hub.getDispatchCount() + \" ta\");'",
-      "en": "📖 Real-World Scenario & Context\nAggregate tracking status across parcels and couriers implementing ITrackable.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'TrackingHub'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getDispatchCount(...)'.\n5. Verify result in 'main': 'TrackingHub hub = new TrackingHub();         hub.track(new TrackableParcel(\"EXP-1\"));         hub.track(new TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" + hub.getDispatchCount() + \" ta\");'"
+      "en": "📖 Real-World Scenario & Context\nAggregate tracking status across parcels and couriers implementing ITrackable.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'TrackingHub'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getDispatchCount(...)'.\n5. Verify result in 'main': 'TrackingHub hub = new TrackingHub();         hub.track(new TrackableParcel(\"EXP-1\"));         hub.track(new TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" + hub.getDispatchCount() + \" ta\");'",
+      "ru": "📖 Контекст и описание задачи\nСовокупный статус отслеживания посылок и курьеров, использующих ITrackable.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления TrackingHub.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getDispatchCount(...)'.\n5. Проверьте результат в «main»: «TrackingHub Hub = new TrackingHub();         Hub.track(новая TrackableParcel(\"EXP-1\"));         Hub.track(новая TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" +hub.getDispatchCount() + \" ta\");'"
     },
     "requirements": {
       "classes": [
@@ -3739,6 +7398,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>TrackingHub</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getDispatchCount</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>TrackingHub</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getDispatchCount</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Express24 kuryerlari va posilkalari 'ITrackable' interfeysiga ega. 'TrackingHub' klassida barcha faol yetkazishlarni matnli hisobotga aylantiring.\n\n📋",
+      "en": "Aggregate tracking status across parcels and couriers implementing ITrackable.\n\n📋",
+      "ru": "Совокупный статус отслеживания посылок и курьеров, использующих ITrackable."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'TrackingHub' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getDispatchCount(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'TrackingHub hub = new TrackingHub();         hub.track(new TrackableParcel(\"EXP-1\"));         hub.track(new TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" + hub.getDispatchCount() + \" ta\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'TrackingHub'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getDispatchCount(...)'.",
+        "Verify result in 'main': 'TrackingHub hub = new TrackingHub();         hub.track(new TrackableParcel(\"EXP-1\"));         hub.track(new TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" + hub.getDispatchCount() + \" ta\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления TrackingHub.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getDispatchCount(...)'.",
+        "Проверьте результат в «main»: «TrackingHub Hub = new TrackingHub();         Hub.track(новая TrackableParcel(\"EXP-1\"));         Hub.track(новая TrackableParcel(\"EXP-2\"));         System.out.println(\"Kuzatilayotgan buyurtmalar: \" +hub.getDispatchCount() + \" ta\");'"
       ]
     }
   },
@@ -3749,11 +7443,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "101. Asaxiy — Polimorfik Resurslar Hajmi (List<IDownloadableItem>)",
-      "en": "101. Asaxiy — Aggregated Digital Download Size via Interface"
+      "en": "101. Asaxiy — Aggregated Digital Download Size via Interface",
+      "ru": "101. Asaxy — совокупный размер цифровой загрузки через интерфейс"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy kutubxonasida audio kitoblar va PDF qo'llanmalar 'IDownloadableItem' interfeysiga ega. Xarid savatidagi barcha raqamli fayllar umumiy hajmini (MB) hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'DownloadCart' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getTotalDownloadSizeMb(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'DownloadCart cart = new DownloadCart();         cart.addItem(new DigitalMediaItem(15.5));         cart.addItem(new DigitalMediaItem(45.0));         System.out.println(\"Jami yuklash hajmi: \" + cart.getTotalDownloadSizeMb() + \" MB\");'",
-      "en": "📖 Real-World Scenario & Context\nCalculate total digital download footprint across polymorphic items in Asaxiy cart.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'DownloadCart'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalDownloadSizeMb(...)'.\n5. Verify result in 'main': 'DownloadCart cart = new DownloadCart();         cart.addItem(new DigitalMediaItem(15.5));         cart.addItem(new DigitalMediaItem(45.0));         System.out.println(\"Jami yuklash hajmi: \" + cart.getTotalDownloadSizeMb() + \" MB\");'"
+      "en": "📖 Real-World Scenario & Context\nCalculate total digital download footprint across polymorphic items in Asaxiy cart.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'DownloadCart'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalDownloadSizeMb(...)'.\n5. Verify result in 'main': 'DownloadCart cart = new DownloadCart();         cart.addItem(new DigitalMediaItem(15.5));         cart.addItem(new DigitalMediaItem(45.0));         System.out.println(\"Jami yuklash hajmi: \" + cart.getTotalDownloadSizeMb() + \" MB\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте общий объем цифровых загрузок полиморфных элементов в корзине Asaxy.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления DownloadCart.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getTotalDownloadSizeMb(...)'.\n5. Проверьте результат в «main»: «DownloadCart cars = new DownloadCart();         cart.addItem(новый DigitalMediaItem(15.5));         cart.addItem(новый DigitalMediaItem(45.0));         System.out.println(\"Джами юклаш хаджми: \" + cart.getTotalDownloadSizeMb() + \" МБ\");'"
     },
     "requirements": {
       "classes": [
@@ -3772,6 +7468,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>DownloadCart</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getTotalDownloadSizeMb</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>DownloadCart</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getTotalDownloadSizeMb</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy kutubxonasida audio kitoblar va PDF qo'llanmalar 'IDownloadableItem' interfeysiga ega. Xarid savatidagi barcha raqamli fayllar umumiy hajmini (MB) hisoblang.\n\n📋",
+      "en": "Calculate total digital download footprint across polymorphic items in Asaxiy cart.\n\n📋",
+      "ru": "Рассчитайте общий объем цифровых загрузок полиморфных элементов в корзине Asaxy."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'DownloadCart' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getTotalDownloadSizeMb(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'DownloadCart cart = new DownloadCart();         cart.addItem(new DigitalMediaItem(15.5));         cart.addItem(new DigitalMediaItem(45.0));         System.out.println(\"Jami yuklash hajmi: \" + cart.getTotalDownloadSizeMb() + \" MB\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'DownloadCart'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getTotalDownloadSizeMb(...)'.",
+        "Verify result in 'main': 'DownloadCart cart = new DownloadCart();         cart.addItem(new DigitalMediaItem(15.5));         cart.addItem(new DigitalMediaItem(45.0));         System.out.println(\"Jami yuklash hajmi: \" + cart.getTotalDownloadSizeMb() + \" MB\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления DownloadCart.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getTotalDownloadSizeMb(...)'.",
+        "Проверьте результат в «main»: «DownloadCart cars = new DownloadCart();         cart.addItem(новый DigitalMediaItem(15.5));         cart.addItem(новый DigitalMediaItem(45.0));         System.out.println(\"Джами юклаш хаджми: \" + cart.getTotalDownloadSizeMb() + \" МБ\");'"
       ]
     }
   },
@@ -3782,11 +7513,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "102. Kapitalbank — Polimorfik Jamg'armalar Foizi (List<IInterestAccount>)",
-      "en": "102. Kapitalbank — Interest Payment Batch Processing via Interface"
+      "en": "102. Kapitalbank — Interest Payment Batch Processing via Interface",
+      "ru": "102. Капиталбанк — Пакетная обработка процентов по выплате через интерфейс"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank oylik foizlarni to'lashda barcha depozit turlarini 'IInterestAccount' interfeysi orqali birdek chaqiradi. Jami to'lanadigan oylik foiz summasini chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'InterestBatchService' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'calculateTotalMonthlyInterest(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'InterestBatchService svc = new InterestBatchService();         svc.addAccount(new DepositProduct(10000000.0, 0.20));         svc.addAccount(new DepositProduct(5000000.0, 0.18));         System.out.println(\"Jami to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nSum monthly interest payouts across disparate deposit account models.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'InterestBatchService'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateTotalMonthlyInterest(...)'.\n5. Verify result in 'main': 'InterestBatchService svc = new InterestBatchService();         svc.addAccount(new DepositProduct(10000000.0, 0.20));         svc.addAccount(new DepositProduct(5000000.0, 0.18));         System.out.println(\"Jami to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nSum monthly interest payouts across disparate deposit account models.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'InterestBatchService'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'calculateTotalMonthlyInterest(...)'.\n5. Verify result in 'main': 'InterestBatchService svc = new InterestBatchService();         svc.addAccount(new DepositProduct(10000000.0, 0.20));         svc.addAccount(new DepositProduct(5000000.0, 0.18));         System.out.println(\"Jami to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nСуммируйте ежемесячные выплаты процентов по разным моделям депозитных счетов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления «InterestBatchService».\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'calculateTotalMonthlyInterest(...)'.\n5. Проверьте результат в «основном»: «InterestBatchService svc = new InterestBatchService();         svc.addAccount(новый DepositProduct(10000000.0, 0.20));         svc.addAccount(новый DepositProduct(5000000.0, 0.18));         System.out.println(\"Джами to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3805,6 +7538,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>InterestBatchService</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>calculateTotalMonthlyInterest</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>InterestBatchService</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>calculateTotalMonthlyInterest</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank oylik foizlarni to'lashda barcha depozit turlarini 'IInterestAccount' interfeysi orqali birdek chaqiradi. Jami to'lanadigan oylik foiz summasini chiqaring.\n\n📋",
+      "en": "Sum monthly interest payouts across disparate deposit account models.\n\n📋",
+      "ru": "Суммируйте ежемесячные выплаты процентов по разным моделям депозитных счетов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'InterestBatchService' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'calculateTotalMonthlyInterest(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'InterestBatchService svc = new InterestBatchService();         svc.addAccount(new DepositProduct(10000000.0, 0.20));         svc.addAccount(new DepositProduct(5000000.0, 0.18));         System.out.println(\"Jami to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'InterestBatchService'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'calculateTotalMonthlyInterest(...)'.",
+        "Verify result in 'main': 'InterestBatchService svc = new InterestBatchService();         svc.addAccount(new DepositProduct(10000000.0, 0.20));         svc.addAccount(new DepositProduct(5000000.0, 0.18));         System.out.println(\"Jami to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления «InterestBatchService».",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'calculateTotalMonthlyInterest(...)'.",
+        "Проверьте результат в «основном»: «InterestBatchService svc = new InterestBatchService();         svc.addAccount(новый DepositProduct(10000000.0, 0.20));         svc.addAccount(новый DepositProduct(5000000.0, 0.18));         System.out.println(\"Джами to'lanadigan foiz: \" + svc.calculateTotalMonthlyInterest() + \" UZS\");'"
       ]
     }
   },
@@ -3815,11 +7583,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "103. Beeline — Faol Xizmatlar Oylik Summasi (List<IBillableService>)",
-      "en": "103. Beeline — Subscriber Monthly Billing over Diverse Services"
+      "en": "103. Beeline — Subscriber Monthly Billing over Diverse Services",
+      "ru": "103. Билайн — ежемесячная оплата абонентом различных услуг"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline abonentining internet to'plami, qo'shimcha daqiqalari va Beepul obunasi 'IBillableService' interfeysiga asoslangan. Oylik jami xarajatni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'SubscriberAccount' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getMonthlyTotal(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'SubscriberAccount sub = new SubscriberAccount();         sub.addService(new MobilePlanItem(45000.0));         sub.addService(new MobilePlanItem(15000.0));         System.out.println(\"Oylik abonent to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nCompute cumulative subscriber monthly bill over polymorphic telecom services.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'SubscriberAccount'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getMonthlyTotal(...)'.\n5. Verify result in 'main': 'SubscriberAccount sub = new SubscriberAccount();         sub.addService(new MobilePlanItem(45000.0));         sub.addService(new MobilePlanItem(15000.0));         System.out.println(\"Oylik abonent to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nCompute cumulative subscriber monthly bill over polymorphic telecom services.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'SubscriberAccount'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getMonthlyTotal(...)'.\n5. Verify result in 'main': 'SubscriberAccount sub = new SubscriberAccount();         sub.addService(new MobilePlanItem(45000.0));         sub.addService(new MobilePlanItem(15000.0));         System.out.println(\"Oylik abonent to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте совокупный ежемесячный счет абонента за полиморфные телекоммуникационные услуги.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления SubscriberAccount.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getMonthlyTotal(...)'.\n5. Проверьте результат в «main»: «SubscriberAccount sub = new SubscriberAccount();         sub.addService(новый MobilePlanItem(45000.0));         sub.addService(новый MobilePlanItem(15000.0));         System.out.println(\"Ойлик абонент to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3838,6 +7608,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SubscriberAccount</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getMonthlyTotal</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>SubscriberAccount</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getMonthlyTotal</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "Beeline abonentining internet to'plami, qo'shimcha daqiqalari va Beepul obunasi 'IBillableService' interfeysiga asoslangan. Oylik jami xarajatni hisoblang.\n\n📋",
+      "en": "Compute cumulative subscriber monthly bill over polymorphic telecom services.\n\n📋",
+      "ru": "Рассчитайте совокупный ежемесячный счет абонента за полиморфные телекоммуникационные услуги."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'SubscriberAccount' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getMonthlyTotal(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'SubscriberAccount sub = new SubscriberAccount();         sub.addService(new MobilePlanItem(45000.0));         sub.addService(new MobilePlanItem(15000.0));         System.out.println(\"Oylik abonent to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'SubscriberAccount'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getMonthlyTotal(...)'.",
+        "Verify result in 'main': 'SubscriberAccount sub = new SubscriberAccount();         sub.addService(new MobilePlanItem(45000.0));         sub.addService(new MobilePlanItem(15000.0));         System.out.println(\"Oylik abonent to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления SubscriberAccount.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getMonthlyTotal(...)'.",
+        "Проверьте результат в «main»: «SubscriberAccount sub = new SubscriberAccount();         sub.addService(новый MobilePlanItem(45000.0));         sub.addService(новый MobilePlanItem(15000.0));         System.out.println(\"Ойлик абонент to'lovi: \" + sub.getMonthlyTotal() + \" UZS\");'"
       ]
     }
   },
@@ -3848,11 +7653,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "104. UzAirways — Reysdagi Barcha Yuklar Og'irligi (List<IWeighedCargo>)",
-      "en": "104. UzAirways — Cargo Manifest Weight Totaling via Interface"
+      "en": "104. UzAirways — Cargo Manifest Weight Totaling via Interface",
+      "ru": "104. UzAirways — Подсчет веса грузового манифеста через интерфейс"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways samolyoti yuk xonasi 'IWeighedCargo' interfeysiga ega yo'lovchi chamadonlari va tijorat qutilari bilan to'ldiriladi. Jami og'irlikni (kg) hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'FlightManifest' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getTotalCargoWeight(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'FlightManifest mf = new FlightManifest();         mf.addCargo(new PassengerBaggage(23.5));         mf.addCargo(new CommercialBox(100.0));         System.out.println(\"Jami samolyot yuki: \" + mf.getTotalCargoWeight() + \" kg\");'",
-      "en": "📖 Real-World Scenario & Context\nTotal manifest baggage weight polymorphically over different cargo items.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'FlightManifest'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalCargoWeight(...)'.\n5. Verify result in 'main': 'FlightManifest mf = new FlightManifest();         mf.addCargo(new PassengerBaggage(23.5));         mf.addCargo(new CommercialBox(100.0));         System.out.println(\"Jami samolyot yuki: \" + mf.getTotalCargoWeight() + \" kg\");'"
+      "en": "📖 Real-World Scenario & Context\nTotal manifest baggage weight polymorphically over different cargo items.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'FlightManifest'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getTotalCargoWeight(...)'.\n5. Verify result in 'main': 'FlightManifest mf = new FlightManifest();         mf.addCargo(new PassengerBaggage(23.5));         mf.addCargo(new CommercialBox(100.0));         System.out.println(\"Jami samolyot yuki: \" + mf.getTotalCargoWeight() + \" kg\");'",
+      "ru": "📖 Контекст и описание задачи\nОбщий вес багажа полиморфен по различным местам груза.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления сборкой FlightManifest.\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getTotalCargoWeight(...)'.\n5. Проверьте результат в «main»: «FlightManifest mf = new FlightManifest();         mf.addCargo(новый PassengerBaggage(23.5));         mf.addCargo(новый CommercialBox(100.0));         System.out.println(\"Джами самолёт юки: \" + mf.getTotalCargoWeight() + \" кг\");'"
     },
     "requirements": {
       "classes": [
@@ -3871,6 +7678,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>FlightManifest</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getTotalCargoWeight</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>FlightManifest</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getTotalCargoWeight</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways samolyoti yuk xonasi 'IWeighedCargo' interfeysiga ega yo'lovchi chamadonlari va tijorat qutilari bilan to'ldiriladi. Jami og'irlikni (kg) hisoblang.\n\n📋",
+      "en": "Total manifest baggage weight polymorphically over different cargo items.\n\n📋",
+      "ru": "Общий вес багажа полиморфен по различным местам груза."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'FlightManifest' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getTotalCargoWeight(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'FlightManifest mf = new FlightManifest();         mf.addCargo(new PassengerBaggage(23.5));         mf.addCargo(new CommercialBox(100.0));         System.out.println(\"Jami samolyot yuki: \" + mf.getTotalCargoWeight() + \" kg\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'FlightManifest'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getTotalCargoWeight(...)'.",
+        "Verify result in 'main': 'FlightManifest mf = new FlightManifest();         mf.addCargo(new PassengerBaggage(23.5));         mf.addCargo(new CommercialBox(100.0));         System.out.println(\"Jami samolyot yuki: \" + mf.getTotalCargoWeight() + \" kg\");'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления сборкой FlightManifest.",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getTotalCargoWeight(...)'.",
+        "Проверьте результат в «main»: «FlightManifest mf = new FlightManifest();         mf.addCargo(новый PassengerBaggage(23.5));         mf.addCargo(новый CommercialBox(100.0));         System.out.println(\"Джами самолёт юки: \" + mf.getTotalCargoWeight() + \" кг\");'"
       ]
     }
   },
@@ -3881,11 +7723,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "91-105: Design Choices & Polymorphic Collections",
     "title": {
       "uz": "105. WIUT SRS — Modul Komponentlari Yakuniy Balli (List<IAssessmentMark>)",
-      "en": "105. WIUT SRS — Final Grade Calculation over Polymorphic CW Components"
+      "en": "105. WIUT SRS — Final Grade Calculation over Polymorphic CW Components",
+      "ru": "105. WIUT SRS — окончательный расчет содержания полиморфных компонентов CW."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT modulida CW1 (40%) va CW2 (60%) 'IAssessmentMark' interfeysiga ega bo'lib, har biri o'zining hissali ballini qaytaradi. Modul yakuniy ballini aniqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.\n2. 'ModuleGradeSheet' agregator sinfini tuzing.\n3. Interfeys havolalarini 'List<Interface>' to'plamida saqlang.\n4. 'getFinalGrade(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.\n5. 'Main' da tekshirib natijani chop eting: 'ModuleGradeSheet sheet = new ModuleGradeSheet();         sheet.addComponent(new AssessmentComponent(70, 0.4));         sheet.addComponent(new AssessmentComponent(80, 0.6));         System.out.println(\"Modul yakuniy balli: \" + sheet.getFinalGrade());'",
-      "en": "📖 Real-World Scenario & Context\nCalculate overall module grade across weighted assessment components.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'ModuleGradeSheet'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getFinalGrade(...)'.\n5. Verify result in 'main': 'ModuleGradeSheet sheet = new ModuleGradeSheet();         sheet.addComponent(new AssessmentComponent(70, 0.4));         sheet.addComponent(new AssessmentComponent(80, 0.6));         System.out.println(\"Modul yakuniy balli: \" + sheet.getFinalGrade());'"
+      "en": "📖 Real-World Scenario & Context\nCalculate overall module grade across weighted assessment components.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare polymorphic interface and concrete implementing classes.\n2. Build management class 'ModuleGradeSheet'.\n3. Store interface instances inside a List collection.\n4. Iterate through list polymorphically in 'getFinalGrade(...)'.\n5. Verify result in 'main': 'ModuleGradeSheet sheet = new ModuleGradeSheet();         sheet.addComponent(new AssessmentComponent(70, 0.4));         sheet.addComponent(new AssessmentComponent(80, 0.6));         System.out.println(\"Modul yakuniy balli: \" + sheet.getFinalGrade());'",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте общую оценку за модуль по взвешенным компонентам оценки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите полиморфный интерфейс и конкретные реализующие классы.\n2. Создайте класс управления сборкой «ModuleGradeSheet».\n3. Сохраняйте экземпляры интерфейса внутри коллекции List.\n4. Полиморфно перебирать список в 'getFinalGrade(...)'.\n5. Проверьте результат в «основном»: «Лист ModuleGradeSheet = новый ModuleGradeSheet();         лист.addComponent(новый AssessmentComponent(70, 0.4));         лист.addComponent(новый AssessmentComponent(80, 0.6));         System.out.println(\"Модуль ваших мячей: \" +sheet.getFinalGrade());'"
     },
     "requirements": {
       "classes": [
@@ -3904,6 +7748,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ModuleGradeSheet</code>: polimorfik interfeys to'plamiga ega sinf.",
         "<code>getFinalGrade</code>: umumiy interfeys orqali iteratsiya."
+      ],
+      "theoryRu": "Полиморфизм to'plamlar (masalan, List<Payable>) turli xil sinflarning ob'yektlarini yagona umumiy интерфейсов orqali boshqarish imkonini beradi. Код хар бир объектнинг аник кайси синфга мансублигини билиши шарт эмас, умумий интерфейс методини чакиришнинг о'зи кифоя.",
+      "breakdownRu": [
+        "<code>ModuleGradeSheet</code>: polimorfik interfeys to'plamiga ega sinf.",
+        "<code>getFinalGrade</code>: umumiy interfeys orqali iteratsiya."
+      ]
+    },
+    "story": {
+      "uz": "WIUT modulida CW1 (40%) va CW2 (60%) 'IAssessmentMark' interfeysiga ega bo'lib, har biri o'zining hissali ballini qaytaradi. Modul yakuniy ballini aniqlang.\n\n📋",
+      "en": "Calculate overall module grade across weighted assessment components.\n\n📋",
+      "ru": "Рассчитайте общую оценку за модуль по взвешенным компонентам оценки."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Polimorfik interfeys shartnomasini va uni amalga oshiruvchi sinflarni e'lon qiling.",
+        "'ModuleGradeSheet' agregator sinfini tuzing.",
+        "Interfeys havolalarini 'List<Interface>' to'plamida saqlang.",
+        "'getFinalGrade(...)' metodi orqali barcha elementlar bo'ylab iteratsiya qiling.",
+        "'Main' da tekshirib natijani chop eting: 'ModuleGradeSheet sheet = new ModuleGradeSheet();         sheet.addComponent(new AssessmentComponent(70, 0.4));         sheet.addComponent(new AssessmentComponent(80, 0.6));         System.out.println(\"Modul yakuniy balli: \" + sheet.getFinalGrade());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare polymorphic interface and concrete implementing classes.",
+        "Build management class 'ModuleGradeSheet'.",
+        "Store interface instances inside a List collection.",
+        "Iterate through list polymorphically in 'getFinalGrade(...)'.",
+        "Verify result in 'main': 'ModuleGradeSheet sheet = new ModuleGradeSheet();         sheet.addComponent(new AssessmentComponent(70, 0.4));         sheet.addComponent(new AssessmentComponent(80, 0.6));         System.out.println(\"Modul yakuniy balli: \" + sheet.getFinalGrade());'"
+      ],
+      "ru": [
+        "Объявите полиморфный интерфейс и конкретные реализующие классы.",
+        "Создайте класс управления сборкой «ModuleGradeSheet».",
+        "Сохраняйте экземпляры интерфейса внутри коллекции List.",
+        "Полиморфно перебирать список в 'getFinalGrade(...)'.",
+        "Проверьте результат в «основном»: «Лист ModuleGradeSheet = новый ModuleGradeSheet();         лист.addComponent(новый AssessmentComponent(70, 0.4));         лист.addComponent(новый AssessmentComponent(80, 0.6));         System.out.println(\"Модуль ваших мячей: \" +sheet.getFinalGrade());'"
       ]
     }
   },
@@ -3914,11 +7793,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "106. Uzum Market — 'Program to Interface': List<String> va ArrayList",
-      "en": "106. Uzum Market — Program to Interface with List<E> and ArrayList"
+      "en": "106. Uzum Market — Program to Interface with List<E> and ArrayList",
+      "ru": "106. Uzum Market — программа для взаимодействия со списками List<E> и ArrayList."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-leksiyasida (Slide 34): 'Program to an interface, not an implementation: List<E> list = new ArrayList<>()'. Uzum Market xarid ro'yxatini interfeys turi orqali e'lon qiluvchi 'ShoppingListManager' klassini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'ShoppingListManager' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getFormattedList(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Choynak\");         mgr.addItem(\"Dazmol\");         System.out.println(\"Savatdagi tovarlar soni: \" + mgr.getItemCount());'",
-      "en": "📖 Real-World Scenario & Context\nDeclare collection fields as interface types (List) rather than concrete implementations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ShoppingListManager' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFormattedList(...)' manipulating collection entries.\n5. Verify in 'main': 'ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Choynak\");         mgr.addItem(\"Dazmol\");         System.out.println(\"Savatdagi tovarlar soni: \" + mgr.getItemCount());'"
+      "en": "📖 Real-World Scenario & Context\nDeclare collection fields as interface types (List) rather than concrete implementations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ShoppingListManager' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFormattedList(...)' manipulating collection entries.\n5. Verify in 'main': 'ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Choynak\");         mgr.addItem(\"Dazmol\");         System.out.println(\"Savatdagi tovarlar soni: \" + mgr.getItemCount());'",
+      "ru": "📖 Контекст и описание задачи\nОбъявляйте поля коллекции как типы интерфейса (список), а не конкретные реализации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ShoppingListManager, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getFormattedList(...)' для управления записями коллекции.\n5. Проверьте в «main»: «ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Чойнак\");         mgr.addItem(\"Дазмол\");         System.out.println(\"Сохранение товаров: \" + mgr.getItemCount());'"
     },
     "requirements": {
       "classes": [
@@ -3937,6 +7818,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>ShoppingListManager</code>: interfeys to'plamiga ega sinf.",
         "<code>getFormattedList</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>ShoppingListManager</code>: interfeys to'plamiga ega sinf.",
+        "<code>getFormattedList</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-leksiyasida (Slide 34): 'Program to an interface, not an implementation: List<E> list = new ArrayList<>()'. Uzum Market xarid ro'yxatini interfeys turi orqali e'lon qiluvchi 'ShoppingListManager' klassini tuzing.\n\n📋",
+      "en": "Declare collection fields as interface types (List) rather than concrete implementations.\n\n📋",
+      "ru": "Объявляйте поля коллекции как типы интерфейса (список), а не конкретные реализации."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'ShoppingListManager' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getFormattedList(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Choynak\");         mgr.addItem(\"Dazmol\");         System.out.println(\"Savatdagi tovarlar soni: \" + mgr.getItemCount());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'ShoppingListManager' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getFormattedList(...)' manipulating collection entries.",
+        "Verify in 'main': 'ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Choynak\");         mgr.addItem(\"Dazmol\");         System.out.println(\"Savatdagi tovarlar soni: \" + mgr.getItemCount());'"
+      ],
+      "ru": [
+        "Объявите класс ShoppingListManager, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getFormattedList(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «ShoppingListManager mgr = new ShoppingListManager();         mgr.addItem(\"Чойнак\");         mgr.addItem(\"Дазмол\");         System.out.println(\"Сохранение товаров: \" + mgr.getItemCount());'"
       ]
     }
   },
@@ -3947,11 +7863,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "107. Payme — Tranzaksiya Tarixi: List<Double> va Summani Hisoblash",
-      "en": "107. Payme — Transaction History Collection and Summation"
+      "en": "107. Payme — Transaction History Collection and Summation",
+      "ru": "107. Payme — сбор и суммирование истории транзакций"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme kartasidagi barcha tranzaksiyalar 'List<Double>' to'plamida saqlanadi. 'TransactionLedger' sinfida jami sarflangan mablag'ni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'TransactionLedger' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getTotalSpent(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'TransactionLedger ledger = new TransactionLedger();         ledger.recordTx(45000.0);         ledger.recordTx(120000.0);         System.out.println(\"Jami xarajat: \" + ledger.getTotalSpent() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nManage payment transactions in List<Double> computing aggregate spending.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TransactionLedger' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getTotalSpent(...)' manipulating collection entries.\n5. Verify in 'main': 'TransactionLedger ledger = new TransactionLedger();         ledger.recordTx(45000.0);         ledger.recordTx(120000.0);         System.out.println(\"Jami xarajat: \" + ledger.getTotalSpent() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nManage payment transactions in List<Double> computing aggregate spending.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TransactionLedger' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getTotalSpent(...)' manipulating collection entries.\n5. Verify in 'main': 'TransactionLedger ledger = new TransactionLedger();         ledger.recordTx(45000.0);         ledger.recordTx(120000.0);         System.out.println(\"Jami xarajat: \" + ledger.getTotalSpent() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nУправляйте платежными транзакциями в List<Double>, вычисляя совокупные расходы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TransactionLedger, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getTotalSpent(...)' для управления записями коллекции.\n5. Проверьте в «main»: «TransactionLedger Ledger = new TransactionLedger();         леджер.recordTx(45000.0);         реестр.recordTx(120000.0);         System.out.println(\"Джами хараджат: \" +ledger.getTotalSpent() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -3970,6 +7888,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>TransactionLedger</code>: interfeys to'plamiga ega sinf.",
         "<code>getTotalSpent</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>TransactionLedger</code>: interfeys to'plamiga ega sinf.",
+        "<code>getTotalSpent</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Payme kartasidagi barcha tranzaksiyalar 'List<Double>' to'plamida saqlanadi. 'TransactionLedger' sinfida jami sarflangan mablag'ni hisoblang.\n\n📋",
+      "en": "Manage payment transactions in List<Double> computing aggregate spending.\n\n📋",
+      "ru": "Управляйте платежными транзакциями в List<Double>, вычисляя совокупные расходы."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'TransactionLedger' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getTotalSpent(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'TransactionLedger ledger = new TransactionLedger();         ledger.recordTx(45000.0);         ledger.recordTx(120000.0);         System.out.println(\"Jami xarajat: \" + ledger.getTotalSpent() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'TransactionLedger' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getTotalSpent(...)' manipulating collection entries.",
+        "Verify in 'main': 'TransactionLedger ledger = new TransactionLedger();         ledger.recordTx(45000.0);         ledger.recordTx(120000.0);         System.out.println(\"Jami xarajat: \" + ledger.getTotalSpent() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс TransactionLedger, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getTotalSpent(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «TransactionLedger Ledger = new TransactionLedger();         леджер.recordTx(45000.0);         реестр.recordTx(120000.0);         System.out.println(\"Джами хараджат: \" +ledger.getTotalSpent() + \" UZS\");'"
       ]
     }
   },
@@ -3980,11 +7933,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "108. Korzinka — Noyob Mijoz Telefonlari: Set<String> va HashSet",
-      "en": "108. Korzinka — Unique Customer Phone Numbers via Set and HashSet"
+      "en": "108. Korzinka — Unique Customer Phone Numbers via Set and HashSet",
+      "ru": "108. Корзинка — уникальные номера телефонов клиентов через Set и HashSet"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Set<E> contains no duplicate elements'. Korzinka SMS yuborish bazasida takroriy telefon raqamlarini chetlab o'tuvchi 'UniqueCustomerSet' tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'UniqueCustomerSet' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getUniqueCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Noyob mijozlar soni: \" + set.getUniqueCount());'",
-      "en": "📖 Real-World Scenario & Context\nPrevent duplicate customer entries using Set<String> backed by HashSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'UniqueCustomerSet' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getUniqueCount(...)' manipulating collection entries.\n5. Verify in 'main': 'UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Noyob mijozlar soni: \" + set.getUniqueCount());'"
+      "en": "📖 Real-World Scenario & Context\nPrevent duplicate customer entries using Set<String> backed by HashSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'UniqueCustomerSet' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getUniqueCount(...)' manipulating collection entries.\n5. Verify in 'main': 'UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Noyob mijozlar soni: \" + set.getUniqueCount());'",
+      "ru": "📖 Контекст и описание задачи\nПредотвратите дублирование записей клиентов, используя Set<String>, поддерживаемый HashSet.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «UniqueCustomerSet», используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getUniqueCount(...)' для управления записями коллекции.\n5. Проверьте в «main»: «UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Нет ничего лучше: \" + set.getUniqueCount());'"
     },
     "requirements": {
       "classes": [
@@ -4003,6 +7958,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>UniqueCustomerSet</code>: interfeys to'plamiga ega sinf.",
         "<code>getUniqueCount</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>UniqueCustomerSet</code>: interfeys to'plamiga ega sinf.",
+        "<code>getUniqueCount</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Set<E> contains no duplicate elements'. Korzinka SMS yuborish bazasida takroriy telefon raqamlarini chetlab o'tuvchi 'UniqueCustomerSet' tuzing.\n\n📋",
+      "en": "Prevent duplicate customer entries using Set<String> backed by HashSet.\n\n📋",
+      "ru": "Предотвратите дублирование записей клиентов, используя Set<String>, поддерживаемый HashSet."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'UniqueCustomerSet' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getUniqueCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Noyob mijozlar soni: \" + set.getUniqueCount());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'UniqueCustomerSet' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getUniqueCount(...)' manipulating collection entries.",
+        "Verify in 'main': 'UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Noyob mijozlar soni: \" + set.getUniqueCount());'"
+      ],
+      "ru": [
+        "Объявите класс «UniqueCustomerSet», используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getUniqueCount(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «UniqueCustomerSet set = new UniqueCustomerSet();         set.addPhone(\"+998901112233\");         set.addPhone(\"+998901112233\");         set.addPhone(\"+998909998877\");         System.out.println(\"Нет ничего лучше: \" + set.getUniqueCount());'"
       ]
     }
   },
@@ -4013,11 +8003,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "109. Yandex Go — Buyurtmalar Navbati: Queue<String> va ArrayDeque",
-      "en": "109. Yandex Go — FIFO Dispatch Queue using Queue<E> and ArrayDeque"
+      "en": "109. Yandex Go — FIFO Dispatch Queue using Queue<E> and ArrayDeque",
+      "ru": "109. Yandex Go — отправка очереди FIFO с использованием Queue<E> и ArrayDeque"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada (Slide 34): 'Queue<E> interface implemented by ArrayDeque (FIFO)'. Yandex Go haydovchilar navbatini birinchi kelganga birinchi buyurtma berish (FIFO) tartibida boshqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'RideDispatchQueue' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'processNextRide(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Navbatdagi safar: \" + q.processNextRide());'",
-      "en": "📖 Real-World Scenario & Context\nImplement First-In-First-Out dispatcher queue using Queue<String> and ArrayDeque.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'RideDispatchQueue' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'processNextRide(...)' manipulating collection entries.\n5. Verify in 'main': 'RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Navbatdagi safar: \" + q.processNextRide());'"
+      "en": "📖 Real-World Scenario & Context\nImplement First-In-First-Out dispatcher queue using Queue<String> and ArrayDeque.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'RideDispatchQueue' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'processNextRide(...)' manipulating collection entries.\n5. Verify in 'main': 'RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Navbatdagi safar: \" + q.processNextRide());'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте очередь диспетчера «первым пришел — первым обслужен», используя Queue<String> и ArrayDeque.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс RideDispatchQueue, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'processNextRide(...)' для управления записями коллекции.\n5. Проверьте в «main»: «RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Навбатдаги сафар: \" + q.processNextRide());'"
     },
     "requirements": {
       "classes": [
@@ -4036,6 +8028,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>RideDispatchQueue</code>: interfeys to'plamiga ega sinf.",
         "<code>processNextRide</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>RideDispatchQueue</code>: interfeys to'plamiga ega sinf.",
+        "<code>processNextRide</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada (Slide 34): 'Queue<E> interface implemented by ArrayDeque (FIFO)'. Yandex Go haydovchilar navbatini birinchi kelganga birinchi buyurtma berish (FIFO) tartibida boshqaring.\n\n📋",
+      "en": "Implement First-In-First-Out dispatcher queue using Queue<String> and ArrayDeque.\n\n📋",
+      "ru": "Реализуйте очередь диспетчера «первым пришел — первым обслужен», используя Queue<String> и ArrayDeque."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'RideDispatchQueue' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'processNextRide(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Navbatdagi safar: \" + q.processNextRide());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'RideDispatchQueue' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'processNextRide(...)' manipulating collection entries.",
+        "Verify in 'main': 'RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Navbatdagi safar: \" + q.processNextRide());'"
+      ],
+      "ru": [
+        "Объявите класс RideDispatchQueue, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'processNextRide(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «RideDispatchQueue q = new RideDispatchQueue();         q.enqueueRide(\"RIDE-01\");         q.enqueueRide(\"RIDE-02\");         System.out.println(\"Навбатдаги сафар: \" + q.processNextRide());'"
       ]
     }
   },
@@ -4046,11 +8073,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "110. Click — Valyuta Kurslari Xaritasi: Map<String, Double> va HashMap",
-      "en": "110. Click — Currency Rate Lookup via Map<String, Double> and HashMap"
+      "en": "110. Click — Currency Rate Lookup via Map<String, Double> and HashMap",
+      "ru": "110. Нажмите — поиск курса валюты с помощью Map<String, Double> и HashMap."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada: 'Map is not technically a Collection, but key-value storage'. Click 'FxRateRegistry' da har bir valyuta kodiga mos kursni saqlang va qidiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'FxRateRegistry' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getRate(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"USD kursi: \" + fx.getRate(\"USD\") + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nStore and retrieve exchange rates using Map<String, Double> interface contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'FxRateRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getRate(...)' manipulating collection entries.\n5. Verify in 'main': 'FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"USD kursi: \" + fx.getRate(\"USD\") + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nStore and retrieve exchange rates using Map<String, Double> interface contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'FxRateRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getRate(...)' manipulating collection entries.\n5. Verify in 'main': 'FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"USD kursi: \" + fx.getRate(\"USD\") + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте и извлекайте обменные курсы, используя контракт интерфейса Map<String, Double>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FxRateRegistry, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getRate(...)' для управления записями коллекции.\n5. Проверьте в «main»: «FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"Курс доллара США: \" + fx.getRate(\"USD\") + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4069,6 +8098,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>FxRateRegistry</code>: interfeys to'plamiga ega sinf.",
         "<code>getRate</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>FxRateRegistry</code>: interfeys to'plamiga ega sinf.",
+        "<code>getRate</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Leksiyada: 'Map is not technically a Collection, but key-value storage'. Click 'FxRateRegistry' da har bir valyuta kodiga mos kursni saqlang va qidiring.\n\n📋",
+      "en": "Store and retrieve exchange rates using Map<String, Double> interface contract.\n\n📋",
+      "ru": "Сохраняйте и извлекайте обменные курсы, используя контракт интерфейса Map<String, Double>."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'FxRateRegistry' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getRate(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"USD kursi: \" + fx.getRate(\"USD\") + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'FxRateRegistry' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getRate(...)' manipulating collection entries.",
+        "Verify in 'main': 'FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"USD kursi: \" + fx.getRate(\"USD\") + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс FxRateRegistry, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getRate(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «FxRateRegistry fx = new FxRateRegistry();         fx.setRate(\"USD\", 12600.0);         fx.setRate(\"EUR\", 13500.0);         System.out.println(\"Курс доллара США: \" + fx.getRate(\"USD\") + \" UZS\");'"
       ]
     }
   },
@@ -4079,11 +8143,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "111. Safia — Saralangan Narxlar To'plami: Set<Double> va TreeSet",
-      "en": "111. Safia — Naturally Sorted Price Points via Set<Double> and TreeSet"
+      "en": "111. Safia — Naturally Sorted Price Points via Set<Double> and TreeSet",
+      "ru": "111. Safia — естественная сортировка ценовых точек с помощью Set<Double> и TreeSet."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia menyusidagi narxlarni o'sish tartibida saralangan holda saqlash uchun 'Set<Double>' va 'TreeSet' dan foydalanuvchi 'PriceCatalog' tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'PriceCatalog' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getLowestPrice(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Eng arzon desert narxi: \" + pc.getLowestPrice() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nKeep price points naturally sorted in ascending order using TreeSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCatalog' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getLowestPrice(...)' manipulating collection entries.\n5. Verify in 'main': 'PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Eng arzon desert narxi: \" + pc.getLowestPrice() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nKeep price points naturally sorted in ascending order using TreeSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCatalog' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getLowestPrice(...)' manipulating collection entries.\n5. Verify in 'main': 'PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Eng arzon desert narxi: \" + pc.getLowestPrice() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте цены естественно отсортированными в порядке возрастания с помощью TreeSet.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PriceCatalog, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getLowestPrice(...)' для управления записями коллекции.\n5. Проверьте в «main»: «PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Английская арзонская пустынная наркси: \" + pc.getLowestPrice() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4102,6 +8168,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PriceCatalog</code>: interfeys to'plamiga ega sinf.",
         "<code>getLowestPrice</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>PriceCatalog</code>: interfeys to'plamiga ega sinf.",
+        "<code>getLowestPrice</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Safia menyusidagi narxlarni o'sish tartibida saralangan holda saqlash uchun 'Set<Double>' va 'TreeSet' dan foydalanuvchi 'PriceCatalog' tuzing.\n\n📋",
+      "en": "Keep price points naturally sorted in ascending order using TreeSet.\n\n📋",
+      "ru": "Сохраняйте цены естественно отсортированными в порядке возрастания с помощью TreeSet."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'PriceCatalog' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getLowestPrice(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Eng arzon desert narxi: \" + pc.getLowestPrice() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'PriceCatalog' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getLowestPrice(...)' manipulating collection entries.",
+        "Verify in 'main': 'PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Eng arzon desert narxi: \" + pc.getLowestPrice() + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс PriceCatalog, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getLowestPrice(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «PriceCatalog pc = new PriceCatalog();         pc.addPrice(45000.0);         pc.addPrice(15000.0);         pc.addPrice(80000.0);         System.out.println(\"Английская арзонская пустынная наркси: \" + pc.getLowestPrice() + \" UZS\");'"
       ]
     }
   },
@@ -4112,11 +8213,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "112. Dodo Pizza — Kiritilish Tartibini Saqlovchi Filiallar: LinkedHashMap",
-      "en": "112. Dodo Pizza — Insertion-Order Preserving Branch Registry using LinkedHashMap"
+      "en": "112. Dodo Pizza — Insertion-Order Preserving Branch Registry using LinkedHashMap",
+      "ru": "112. Dodo Pizza — реестр ветвей с сохранением порядка вставки с использованием LinkedHashMap"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimida 'Customer.deliveryAddresses' LinkedHashMap orqali yaratilgan. Dodo filiallarini kiritilish tartibida saqlovchi xaritani amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'BranchRegistry' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getBranchCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'BranchRegistry br = new BranchRegistry();         br.addBranch(\"Chilonzor\", \"Qatortol 28\");         br.addBranch(\"Yunusobod\", \"Amir Temur 4\");         System.out.println(\"Filiallar soni: \" + br.getBranchCount() + \" | Birinchi filial: \" + br.getAddress(\"Chilonzor\"));'",
-      "en": "📖 Real-World Scenario & Context\nUse LinkedHashMap to preserve insertion ordering of pizzeria branches matching Week 6 solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BranchRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getBranchCount(...)' manipulating collection entries.\n5. Verify in 'main': 'BranchRegistry br = new BranchRegistry();         br.addBranch(\"Chilonzor\", \"Qatortol 28\");         br.addBranch(\"Yunusobod\", \"Amir Temur 4\");         System.out.println(\"Filiallar soni: \" + br.getBranchCount() + \" | Birinchi filial: \" + br.getAddress(\"Chilonzor\"));'"
+      "en": "📖 Real-World Scenario & Context\nUse LinkedHashMap to preserve insertion ordering of pizzeria branches matching Week 6 solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BranchRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getBranchCount(...)' manipulating collection entries.\n5. Verify in 'main': 'BranchRegistry br = new BranchRegistry();         br.addBranch(\"Chilonzor\", \"Qatortol 28\");         br.addBranch(\"Yunusobod\", \"Amir Temur 4\");         System.out.println(\"Filiallar soni: \" + br.getBranchCount() + \" | Birinchi filial: \" + br.getAddress(\"Chilonzor\"));'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте LinkedHashMap, чтобы сохранить порядок вставки филиалов пиццерий, соответствующий решению 6-й недели.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BranchRegistry с помощью Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getBranchCount(...)' для управления записями коллекции.\n5. Проверьте в «main»: «BranchRegistry br = new BranchRegistry();         br.addBranch(\"Чилонзор\", \"Катортол 28\");         br.addBranch(\"Юнусобод\", \"Амир Темур 4\");         System.out.println(\"Филиалы: \" + br.getBranchCount() + \" | Филиал Биринчи: \" + br.getAddress(\"Чилонзор\"));'"
     },
     "requirements": {
       "classes": [
@@ -4135,6 +8238,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BranchRegistry</code>: interfeys to'plamiga ega sinf.",
         "<code>getBranchCount</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>BranchRegistry</code>: interfeys to'plamiga ega sinf.",
+        "<code>getBranchCount</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimida 'Customer.deliveryAddresses' LinkedHashMap orqali yaratilgan. Dodo filiallarini kiritilish tartibida saqlovchi xaritani amalga oshiring.\n\n📋",
+      "en": "Use LinkedHashMap to preserve insertion ordering of pizzeria branches matching Week 6 solution.\n\n📋",
+      "ru": "Используйте LinkedHashMap, чтобы сохранить порядок вставки филиалов пиццерий, соответствующий решению 6-й недели."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'BranchRegistry' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getBranchCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'BranchRegistry br = new BranchRegistry();         br.addBranch(\"Chilonzor\", \"Qatortol 28\");         br.addBranch(\"Yunusobod\", \"Amir Temur 4\");         System.out.println(\"Filiallar soni: \" + br.getBranchCount() + \" | Birinchi filial: \" + br.getAddress(\"Chilonzor\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'BranchRegistry' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getBranchCount(...)' manipulating collection entries.",
+        "Verify in 'main': 'BranchRegistry br = new BranchRegistry();         br.addBranch(\"Chilonzor\", \"Qatortol 28\");         br.addBranch(\"Yunusobod\", \"Amir Temur 4\");         System.out.println(\"Filiallar soni: \" + br.getBranchCount() + \" | Birinchi filial: \" + br.getAddress(\"Chilonzor\"));'"
+      ],
+      "ru": [
+        "Объявите класс BranchRegistry с помощью Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getBranchCount(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «BranchRegistry br = new BranchRegistry();         br.addBranch(\"Чилонзор\", \"Катортол 28\");         br.addBranch(\"Юнусобод\", \"Амир Темур 4\");         System.out.println(\"Филиалы: \" + br.getBranchCount() + \" | Филиал Биринчи: \" + br.getAddress(\"Чилонзор\"));'"
       ]
     }
   },
@@ -4145,11 +8283,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "113. Texnomart — Tartibli Noyob Seriya Raqamlari: LinkedHashSet",
-      "en": "113. Texnomart — Order-Preserving Unique Serial Numbers via LinkedHashSet"
+      "en": "113. Texnomart — Order-Preserving Unique Serial Numbers via LinkedHashSet",
+      "ru": "113. Texnomart — уникальные серийные номера, сохраняющие порядок, через LinkedHashSet"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKafolat tekshiruvida mahsulot seriya raqamlari ham takrorlanmasligi, ham kelgan tartibida saqlanishi kerak. 'LinkedHashSet' dan foydalanuvchi sinf yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'SerialRegistry' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getSerialCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Noyob seriya raqamlari soni: \" + sr.getSerialCount());'",
-      "en": "📖 Real-World Scenario & Context\nMaintain unique hardware serial numbers while preserving scan order using LinkedHashSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SerialRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getSerialCount(...)' manipulating collection entries.\n5. Verify in 'main': 'SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Noyob seriya raqamlari soni: \" + sr.getSerialCount());'"
+      "en": "📖 Real-World Scenario & Context\nMaintain unique hardware serial numbers while preserving scan order using LinkedHashSet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'SerialRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getSerialCount(...)' manipulating collection entries.\n5. Verify in 'main': 'SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Noyob seriya raqamlari soni: \" + sr.getSerialCount());'",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте уникальные серийные номера оборудования, сохраняя при этом порядок сканирования с помощью LinkedHashSet.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SerialRegistry, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getSerialCount(...)' для управления записями коллекции.\n5. Проверьте в «main»: «SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Новая серия сообщений: \" + sr.getSerialCount());'"
     },
     "requirements": {
       "classes": [
@@ -4168,6 +8308,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>SerialRegistry</code>: interfeys to'plamiga ega sinf.",
         "<code>getSerialCount</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>SerialRegistry</code>: interfeys to'plamiga ega sinf.",
+        "<code>getSerialCount</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Kafolat tekshiruvida mahsulot seriya raqamlari ham takrorlanmasligi, ham kelgan tartibida saqlanishi kerak. 'LinkedHashSet' dan foydalanuvchi sinf yozing.\n\n📋",
+      "en": "Maintain unique hardware serial numbers while preserving scan order using LinkedHashSet.\n\n📋",
+      "ru": "Сохраняйте уникальные серийные номера оборудования, сохраняя при этом порядок сканирования с помощью LinkedHashSet."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'SerialRegistry' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getSerialCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Noyob seriya raqamlari soni: \" + sr.getSerialCount());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'SerialRegistry' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getSerialCount(...)' manipulating collection entries.",
+        "Verify in 'main': 'SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Noyob seriya raqamlari soni: \" + sr.getSerialCount());'"
+      ],
+      "ru": [
+        "Объявите класс SerialRegistry, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getSerialCount(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «SerialRegistry sr = new SerialRegistry();         sr.registerSerial(\"SN-100\");         sr.registerSerial(\"SN-200\");         sr.registerSerial(\"SN-100\");         System.out.println(\"Новая серия сообщений: \" + sr.getSerialCount());'"
       ]
     }
   },
@@ -4178,11 +8353,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "114. Medion — Bemorlar Navbati: List<String> va LinkedList",
-      "en": "114. Medion — Patient Queue Operations with List<String> and LinkedList"
+      "en": "114. Medion — Patient Queue Operations with List<String> and LinkedList",
+      "ru": "114. Medion — операции с очередью пациентов с помощью List<String> и LinkedList."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTez-tez boshiga va oxiriga element qo'shiladigan holatlarda 'LinkedList' unumdorlik beradi. Medion qabulxonasida 'PatientLinkedList' klassini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'PatientLinkedList' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getFirstPatient(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'PatientLinkedList list = new PatientLinkedList();         list.addPatient(\"Karimov A.\");         list.addPatient(\"Sobirova N.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'",
-      "en": "📖 Real-World Scenario & Context\nUse LinkedList for efficient insertion and removal in clinic reception list.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PatientLinkedList' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFirstPatient(...)' manipulating collection entries.\n5. Verify in 'main': 'PatientLinkedList list = new PatientLinkedList();         list.addPatient(\"Karimov A.\");         list.addPatient(\"Sobirova N.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'"
+      "en": "📖 Real-World Scenario & Context\nUse LinkedList for efficient insertion and removal in clinic reception list.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PatientLinkedList' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFirstPatient(...)' manipulating collection entries.\n5. Verify in 'main': 'PatientLinkedList list = new PatientLinkedList();         list.addPatient(\"Karimov A.\");         list.addPatient(\"Sobirova N.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'",
+      "ru": "📖 Контекст и описание задачи\nИспользуйте LinkedList для эффективного добавления и удаления в списке приемных клиники.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PatientLinkedList, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте getFirstPatient(...) для управления записями коллекции.\n5. Проверьте в «main»: «Список PatientLinkedList = новый PatientLinkedList();         list.addPatient(\"Каримов А.\");         list.addPatient(\"Собирова Н.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'"
     },
     "requirements": {
       "classes": [
@@ -4201,6 +8378,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>PatientLinkedList</code>: interfeys to'plamiga ega sinf.",
         "<code>getFirstPatient</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>PatientLinkedList</code>: interfeys to'plamiga ega sinf.",
+        "<code>getFirstPatient</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Tez-tez boshiga va oxiriga element qo'shiladigan holatlarda 'LinkedList' unumdorlik beradi. Medion qabulxonasida 'PatientLinkedList' klassini tuzing.\n\n📋",
+      "en": "Use LinkedList for efficient insertion and removal in clinic reception list.\n\n📋",
+      "ru": "Используйте LinkedList для эффективного добавления и удаления в списке приемных клиники."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'PatientLinkedList' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getFirstPatient(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'PatientLinkedList list = new PatientLinkedList();         list.addPatient(\"Karimov A.\");         list.addPatient(\"Sobirova N.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'PatientLinkedList' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getFirstPatient(...)' manipulating collection entries.",
+        "Verify in 'main': 'PatientLinkedList list = new PatientLinkedList();         list.addPatient(\"Karimov A.\");         list.addPatient(\"Sobirova N.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'"
+      ],
+      "ru": [
+        "Объявите класс PatientLinkedList, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте getFirstPatient(...) для управления записями коллекции.",
+        "Проверьте в «main»: «Список PatientLinkedList = новый PatientLinkedList();         list.addPatient(\"Каримов А.\");         list.addPatient(\"Собирова Н.\");         System.out.println(\"Birinchi bemor: \" + list.getFirstPatient());'"
       ]
     }
   },
@@ -4211,11 +8423,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "115. Express24 — Kuryerlarga Posilkalar Xaritasi: Map<String, List<String>>",
-      "en": "115. Express24 — Nested Collection Mapping: Map<String, List<String>>"
+      "en": "115. Express24 — Nested Collection Mapping: Map<String, List<String>>",
+      "ru": "115. Express24 — Сопоставление вложенных коллекций: Map<String, List<String>>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHar bir kuryer nomiga unga biriktirilgan bir nechta buyurtmalar ro'yxati bog'lanadi ('Map<String, List<String>>'). 'CourierManifest' klassida posilkani biriktiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'CourierManifest' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getAssignedOrderCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Javohir\", \"ORD-101\");         cm.assignOrder(\"Javohir\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'",
-      "en": "📖 Real-World Scenario & Context\nModel one-to-many relationship using Map<String, List<String>> to track courier parcels.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierManifest' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getAssignedOrderCount(...)' manipulating collection entries.\n5. Verify in 'main': 'CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Javohir\", \"ORD-101\");         cm.assignOrder(\"Javohir\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'"
+      "en": "📖 Real-World Scenario & Context\nModel one-to-many relationship using Map<String, List<String>> to track courier parcels.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierManifest' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getAssignedOrderCount(...)' manipulating collection entries.\n5. Verify in 'main': 'CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Javohir\", \"ORD-101\");         cm.assignOrder(\"Javohir\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'",
+      "ru": "📖 Контекст и описание задачи\nСмоделируйте отношения «один ко многим», используя Map<String, List<String>> для отслеживания курьерских посылок.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CourierManifest, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getAssignedOrderCount(...)' для управления записями коллекции.\n5. Проверьте в «main»: «CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Джавохир\", \"ORD-101\");         cm.assignOrder(\"Джавохир\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'"
     },
     "requirements": {
       "classes": [
@@ -4234,6 +8448,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>CourierManifest</code>: interfeys to'plamiga ega sinf.",
         "<code>getAssignedOrderCount</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>CourierManifest</code>: interfeys to'plamiga ega sinf.",
+        "<code>getAssignedOrderCount</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Har bir kuryer nomiga unga biriktirilgan bir nechta buyurtmalar ro'yxati bog'lanadi ('Map<String, List<String>>'). 'CourierManifest' klassida posilkani biriktiring.\n\n📋",
+      "en": "Model one-to-many relationship using Map<String, List<String>> to track courier parcels.\n\n📋",
+      "ru": "Смоделируйте отношения «один ко многим», используя Map<String, List<String>> для отслеживания курьерских посылок."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'CourierManifest' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getAssignedOrderCount(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Javohir\", \"ORD-101\");         cm.assignOrder(\"Javohir\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'CourierManifest' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getAssignedOrderCount(...)' manipulating collection entries.",
+        "Verify in 'main': 'CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Javohir\", \"ORD-101\");         cm.assignOrder(\"Javohir\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'"
+      ],
+      "ru": [
+        "Объявите класс CourierManifest, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getAssignedOrderCount(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «CourierManifest cm = new CourierManifest();         cm.assignOrder(\"Джавохир\", \"ORD-101\");         cm.assignOrder(\"Джавохир\", \"ORD-102\");         System.out.println(\"Javohirning buyurtmalari: \" + cm.getAssignedOrderCount(\"Javohir\") + \" ta\");'"
       ]
     }
   },
@@ -4244,11 +8493,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "116. Asaxiy — Alifbo Bo'yicha Saralangan Janrlar: TreeMap<String, Integer>",
-      "en": "116. Asaxiy — Sorted Category Book Counts via TreeMap<String, Integer>"
+      "en": "116. Asaxiy — Sorted Category Book Counts via TreeMap<String, Integer>",
+      "ru": "116. Asaxy — отсортированное количество книг по категориям с помощью TreeMap<String, Integer>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy kitob janrlari alifbo bo'yicha avtomatik saralanishi kerak. 'TreeMap<String, Integer>' orqali har bir janrdagi kitoblar sonini boshqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'GenreCatalog' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getFirstGenre(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Tarix\", 120);         gc.addGenreCount(\"Badiiy\", 450);         System.out.println(\"Birinchi saralangan janr: \" + gc.getFirstGenre());'",
-      "en": "📖 Real-World Scenario & Context\nMaintain book counts sorted alphabetically by genre name using TreeMap.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GenreCatalog' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFirstGenre(...)' manipulating collection entries.\n5. Verify in 'main': 'GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Tarix\", 120);         gc.addGenreCount(\"Badiiy\", 450);         System.out.println(\"Birinchi saralangan janr: \" + gc.getFirstGenre());'"
+      "en": "📖 Real-World Scenario & Context\nMaintain book counts sorted alphabetically by genre name using TreeMap.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GenreCatalog' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getFirstGenre(...)' manipulating collection entries.\n5. Verify in 'main': 'GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Tarix\", 120);         gc.addGenreCount(\"Badiiy\", 450);         System.out.println(\"Birinchi saralangan janr: \" + gc.getFirstGenre());'",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте количество книг, отсортированное в алфавитном порядке по названию жанра, с помощью TreeMap.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс GenreCatalog, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте getFirstGenre(...) для управления записями коллекции.\n5. Проверьте в «main»: «GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Тарикс\", 120);         gc.addGenreCount(\"Бадиий\", 450);         System.out.println(\"Биринчи сараланган джанр: \" + gc.getFirstGenre());'"
     },
     "requirements": {
       "classes": [
@@ -4267,6 +8518,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>GenreCatalog</code>: interfeys to'plamiga ega sinf.",
         "<code>getFirstGenre</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>GenreCatalog</code>: interfeys to'plamiga ega sinf.",
+        "<code>getFirstGenre</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Asaxiy kitob janrlari alifbo bo'yicha avtomatik saralanishi kerak. 'TreeMap<String, Integer>' orqali har bir janrdagi kitoblar sonini boshqaring.\n\n📋",
+      "en": "Maintain book counts sorted alphabetically by genre name using TreeMap.\n\n📋",
+      "ru": "Сохраняйте количество книг, отсортированное в алфавитном порядке по названию жанра, с помощью TreeMap."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'GenreCatalog' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getFirstGenre(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Tarix\", 120);         gc.addGenreCount(\"Badiiy\", 450);         System.out.println(\"Birinchi saralangan janr: \" + gc.getFirstGenre());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'GenreCatalog' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getFirstGenre(...)' manipulating collection entries.",
+        "Verify in 'main': 'GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Tarix\", 120);         gc.addGenreCount(\"Badiiy\", 450);         System.out.println(\"Birinchi saralangan janr: \" + gc.getFirstGenre());'"
+      ],
+      "ru": [
+        "Объявите класс GenreCatalog, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте getFirstGenre(...) для управления записями коллекции.",
+        "Проверьте в «main»: «GenreCatalog gc = new GenreCatalog();         gc.addGenreCount(\"Тарикс\", 120);         gc.addGenreCount(\"Бадиий\", 450);         System.out.println(\"Биринчи сараланган джанр: \" + gc.getFirstGenre());'"
       ]
     }
   },
@@ -4277,11 +8563,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "117. Kapitalbank — Hisoblar Balansi Xaritasi: Map<String, Double>",
-      "en": "117. Kapitalbank — Account Balance Lookup via Map<String, Double>"
+      "en": "117. Kapitalbank — Account Balance Lookup via Map<String, Double>",
+      "ru": "117. Капиталбанк — Просмотр баланса счета через Map<String, Double>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank tizimida hisob raqamlari bo'yicha qoldiqlarni tez topish uchun 'Map<String, Double>' dan foydalanuvchi 'BankBalanceLedger' klassini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'BankBalanceLedger' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getBalance(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'BankBalanceLedger ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 balansi: \" + ledger.getBalance(\"ACC-1\") + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nImplement fast account balance lookup using Map interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BankBalanceLedger' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getBalance(...)' manipulating collection entries.\n5. Verify in 'main': 'BankBalanceLedger ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 balansi: \" + ledger.getBalance(\"ACC-1\") + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nImplement fast account balance lookup using Map interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BankBalanceLedger' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getBalance(...)' manipulating collection entries.\n5. Verify in 'main': 'BankBalanceLedger ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 balansi: \" + ledger.getBalance(\"ACC-1\") + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте быстрый поиск баланса счета с помощью интерфейса карты.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BankBalanceLedger, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getBalance(...)' для управления записями коллекции.\n5. Проверьте в «main»: «BankBalanceLedger Ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 баланс: \" +ledger.getBalance(\"ACC-1\") + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4300,6 +8588,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>BankBalanceLedger</code>: interfeys to'plamiga ega sinf.",
         "<code>getBalance</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>BankBalanceLedger</code>: interfeys to'plamiga ega sinf.",
+        "<code>getBalance</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Kapitalbank tizimida hisob raqamlari bo'yicha qoldiqlarni tez topish uchun 'Map<String, Double>' dan foydalanuvchi 'BankBalanceLedger' klassini tuzing.\n\n📋",
+      "en": "Implement fast account balance lookup using Map interface.\n\n📋",
+      "ru": "Реализуйте быстрый поиск баланса счета с помощью интерфейса карты."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'BankBalanceLedger' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getBalance(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'BankBalanceLedger ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 balansi: \" + ledger.getBalance(\"ACC-1\") + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'BankBalanceLedger' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getBalance(...)' manipulating collection entries.",
+        "Verify in 'main': 'BankBalanceLedger ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 balansi: \" + ledger.getBalance(\"ACC-1\") + \" UZS\");'"
+      ],
+      "ru": [
+        "Объявите класс BankBalanceLedger, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getBalance(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «BankBalanceLedger Ledger = new BankBalanceLedger();         ledger.setBalance(\"ACC-1\", 5000000.0);         System.out.println(\"ACC-1 баланс: \" +ledger.getBalance(\"ACC-1\") + \" UZS\");'"
       ]
     }
   },
@@ -4310,11 +8633,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "118. Beeline — USSD Kodlar To'plami: Set<String>",
-      "en": "118. Beeline — Supported USSD Codes Set Verification"
+      "en": "118. Beeline — Supported USSD Codes Set Verification",
+      "ru": "118. Билайн — проверка набора поддерживаемых USSD-кодов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline qo'llab-quvvatlaydigan USSD so'rovlari ('*100#', '*102#') 'Set<String>' to'plamida saqlanadi. Kodning mavjudligini tezkor tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'UssdRegistry' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'isValidUssd(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'",
-      "en": "📖 Real-World Scenario & Context\nVerify valid USSD requests via Set lookup in O(1) time.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'UssdRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'isValidUssd(...)' manipulating collection entries.\n5. Verify in 'main': 'UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'"
+      "en": "📖 Real-World Scenario & Context\nVerify valid USSD requests via Set lookup in O(1) time.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'UssdRegistry' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'isValidUssd(...)' manipulating collection entries.\n5. Verify in 'main': 'UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'",
+      "ru": "📖 Контекст и описание задачи\nПроверьте действительные запросы USSD с помощью поиска Set за время O (1).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс UssdRegistry, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'isValidUssd(...)' для управления записями коллекции.\n5. Проверьте в «main»: «UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'"
     },
     "requirements": {
       "classes": [
@@ -4333,6 +8658,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>UssdRegistry</code>: interfeys to'plamiga ega sinf.",
         "<code>isValidUssd</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>UssdRegistry</code>: interfeys to'plamiga ega sinf.",
+        "<code>isValidUssd</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Beeline qo'llab-quvvatlaydigan USSD so'rovlari ('*100#', '*102#') 'Set<String>' to'plamida saqlanadi. Kodning mavjudligini tezkor tekshiring.\n\n📋",
+      "en": "Verify valid USSD requests via Set lookup in O(1) time.\n\n📋",
+      "ru": "Проверьте действительные запросы USSD с помощью поиска Set за время O (1)."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'UssdRegistry' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'isValidUssd(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'UssdRegistry' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'isValidUssd(...)' manipulating collection entries.",
+        "Verify in 'main': 'UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'"
+      ],
+      "ru": [
+        "Объявите класс UssdRegistry, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'isValidUssd(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «UssdRegistry reg = new UssdRegistry();         reg.registerCode(\"*100#\");         System.out.println(\"*100# mavjudmi: \" + reg.isValidUssd(\"*100#\"));'"
       ]
     }
   },
@@ -4343,11 +8703,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "119. UzAirways — Reysga Chiqish Navbati: Queue<String>",
-      "en": "119. UzAirways — Passenger Gate Boarding Queue via Queue Interface"
+      "en": "119. UzAirways — Passenger Gate Boarding Queue via Queue Interface",
+      "ru": "119. UzAirways — Очередь на посадку у выхода на посадку через интерфейс очереди"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways darvozasida yo'lovchilar samolyotga 'Queue<String>' orqali navbat bilan chiqariladi. 'GateBoardingQueue' sinfida navbatni boshqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'GateBoardingQueue' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'boardNextPassenger(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Aliyev\");         q.addPassenger(\"Toshmatov\");         System.out.println(\"Samolyotga chiqdi: \" + q.boardNextPassenger());'",
-      "en": "📖 Real-World Scenario & Context\nModel flight passenger boarding sequence using Queue interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GateBoardingQueue' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'boardNextPassenger(...)' manipulating collection entries.\n5. Verify in 'main': 'GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Aliyev\");         q.addPassenger(\"Toshmatov\");         System.out.println(\"Samolyotga chiqdi: \" + q.boardNextPassenger());'"
+      "en": "📖 Real-World Scenario & Context\nModel flight passenger boarding sequence using Queue interface.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'GateBoardingQueue' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'boardNextPassenger(...)' manipulating collection entries.\n5. Verify in 'main': 'GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Aliyev\");         q.addPassenger(\"Toshmatov\");         System.out.println(\"Samolyotga chiqdi: \" + q.boardNextPassenger());'",
+      "ru": "📖 Контекст и описание задачи\nСмоделируйте последовательность посадки пассажиров на рейс, используя интерфейс очереди.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс GateBoardingQueue, используя Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'boardNextPassenger(...)' для управления записями коллекции.\n5. Проверьте в «main»: «GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Алиев\");         q.addPassenger(\"Тошматов\");         System.out.println(\"Самолётные задания: \" + q.boardNextPassenger());'"
     },
     "requirements": {
       "classes": [
@@ -4366,6 +8728,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>GateBoardingQueue</code>: interfeys to'plamiga ega sinf.",
         "<code>boardNextPassenger</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>GateBoardingQueue</code>: interfeys to'plamiga ega sinf.",
+        "<code>boardNextPassenger</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "UzAirways darvozasida yo'lovchilar samolyotga 'Queue<String>' orqali navbat bilan chiqariladi. 'GateBoardingQueue' sinfida navbatni boshqaring.\n\n📋",
+      "en": "Model flight passenger boarding sequence using Queue interface.\n\n📋",
+      "ru": "Смоделируйте последовательность посадки пассажиров на рейс, используя интерфейс очереди."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'GateBoardingQueue' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'boardNextPassenger(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Aliyev\");         q.addPassenger(\"Toshmatov\");         System.out.println(\"Samolyotga chiqdi: \" + q.boardNextPassenger());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'GateBoardingQueue' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'boardNextPassenger(...)' manipulating collection entries.",
+        "Verify in 'main': 'GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Aliyev\");         q.addPassenger(\"Toshmatov\");         System.out.println(\"Samolyotga chiqdi: \" + q.boardNextPassenger());'"
+      ],
+      "ru": [
+        "Объявите класс GateBoardingQueue, используя Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'boardNextPassenger(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «GateBoardingQueue q = new GateBoardingQueue();         q.addPassenger(\"Алиев\");         q.addPassenger(\"Тошматов\");         System.out.println(\"Самолётные задания: \" + q.boardNextPassenger());'"
       ]
     }
   },
@@ -4376,11 +8773,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "106-120: Collections Framework & Program to Interface",
     "title": {
       "uz": "120. WIUT SRS — Talaba Manzillari Xaritasi (Customer.deliveryAddresses Andozasi)",
-      "en": "120. WIUT SRS — Student Delivery Addresses Mapping Matching Customer.java"
+      "en": "120. WIUT SRS — Student Delivery Addresses Mapping Matching Customer.java",
+      "ru": "120. WIUT SRS — Сопоставление адресов доставки студентов, сопоставление с Customer.java"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 6 rasmiy yechimidagi andaza: 'Map<String, String> addresses = new LinkedHashMap<>();' har bir manzil yorlig'iga ('home', 'dorm') manzilni biriktiradi. 'StudentAddressManager' klassini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Kolleksiyalardan foydalanuvchi 'StudentAddressManager' sinfini e'lon qiling.\n2. 'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.\n3. Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.\n4. 'getAddress(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.\n5. 'Main' metodida tekshiring: 'StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Tashkent, Amir Temur 12\");         mgr.addAddress(\"dorm\", \"Tashkent, Istiqlol 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"dorm\"));'",
-      "en": "📖 Real-World Scenario & Context\nImplement address label dictionary using LinkedHashMap matching Week 6 Customer.java solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'StudentAddressManager' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getAddress(...)' manipulating collection entries.\n5. Verify in 'main': 'StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Tashkent, Amir Temur 12\");         mgr.addAddress(\"dorm\", \"Tashkent, Istiqlol 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"dorm\"));'"
+      "en": "📖 Real-World Scenario & Context\nImplement address label dictionary using LinkedHashMap matching Week 6 Customer.java solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'StudentAddressManager' using Java Collections Framework.\n2. Declare collection field using interface type (List, Set, Queue, Map).\n3. Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).\n4. Implement 'getAddress(...)' manipulating collection entries.\n5. Verify in 'main': 'StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Tashkent, Amir Temur 12\");         mgr.addAddress(\"dorm\", \"Tashkent, Istiqlol 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"dorm\"));'",
+      "ru": "📖 Контекст и описание задачи\nВнедрите словарь меток адресов, используя LinkedHashMap, соответствующее решению Customer.java 6-й недели.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «StudentAddressManager» с помощью Java Collections Framework.\n2. Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).\n3. Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).\n4. Реализуйте 'getAddress(...)' для управления записями коллекции.\n5. Проверьте в «main»: «StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Ташкент, Амира Темура 12\");         mgr.addAddress(\"общежитие\", \"Ташкент, Истиклол 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"общежитие\"));'"
     },
     "requirements": {
       "classes": [
@@ -4399,6 +8798,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>StudentAddressManager</code>: interfeys to'plamiga ega sinf.",
         "<code>getAddress</code>: to'plam operatsiyasi."
+      ],
+      "theoryRu": "WIUT 6-лексия (слайд 34) «Программа для интерфейса, а не реализация» qoidasi orgatiladi: «List<String> list = new ArrayList<>();». Вы можете использовать коды ArrayList и LinkedList, а также HashMap и LinkedHashMap, которые могут быть изменены.",
+      "breakdownRu": [
+        "<code>StudentAddressManager</code>: interfeys to'plamiga ega sinf.",
+        "<code>getAddress</code>: to'plam operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT Seminar 6 rasmiy yechimidagi andaza: 'Map<String, String> addresses = new LinkedHashMap<>();' har bir manzil yorlig'iga ('home', 'dorm') manzilni biriktiradi. 'StudentAddressManager' klassini yozing.\n\n📋",
+      "en": "Implement address label dictionary using LinkedHashMap matching Week 6 Customer.java solution.\n\n📋",
+      "ru": "Внедрите словарь меток адресов, используя LinkedHashMap, соответствующее решению Customer.java 6-й недели."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Kolleksiyalardan foydalanuvchi 'StudentAddressManager' sinfini e'lon qiling.",
+        "'Program to an interface' qoidasiga binoan maydonni 'List', 'Set', 'Queue' yoki 'Map' interfeysi sifatida e'lon qiling.",
+        "Konstruktor yoki metodda tegishli aniq realizatsiyani ('ArrayList', 'HashSet', 'LinkedHashMap' va b.) biriktiring.",
+        "'getAddress(...)' metodi orqali ma'lumotlarni saqlang yoki qidiring.",
+        "'Main' metodida tekshiring: 'StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Tashkent, Amir Temur 12\");         mgr.addAddress(\"dorm\", \"Tashkent, Istiqlol 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"dorm\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Declare class 'StudentAddressManager' using Java Collections Framework.",
+        "Declare collection field using interface type (List, Set, Queue, Map).",
+        "Instantiate concrete collection (ArrayList, HashSet, LinkedHashMap, etc.).",
+        "Implement 'getAddress(...)' manipulating collection entries.",
+        "Verify in 'main': 'StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Tashkent, Amir Temur 12\");         mgr.addAddress(\"dorm\", \"Tashkent, Istiqlol 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"dorm\"));'"
+      ],
+      "ru": [
+        "Объявите класс «StudentAddressManager» с помощью Java Collections Framework.",
+        "Объявите поле коллекции, используя тип интерфейса (Список, Набор, Очередь, Карта).",
+        "Создайте экземпляр конкретной коллекции (ArrayList, HashSet, LinkedHashMap и т. д.).",
+        "Реализуйте 'getAddress(...)' для управления записями коллекции.",
+        "Проверьте в «main»: «StudentAddressManager mgr = new StudentAddressManager();         mgr.addAddress(\"home\", \"Ташкент, Амира Темура 12\");         mgr.addAddress(\"общежитие\", \"Ташкент, Истиклол 4\");         System.out.println(\"Yotoqxona manzili: \" + mgr.getAddress(\"общежитие\"));'"
       ]
     }
   },
@@ -4409,11 +8843,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "121. Workshop TW 6 — 1-Qadam: IPrintable Interfeysini E'lon Qilish",
-      "en": "121. Workshop TW 6 — Step 1: IPrintable Interface Contract"
+      "en": "121. Workshop TW 6 — Step 1: IPrintable Interface Contract",
+      "ru": "121. Семинар TW 6 — Шаг 1: Контракт интерфейса IPrintable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 'Workshop TW 6: Abstract Class & Interface' qo'llanmasiga binoan, 1-qadamda 'interface IPrintable { void print(); }' e'lon qilinadi. Har bir chop etiluvchi klass ushbu shartnomani bajarishi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         doc.print();'",
-      "en": "📖 Real-World Scenario & Context\nDeclare IPrintable interface with abstract void print() method matching Workshop TW 6 Step 1.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         doc.print();'"
+      "en": "📖 Real-World Scenario & Context\nDeclare IPrintable interface with abstract void print() method matching Workshop TW 6 Step 1.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         doc.print();'",
+      "ru": "📖 Контекст и описание задачи\nОбъявите интерфейс IPrintable с абстрактным методом void print(), соответствующим Workshop TW 6, шаг 1.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         документ.печать();'"
     },
     "requirements": {
       "classes": [
@@ -4432,6 +8868,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 'Workshop TW 6: Abstract Class & Interface' qo'llanmasiga binoan, 1-qadamda 'interface IPrintable { void print(); }' e'lon qilinadi. Har bir chop etiluvchi klass ushbu shartnomani bajarishi shart.\n\n📋",
+      "en": "Declare IPrintable interface with abstract void print() method matching Workshop TW 6 Step 1.\n\n📋",
+      "ru": "Объявите интерфейс IPrintable с абстрактным методом void print(), соответствующим Workshop TW 6, шаг 1."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         doc.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         doc.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'IPrintable doc = new SimpleDocument(\"Hisobot\");         документ.печать();'"
       ]
     }
   },
@@ -4442,11 +8913,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "122. Workshop TW 6 — 2-Qadam: abstract class File implements IPrintable",
-      "en": "122. Workshop TW 6 — Step 2: Abstract File Implementing IPrintable"
+      "en": "122. Workshop TW 6 — Step 2: Abstract File Implementing IPrintable",
+      "ru": "122. Семинар TW 6 — Шаг 2: Абстрактный файл, реализующий IPrintable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop 2-qadam: 'abstract class File implements IPrintable'. Unda 'protected String title;' maydoni, 'abstract String getExtension();' metodi va umumiy 'void showHeader()' sarlavha chiqarish metodi bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Kengaytma: \" + f.getExtension());'",
-      "en": "📖 Real-World Scenario & Context\nBuild abstract class File holding shared title state, concrete showHeader() and abstract getExtension().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Kengaytma: \" + f.getExtension());'"
+      "en": "📖 Real-World Scenario & Context\nBuild abstract class File holding shared title state, concrete showHeader() and abstract getExtension().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Kengaytma: \" + f.getExtension());'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте файл абстрактного класса, содержащий общее состояние заголовка, конкретный showHeader() и абстрактный getExtension().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Кенгайтма: \" + f.getExtension());'"
     },
     "requirements": {
       "classes": [
@@ -4465,6 +8938,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>getExtension</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>getExtension</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop 2-qadam: 'abstract class File implements IPrintable'. Unda 'protected String title;' maydoni, 'abstract String getExtension();' metodi va umumiy 'void showHeader()' sarlavha chiqarish metodi bo'ladi.\n\n📋",
+      "en": "Build abstract class File holding shared title state, concrete showHeader() and abstract getExtension().\n\n📋",
+      "ru": "Создайте файл абстрактного класса, содержащий общее состояние заголовка, конкретный showHeader() и абстрактный getExtension()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Kengaytma: \" + f.getExtension());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Kengaytma: \" + f.getExtension());'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'File f = new DummyFile(\"demo\");         f.showHeader();         System.out.println(\"Кенгайтма: \" + f.getExtension());'"
       ]
     }
   },
@@ -4475,11 +8983,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "123. Workshop TW 6 — 3-Qadam: TextFile Voris Sinfida .txt va So'zlar Soni",
-      "en": "123. Workshop TW 6 — Step 3: TextFile Subclass with Word Count"
+      "en": "123. Workshop TW 6 — Step 3: TextFile Subclass with Word Count",
+      "ru": "123. Семинар TW 6 — Шаг 3: Подкласс TextFile с подсчетом слов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop 3-qadam: 'TextFile extends File'. Kengaytma sifatida '.txt' qaytaradi, 'wordCount' maydoniga ega bo'lib, 'print()' da 'showHeader()' va so'zlar sonini ekranga chiqaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'",
-      "en": "📖 Real-World Scenario & Context\nImplement TextFile subclass extending File and overriding print() and getExtension().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'"
+      "en": "📖 Real-World Scenario & Context\nImplement TextFile subclass extending File and overriding print() and getExtension().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте подкласс TextFile, расширяющий File и переопределяющий print() и getExtension().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'"
     },
     "requirements": {
       "classes": [
@@ -4498,6 +9008,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop 3-qadam: 'TextFile extends File'. Kengaytma sifatida '.txt' qaytaradi, 'wordCount' maydoniga ega bo'lib, 'print()' da 'showHeader()' va so'zlar sonini ekranga chiqaradi.\n\n📋",
+      "en": "Implement TextFile subclass extending File and overriding print() and getExtension().\n\n📋",
+      "ru": "Реализуйте подкласс TextFile, расширяющий File и переопределяющий print() и getExtension()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'TextFile tf = new TextFile(\"notes\", 150);         tf.print();'"
       ]
     }
   },
@@ -4508,11 +9053,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "124. Workshop TW 6 — 4-Qadam: ImageFile Voris Sinfida .png va O'lchamlar",
-      "en": "124. Workshop TW 6 — Step 4: ImageFile Subclass with Pixel Dimensions"
+      "en": "124. Workshop TW 6 — Step 4: ImageFile Subclass with Pixel Dimensions",
+      "ru": "124. Семинар TW 6 — Шаг 4: Подкласс ImageFile с размерами в пикселях"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop 4-qadam: 'ImageFile extends File'. Kengaytma '.png', 'width' va 'height' piksellariga ega. 'print()' metodi o'lchamlarni ekranga chiqaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'",
-      "en": "📖 Real-World Scenario & Context\nImplement ImageFile extending File returning .png and outputting pixel dimensions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'"
+      "en": "📖 Real-World Scenario & Context\nImplement ImageFile extending File returning .png and outputting pixel dimensions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте ImageFile, расширяющий File, возвращающий .png и выдающий размеры в пикселях.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'"
     },
     "requirements": {
       "classes": [
@@ -4531,6 +9078,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop 4-qadam: 'ImageFile extends File'. Kengaytma '.png', 'width' va 'height' piksellariga ega. 'print()' metodi o'lchamlarni ekranga chiqaradi.\n\n📋",
+      "en": "Implement ImageFile extending File returning .png and outputting pixel dimensions.\n\n📋",
+      "ru": "Реализуйте ImageFile, расширяющий File, возвращающий .png и выдающий размеры в пикселях."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'ImageFile img = new ImageFile(\"logo\", 800, 600);         img.print();'"
       ]
     }
   },
@@ -4541,11 +9123,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "125. Workshop TW 6 — 5-Qadam: Mustaqil PrintableDocument (File dan Meros Olmagan)",
-      "en": "125. Workshop TW 6 — Step 5: Standalone PrintableDocument Realization"
+      "en": "125. Workshop TW 6 — Step 5: Standalone PrintableDocument Realization",
+      "ru": "125. Семинар TW 6 — Шаг 5: Автономная реализация печатного документа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop 5-qadam: 'PrintableDocument implements IPrintable' (lekin File dan meros olmaydi!). Bu interfeyslarning bog'liq bo'lmagan sinflarni birlashtirish kuchini ko'rsatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'IPrintable doc = new PrintableDocument(\"Valeriya Tsoy\", \"Workshop 6 vazifalari yakunlandi.\");         doc.print();'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate interface polymorphism by creating PrintableDocument unrelated to File class hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable doc = new PrintableDocument(\"Valeriya Tsoy\", \"Workshop 6 vazifalari yakunlandi.\");         doc.print();'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate interface polymorphism by creating PrintableDocument unrelated to File class hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable doc = new PrintableDocument(\"Valeriya Tsoy\", \"Workshop 6 vazifalari yakunlandi.\");         doc.print();'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте полиморфизм интерфейса, создав PrintableDocument, не связанный с иерархией классов File.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Вывести результат на консоль: 'IPrintable doc = new PrintableDocument(\"Валерия Цой\", \"Мастерская 6 вазифалари якунланди.\");         документ.печать();'"
     },
     "requirements": {
       "classes": [
@@ -4564,6 +9148,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop 5-qadam: 'PrintableDocument implements IPrintable' (lekin File dan meros olmaydi!). Bu interfeyslarning bog'liq bo'lmagan sinflarni birlashtirish kuchini ko'rsatadi.\n\n📋",
+      "en": "Demonstrate interface polymorphism by creating PrintableDocument unrelated to File class hierarchy.\n\n📋",
+      "ru": "Продемонстрируйте полиморфизм интерфейса, создав PrintableDocument, не связанный с иерархией классов File."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'IPrintable doc = new PrintableDocument(\"Valeriya Tsoy\", \"Workshop 6 vazifalari yakunlandi.\");         doc.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'IPrintable doc = new PrintableDocument(\"Valeriya Tsoy\", \"Workshop 6 vazifalari yakunlandi.\");         doc.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Вывести результат на консоль: 'IPrintable doc = new PrintableDocument(\"Валерия Цой\", \"Мастерская 6 вазифалари якунланди.\");         документ.печать();'"
       ]
     }
   },
@@ -4574,11 +9193,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "126. Workshop Kengaytmasi — PdfDocument: Sahifalar Soni va .pdf",
-      "en": "126. Workshop Extension — PdfDocument Subclass with Page Count"
+      "en": "126. Workshop Extension — PdfDocument Subclass with Page Count",
+      "ru": "126. Расширение Workshop — подкласс PdfDocument с подсчетом страниц"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop modelini kengaytiring: 'PdfDocument extends File'. Kengaytma '.pdf' bo'lib, sahifalar sonini (pageCount) saqlaydi va chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'",
-      "en": "📖 Real-World Scenario & Context\nExtend File hierarchy with PdfDocument outputting page count metadata.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'"
+      "en": "📖 Real-World Scenario & Context\nExtend File hierarchy with PdfDocument outputting page count metadata.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'",
+      "ru": "📖 Контекст и описание задачи\nРасширьте иерархию файлов с помощью PdfDocument, выводящего метаданные о количестве страниц.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'"
     },
     "requirements": {
       "classes": [
@@ -4597,6 +9218,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop modelini kengaytiring: 'PdfDocument extends File'. Kengaytma '.pdf' bo'lib, sahifalar sonini (pageCount) saqlaydi va chop etadi.\n\n📋",
+      "en": "Extend File hierarchy with PdfDocument outputting page count metadata.\n\n📋",
+      "ru": "Расширьте иерархию файлов с помощью PdfDocument, выводящего метаданные о количестве страниц."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'PdfDocument pdf = new PdfDocument(\"OOP_Syllabus\", 24);         pdf.print();'"
       ]
     }
   },
@@ -4607,11 +9263,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "127. Workshop Kengaytmasi — AudioTranscript: .transcript va Davomiylik",
-      "en": "127. Workshop Extension — AudioTranscript Subclass with Duration"
+      "en": "127. Workshop Extension — AudioTranscript Subclass with Duration",
+      "ru": "127. Расширение Workshop — подкласс AudioTranscript с длительностью"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'AudioTranscript extends File'. Kengaytma '.transcript' bo'lib, audio yozuv davomiyligini (soniya) chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'",
-      "en": "📖 Real-World Scenario & Context\nCreate AudioTranscript extending File displaying recorded duration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'"
+      "en": "📖 Real-World Scenario & Context\nCreate AudioTranscript extending File displaying recorded duration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'",
+      "ru": "📖 Контекст и описание задачи\nСоздайте расширяющий AudioTranscript файл, отображающий продолжительность записи.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'"
     },
     "requirements": {
       "classes": [
@@ -4630,6 +9288,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "'AudioTranscript extends File'. Kengaytma '.transcript' bo'lib, audio yozuv davomiyligini (soniya) chop etadi.\n\n📋",
+      "en": "Create AudioTranscript extending File displaying recorded duration.\n\n📋",
+      "ru": "Создайте расширяющий AudioTranscript файл, отображающий продолжительность записи."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'AudioTranscript at = new AudioTranscript(\"Lecture_6_Audio\", 3600);         at.print();'"
       ]
     }
   },
@@ -4640,11 +9333,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "128. Workshop Kengaytmasi — SpreadsheetFile: .xlsx va Qatorlar/Ustunlar",
-      "en": "128. Workshop Extension — SpreadsheetFile with Rows and Columns"
+      "en": "128. Workshop Extension — SpreadsheetFile with Rows and Columns",
+      "ru": "128. Расширение Workshop — файл электронной таблицы со строками и столбцами."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'SpreadsheetFile extends File'. Kengaytma '.xlsx' bo'lib, jadvaldagi qatorlar va ustunlar sonini chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'SpreadsheetFile sheet = new SpreadsheetFile(\"Grades_CW2\", 150, 8);         sheet.print();'",
-      "en": "📖 Real-World Scenario & Context\nSpreadsheetFile subclass outputs table row and column dimensions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'SpreadsheetFile sheet = new SpreadsheetFile(\"Grades_CW2\", 150, 8);         sheet.print();'"
+      "en": "📖 Real-World Scenario & Context\nSpreadsheetFile subclass outputs table row and column dimensions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'SpreadsheetFile sheet = new SpreadsheetFile(\"Grades_CW2\", 150, 8);         sheet.print();'",
+      "ru": "📖 Контекст и описание задачи\nПодкласс SpreadsheetFile выводит размеры строк и столбцов таблицы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'SpreadsheetFile лист = новый SpreadsheetFile(\"Grades_CW2\", 150, 8);         лист.печать();'"
     },
     "requirements": {
       "classes": [
@@ -4663,6 +9358,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "'SpreadsheetFile extends File'. Kengaytma '.xlsx' bo'lib, jadvaldagi qatorlar va ustunlar sonini chop etadi.\n\n📋",
+      "en": "SpreadsheetFile subclass outputs table row and column dimensions.\n\n📋",
+      "ru": "Подкласс SpreadsheetFile выводит размеры строк и столбцов таблицы."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'SpreadsheetFile sheet = new SpreadsheetFile(\"Grades_CW2\", 150, 8);         sheet.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'SpreadsheetFile sheet = new SpreadsheetFile(\"Grades_CW2\", 150, 8);         sheet.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'SpreadsheetFile лист = новый SpreadsheetFile(\"Grades_CW2\", 150, 8);         лист.печать();'"
       ]
     }
   },
@@ -4673,11 +9403,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "129. Workshop Kengaytmasi — SourceCodeFile: .java va Kod Qatorlari (LOC)",
-      "en": "129. Workshop Extension — SourceCodeFile with Lines of Code"
+      "en": "129. Workshop Extension — SourceCodeFile with Lines of Code",
+      "ru": "129. Расширение Workshop — SourceCodeFile со строками кода"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'SourceCodeFile extends File'. Kengaytma '.java' bo'lib, dastur kodidagi qatorlar sonini (linesOfCode) aks ettiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'SourceCodeFile code = new SourceCodeFile(\"Main\", 85);         code.print();'",
-      "en": "📖 Real-World Scenario & Context\nSourceCodeFile extending File displays line count metric.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'SourceCodeFile code = new SourceCodeFile(\"Main\", 85);         code.print();'"
+      "en": "📖 Real-World Scenario & Context\nSourceCodeFile extending File displays line count metric.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'SourceCodeFile code = new SourceCodeFile(\"Main\", 85);         code.print();'",
+      "ru": "📖 Контекст и описание задачи\nSourceCodeFile, расширяющий File, отображает метрику количества строк.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'Код SourceCodeFile = новый SourceCodeFile(\"Main\", 85);         код.печать();'"
     },
     "requirements": {
       "classes": [
@@ -4696,6 +9428,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "'SourceCodeFile extends File'. Kengaytma '.java' bo'lib, dastur kodidagi qatorlar sonini (linesOfCode) aks ettiradi.\n\n📋",
+      "en": "SourceCodeFile extending File displays line count metric.\n\n📋",
+      "ru": "SourceCodeFile, расширяющий File, отображает метрику количества строк."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'SourceCodeFile code = new SourceCodeFile(\"Main\", 85);         code.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'SourceCodeFile code = new SourceCodeFile(\"Main\", 85);         code.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'Код SourceCodeFile = новый SourceCodeFile(\"Main\", 85);         код.печать();'"
       ]
     }
   },
@@ -4706,11 +9473,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "130. Workshop Kengaytmasi — Kassa Cheki (ReceiptPrintout implements IPrintable)",
-      "en": "130. Workshop Extension — Retail Receipt Realizing IPrintable"
+      "en": "130. Workshop Extension — Retail Receipt Realizing IPrintable",
+      "ru": "130. Расширение мастерской — розничная квитанция с использованием IPrintable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nFayl bo'lmagan biznes ob'yektini chop etish: 'ReceiptPrintout implements IPrintable'. Xarid cheki summasi va do'kon nomini chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'IPrintable receipt = new ReceiptPrintout(\"Korzinka\", 145000.0);         receipt.print();'",
-      "en": "📖 Real-World Scenario & Context\nRetail receipt implements IPrintable without extending File hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable receipt = new ReceiptPrintout(\"Korzinka\", 145000.0);         receipt.print();'"
+      "en": "📖 Real-World Scenario & Context\nRetail receipt implements IPrintable without extending File hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable receipt = new ReceiptPrintout(\"Korzinka\", 145000.0);         receipt.print();'",
+      "ru": "📖 Контекст и описание задачи\nРозничная квитанция реализует IPrintable без расширения иерархии файлов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Вывести результат на консоль: 'IPrintable квитанция = new ReceiptPrintout(\"Корзинка\", 145000.0);         квитанция.print();'"
     },
     "requirements": {
       "classes": [
@@ -4729,6 +9498,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Fayl bo'lmagan biznes ob'yektini chop etish: 'ReceiptPrintout implements IPrintable'. Xarid cheki summasi va do'kon nomini chop etadi.\n\n📋",
+      "en": "Retail receipt implements IPrintable without extending File hierarchy.\n\n📋",
+      "ru": "Розничная квитанция реализует IPrintable без расширения иерархии файлов."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'IPrintable receipt = new ReceiptPrintout(\"Korzinka\", 145000.0);         receipt.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'IPrintable receipt = new ReceiptPrintout(\"Korzinka\", 145000.0);         receipt.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Вывести результат на консоль: 'IPrintable квитанция = new ReceiptPrintout(\"Корзинка\", 145000.0);         квитанция.print();'"
       ]
     }
   },
@@ -4739,11 +9543,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "131. Workshop Kengaytmasi — Yetkazish Yorlig'i (ShippingLabelPrintout)",
-      "en": "131. Workshop Extension — Courier Shipping Label Implementing IPrintable"
+      "en": "131. Workshop Extension — Courier Shipping Label Implementing IPrintable",
+      "ru": "131. Расширение мастерской — этикетка курьерской доставки с реализацией IPrintable"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'ShippingLabelPrintout implements IPrintable'. Buyurtma kodi va yetkazish manzilini o'z ichiga oluvchi posilka yorlig'ini chop eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Toshkent, Amir Temur 12\");         label.print();'",
-      "en": "📖 Real-World Scenario & Context\nShipping label realizes IPrintable for courier package dispatch.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Toshkent, Amir Temur 12\");         label.print();'"
+      "en": "📖 Real-World Scenario & Context\nShipping label realizes IPrintable for courier package dispatch.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Toshkent, Amir Temur 12\");         label.print();'",
+      "ru": "📖 Контекст и описание задачи\nТранспортная этикетка реализует IPrintable для отправки курьерской посылки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Вывести результат на консоль: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Тошкент, Амира Темура 12\");         label.print();'"
     },
     "requirements": {
       "classes": [
@@ -4762,6 +9568,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>print</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>print</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "'ShippingLabelPrintout implements IPrintable'. Buyurtma kodi va yetkazish manzilini o'z ichiga oluvchi posilka yorlig'ini chop eting.\n\n📋",
+      "en": "Shipping label realizes IPrintable for courier package dispatch.\n\n📋",
+      "ru": "Транспортная этикетка реализует IPrintable для отправки курьерской посылки."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Toshkent, Amir Temur 12\");         label.print();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Toshkent, Amir Temur 12\");         label.print();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Вывести результат на консоль: 'IPrintable label = new ShippingLabelPrintout(\"UZ-9988\", \"Тошкент, Амира Темура 12\");         label.print();'"
       ]
     }
   },
@@ -4772,11 +9613,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "132. Workshop TW 6 — Ommaviy Chop Etuvchi (BatchPrinter)",
-      "en": "132. Workshop TW 6 — BatchPrinter Iterating List<IPrintable>"
+      "en": "132. Workshop TW 6 — BatchPrinter Iterating List<IPrintable>",
+      "ru": "132. Семинар TW 6 — Список итераций BatchPrinter<IPrintable>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshopning asosiy maqsadi: 'BatchPrinter' klassi 'List<IPrintable>' to'plamidagi turli xil fayllar va hujjatlarni birma-bir polimorfik tarzda chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Jami chop etildi: \" + count + \" ta\");'",
-      "en": "📖 Real-World Scenario & Context\nBatchPrinter iterates over List<IPrintable> triggering polymorphic print() invocations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Jami chop etildi: \" + count + \" ta\");'"
+      "en": "📖 Real-World Scenario & Context\nBatchPrinter iterates over List<IPrintable> triggering polymorphic print() invocations.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Jami chop etildi: \" + count + \" ta\");'",
+      "ru": "📖 Контекст и описание задачи\nBatchPrinter перебирает List<IPrintable>, запуская полиморфные вызовы print().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Джами чоп этильди: \" + count + \" ta\");'"
     },
     "requirements": {
       "classes": [
@@ -4795,6 +9638,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>printAll</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>printAll</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshopning asosiy maqsadi: 'BatchPrinter' klassi 'List<IPrintable>' to'plamidagi turli xil fayllar va hujjatlarni birma-bir polimorfik tarzda chop etadi.\n\n📋",
+      "en": "BatchPrinter iterates over List<IPrintable> triggering polymorphic print() invocations.\n\n📋",
+      "ru": "BatchPrinter перебирает List<IPrintable>, запуская полиморфные вызовы print()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Jami chop etildi: \" + count + \" ta\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Jami chop etildi: \" + count + \" ta\");'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'BatchPrinter bp = new BatchPrinter();         bp.addPrintable(new SimpleDocument(\"Hujjat 1\"));         bp.addPrintable(new SimpleDocument(\"Hujjat 2\"));         int count = bp.printAll();         System.out.println(\"Джами чоп этильди: \" + count + \" ta\");'"
       ]
     }
   },
@@ -4805,11 +9683,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "133. Workshop Kengaytmasi — Chop Etish Navbati (Queue<IPrintable>)",
-      "en": "133. Workshop Extension — Print Queue Manager via Queue<IPrintable>"
+      "en": "133. Workshop Extension — Print Queue Manager via Queue<IPrintable>",
+      "ru": "133. Расширение Workshop — диспетчер очереди печати через Queue<IPrintable>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOfis printeriga yuborilgan navbatni boshqaruvchi 'PrintQueueManager' sinfida 'Queue<IPrintable>' orqali navbatdagi elementni chop eting va navbatdan chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'",
-      "en": "📖 Real-World Scenario & Context\nManage office printer job spooling via Queue<IPrintable> FIFO sequence.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'"
+      "en": "📖 Real-World Scenario & Context\nManage office printer job spooling via Queue<IPrintable> FIFO sequence.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'",
+      "ru": "📖 Контекст и описание задачи\nУправляйте буферизацией заданий офисного принтера с помощью последовательности FIFO Queue<IPrintable>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'"
     },
     "requirements": {
       "classes": [
@@ -4828,6 +9708,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>processNext</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>processNext</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Ofis printeriga yuborilgan navbatni boshqaruvchi 'PrintQueueManager' sinfida 'Queue<IPrintable>' orqali navbatdagi elementni chop eting va navbatdan chiqaring.\n\n📋",
+      "en": "Manage office printer job spooling via Queue<IPrintable> FIFO sequence.\n\n📋",
+      "ru": "Управляйте буферизацией заданий офисного принтера с помощью последовательности FIFO Queue<IPrintable>."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'PrintQueueManager q = new PrintQueueManager();         q.enqueue(new SimpleDocument(\"Hisobot A\"));         q.enqueue(new SimpleDocument(\"Hisobot B\"));         q.processNext();         System.out.println(\"Qolgan vazifalar: \" + q.getPendingCount());'"
       ]
     }
   },
@@ -4838,11 +9753,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "134. Workshop Kengaytmasi — Fayl Kengaytmasi Bo'yicha Sanash",
-      "en": "134. Workshop Extension — Counting Specific File Types in Print Spooler"
+      "en": "134. Workshop Extension — Counting Specific File Types in Print Spooler",
+      "ru": "134. Расширение Workshop — подсчет определенных типов файлов в диспетчере очереди печати."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'FileAuditService' klassi 'List<File>' ro'yxatida ma'lum bir kengaytmadagi (masalan, '.txt') fayllar sonini hisoblovchi metodni taqdim etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'FileAuditService audit = new FileAuditService();         audit.registerFile(new TextFile(\"a\", 10));         audit.registerFile(new TextFile(\"b\", 20));         audit.registerFile(new ImageFile(\"c\", 10, 10));         System.out.println(\".txt fayllar soni: \" + audit.countByExtension(\".txt\"));'",
-      "en": "📖 Real-World Scenario & Context\nCount files matching specific extension within collection of File objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'FileAuditService audit = new FileAuditService();         audit.registerFile(new TextFile(\"a\", 10));         audit.registerFile(new TextFile(\"b\", 20));         audit.registerFile(new ImageFile(\"c\", 10, 10));         System.out.println(\".txt fayllar soni: \" + audit.countByExtension(\".txt\"));'"
+      "en": "📖 Real-World Scenario & Context\nCount files matching specific extension within collection of File objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'FileAuditService audit = new FileAuditService();         audit.registerFile(new TextFile(\"a\", 10));         audit.registerFile(new TextFile(\"b\", 20));         audit.registerFile(new ImageFile(\"c\", 10, 10));         System.out.println(\".txt fayllar soni: \" + audit.countByExtension(\".txt\"));'",
+      "ru": "📖 Контекст и описание задачи\nПодсчитайте файлы, соответствующие определенному расширению, в коллекции объектов File.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'FileAuditService Audit = new FileAuditService();         Audit.registerFile(новый TextFile(\"a\", 10));         Audit.registerFile(новый TextFile(\"b\", 20));         аудит.registerFile(новый ImageFile(\"c\", 10, 10));         System.out.println(\".txt файл soni: \" + Audit.countByExtension(\".txt\"));'"
     },
     "requirements": {
       "classes": [
@@ -4861,6 +9778,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>countByExtension</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>countByExtension</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "'FileAuditService' klassi 'List<File>' ro'yxatida ma'lum bir kengaytmadagi (masalan, '.txt') fayllar sonini hisoblovchi metodni taqdim etadi.\n\n📋",
+      "en": "Count files matching specific extension within collection of File objects.\n\n📋",
+      "ru": "Подсчитайте файлы, соответствующие определенному расширению, в коллекции объектов File."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'FileAuditService audit = new FileAuditService();         audit.registerFile(new TextFile(\"a\", 10));         audit.registerFile(new TextFile(\"b\", 20));         audit.registerFile(new ImageFile(\"c\", 10, 10));         System.out.println(\".txt fayllar soni: \" + audit.countByExtension(\".txt\"));'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'FileAuditService audit = new FileAuditService();         audit.registerFile(new TextFile(\"a\", 10));         audit.registerFile(new TextFile(\"b\", 20));         audit.registerFile(new ImageFile(\"c\", 10, 10));         System.out.println(\".txt fayllar soni: \" + audit.countByExtension(\".txt\"));'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'FileAuditService Audit = new FileAuditService();         Audit.registerFile(новый TextFile(\"a\", 10));         Audit.registerFile(новый TextFile(\"b\", 20));         аудит.registerFile(новый ImageFile(\"c\", 10, 10));         System.out.println(\".txt файл soni: \" + Audit.countByExtension(\".txt\"));'"
       ]
     }
   },
@@ -4871,11 +9823,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "121-135: Workshop TW 6 Printing System",
     "title": {
       "uz": "135. Workshop TW 6 To'liq Sinovi — Polimorfizm Cho'qqisi",
-      "en": "135. Workshop TW 6 Full Integration — Text, Image & Documents Combined"
+      "en": "135. Workshop TW 6 Full Integration — Text, Image & Documents Combined",
+      "ru": "135. Семинар TW 6 Полная интеграция — сочетание текста, изображений и документов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWorkshop TW 6 darsining to'liq xulosasi: 'TextFile', 'ImageFile' va 'PrintableDocument' ob'yektlarini bitta 'IPrintable[]' massivida birlashtirib bir xil interfeys orqali chop eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.\n2. 'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.\n3. Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.\n4. 'Main' metodida polimorfik chop etishni sinab ko'ring.\n5. Natijani chop eting: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'",
-      "en": "📖 Real-World Scenario & Context\nCombine TextFile, ImageFile, and PrintableDocument in a unified polymorphic demonstration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'"
+      "en": "📖 Real-World Scenario & Context\nCombine TextFile, ImageFile, and PrintableDocument in a unified polymorphic demonstration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement IPrintable and File hierarchy matching Workshop TW 6.\n2. Declare shared showHeader() and abstract getExtension() in File base.\n3. Override print() and provide custom file metadata.\n4. Demonstrate polymorphic printing in 'main'.\n5. Print result to console: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'",
+      "ru": "📖 Контекст и описание задачи\nОбъедините TextFile, ImageFile и PrintableDocument в единой полиморфной демонстрации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.\n2. Объявите общий showHeader() и абстрактный getExtension() в базе файлов.\n3. Переопределить print() и предоставить собственные метаданные файла.\n4. Продемонстрируйте полиморфную печать в «main».\n5. Выведите результат на консоль: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'"
     },
     "requirements": {
       "classes": [
@@ -4894,6 +9848,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
         "<code>runMasterDemo</code>: chop etish operatsiyasi."
+      ],
+      "theoryRu": "WIUT «Workshop TW 6: Abstract Class & Interface» из IPrintable интерфейса и позволяет использовать «Файл абстрактного класса». Лаборатория иши интерфейсов и абстрактное обучение настоящей лойихада qanday бирга ишлашини то'лик намойон этади.",
+      "breakdownRu": [
+        "<code>Workshop TW 6</code>: IPrintable va File polimorfik chop etish tizimi.",
+        "<code>runMasterDemo</code>: chop etish operatsiyasi."
+      ]
+    },
+    "story": {
+      "uz": "Workshop TW 6 darsining to'liq xulosasi: 'TextFile', 'ImageFile' va 'PrintableDocument' ob'yektlarini bitta 'IPrintable[]' massivida birlashtirib bir xil interfeys orqali chop eting.\n\n📋",
+      "en": "Combine TextFile, ImageFile, and PrintableDocument in a unified polymorphic demonstration.\n\n📋",
+      "ru": "Объедините TextFile, ImageFile и PrintableDocument в единой полиморфной демонстрации."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "Workshop TW 6 spetsifikatsiyasi bo'yicha 'IPrintable' interfeysi va tegishli sinflarni tuzing.",
+        "'File' abstrakt sinfida 'showHeader()' umumiy metodini va 'abstract String getExtension()' ni e'lon qiling.",
+        "Voris sinflarda kengaytma va chop etish logikasini (@Override) yozing.",
+        "'Main' metodida polimorfik chop etishni sinab ko'ring.",
+        "Natijani chop eting: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement IPrintable and File hierarchy matching Workshop TW 6.",
+        "Declare shared showHeader() and abstract getExtension() in File base.",
+        "Override print() and provide custom file metadata.",
+        "Demonstrate polymorphic printing in 'main'.",
+        "Print result to console: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'"
+      ],
+      "ru": [
+        "Реализовать IPrintable и иерархию файлов в соответствии с Workshop TW 6.",
+        "Объявите общий showHeader() и абстрактный getExtension() в базе файлов.",
+        "Переопределить print() и предоставить собственные метаданные файла.",
+        "Продемонстрируйте полиморфную печать в «main».",
+        "Выведите результат на консоль: 'WorkshopMasterRunner runner = new WorkshopMasterRunner();         runner.runMasterDemo();'"
       ]
     }
   },
@@ -4904,11 +9893,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "136. CW2 Arxitekturasi — Product Abstrakt Sinfga Aylanishi",
-      "en": "136. CW2 Architecture — Product Transformed into Abstract Superclass"
+      "en": "136. CW2 Architecture — Product Transformed into Abstract Superclass",
+      "ru": "136. Архитектура CW2 — продукт, преобразованный в абстрактный суперкласс"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimi: 'Product' sinfi abstrakt qilib o'zgartirildi: 'public abstract double calculateDeliveryCost();'. Endi bevosita 'new Product()' qilib bo'lmaydi. Ushbu abstrakt sinfni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Product p = new PhysicalProduct(\"Kitob\", 50000.0, 10, true, 'A', 0.5, false);         System.out.println(p.getName() + \" yetkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nProduct class is now abstract with abstract calculateDeliveryCost() matching Week 6 solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Product p = new PhysicalProduct(\"Kitob\", 50000.0, 10, true, 'A', 0.5, false);         System.out.println(p.getName() + \" yetkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nProduct class is now abstract with abstract calculateDeliveryCost() matching Week 6 solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Product p = new PhysicalProduct(\"Kitob\", 50000.0, 10, true, 'A', 0.5, false);         System.out.println(p.getName() + \" yetkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nКласс продукта теперь является абстрактным, а абстрактный метод CalculateDeliveryCost() соответствует решению 6-й недели.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Product p = new PhysicalProduct(»Kitob», 50000.0, 10, true, «A», 0,5, false);         System.out.println(p.getName() + \"etkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4927,6 +9918,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimi: 'Product' sinfi abstrakt qilib o'zgartirildi: 'public abstract double calculateDeliveryCost();'. Endi bevosita 'new Product()' qilib bo'lmaydi. Ushbu abstrakt sinfni dasturlang.\n\n📋",
+      "en": "Product class is now abstract with abstract calculateDeliveryCost() matching Week 6 solution.\n\n📋",
+      "ru": "Класс продукта теперь является абстрактным, а абстрактный метод CalculateDeliveryCost() соответствует решению 6-й недели."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Product p = new PhysicalProduct(\"Kitob\", 50000.0, 10, true, 'A', 0.5, false);         System.out.println(p.getName() + \" yetkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Product p = new PhysicalProduct(\"Kitob\", 50000.0, 10, true, 'A', 0.5, false);         System.out.println(p.getName() + \" yetkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Product p = new PhysicalProduct(»Kitob», 50000.0, 10, true, «A», 0,5, false);         System.out.println(p.getName() + \"etkazish narxi: \" + p.calculateDeliveryCost() + \" UZS\");'"
       ]
     }
   },
@@ -4937,11 +9963,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "137. CW2 Arxitekturasi — PhysicalProduct Yetkazish Xarajati Algoritmi",
-      "en": "137. CW2 Architecture — PhysicalProduct Delivery Calculation Rules"
+      "en": "137. CW2 Architecture — PhysicalProduct Delivery Calculation Rules",
+      "ru": "137. Архитектура CW2 — правила расчета физической доставки продукта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n6-hafta yechimida 'PhysicalProduct' yetkazish narxi: bazaviy 15000 UZS. Agar vazn 10 kg dan oshsa +10000 UZS, nozik (fragile) bo'lsa yana +10000 UZS qo'shiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'PhysicalProduct tv = new PhysicalProduct(\"Televizor\", 4000000.0, 5, true, 'A', 12.0, true);         System.out.println(\"Yetkazish narxi: \" + tv.calculateDeliveryCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nPhysicalProduct overrides calculateDeliveryCost applying weight and fragility surcharges.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'PhysicalProduct tv = new PhysicalProduct(\"Televizor\", 4000000.0, 5, true, 'A', 12.0, true);         System.out.println(\"Yetkazish narxi: \" + tv.calculateDeliveryCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nPhysicalProduct overrides calculateDeliveryCost applying weight and fragility surcharges.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'PhysicalProduct tv = new PhysicalProduct(\"Televizor\", 4000000.0, 5, true, 'A', 12.0, true);         System.out.println(\"Yetkazish narxi: \" + tv.calculateDeliveryCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nPhysicalProduct переопределяет метод расчетаDeliveryCost, применяя надбавки за вес и хрупкость.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «PhysicalProduct tv = new PhysicalProduct («Телевизор», 4000000.0, 5, true, «A», 12.0, true);         System.out.println(\"Етказиш наркси: \" + tv.calculateDeliveryCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4960,6 +9988,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "6-hafta yechimida 'PhysicalProduct' yetkazish narxi: bazaviy 15000 UZS. Agar vazn 10 kg dan oshsa +10000 UZS, nozik (fragile) bo'lsa yana +10000 UZS qo'shiladi.\n\n📋",
+      "en": "PhysicalProduct overrides calculateDeliveryCost applying weight and fragility surcharges.\n\n📋",
+      "ru": "PhysicalProduct переопределяет метод расчетаDeliveryCost, применяя надбавки за вес и хрупкость."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'PhysicalProduct tv = new PhysicalProduct(\"Televizor\", 4000000.0, 5, true, 'A', 12.0, true);         System.out.println(\"Yetkazish narxi: \" + tv.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'PhysicalProduct tv = new PhysicalProduct(\"Televizor\", 4000000.0, 5, true, 'A', 12.0, true);         System.out.println(\"Yetkazish narxi: \" + tv.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «PhysicalProduct tv = new PhysicalProduct («Телевизор», 4000000.0, 5, true, «A», 12.0, true);         System.out.println(\"Етказиш наркси: \" + tv.calculateDeliveryCost() + \" UZS\");'"
       ]
     }
   },
@@ -4970,11 +10033,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "138. CW2 Arxitekturasi — DigitalProduct Yetkazish Xarajati (0.0 UZS)",
-      "en": "138. CW2 Architecture — DigitalProduct Zero Delivery Cost Rule"
+      "en": "138. CW2 Architecture — DigitalProduct Zero Delivery Cost Rule",
+      "ru": "138. Архитектура CW2 — правило нулевой стоимости доставки цифрового продукта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nRaqamli mahsulotlar (DigitalProduct) internet orqali yetkazilganligi sababli 'calculateDeliveryCost()' har doim 0.0 UZS qaytarishi shart. Ushbu metodni tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'DigitalProduct course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \" yetkazish: \" + course.calculateDeliveryCost() + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nDigitalProduct overrides calculateDeliveryCost returning 0.0 as delivery is over internet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'DigitalProduct course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \" yetkazish: \" + course.calculateDeliveryCost() + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nDigitalProduct overrides calculateDeliveryCost returning 0.0 as delivery is over internet.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'DigitalProduct course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \" yetkazish: \" + course.calculateDeliveryCost() + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nDigitalProduct переопределяет метод расчетаDeliveryCost, возвращающий 0,0, поскольку доставка осуществляется через Интернет.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «DigitalProduct Course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \"etkazish: \" + Course.calculateDeliveryCost() + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -4993,6 +10058,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Raqamli mahsulotlar (DigitalProduct) internet orqali yetkazilganligi sababli 'calculateDeliveryCost()' har doim 0.0 UZS qaytarishi shart. Ushbu metodni tekshiring.\n\n📋",
+      "en": "DigitalProduct overrides calculateDeliveryCost returning 0.0 as delivery is over internet.\n\n📋",
+      "ru": "DigitalProduct переопределяет метод расчетаDeliveryCost, возвращающий 0,0, поскольку доставка осуществляется через Интернет."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'DigitalProduct course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \" yetkazish: \" + course.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'DigitalProduct course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \" yetkazish: \" + course.calculateDeliveryCost() + \" UZS\");'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «DigitalProduct Course = new DigitalProduct(\"Java Kursi\", 100000.0, 'A', 1500, \"uzum:dl/java\");         System.out.println(course.getName() + \"etkazish: \" + Course.calculateDeliveryCost() + \" UZS\");'"
       ]
     }
   },
@@ -5003,11 +10103,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "139. CW2 Arxitekturasi — Payable Interfeysi Kontrakti",
-      "en": "139. CW2 Architecture — Payable Interface Defining Payment Contract"
+      "en": "139. CW2 Architecture — Payable Interface Defining Payment Contract",
+      "ru": "139. Архитектура CW2 — интерфейс Payable, определяющий платежный контракт"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimida: 'public interface Payable { boolean processPayment(double amount); }'. Har qanday to'lov qila oluvchi vosita ushbu interfeysni bajaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         boolean paid = testCard.processPayment(40000.0);         System.out.println(\"To'lov holati: \" + paid);'",
-      "en": "📖 Real-World Scenario & Context\nImplement Payable interface with processPayment method contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         boolean paid = testCard.processPayment(40000.0);         System.out.println(\"To'lov holati: \" + paid);'"
+      "en": "📖 Real-World Scenario & Context\nImplement Payable interface with processPayment method contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         boolean paid = testCard.processPayment(40000.0);         System.out.println(\"To'lov holati: \" + paid);'",
+      "ru": "📖 Контекст и описание задачи\nРеализовать интерфейс Payable с контрактом метода ProcessPayment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         логическое значение оплачено = testCard.processPayment(40000.0);         System.out.println(\"То'лов холати: \" + оплачено);'"
     },
     "requirements": {
       "classes": [
@@ -5026,6 +10128,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimida: 'public interface Payable { boolean processPayment(double amount); }'. Har qanday to'lov qila oluvchi vosita ushbu interfeysni bajaradi.\n\n📋",
+      "en": "Implement Payable interface with processPayment method contract.\n\n📋",
+      "ru": "Реализовать интерфейс Payable с контрактом метода ProcessPayment."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         boolean paid = testCard.processPayment(40000.0);         System.out.println(\"To'lov holati: \" + paid);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         boolean paid = testCard.processPayment(40000.0);         System.out.println(\"To'lov holati: \" + paid);'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Payable testCard = new BankCard(\"8600123456789012\", \"Alisher\", 100000.0);         логическое значение оплачено = testCard.processPayment(40000.0);         System.out.println(\"То'лов холати: \" + оплачено);'"
       ]
     }
   },
@@ -5036,11 +10173,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "140. CW2 Arxitekturasi — CashbackEligible Interfeysi Kontrakti",
-      "en": "140. CW2 Architecture — CashbackEligible Interface for Rewarded Payments"
+      "en": "140. CW2 Architecture — CashbackEligible Interface for Rewarded Payments",
+      "ru": "140. Архитектура CW2 — интерфейс CashbackEligible для вознагражденных платежей"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nFaqat ayrim to'lov usullari keshbek beradi: 'public interface CashbackEligible { double calculateCashback(double amount); }'. Ushbu interfeysni tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'CashbackEligible card = new BankCard(\"8600111122223333\", \"Aziz\", 200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(50000.0) + \" UZS\");'",
-      "en": "📖 Real-World Scenario & Context\nDefine CashbackEligible interface returning calculated rewards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'CashbackEligible card = new BankCard(\"8600111122223333\", \"Aziz\", 200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(50000.0) + \" UZS\");'"
+      "en": "📖 Real-World Scenario & Context\nDefine CashbackEligible interface returning calculated rewards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'CashbackEligible card = new BankCard(\"8600111122223333\", \"Aziz\", 200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(50000.0) + \" UZS\");'",
+      "ru": "📖 Контекст и описание задачи\nОпределите интерфейс CashbackEligible, возвращающий рассчитанные вознаграждения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «CashbackEligible card = new BankCard(»8600111122223333», «Aziz», 200000.0);         System.out.println(\"Кешбек: \" + card.calculateCashback(50000.0) + \" UZS\");'"
     },
     "requirements": {
       "classes": [
@@ -5059,6 +10198,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Faqat ayrim to'lov usullari keshbek beradi: 'public interface CashbackEligible { double calculateCashback(double amount); }'. Ushbu interfeysni tuzing.\n\n📋",
+      "en": "Define CashbackEligible interface returning calculated rewards.\n\n📋",
+      "ru": "Определите интерфейс CashbackEligible, возвращающий рассчитанные вознаграждения."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'CashbackEligible card = new BankCard(\"8600111122223333\", \"Aziz\", 200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(50000.0) + \" UZS\");'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'CashbackEligible card = new BankCard(\"8600111122223333\", \"Aziz\", 200000.0);         System.out.println(\"Keshbek: \" + card.calculateCashback(50000.0) + \" UZS\");'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «CashbackEligible card = new BankCard(»8600111122223333», «Aziz», 200000.0);         System.out.println(\"Кешбек: \" + card.calculateCashback(50000.0) + \" UZS\");'"
       ]
     }
   },
@@ -5069,11 +10243,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "141. CW2 Arxitekturasi — BankCard Niqoblangan Raqam (getMaskedNumber)",
-      "en": "141. CW2 Architecture — BankCard Masked Number and 1% Cashback"
+      "en": "141. CW2 Architecture — BankCard Masked Number and 1% Cashback",
+      "ru": "141. Архитектура CW2 — замаскированный номер банковской карты и кэшбэк 1%."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n6-hafta BankCard yechimida faqat oxirgi 4 ta raqam ochiq ko'rsatiladi: '**** 9012'. Karta balansidan pul yetarli bo'lsa yechiladi, aks holda rad etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'BankCard card = new BankCard(\"8600998877665544\", \"Sardor\", 15000.0);         boolean ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ok);'",
-      "en": "📖 Real-World Scenario & Context\nBankCard masks sensitive digits and enforces balance deduction rules.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'BankCard card = new BankCard(\"8600998877665544\", \"Sardor\", 15000.0);         boolean ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ok);'"
+      "en": "📖 Real-World Scenario & Context\nBankCard masks sensitive digits and enforces balance deduction rules.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'BankCard card = new BankCard(\"8600998877665544\", \"Sardor\", 15000.0);         boolean ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ok);'",
+      "ru": "📖 Контекст и описание задачи\nBankCard маскирует конфиденциальные цифры и обеспечивает соблюдение правил списания баланса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «BankCard card = new BankCard(\"86009988877665544\", \"Sardor\", 15000.0);         логическое значение ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ок);'"
     },
     "requirements": {
       "classes": [
@@ -5092,6 +10268,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "6-hafta BankCard yechimida faqat oxirgi 4 ta raqam ochiq ko'rsatiladi: '**** 9012'. Karta balansidan pul yetarli bo'lsa yechiladi, aks holda rad etiladi.\n\n📋",
+      "en": "BankCard masks sensitive digits and enforces balance deduction rules.\n\n📋",
+      "ru": "BankCard маскирует конфиденциальные цифры и обеспечивает соблюдение правил списания баланса."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'BankCard card = new BankCard(\"8600998877665544\", \"Sardor\", 15000.0);         boolean ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ok);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'BankCard card = new BankCard(\"8600998877665544\", \"Sardor\", 15000.0);         boolean ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ok);'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «BankCard card = new BankCard(\"86009988877665544\", \"Sardor\", 15000.0);         логическое значение ok = card.processPayment(50000.0);         System.out.println(\"Muvaffaqiyatli: \" + ок);'"
       ]
     }
   },
@@ -5102,11 +10313,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "142. CW2 Arxitekturasi — BonusBalance: Ballar Bilan To'lash",
-      "en": "142. CW2 Architecture — BonusBalance Implementing Payable"
+      "en": "142. CW2 Architecture — BonusBalance Implementing Payable",
+      "ru": "142. Архитектура CW2 — реализация BonusBalance к оплате"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz yig'gan bonus ballari: 'BonusBalance implements Payable'. 1 ball = 1 so'm. Yangi ball qo'shish ('addPoints') va ball orqali to'lashni amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         boolean ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Qolgan ball: \" + bb.getPoints());'",
-      "en": "📖 Real-World Scenario & Context\nBonusBalance implements Payable where 1 point equals 1 currency unit.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         boolean ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Qolgan ball: \" + bb.getPoints());'"
+      "en": "📖 Real-World Scenario & Context\nBonusBalance implements Payable where 1 point equals 1 currency unit.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         boolean ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Qolgan ball: \" + bb.getPoints());'",
+      "ru": "📖 Контекст и описание задачи\nBonusBalance реализует Payable, где 1 балл равен 1 денежной единице.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         логическое значение ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Колганский шар: \" + bb.getPoints());'"
     },
     "requirements": {
       "classes": [
@@ -5125,6 +10338,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Mijoz yig'gan bonus ballari: 'BonusBalance implements Payable'. 1 ball = 1 so'm. Yangi ball qo'shish ('addPoints') va ball orqali to'lashni amalga oshiring.\n\n📋",
+      "en": "BonusBalance implements Payable where 1 point equals 1 currency unit.\n\n📋",
+      "ru": "BonusBalance реализует Payable, где 1 балл равен 1 денежной единице."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         boolean ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Qolgan ball: \" + bb.getPoints());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         boolean ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Qolgan ball: \" + bb.getPoints());'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «BonusBalance bb = new BonusBalance(50.0);         bb.addPoints(25.0);         логическое значение ok = bb.processPayment(30.0);         System.out.println(\"To'landi: \" + ok + \" | Колганский шар: \" + bb.getPoints());'"
       ]
     }
   },
@@ -5135,11 +10383,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "143. CW2 Arxitekturasi — GiftCard: Product Hamda Payable Birlashmasi",
-      "en": "143. CW2 Architecture — GiftCard as both Product and Payable"
+      "en": "143. CW2 Architecture — GiftCard as both Product and Payable",
+      "ru": "143. Архитектура CW2 — GiftCard как продукт и как платёжная карта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAjoyib arxitektura namunasi: 'GiftCard extends Product implements Payable'. Sovg'a kartasi ham do'konda sotib olinadigan Product, ham to'lov qila oluvchi Payable vositasidir!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'",
-      "en": "📖 Real-World Scenario & Context\nGiftCard illustrates multiple hierarchy: it IS-A Product and CAN pay as Payable.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'"
+      "en": "📖 Real-World Scenario & Context\nGiftCard illustrates multiple hierarchy: it IS-A Product and CAN pay as Payable.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'",
+      "ru": "📖 Контекст и описание задачи\nGiftCard иллюстрирует множественную иерархию: это ЯВЛЯЕТСЯ продуктом и МОЖЕТ платить как подлежащий оплате.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в main и проверьте: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'"
     },
     "requirements": {
       "classes": [
@@ -5158,6 +10408,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Ajoyib arxitektura namunasi: 'GiftCard extends Product implements Payable'. Sovg'a kartasi ham do'konda sotib olinadigan Product, ham to'lov qila oluvchi Payable vositasidir!\n\n📋",
+      "en": "GiftCard illustrates multiple hierarchy: it IS-A Product and CAN pay as Payable.\n\n📋",
+      "ru": "GiftCard иллюстрирует множественную иерархию: это ЯВЛЯЕТСЯ продуктом и МОЖЕТ платить как подлежащий оплате."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в main и проверьте: 'GiftCard gc = new GiftCard(\"Sovg'a Kartasi 100\", 100000.0, \"GIFT-2026\");         System.out.println(\"Mahsulot: \" + gc.getName() + \" | QQSsiz narx: \" + gc.getPriceWithTax());         gc.processPayment(40000.0);'"
       ]
     }
   },
@@ -5168,11 +10453,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "144. CW2 Arxitekturasi — Notification Abstrakt Sinfiga Asoslanish",
-      "en": "144. CW2 Architecture — Notification Abstract Base with Customer and Message"
+      "en": "144. CW2 Architecture — Notification Abstract Base with Customer and Message",
+      "ru": "144. Архитектура CW2 — абстрактная база уведомлений с клиентом и сообщением"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 6-hafta yechimi: 'public abstract class Notification'. Mijoz va xabar matnini saqlaydi hamda 'public abstract void send();' metodini e'lon qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Aziz\", 100, 50000.0);         Notification n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         n.send();'",
-      "en": "📖 Real-World Scenario & Context\nNotification abstract superclass holds Customer and message state with abstract send().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz\", 100, 50000.0);         Notification n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         n.send();'"
+      "en": "📖 Real-World Scenario & Context\nNotification abstract superclass holds Customer and message state with abstract send().\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz\", 100, 50000.0);         Notification n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         n.send();'",
+      "ru": "📖 Контекст и описание задачи\nАбстрактный суперкласс уведомлений хранит состояние клиента и сообщения с помощью абстрактной send().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Азиз», 100, 50000.0);         Уведомление n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         н.отправить();'"
     },
     "requirements": {
       "classes": [
@@ -5191,6 +10478,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "WIUT 6-hafta yechimi: 'public abstract class Notification'. Mijoz va xabar matnini saqlaydi hamda 'public abstract void send();' metodini e'lon qiladi.\n\n📋",
+      "en": "Notification abstract superclass holds Customer and message state with abstract send().\n\n📋",
+      "ru": "Абстрактный суперкласс уведомлений хранит состояние клиента и сообщения с помощью абстрактной send()."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Aziz\", 100, 50000.0);         Notification n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         n.send();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz\", 100, 50000.0);         Notification n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         n.send();'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Азиз», 100, 50000.0);         Уведомление n = new MobileNotification(c, \"Buyurtma kutmoqda\", \"iPhone 15\");         н.отправить();'"
       ]
     }
   },
@@ -5201,11 +10523,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "145. CW2 Arxitekturasi — MobileNotification Telefonga Push Jo'natishi",
-      "en": "145. CW2 Architecture — MobileNotification Device Push Dispatch"
+      "en": "145. CW2 Architecture — MobileNotification Device Push Dispatch",
+      "ru": "145. Архитектура CW2 — рассылка устройств MobileNotification"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'MobileNotification extends Notification'. 'deviceName' maydoniga ega bo'lib, xabarni mijozning telefon modeliga push bildirishnoma sifatida jo'natadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Malika\", 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         mn.send();'",
-      "en": "📖 Real-World Scenario & Context\nMobileNotification subclasses Notification directing push messages to device.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Malika\", 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         mn.send();'"
+      "en": "📖 Real-World Scenario & Context\nMobileNotification subclasses Notification directing push messages to device.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Malika\", 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         mn.send();'",
+      "ru": "📖 Контекст и описание задачи\nПодклассы MobileNotification Уведомление, направляющее push-сообщения на устройство.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Малика», 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         мн.отправить();'"
     },
     "requirements": {
       "classes": [
@@ -5224,6 +10548,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "'MobileNotification extends Notification'. 'deviceName' maydoniga ega bo'lib, xabarni mijozning telefon modeliga push bildirishnoma sifatida jo'natadi.\n\n📋",
+      "en": "MobileNotification subclasses Notification directing push messages to device.\n\n📋",
+      "ru": "Подклассы MobileNotification Уведомление, направляющее push-сообщения на устройство."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Malika\", 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         mn.send();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Malika\", 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         mn.send();'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Малика», 200, 150000.0);         MobileNotification mn = new MobileNotification(c, \"Hisob to'ldirildi\", \"Samsung Galaxy\");         мн.отправить();'"
       ]
     }
   },
@@ -5234,11 +10593,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "146. CW2 Arxitekturasi — WebNotification Brauzerda Xabarni Ko'rsatishi",
-      "en": "146. CW2 Architecture — WebNotification Browser Alert Dispatch"
+      "en": "146. CW2 Architecture — WebNotification Browser Alert Dispatch",
+      "ru": "146. Архитектура CW2 — отправка предупреждений браузера WebNotification"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'WebNotification extends Notification'. 'browser' maydoniga ega bo'lib, xabarni mijozning brauzerida (Chrome, Safari) ko'rsatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Bobur\", 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Chegirma boshlandi!\", \"Chrome\");         wn.send();'",
-      "en": "📖 Real-World Scenario & Context\nWebNotification displays notification inside customer active browser.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Bobur\", 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Chegirma boshlandi!\", \"Chrome\");         wn.send();'"
+      "en": "📖 Real-World Scenario & Context\nWebNotification displays notification inside customer active browser.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Bobur\", 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Chegirma boshlandi!\", \"Chrome\");         wn.send();'",
+      "ru": "📖 Контекст и описание задачи\nWebNotification отображает уведомление в активном браузере клиента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Бобур», 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Чегирма бошланди!\", \"Chrome\");         wn.send();'"
     },
     "requirements": {
       "classes": [
@@ -5257,6 +10618,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "'WebNotification extends Notification'. 'browser' maydoniga ega bo'lib, xabarni mijozning brauzerida (Chrome, Safari) ko'rsatadi.\n\n📋",
+      "en": "WebNotification displays notification inside customer active browser.\n\n📋",
+      "ru": "WebNotification отображает уведомление в активном браузере клиента."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Bobur\", 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Chegirma boshlandi!\", \"Chrome\");         wn.send();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Bobur\", 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Chegirma boshlandi!\", \"Chrome\");         wn.send();'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Бобур», 50, 20000.0);         WebNotification wn = new WebNotification(c, \"Чегирма бошланди!\", \"Chrome\");         wn.send();'"
       ]
     }
   },
@@ -5267,11 +10663,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "147. CW2 Arxitekturasi — Customer.pay(Payable, amount) va Avtomatik Keshbek",
-      "en": "147. CW2 Architecture — Customer Polymorphic Pay with Automatic Cashback"
+      "en": "147. CW2 Architecture — Customer Polymorphic Pay with Automatic Cashback",
+      "ru": "147. Архитектура CW2 — полиморфная оплата клиентов с автоматическим кэшбэком"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 6 eng zo'r yechimi: 'Customer.pay(Payable method, double amount)'. To'lov muvaffaqiyatli bo'lsa va 'method instanceof CashbackEligible' bo'lsa, 1% keshbek avtomatik ravishda mijozning 'bonusBalance' siga qo'shiladi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Kamron\", 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Jami bonus ballari: \" + c.getBonusBalance().getPoints());'",
-      "en": "📖 Real-World Scenario & Context\nCustomer pay method polymorphically executes payment and credits bonus cashback if eligible.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Kamron\", 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Jami bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      "en": "📖 Real-World Scenario & Context\nCustomer pay method polymorphically executes payment and credits bonus cashback if eligible.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Kamron\", 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Jami bonus ballari: \" + c.getBonusBalance().getPoints());'",
+      "ru": "📖 Контекст и описание задачи\nМетод оплаты клиента полиморфно выполняет платеж и начисляет бонусный кэшбэк, если он соответствует критериям.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Камрон», 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Бонусные баллы Джами: \" + c.getBonusBalance().getPoints());'"
     },
     "requirements": {
       "classes": [
@@ -5290,6 +10688,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Seminar 6 eng zo'r yechimi: 'Customer.pay(Payable method, double amount)'. To'lov muvaffaqiyatli bo'lsa va 'method instanceof CashbackEligible' bo'lsa, 1% keshbek avtomatik ravishda mijozning 'bonusBalance' siga qo'shiladi!\n\n📋",
+      "en": "Customer pay method polymorphically executes payment and credits bonus cashback if eligible.\n\n📋",
+      "ru": "Метод оплаты клиента полиморфно выполняет платеж и начисляет бонусный кэшбэк, если он соответствует критериям."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Kamron\", 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Jami bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Kamron\", 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Jami bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Камрон», 0, 500000.0);         c.addBankCard(\"8600123412341234\", 500000.0);         c.pay(c.getBankCard(), 200000.0);         System.out.println(\"Бонусные баллы Джами: \" + c.getBonusBalance().getPoints());'"
       ]
     }
   },
@@ -5300,11 +10733,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "148. CW2 Arxitekturasi — Customer.deliveryAddresses (Map<String, ShippingAddress>)",
-      "en": "148. CW2 Architecture — Multiple Delivery Addresses Managed by Customer"
+      "en": "148. CW2 Architecture — Multiple Delivery Addresses Managed by Customer",
+      "ru": "148. Архитектура CW2 — несколько адресов доставки, управляемых клиентом"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n6-hafta yechimida mijoz bir nechta yetkazish manzillarini saqlaydi: 'home', 'office'. 'useDeliveryAddress(\"office\")' qilinganda asosiy yetkazish manzili yangilanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Zarina\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Amir Temur 5\", \"Toshkent\", \"100000\"));         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Navoiy 10\", \"Toshkent\", \"100011\"));         c.useDeliveryAddress(\"office\");         System.out.println(\"Hozirgi yetkazish ko'chasi: \" + c.getShippingAddress().getStreet());'",
-      "en": "📖 Real-World Scenario & Context\nCustomer manages delivery addresses via LinkedHashMap switching active shipping destination.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Zarina\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Amir Temur 5\", \"Toshkent\", \"100000\"));         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Navoiy 10\", \"Toshkent\", \"100011\"));         c.useDeliveryAddress(\"office\");         System.out.println(\"Hozirgi yetkazish ko'chasi: \" + c.getShippingAddress().getStreet());'"
+      "en": "📖 Real-World Scenario & Context\nCustomer manages delivery addresses via LinkedHashMap switching active shipping destination.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Zarina\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Amir Temur 5\", \"Toshkent\", \"100000\"));         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Navoiy 10\", \"Toshkent\", \"100011\"));         c.useDeliveryAddress(\"office\");         System.out.println(\"Hozirgi yetkazish ko'chasi: \" + c.getShippingAddress().getStreet());'",
+      "ru": "📖 Контекст и описание задачи\nКлиент управляет адресами доставки через LinkedHashMap, переключая активное место доставки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент(\"Зарина\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Амир Темур 5\", \"Тошкент\", \"100000\");         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Навои 10\", \"Тошкент\", \"100011\"));         c.useDeliveryAddress(\"офис\");         System.out.println(\"Хозирги ещеказиш ко'часи: \" + c.getShippingAddress().getStreet());'"
     },
     "requirements": {
       "classes": [
@@ -5323,6 +10758,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "6-hafta yechimida mijoz bir nechta yetkazish manzillarini saqlaydi: 'home', 'office'. 'useDeliveryAddress(\"office\")' qilinganda asosiy yetkazish manzili yangilanadi.\n\n📋",
+      "en": "Customer manages delivery addresses via LinkedHashMap switching active shipping destination.\n\n📋",
+      "ru": "Клиент управляет адресами доставки через LinkedHashMap, переключая активное место доставки."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Zarina\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Amir Temur 5\", \"Toshkent\", \"100000\"));         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Navoiy 10\", \"Toshkent\", \"100011\"));         c.useDeliveryAddress(\"office\");         System.out.println(\"Hozirgi yetkazish ko'chasi: \" + c.getShippingAddress().getStreet());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Zarina\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Amir Temur 5\", \"Toshkent\", \"100000\"));         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Navoiy 10\", \"Toshkent\", \"100011\"));         c.useDeliveryAddress(\"office\");         System.out.println(\"Hozirgi yetkazish ko'chasi: \" + c.getShippingAddress().getStreet());'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент(\"Зарина\", 50, 100000.0);         c.addDeliveryAddress(\"home\", new ShippingAddress(\"Амир Темур 5\", \"Тошкент\", \"100000\");         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Навои 10\", \"Тошкент\", \"100011\"));         c.useDeliveryAddress(\"офис\");         System.out.println(\"Хозирги ещеказиш ко'часи: \" + c.getShippingAddress().getStreet());'"
       ]
     }
   },
@@ -5333,11 +10803,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "149. CW2 Arxitekturasi — Order va Turli Payable Usullari Bilan To'lash",
-      "en": "149. CW2 Architecture — Order Checkout with Polymorphic Payment Methods"
+      "en": "149. CW2 Architecture — Order Checkout with Polymorphic Payment Methods",
+      "ru": "149. Архитектура CW2 — оформление заказа с полиморфными способами оплаты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma summasini BankCard, BonusBalance yoki GiftCard orqali to'lash mumkin. Order va turli to'lov usullarining integratsiyasini sinab ko'ring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Dilshod\", 0, 500000.0);         Order ord = new Order(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate order placement and checkout settled via polymorphic Payable mechanisms.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Dilshod\", 0, 500000.0);         Order ord = new Order(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'"
+      "en": "📖 Real-World Scenario & Context\nDemonstrate order placement and checkout settled via polymorphic Payable mechanisms.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Dilshod\", 0, 500000.0);         Order ord = new Order(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте размещение заказов и оформление заказов с помощью полиморфных механизмов оплаты.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Дилшод», 0, 500000.0);         Заказ ord = новый заказ(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'"
     },
     "requirements": {
       "classes": [
@@ -5356,6 +10828,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "Buyurtma summasini BankCard, BonusBalance yoki GiftCard orqali to'lash mumkin. Order va turli to'lov usullarining integratsiyasini sinab ko'ring.\n\n📋",
+      "en": "Demonstrate order placement and checkout settled via polymorphic Payable mechanisms.\n\n📋",
+      "ru": "Продемонстрируйте размещение заказов и оформление заказов с помощью полиморфных механизмов оплаты."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Dilshod\", 0, 500000.0);         Order ord = new Order(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Dilshod\", 0, 500000.0);         Order ord = new Order(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Дилшод», 0, 500000.0);         Заказ ord = новый заказ(\"ORD-101\", c);         ord.addItem(new PhysicalProduct(\"Sichqoncha\", 100000.0, 1, true, 'A', 0.2, false), 1);         ord.printSummary();'"
       ]
     }
   },
@@ -5366,11 +10873,13 @@ window.OOP_CHALLENGES_W6 = [
     "sector": "136-150: CW2 Week 6 Architecture Milestone",
     "title": {
       "uz": "150. CW2 6-Hafta Cho'qqisi — RunOrder To'liq Integratsiyasi",
-      "en": "150. CW2 Week 6 Grand Milestone — Complete RunOrder Architecture Integration"
+      "en": "150. CW2 Week 6 Grand Milestone — Complete RunOrder Architecture Integration",
+      "ru": "150. Грандиозная веха 6-й недели CW2 — полная интеграция архитектуры RunOrder."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT rasmiy 'RunOrder.java' yechimining to'liq biznes oqimi: Mijoz yaratiladi, mahsulotlar qo'shiladi, bildirishnomalar (Mobile va Web) yuboriladi, manzil almashtiriladi va BankCard orqali to'lanib keshbek bonusga yoziladi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.\n2. 'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.\n3. 'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.\n4. 'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.\n5. 'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Aziz Karimov\", 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Notification push = new MobileNotification(c, \"Buyurtmangiz tayyor\", \"iPhone 15\");         push.send();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Bonus ballari: \" + c.getBonusBalance().getPoints());'",
-      "en": "📖 Real-World Scenario & Context\nFull grand milestone executing complete Week 6 RunOrder workflow combining all lecture and seminar systems.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz Karimov\", 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Notification push = new MobileNotification(c, \"Buyurtmangiz tayyor\", \"iPhone 15\");         push.send();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      "en": "📖 Real-World Scenario & Context\nFull grand milestone executing complete Week 6 RunOrder workflow combining all lecture and seminar systems.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement official Week 6 architecture matching OOPSolution_Week6.\n2. Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.\n3. Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.\n4. Add Notification hierarchy with MobileNotification and WebNotification.\n5. Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz Karimov\", 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Notification push = new MobileNotification(c, \"Buyurtmangiz tayyor\", \"iPhone 15\");         push.send();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Bonus ballari: \" + c.getBonusBalance().getPoints());'",
+      "ru": "📖 Контекст и описание задачи\nПолная важная веха: выполнение полного рабочего процесса RunOrder на 6-й неделе, объединяющего все системы лекций и семинаров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.\n2. Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.\n3. Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.\n4. Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.\n5. Выполните в «main» и проверьте: «Клиент c = новый клиент («Азиз Каримов», 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Push-уведомление = new MobileNotification(c, \"Буюртмангиз тайёр\", \"iPhone 15\");         нажать.отправить();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Бонусные баллы: \" + c.getBonusBalance().getPoints());'"
     },
     "requirements": {
       "classes": [
@@ -5389,6 +10898,41 @@ window.OOP_CHALLENGES_W6 = [
       "breakdown": [
         "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
         "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ],
+      "theoryRu": "WIUT 6-hafta yechimi Курсовая работа 2 arxitekturasining markaziy qismidir: Product abstrakt sinfga aylanadi, to'lovlar 'Payable' va 'CashbackEligible' interfeyslariga o'tkaziladi, xabarnomalar esa 'Notification' abstrakt sinfi orqali mobil yoki veb push sifatida етказилади.",
+      "breakdownRu": [
+        "<code>OOPSolution_Week6</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Customer.pay()</code>: polimorfik to'lov va avtomatik keshbek."
+      ]
+    },
+    "story": {
+      "uz": "WIUT rasmiy 'RunOrder.java' yechimining to'liq biznes oqimi: Mijoz yaratiladi, mahsulotlar qo'shiladi, bildirishnomalar (Mobile va Web) yuboriladi, manzil almashtiriladi va BankCard orqali to'lanib keshbek bonusga yoziladi!\n\n📋",
+      "en": "Full grand milestone executing complete Week 6 RunOrder workflow combining all lecture and seminar systems.\n\n📋",
+      "ru": "Полная важная веха: выполнение полного рабочего процесса RunOrder на 6-й неделе, объединяющего все системы лекций и семинаров."
+    },
+    "steps": {
+      "uz": [
+        "(1 dan 5 gacha)",
+        "WIUT 6-hafta 'OOPSolution_Week6' rasmiy arxitekturasini e'lon qiling.",
+        "'Product' sinfini abstrakt ('calculateDeliveryCost()') qiling va 'PhysicalProduct', 'DigitalProduct' larni yarating.",
+        "'Payable' va 'CashbackEligible' interfeyslarini tuzib, 'BankCard', 'BonusBalance' va 'GiftCard' klasslarini bajaring.",
+        "'Notification' abstrakt sinfi va 'MobileNotification', 'WebNotification' vorislarini qo'shing.",
+        "'Main' da to'liq biznes oqimini tekshiring: 'Customer c = new Customer(\"Aziz Karimov\", 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Notification push = new MobileNotification(c, \"Buyurtmangiz tayyor\", \"iPhone 15\");         push.send();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      ],
+      "en": [
+        "(1 to 5)",
+        "Implement official Week 6 architecture matching OOPSolution_Week6.",
+        "Make Product abstract and implement delivery costs in PhysicalProduct and DigitalProduct.",
+        "Implement Payable, CashbackEligible, BankCard, BonusBalance, and GiftCard.",
+        "Add Notification hierarchy with MobileNotification and WebNotification.",
+        "Execute in 'main' and verify: 'Customer c = new Customer(\"Aziz Karimov\", 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Notification push = new MobileNotification(c, \"Buyurtmangiz tayyor\", \"iPhone 15\");         push.send();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Bonus ballari: \" + c.getBonusBalance().getPoints());'"
+      ],
+      "ru": [
+        "Реализуйте официальную архитектуру недели 6, соответствующую OOPSolution_Week6.",
+        "Сделайте продукт абстрактным и реализуйте стоимость доставки в PhysicalProduct и DigitalProduct.",
+        "Внедрите Payable, CashbackEligible, BankCard, BonusBalance и GiftCard.",
+        "Добавьте иерархию уведомлений с помощью MobileNotification и WebNotification.",
+        "Выполните в «main» и проверьте: «Клиент c = новый клиент («Азиз Каримов», 120, 500000.0);         c.addBankCard(\"8600 1234 5678 9012\", 300000.0);         Push-уведомление = new MobileNotification(c, \"Буюртмангиз тайёр\", \"iPhone 15\");         нажать.отправить();         c.pay(c.getBankCard(), 150000.0);         System.out.println(\"Бонусные баллы: \" + c.getBonusBalance().getPoints());'"
       ]
     }
   }

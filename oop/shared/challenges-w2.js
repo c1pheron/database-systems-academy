@@ -1,8 +1,6 @@
 // WIUT OOP (5COSC018C) — WEEK 2 DATASET (150 PROGRESSIVE CHALLENGES)
-// 10 Progressive Tiers covering Encapsulation, Access Modifiers, Getters/Setters,
-// Constructors, Overloading, Guard Clauses, Computed Properties, Domain Methods,
-// Immutability, and Composition.
-window.OOP_CHALLENGES_W2 = [
+// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
+(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W2 = [
   {
     "id": 1,
     "tier": 1,
@@ -10,15 +8,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "1. Uzum Market — Bitta Xususiy Maydonni Yashirish va getPrice()",
-      "en": "1. Uzum Market — Single Private Field Hiding and getPrice()"
+      "en": "1. Uzum Market — Single Private Field Hiding and getPrice()",
+      "ru": "1. Рынок Узум — скрытие одного частного поля и getPrice()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 2-leksiyasida ta'kidlanganidek, inkapsulyatsiyaning birinchi qoidasi — ma'lumotlarni tashqi to'g'ridan-to'g'ri o'zgarishdan himoya qilishdir. 'Product' sinfida 'price' maydonini 'private' qilib e'lon qiling va unga faqat o'qish huquqini beruvchi 'public double getPrice()' metodini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'Product' klassini e'lon qiling va unga xususiy (private) double toifasidagi 'price' maydonini qo'shing.\n\n2. 'public Product(double price)' konstruktorini yozib, 'this' orqali 'price' maydoniga qiymat bering orqali qiymat bering.\n\n3. 'public double getPrice()' getter metodini yozing.\n\n4. 'Main' klassida 'public static void main(String[] args)' metodini oching.\n\n5. boshlang'ich parametrlar bilan ob'yektni yarating, konsolga 'Mahsulot narxi: ' + p.getPrice() + ' UZS' chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate a single private double price field and provide public getPrice() accessor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'Product' with private double field 'price'.\n\n2. Write constructor 'public Product(double price)' assigning parameter via 'this'.\n\n3. Implement getter 'public double getPrice()' returning 'price'.\n\n4. Create class 'Main' with 'public static void main(String[] args)'.\n\n5. Instantiate object with starting values and print price."
+      "en": "📖 Real-World Scenario & Context\nEncapsulate a single private double price field and provide public getPrice() accessor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'Product' with private double field 'price'.\n\n2. Write constructor 'public Product(double price)' assigning parameter via 'this'.\n\n3. Implement getter 'public double getPrice()' returning 'price'.\n\n4. Create class 'Main' with 'public static void main(String[] args)'.\n\n5. Instantiate object with starting values and print price.",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулируйте одно частное поле двойной цены и предоставьте общедоступный метод доступа getPrice().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Продукт» с частным двойным полем «цена».\n2. Напишите конструктор «общественный продукт (двойная цена)», назначив параметр через «this».\n3. Реализуйте метод получения public double getPrice(), возвращающий цену.\n4. Create class 'Main' with 'public static void main(String[] args)'.\n5. Создайте экземпляр объекта с начальными значениями и ценой печати."
     },
     "story": {
       "uz": "WIUT 2-leksiyasida ta'kidlanganidek, inkapsulyatsiyaning birinchi qoidasi — ma'lumotlarni tashqi to'g'ridan-to'g'ri o'zgarishdan himoya qilishdir. 'Product' sinfida 'price' maydonini 'private' qilib e'lon qiling va unga faqat o'qish huquqini beruvchi 'public double getPrice()' metodini yozing.",
-      "en": "Encapsulate a single private double price field and provide public getPrice() accessor."
+      "en": "Encapsulate a single private double price field and provide public getPrice() accessor.",
+      "ru": "Инкапсулируйте одно частное поле двойной цены и предоставьте общедоступный метод доступа getPrice()."
     },
     "steps": {
       "uz": [
@@ -34,6 +35,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement getter 'public double getPrice()' returning 'price'.",
         "Create class 'Main' with 'public static void main(String[] args)'.",
         "Instantiate object with starting values and print price."
+      ],
+      "ru": [
+        "Объявите класс «Продукт» с частным двойным полем «цена».",
+        "Напишите конструктор «общественный продукт (двойная цена)», назначив параметр через «this».",
+        "Реализуйте метод получения public double getPrice(), возвращающий цену.",
+        "Create class 'Main' with 'public static void main(String[] args)'.",
+        "Создайте экземпляр объекта с начальными значениями и ценой печати."
       ]
     },
     "requirements": {
@@ -66,7 +74,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Product</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>Product</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -76,15 +90,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "2. Payme — Turli Toifadagi Maydonlar: Matn va Butun Son",
-      "en": "2. Payme — Multi-Type Encapsulation with String and Integer"
+      "en": "2. Payme — Multi-Type Encapsulation with String and Integer",
+      "ru": "2. Payme — инкапсуляция нескольких типов со строкой и целым числом"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHamyon tizimida foydalanuvchi nomi ('username' String) va uning PIN urinishlari soni ('attempts' int) birgalikda himoyalanishi kerak. Ikkala maydonni private qilib, ularga mos alohida getterlarni taqdim eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'WalletAuth' klassini oching va unga xususiy (private) String toifasidagi 'username' hamda xususiy (private) int toifasidagi 'attempts' maydonlarini qo'shing.\n\n2. Ikkala maydonni to'ldiruvchi 'public WalletAuth(String username, int attempts)' konstruktorini yozing.\n\n3. Foydalanuvchi nomini o'qish uchun 'public String getUsername()' metodini taqdim eting.\n\n4. Urinishlar sonini o'qish uchun 'public int getAttempts()' getterini yozing.\n\n5. 'Main' metodida ob'yekt yaratib, konsolga foydalanuvchi va urinishlar sonini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate multiple fields of different types (String and int) providing respective accessors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletAuth' with private String field 'username' and private int field 'attempts'.\n\n2. Implement constructor 'public WalletAuth(String username, int attempts)'.\n\n3. Write getter 'public String getUsername()'.\n\n4. Write getter 'public int getAttempts()'.\n\n5. In 'main', instantiate object and print user and attempts."
+      "en": "📖 Real-World Scenario & Context\nEncapsulate multiple fields of different types (String and int) providing respective accessors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletAuth' with private String field 'username' and private int field 'attempts'.\n\n2. Implement constructor 'public WalletAuth(String username, int attempts)'.\n\n3. Write getter 'public String getUsername()'.\n\n4. Write getter 'public int getAttempts()'.\n\n5. In 'main', instantiate object and print user and attempts.",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулируйте несколько полей разных типов (String и int), предоставляя соответствующие средства доступа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс WalletAuth с частным строковым полем «имя пользователя» и частным полем int «попытки».\n2. Реализуйте конструктор «public WalletAuth (имя пользователя String, попытки int)».\n3. Напишите геттер «public String getUsername()».\n4. Напишите геттер «public int getAttempts()».\n5. В «основном» создайте экземпляр объекта и распечатайте пользователя и попытки."
     },
     "story": {
       "uz": "Hamyon tizimida foydalanuvchi nomi ('username' String) va uning PIN urinishlari soni ('attempts' int) birgalikda himoyalanishi kerak. Ikkala maydonni private qilib, ularga mos alohida getterlarni taqdim eting.",
-      "en": "Encapsulate multiple fields of different types (String and int) providing respective accessors."
+      "en": "Encapsulate multiple fields of different types (String and int) providing respective accessors.",
+      "ru": "Инкапсулируйте несколько полей разных типов (String и int), предоставляя соответствующие средства доступа."
     },
     "steps": {
       "uz": [
@@ -100,6 +117,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write getter 'public String getUsername()'.",
         "Write getter 'public int getAttempts()'.",
         "In 'main', instantiate object and print user and attempts."
+      ],
+      "ru": [
+        "Объявите класс WalletAuth с частным строковым полем «имя пользователя» и частным полем int «попытки».",
+        "Реализуйте конструктор «public WalletAuth (имя пользователя String, попытки int)».",
+        "Напишите геттер «public String getUsername()».",
+        "Напишите геттер «public int getAttempts()».",
+        "В «основном» создайте экземпляр объекта и распечатайте пользователя и попытки."
       ]
     },
     "requirements": {
@@ -134,7 +158,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>WalletAuth</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>WalletAuth</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -144,15 +174,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "3. Korzinka — Mantiqiy (boolean) Maydonlar uchun 'is' Prefiksi",
-      "en": "3. Korzinka — Boolean Accessor Naming Standard using 'is' Prefix"
+      "en": "3. Korzinka — Boolean Accessor Naming Standard using 'is' Prefix",
+      "ru": "3. Корзинка — стандарт именования логических аксессоров с использованием префикса «is»."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nJava va WIUT standartlariga binoan boolean toifasidagi xususiy maydonlar uchun getter metodi 'get' emas, balki 'is' bilan boshlanishi kerak (masalan, 'inStock' uchun 'isInStock()'). Korzinka ombori uchun ushbu qoidani qo'llang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'InventoryItem' klassini yarating: xususiy (private) String toifasidagi 'name' va xususiy (private) boolean toifasidagi 'inStock' maydonlari bilan.\n\n2. 'public InventoryItem(String name, boolean inStock)' konstruktorini yozing.\n\n3. 'public String getName()' getterini yozing.\n\n4. Boolean maydonlar uchun JavaBean standarti bo'yicha 'public boolean isInStock()' getterini yozing.\n\n5. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yaratib, tovar mavjudligini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nFollow JavaBeans standard for boolean accessor naming using 'is' prefix instead of 'get'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'InventoryItem' with private String field 'name' and private boolean field 'inStock'.\n\n2. Write constructor 'public InventoryItem(String name, boolean inStock)'.\n\n3. Write accessor 'public String getName()'.\n\n4. Follow JavaBean convention by creating 'public boolean isInStock()' for the boolean flag.\n\n5. Instantiate object with starting values and print stock status."
+      "en": "📖 Real-World Scenario & Context\nFollow JavaBeans standard for boolean accessor naming using 'is' prefix instead of 'get'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'InventoryItem' with private String field 'name' and private boolean field 'inStock'.\n\n2. Write constructor 'public InventoryItem(String name, boolean inStock)'.\n\n3. Write accessor 'public String getName()'.\n\n4. Follow JavaBean convention by creating 'public boolean isInStock()' for the boolean flag.\n\n5. Instantiate object with starting values and print stock status.",
+      "ru": "📖 Контекст и описание задачи\nСледуйте стандарту JavaBeans для логического именования средств доступа, используя префикс «is» вместо «get».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс InventoryItem с частным строковым полем name и частным логическим полем inStock.\n2. Напишите конструктор «public InventoryItem (имя строки, логическое значение inStock)».\n3. Write accessor 'public String getName()'.\n4. Следуйте соглашению JavaBean, создав для логического флага «public boolean isInStock()».\n5. Создайте экземпляр объекта с начальными значениями и распечатайте состояние запасов."
     },
     "story": {
       "uz": "Java va WIUT standartlariga binoan boolean toifasidagi xususiy maydonlar uchun getter metodi 'get' emas, balki 'is' bilan boshlanishi kerak (masalan, 'inStock' uchun 'isInStock()'). Korzinka ombori uchun ushbu qoidani qo'llang.",
-      "en": "Follow JavaBeans standard for boolean accessor naming using 'is' prefix instead of 'get'."
+      "en": "Follow JavaBeans standard for boolean accessor naming using 'is' prefix instead of 'get'.",
+      "ru": "Следуйте стандарту JavaBeans для логического именования средств доступа, используя префикс «is» вместо «get»."
     },
     "steps": {
       "uz": [
@@ -168,6 +201,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public String getName()'.",
         "Follow JavaBean convention by creating 'public boolean isInStock()' for the boolean flag.",
         "Instantiate object with starting values and print stock status."
+      ],
+      "ru": [
+        "Объявите класс InventoryItem с частным строковым полем name и частным логическим полем inStock.",
+        "Напишите конструктор «public InventoryItem (имя строки, логическое значение inStock)».",
+        "Write accessor 'public String getName()'.",
+        "Следуйте соглашению JavaBean, создав для логического флага «public boolean isInStock()».",
+        "Создайте экземпляр объекта с начальными значениями и распечатайте состояние запасов."
       ]
     },
     "requirements": {
@@ -202,7 +242,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>InventoryItem</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>InventoryItem</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -212,15 +258,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "4. Yandex Go — Faqat O'qiladigan (Read-Only) Marshrut Identifikatori",
-      "en": "4. Yandex Go — Read-Only Trip Identifier via Controlled Access"
+      "en": "4. Yandex Go — Read-Only Trip Identifier via Controlled Access",
+      "ru": "4. Yandex Go — идентификатор поездки только для чтения через контролируемый доступ"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafar boshlanganda unga bir martalik 'tripId' beriladi. Tizim xavfsizligi uchun bu ID tashqaridan aslo o'zgartirilmasligi, faqat o'qilishi kerak (Read-only property). Setter bermasdan faqat getter taqdim eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TaxiTrip' klassini e'lon qiling va faqat o'qiladigan xususiy (private) String toifasidagi 'tripId' maydonini qo'shing.\n\n2. Parametrli 'public TaxiTrip(String tripId)' konstruktorini yozing.\n\n3. 'public String getTripId()' getterini yozing (ammo hech qanday setter yozilmaydi).\n\n4. 'Main' klassi 'main' metodini oching.\n\n5. boshlang'ich parametrlar bilan ob'yektni yarating, 'Safar ID: ' + trip.getTripId() deb chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCreate a read-only property by providing a getter without any corresponding setter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiTrip' with read-only private String field 'tripId'.\n\n2. Implement constructor 'public TaxiTrip(String tripId)'.\n\n3. Write getter 'public String getTripId()' without providing any mutator setter.\n\n4. Define 'class Main' with 'main' method.\n\n5. Instantiate object with starting values and print trip ID."
+      "en": "📖 Real-World Scenario & Context\nCreate a read-only property by providing a getter without any corresponding setter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiTrip' with read-only private String field 'tripId'.\n\n2. Implement constructor 'public TaxiTrip(String tripId)'.\n\n3. Write getter 'public String getTripId()' without providing any mutator setter.\n\n4. Define 'class Main' with 'main' method.\n\n5. Instantiate object with starting values and print trip ID.",
+      "ru": "📖 Контекст и описание задачи\nСоздайте свойство, доступное только для чтения, предоставив метод получения без соответствующего метода установки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TaxiTrip с закрытым строковым полем tripId, доступным только для чтения.\n2. Реализуйте конструктор public TaxiTrip(String tripId)».\n3. Напишите геттер «public String getTripId()» без предоставления какого-либо установщика мутатора.\n4. Определите класс Main с помощью метода main.\n5. Создайте экземпляр объекта с начальными значениями и распечатайте идентификатор поездки."
     },
     "story": {
       "uz": "Safar boshlanganda unga bir martalik 'tripId' beriladi. Tizim xavfsizligi uchun bu ID tashqaridan aslo o'zgartirilmasligi, faqat o'qilishi kerak (Read-only property). Setter bermasdan faqat getter taqdim eting.",
-      "en": "Create a read-only property by providing a getter without any corresponding setter."
+      "en": "Create a read-only property by providing a getter without any corresponding setter.",
+      "ru": "Создайте свойство, доступное только для чтения, предоставив метод получения без соответствующего метода установки."
     },
     "steps": {
       "uz": [
@@ -236,6 +285,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write getter 'public String getTripId()' without providing any mutator setter.",
         "Define 'class Main' with 'main' method.",
         "Instantiate object with starting values and print trip ID."
+      ],
+      "ru": [
+        "Объявите класс TaxiTrip с закрытым строковым полем tripId, доступным только для чтения.",
+        "Реализуйте конструктор public TaxiTrip(String tripId)».",
+        "Напишите геттер «public String getTripId()» без предоставления какого-либо установщика мутатора.",
+        "Определите класс Main с помощью метода main.",
+        "Создайте экземпляр объекта с начальными значениями и распечатайте идентификатор поездки."
       ]
     },
     "requirements": {
@@ -268,7 +324,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>TaxiTrip</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>TaxiTrip</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -278,15 +340,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "5. Texnomart — Belgili (char) Tovar Sifat Darajasi",
-      "en": "5. Texnomart — Character Primitive Sifat Grade Encapsulation"
+      "en": "5. Texnomart — Character Primitive Sifat Grade Encapsulation",
+      "ru": "5. Texnomart — инкапсуляция примитивных символов Sifat Grade"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 da berilgan 'Product' sinfida 'grade' maydoni 'char' toifasida ('A', 'B', 'C') saqlanadi. Belgili maydonni xususiy qilib, uning to'g'ri o'qilishini ta'minlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'QualityGrade' klassini e'lon qiling va xususiy (private) char toifasidagi 'grade' maydonini yarating.\n\n2. 'public QualityGrade(char grade)' konstruktorini yozing.\n\n3. 'public char getGrade()' getter metodini yarating.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini initsializatsiya qiling.\n\n5. Konsolga 'Sifat darajasi: ' + q.getGrade() deb chop eting.",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate char primitive attribute representing product quality grade matching Seminar 2.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'QualityGrade' with primitive char private char field 'grade'.\n\n2. Write constructor 'public QualityGrade(char grade)'.\n\n3. Implement getter 'public char getGrade()'.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print 'Sifat darajasi: ' + q.getGrade()."
+      "en": "📖 Real-World Scenario & Context\nEncapsulate char primitive attribute representing product quality grade matching Seminar 2.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'QualityGrade' with primitive char private char field 'grade'.\n\n2. Write constructor 'public QualityGrade(char grade)'.\n\n3. Implement getter 'public char getGrade()'.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print 'Sifat darajasi: ' + q.getGrade().",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулировать примитивный атрибут char, представляющий соответствие класса качества продукта. Семинар 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «QualityGrade» с примитивным частным символьным полем «grade».\n2. Напишите конструктор «public QualityGrade(chargrade)».\n3. Реализуйте метод получения public char getGrade().\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Напечатайте 'Сифат дараджаси:' + q.getGrade()."
     },
     "story": {
       "uz": "Seminar 2 da berilgan 'Product' sinfida 'grade' maydoni 'char' toifasida ('A', 'B', 'C') saqlanadi. Belgili maydonni xususiy qilib, uning to'g'ri o'qilishini ta'minlang.",
-      "en": "Encapsulate char primitive attribute representing product quality grade matching Seminar 2."
+      "en": "Encapsulate char primitive attribute representing product quality grade matching Seminar 2.",
+      "ru": "Инкапсулировать примитивный атрибут char, представляющий соответствие класса качества продукта. Семинар 2."
     },
     "steps": {
       "uz": [
@@ -302,6 +367,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement getter 'public char getGrade()'.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print 'Sifat darajasi: ' + q.getGrade()."
+      ],
+      "ru": [
+        "Объявите класс «QualityGrade» с примитивным частным символьным полем «grade».",
+        "Напишите конструктор «public QualityGrade(chargrade)».",
+        "Реализуйте метод получения public char getGrade().",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Напечатайте 'Сифат дараджаси:' + q.getGrade()."
       ]
     },
     "requirements": {
@@ -334,7 +406,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>QualityGrade</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>QualityGrade</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -344,15 +422,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "6. Click — Bo'shliqlarni Tozalovchi Getter (trim va null himoyasi)",
-      "en": "6. Click — Sanitizing Getter Trimming Whitespace and Guarding Null"
+      "en": "6. Click — Sanitizing Getter Trimming Whitespace and Guarding Null",
+      "ru": "6. Нажмите — очистка геттера, обрезка пробелов и защита нуля."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 'Customer.java' dagi rasmiy usul: 'getName()' metodi 'name == null ? \"Unknown\" : name.trim()' qaytaradi. Foydalanuvchi kiritgan matndan ortiqcha bo'shliqlarni tozalab beruvchi xavfsiz getterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'UserProfile' klassini va unga xususiy (private) String toifasidagi 'name' maydonini qo'shing.\n\n2. 'public UserProfile(String name)' konstruktorini yozing.\n\n3. Seminar 2 andazasi bo'yicha 'public String getName()' metodida null tekshiruvini va bo'shliqlarni tozalashni (trim) bajaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Tozalangan ismni chop eting: 'System.out.println(\"Tozalangan ism: [\" + u.getName() + \"]\")'",
-      "en": "📖 Real-World Scenario & Context\nImplement sanitizing getter that trims whitespace and falls back to safe default if null.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'UserProfile' with private String field 'name'.\n\n2. Implement constructor 'public UserProfile(String name)'.\n\n3. In 'getName()', apply Seminar 2 pattern: sanitize string with trim() and null check.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print sanitized name enclosed in brackets."
+      "en": "📖 Real-World Scenario & Context\nImplement sanitizing getter that trims whitespace and falls back to safe default if null.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'UserProfile' with private String field 'name'.\n\n2. Implement constructor 'public UserProfile(String name)'.\n\n3. In 'getName()', apply Seminar 2 pattern: sanitize string with trim() and null check.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print sanitized name enclosed in brackets.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте очищающий геттер, который обрезает пробелы и возвращается к безопасному значению по умолчанию, если оно равно нулю.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс UserProfile с частным строковым полем name.\n2. Реализуйте конструктор «public UserProfile (имя строки)».\n3. В методе getName() примените шаблон семинара 2: очистите строку с помощью функции обрезки() и проверьте нулевое значение.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Напечатайте очищенное имя, заключенное в скобки."
     },
     "story": {
       "uz": "Seminar 2 'Customer.java' dagi rasmiy usul: 'getName()' metodi 'name == null ? \"Unknown\" : name.trim()' qaytaradi. Foydalanuvchi kiritgan matndan ortiqcha bo'shliqlarni tozalab beruvchi xavfsiz getterni yozing.",
-      "en": "Implement sanitizing getter that trims whitespace and falls back to safe default if null."
+      "en": "Implement sanitizing getter that trims whitespace and falls back to safe default if null.",
+      "ru": "Реализуйте очищающий геттер, который обрезает пробелы и возвращается к безопасному значению по умолчанию, если оно равно нулю."
     },
     "steps": {
       "uz": [
@@ -368,6 +449,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'getName()', apply Seminar 2 pattern: sanitize string with trim() and null check.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print sanitized name enclosed in brackets."
+      ],
+      "ru": [
+        "Объявите класс UserProfile с частным строковым полем name.",
+        "Реализуйте конструктор «public UserProfile (имя строки)».",
+        "В методе getName() примените шаблон семинара 2: очистите строку с помощью функции обрезки() и проверьте нулевое значение.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Напечатайте очищенное имя, заключенное в скобки."
       ]
     },
     "requirements": {
@@ -400,7 +488,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>UserProfile</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>UserProfile</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -410,15 +504,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "7. Safia — Valyuta Tiynlarini Yaxlitlovchi Getter (Math.round)",
-      "en": "7. Safia — Precision Monetary Getter Rounded to Two Decimal Places"
+      "en": "7. Safia — Precision Monetary Getter Rounded to Two Decimal Places",
+      "ru": "7. Сафия — точный источник получения денег, округленный до двух десятичных знаков."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 'Customer.java' yechimida hisob balansi 'Math.round(accountBalance * 100.0) / 100.0' orqali 2 xona aniqlikda yaxlitlanadi. Kasrli qoldiqni chiroyli formatda qaytaruvchi getterni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CustomerBalance' klassini e'lon qilib, xususiy (private) double toifasidagi 'balance' maydonini qo'shing.\n\n2. 'public CustomerBalance(double balance)' konstruktorini yozing.\n\n3. Seminar 2 andazasi bo'yicha 'public double getBalance()' metodida Math.round orqali 2 xona aniqlikda yaxlitlang.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'Yaxlitlangan balans: ' + cb.getBalance() + ' UZS' deb chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nReturn account balance rounded to exactly two decimal places matching Seminar 2 Customer.java.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerBalance' with private double field 'balance'.\n\n2. Write constructor 'public CustomerBalance(double balance)'.\n\n3. Implement 'public double getBalance()' rounding to 2 decimals using Math.round.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print rounded balance value."
+      "en": "📖 Real-World Scenario & Context\nReturn account balance rounded to exactly two decimal places matching Seminar 2 Customer.java.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerBalance' with private double field 'balance'.\n\n2. Write constructor 'public CustomerBalance(double balance)'.\n\n3. Implement 'public double getBalance()' rounding to 2 decimals using Math.round.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print rounded balance value.",
+      "ru": "📖 Контекст и описание задачи\nВозвращаемый баланс счета округляется ровно до двух десятичных знаков, что соответствует семинару 2 Customer.java.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CustomerBalance» с частным двойным полем «баланс».\n2. Напишите конструктор «public CustomerBalance(двойной баланс)».\n3. Реализуйте округление public double getBalance() до 2 десятичных знаков с помощью Math.round.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Вывести округленное значение баланса."
     },
     "story": {
       "uz": "Seminar 2 'Customer.java' yechimida hisob balansi 'Math.round(accountBalance * 100.0) / 100.0' orqali 2 xona aniqlikda yaxlitlanadi. Kasrli qoldiqni chiroyli formatda qaytaruvchi getterni dasturlang.",
-      "en": "Return account balance rounded to exactly two decimal places matching Seminar 2 Customer.java."
+      "en": "Return account balance rounded to exactly two decimal places matching Seminar 2 Customer.java.",
+      "ru": "Возвращаемый баланс счета округляется ровно до двух десятичных знаков, что соответствует семинару 2 Customer.java."
     },
     "steps": {
       "uz": [
@@ -434,6 +531,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'public double getBalance()' rounding to 2 decimals using Math.round.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print rounded balance value."
+      ],
+      "ru": [
+        "Объявите класс «CustomerBalance» с частным двойным полем «баланс».",
+        "Напишите конструктор «public CustomerBalance(двойной баланс)».",
+        "Реализуйте округление public double getBalance() до 2 десятичных знаков с помощью Math.round.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Вывести округленное значение баланса."
       ]
     },
     "requirements": {
@@ -466,7 +570,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CustomerBalance</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>CustomerBalance</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -476,15 +586,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "8. Express24 — Xavfsiz Sukutdagi Qiymat Qaytaruvchi Getter",
-      "en": "8. Express24 — Safe Fallback Default Value Getter"
+      "en": "8. Express24 — Safe Fallback Default Value Getter",
+      "ru": "8. Express24 — безопасный резервный метод получения значений по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryer yetkazish vaqti ko'rsatilmagan (0 yoki manfiy) bo'lsa, getter 15 daqiqa deb qaytarishi kerak. Maydonni o'zgartirmasdan, xavfsiz qiymat beruvchi getterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DeliveryEstimate' klassini va unga xususiy (private) int toifasidagi 'estimatedMinutes' maydonini qo'shing.\n\n2. 'public DeliveryEstimate(int estimatedMinutes)' konstruktorini yarating.\n\n3. 'public int getEstimatedMinutes()' metodida agar qiymat 0 yoki undan kichik bo'lsa standart 15 daqiqa qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'Yetkazish vaqti: ' + de.getEstimatedMinutes() + ' daqiqa' chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nGetter supplies standard fallback duration if raw private field is not positively initialized.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryEstimate' with private int field 'estimatedMinutes'.\n\n2. Write constructor 'public DeliveryEstimate(int estimatedMinutes)'.\n\n3. Implement 'getEstimatedMinutes()' returning safe default 15 minutes if negative or zero.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print estimated delivery minutes."
+      "en": "📖 Real-World Scenario & Context\nGetter supplies standard fallback duration if raw private field is not positively initialized.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryEstimate' with private int field 'estimatedMinutes'.\n\n2. Write constructor 'public DeliveryEstimate(int estimatedMinutes)'.\n\n3. Implement 'getEstimatedMinutes()' returning safe default 15 minutes if negative or zero.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print estimated delivery minutes.",
+      "ru": "📖 Контекст и описание задачи\nGetter предоставляет стандартную резервную продолжительность, если необработанное частное поле не инициализировано положительно.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «DeliveryEstimate» с частным полем int «estimatedMinutes».\n2. Напишите конструктор «public DeliveryEstimate(int AssessmentMinutes)».\n3. Реализуйте метод getEstimatedMinutes(), возвращающий безопасные 15 минут по умолчанию, если оно отрицательное или нулевое.\n4. Создайте экземпляр объекта с начальными значениями в «main».\n5. Распечатайте предполагаемое время доставки."
     },
     "story": {
       "uz": "Kuryer yetkazish vaqti ko'rsatilmagan (0 yoki manfiy) bo'lsa, getter 15 daqiqa deb qaytarishi kerak. Maydonni o'zgartirmasdan, xavfsiz qiymat beruvchi getterni yozing.",
-      "en": "Getter supplies standard fallback duration if raw private field is not positively initialized."
+      "en": "Getter supplies standard fallback duration if raw private field is not positively initialized.",
+      "ru": "Getter предоставляет стандартную резервную продолжительность, если необработанное частное поле не инициализировано положительно."
     },
     "steps": {
       "uz": [
@@ -500,6 +613,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'getEstimatedMinutes()' returning safe default 15 minutes if negative or zero.",
         "Instantiate object with starting values in 'main'.",
         "Print estimated delivery minutes."
+      ],
+      "ru": [
+        "Объявите класс «DeliveryEstimate» с частным полем int «estimatedMinutes».",
+        "Напишите конструктор «public DeliveryEstimate(int AssessmentMinutes)».",
+        "Реализуйте метод getEstimatedMinutes(), возвращающий безопасные 15 минут по умолчанию, если оно отрицательное или нулевое.",
+        "Создайте экземпляр объекта с начальными значениями в «main».",
+        "Распечатайте предполагаемое время доставки."
       ]
     },
     "requirements": {
@@ -532,7 +652,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>DeliveryEstimate</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>DeliveryEstimate</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -542,15 +668,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "9. Asaxiy — Prefiks Bilan Formatlangan Getter",
-      "en": "9. Asaxiy — Formatted Code Getter with Business Prefix"
+      "en": "9. Asaxiy — Formatted Code Getter with Business Prefix",
+      "ru": "9. Asaxy — получатель форматированного кода с бизнес-префиксом"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitobning raqamli kodi ichki tizimda oddiy int (masalan, 404) sifatida saqlanadi, lekin getter uni 'BOOK-404' shaklida formatlab berishi shart. Formatlovchi getterni tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BookBarcode' klassini e'lon qiling va butun sonli xususiy (private) int toifasidagi 'code' maydonini qo'shing.\n\n2. 'public BookBarcode(int code)' konstruktorini yozing.\n\n3. 'public String getFormattedCode()' metodini yozing va 'BOOK-' prefiksi bilan kodni birlashtiring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'Kitob kodi: ' + b.getFormattedCode() chop eting.",
-      "en": "📖 Real-World Scenario & Context\nGetter transforms internal raw integer into standardized customer-facing code string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookBarcode' with private int field 'code'.\n\n2. Write constructor 'public BookBarcode(int code)'.\n\n3. Implement 'public String getFormattedCode()' formatting the integer with 'BOOK-' prefix.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print formatted book code."
+      "en": "📖 Real-World Scenario & Context\nGetter transforms internal raw integer into standardized customer-facing code string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookBarcode' with private int field 'code'.\n\n2. Write constructor 'public BookBarcode(int code)'.\n\n3. Implement 'public String getFormattedCode()' formatting the integer with 'BOOK-' prefix.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print formatted book code.",
+      "ru": "📖 Контекст и описание задачи\nGetter преобразует внутреннее необработанное целое число в стандартизированную строку кода, ориентированную на клиента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BookBarcode с закрытым полем int code.\n2. Напишите конструктор «public BookBarcode (int code)».\n3. Реализуйте «public String getFormattedCode()», форматируя целое число с префиксом «BOOK-».\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Распечатайте отформатированный код книги."
     },
     "story": {
       "uz": "Kitobning raqamli kodi ichki tizimda oddiy int (masalan, 404) sifatida saqlanadi, lekin getter uni 'BOOK-404' shaklida formatlab berishi shart. Formatlovchi getterni tuzing.",
-      "en": "Getter transforms internal raw integer into standardized customer-facing code string."
+      "en": "Getter transforms internal raw integer into standardized customer-facing code string.",
+      "ru": "Getter преобразует внутреннее необработанное целое число в стандартизированную строку кода, ориентированную на клиента."
     },
     "steps": {
       "uz": [
@@ -566,6 +695,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'public String getFormattedCode()' formatting the integer with 'BOOK-' prefix.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print formatted book code."
+      ],
+      "ru": [
+        "Объявите класс BookBarcode с закрытым полем int code.",
+        "Напишите конструктор «public BookBarcode (int code)».",
+        "Реализуйте «public String getFormattedCode()», форматируя целое число с префиксом «BOOK-».",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Распечатайте отформатированный код книги."
       ]
     },
     "requirements": {
@@ -598,7 +734,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BookBarcode</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Maydonlarni ochiq (публичный) qoldirmang; barcha xususiy atributlar 'частный' bo'lishi шарт.",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>BookBarcode</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -608,15 +750,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "10. Milliy Bank — Niqoblangan Karta Raqami Getteri",
-      "en": "10. Milliy Bank — Masked Card Number Accessor for Security"
+      "en": "10. Milliy Bank — Masked Card Number Accessor for Security",
+      "ru": "10. Миллий Банк — средство доступа к замаскированному номеру карты в целях безопасности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXavfsizlik talabiga ko'ra karta raqami to'liq ko'rsatilmaydi. Getter faqat oxirgi 4 ta raqamni '**** 1234' shaklida qaytarishi kerak (Seminar 2 va 6 talabi).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BankCardMasker' klassini va unga xususiy (private) String toifasidagi 'cardNumber' maydonini qo'shing.\n\n2. 'public BankCardMasker(String cardNumber)' konstruktorini yozing.\n\n3. 'public String getMaskedNumber()' metodida dastlabki raqamlarni yashirib, faqat oxirgi 4 ta raqamni ko'rsatuvchi '**** ' + substring formatini qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektni yarating yarating.\n\n5. Konsolga 'Karta: ' + card.getMaskedNumber() deb chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nAccessor exposes only masked card representation keeping the full number private.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankCardMasker' with private String field 'cardNumber'.\n\n2. Write constructor 'public BankCardMasker(String cardNumber)'.\n\n3. Implement 'public String getMaskedNumber()' masking leading digits and displaying last 4 digits.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print masked card number."
+      "en": "📖 Real-World Scenario & Context\nAccessor exposes only masked card representation keeping the full number private.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankCardMasker' with private String field 'cardNumber'.\n\n2. Write constructor 'public BankCardMasker(String cardNumber)'.\n\n3. Implement 'public String getMaskedNumber()' masking leading digits and displaying last 4 digits.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print masked card number.",
+      "ru": "📖 Контекст и описание задачи\nAccessor предоставляет только замаскированное представление карты, сохраняя конфиденциальность полного номера.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BankCardMasker с частным строковым полем cardNumber.\n2. Напишите конструктор «public BankCardMasker(String cardNumber)».\n3. Реализуйте «public String getMaskedNumber()», маскирующую начальные цифры и отображающую последние 4 цифры.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Распечатайте замаскированный номер карты."
     },
     "story": {
       "uz": "Xavfsizlik talabiga ko'ra karta raqami to'liq ko'rsatilmaydi. Getter faqat oxirgi 4 ta raqamni '**** 1234' shaklida qaytarishi kerak (Seminar 2 va 6 talabi).",
-      "en": "Accessor exposes only masked card representation keeping the full number private."
+      "en": "Accessor exposes only masked card representation keeping the full number private.",
+      "ru": "Accessor предоставляет только замаскированное представление карты, сохраняя конфиденциальность полного номера."
     },
     "steps": {
       "uz": [
@@ -632,6 +777,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'public String getMaskedNumber()' masking leading digits and displaying last 4 digits.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print masked card number."
+      ],
+      "ru": [
+        "Объявите класс BankCardMasker с частным строковым полем cardNumber.",
+        "Напишите конструктор «public BankCardMasker(String cardNumber)».",
+        "Реализуйте «public String getMaskedNumber()», маскирующую начальные цифры и отображающую последние 4 цифры.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Распечатайте замаскированный номер карты."
       ]
     },
     "requirements": {
@@ -664,7 +816,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BankCardMasker</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>BankCardMasker</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -674,15 +832,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "11. Dodo Pizza — Xotirada Maydoni Yo'q Hosilaviy Getter (Derived)",
-      "en": "11. Dodo Pizza — Derived Field Computed on the Fly"
+      "en": "11. Dodo Pizza — Derived Field Computed on the Fly",
+      "ru": "11. Додо Пицца — производное поле, вычисляемое на лету"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPitsaning umumiy qiymatini hisoblash uchun alohida maydon ochish shart emas, chunki u har doim 'price * quantity' dan kelib chiqadi. Dinamik hisoblab beruvchi 'getTotalCost()' getterini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PizzaOrderLine' klassini xususiy (private) double toifasidagi 'unitPrice' va xususiy (private) int toifasidagi 'quantity' maydonlari bilan yarating.\n\n2. 'public PizzaOrderLine(double unitPrice, int quantity)' konstruktorini yozing.\n\n3. Alohida 'total' maydoni ochmasdan, dinamik tegishli hisoblangan qiymatni qaytaring hisoblovchi 'public double getTotalCost()' metodini yozing.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini oching.\n\n5. Konsolga 'Qator summasi: ' + line.getTotalCost() + ' UZS' chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nProvide derived getter computing total value dynamically without a dedicated instance field.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrderLine' with private double field 'unitPrice' and private int field 'quantity'.\n\n2. Write constructor 'public PizzaOrderLine(double unitPrice, int quantity)'.\n\n3. Implement derived getter 'public double getTotalCost()' computing unitPrice * quantity on the fly.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print line total cost."
+      "en": "📖 Real-World Scenario & Context\nProvide derived getter computing total value dynamically without a dedicated instance field.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrderLine' with private double field 'unitPrice' and private int field 'quantity'.\n\n2. Write constructor 'public PizzaOrderLine(double unitPrice, int quantity)'.\n\n3. Implement derived getter 'public double getTotalCost()' computing unitPrice * quantity on the fly.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print line total cost.",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте производный метод получения, динамически вычисляющий общее значение без специального поля экземпляра.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «PizzaOrderLine» с частным двойным полем «unitPrice» и частным полем int «количество».\n2. Напишите конструктор «public PizzaOrderLine (double unitPrice, int количество)».\n3. Реализуйте производный метод получения 'public double getTotalCost()', вычисляющий unitPrice * количество на лету.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Общая стоимость линии печати."
     },
     "story": {
       "uz": "Pitsaning umumiy qiymatini hisoblash uchun alohida maydon ochish shart emas, chunki u har doim 'price * quantity' dan kelib chiqadi. Dinamik hisoblab beruvchi 'getTotalCost()' getterini yozing.",
-      "en": "Provide derived getter computing total value dynamically without a dedicated instance field."
+      "en": "Provide derived getter computing total value dynamically without a dedicated instance field.",
+      "ru": "Обеспечьте производный метод получения, динамически вычисляющий общее значение без специального поля экземпляра."
     },
     "steps": {
       "uz": [
@@ -698,6 +859,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement derived getter 'public double getTotalCost()' computing unitPrice * quantity on the fly.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print line total cost."
+      ],
+      "ru": [
+        "Объявите класс «PizzaOrderLine» с частным двойным полем «unitPrice» и частным полем int «количество».",
+        "Напишите конструктор «public PizzaOrderLine (double unitPrice, int количество)».",
+        "Реализуйте производный метод получения 'public double getTotalCost()', вычисляющий unitPrice * количество на лету.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Общая стоимость линии печати."
       ]
     },
     "requirements": {
@@ -731,7 +899,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PizzaOrderLine</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>PizzaOrderLine</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -741,15 +915,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "12. Medion — Holatga Bog'liq Shartli Getter",
-      "en": "12. Medion — State-Dependent Conditional Accessor"
+      "en": "12. Medion — State-Dependent Conditional Accessor",
+      "ru": "12. Medion — зависящий от состояния условный метод доступа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAgar tahlil hali tayyor bo'lmasa ('isReady == false'), natija getteri 'Kutilmoqda' qaytarishi, tayyor bo'lsa haqiqiy natijani berishi shart. Shartli getterni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'LabResult' sinfini oching va xususiy (private) String toifasidagi 'result' hamda xususiy (private) boolean toifasidagi 'isReady' maydonlarini e'lon qiling.\n\n2. 'public LabResult(String result, boolean isReady)' konstruktorini yozing.\n\n3. 'public String getResultString()' metodida agar tahlil tayyorlik holati true bo'lsa natijani, aks holda 'Kutilmoqda' matnini qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'Tahlil holati: ' + res.getResultString() deb chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nAccessor inspects internal boolean state before returning medical result string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LabResult' with private String field 'result' and private boolean field 'isReady'.\n\n2. Write constructor 'public LabResult(String result, boolean isReady)'.\n\n3. Implement 'public String getResultString()' returning result if ready, or 'Kutilmoqda' otherwise.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print lab result status."
+      "en": "📖 Real-World Scenario & Context\nAccessor inspects internal boolean state before returning medical result string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LabResult' with private String field 'result' and private boolean field 'isReady'.\n\n2. Write constructor 'public LabResult(String result, boolean isReady)'.\n\n3. Implement 'public String getResultString()' returning result if ready, or 'Kutilmoqda' otherwise.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print lab result status.",
+      "ru": "📖 Контекст и описание задачи\nСредство доступа проверяет внутреннее логическое состояние перед возвратом строки медицинского результата.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «LabResult» с частным строковым полем «result» и частным логическим полем «isReady».\n2. Напишите конструктор «public LabResult (результат String, логическое значение isReady)».\n3. Реализуйте «public String getResultString()», возвращающую результат, если он готов, или «Kutilmoqda» в противном случае.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Распечатать статус результатов лабораторных исследований."
     },
     "story": {
       "uz": "Agar tahlil hali tayyor bo'lmasa ('isReady == false'), natija getteri 'Kutilmoqda' qaytarishi, tayyor bo'lsa haqiqiy natijani berishi shart. Shartli getterni dasturlang.",
-      "en": "Accessor inspects internal boolean state before returning medical result string."
+      "en": "Accessor inspects internal boolean state before returning medical result string.",
+      "ru": "Средство доступа проверяет внутреннее логическое состояние перед возвратом строки медицинского результата."
     },
     "steps": {
       "uz": [
@@ -765,6 +942,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'public String getResultString()' returning result if ready, or 'Kutilmoqda' otherwise.",
         "In 'main', instantiate instantiate object with starting values.",
         "Print lab result status."
+      ],
+      "ru": [
+        "Объявите класс «LabResult» с частным строковым полем «result» и частным логическим полем «isReady».",
+        "Напишите конструктор «public LabResult (результат String, логическое значение isReady)».",
+        "Реализуйте «public String getResultString()», возвращающую результат, если он готов, или «Kutilmoqda» в противном случае.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
+        "Распечатать статус результатов лабораторных исследований."
       ]
     },
     "requirements": {
@@ -798,7 +982,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>LabResult</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>LabResult</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -808,15 +998,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "13. Beeline — Kirishlar Sonini Sanovchi Yashirin Hisoblagich",
-      "en": "13. Beeline — Encapsulated Read Access Counter"
+      "en": "13. Beeline — Encapsulated Read Access Counter",
+      "ru": "13. «Билайн» — инкапсулированный счетчик доступа на чтение"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXavfsizlik moduli har safar balans tekshirilganda ichki xususiy 'checkCount' hisoblagichini 1 ga oshirib boradi. Yashirin hisoblagichli inkapsulyatsiyani tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SimBalance' klassini xususiy (private) double toifasidagi 'balance' va xususiy (private) int toifasidagi 'checkCount' maydonlari bilan oching.\n\n2. 'public SimBalance(double balance)' konstruktorida balansni o'rnating va 'this' orqali 'checkCount' maydoniga qiymat bering qiling.\n\n3. 'public double getBalanceAndTrack()' metodida har murojaat qilinganda ichki hisoblagichni bittaga oshirib qilib, balansni qaytaring.\n\n4. 'public int getCheckCount()' getterini yozing.\n\n5. 'Main' metodida ob'yekt yaratib, ikki marta 'getBalanceAndTrack()' chaqiring va 'Tekshiruvlar soni: ' + sim.getCheckCount() chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nTrack internal access frequency via encapsulated counter incremented during inspection.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimBalance' with private double field 'balance' and private int field 'checkCount'.\n\n2. Write constructor 'public SimBalance(double balance)' initializing checkCount to 0.\n\n3. Implement 'public double getBalanceAndTrack()' incrementing counter and returning balance.\n\n4. Write getter 'public int getCheckCount()'.\n\n5. In 'main', invoke tracking method twice and print total check count."
+      "en": "📖 Real-World Scenario & Context\nTrack internal access frequency via encapsulated counter incremented during inspection.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimBalance' with private double field 'balance' and private int field 'checkCount'.\n\n2. Write constructor 'public SimBalance(double balance)' initializing checkCount to 0.\n\n3. Implement 'public double getBalanceAndTrack()' incrementing counter and returning balance.\n\n4. Write getter 'public int getCheckCount()'.\n\n5. In 'main', invoke tracking method twice and print total check count.",
+      "ru": "📖 Контекст и описание задачи\nОтслеживайте внутреннюю частоту доступа с помощью инкапсулированного счетчика, увеличивающегося во время проверки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «SimBalance» с частным двойным полем «баланс» и частным полем int «checkCount».\n2. Write constructor 'public SimBalance(double balance)' initializing checkCount to 0.\n3. Implement 'public double getBalanceAndTrack()' incrementing counter and returning balance.\n4. Write getter 'public int getCheckCount()'.\n5. В «main» дважды вызовите метод отслеживания и напечатайте общее количество проверок."
     },
     "story": {
       "uz": "Xavfsizlik moduli har safar balans tekshirilganda ichki xususiy 'checkCount' hisoblagichini 1 ga oshirib boradi. Yashirin hisoblagichli inkapsulyatsiyani tuzing.",
-      "en": "Track internal access frequency via encapsulated counter incremented during inspection."
+      "en": "Track internal access frequency via encapsulated counter incremented during inspection.",
+      "ru": "Отслеживайте внутреннюю частоту доступа с помощью инкапсулированного счетчика, увеличивающегося во время проверки."
     },
     "steps": {
       "uz": [
@@ -832,6 +1025,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'public double getBalanceAndTrack()' incrementing counter and returning balance.",
         "Write getter 'public int getCheckCount()'.",
         "In 'main', invoke tracking method twice and print total check count."
+      ],
+      "ru": [
+        "Объявите класс «SimBalance» с частным двойным полем «баланс» и частным полем int «checkCount».",
+        "Write constructor 'public SimBalance(double balance)' initializing checkCount to 0.",
+        "Implement 'public double getBalanceAndTrack()' incrementing counter and returning balance.",
+        "Write getter 'public int getCheckCount()'.",
+        "В «main» дважды вызовите метод отслеживания и напечатайте общее количество проверок."
       ]
     },
     "requirements": {
@@ -866,7 +1066,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SimBalance</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>SimBalance</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -876,15 +1082,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "14. UzAirways — Bir Nechta Xususiy Maydonlarni Xulosalovchi Metod",
-      "en": "14. UzAirways — Encapsulated Entity Summary Method"
+      "en": "14. UzAirways — Encapsulated Entity Summary Method",
+      "ru": "14. UzAirways — метод обобщения инкапсулированных объектов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAviachipta reys kodi, yo'lovchi ismi va o'rindiq raqamiga ega. Barcha xususiy maydonlarni bitta chiroyli matn shaklida xulosalovchi 'getFlightSummary()' metodini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'FlightTicket' sinfini 3 ta xususiy maydon bilan e'lon qiling: 'flightNo', 'passengerName', 'seatNumber'.\n\n2. 3 parametrli 'public FlightTicket(String flightNo, String passengerName, String seatNumber)' konstruktorini yozing.\n\n3. 'public String getFlightSummary()' metodida maydonlarni birlashtirib reys, yo'lovchi va o'rindiq haqida umumiy satr qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektni yarating yarating.\n\n5. Konsolga 't.getFlightSummary()' natijasini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nCombine several private fields into a single formatted summary report.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightTicket' with 3 private string fields: flightNo, passengerName, seatNumber.\n\n2. Write 3-parameter constructor initializing all fields.\n\n3. Implement summary method 'public String getFlightSummary()'.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print summary string."
+      "en": "📖 Real-World Scenario & Context\nCombine several private fields into a single formatted summary report.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightTicket' with 3 private string fields: flightNo, passengerName, seatNumber.\n\n2. Write 3-parameter constructor initializing all fields.\n\n3. Implement summary method 'public String getFlightSummary()'.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print summary string.",
+      "ru": "📖 Контекст и описание задачи\nОбъедините несколько частных полей в один форматированный сводный отчет.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FlightTicket с тремя частными строковыми полями: номер рейса, имя пассажира, номер места.\n2. Напишите трехпараметрический конструктор, инициализирующий все поля.\n3. Реализуйте метод сводки public String getFlightSummary().\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Print summary string."
     },
     "story": {
       "uz": "Aviachipta reys kodi, yo'lovchi ismi va o'rindiq raqamiga ega. Barcha xususiy maydonlarni bitta chiroyli matn shaklida xulosalovchi 'getFlightSummary()' metodini yozing.",
-      "en": "Combine several private fields into a single formatted summary report."
+      "en": "Combine several private fields into a single formatted summary report.",
+      "ru": "Объедините несколько частных полей в один форматированный сводный отчет."
     },
     "steps": {
       "uz": [
@@ -899,6 +1108,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 3-parameter constructor initializing all fields.",
         "Implement summary method 'public String getFlightSummary()'.",
         "In 'main', instantiate instantiate object with starting values.",
+        "Print summary string."
+      ],
+      "ru": [
+        "Объявите класс FlightTicket с тремя частными строковыми полями: номер рейса, имя пассажира, номер места.",
+        "Напишите трехпараметрический конструктор, инициализирующий все поля.",
+        "Реализуйте метод сводки public String getFlightSummary().",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
         "Print summary string."
       ]
     },
@@ -934,7 +1150,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>FlightTicket</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>FlightTicket</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -944,15 +1166,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "1-15: Data Hiding & Accessors",
     "title": {
       "uz": "15. WIUT SRS — Talaba Akademik Profilining To'liq Himoyasi",
-      "en": "15. WIUT SRS — Complete Student Profile Encapsulation Master"
+      "en": "15. WIUT SRS — Complete Student Profile Encapsulation Master",
+      "ru": "15. WIUT SRS — Мастер полной инкапсуляции профиля студента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalaba profili ID, ism, GPA va o'qishda faollik holatiga ega. Bo'shliqlarni tozalash, 2 xona yaxlitlash va boolean qoidalarini jamlagan to'liq inkapsulyatsiyalangan klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'StudentRecord' sinfini e'lon qiling: 'studentId' (String), 'fullName' (String), 'gpa' (double), 'active' (boolean).\n\n2. 4 parametrli 'public StudentRecord(...)' konstruktorini yozing.\n\n3. 'public String getAcademicSummary()' metodida: ism bo'shligini tozalang, GPA ni 2 xonagacha yaxlitlang va to'liq profil ma'lumotlarini qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'sr.getAcademicSummary()' natijasini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nCombine all Tier 1 encapsulation principles into a comprehensive student academic record.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StudentRecord' with studentId, fullName, gpa, and active status fields.\n\n2. Write 4-parameter constructor initializing all state.\n\n3. Implement master accessor 'public String getAcademicSummary()' applying trimming, GPA rounding, and status formatting.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print academic summary string."
+      "en": "📖 Real-World Scenario & Context\nCombine all Tier 1 encapsulation principles into a comprehensive student academic record.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StudentRecord' with studentId, fullName, gpa, and active status fields.\n\n2. Write 4-parameter constructor initializing all state.\n\n3. Implement master accessor 'public String getAcademicSummary()' applying trimming, GPA rounding, and status formatting.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print academic summary string.",
+      "ru": "📖 Контекст и описание задачи\nОбъедините все принципы инкапсуляции уровня 1 в комплексную академическую документацию учащегося.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс StudentRecord с полями StudentId, FullName, GPA и активного статуса.\n2. Напишите конструктор с 4 параметрами, инициализирующий все состояние.\n3. Реализуйте главный метод доступа public String getAcademicSummary(), применяя обрезку, округление GPA и форматирование статуса.\n4. Создайте экземпляр объекта с начальными значениями в «main».\n5. Распечатать строку академического резюме."
     },
     "story": {
       "uz": "Talaba profili ID, ism, GPA va o'qishda faollik holatiga ega. Bo'shliqlarni tozalash, 2 xona yaxlitlash va boolean qoidalarini jamlagan to'liq inkapsulyatsiyalangan klass tuzing.",
-      "en": "Combine all Tier 1 encapsulation principles into a comprehensive student academic record."
+      "en": "Combine all Tier 1 encapsulation principles into a comprehensive student academic record.",
+      "ru": "Объедините все принципы инкапсуляции уровня 1 в комплексную академическую документацию учащегося."
     },
     "steps": {
       "uz": [
@@ -968,6 +1193,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement master accessor 'public String getAcademicSummary()' applying trimming, GPA rounding, and status formatting.",
         "Instantiate object with starting values in 'main'.",
         "Print academic summary string."
+      ],
+      "ru": [
+        "Объявите класс StudentRecord с полями StudentId, FullName, GPA и активного статуса.",
+        "Напишите конструктор с 4 параметрами, инициализирующий все состояние.",
+        "Реализуйте главный метод доступа public String getAcademicSummary(), применяя обрезку, округление GPA и форматирование статуса.",
+        "Создайте экземпляр объекта с начальными значениями в «main».",
+        "Распечатать строку академического резюме."
       ]
     },
     "requirements": {
@@ -1003,7 +1235,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>StudentRecord</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>StudentRecord</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1013,15 +1251,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "16. Uzum Market — Parametr Soyalanishi (Shadowing) va 'this.price = price'",
-      "en": "16. Uzum Market — Shadowing Resolution with 'this.price = price'"
+      "en": "16. Uzum Market — Shadowing Resolution with 'this.price = price'",
+      "ru": "16. Рынок Узум. Скрытие разрешения с помощью this.price = цена."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida ta'kidlanganidek: setter parametri maydon bilan bir xil nomlanganda 'this' kalit so'zi parametrni sinf maydonidan ajratish uchun shart. 'setPrice(double price)' metodini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ProductPricing' klassini va xususiy (private) double toifasidagi 'price' maydonini e'lon qiling.\n\n2. 'public ProductPricing(double price)' konstruktorini yozing.\n\n3. 'public double getPrice()' getterini taqdim eting.\n\n4. Parametr maydon nomini berkitishini (shadowing) bartaraf etish uchun 'this' orqali 'price' maydoniga qiymat bering dan foydalanib 'public void setPrice(double price)' setterni yozing.\n\n5. 'Main' metodida narxni 18000.0 ga yangilab, yangilangan narxni ekranga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nResolve naming collisions between parameters and fields using 'this.field = field' syntax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductPricing' with private double field 'price'.\n\n2. Write constructor 'public ProductPricing(double price)'.\n\n3. Write accessor 'public double getPrice()'.\n\n4. Implement mutator 'public void setPrice(double price)' resolving shadowing via assign parameter to 'price' field via 'this'.\n\n5. In 'main', update price to 18000.0 and print updated price."
+      "en": "📖 Real-World Scenario & Context\nResolve naming collisions between parameters and fields using 'this.field = field' syntax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductPricing' with private double field 'price'.\n\n2. Write constructor 'public ProductPricing(double price)'.\n\n3. Write accessor 'public double getPrice()'.\n\n4. Implement mutator 'public void setPrice(double price)' resolving shadowing via assign parameter to 'price' field via 'this'.\n\n5. In 'main', update price to 18000.0 and print updated price.",
+      "ru": "📖 Контекст и описание задачи\nУстраните конфликты имен между параметрами и полями, используя синтаксис this.field = field.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ProductPricing с частным двойным полем «цена».\n2. Напишите конструктор «public ProductPricing (двойная цена)».\n3. Напишите метод доступа public double getPrice().\n4. Реализуйте мутатор «public void setPrice(doubleprice)», разрешающий затенение посредством назначения параметра полю «цена» через «this».\n5. In 'main', update price to 18000.0 and print updated price."
     },
     "story": {
       "uz": "WIUT leksiyasida ta'kidlanganidek: setter parametri maydon bilan bir xil nomlanganda 'this' kalit so'zi parametrni sinf maydonidan ajratish uchun shart. 'setPrice(double price)' metodini yozing.",
-      "en": "Resolve naming collisions between parameters and fields using 'this.field = field' syntax."
+      "en": "Resolve naming collisions between parameters and fields using 'this.field = field' syntax.",
+      "ru": "Устраните конфликты имен между параметрами и полями, используя синтаксис this.field = field."
     },
     "steps": {
       "uz": [
@@ -1036,6 +1277,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write constructor 'public ProductPricing(double price)'.",
         "Write accessor 'public double getPrice()'.",
         "Implement mutator 'public void setPrice(double price)' resolving shadowing via assign parameter to 'price' field via 'this'.",
+        "In 'main', update price to 18000.0 and print updated price."
+      ],
+      "ru": [
+        "Объявите класс ProductPricing с частным двойным полем «цена».",
+        "Напишите конструктор «public ProductPricing (двойная цена)».",
+        "Напишите метод доступа public double getPrice().",
+        "Реализуйте мутатор «public void setPrice(doubleprice)», разрешающий затенение посредством назначения параметра полю «цена» через «this».",
         "In 'main', update price to 18000.0 and print updated price."
       ]
     },
@@ -1070,7 +1318,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ProductPricing</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>ProductPricing</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1080,15 +1334,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "17. Payme — Manfiy Narxni Rad Etuvchi Setter (Seminar 2 Product.java)",
-      "en": "17. Payme — Negative Value Rejection with Warning in Setter"
+      "en": "17. Payme — Negative Value Rejection with Warning in Setter",
+      "ru": "17. Payme — отклонение отрицательного значения с предупреждением в установщике"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 rasmiy kodida: 'setPrice(double price)' metodida agar 'price < 0' bo'lsa 'Price cannot be negative - price was not changed.' xabari chiqadi va qiymat o'zgarmaydi. Aynan shu mantiqni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PaymentItem' sinfini va xususiy (private) double toifasidagi 'price' maydonini e'lon qiling.\n\n2. 'public PaymentItem(double price)' konstruktorini yozing.\n\n3. 'public double getPrice()' getterini yozing.\n\n4. WIUT Seminar 2 qoidasiga ko'ra 'public void setPrice(double price)' setterida: agar narx manfiy bo'lsa 'Price cannot be negative - price was not changed.' deb ogohlantirib, qiymatni o'zgartirmang.\n\n5. 'Main' metodida manfiy (-100.0) narx berib, xabar va narx holatini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nImplement price setter that declines negative values and outputs standard Seminar 2 notice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PaymentItem' with private double field 'price'.\n\n2. Write constructor 'public PaymentItem(double price)'.\n\n3. Write accessor 'public double getPrice()'.\n\n4. In 'setPrice(double price)', apply Seminar 2 rule: print warning and reject negative values.\n\n5. In 'main', attempt setting negative price and print resulting state."
+      "en": "📖 Real-World Scenario & Context\nImplement price setter that declines negative values and outputs standard Seminar 2 notice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PaymentItem' with private double field 'price'.\n\n2. Write constructor 'public PaymentItem(double price)'.\n\n3. Write accessor 'public double getPrice()'.\n\n4. In 'setPrice(double price)', apply Seminar 2 rule: print warning and reject negative values.\n\n5. In 'main', attempt setting negative price and print resulting state.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте средство установки цен, которое отклоняет отрицательные значения и выводит стандартное уведомление Семинара 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «PaymentItem» с частным двойным полем «цена».\n2. Напишите конструктор «public PaymentItem (двойная цена)».\n3. Напишите метод доступа public double getPrice().\n4. В «setPrice(двойная цена)» примените правило семинара 2: вывести предупреждение и отклонить отрицательные значения.\n5. В «main» попытайтесь установить отрицательную цену и распечатать полученное состояние."
     },
     "story": {
       "uz": "Seminar 2 rasmiy kodida: 'setPrice(double price)' metodida agar 'price < 0' bo'lsa 'Price cannot be negative - price was not changed.' xabari chiqadi va qiymat o'zgarmaydi. Aynan shu mantiqni bajaring.",
-      "en": "Implement price setter that declines negative values and outputs standard Seminar 2 notice."
+      "en": "Implement price setter that declines negative values and outputs standard Seminar 2 notice.",
+      "ru": "Реализуйте средство установки цен, которое отклоняет отрицательные значения и выводит стандартное уведомление Семинара 2."
     },
     "steps": {
       "uz": [
@@ -1104,6 +1361,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public double getPrice()'.",
         "In 'setPrice(double price)', apply Seminar 2 rule: print warning and reject negative values.",
         "In 'main', attempt setting negative price and print resulting state."
+      ],
+      "ru": [
+        "Объявите класс «PaymentItem» с частным двойным полем «цена».",
+        "Напишите конструктор «public PaymentItem (двойная цена)».",
+        "Напишите метод доступа public double getPrice().",
+        "В «setPrice(двойная цена)» примените правило семинара 2: вывести предупреждение и отклонить отрицательные значения.",
+        "В «main» попытайтесь установить отрицательную цену и распечатать полученное состояние."
       ]
     },
     "requirements": {
@@ -1137,7 +1401,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PaymentItem</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>PaymentItem</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1147,15 +1417,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "18. Korzinka — Bo'sh Matnni Rad Etuvchi Setter (Product.setName)",
-      "en": "18. Korzinka — Blank/Null String Rejection Matching Product.java"
+      "en": "18. Korzinka — Blank/Null String Rejection Matching Product.java",
+      "ru": "18. Корзинка — Отклонение пустых/нулевых строк Product.java"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 yechimida: 'if (name == null || name.isBlank()) { System.out.println(\"Invalid name - name was not changed.\"); return; }'. Nomi bo'sh yoki faqat probeldan iborat bo'lsa rad etuvchi setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'GroceryItem' klassini va unga xususiy (private) String toifasidagi 'name' maydonini qo'shing.\n\n2. 'public GroceryItem(String name)' konstruktorini yozing.\n\n3. 'public String getName()' getterini yozing.\n\n4. WIUT Seminar 2 qoidasi bo'yicha 'public void setName(String name)' setterida: agar ism null yoki bo'sh (isBlank) bo'lsa 'Invalid name - name was not changed.' deb chiqaring va o'zgartirishni rad eting.\n\n5. 'Main' metodida bo'sh joylardan iborat satr berib tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nEnforce non-blank, non-null string invariant in setter matching Seminar 2 solution.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GroceryItem' with private String field 'name'.\n\n2. Write constructor 'public GroceryItem(String name)'.\n\n3. Write accessor 'public String getName()'.\n\n4. In 'setName(String name)', reject null or blank strings printing Seminar 2 warning.\n\n5. In 'main', attempt setting blank name and print output."
+      "en": "📖 Real-World Scenario & Context\nEnforce non-blank, non-null string invariant in setter matching Seminar 2 solution.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GroceryItem' with private String field 'name'.\n\n2. Write constructor 'public GroceryItem(String name)'.\n\n3. Write accessor 'public String getName()'.\n\n4. In 'setName(String name)', reject null or blank strings printing Seminar 2 warning.\n\n5. In 'main', attempt setting blank name and print output.",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте непустой и непустой строковый инвариант в решении, соответствующем установщику семинара 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс GroceryItem с частным строковым полем name.\n2. Write constructor 'public GroceryItem(String name)'.\n3. Напишите метод доступа «public String getName()».\n4. In 'setName(String name)', reject null or blank strings printing Seminar 2 warning.\n5. В «main» попытайтесь установить пустое имя и вывод на печать."
     },
     "story": {
       "uz": "Seminar 2 yechimida: 'if (name == null || name.isBlank()) { System.out.println(\"Invalid name - name was not changed.\"); return; }'. Nomi bo'sh yoki faqat probeldan iborat bo'lsa rad etuvchi setterni yozing.",
-      "en": "Enforce non-blank, non-null string invariant in setter matching Seminar 2 solution."
+      "en": "Enforce non-blank, non-null string invariant in setter matching Seminar 2 solution.",
+      "ru": "Обеспечьте непустой и непустой строковый инвариант в решении, соответствующем установщику семинара 2."
     },
     "steps": {
       "uz": [
@@ -1171,6 +1444,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public String getName()'.",
         "In 'setName(String name)', reject null or blank strings printing Seminar 2 warning.",
         "In 'main', attempt setting blank name and print output."
+      ],
+      "ru": [
+        "Объявите класс GroceryItem с частным строковым полем name.",
+        "Write constructor 'public GroceryItem(String name)'.",
+        "Напишите метод доступа «public String getName()».",
+        "In 'setName(String name)', reject null or blank strings printing Seminar 2 warning.",
+        "В «main» попытайтесь установить пустое имя и вывод на печать."
       ]
     },
     "requirements": {
@@ -1204,7 +1484,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>GroceryItem</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>GroceryItem</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1214,15 +1500,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "19. Yandex Go — Oraliqni Tekshiruvchi Setter (0 dan 100 gacha)",
-      "en": "19. Yandex Go — Strict Range Boundary Enforcement Setter"
+      "en": "19. Yandex Go — Strict Range Boundary Enforcement Setter",
+      "ru": "19. Yandex Go — установщик строгого соблюдения границ диапазона"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTaksi haydovchisining qoniqish ko'rsatkichi faqat 0 dan 100% gacha bo'lishi mumkin. Agar kiritilgan son oraliqda bo'lmasa rad etuvchi setterni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DriverScore' klassini oching: xususiy (private) int toifasidagi 'satisfactionPercent' maydoni bilan.\n\n2. 'public DriverScore(int satisfactionPercent)' konstruktorini yozing.\n\n3. 'public int getSatisfactionPercent()' getterini yozing.\n\n4. 'public void setSatisfactionPercent(int satisfactionPercent)' setterida faqat 0 dan 100 gacha bo'lgan foizlarni qabul qiling.\n\n5. 'Main' metodida 120 foiz kiritib, chegaradan tashqari qiymat rad etilganini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nValidate that updated percentage falls strictly between 0 and 100 inclusive.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DriverScore' with private int field 'satisfactionPercent'.\n\n2. Write constructor 'public DriverScore(int satisfactionPercent)'.\n\n3. Write accessor 'public int getSatisfactionPercent()'.\n\n4. Implement 'setSatisfactionPercent' validating 0 <= percentage <= 100.\n\n5. In 'main', pass 120 and confirm out-of-range value is discarded."
+      "en": "📖 Real-World Scenario & Context\nValidate that updated percentage falls strictly between 0 and 100 inclusive.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DriverScore' with private int field 'satisfactionPercent'.\n\n2. Write constructor 'public DriverScore(int satisfactionPercent)'.\n\n3. Write accessor 'public int getSatisfactionPercent()'.\n\n4. Implement 'setSatisfactionPercent' validating 0 <= percentage <= 100.\n\n5. In 'main', pass 120 and confirm out-of-range value is discarded.",
+      "ru": "📖 Контекст и описание задачи\nУбедитесь, что обновленный процент находится строго между 0 и 100 включительно.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс DriverScore с закрытым полем int satisfactionPercent.\n2. Write constructor 'public DriverScore(int satisfactionPercent)'.\n3. Напишите метод доступа «public int getSatisfactionPercent()».\n4. Реализуйте setSatisfactionPercent, проверяя 0 <= процент <= 100.\n5. В «main» передайте 120 и подтвердите, что значение, выходящее за пределы диапазона, отброшено."
     },
     "story": {
       "uz": "Taksi haydovchisining qoniqish ko'rsatkichi faqat 0 dan 100% gacha bo'lishi mumkin. Agar kiritilgan son oraliqda bo'lmasa rad etuvchi setterni dasturlang.",
-      "en": "Validate that updated percentage falls strictly between 0 and 100 inclusive."
+      "en": "Validate that updated percentage falls strictly between 0 and 100 inclusive.",
+      "ru": "Убедитесь, что обновленный процент находится строго между 0 и 100 включительно."
     },
     "steps": {
       "uz": [
@@ -1238,6 +1527,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public int getSatisfactionPercent()'.",
         "Implement 'setSatisfactionPercent' validating 0 <= percentage <= 100.",
         "In 'main', pass 120 and confirm out-of-range value is discarded."
+      ],
+      "ru": [
+        "Объявите класс DriverScore с закрытым полем int satisfactionPercent.",
+        "Write constructor 'public DriverScore(int satisfactionPercent)'.",
+        "Напишите метод доступа «public int getSatisfactionPercent()».",
+        "Реализуйте setSatisfactionPercent, проверяя 0 <= процент <= 100.",
+        "В «main» передайте 120 и подтвердите, что значение, выходящее за пределы диапазона, отброшено."
       ]
     },
     "requirements": {
@@ -1271,7 +1567,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>DriverScore</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>DriverScore</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1281,15 +1583,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "20. Click — Miqdorga Bog'liq Ravishda inStock Holatini Yangilash",
-      "en": "20. Click — Interconnected Setter Triggering InStock Flag Update"
+      "en": "20. Click — Interconnected Setter Triggering InStock Flag Update",
+      "ru": "20. Нажмите — взаимосвязанный установщик запускает обновление флага InStock."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar miqdori o'zgarganda 'inStock' bayrog'i avtomatik yangilanishi kerak: agar yangi miqdor 0 bo'lsa 'inStock = false', aks holda 'true' bo'ladi. Ushbu bog'liqlikni setter ichida bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ProductStockSync' sinfini xususiy (private) int toifasidagi 'quantity' va xususiy (private) boolean toifasidagi 'inStock' maydonlari bilan oching.\n\n2. 'public ProductStockSync(int quantity)' konstruktorida 'setQuantity(quantity)' chaqiring.\n\n3. 'public int getQuantity()' va 'public boolean isInStock()' getterlarini yozing.\n\n4. 'public void setQuantity(int quantity)' setterida miqdorni o'rnatish bilan birga 'this' orqali 'inStock' maydoniga qiymat bering qilib holatni avtomatik yangilang.\n\n5. 'Main' metodida miqdorni 0 ga o'zgartirib, 'isInStock()' false bo'lganini tasdiqlang.",
-      "en": "📖 Real-World Scenario & Context\nQuantity setter automatically updates internal inStock boolean flag based on inventory level.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductStockSync' with quantity and inStock fields.\n\n2. Write constructor initializing state via 'setQuantity(quantity)'.\n\n3. Implement accessors 'getQuantity()' and 'isInStock()'.\n\n4. In 'setQuantity(int quantity)', synchronize assign parameter to 'inStock' field via 'this' as side-effect.\n\n5. In 'main', set quantity to 0 and verify inStock becomes false."
+      "en": "📖 Real-World Scenario & Context\nQuantity setter automatically updates internal inStock boolean flag based on inventory level.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductStockSync' with quantity and inStock fields.\n\n2. Write constructor initializing state via 'setQuantity(quantity)'.\n\n3. Implement accessors 'getQuantity()' and 'isInStock()'.\n\n4. In 'setQuantity(int quantity)', synchronize assign parameter to 'inStock' field via 'this' as side-effect.\n\n5. In 'main', set quantity to 0 and verify inStock becomes false.",
+      "ru": "📖 Контекст и описание задачи\nСредство установки количества автоматически обновляет внутренний логический флаг inStock в зависимости от уровня запасов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ProductStockSync с полями количества и inStock.\n2. Запишите состояние инициализации конструктора через setQuantity (количество)».\n3. Implement accessors 'getQuantity()' and 'isInStock()'.\n4. In 'setQuantity(int quantity)', synchronize assign parameter to 'inStock' field via 'this' as side-effect.\n5. В «main» установите количество равным 0 и убедитесь, что inStock становится ложным."
     },
     "story": {
       "uz": "Tovar miqdori o'zgarganda 'inStock' bayrog'i avtomatik yangilanishi kerak: agar yangi miqdor 0 bo'lsa 'inStock = false', aks holda 'true' bo'ladi. Ushbu bog'liqlikni setter ichida bajaring.",
-      "en": "Quantity setter automatically updates internal inStock boolean flag based on inventory level."
+      "en": "Quantity setter automatically updates internal inStock boolean flag based on inventory level.",
+      "ru": "Средство установки количества автоматически обновляет внутренний логический флаг inStock в зависимости от уровня запасов."
     },
     "steps": {
       "uz": [
@@ -1305,6 +1610,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement accessors 'getQuantity()' and 'isInStock()'.",
         "In 'setQuantity(int quantity)', synchronize assign parameter to 'inStock' field via 'this' as side-effect.",
         "In 'main', set quantity to 0 and verify inStock becomes false."
+      ],
+      "ru": [
+        "Объявите класс ProductStockSync с полями количества и inStock.",
+        "Запишите состояние инициализации конструктора через setQuantity (количество)».",
+        "Implement accessors 'getQuantity()' and 'isInStock()'.",
+        "In 'setQuantity(int quantity)', synchronize assign parameter to 'inStock' field via 'this' as side-effect.",
+        "В «main» установите количество равным 0 и убедитесь, что inStock становится ложным."
       ]
     },
     "requirements": {
@@ -1340,7 +1652,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ProductStockSync</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>ProductStockSync</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1350,15 +1668,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "21. Safia — Matnni Avtomatik Formatlab Saqlovchi Setter",
-      "en": "21. Safia — Auto-Normalizing Text Setter Trimming Whitespace"
+      "en": "21. Safia — Auto-Normalizing Text Setter Trimming Whitespace",
+      "ru": "21. Safia — автоматическая нормализация текста, обрезка пробелов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz ismini saqlashda boshidagi va oxiridagi bo'shliqlarni olib tashlab, avtomatik 'trim()' qilib xotiraga yozuvchi setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CustomerNameTag' klassini va unga xususiy (private) String toifasidagi 'name' maydonini qo'shing.\n\n2. 'public CustomerNameTag(String name)' konstruktorini yozing.\n\n3. 'public String getName()' getterini yozing.\n\n4. 'public void setName(String name)' setterida kiritilgan satr chetidagi ortiqcha bo'shliqlarni 'name.trim()' orqali avtomatik tozalab saqlang.\n\n5. 'Main' metodida '   Kamola   ' berib, qavs ichida tozalangan natijani chop eting.",
-      "en": "📖 Real-World Scenario & Context\nSetter automatically sanitizes incoming text by trimming surrounding whitespace before assigning.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerNameTag' with private String field 'name'.\n\n2. Write constructor 'public CustomerNameTag(String name)'.\n\n3. Write accessor 'public String getName()'.\n\n4. In 'setName(String name)', sanitize incoming string using 'name.trim()'.\n\n5. In 'main', assign '   Kamola   ' and print trimmed name."
+      "en": "📖 Real-World Scenario & Context\nSetter automatically sanitizes incoming text by trimming surrounding whitespace before assigning.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerNameTag' with private String field 'name'.\n\n2. Write constructor 'public CustomerNameTag(String name)'.\n\n3. Write accessor 'public String getName()'.\n\n4. In 'setName(String name)', sanitize incoming string using 'name.trim()'.\n\n5. In 'main', assign '   Kamola   ' and print trimmed name.",
+      "ru": "📖 Контекст и описание задачи\nSetter автоматически очищает входящий текст, обрезая окружающие пробелы перед назначением.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CustomerNameTag с частным строковым полем name.\n2. Напишите конструктор «public CustomerNameTag (имя строки)».\n3. Напишите метод доступа «public String getName()».\n4. В «setName(String name)» очистите входящую строку с помощью «name.trim()».\n5. В поле «main» назначьте «Kamola» и напечатайте обрезанное имя."
     },
     "story": {
       "uz": "Mijoz ismini saqlashda boshidagi va oxiridagi bo'shliqlarni olib tashlab, avtomatik 'trim()' qilib xotiraga yozuvchi setterni yozing.",
-      "en": "Setter automatically sanitizes incoming text by trimming surrounding whitespace before assigning."
+      "en": "Setter automatically sanitizes incoming text by trimming surrounding whitespace before assigning.",
+      "ru": "Setter автоматически очищает входящий текст, обрезая окружающие пробелы перед назначением."
     },
     "steps": {
       "uz": [
@@ -1374,6 +1695,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public String getName()'.",
         "In 'setName(String name)', sanitize incoming string using 'name.trim()'.",
         "In 'main', assign '   Kamola   ' and print trimmed name."
+      ],
+      "ru": [
+        "Объявите класс CustomerNameTag с частным строковым полем name.",
+        "Напишите конструктор «public CustomerNameTag (имя строки)».",
+        "Напишите метод доступа «public String getName()».",
+        "В «setName(String name)» очистите входящую строку с помощью «name.trim()».",
+        "В поле «main» назначьте «Kamola» и напечатайте обрезанное имя."
       ]
     },
     "requirements": {
@@ -1407,7 +1735,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CustomerNameTag</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>CustomerNameTag</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1417,15 +1751,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "22. Dodo Pizza — Chegirma Limitini Nazorat Qiluvchi Setter",
-      "en": "22. Dodo Pizza — Maximum Discount Cap Enforcement Setter"
+      "en": "22. Dodo Pizza — Maximum Discount Cap Enforcement Setter",
+      "ru": "22. Dodo Pizza — установщик ограничений максимальной скидки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAksiya chegirmasi 50% dan oshishi mumkin emas. Agar kassir 50 dan katta foiz kiritsa, setter uni rad etib 'Discount cannot exceed 50%' xabarini beradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PizzaPromo' sinfini va xususiy (private) double toifasidagi 'discountPercent' maydonini e'lon qiling.\n\n2. 'public PizzaPromo(double discountPercent)' konstruktorini yozing.\n\n3. 'public double getDiscountPercent()' getterini yozing.\n\n4. 'public void setDiscountPercent(double discountPercent)' setterida agar chegirma 50.0 dan oshsa 'Discount cannot exceed 50%' xabarini berib o'zgarishni bekor qiling.\n\n5. 'Main' metodida 70.0% o'rnatishga urinib ko'rib, cheklov ishlaganini ko'rsating.",
-      "en": "📖 Real-World Scenario & Context\nCap maximum discount percentage and reject any value exceeding business threshold.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaPromo' with private double field 'discountPercent'.\n\n2. Write constructor 'public PizzaPromo(double discountPercent)'.\n\n3. Write accessor 'public double getDiscountPercent()'.\n\n4. In 'setDiscountPercent', reject discounts > 50% printing 'Discount cannot exceed 50%'.\n\n5. In 'main', attempt setting 70% and verify discount stays at initial value."
+      "en": "📖 Real-World Scenario & Context\nCap maximum discount percentage and reject any value exceeding business threshold.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaPromo' with private double field 'discountPercent'.\n\n2. Write constructor 'public PizzaPromo(double discountPercent)'.\n\n3. Write accessor 'public double getDiscountPercent()'.\n\n4. In 'setDiscountPercent', reject discounts > 50% printing 'Discount cannot exceed 50%'.\n\n5. In 'main', attempt setting 70% and verify discount stays at initial value.",
+      "ru": "📖 Контекст и описание задачи\nОграничьте максимальный процент скидки и отклоните любую сумму, превышающую бизнес-порог.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PizzaPromo с частным двойным полем DiscountPercent.\n2. Напишите конструктор «public PizzaPromo(double DiscountPercent)».\n3. Напишите метод доступа «public double getDiscountPercent()».\n4. В «setDiscountPercent» отклоните скидки > 50 %, напечатав «Скидка не может превышать 50 %».\n5. В «основном» попробуйте установить 70% и убедитесь, что скидка остается на первоначальном значении."
     },
     "story": {
       "uz": "Aksiya chegirmasi 50% dan oshishi mumkin emas. Agar kassir 50 dan katta foiz kiritsa, setter uni rad etib 'Discount cannot exceed 50%' xabarini beradi.",
-      "en": "Cap maximum discount percentage and reject any value exceeding business threshold."
+      "en": "Cap maximum discount percentage and reject any value exceeding business threshold.",
+      "ru": "Ограничьте максимальный процент скидки и отклоните любую сумму, превышающую бизнес-порог."
     },
     "steps": {
       "uz": [
@@ -1441,6 +1778,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public double getDiscountPercent()'.",
         "In 'setDiscountPercent', reject discounts > 50% printing 'Discount cannot exceed 50%'.",
         "In 'main', attempt setting 70% and verify discount stays at initial value."
+      ],
+      "ru": [
+        "Объявите класс PizzaPromo с частным двойным полем DiscountPercent.",
+        "Напишите конструктор «public PizzaPromo(double DiscountPercent)».",
+        "Напишите метод доступа «public double getDiscountPercent()».",
+        "В «setDiscountPercent» отклоните скидки > 50 %, напечатав «Скидка не может превышать 50 %».",
+        "В «основном» попробуйте установить 70% и убедитесь, что скидка остается на первоначальном значении."
       ]
     },
     "requirements": {
@@ -1474,7 +1818,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PizzaPromo</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>PizzaPromo</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1484,15 +1834,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "23. Texnomart — Faqat O'suvchi Qiymatlarni Qabul Qiluvchi Setter",
-      "en": "23. Texnomart — Monotonically Increasing Counter Setter"
+      "en": "23. Texnomart — Monotonically Increasing Counter Setter",
+      "ru": "23. Texnomart — установка монотонно возрастающего счетчика"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nElektr hisoblagich ko'rsatkichi hech qachon avvalgisidan kamayishi mumkin emas (Monotonic Invariant). Agar yangi ko'rsatkich eskidan kichik bo'lsa rad etilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PowerMeter' klassini va unga xususiy (private) int toifasidagi 'readingKwh' maydonini qo'shing.\n\n2. 'public PowerMeter(int readingKwh)' konstruktorini yozing.\n\n3. 'public int getReadingKwh()' getterini yozing.\n\n4. Elektr hisoblagich faqat oldinga qarab o'sishi shart: 'public void setReadingKwh(int readingKwh)' metodida faqat yangi ko'rsatkich avvalgisidan katta yoki teng bo'lsa qabul qiling.\n\n5. 'Main' metodida 1500 kVt dan 1400 kVt ga kamaytirishga urinib, eski ko'rsatkich saqlanib qolishini ko'rsating.",
-      "en": "📖 Real-World Scenario & Context\nSetter enforces that new reading must be strictly greater than or equal to current reading.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PowerMeter' with private int field 'readingKwh'.\n\n2. Write constructor 'public PowerMeter(int readingKwh)'.\n\n3. Write accessor 'public int getReadingKwh()'.\n\n4. Enforce monotonic invariant in 'setReadingKwh': only accept values >= current reading.\n\n5. In 'main', attempt decreasing from 1500 to 1400 and verify 1500 is retained."
+      "en": "📖 Real-World Scenario & Context\nSetter enforces that new reading must be strictly greater than or equal to current reading.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PowerMeter' with private int field 'readingKwh'.\n\n2. Write constructor 'public PowerMeter(int readingKwh)'.\n\n3. Write accessor 'public int getReadingKwh()'.\n\n4. Enforce monotonic invariant in 'setReadingKwh': only accept values >= current reading.\n\n5. In 'main', attempt decreasing from 1500 to 1400 and verify 1500 is retained.",
+      "ru": "📖 Контекст и описание задачи\nСеттер обеспечивает, чтобы новое чтение было строго больше или равно текущему чтению.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «PowerMeter» с закрытым полем int «readingKwh».\n2. Напишите конструктор «public PowerMeter(int readKwh)».\n3. Напишите метод доступа «public int getReadingKwh()».\n4. Обеспечить монотонный инвариант в setReadingKwh: принимать только значения >= текущего чтения.\n5. В «основном» попытайтесь уменьшить значение с 1500 до 1400 и проверьте, что 1500 сохраняется."
     },
     "story": {
       "uz": "Elektr hisoblagich ko'rsatkichi hech qachon avvalgisidan kamayishi mumkin emas (Monotonic Invariant). Agar yangi ko'rsatkich eskidan kichik bo'lsa rad etilsin.",
-      "en": "Setter enforces that new reading must be strictly greater than or equal to current reading."
+      "en": "Setter enforces that new reading must be strictly greater than or equal to current reading.",
+      "ru": "Сеттер обеспечивает, чтобы новое чтение было строго больше или равно текущему чтению."
     },
     "steps": {
       "uz": [
@@ -1508,6 +1861,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public int getReadingKwh()'.",
         "Enforce monotonic invariant in 'setReadingKwh': only accept values >= current reading.",
         "In 'main', attempt decreasing from 1500 to 1400 and verify 1500 is retained."
+      ],
+      "ru": [
+        "Объявите класс «PowerMeter» с закрытым полем int «readingKwh».",
+        "Напишите конструктор «public PowerMeter(int readKwh)».",
+        "Напишите метод доступа «public int getReadingKwh()».",
+        "Обеспечить монотонный инвариант в setReadingKwh: принимать только значения >= текущего чтения.",
+        "В «основном» попытайтесь уменьшить значение с 1500 до 1400 и проверьте, что 1500 сохраняется."
       ]
     },
     "requirements": {
@@ -1541,7 +1901,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PowerMeter</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>PowerMeter</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1551,15 +1917,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "24. Medion — Qiymatni Chegaraga Qisuvchi (Clamping) Setter",
-      "en": "24. Medion — Clamping Setter Constraining Values to Permitted Range"
+      "en": "24. Medion — Clamping Setter Constraining Values to Permitted Range",
+      "ru": "24. Medion — зажимной установщик, ограничивающий значения допустимым диапазоном"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTibbiy uskunada kislorod oqimi 10 dan 100 gacha bo'lishi kerak. Agar 10 dan kam kiritilsa avtomatik 10 ga, 100 dan oshsa 100 ga tenglab saqlaydigan qisuvchi (clamping) setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'OxygenRegulator' sinfini oching: xususiy (private) int toifasidagi 'flowRate' maydoni bilan.\n\n2. 'public OxygenRegulator(int flowRate)' konstruktorini yozing.\n\n3. 'public int getFlowRate()' getterini yozing.\n\n4. 'public void setFlowRate(int flowRate)' metodida clamping (chegaralash) qo'llang: 0 dan past bo'lsa 0, 100 dan baland bo'lsa 100 ga tenglang.\n\n5. 'Main' metodida 150 kiritilganda qiymat 100 ga cheklanganini konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nClamp incoming values into allowed boundaries instead of outright rejection.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OxygenRegulator' with private int field 'flowRate'.\n\n2. Write constructor 'public OxygenRegulator(int flowRate)'.\n\n3. Write accessor 'public int getFlowRate()'.\n\n4. Apply clamping in 'setFlowRate': clamp below 0 to 0, clamp above 100 to 100.\n\n5. In 'main', supply 150 and verify clamped output of 100."
+      "en": "📖 Real-World Scenario & Context\nClamp incoming values into allowed boundaries instead of outright rejection.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OxygenRegulator' with private int field 'flowRate'.\n\n2. Write constructor 'public OxygenRegulator(int flowRate)'.\n\n3. Write accessor 'public int getFlowRate()'.\n\n4. Apply clamping in 'setFlowRate': clamp below 0 to 0, clamp above 100 to 100.\n\n5. In 'main', supply 150 and verify clamped output of 100.",
+      "ru": "📖 Контекст и описание задачи\nОграничивайте входящие значения допустимыми границами вместо прямого отклонения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «OxygenRegulator» с частным полем int «flowRate».\n2. Write constructor 'public OxygenRegulator(int flowRate)'.\n3. Напишите метод доступа «public int getFlowRate()».\n4. Apply clamping in 'setFlowRate': clamp below 0 to 0, clamp above 100 to 100.\n5. In 'main', supply 150 and verify clamped output of 100."
     },
     "story": {
       "uz": "Tibbiy uskunada kislorod oqimi 10 dan 100 gacha bo'lishi kerak. Agar 10 dan kam kiritilsa avtomatik 10 ga, 100 dan oshsa 100 ga tenglab saqlaydigan qisuvchi (clamping) setterni yozing.",
-      "en": "Clamp incoming values into allowed boundaries instead of outright rejection."
+      "en": "Clamp incoming values into allowed boundaries instead of outright rejection.",
+      "ru": "Ограничивайте входящие значения допустимыми границами вместо прямого отклонения."
     },
     "steps": {
       "uz": [
@@ -1573,6 +1942,13 @@ window.OOP_CHALLENGES_W2 = [
         "Declare class 'OxygenRegulator' with private int field 'flowRate'.",
         "Write constructor 'public OxygenRegulator(int flowRate)'.",
         "Write accessor 'public int getFlowRate()'.",
+        "Apply clamping in 'setFlowRate': clamp below 0 to 0, clamp above 100 to 100.",
+        "In 'main', supply 150 and verify clamped output of 100."
+      ],
+      "ru": [
+        "Объявите класс «OxygenRegulator» с частным полем int «flowRate».",
+        "Write constructor 'public OxygenRegulator(int flowRate)'.",
+        "Напишите метод доступа «public int getFlowRate()».",
         "Apply clamping in 'setFlowRate': clamp below 0 to 0, clamp above 100 to 100.",
         "In 'main', supply 150 and verify clamped output of 100."
       ]
@@ -1608,7 +1984,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>OxygenRegulator</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>OxygenRegulator</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1618,15 +2000,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "25. Express24 — Faqat Ruxsat Etilgan Harflarni Qabul Qiluvchi Setter",
-      "en": "25. Express24 — Character Whitelist Validation in Setter"
+      "en": "25. Express24 — Character Whitelist Validation in Setter",
+      "ru": "25. Express24 — проверка белого списка символов в сеттере"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryer xizmat toifasi faqat 'S' (Standard), 'F' (Fast) yoki 'P' (Premium) bo'lishi mumkin. Boshqa har qanday belgi kiritilsa qiymat o'zgarmasligi kerak.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CourierCategory' klassini oching: xususiy (private) char toifasidagi 'categoryCode' maydoni bilan.\n\n2. 'public CourierCategory(char categoryCode)' konstruktorini yozing.\n\n3. 'public char getCategoryCode()' getterini yozing.\n\n4. 'public void setCategoryCode(char categoryCode)' metodida faqat ruxsat berilgan harflarni ('S', 'M', 'L') qabul qiling.\n\n5. 'Main' metodida noto'g'ri 'X' kiritilganda o'zgarmay 'S' qolganini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nValidate char parameter against approved whitelist before updating internal state.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierCategory' with private char field 'categoryCode'.\n\n2. Write constructor 'public CourierCategory(char categoryCode)'.\n\n3. Write accessor 'public char getCategoryCode()'.\n\n4. Implement whitelist validation in 'setCategoryCode' allowing only 'S', 'M', or 'L'.\n\n5. In 'main', test with invalid 'X' and verify original 'S' is kept."
+      "en": "📖 Real-World Scenario & Context\nValidate char parameter against approved whitelist before updating internal state.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierCategory' with private char field 'categoryCode'.\n\n2. Write constructor 'public CourierCategory(char categoryCode)'.\n\n3. Write accessor 'public char getCategoryCode()'.\n\n4. Implement whitelist validation in 'setCategoryCode' allowing only 'S', 'M', or 'L'.\n\n5. In 'main', test with invalid 'X' and verify original 'S' is kept.",
+      "ru": "📖 Контекст и описание задачи\nПрежде чем обновлять внутреннее состояние, проверьте параметр char на соответствие утвержденному белому списку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CourierCategory с закрытым полем char «categoryCode».\n2. Напишите конструктор «public CourierCategory (char CategoryCode)».\n3. Напишите метод доступа «public char getCategoryCode()».\n4. Реализуйте проверку белого списка в setCategoryCode, разрешая только «S», «M» или «L».\n5. В «main» проверьте недопустимый «X» и убедитесь, что исходный «S» сохранен."
     },
     "story": {
       "uz": "Kuryer xizmat toifasi faqat 'S' (Standard), 'F' (Fast) yoki 'P' (Premium) bo'lishi mumkin. Boshqa har qanday belgi kiritilsa qiymat o'zgarmasligi kerak.",
-      "en": "Validate char parameter against approved whitelist before updating internal state."
+      "en": "Validate char parameter against approved whitelist before updating internal state.",
+      "ru": "Прежде чем обновлять внутреннее состояние, проверьте параметр char на соответствие утвержденному белому списку."
     },
     "steps": {
       "uz": [
@@ -1642,6 +2027,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public char getCategoryCode()'.",
         "Implement whitelist validation in 'setCategoryCode' allowing only 'S', 'M', or 'L'.",
         "In 'main', test with invalid 'X' and verify original 'S' is kept."
+      ],
+      "ru": [
+        "Объявите класс CourierCategory с закрытым полем char «categoryCode».",
+        "Напишите конструктор «public CourierCategory (char CategoryCode)».",
+        "Напишите метод доступа «public char getCategoryCode()».",
+        "Реализуйте проверку белого списка в setCategoryCode, разрешая только «S», «M» или «L».",
+        "В «main» проверьте недопустимый «X» и убедитесь, что исходный «S» сохранен."
       ]
     },
     "requirements": {
@@ -1675,7 +2067,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CourierCategory</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>CourierCategory</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1685,15 +2083,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "26. Asaxiy — Tasdiqlash Kodiga Bog'liq Xavfsiz Setter",
-      "en": "26. Asaxiy — Authenticated State Mutation Setter"
+      "en": "26. Asaxiy — Authenticated State Mutation Setter",
+      "ru": "26. Асаксий — аутентифицированный установщик мутаций состояния"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijozning telefon raqamini o'zgartirish uchun to'g'ri PIN-kod (masalan, '7777') kiritilishi shart. Aks holda raqam o'zgarmaydi. Himoyalangan mutatsiyani yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SecurePhoneProfile' sinfini oching: xususiy (private) String toifasidagi 'phone' maydoni bilan.\n\n2. 'public SecurePhoneProfile(String phone)' konstruktorini yozing.\n\n3. 'public String getPhone()' getterini yozing.\n\n4. 'public void updatePhone(String newPhone, String pin)' metodida agar PIN '1234' ga teng bo'lsagina yangi telefonni o'rnating.\n\n5. 'Main' metodida noto'g'ri PIN ('0000') bilan o'zgartirishga urinib ko'ring.",
-      "en": "📖 Real-World Scenario & Context\nSetter verifies authorization PIN code before allowing phone number modification.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SecurePhoneProfile' with private String field 'phone'.\n\n2. Write constructor 'public SecurePhoneProfile(String phone)'.\n\n3. Write accessor 'public String getPhone()'.\n\n4. Implement authenticated mutation 'updatePhone(String newPhone, String pin)' checking PIN '1234'.\n\n5. In 'main', attempt updating with invalid PIN '0000' and verify phone remains unchanged."
+      "en": "📖 Real-World Scenario & Context\nSetter verifies authorization PIN code before allowing phone number modification.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SecurePhoneProfile' with private String field 'phone'.\n\n2. Write constructor 'public SecurePhoneProfile(String phone)'.\n\n3. Write accessor 'public String getPhone()'.\n\n4. Implement authenticated mutation 'updatePhone(String newPhone, String pin)' checking PIN '1234'.\n\n5. In 'main', attempt updating with invalid PIN '0000' and verify phone remains unchanged.",
+      "ru": "📖 Контекст и описание задачи\nУстановщик проверяет PIN-код авторизации, прежде чем разрешить изменение номера телефона.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «SecurePhoneProfile» с частным строковым полем «phone».\n2. Write constructor 'public SecurePhoneProfile(String phone)'.\n3. Напишите метод доступа «public String getPhone()».\n4. Implement authenticated mutation 'updatePhone(String newPhone, String pin)' checking PIN '1234'.\n5. В «основном» попытайтесь обновиться с неверным PIN-кодом «0000» и убедитесь, что телефон не изменился."
     },
     "story": {
       "uz": "Mijozning telefon raqamini o'zgartirish uchun to'g'ri PIN-kod (masalan, '7777') kiritilishi shart. Aks holda raqam o'zgarmaydi. Himoyalangan mutatsiyani yozing.",
-      "en": "Setter verifies authorization PIN code before allowing phone number modification."
+      "en": "Setter verifies authorization PIN code before allowing phone number modification.",
+      "ru": "Установщик проверяет PIN-код авторизации, прежде чем разрешить изменение номера телефона."
     },
     "steps": {
       "uz": [
@@ -1709,6 +2110,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public String getPhone()'.",
         "Implement authenticated mutation 'updatePhone(String newPhone, String pin)' checking PIN '1234'.",
         "In 'main', attempt updating with invalid PIN '0000' and verify phone remains unchanged."
+      ],
+      "ru": [
+        "Объявите класс «SecurePhoneProfile» с частным строковым полем «phone».",
+        "Write constructor 'public SecurePhoneProfile(String phone)'.",
+        "Напишите метод доступа «public String getPhone()».",
+        "Implement authenticated mutation 'updatePhone(String newPhone, String pin)' checking PIN '1234'.",
+        "В «основном» попытайтесь обновиться с неверным PIN-кодом «0000» и убедитесь, что телефон не изменился."
       ]
     },
     "requirements": {
@@ -1742,7 +2150,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SecurePhoneProfile</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>SecurePhoneProfile</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1752,15 +2166,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "27. Kapitalbank — Mantiqiy Yil Oralig'ini Tekshiruvchi Setter",
-      "en": "27. Kapitalbank — Realistic Year Invariant Verification Setter"
+      "en": "27. Kapitalbank — Realistic Year Invariant Verification Setter",
+      "ru": "27. Капиталбанк — Установка инвариантной проверки реалистичного года"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijozning tug'ilgan yili 1920 dan 2026 gacha bo'lishi shart. Noto'g'ri yil kiritilganda uni rad etuvchi setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ClientBirthRecord' sinfini xususiy (private) int toifasidagi 'birthYear' maydoni bilan e'lon qiling.\n\n2. 'public ClientBirthRecord(int birthYear)' konstruktorini yozing.\n\n3. 'public int getBirthYear()' getterini yozing.\n\n4. 'public void setBirthYear(int birthYear)' setterida yil 1900 dan kichik yoki 2024 dan katta bo'lsa qabul qilmang.\n\n5. 'Main' metodida 2050 yil berilganda rad etilishini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nEnforce realistic birth year boundary check in setter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClientBirthRecord' with private int field 'birthYear'.\n\n2. Write constructor 'public ClientBirthRecord(int birthYear)'.\n\n3. Write accessor 'public int getBirthYear()'.\n\n4. In 'setBirthYear(int birthYear)', enforce historical boundary: 1900 <= year <= 2024.\n\n5. In 'main', verify future year 2050 is rejected."
+      "en": "📖 Real-World Scenario & Context\nEnforce realistic birth year boundary check in setter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClientBirthRecord' with private int field 'birthYear'.\n\n2. Write constructor 'public ClientBirthRecord(int birthYear)'.\n\n3. Write accessor 'public int getBirthYear()'.\n\n4. In 'setBirthYear(int birthYear)', enforce historical boundary: 1900 <= year <= 2024.\n\n5. In 'main', verify future year 2050 is rejected.",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте реалистичную проверку границ года рождения в установщике.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ClientBirthRecord с закрытым полем intbirthYear.\n2. Напишите конструктор «public ClientBirthRecord(intbirthYear)».\n3. Write accessor 'public int getBirthYear()'.\n4. В 'setBirthYear(intbirthYear)' установите историческую границу: 1900 <= год <= 2024.\n5. В «главном» пункте «Подтвердить будущий 2050 год» отклонено."
     },
     "story": {
       "uz": "Mijozning tug'ilgan yili 1920 dan 2026 gacha bo'lishi shart. Noto'g'ri yil kiritilganda uni rad etuvchi setterni yozing.",
-      "en": "Enforce realistic birth year boundary check in setter."
+      "en": "Enforce realistic birth year boundary check in setter.",
+      "ru": "Обеспечьте реалистичную проверку границ года рождения в установщике."
     },
     "steps": {
       "uz": [
@@ -1776,6 +2193,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public int getBirthYear()'.",
         "In 'setBirthYear(int birthYear)', enforce historical boundary: 1900 <= year <= 2024.",
         "In 'main', verify future year 2050 is rejected."
+      ],
+      "ru": [
+        "Объявите класс ClientBirthRecord с закрытым полем intbirthYear.",
+        "Напишите конструктор «public ClientBirthRecord(intbirthYear)».",
+        "Write accessor 'public int getBirthYear()'.",
+        "В 'setBirthYear(intbirthYear)' установите историческую границу: 1900 <= год <= 2024.",
+        "В «главном» пункте «Подтвердить будущий 2050 год» отклонено."
       ]
     },
     "requirements": {
@@ -1809,7 +2233,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ClientBirthRecord</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>ClientBirthRecord</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1819,15 +2249,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "28. Beeline — Bir Martalik Aktivatsiya Setteri (One-Way Latch)",
-      "en": "28. Beeline — One-Way Activation State Setter"
+      "en": "28. Beeline — One-Way Activation State Setter",
+      "ru": "28. Билайн — односторонняя установка состояния активации"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSIM-karta bir marta aktivlashtirilgach ('activated = true'), uni qayta nofaol ('false') qilib bo'lmaydi. Bir tomonlama aktivatsiya setteri yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SimCardActivation' sinfini xususiy (private) boolean toifasidagi 'activated' maydoni bilan e'lon qiling.\n\n2. 'public SimCardActivation(boolean activated)' konstruktorini yozing.\n\n3. 'public boolean isActivated()' getterini yozing.\n\n4. Bir tomonlama ruxsat (One-way latch) qoidasi: 'public void activate()' metodi orqali faqat faollashtirish mumkin, uni qayta o'chirish metodini bermang.\n\n5. 'Main' metodida faollashtirib, 'isActivated()' true bo'lganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nState transition setter permits one-way latching to active state preventing regression.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimCardActivation' with private boolean field 'activated'.\n\n2. Write constructor 'public SimCardActivation(boolean activated)'.\n\n3. Write accessor 'public boolean isActivated()'.\n\n4. Implement one-way latch 'public void activate()' setting assign parameter to 'activated' field via 'this'.\n\n5. In 'main', activate and print verified status."
+      "en": "📖 Real-World Scenario & Context\nState transition setter permits one-way latching to active state preventing regression.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimCardActivation' with private boolean field 'activated'.\n\n2. Write constructor 'public SimCardActivation(boolean activated)'.\n\n3. Write accessor 'public boolean isActivated()'.\n\n4. Implement one-way latch 'public void activate()' setting assign parameter to 'activated' field via 'this'.\n\n5. In 'main', activate and print verified status.",
+      "ru": "📖 Контекст и описание задачи\nСредство установки перехода между состояниями допускает одностороннюю фиксацию в активном состоянии, предотвращая регрессию.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SimCardActivation с частным логическим полем «активировано».\n2. Напишите конструктор «public SimCardActivation (логическое значение активации)».\n3. Напишите метод доступа «public boolean isActivated()».\n4. Implement one-way latch 'public void activate()' setting assign parameter to 'activated' field via 'this'.\n5. В «главном» активируйте и распечатайте подтвержденный статус."
     },
     "story": {
       "uz": "SIM-karta bir marta aktivlashtirilgach ('activated = true'), uni qayta nofaol ('false') qilib bo'lmaydi. Bir tomonlama aktivatsiya setteri yozing.",
-      "en": "State transition setter permits one-way latching to active state preventing regression."
+      "en": "State transition setter permits one-way latching to active state preventing regression.",
+      "ru": "Средство установки перехода между состояниями допускает одностороннюю фиксацию в активном состоянии, предотвращая регрессию."
     },
     "steps": {
       "uz": [
@@ -1843,6 +2276,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'public boolean isActivated()'.",
         "Implement one-way latch 'public void activate()' setting assign parameter to 'activated' field via 'this'.",
         "In 'main', activate and print verified status."
+      ],
+      "ru": [
+        "Объявите класс SimCardActivation с частным логическим полем «активировано».",
+        "Напишите конструктор «public SimCardActivation (логическое значение активации)».",
+        "Напишите метод доступа «public boolean isActivated()».",
+        "Implement one-way latch 'public void activate()' setting assign parameter to 'activated' field via 'this'.",
+        "В «главном» активируйте и распечатайте подтвержденный статус."
       ]
     },
     "requirements": {
@@ -1876,7 +2316,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SimCardActivation</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Не оставляйте поля открытыми (публичными); все частные атрибуты должны быть «частными».",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>SimCardActivation</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1886,15 +2332,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "29. UzAirways — Zanjirli Setter (Fluent Method Chaining returning 'this')",
-      "en": "29. UzAirways — Fluent Chained Setter Pattern Returning 'this'"
+      "en": "29. UzAirways — Fluent Chained Setter Pattern Returning 'this'",
+      "ru": "29. UzAirways — Шаблон плавного цепного сеттера, возвращающий «this»"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nZamonaviy Java kodida setterlar 'return this;' qaytarish orqali bitta qatorda zanjirdek chaqirilishi mumkin: 'seat.setRow(12).setLetter('A')'. Ushbu uslubni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AirplaneSeat' sinfini xususiy (private) int toifasidagi 'row' va xususiy (private) char toifasidagi 'letter' maydonlari bilan yarating.\n\n2. Parametrsiz 'public AirplaneSeat()' konstruktorini bering.\n\n3. Zanjirli setterlar (Fluent API): 'public AirplaneSeat setRow(int row)' ichida 'this' orqali 'row' maydoniga qiymat bering qaytaring.\n\n4. 'public AirplaneSeat setLetter(char letter)' ichida ham 'this' orqali 'letter' maydoniga qiymat bering qaytaring.\n\n5. 'public String getSeatCode()' metodida qator va harfni birlashtirib qaytaring va 'Main' metodida 's.setRow(12).setLetter('A')' zanjirini sinang.",
-      "en": "📖 Real-World Scenario & Context\nImplement fluent setter pattern returning current instance 'this' to permit method chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AirplaneSeat' with 'row' and 'letter' fields.\n\n2. Write default no-arg constructor.\n\n3. Implement fluent mutators: 'setRow' returning 'this' and 'setLetter' returning 'this'.\n\n4. Implement accessor 'public String getSeatCode()' returning row and letter combined.\n\n5. In 'main', exercise chained calls 's.setRow(12).setLetter('A')' and print seat code."
+      "en": "📖 Real-World Scenario & Context\nImplement fluent setter pattern returning current instance 'this' to permit method chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AirplaneSeat' with 'row' and 'letter' fields.\n\n2. Write default no-arg constructor.\n\n3. Implement fluent mutators: 'setRow' returning 'this' and 'setLetter' returning 'this'.\n\n4. Implement accessor 'public String getSeatCode()' returning row and letter combined.\n\n5. In 'main', exercise chained calls 's.setRow(12).setLetter('A')' and print seat code.",
+      "ru": "📖 Контекст и описание задачи\nВнедрите шаблон свободного установщика, возвращающий текущий экземпляр «this», чтобы разрешить цепочку методов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс AirplaneSeat с полями «строка» и «буква».\n2. Напишите конструктор без аргументов по умолчанию.\n3. Реализуйте свободные мутаторы: setRow, возвращающий this, и setLetter, возвращающий this.\n4. Реализуйте метод доступа public String getSeatCode(), возвращающий строку и букву вместе.\n5. В «main» выполните цепочки вызовов «s.setRow(12).setLetter('A»)» и распечатайте код места."
     },
     "story": {
       "uz": "Zamonaviy Java kodida setterlar 'return this;' qaytarish orqali bitta qatorda zanjirdek chaqirilishi mumkin: 'seat.setRow(12).setLetter('A')'. Ushbu uslubni dasturlang.",
-      "en": "Implement fluent setter pattern returning current instance 'this' to permit method chaining."
+      "en": "Implement fluent setter pattern returning current instance 'this' to permit method chaining.",
+      "ru": "Внедрите шаблон свободного установщика, возвращающий текущий экземпляр «this», чтобы разрешить цепочку методов."
     },
     "steps": {
       "uz": [
@@ -1910,6 +2359,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement fluent mutators: 'setRow' returning 'this' and 'setLetter' returning 'this'.",
         "Implement accessor 'public String getSeatCode()' returning row and letter combined.",
         "In 'main', exercise chained calls 's.setRow(12).setLetter('A')' and print seat code."
+      ],
+      "ru": [
+        "Объявите класс AirplaneSeat с полями «строка» и «буква».",
+        "Напишите конструктор без аргументов по умолчанию.",
+        "Реализуйте свободные мутаторы: setRow, возвращающий this, и setLetter, возвращающий this.",
+        "Реализуйте метод доступа public String getSeatCode(), возвращающий строку и букву вместе.",
+        "В «main» выполните цепочки вызовов «s.setRow(12).setLetter('A»)» и распечатайте код места."
       ]
     },
     "requirements": {
@@ -1945,7 +2401,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>AirplaneSeat</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Maydonlarni ochiq (публичный) qoldirmang; barcha xususiy atributlar 'частный' bo'lishi шарт.",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>AirplaneSeat</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -1955,15 +2417,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "16-30: Setters & Mutation Rules",
     "title": {
       "uz": "30. WIUT SRS — To'liq Himoyalangan Mahsulot Setteri (Master)",
-      "en": "30. WIUT SRS — Comprehensive Multi-Field Validated Setter Master"
+      "en": "30. WIUT SRS — Comprehensive Multi-Field Validated Setter Master",
+      "ru": "30. WIUT SRS — комплексный многополевый проверенный мастер-установщик"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar nomi bo'sh bo'lmasligi, narxi manfiy bo'lmasligi va miqdori 0 dan kamaymasligini qat'iy kafolatlovchi to'liq Seminar 2 andazasidagi setterlar majmuasini bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'MasterProduct' sinfini e'lon qiling: 'name' (String), 'price' (double), 'quantity' (int).\n\n2. 3 parametrli 'public MasterProduct(String name, double price, int quantity)' konstruktorini yozing.\n\n3. Getterlar: 'getName()', 'getPrice()', 'getQuantity()' larni taqdim eting.\n\n4. Seminar 2 'Product.java' to'liq qoidalarini qo'llang: 'setName' da bo'shliqni tekshiring, 'setPrice' da manfiyni rad etib 'Price cannot be negative - price was not changed.', 'setQuantity' da manfiyni rad etib 'Quantity cannot be negative - quantity was not changed.' ogohlantirishlarini chiqaring.\n\n5. 'Main' metodida manfiy narx va miqdor berib, xabarlar va saqlangan qiymatlarni chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nImplement complete Seminar 2 Product validation logic across name, price, and quantity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MasterProduct' with name, price, and quantity fields.\n\n2. Write 3-parameter constructor initializing state.\n\n3. Implement accessors for all three fields.\n\n4. Apply complete Seminar 2 Product validation logic for name, price, and quantity setters with respective warning outputs.\n\n5. In 'main', attempt setting negative values and print results."
+      "en": "📖 Real-World Scenario & Context\nImplement complete Seminar 2 Product validation logic across name, price, and quantity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MasterProduct' with name, price, and quantity fields.\n\n2. Write 3-parameter constructor initializing state.\n\n3. Implement accessors for all three fields.\n\n4. Apply complete Seminar 2 Product validation logic for name, price, and quantity setters with respective warning outputs.\n\n5. In 'main', attempt setting negative values and print results.",
+      "ru": "📖 Контекст и описание задачи\nВнедрите полную логику проверки продукта по названию, цене и количеству в рамках семинара 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс MasterProduct с полями имени, цены и количества.\n2. Напишите состояние инициализации трехпараметрического конструктора.\n3. Реализуйте средства доступа для всех трех полей.\n4. Примените полную логику проверки продукта Семинара 2 для установщиков имени, цены и количества с соответствующими выходными предупреждениями.\n5. В «main» попробуйте установить отрицательные значения и распечатать результаты."
     },
     "story": {
       "uz": "Tovar nomi bo'sh bo'lmasligi, narxi manfiy bo'lmasligi va miqdori 0 dan kamaymasligini qat'iy kafolatlovchi to'liq Seminar 2 andazasidagi setterlar majmuasini bajaring.",
-      "en": "Implement complete Seminar 2 Product validation logic across name, price, and quantity."
+      "en": "Implement complete Seminar 2 Product validation logic across name, price, and quantity.",
+      "ru": "Внедрите полную логику проверки продукта по названию, цене и количеству в рамках семинара 2."
     },
     "steps": {
       "uz": [
@@ -1979,6 +2444,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement accessors for all three fields.",
         "Apply complete Seminar 2 Product validation logic for name, price, and quantity setters with respective warning outputs.",
         "In 'main', attempt setting negative values and print results."
+      ],
+      "ru": [
+        "Объявите класс MasterProduct с полями имени, цены и количества.",
+        "Напишите состояние инициализации трехпараметрического конструктора.",
+        "Реализуйте средства доступа для всех трех полей.",
+        "Примените полную логику проверки продукта Семинара 2 для установщиков имени, цены и количества с соответствующими выходными предупреждениями.",
+        "В «main» попробуйте установить отрицательные значения и распечатать результаты."
       ]
     },
     "requirements": {
@@ -2018,7 +2490,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>MasterProduct</code>: Toza inkapsulyatsiya va ma'lumotlar xavfsizligi kafolatlangan."
       ],
       "pitfalls": "Maydonlarni ochiq (public) qoldirmang; barcha xususiy atributlar 'private' bo'lishi shart.",
-      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim."
+      "cw2Tip": "CW2 Order Applicationda barcha domen sinflari (Product, Customer, Order) qat'iy inkapsulyatsiyalangan bo'lishi lozim.",
+      "theoryRu": "Инкапсуляция защищает внутреннее состояние объекта, делая поля частными и ограничивая мутации с помощью контролируемых общедоступных средств доступа.",
+      "pitfallsRu": "Maydonlarni ochiq (публичный) qoldirmang; barcha xususiy atributlar 'частный' bo'lishi шарт.",
+      "breakdownRu": [
+        "<code>private</code>: Поле защищено от прямых внешних изменений.",
+        "<code>MasterProduct</code>: чистая инкапсуляция и безопасность данных гарантированы."
+      ]
     }
   },
   {
@@ -2028,15 +2506,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "31. Uzum Market — Ichki Komissiyani Hisoblovchi private Yordamchi Metod",
-      "en": "31. Uzum Market — Private Helper Method for Internal Commission"
+      "en": "31. Uzum Market — Private Helper Method for Internal Commission",
+      "ru": "31. Рынок Узум — метод частного помощника для внутренней комиссии"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida ta'kidlanganidek: faqat sinf ichida kerak bo'ladigan hisoblashlar 'private' metodlarga ajratiladi. Sotuvchiga to'lanadigan summadan 3% platforma komissiyasini hisoblovchi 'private double calculateFee(double amt)' yordamchisini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SellerPayout' sinfini e'lon qiling.\n\n2. Ichki 3% platforma komissiyasini hisoblovchi 'private double calculateFee(double amt)' yordamchi metodini yozing.\n\n3. Tashqi kod uchun 'public double calculateNetPayout(double amt)' metodini yozing va uning ichida 'amt - calculateFee(amt)' ni qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Konsolga 'Sotuvchiga to'lanadi: ' + sp.calculateNetPayout(1000000.0) + ' UZS' deb chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nEncapsulate proprietary 3% fee formula in a private helper invoked by public payout method.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SellerPayout'.\n\n2. Implement internal private helper 'private double calculateFee(double amt)' calculating 3% commission.\n\n3. Write public client-facing method 'public double calculateNetPayout(double amt)' calling 'calculateFee'.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print net payout amount."
+      "en": "📖 Real-World Scenario & Context\nEncapsulate proprietary 3% fee formula in a private helper invoked by public payout method.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SellerPayout'.\n\n2. Implement internal private helper 'private double calculateFee(double amt)' calculating 3% commission.\n\n3. Write public client-facing method 'public double calculateNetPayout(double amt)' calling 'calculateFee'.\n\n4. Instantiate object with starting values in 'main'.\n\n5. Print net payout amount.",
+      "ru": "📖 Контекст и описание задачи\nИнкапсулируйте собственную формулу комиссии в размере 3 % в частном помощнике, вызываемом общедоступным методом выплат.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «SellerPayout».\n2. Внедрите внутреннего частного помощника «private double CalcFee(double amt)», рассчитывающего комиссию 3%.\n3. Напишите общедоступный метод, ориентированный на клиента, «public double CalculateNetPayout(double amt)», вызывающий «calculateFee».\n4. Создайте экземпляр объекта с начальными значениями в «main».\n5. Print net payout amount."
     },
     "story": {
       "uz": "WIUT leksiyasida ta'kidlanganidek: faqat sinf ichida kerak bo'ladigan hisoblashlar 'private' metodlarga ajratiladi. Sotuvchiga to'lanadigan summadan 3% platforma komissiyasini hisoblovchi 'private double calculateFee(double amt)' yordamchisini yozing.",
-      "en": "Encapsulate proprietary 3% fee formula in a private helper invoked by public payout method."
+      "en": "Encapsulate proprietary 3% fee formula in a private helper invoked by public payout method.",
+      "ru": "Инкапсулируйте собственную формулу комиссии в размере 3 % в частном помощнике, вызываемом общедоступным методом выплат."
     },
     "steps": {
       "uz": [
@@ -2051,6 +2532,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement internal private helper 'private double calculateFee(double amt)' calculating 3% commission.",
         "Write public client-facing method 'public double calculateNetPayout(double amt)' calling 'calculateFee'.",
         "Instantiate object with starting values in 'main'.",
+        "Print net payout amount."
+      ],
+      "ru": [
+        "Объявите класс «SellerPayout».",
+        "Внедрите внутреннего частного помощника «private double CalcFee(double amt)», рассчитывающего комиссию 3%.",
+        "Напишите общедоступный метод, ориентированный на клиента, «public double CalculateNetPayout(double amt)», вызывающий «calculateFee».",
+        "Создайте экземпляр объекта с начальными значениями в «main».",
         "Print net payout amount."
       ]
     },
@@ -2082,7 +2570,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SellerPayout</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>SellerPayout</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2092,15 +2586,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "32. Payme — Modifikatorsiz (Package-Private) Ichki Xizmat Metodi",
-      "en": "32. Payme — Package-Private Default Visibility Internal Method"
+      "en": "32. Payme — Package-Private Default Visibility Internal Method",
+      "ru": "32. Payme — внутренний метод видимости по умолчанию для частного пакета"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada (Slide 11): Agar modifikator ko'rsatilmassa, metod faqat bitta paket ichidagi sinflarga ko'rinadi (Package-private). Tranzaksiyani paket ichida qayta ishlovchi 'boolean executeInternal(double amt)' metodini modifikatorsiz bering.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'InternalPaymentService' klassini xususiy (private) double toifasidagi 'balance' maydoni bilan e'lon qiling.\n\n2. 'public InternalPaymentService(double balance)' konstruktorini yozing.\n\n3. Modifikatorsiz (Package-private) 'boolean executeInternal(double amt)' xizmat metodini yozing: mablag' yetarli bo'lsa balanstdan ayirib true, aks holda false qaytarsin.\n\n4. 'Main' metodida 500000.0 boshlang'ich balans bilan xizmatni oching.\n\n5. Ichki to'lovni 120000.0 uchun ishlatib, natijani konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate default package-private visibility accessible within the package without public/private keyword.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'InternalPaymentService' with private double field 'balance'.\n\n2. Write constructor 'public InternalPaymentService(double balance)'.\n\n3. Implement package-private (no modifier) method 'boolean executeInternal(double amt)'.\n\n4. In 'main', instantiate service with 500000.0 initial balance.\n\n5. Invoke internal execution and print boolean result."
+      "en": "📖 Real-World Scenario & Context\nDemonstrate default package-private visibility accessible within the package without public/private keyword.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'InternalPaymentService' with private double field 'balance'.\n\n2. Write constructor 'public InternalPaymentService(double balance)'.\n\n3. Implement package-private (no modifier) method 'boolean executeInternal(double amt)'.\n\n4. In 'main', instantiate service with 500000.0 initial balance.\n\n5. Invoke internal execution and print boolean result.",
+      "ru": "📖 Контекст и описание задачи\nДемонстрация видимости частного пакета по умолчанию, доступной внутри пакета без ключевого слова public/private.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс InternalPaymentService с частным двойным полем «баланс».\n2. Напишите конструктор «public InternalPaymentService (двойной баланс)».\n3. Реализуйте частный метод пакета (без модификатора) «логическое выполнениеInternal(double amt)».\n4. В «main» создайте экземпляр службы с начальным балансом 500000,0.\n5. Вызов внутреннего выполнения и вывод логического результата."
     },
     "story": {
       "uz": "Leksiyada (Slide 11): Agar modifikator ko'rsatilmassa, metod faqat bitta paket ichidagi sinflarga ko'rinadi (Package-private). Tranzaksiyani paket ichida qayta ishlovchi 'boolean executeInternal(double amt)' metodini modifikatorsiz bering.",
-      "en": "Demonstrate default package-private visibility accessible within the package without public/private keyword."
+      "en": "Demonstrate default package-private visibility accessible within the package without public/private keyword.",
+      "ru": "Демонстрация видимости частного пакета по умолчанию, доступной внутри пакета без ключевого слова public/private."
     },
     "steps": {
       "uz": [
@@ -2116,6 +2613,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement package-private (no modifier) method 'boolean executeInternal(double amt)'.",
         "In 'main', instantiate service with 500000.0 initial balance.",
         "Invoke internal execution and print boolean result."
+      ],
+      "ru": [
+        "Объявите класс InternalPaymentService с частным двойным полем «баланс».",
+        "Напишите конструктор «public InternalPaymentService (двойной баланс)».",
+        "Реализуйте частный метод пакета (без модификатора) «логическое выполнениеInternal(double amt)».",
+        "В «main» создайте экземпляр службы с начальным балансом 500000,0.",
+        "Вызов внутреннего выполнения и вывод логического результата."
       ]
     },
     "requirements": {
@@ -2148,7 +2652,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>InternalPaymentService</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>InternalPaymentService</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2158,15 +2668,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "33. Korzinka — Bir Nechta private Bosqichlarni Birlashtiruvchi public Metod",
-      "en": "33. Korzinka — Public Method Orchestrating Multiple Private Helpers"
+      "en": "33. Korzinka — Public Method Orchestrating Multiple Private Helpers",
+      "ru": "33. Корзинка — публичный метод, управляющий несколькими частными помощниками"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKassa cheki hisoblanayotganda 2 ta private yordamchi ishlaydi: 'applyDiscount' (chegirma) va 'addTax' (soliq). Public 'checkout()' metodi ularni navbati bilan chaqirib yakuniy summani topadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CheckoutPipeline' klassini e'lon qiling.\n\n2. Soliqni hisoblovchi 'private double calculateTax(double amt)' yordamchisini yozing.\n\n3. Chegirmani hisoblovchi 'private double calculateDiscount(double amt)' yordamchisini yozing.\n\n4. Ommaviy 'public double checkout(double amt)' metodida 'amt + calculateTax(amt) - calculateDiscount(amt)' ni qaytaring.\n\n5. 'Main' metodida 100000.0 uchun chekni hisoblab konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nPublic checkout method orchestrates two separate private helpers: discount and tax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CheckoutPipeline'.\n\n2. Implement private helper 'calculateTax(double amt)' returning 12% tax.\n\n3. Implement private helper 'calculateDiscount(double amt)' returning discount.\n\n4. Implement public orchestrator 'checkout(double amt)' combining helpers.\n\n5. In 'main', invoke checkout for 100000.0 and print final invoice."
+      "en": "📖 Real-World Scenario & Context\nPublic checkout method orchestrates two separate private helpers: discount and tax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CheckoutPipeline'.\n\n2. Implement private helper 'calculateTax(double amt)' returning 12% tax.\n\n3. Implement private helper 'calculateDiscount(double amt)' returning discount.\n\n4. Implement public orchestrator 'checkout(double amt)' combining helpers.\n\n5. In 'main', invoke checkout for 100000.0 and print final invoice.",
+      "ru": "📖 Контекст и описание задачи\nМетод публичной кассы управляет двумя отдельными частными помощниками: скидкой и налогом.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CheckoutPipeline.\n2. Реализуйте частного помощника «calculateTax(double amt)», возвращающего налог в размере 12%.\n3. Реализуйте частный помощник «calculateDiscount(double amt)», возвращающий скидку.\n4. Implement public orchestrator 'checkout(double amt)' combining helpers.\n5. В «main» вызовите оформление заказа на 100000.0 и распечатайте окончательный счет."
     },
     "story": {
       "uz": "Kassa cheki hisoblanayotganda 2 ta private yordamchi ishlaydi: 'applyDiscount' (chegirma) va 'addTax' (soliq). Public 'checkout()' metodi ularni navbati bilan chaqirib yakuniy summani topadi.",
-      "en": "Public checkout method orchestrates two separate private helpers: discount and tax."
+      "en": "Public checkout method orchestrates two separate private helpers: discount and tax.",
+      "ru": "Метод публичной кассы управляет двумя отдельными частными помощниками: скидкой и налогом."
     },
     "steps": {
       "uz": [
@@ -2182,6 +2695,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private helper 'calculateDiscount(double amt)' returning discount.",
         "Implement public orchestrator 'checkout(double amt)' combining helpers.",
         "In 'main', invoke checkout for 100000.0 and print final invoice."
+      ],
+      "ru": [
+        "Объявите класс CheckoutPipeline.",
+        "Реализуйте частного помощника «calculateTax(double amt)», возвращающего налог в размере 12%.",
+        "Реализуйте частный помощник «calculateDiscount(double amt)», возвращающий скидку.",
+        "Implement public orchestrator 'checkout(double amt)' combining helpers.",
+        "В «main» вызовите оформление заказа на 100000.0 и распечатайте окончательный счет."
       ]
     },
     "requirements": {
@@ -2212,7 +2732,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CheckoutPipeline</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>CheckoutPipeline</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2222,15 +2748,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "34. Yandex Go — Himoyalangan (protected) Bazaviy Tarif Yordamchisi",
-      "en": "34. Yandex Go — Protected Base Fare Calculator for Subclasses and Package"
+      "en": "34. Yandex Go — Protected Base Fare Calculator for Subclasses and Package",
+      "ru": "34. Yandex Go — Калькулятор защищенного базового тарифа для подклассов и пакетов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada (Slide 10): 'protected' a'zolar o'sha paketdagi sinflar va bo'lajak vorislarga ko'rinadi. Masofaga qarab bazaviy yo'l haqini topuvchi 'protected double calculateBaseFare(double km)' metodini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TaxiFareEngine' sinfini xususiy (private) double toifasidagi 'baseFare' va xususiy (private) double toifasidagi 'perKm' maydonlari bilan oching.\n\n2. 'public TaxiFareEngine(double baseFare, double perKm)' konstruktorini yozing.\n\n3. Paket va oila a'zolari uchun ochiq bo'lgan 'protected double calculateDistanceFare(double km)' metodini yozing.\n\n4. Tashqi mijoz uchun 'public double estimateFare(double km)' metodida bazaviy tarif va masofa to'lovini jamlab ni hisoblang.\n\n5. 'Main' metodida 4000 bazaviy va 2000 perKm bilan 5.0 km masofani baholab chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nDeclare protected helper method calculating base fare usable across package and subclasses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiFareEngine' with baseFare and perKm fields.\n\n2. Write constructor 'public TaxiFareEngine(double baseFare, double perKm)'.\n\n3. Implement protected helper 'calculateDistanceFare(double km)' returning distance component.\n\n4. Implement public 'estimateFare(double km)' combining baseFare and protected calculation.\n\n5. In 'main', instantiate engine and print estimated fare."
+      "en": "📖 Real-World Scenario & Context\nDeclare protected helper method calculating base fare usable across package and subclasses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiFareEngine' with baseFare and perKm fields.\n\n2. Write constructor 'public TaxiFareEngine(double baseFare, double perKm)'.\n\n3. Implement protected helper 'calculateDistanceFare(double km)' returning distance component.\n\n4. Implement public 'estimateFare(double km)' combining baseFare and protected calculation.\n\n5. In 'main', instantiate engine and print estimated fare.",
+      "ru": "📖 Контекст и описание задачи\nОбъявите защищенный вспомогательный метод расчета базового тарифа, который можно использовать в пакете и подклассах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TaxiFareEngine с полями baseFare и perKm.\n2. Напишите конструктор «public TaxiFareEngine (double baseFare, double perKm)».\n3. Реализуйте защищенный помощник «calculateDistanceFare(double km)», возвращающий компонент расстояния.\n4. Реализуйте публичный «estimateFare(double km)», сочетающий baseFare и защищенный расчет.\n5. В «main» создайте экземпляр двигателя и распечатайте расчетную стоимость проезда."
     },
     "story": {
       "uz": "Leksiyada (Slide 10): 'protected' a'zolar o'sha paketdagi sinflar va bo'lajak vorislarga ko'rinadi. Masofaga qarab bazaviy yo'l haqini topuvchi 'protected double calculateBaseFare(double km)' metodini yozing.",
-      "en": "Declare protected helper method calculating base fare usable across package and subclasses."
+      "en": "Declare protected helper method calculating base fare usable across package and subclasses.",
+      "ru": "Объявите защищенный вспомогательный метод расчета базового тарифа, который можно использовать в пакете и подклассах."
     },
     "steps": {
       "uz": [
@@ -2246,6 +2775,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement protected helper 'calculateDistanceFare(double km)' returning distance component.",
         "Implement public 'estimateFare(double km)' combining baseFare and protected calculation.",
         "In 'main', instantiate engine and print estimated fare."
+      ],
+      "ru": [
+        "Объявите класс TaxiFareEngine с полями baseFare и perKm.",
+        "Напишите конструктор «public TaxiFareEngine (double baseFare, double perKm)».",
+        "Реализуйте защищенный помощник «calculateDistanceFare(double km)», возвращающий компонент расстояния.",
+        "Реализуйте публичный «estimateFare(double km)», сочетающий baseFare и защищенный расчет.",
+        "В «main» создайте экземпляр двигателя и распечатайте расчетную стоимость проезда."
       ]
     },
     "requirements": {
@@ -2280,7 +2816,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>TaxiFareEngine</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>TaxiFareEngine</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2290,15 +2832,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "35. Click — Markazlashtirilgan private Validatsiya Metodi",
-      "en": "35. Click — Centralized Private Validation Helper Reused across API"
+      "en": "35. Click — Centralized Private Validation Helper Reused across API",
+      "ru": "35. Click — централизованный помощник по частной проверке, повторно используемый в API."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDRY tamoyili bo'yicha summa to'g'riligini tekshirish bitta 'private boolean isValidAmount(double amt)' metodiga olingan. Ushbu tekshiruvchidan to'lov va pul yechish metodlarida foydalaning.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AccountValidatorEngine' sinfini xususiy (private) double toifasidagi 'balance' maydoni bilan e'lon qiling.\n\n2. 'public AccountValidatorEngine(double balance)' konstruktorini yozing.\n\n3. Markazlashtirilgan xususiy 'private boolean isValidAmount(double amt)' tekshiruvchisida tegishli hisoblangan qiymatni qaytaring qiling.\n\n4. 'public boolean deposit(double amt)' metodida ushbu yordamchi orqali tekshirib, to'g'ri bo'lsa balansni oshirib true qaytaring.\n\n5. 'Main' metodida 25000.0 deposit qilib, holat va balansni chop eting.",
-      "en": "📖 Real-World Scenario & Context\nExtract repeated if-checks into a reusable private boolean isValidAmount helper.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AccountValidatorEngine' with private double field 'balance'.\n\n2. Write constructor 'public AccountValidatorEngine(double balance)'.\n\n3. Implement centralized validator 'private boolean isValidAmount(double amt)'.\n\n4. Implement 'deposit(double amt)' reusing validation helper and returning boolean.\n\n5. In 'main', deposit 25000.0 and print result."
+      "en": "📖 Real-World Scenario & Context\nExtract repeated if-checks into a reusable private boolean isValidAmount helper.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AccountValidatorEngine' with private double field 'balance'.\n\n2. Write constructor 'public AccountValidatorEngine(double balance)'.\n\n3. Implement centralized validator 'private boolean isValidAmount(double amt)'.\n\n4. Implement 'deposit(double amt)' reusing validation helper and returning boolean.\n\n5. In 'main', deposit 25000.0 and print result.",
+      "ru": "📖 Контекст и описание задачи\nИзвлеките повторяющиеся проверки if в многоразовый частный логический помощник isValidAmount.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс AccountValidatorEngine с частным двойным полем «баланс».\n2. Write constructor 'public AccountValidatorEngine(double balance)'.\n3. Implement centralized validator 'private boolean isValidAmount(double amt)'.\n4. Реализуйте «депозит(двойной объем)» повторно используя помощник проверки и возвращая логическое значение.\n5. В «main» внесите 25000,0 и распечатайте результат."
     },
     "story": {
       "uz": "DRY tamoyili bo'yicha summa to'g'riligini tekshirish bitta 'private boolean isValidAmount(double amt)' metodiga olingan. Ushbu tekshiruvchidan to'lov va pul yechish metodlarida foydalaning.",
-      "en": "Extract repeated if-checks into a reusable private boolean isValidAmount helper."
+      "en": "Extract repeated if-checks into a reusable private boolean isValidAmount helper.",
+      "ru": "Извлеките повторяющиеся проверки if в многоразовый частный логический помощник isValidAmount."
     },
     "steps": {
       "uz": [
@@ -2314,6 +2859,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement centralized validator 'private boolean isValidAmount(double amt)'.",
         "Implement 'deposit(double amt)' reusing validation helper and returning boolean.",
         "In 'main', deposit 25000.0 and print result."
+      ],
+      "ru": [
+        "Объявите класс AccountValidatorEngine с частным двойным полем «баланс».",
+        "Write constructor 'public AccountValidatorEngine(double balance)'.",
+        "Implement centralized validator 'private boolean isValidAmount(double amt)'.",
+        "Реализуйте «депозит(двойной объем)» повторно используя помощник проверки и возвращая логическое значение.",
+        "В «main» внесите 25000,0 и распечатайте результат."
       ]
     },
     "requirements": {
@@ -2348,7 +2900,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>AccountValidatorEngine</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>AccountValidatorEngine</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2358,15 +2916,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "36. Safia — Takroriy Harakatni Taqiqlash Uchun private Bayroqcha",
-      "en": "36. Safia — Private Operation Flag Preventing Duplicate Processing"
+      "en": "36. Safia — Private Operation Flag Preventing Duplicate Processing",
+      "ru": "36. Safia — Флаг частной операции, предотвращающий дублирование обработки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma uchun chegirma faqat 1 marta qo'llanilishi mumkin. 'private boolean discountApplied' bayrog'i yordamida ikkinchi marta chegirma berilishini rad etuvchi mexanizmni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BakeryDiscountTracker' sinfini xususiy (private) double toifasidagi 'amount' va xususiy (private) boolean toifasidagi 'promoUsed' maydonlari bilan oching.\n\n2. 'public BakeryDiscountTracker(double amount)' konstruktorida 'this' orqali 'amount' maydoniga qiymat bering qiling.\n\n3. 'public void applyPromoOnce(double discount)' metodida agar 'promoUsed' false bo'lsa chegirmani qo'llang va 'this' orqali 'promoUsed' maydoniga qiymat bering qilib bayroqchani yoping.\n\n4. 'public double getAmount()' getterini yozing.\n\n5. 'Main' metodida chegirmani ketma-ket 2 marta qo'llashga urinib, faqat bir marta ishlaganini ko'rsating.",
-      "en": "📖 Real-World Scenario & Context\nEnforce single-use discount invariant using encapsulated private boolean flag.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BakeryDiscountTracker' with amount and promoUsed fields.\n\n2. Write constructor initializing promoUsed flag to false.\n\n3. Implement 'applyPromoOnce(double discount)' guarded by single-use private boolean latch.\n\n4. Write getter 'public double getAmount()'.\n\n5. In 'main', apply promo twice and verify single-use constraint."
+      "en": "📖 Real-World Scenario & Context\nEnforce single-use discount invariant using encapsulated private boolean flag.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BakeryDiscountTracker' with amount and promoUsed fields.\n\n2. Write constructor initializing promoUsed flag to false.\n\n3. Implement 'applyPromoOnce(double discount)' guarded by single-use private boolean latch.\n\n4. Write getter 'public double getAmount()'.\n\n5. In 'main', apply promo twice and verify single-use constraint.",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте соблюдение инварианта одноразовой скидки с использованием инкапсулированного частного логического флага.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BakeryDiscountTracker с полями суммы и promoUsed.\n2. Запишите конструктор, инициализирующий флаг promoUsed значением false.\n3. Реализуйте 'applyPromoOnce(двойная скидка)', защищенную одноразовой частной логической защелкой.\n4. Write getter 'public double getAmount()'.\n5. В «основном» дважды примените промо-код и проверьте ограничение одноразового использования."
     },
     "story": {
       "uz": "Buyurtma uchun chegirma faqat 1 marta qo'llanilishi mumkin. 'private boolean discountApplied' bayrog'i yordamida ikkinchi marta chegirma berilishini rad etuvchi mexanizmni yozing.",
-      "en": "Enforce single-use discount invariant using encapsulated private boolean flag."
+      "en": "Enforce single-use discount invariant using encapsulated private boolean flag.",
+      "ru": "Обеспечьте соблюдение инварианта одноразовой скидки с использованием инкапсулированного частного логического флага."
     },
     "steps": {
       "uz": [
@@ -2382,6 +2943,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'applyPromoOnce(double discount)' guarded by single-use private boolean latch.",
         "Write getter 'public double getAmount()'.",
         "In 'main', apply promo twice and verify single-use constraint."
+      ],
+      "ru": [
+        "Объявите класс BakeryDiscountTracker с полями суммы и promoUsed.",
+        "Запишите конструктор, инициализирующий флаг promoUsed значением false.",
+        "Реализуйте 'applyPromoOnce(двойная скидка)', защищенную одноразовой частной логической защелкой.",
+        "Write getter 'public double getAmount()'.",
+        "В «основном» дважды примените промо-код и проверьте ограничение одноразового использования."
       ]
     },
     "requirements": {
@@ -2417,7 +2985,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BakeryDiscountTracker</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>BakeryDiscountTracker</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2427,15 +3001,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "37. Dodo Pizza — Oshxona Ichki Jarayonlarini Tashqi API dan Ajratish",
-      "en": "37. Dodo Pizza — Decoupled Public API Hiding Multi-Stage Kitchen Logic"
+      "en": "37. Dodo Pizza — Decoupled Public API Hiding Multi-Stage Kitchen Logic",
+      "ru": "37. Dodo Pizza — разделенный публичный API, скрывающий многоэтапную кухонную логику"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz faqat 'orderPizza(\"Pepperoni\")' metodini chaqiradi. Ichkarida esa ketma-ket 3 ta private metod ishlaydi: 'prepareDough()', 'addToppings()' va 'bake()'. Barcha ichki bosqichlarni yashiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'KitchenService' klassini e'lon qiling.\n\n2. Oshxona bosqichlarini yashiruvchi 'private void prepareDough() ' va 'private String bake(String name)' yordamchilarini yozing.\n\n3. Ochiq API: 'public String orderPizza(String name)' metodida ichki bosqichlarni bajarib 'name + \" pishirildi va tayyor!\"' qaytaring.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini oching.\n\n5. Konsolga 'kitchen.orderPizza(\"Pepperoni\")' natijasini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nPublic order method delegates through private pipeline: prepareDough, addToppings, bake.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'KitchenService'.\n\n2. Implement private internal kitchen pipeline helpers 'prepareDough()' and 'bake(String name)'.\n\n3. Implement public API 'orderPizza(String name)' coordinating internal steps.\n\n4. In 'main', instantiate 'KitchenService'.\n\n5. Order 'Pepperoni' and print completed order message."
+      "en": "📖 Real-World Scenario & Context\nPublic order method delegates through private pipeline: prepareDough, addToppings, bake.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'KitchenService'.\n\n2. Implement private internal kitchen pipeline helpers 'prepareDough()' and 'bake(String name)'.\n\n3. Implement public API 'orderPizza(String name)' coordinating internal steps.\n\n4. In 'main', instantiate 'KitchenService'.\n\n5. Order 'Pepperoni' and print completed order message.",
+      "ru": "📖 Контекст и описание задачи\nДелегирование метода общественного порядка через частный конвейер: подготовитьDough, addToppings, испечь.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс KitchenService.\n2. Реализуйте частные внутренние помощники кухонного конвейера «prepareDough()» и «bake(String name)».\n3. Внедрите общедоступный API «orderPizza(String name)», координирующий внутренние шаги.\n4. В «main» создайте экземпляр «KitchenService».\n5. Order 'Pepperoni' and print completed order message."
     },
     "story": {
       "uz": "Mijoz faqat 'orderPizza(\"Pepperoni\")' metodini chaqiradi. Ichkarida esa ketma-ket 3 ta private metod ishlaydi: 'prepareDough()', 'addToppings()' va 'bake()'. Barcha ichki bosqichlarni yashiring.",
-      "en": "Public order method delegates through private pipeline: prepareDough, addToppings, bake."
+      "en": "Public order method delegates through private pipeline: prepareDough, addToppings, bake.",
+      "ru": "Делегирование метода общественного порядка через частный конвейер: подготовитьDough, addToppings, испечь."
     },
     "steps": {
       "uz": [
@@ -2450,6 +3027,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private internal kitchen pipeline helpers 'prepareDough()' and 'bake(String name)'.",
         "Implement public API 'orderPizza(String name)' coordinating internal steps.",
         "In 'main', instantiate 'KitchenService'.",
+        "Order 'Pepperoni' and print completed order message."
+      ],
+      "ru": [
+        "Объявите класс KitchenService.",
+        "Реализуйте частные внутренние помощники кухонного конвейера «prepareDough()» и «bake(String name)».",
+        "Внедрите общедоступный API «orderPizza(String name)», координирующий внутренние шаги.",
+        "В «main» создайте экземпляр «KitchenService».",
         "Order 'Pepperoni' and print completed order message."
       ]
     },
@@ -2481,7 +3065,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>KitchenService</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>KitchenService</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2491,15 +3081,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "38. Texnomart — Paket Ichidagi Sozlamalar Boshqaruvi",
-      "en": "38. Texnomart — Package-Private Internal Configuration Utility"
+      "en": "38. Texnomart — Package-Private Internal Configuration Utility",
+      "ru": "38. Texnomart — утилита внутренней настройки пакета."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKafolat muddati va foizlarni paket ichida sozlovchi 'ApplianceConfig' sinfini modifikatorsiz (package-private) qilib, uning yordamida kafolat xarajatini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'WarrantyEvaluator' klassini xususiy (private) double toifasidagi 'devicePrice' maydoni bilan e'lon qiling.\n\n2. 'public WarrantyEvaluator(double devicePrice)' konstruktorini yozing.\n\n3. Paket ichidagi konfiguratsiya 'double baseRate()' metodini modifikatorsiz bering.\n\n4. Ommaviy 'public double calculateWarrantyCost()' metodida qurilma narxini bazaviy stavkaga ko'paytirib ni hisoblang.\n\n5. 'Main' metodida 2000000.0 qiymatli qurilma uchun kafolat narxini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nModel package-private configuration helper collaborating with public warranty evaluator.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WarrantyEvaluator' with private double field 'devicePrice'.\n\n2. Write constructor 'public WarrantyEvaluator(double devicePrice)'.\n\n3. Provide package-private helper 'double baseRate()' returning 0.05.\n\n4. Implement 'calculateWarrantyCost()' multiplying device price by base rate.\n\n5. In 'main', instantiate evaluator and print warranty cost."
+      "en": "📖 Real-World Scenario & Context\nModel package-private configuration helper collaborating with public warranty evaluator.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WarrantyEvaluator' with private double field 'devicePrice'.\n\n2. Write constructor 'public WarrantyEvaluator(double devicePrice)'.\n\n3. Provide package-private helper 'double baseRate()' returning 0.05.\n\n4. Implement 'calculateWarrantyCost()' multiplying device price by base rate.\n\n5. In 'main', instantiate evaluator and print warranty cost.",
+      "ru": "📖 Контекст и описание задачи\nПомощник по настройке частного пакета модели, сотрудничающий с оценщиком общедоступных гарантий.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс WarrantyEvaluator с закрытым двойным полемdevicePrice.\n2. Напишите конструктор «public WarrantyEvaluator(double devicePrice)».\n3. Предоставьте частный помощник пакета double baseRate(), возвращающий 0,05.\n4. Реализуйте функцию CalculateWarrantyCost(), умножающую цену устройства на базовую ставку.\n5. В «main» создайте экземпляр оценщика и распечатайте стоимость гарантии."
     },
     "story": {
       "uz": "Kafolat muddati va foizlarni paket ichida sozlovchi 'ApplianceConfig' sinfini modifikatorsiz (package-private) qilib, uning yordamida kafolat xarajatini hisoblang.",
-      "en": "Model package-private configuration helper collaborating with public warranty evaluator."
+      "en": "Model package-private configuration helper collaborating with public warranty evaluator.",
+      "ru": "Помощник по настройке частного пакета модели, сотрудничающий с оценщиком общедоступных гарантий."
     },
     "steps": {
       "uz": [
@@ -2515,6 +3108,13 @@ window.OOP_CHALLENGES_W2 = [
         "Provide package-private helper 'double baseRate()' returning 0.05.",
         "Implement 'calculateWarrantyCost()' multiplying device price by base rate.",
         "In 'main', instantiate evaluator and print warranty cost."
+      ],
+      "ru": [
+        "Объявите класс WarrantyEvaluator с закрытым двойным полемdevicePrice.",
+        "Напишите конструктор «public WarrantyEvaluator(double devicePrice)».",
+        "Предоставьте частный помощник пакета double baseRate(), возвращающий 0,05.",
+        "Реализуйте функцию CalculateWarrantyCost(), умножающую цену устройства на базовую ставку.",
+        "В «main» создайте экземпляр оценщика и распечатайте стоимость гарантии."
       ]
     },
     "requirements": {
@@ -2547,7 +3147,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>WarrantyEvaluator</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>WarrantyEvaluator</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2557,15 +3163,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "39. Medion — Maxfiy Kalitni Tekshiruvchi private Metod",
-      "en": "39. Medion — Private Authorization Key Verification Helper"
+      "en": "39. Medion — Private Authorization Key Verification Helper",
+      "ru": "39. Medion — помощник по проверке частного ключа авторизации"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTibbiy laboratoriya tahlilini tasdiqlash uchun xususiy 'private boolean verifyDoctorKey(String key)' metodi ishlaydi. Faqat to'g'ri kalit ('DOC-777') kiritilgandagina tahlil tasdiqlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'LabApproval' klassini oching: xususiy (private) String toifasidagi 'testName' maydoni bilan.\n\n2. 'public LabApproval(String testName)' konstruktorini yozing.\n\n3. Shifokor ID sini tekshiruvchi 'private boolean isValidDoc(String docId)' metodida tegishli hisoblangan qiymatni qaytaring yozing.\n\n4. 'public boolean approveResult(String docId)' ochiq metodida ushbu tekshiruvchi orqali tasdiqlash holatini qaytaring.\n\n5. 'Main' metodida 'DOC-777' bilan tasdiqlab, true natija oling.",
-      "en": "📖 Real-World Scenario & Context\nPrivileged status update is gated behind private key verification helper.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LabApproval' with private String field 'testName'.\n\n2. Write constructor 'public LabApproval(String testName)'.\n\n3. Implement private helper 'isValidDoc(String docId)' checking null and prefix 'DOC-'.\n\n4. Implement client method 'approveResult(String docId)' delegating to private verification.\n\n5. In 'main', approve with 'DOC-777' and print boolean confirmation."
+      "en": "📖 Real-World Scenario & Context\nPrivileged status update is gated behind private key verification helper.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LabApproval' with private String field 'testName'.\n\n2. Write constructor 'public LabApproval(String testName)'.\n\n3. Implement private helper 'isValidDoc(String docId)' checking null and prefix 'DOC-'.\n\n4. Implement client method 'approveResult(String docId)' delegating to private verification.\n\n5. In 'main', approve with 'DOC-777' and print boolean confirmation.",
+      "ru": "📖 Контекст и описание задачи\nОбновление привилегированного статуса скрыто за помощником проверки закрытого ключа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс LabApproval с частным строковым полем testName.\n2. Напишите конструктор «public LabApproval (String testName)».\n3. Реализуйте частный помощник «isValidDoc(String docId)», проверяющий нуль и префикс «DOC-».\n4. Реализуйте клиентский метод ApproveResult(String docId) с делегированием частной проверки.\n5. В «main» подтвердите с помощью «DOC-777» и выведите логическое подтверждение."
     },
     "story": {
       "uz": "Tibbiy laboratoriya tahlilini tasdiqlash uchun xususiy 'private boolean verifyDoctorKey(String key)' metodi ishlaydi. Faqat to'g'ri kalit ('DOC-777') kiritilgandagina tahlil tasdiqlansin.",
-      "en": "Privileged status update is gated behind private key verification helper."
+      "en": "Privileged status update is gated behind private key verification helper.",
+      "ru": "Обновление привилегированного статуса скрыто за помощником проверки закрытого ключа."
     },
     "steps": {
       "uz": [
@@ -2581,6 +3190,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private helper 'isValidDoc(String docId)' checking null and prefix 'DOC-'.",
         "Implement client method 'approveResult(String docId)' delegating to private verification.",
         "In 'main', approve with 'DOC-777' and print boolean confirmation."
+      ],
+      "ru": [
+        "Объявите класс LabApproval с частным строковым полем testName.",
+        "Напишите конструктор «public LabApproval (String testName)».",
+        "Реализуйте частный помощник «isValidDoc(String docId)», проверяющий нуль и префикс «DOC-».",
+        "Реализуйте клиентский метод ApproveResult(String docId) с делегированием частной проверки.",
+        "В «main» подтвердите с помощью «DOC-777» и выведите логическое подтверждение."
       ]
     },
     "requirements": {
@@ -2614,7 +3230,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>LabApproval</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>LabApproval</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2624,15 +3246,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "40. Express24 — Maxfiy Tungi Koeffitsiyentni Yashirish",
-      "en": "40. Express24 — Encapsulated Proprietary Night Coefficient Helper"
+      "en": "40. Express24 — Encapsulated Proprietary Night Coefficient Helper",
+      "ru": "40. Express24 — инкапсулированный запатентованный помощник по коэффициенту ночи"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTungi yetkazish narxini hisoblovchi ichki formula (bazaviy narx * 1.35 + 2000) 'private double computeNightPremium(double base)' metodi ichida yashiringan. Uni ommaga chiqarmasdan yakuniy tarifni bering.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'NightTariffDispatcher' klassini oching.\n\n2. Ichki xususiy tungi ustamani hisoblovchi 'private double getNightSurcharge()' metodini yozing.\n\n3. Ommaviy 'public double getFinalDeliveryPrice(double base)' metodida 'base + getNightSurcharge()' ni qaytaring.\n\n4. 'Main' metodida dispetcherni oching.\n\n5. 20000.0 bazaviy yetkazish uchun yakuniy tungi narxni ekranga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nKeep proprietary night tariff formula private and expose only public final quote.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'NightTariffDispatcher'.\n\n2. Implement proprietary markup formula in 'private double getNightSurcharge()' returning 9000.0.\n\n3. Implement public 'getFinalDeliveryPrice(double base)' adding surcharge to base fare.\n\n4. In 'main', instantiate dispatcher.\n\n5. Print final delivery price for 20000.0 base fare."
+      "en": "📖 Real-World Scenario & Context\nKeep proprietary night tariff formula private and expose only public final quote.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'NightTariffDispatcher'.\n\n2. Implement proprietary markup formula in 'private double getNightSurcharge()' returning 9000.0.\n\n3. Implement public 'getFinalDeliveryPrice(double base)' adding surcharge to base fare.\n\n4. In 'main', instantiate dispatcher.\n\n5. Print final delivery price for 20000.0 base fare.",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте конфиденциальность собственной формулы ночного тарифа и публикуйте только окончательную цену.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс NightTariffDispatcher.\n2. Внедрите собственную формулу разметки в «private double getNightSurcharge()», возвращающую 9000.0.\n3. Реализуйте публичный getFinalDeliveryPrice(double base)», добавив надбавку к базовому тарифу.\n4. В «main» создайте экземпляр диспетчера.\n5. Распечатайте окончательную стоимость доставки по базовому тарифу 20 000,0."
     },
     "story": {
       "uz": "Tungi yetkazish narxini hisoblovchi ichki formula (bazaviy narx * 1.35 + 2000) 'private double computeNightPremium(double base)' metodi ichida yashiringan. Uni ommaga chiqarmasdan yakuniy tarifni bering.",
-      "en": "Keep proprietary night tariff formula private and expose only public final quote."
+      "en": "Keep proprietary night tariff formula private and expose only public final quote.",
+      "ru": "Сохраняйте конфиденциальность собственной формулы ночного тарифа и публикуйте только окончательную цену."
     },
     "steps": {
       "uz": [
@@ -2648,6 +3273,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement public 'getFinalDeliveryPrice(double base)' adding surcharge to base fare.",
         "In 'main', instantiate dispatcher.",
         "Print final delivery price for 20000.0 base fare."
+      ],
+      "ru": [
+        "Объявите класс NightTariffDispatcher.",
+        "Внедрите собственную формулу разметки в «private double getNightSurcharge()», возвращающую 9000.0.",
+        "Реализуйте публичный getFinalDeliveryPrice(double base)», добавив надбавку к базовому тарифу.",
+        "В «main» создайте экземпляр диспетчера.",
+        "Распечатайте окончательную стоимость доставки по базовому тарифу 20 000,0."
       ]
     },
     "requirements": {
@@ -2678,7 +3310,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>NightTariffDispatcher</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Конструктор яратилганды Java сукутдаги (по умолчанию) параметры конструктора автоматических функций; агар бо'ш конструктор керак бо'лса уни очик э'лон килин.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>NightTariffDispatcher</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2688,15 +3326,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "41. Asaxiy — Tranzaksiyalarni Yozib Boruvchi private Audit Metodi",
-      "en": "41. Asaxiy — Internal Audit Logging via Private Helper Method"
+      "en": "41. Asaxiy — Internal Audit Logging via Private Helper Method",
+      "ru": "41. Asaxy — ведение журнала внутреннего аудита с помощью метода частного помощника"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitob xarid qilinganda har bir amal 'private void logAction(String action)' yordamchisi orqali ichki qayd qilib boriladi. Yashirin loglash mexanizmini dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BookSalesAudit' klassini xususiy (private) int toifasidagi 'logCount' maydoni bilan yarating.\n\n2. Parametrsiz konstruktorda 'this' orqali 'logCount' maydoniga qiymat bering qiling.\n\n3. Ichki audit ro'yxatiga qayd qiluvchi 'private void recordLog(String event)' yordamchisida audit hisoblagichini bittaga oshirib qiling.\n\n4. 'public void purchaseBook(String bookTitle)' metodida ichki 'recordLog(bookTitle)' ni chaqiring.\n\n5. 'Main' metodida bitta kitob sotib olib, audit qaydlari 1 ga teng bo'lganini tasdiqlang.",
-      "en": "📖 Real-World Scenario & Context\nPublic purchase action triggers private logging helper to maintain internal audit history.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookSalesAudit' with private int field 'logCount'.\n\n2. Write default constructor setting logCount to 0.\n\n3. Implement internal audit recorder 'private void recordLog(String event)' incrementing counter.\n\n4. Implement public 'purchaseBook(String bookTitle)' invoking internal logging.\n\n5. In 'main', purchase a book and print verified audit count."
+      "en": "📖 Real-World Scenario & Context\nPublic purchase action triggers private logging helper to maintain internal audit history.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookSalesAudit' with private int field 'logCount'.\n\n2. Write default constructor setting logCount to 0.\n\n3. Implement internal audit recorder 'private void recordLog(String event)' incrementing counter.\n\n4. Implement public 'purchaseBook(String bookTitle)' invoking internal logging.\n\n5. In 'main', purchase a book and print verified audit count.",
+      "ru": "📖 Контекст и описание задачи\nДействие общедоступной покупки запускает частный помощник по ведению журналов для ведения истории внутреннего аудита.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BookSalesAudit с закрытым полем int logCount.\n2. Запишите в конструкторе по умолчанию значение logCount, равное 0.\n3. Внедрить счетчик внутреннего аудита «private void RecordLog(String event)».\n4. Реализуйте общедоступную «purchaseBook(String bookTitle)», вызывающую внутреннее ведение журнала.\n5. В «главном» разделе купите книгу и распечатайте проверенный отчет аудита."
     },
     "story": {
       "uz": "Kitob xarid qilinganda har bir amal 'private void logAction(String action)' yordamchisi orqali ichki qayd qilib boriladi. Yashirin loglash mexanizmini dasturlang.",
-      "en": "Public purchase action triggers private logging helper to maintain internal audit history."
+      "en": "Public purchase action triggers private logging helper to maintain internal audit history.",
+      "ru": "Действие общедоступной покупки запускает частный помощник по ведению журналов для ведения истории внутреннего аудита."
     },
     "steps": {
       "uz": [
@@ -2712,6 +3353,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement internal audit recorder 'private void recordLog(String event)' incrementing counter.",
         "Implement public 'purchaseBook(String bookTitle)' invoking internal logging.",
         "In 'main', purchase a book and print verified audit count."
+      ],
+      "ru": [
+        "Объявите класс BookSalesAudit с закрытым полем int logCount.",
+        "Запишите в конструкторе по умолчанию значение logCount, равное 0.",
+        "Внедрить счетчик внутреннего аудита «private void RecordLog(String event)».",
+        "Реализуйте общедоступную «purchaseBook(String bookTitle)», вызывающую внутреннее ведение журнала.",
+        "В «главном» разделе купите книгу и распечатайте проверенный отчет аудита."
       ]
     },
     "requirements": {
@@ -2746,7 +3394,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BookSalesAudit</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>BookSalesAudit</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2756,15 +3410,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "42. Kapitalbank — Holat O'tishini Tekshiruvchi private Nazoratchi",
-      "en": "42. Kapitalbank — Private State Machine Transition Validator"
+      "en": "42. Kapitalbank — Private State Machine Transition Validator",
+      "ru": "42. Капиталбанк — Валидатор перехода частной государственной машины"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKredit arizasi faqat 'YANGI -> KO'RIB CHIQILMOQDA -> TASDIQLANDI' tartibida o'zgarishi mumkin. Noto'g'ri o'tishlarni rad etuvchi 'private boolean canTransition(String next)' yordamchisini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'LoanApplication' sinfini xususiy (private) String toifasidagi 'status' maydoni bilan e'lon qiling.\n\n2. Konstruktorda 'this' orqali 'status' maydoniga qiymat bering boshlang'ich holatini bering.\n\n3. Holat o'tishini ruxsat beruvchi 'private boolean canTransition(String next)' tekshiruvchisini yozing.\n\n4. 'public void transitionTo(String next)' metodida agar ruxsat bo'lsa 'this' orqali 'status' maydoniga qiymat bering qiling.\n\n5. 'Main' metodida arizani ketma-ket REVIEWING va APPROVED holatiga o'tkazib chop eting.",
-      "en": "📖 Real-World Scenario & Context\nValidate lifecycle state transitions via private helper to prevent illegal status skips.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LoanApplication' with private String field 'status'.\n\n2. Write constructor setting starting status to 'DRAFT'.\n\n3. Implement private state transition validator 'canTransition(String next)'.\n\n4. Implement public 'transitionTo(String next)' guarded by the private validator.\n\n5. In 'main', transition state to REVIEWING then APPROVED and print status."
+      "en": "📖 Real-World Scenario & Context\nValidate lifecycle state transitions via private helper to prevent illegal status skips.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LoanApplication' with private String field 'status'.\n\n2. Write constructor setting starting status to 'DRAFT'.\n\n3. Implement private state transition validator 'canTransition(String next)'.\n\n4. Implement public 'transitionTo(String next)' guarded by the private validator.\n\n5. In 'main', transition state to REVIEWING then APPROVED and print status.",
+      "ru": "📖 Контекст и описание задачи\nПодтверждайте переходы состояний жизненного цикла с помощью частного помощника, чтобы предотвратить незаконные пропуски состояний.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс LoanApplication с частным строковым полем status.\n2. Напишите конструктор, устанавливающий начальный статус «ЧЕРНОВИК».\n3. Реализуйте частный валидатор перехода состояний «canTransition(String next)».\n4. Реализуйте общедоступный «transitionTo(String next)», защищенный частным валидатором.\n5. В «основном» состоянии переход к ПРОСМОТРУ, затем УТВЕРЖДЕНО и статус печати."
     },
     "story": {
       "uz": "Kredit arizasi faqat 'YANGI -> KO'RIB CHIQILMOQDA -> TASDIQLANDI' tartibida o'zgarishi mumkin. Noto'g'ri o'tishlarni rad etuvchi 'private boolean canTransition(String next)' yordamchisini yozing.",
-      "en": "Validate lifecycle state transitions via private helper to prevent illegal status skips."
+      "en": "Validate lifecycle state transitions via private helper to prevent illegal status skips.",
+      "ru": "Подтверждайте переходы состояний жизненного цикла с помощью частного помощника, чтобы предотвратить незаконные пропуски состояний."
     },
     "steps": {
       "uz": [
@@ -2780,6 +3437,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private state transition validator 'canTransition(String next)'.",
         "Implement public 'transitionTo(String next)' guarded by the private validator.",
         "In 'main', transition state to REVIEWING then APPROVED and print status."
+      ],
+      "ru": [
+        "Объявите класс LoanApplication с частным строковым полем status.",
+        "Напишите конструктор, устанавливающий начальный статус «ЧЕРНОВИК».",
+        "Реализуйте частный валидатор перехода состояний «canTransition(String next)».",
+        "Реализуйте общедоступный «transitionTo(String next)», защищенный частным валидатором.",
+        "В «основном» состоянии переход к ПРОСМОТРУ, затем УТВЕРЖДЕНО и статус печати."
       ]
     },
     "requirements": {
@@ -2814,7 +3478,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>LoanApplication</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>LoanApplication</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2824,15 +3494,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "43. Beeline — Telefon Raqamini Tozalovchi private Sanitizator",
-      "en": "43. Beeline — Private Sanitizer Stripping Non-Digits from Phone String"
+      "en": "43. Beeline — Private Sanitizer Stripping Non-Digits from Phone String",
+      "ru": "43. «Билайн» — частное дезинфицирующее средство, удаляющее нецифры из телефонной строки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nFoydalanuvchi kiritgan telefon raqamidan qavslar, chiziqchalar va bo'shliqlarni tozalab faqat raqamlarni saqlovchi 'private String sanitizePhone(String raw)' metodini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PhoneSanitizerService' klassini xususiy (private) String toifasidagi 'cleanPhone' maydoni bilan e'lon qiling.\n\n2. Raqamdan ortiqcha belgilarni tozalovchi 'private String clean(String raw)' metodida tegishli hisoblangan qiymatni qaytaring yozing.\n\n3. 'public void registerPhone(String raw)' metodida tozalangan qiymatni saqlang.\n\n4. 'public String getCleanPhone()' getterini bering.\n\n5. 'Main' metodida '+998 (90) 123-45-67' ni ro'yxatdan o'tkazib, faqat raqamlardan iborat natijani chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nImplement private sanitization helper stripping formatting symbols to normalize phone numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PhoneSanitizerService' with private String field 'cleanPhone'.\n\n2. Implement private sanitizer 'clean(String raw)' stripping non-digits.\n\n3. Implement 'registerPhone(String raw)' delegating to sanitizer.\n\n4. Implement accessor 'getCleanPhone()'.\n\n5. In 'main', register formatted phone number and print sanitized digits."
+      "en": "📖 Real-World Scenario & Context\nImplement private sanitization helper stripping formatting symbols to normalize phone numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PhoneSanitizerService' with private String field 'cleanPhone'.\n\n2. Implement private sanitizer 'clean(String raw)' stripping non-digits.\n\n3. Implement 'registerPhone(String raw)' delegating to sanitizer.\n\n4. Implement accessor 'getCleanPhone()'.\n\n5. In 'main', register formatted phone number and print sanitized digits.",
+      "ru": "📖 Контекст и описание задачи\nВнедрите частный помощник по очистке, удаляющий символы форматирования для нормализации телефонных номеров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PhoneSanitizerService с частным строковым полем cleanPhone.\n2. Implement private sanitizer 'clean(String raw)' stripping non-digits.\n3. Implement 'registerPhone(String raw)' delegating to sanitizer.\n4. Реализуйте метод доступа getCleanPhone().\n5. В «main» зарегистрируйте отформатированный номер телефона и напечатайте очищенные цифры."
     },
     "story": {
       "uz": "Foydalanuvchi kiritgan telefon raqamidan qavslar, chiziqchalar va bo'shliqlarni tozalab faqat raqamlarni saqlovchi 'private String sanitizePhone(String raw)' metodini tuzing.",
-      "en": "Implement private sanitization helper stripping formatting symbols to normalize phone numbers."
+      "en": "Implement private sanitization helper stripping formatting symbols to normalize phone numbers.",
+      "ru": "Внедрите частный помощник по очистке, удаляющий символы форматирования для нормализации телефонных номеров."
     },
     "steps": {
       "uz": [
@@ -2848,6 +3521,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'registerPhone(String raw)' delegating to sanitizer.",
         "Implement accessor 'getCleanPhone()'.",
         "In 'main', register formatted phone number and print sanitized digits."
+      ],
+      "ru": [
+        "Объявите класс PhoneSanitizerService с частным строковым полем cleanPhone.",
+        "Implement private sanitizer 'clean(String raw)' stripping non-digits.",
+        "Implement 'registerPhone(String raw)' delegating to sanitizer.",
+        "Реализуйте метод доступа getCleanPhone().",
+        "В «main» зарегистрируйте отформатированный номер телефона и напечатайте очищенные цифры."
       ]
     },
     "requirements": {
@@ -2882,7 +3562,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PhoneSanitizerService</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>PhoneSanitizerService</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2892,15 +3578,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "44. UzAirways — Barcha Modifikatorlar Hamkorligi (Public, Package, Private)",
-      "en": "44. UzAirways — Multi-Modifier Synergy: Public, Package, Private Coexistence"
+      "en": "44. UzAirways — Multi-Modifier Synergy: Public, Package, Private Coexistence",
+      "ru": "44. UzAirways — Синергия мультимодификаторов: государственное, пакетное, частное сосуществование"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBort tizimida reys kodi 'private', xizmat ko'rsatuvchi yordamchi 'package-private', yo'lovchi bron qilish metodi esa 'public' qilib sozlangan. Uchchala darajani bitta tizimda birlashtiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'FlightManifestService' sinfini 'flightCode' va 'passengerCount' xususiy maydonlari bilan oching.\n\n2. 'public FlightManifestService(String flightCode)' konstruktorini yozing.\n\n3. Ichki sonni oshiruvchi 'private void increment()' yordamchi metodini yozing.\n\n4. Ochiq 'public void bookPassenger(String name)' metodida 'increment()' ni chaqiring.\n\n5. 'Main' metodida 'Malika' ismli yo'lovchini ro'yxatga olib, reys manifestini chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCombine private state, package-private helper, and public business API in a unified flight manifest.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightManifestService' with flightCode and passengerCount fields.\n\n2. Write constructor 'public FlightManifestService(String flightCode)'.\n\n3. Implement private helper 'increment()' updating passenger count.\n\n4. Implement public API 'bookPassenger(String name)' invoking helper.\n\n5. In 'main', book a passenger and print manifest summary."
+      "en": "📖 Real-World Scenario & Context\nCombine private state, package-private helper, and public business API in a unified flight manifest.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightManifestService' with flightCode and passengerCount fields.\n\n2. Write constructor 'public FlightManifestService(String flightCode)'.\n\n3. Implement private helper 'increment()' updating passenger count.\n\n4. Implement public API 'bookPassenger(String name)' invoking helper.\n\n5. In 'main', book a passenger and print manifest summary.",
+      "ru": "📖 Контекст и описание задачи\nОбъедините частное состояние, частный помощник пакета и общедоступный бизнес-API в едином манифесте полета.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FlightManifestService с полями FlightCode и PassageCount.\n2. Напишите конструктор «public FlightManifestService (String FlightCode)».\n3. Реализуйте частный помощник «increment()», обновляющий количество пассажиров.\n4. Implement public API 'bookPassenger(String name)' invoking helper.\n5. В «главном» забронируйте пассажира и распечатайте сводку манифеста."
     },
     "story": {
       "uz": "Bort tizimida reys kodi 'private', xizmat ko'rsatuvchi yordamchi 'package-private', yo'lovchi bron qilish metodi esa 'public' qilib sozlangan. Uchchala darajani bitta tizimda birlashtiring.",
-      "en": "Combine private state, package-private helper, and public business API in a unified flight manifest."
+      "en": "Combine private state, package-private helper, and public business API in a unified flight manifest.",
+      "ru": "Объедините частное состояние, частный помощник пакета и общедоступный бизнес-API в едином манифесте полета."
     },
     "steps": {
       "uz": [
@@ -2916,6 +3605,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private helper 'increment()' updating passenger count.",
         "Implement public API 'bookPassenger(String name)' invoking helper.",
         "In 'main', book a passenger and print manifest summary."
+      ],
+      "ru": [
+        "Объявите класс FlightManifestService с полями FlightCode и PassageCount.",
+        "Напишите конструктор «public FlightManifestService (String FlightCode)».",
+        "Реализуйте частный помощник «increment()», обновляющий количество пассажиров.",
+        "Implement public API 'bookPassenger(String name)' invoking helper.",
+        "В «главном» забронируйте пассажира и распечатайте сводку манифеста."
       ]
     },
     "requirements": {
@@ -2951,7 +3647,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>FlightManifestService</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>FlightManifestService</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -2961,15 +3663,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "31-45: Access Modifiers & Internal Helpers",
     "title": {
       "uz": "45. WIUT SRS — To'liq Himoyalangan Moliya Shlyuzi (Master)",
-      "en": "45. WIUT SRS — Secure Financial Gateway Orchestrating 3 Private Helpers"
+      "en": "45. WIUT SRS — Secure Financial Gateway Orchestrating 3 Private Helpers",
+      "ru": "45. WIUT SRS — Безопасный финансовый шлюз под управлением 3 частных помощников"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalabaning kontrakt to'lovi jarayoni 3 ta private yordamchini chaqiradi: 1) 'validateStudentId()', 2) 'applyScholarshipDiscount()', 3) 'recordAuditStamp()'. Tashqi dunyo faqat 'payTuition()' ni ko'radi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TuitionPaymentEngine' sinfini xususiy (private) String toifasidagi 'studentId' va xususiy (private) double toifasidagi 'tuition' maydonlari bilan yarating.\n\n2. 'public TuitionPaymentEngine(String studentId, double tuition)' konstruktorini yozing.\n\n3. Grant hisoblovchi 'private double applyScholarship(double discountRate)' metodini yozing.\n\n4. Audit qaydini tasdiqlovchi 'private boolean logPaymentAudit()' metodini yozing.\n\n5. Ommaviy 'payTuition(double scholarship)' metodida ichki yordamchilarni muvofiqlashtirib, kontrakt to'lovi hisobotini qaytaring.",
-      "en": "📖 Real-World Scenario & Context\nMaster financial pipeline encapsulating 3 distinct private helper methods behind clean public API.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TuitionPaymentEngine' with studentId and tuition fields.\n\n2. Write constructor initializing state.\n\n3. Implement private helper calculating scholarship deduction.\n\n4. Implement private audit logger confirming the payment.\n\n5. Implement public master orchestrator 'payTuition' and verify output in 'main'."
+      "en": "📖 Real-World Scenario & Context\nMaster financial pipeline encapsulating 3 distinct private helper methods behind clean public API.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TuitionPaymentEngine' with studentId and tuition fields.\n\n2. Write constructor initializing state.\n\n3. Implement private helper calculating scholarship deduction.\n\n4. Implement private audit logger confirming the payment.\n\n5. Implement public master orchestrator 'payTuition' and verify output in 'main'.",
+      "ru": "📖 Контекст и описание задачи\nГлавный финансовый конвейер, инкапсулирующий 3 различных частных вспомогательных метода, лежащих в основе чистого общедоступного API.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TuitionPaymentEngine с полями StudentId и Tuition.\n2. Write constructor initializing state.\n3. Внедрить частного помощника по расчету отчислений на стипендию.\n4. Implement private audit logger confirming the payment.\n5. Внедрите общедоступный главный оркестратор payTuition и проверьте вывод в main."
     },
     "story": {
       "uz": "Talabaning kontrakt to'lovi jarayoni 3 ta private yordamchini chaqiradi: 1) 'validateStudentId()', 2) 'applyScholarshipDiscount()', 3) 'recordAuditStamp()'. Tashqi dunyo faqat 'payTuition()' ni ko'radi.",
-      "en": "Master financial pipeline encapsulating 3 distinct private helper methods behind clean public API."
+      "en": "Master financial pipeline encapsulating 3 distinct private helper methods behind clean public API.",
+      "ru": "Главный финансовый конвейер, инкапсулирующий 3 различных частных вспомогательных метода, лежащих в основе чистого общедоступного API."
     },
     "steps": {
       "uz": [
@@ -2985,6 +3690,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement private helper calculating scholarship deduction.",
         "Implement private audit logger confirming the payment.",
         "Implement public master orchestrator 'payTuition' and verify output in 'main'."
+      ],
+      "ru": [
+        "Объявите класс TuitionPaymentEngine с полями StudentId и Tuition.",
+        "Write constructor initializing state.",
+        "Внедрить частного помощника по расчету отчислений на стипендию.",
+        "Implement private audit logger confirming the payment.",
+        "Внедрите общедоступный главный оркестратор payTuition и проверьте вывод в main."
       ]
     },
     "requirements": {
@@ -3019,7 +3731,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>TuitionPaymentEngine</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>TuitionPaymentEngine</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3029,15 +3747,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "46. Uzum Market — Standart Konstruktor: Product() va Boshlang'ich Qiymatlar",
-      "en": "46. Uzum Market — Default No-Arg Constructor Setting Seminar 2 Defaults"
+      "en": "46. Uzum Market — Default No-Arg Constructor Setting Seminar 2 Defaults",
+      "ru": "46. ​​Uzum Market — Семинар по настройке конструктора No-Arg по умолчанию 2. Значения по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 'Product.java' rasmiy yechimida: 'public Product() { this.name = \"Unnamed product\"; this.price = 0.0; this.quantity = 0; }'. Xavfsiz sukutdagi boshlang'ich qiymatlarni beruvchi parametrsiz konstruktorni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'Product' klassini e'lon qiling: 'name' (String), 'price' (double), 'quantity' (int) maydonlari bilan.\n\n2. Seminar 2 andazasi bo'yicha parametrsiz 'public Product()' konstruktorini yozing: 'this' orqali 'name' maydoniga qiymat bering.\n\n3. Barcha 3 maydon uchun getter metodlarini ('getName()', 'getPrice()', 'getQuantity()') yozing.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini yarating.\n\n5. Standart qiymatlarni konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nImplement explicit no-argument constructor setting safe defaults matching Seminar 2 Product.java.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'Product' with name, price, and quantity fields.\n\n2. Implement explicit no-arg constructor setting Seminar 2 defaults: Unnamed product, 0.0, 0.\n\n3. Implement accessors for all three fields.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print default initialized values."
+      "en": "📖 Real-World Scenario & Context\nImplement explicit no-argument constructor setting safe defaults matching Seminar 2 Product.java.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'Product' with name, price, and quantity fields.\n\n2. Implement explicit no-arg constructor setting Seminar 2 defaults: Unnamed product, 0.0, 0.\n\n3. Implement accessors for all three fields.\n\n4. In 'main', instantiate instantiate object with starting values.\n\n5. Print default initialized values.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте явный конструктор без аргументов, устанавливающий безопасные значения по умолчанию, соответствующие семинару 2 Product.java.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Продукт» с полями имени, цены и количества.\n2. Реализуйте явную настройку конструктора без аргументов. Семинар 2 по умолчанию: Безымянный продукт, 0,0, 0.\n3. Реализуйте средства доступа для всех трех полей.\n4. В «main» создайте экземпляр экземпляра объекта с начальными значениями.\n5. Print default initialized values."
     },
     "story": {
       "uz": "Seminar 2 'Product.java' rasmiy yechimida: 'public Product() { this.name = \"Unnamed product\"; this.price = 0.0; this.quantity = 0; }'. Xavfsiz sukutdagi boshlang'ich qiymatlarni beruvchi parametrsiz konstruktorni yozing.",
-      "en": "Implement explicit no-argument constructor setting safe defaults matching Seminar 2 Product.java."
+      "en": "Implement explicit no-argument constructor setting safe defaults matching Seminar 2 Product.java.",
+      "ru": "Реализуйте явный конструктор без аргументов, устанавливающий безопасные значения по умолчанию, соответствующие семинару 2 Product.java."
     },
     "steps": {
       "uz": [
@@ -3052,6 +3773,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement explicit no-arg constructor setting Seminar 2 defaults: Unnamed product, 0.0, 0.",
         "Implement accessors for all three fields.",
         "In 'main', instantiate instantiate object with starting values.",
+        "Print default initialized values."
+      ],
+      "ru": [
+        "Объявите класс «Продукт» с полями имени, цены и количества.",
+        "Реализуйте явную настройку конструктора без аргументов. Семинар 2 по умолчанию: Безымянный продукт, 0,0, 0.",
+        "Реализуйте средства доступа для всех трех полей.",
+        "В «main» создайте экземпляр экземпляра объекта с начальными значениями.",
         "Print default initialized values."
       ]
     },
@@ -3089,7 +3817,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Product</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>Product</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3099,15 +3833,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "47. Payme — Bitta Parametrli Konstruktor: Wallet(String owner)",
-      "en": "47. Payme — Single-Parameter Constructor Enforcing Identity"
+      "en": "47. Payme — Single-Parameter Constructor Enforcing Identity",
+      "ru": "47. Payme — однопараметрический конструктор, обеспечивающий идентификацию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHamyon egasiz yaratilishi aslo mumkin emas. Konstruktor orqali mijoz nomini majburiy qabul qiluvchi va boshlang'ich balansni 0.0 ga sozlovchi sinfni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PaymeWallet' sinfini xususiy (private) String toifasidagi 'owner' va xususiy (private) double toifasidagi 'balance' maydonlari bilan oching.\n\n2. Bitta parametrli 'public PaymeWallet(String owner)' konstruktorini yozib, 'this' orqali 'owner' maydoniga qiymat bering qiling.\n\n3. 'public String getOwner()' va 'public double getBalance()' getterlarini yozing.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini initsializatsiya qiling.\n\n5. Hamyon egasi va boshlang'ich balansini konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nRequire owner name as mandatory constructor parameter while initializing balance to zero.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PaymeWallet' with owner and balance fields.\n\n2. Write single-parameter constructor initializing owner and setting balance to 0.0.\n\n3. Implement accessors 'getOwner()' and 'getBalance()'.\n\n4. In 'main', instantiate wallet for 'Nodirbek'.\n\n5. Print owner name and initial balance."
+      "en": "📖 Real-World Scenario & Context\nRequire owner name as mandatory constructor parameter while initializing balance to zero.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PaymeWallet' with owner and balance fields.\n\n2. Write single-parameter constructor initializing owner and setting balance to 0.0.\n\n3. Implement accessors 'getOwner()' and 'getBalance()'.\n\n4. In 'main', instantiate wallet for 'Nodirbek'.\n\n5. Print owner name and initial balance.",
+      "ru": "📖 Контекст и описание задачи\nТребовать имя владельца в качестве обязательного параметра конструктора при инициализации баланса до нуля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PaymeWallet с полями владельца и баланса.\n2. Напишите конструктор с одним параметром, инициализирующий владельца и устанавливающий баланс равным 0,0.\n3. Реализуйте методы доступа getOwner() и getBalance().\n4. В «main» создайте экземпляр кошелька для «Нодирбека».\n5. Распечатайте имя владельца и начальный баланс."
     },
     "story": {
       "uz": "Hamyon egasiz yaratilishi aslo mumkin emas. Konstruktor orqali mijoz nomini majburiy qabul qiluvchi va boshlang'ich balansni 0.0 ga sozlovchi sinfni yozing.",
-      "en": "Require owner name as mandatory constructor parameter while initializing balance to zero."
+      "en": "Require owner name as mandatory constructor parameter while initializing balance to zero.",
+      "ru": "Требовать имя владельца в качестве обязательного параметра конструктора при инициализации баланса до нуля."
     },
     "steps": {
       "uz": [
@@ -3123,6 +3860,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement accessors 'getOwner()' and 'getBalance()'.",
         "In 'main', instantiate wallet for 'Nodirbek'.",
         "Print owner name and initial balance."
+      ],
+      "ru": [
+        "Объявите класс PaymeWallet с полями владельца и баланса.",
+        "Напишите конструктор с одним параметром, инициализирующий владельца и устанавливающий баланс равным 0,0.",
+        "Реализуйте методы доступа getOwner() и getBalance().",
+        "В «main» создайте экземпляр кошелька для «Нодирбека».",
+        "Распечатайте имя владельца и начальный баланс."
       ]
     },
     "requirements": {
@@ -3157,7 +3901,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PaymeWallet</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>PaymeWallet</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3167,15 +3917,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "48. Korzinka — Ikkita Parametrli Konstruktor: nom va narx",
-      "en": "48. Korzinka — Two-Parameter Constructor for Name and Price"
+      "en": "48. Korzinka — Two-Parameter Constructor for Name and Price",
+      "ru": "48. Корзинка — двухпараметрический конструктор по названию и цене"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDo'konga yangi mahsulot kelganda nomi va narxi ma'lum bo'ladi. Ikkita parametrli konstruktor yordamida ikkala maydonni 'this.name = name; this.price = price;' deb to'ldiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'RetailItem' klassini xususiy (private) String toifasidagi 'name' va xususiy (private) double toifasidagi 'price' maydonlari bilan oching.\n\n2. Ikkala parametrni qabul qiluvchi 'public RetailItem(String name, double price)' konstruktorini yozing.\n\n3. 'getName()' va 'getPrice()' getterlarini taqdim eting.\n\n4. 'Main' metodida boshlang'ich parametrlar bilan ob'yektni yarating yarating.\n\n5. Konsolga mahsulot nomi va narxini chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInitialize essential product attributes simultaneously using two-parameter constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'RetailItem' with name and price fields.\n\n2. Write 2-parameter constructor 'public RetailItem(String name, double price)'.\n\n3. Implement getters 'getName()' and 'getPrice()'.\n\n4. In 'main', instantiate item with 'Non' and 4000.0.\n\n5. Print item name and price."
+      "en": "📖 Real-World Scenario & Context\nInitialize essential product attributes simultaneously using two-parameter constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'RetailItem' with name and price fields.\n\n2. Write 2-parameter constructor 'public RetailItem(String name, double price)'.\n\n3. Implement getters 'getName()' and 'getPrice()'.\n\n4. In 'main', instantiate item with 'Non' and 4000.0.\n\n5. Print item name and price.",
+      "ru": "📖 Контекст и описание задачи\nИнициализируйте основные атрибуты продукта одновременно, используя двухпараметрический конструктор.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс RetailItem с полями имени и цены.\n2. Напишите конструктор с двумя параметрами «public RetailItem (имя строки, двойная цена)».\n3. Реализуйте геттеры getName() и getPrice().\n4. В «main» создайте экземпляр элемента с «Non» и 4000.0.\n5. Распечатайте название и цену товара."
     },
     "story": {
       "uz": "Do'konga yangi mahsulot kelganda nomi va narxi ma'lum bo'ladi. Ikkita parametrli konstruktor yordamida ikkala maydonni 'this.name = name; this.price = price;' deb to'ldiring.",
-      "en": "Initialize essential product attributes simultaneously using two-parameter constructor."
+      "en": "Initialize essential product attributes simultaneously using two-parameter constructor.",
+      "ru": "Инициализируйте основные атрибуты продукта одновременно, используя двухпараметрический конструктор."
     },
     "steps": {
       "uz": [
@@ -3191,6 +3944,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement getters 'getName()' and 'getPrice()'.",
         "In 'main', instantiate item with 'Non' and 4000.0.",
         "Print item name and price."
+      ],
+      "ru": [
+        "Объявите класс RetailItem с полями имени и цены.",
+        "Напишите конструктор с двумя параметрами «public RetailItem (имя строки, двойная цена)».",
+        "Реализуйте геттеры getName() и getPrice().",
+        "В «main» создайте экземпляр элемента с «Non» и 4000.0.",
+        "Распечатайте название и цену товара."
       ]
     },
     "requirements": {
@@ -3225,7 +3985,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>RetailItem</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Конструктор яратилганды Java сукутдаги (по умолчанию) параметры конструктора автоматических функций; агар бо'ш конструктор керак бо'лса уни очик э'лон килин.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>RetailItem</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3235,15 +4001,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "49. Yandex Go — Sukutdagi Konstruktorni Qo'lda Saqlab Qolish",
-      "en": "49. Yandex Go — Explicit Coexistence of Default and Parameterized Constructors"
+      "en": "49. Yandex Go — Explicit Coexistence of Default and Parameterized Constructors",
+      "ru": "49. Yandex Go — явное сосуществование дефолтных и параметризованных конструкторов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada (Slide 20): 'If any constructor is defined, the compiler NO LONGER provides the default constructor'. Ham 'new Car()', ham 'new Car(\"Cobalt\")' ishlashi uchun ikkala konstruktorni sinfda birgalikda yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TaxiCar' sinfini xususiy (private) String toifasidagi 'model' maydoni bilan e'lon qiling.\n\n2. Parametrsiz 'public TaxiCar()' konstruktorida 'this' orqali 'model' maydoniga qiymat bering qiling.\n\n3. Parametrli 'public TaxiCar(String model)' konstruktorida 'this' orqali 'model' maydoniga qiymat bering qiling.\n\n4. 'public String getModel()' getterini bering.\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nProvide explicit no-arg constructor alongside parameterized constructor to prevent compiler removal.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiCar' with private String field 'model'.\n\n2. Implement no-arg constructor setting default 'Standart Avto'.\n\n3. Implement parameterized constructor setting specific model.\n\n4. Implement accessor 'getModel()'.\n\n5. In 'main', instantiate both variants and print results."
+      "en": "📖 Real-World Scenario & Context\nProvide explicit no-arg constructor alongside parameterized constructor to prevent compiler removal.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TaxiCar' with private String field 'model'.\n\n2. Implement no-arg constructor setting default 'Standart Avto'.\n\n3. Implement parameterized constructor setting specific model.\n\n4. Implement accessor 'getModel()'.\n\n5. In 'main', instantiate both variants and print results.",
+      "ru": "📖 Контекст и описание задачи\nПредоставьте явный конструктор без аргументов вместе с параметризованным конструктором, чтобы предотвратить удаление компилятора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TaxiCar с частным строковым полем model.\n2. Implement no-arg constructor setting default 'Standart Avto'.\n3. Implement parameterized constructor setting specific model.\n4. Реализуйте метод доступа getModel().\n5. В «main» создайте экземпляры обоих вариантов и распечатайте результаты."
     },
     "story": {
       "uz": "Leksiyada (Slide 20): 'If any constructor is defined, the compiler NO LONGER provides the default constructor'. Ham 'new Car()', ham 'new Car(\"Cobalt\")' ishlashi uchun ikkala konstruktorni sinfda birgalikda yozing.",
-      "en": "Provide explicit no-arg constructor alongside parameterized constructor to prevent compiler removal."
+      "en": "Provide explicit no-arg constructor alongside parameterized constructor to prevent compiler removal.",
+      "ru": "Предоставьте явный конструктор без аргументов вместе с параметризованным конструктором, чтобы предотвратить удаление компилятора."
     },
     "steps": {
       "uz": [
@@ -3259,6 +4028,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement parameterized constructor setting specific model.",
         "Implement accessor 'getModel()'.",
         "In 'main', instantiate both variants and print results."
+      ],
+      "ru": [
+        "Объявите класс TaxiCar с частным строковым полем model.",
+        "Implement no-arg constructor setting default 'Standart Avto'.",
+        "Implement parameterized constructor setting specific model.",
+        "Реализуйте метод доступа getModel().",
+        "В «main» создайте экземпляры обоих вариантов и распечатайте результаты."
       ]
     },
     "requirements": {
@@ -3291,7 +4067,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>TaxiCar</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>TaxiCar</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3301,15 +4083,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "50. Click — Konstruktorda Qiymat Validatsiyasi (Noto'g'ri Ob'yekt Yaratilishidan Himoya)",
-      "en": "50. Click — Constructor Validation Preventing Invalid State Initialization"
+      "en": "50. Click — Constructor Validation Preventing Invalid State Initialization",
+      "ru": "50. Нажмите — проверка конструктора, предотвращающая инициализацию недопустимого состояния."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOb'yekt yaratilishidanoq manfiy balansga tushmasligi kerak. Konstruktorga manfiy son uzatilsa uni avtomatik 0.0 ga tenglab xavfsiz holatda initsializatsiya qiluvchi sinfni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SafeDeposit' klassini oching: xususiy (private) double toifasidagi 'amount' maydoni bilan.\n\n2. 'public SafeDeposit(double amount)' konstruktorida validatsiya qo'llang: agar berilgan summa manfiy bo'lsa 0.0 o'rnating, aks holda qiymatni saqlang.\n\n3. 'public double getAmount()' getterini yozing.\n\n4. 'Main' metodida manfiy (-50000.0) summa berib konstruktorni tekshiring.\n\n5. Konsolga 'Boshlang'ich summa: ' + dep.getAmount() + ' UZS' chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nSafeguard initial object state by checking and normalizing constructor arguments.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SafeDeposit' with private double field 'amount'.\n\n2. Implement constructor validating input: if negative clamp to 0.0, else assign value.\n\n3. Implement accessor 'getAmount()'.\n\n4. In 'main', test constructor with -50000.0.\n\n5. Print validated initial deposit amount."
+      "en": "📖 Real-World Scenario & Context\nSafeguard initial object state by checking and normalizing constructor arguments.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SafeDeposit' with private double field 'amount'.\n\n2. Implement constructor validating input: if negative clamp to 0.0, else assign value.\n\n3. Implement accessor 'getAmount()'.\n\n4. In 'main', test constructor with -50000.0.\n\n5. Print validated initial deposit amount.",
+      "ru": "📖 Контекст и описание задачи\nЗащитите исходное состояние объекта, проверяя и нормализуя аргументы конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SafeDeposit с частным двойным полем «сумма».\n2. Реализуйте конструктор, проверяющий входные данные: если отрицательное ограничение равно 0,0, иначе присвойте значение.\n3. Реализуйте метод доступа getAmount().\n4. In 'main', test constructor with -50000.0.\n5. Print validated initial deposit amount."
     },
     "story": {
       "uz": "Ob'yekt yaratilishidanoq manfiy balansga tushmasligi kerak. Konstruktorga manfiy son uzatilsa uni avtomatik 0.0 ga tenglab xavfsiz holatda initsializatsiya qiluvchi sinfni yozing.",
-      "en": "Safeguard initial object state by checking and normalizing constructor arguments."
+      "en": "Safeguard initial object state by checking and normalizing constructor arguments.",
+      "ru": "Защитите исходное состояние объекта, проверяя и нормализуя аргументы конструктора."
     },
     "steps": {
       "uz": [
@@ -3323,6 +4108,13 @@ window.OOP_CHALLENGES_W2 = [
         "Declare class 'SafeDeposit' with private double field 'amount'.",
         "Implement constructor validating input: if negative clamp to 0.0, else assign value.",
         "Implement accessor 'getAmount()'.",
+        "In 'main', test constructor with -50000.0.",
+        "Print validated initial deposit amount."
+      ],
+      "ru": [
+        "Объявите класс SafeDeposit с частным двойным полем «сумма».",
+        "Реализуйте конструктор, проверяющий входные данные: если отрицательное ограничение равно 0,0, иначе присвойте значение.",
+        "Реализуйте метод доступа getAmount().",
         "In 'main', test constructor with -50000.0.",
         "Print validated initial deposit amount."
       ]
@@ -3357,7 +4149,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SafeDeposit</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>SafeDeposit</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3367,15 +4165,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "51. Safia — Konstruktor Ichidan Setterlarni Chaqirish (DRY Tamoyili)",
-      "en": "51. Safia — Constructor Delegating to Validating Setters"
+      "en": "51. Safia — Constructor Delegating to Validating Setters",
+      "ru": "51. Safia — конструктор, делегирующий проверку сеттеров"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKonstruktorda yana tekshiruv (if) yozmaslik uchun, allaqachon tekshiruvga ega bo'lgan 'setPrice(price)' va 'setName(name)' setterlarini konstruktor ichidan chaqiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PastryItem' sinfini 'name' va 'price' xususiy maydonlari bilan yarating.\n\n2. Validatsiyali setterlar: 'setName' va 'setPrice' ni yozing.\n\n3. Konstruktorda mantiqni takrorlamasdan 'public PastryItem(String name, double price)' ichida mavjud setterlarga yo'naltirib chaqiring.\n\n4. Getterlar: 'getName()' va 'getPrice()' larni taqdim eting.\n\n5. 'Main' metodida boshlang'ich parametrlar bilan ob'yektni yarating ochib konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nDelegate initialization to validating setter methods from within constructor to prevent code duplication.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PastryItem' with name and price fields.\n\n2. Implement setters 'setName' and 'setPrice'.\n\n3. Write constructor delegating initialization to setters.\n\n4. Implement accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate item and print name and price."
+      "en": "📖 Real-World Scenario & Context\nDelegate initialization to validating setter methods from within constructor to prevent code duplication.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PastryItem' with name and price fields.\n\n2. Implement setters 'setName' and 'setPrice'.\n\n3. Write constructor delegating initialization to setters.\n\n4. Implement accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate item and print name and price.",
+      "ru": "📖 Контекст и описание задачи\nДелегируйте инициализацию для проверки методов установки из конструктора, чтобы предотвратить дублирование кода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PastryItem с полями имени и цены.\n2. Реализуйте установщики setName и setPrice.\n3. Напишите конструктор, делегирующий инициализацию установщикам.\n4. Implement accessors 'getName()' and 'getPrice()'.\n5. In 'main', instantiate item and print name and price."
     },
     "story": {
       "uz": "Konstruktorda yana tekshiruv (if) yozmaslik uchun, allaqachon tekshiruvga ega bo'lgan 'setPrice(price)' va 'setName(name)' setterlarini konstruktor ichidan chaqiring.",
-      "en": "Delegate initialization to validating setter methods from within constructor to prevent code duplication."
+      "en": "Delegate initialization to validating setter methods from within constructor to prevent code duplication.",
+      "ru": "Делегируйте инициализацию для проверки методов установки из конструктора, чтобы предотвратить дублирование кода."
     },
     "steps": {
       "uz": [
@@ -3389,6 +4190,13 @@ window.OOP_CHALLENGES_W2 = [
         "Declare class 'PastryItem' with name and price fields.",
         "Implement setters 'setName' and 'setPrice'.",
         "Write constructor delegating initialization to setters.",
+        "Implement accessors 'getName()' and 'getPrice()'.",
+        "In 'main', instantiate item and print name and price."
+      ],
+      "ru": [
+        "Объявите класс PastryItem с полями имени и цены.",
+        "Реализуйте установщики setName и setPrice.",
+        "Напишите конструктор, делегирующий инициализацию установщикам.",
         "Implement accessors 'getName()' and 'getPrice()'.",
         "In 'main', instantiate item and print name and price."
       ]
@@ -3427,7 +4235,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PastryItem</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>PastryItem</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3437,15 +4251,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "52. Texnomart — Seminar 2 To'liq 5 Parametrli Product Konstruktori",
-      "en": "52. Texnomart — Full 5-Parameter Constructor Matching Seminar 2 Product"
+      "en": "52. Texnomart — Full 5-Parameter Constructor Matching Seminar 2 Product",
+      "ru": "52. Texnomart — Семинар по подбору полного 5-параметрического конструктора 2."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 'Product.java' da berilgan to'liq konstruktor: 'Product(String name, double price, int quantity, boolean inStock, char grade)'. Barcha 5 ta maydonni to'liq qabul qilib initsializatsiya qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'FullProduct' sinfini e'lon qiling: xususiy (private) String toifasidagi 'name', xususiy (private) double toifasidagi 'price', xususiy (private) int toifasidagi 'quantity', 'public boolean inStock', 'public char grade'.\n\n2. WIUT Seminar 2 'Product.java' rasmiy konstruktorini to'liq yozing: 'public FullProduct(String name, double price, int quantity, boolean inStock, char grade)'.\n\n3. Maydonlarga 'this' orqali boshlang'ich qiymatlarni bering.\n\n4. 'getName()' va 'getPrice()' getterlarini taqdim eting.\n\n5. 'Main' metodida boshlang'ich parametrlar bilan ob'yektini ochib chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nImplement official Seminar 2 full 5-parameter Product constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FullProduct' matching complete Seminar 2 Product attribute list.\n\n2. Implement 5-parameter constructor 'public FullProduct(String name, double price, int quantity, boolean inStock, char grade)'.\n\n3. Assign all incoming parameters using 'this' keyword.\n\n4. Provide accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate complete product and print summary."
+      "en": "📖 Real-World Scenario & Context\nImplement official Seminar 2 full 5-parameter Product constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FullProduct' matching complete Seminar 2 Product attribute list.\n\n2. Implement 5-parameter constructor 'public FullProduct(String name, double price, int quantity, boolean inStock, char grade)'.\n\n3. Assign all incoming parameters using 'this' keyword.\n\n4. Provide accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate complete product and print summary.",
+      "ru": "📖 Контекст и описание задачи\nВнедрить официальный полнофункциональный конструктор продуктов с 5 параметрами для семинара 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FullProduct, соответствующий полному списку атрибутов продукта семинара 2.\n2. Реализуйте конструктор с 5 параметрами «public FullProduct (имя строки, двойная цена, количество int, логическое значение inStock, класс char)».\n3. Назначьте все входящие параметры, используя ключевое слово this.\n4. Предоставьте методы доступа getName() и getPrice().\n5. В «main» создайте экземпляр полного продукта и распечатайте сводку."
     },
     "story": {
       "uz": "Seminar 2 'Product.java' da berilgan to'liq konstruktor: 'Product(String name, double price, int quantity, boolean inStock, char grade)'. Barcha 5 ta maydonni to'liq qabul qilib initsializatsiya qiling.",
-      "en": "Implement official Seminar 2 full 5-parameter Product constructor."
+      "en": "Implement official Seminar 2 full 5-parameter Product constructor.",
+      "ru": "Внедрить официальный полнофункциональный конструктор продуктов с 5 параметрами для семинара 2."
     },
     "steps": {
       "uz": [
@@ -3461,6 +4278,13 @@ window.OOP_CHALLENGES_W2 = [
         "Assign all incoming parameters using 'this' keyword.",
         "Provide accessors 'getName()' and 'getPrice()'.",
         "In 'main', instantiate complete product and print summary."
+      ],
+      "ru": [
+        "Объявите класс FullProduct, соответствующий полному списку атрибутов продукта семинара 2.",
+        "Реализуйте конструктор с 5 параметрами «public FullProduct (имя строки, двойная цена, количество int, логическое значение inStock, класс char)».",
+        "Назначьте все входящие параметры, используя ключевое слово this.",
+        "Предоставьте методы доступа getName() и getPrice().",
+        "В «main» создайте экземпляр полного продукта и распечатайте сводку."
       ]
     },
     "requirements": {
@@ -3496,7 +4320,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>FullProduct</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Конструктор яратилганды Java сукутдаги (по умолчанию) параметры конструктора автоматических функций; агар бо'ш конструктор керак бо'лса уни очик э'лон килин.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>FullProduct</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3506,15 +4336,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "53. Medion — Konstruktorda Boshlang'ich Soliqni Hisoblab Saqlash",
-      "en": "53. Medion — Constructor Calculating Initial Computed State"
+      "en": "53. Medion — Constructor Calculating Initial Computed State",
+      "ru": "53. Medion — конструктор, вычисляющий начальное вычисляемое состояние"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBemor qabuli yaratilganda bazaviy narx asosida 12% soliq bir marta hisoblanib 'final double totalWithTax' maydoniga saqlanadi. Konstruktorda ushbu hisoblashni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ClinicInvoice' klassini xususiy (private) double toifasidagi 'totalWithTax' maydoni bilan e'lon qiling.\n\n2. 'public ClinicInvoice(double baseAmount)' konstruktorida 'this' orqali 'totalWithTax' maydoniga qiymat bering qilib soliq bilan hisoblang.\n\n3. 'public double getTotalWithTax()' getterini yozing.\n\n4. 'Main' metodida 200000.0 bazaviy summa bilan fakturani initsializatsiya qiling.\n\n5. Konsolga 'Soliq bilan jami: ' + inv.getTotalWithTax() + ' UZS' chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nConstructor computes VAT and sets final monetary field at object birth time.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClinicInvoice' with private double field 'totalWithTax'.\n\n2. Write constructor 'public ClinicInvoice(double baseAmount)' computing and storing tax-inclusive sum.\n\n3. Implement accessor 'getTotalWithTax()'.\n\n4. In 'main', instantiate invoice for 200000.0.\n\n5. Print tax-inclusive invoice total."
+      "en": "📖 Real-World Scenario & Context\nConstructor computes VAT and sets final monetary field at object birth time.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClinicInvoice' with private double field 'totalWithTax'.\n\n2. Write constructor 'public ClinicInvoice(double baseAmount)' computing and storing tax-inclusive sum.\n\n3. Implement accessor 'getTotalWithTax()'.\n\n4. In 'main', instantiate invoice for 200000.0.\n\n5. Print tax-inclusive invoice total.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор вычисляет НДС и устанавливает окончательное денежное поле во время рождения объекта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «ClinicInvoice» с частным двойным полем «totalWithTax».\n2. Напишите конструктор public ClinicInvoice(double baseAmount), вычисляющий и сохраняющий сумму с учетом налогов.\n3. Implement accessor 'getTotalWithTax()'.\n4. In 'main', instantiate invoice for 200000.0.\n5. Print tax-inclusive invoice total."
     },
     "story": {
       "uz": "Bemor qabuli yaratilganda bazaviy narx asosida 12% soliq bir marta hisoblanib 'final double totalWithTax' maydoniga saqlanadi. Konstruktorda ushbu hisoblashni bajaring.",
-      "en": "Constructor computes VAT and sets final monetary field at object birth time."
+      "en": "Constructor computes VAT and sets final monetary field at object birth time.",
+      "ru": "Конструктор вычисляет НДС и устанавливает окончательное денежное поле во время рождения объекта."
     },
     "steps": {
       "uz": [
@@ -3527,6 +4360,13 @@ window.OOP_CHALLENGES_W2 = [
       "en": [
         "Declare class 'ClinicInvoice' with private double field 'totalWithTax'.",
         "Write constructor 'public ClinicInvoice(double baseAmount)' computing and storing tax-inclusive sum.",
+        "Implement accessor 'getTotalWithTax()'.",
+        "In 'main', instantiate invoice for 200000.0.",
+        "Print tax-inclusive invoice total."
+      ],
+      "ru": [
+        "Объявите класс «ClinicInvoice» с частным двойным полем «totalWithTax».",
+        "Напишите конструктор public ClinicInvoice(double baseAmount), вычисляющий и сохраняющий сумму с учетом налогов.",
         "Implement accessor 'getTotalWithTax()'.",
         "In 'main', instantiate invoice for 200000.0.",
         "Print tax-inclusive invoice total."
@@ -3562,7 +4402,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ClinicInvoice</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>ClinicInvoice</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3572,15 +4418,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "54. Express24 — Null Parametrni Xavfsiz Standartga O'tkazuvchi Konstruktor",
-      "en": "54. Express24 — Null-Safe Constructor Normalizing Null to Default"
+      "en": "54. Express24 — Null-Safe Constructor Normalizing Null to Default",
+      "ru": "54. Express24 — Null-Safe конструктор, нормализующий Null к значению по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAgar yetkazish manzili sifatida 'null' uzatilsa, konstruktor uni 'Markaziy Ombor' deb o'rnatishi kerak. NullPointerException dan himoyalangan konstruktorni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DeliveryAddressGuard' sinfini xususiy (private) String toifasidagi 'address' maydoni bilan oching.\n\n2. 'public DeliveryAddressGuard(String address)' konstruktorida agar address null bo'lsa 'this' orqali 'address' maydoniga qiymat bering, aks holda 'this' orqali 'address' maydoniga qiymat bering qiling.\n\n3. 'public String getAddress()' getterini yozing.\n\n4. 'Main' metodida 'new DeliveryAddressGuard(null)' yaratib tekshiring.\n\n5. Konsolga yetkazish manzilini chop eting.",
-      "en": "📖 Real-World Scenario & Context\nProtect against NPE by substituting fallback location if incoming address is null.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryAddressGuard' with private String field 'address'.\n\n2. Implement constructor providing safe fallback 'Markaziy Ombor' if address is null.\n\n3. Implement getter 'getAddress()'.\n\n4. In 'main', pass null to constructor and verify safe fallback.\n\n5. Print delivery address."
+      "en": "📖 Real-World Scenario & Context\nProtect against NPE by substituting fallback location if incoming address is null.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryAddressGuard' with private String field 'address'.\n\n2. Implement constructor providing safe fallback 'Markaziy Ombor' if address is null.\n\n3. Implement getter 'getAddress()'.\n\n4. In 'main', pass null to constructor and verify safe fallback.\n\n5. Print delivery address.",
+      "ru": "📖 Контекст и описание задачи\nЗащитите себя от NPE, подставив резервное местоположение, если входящий адрес равен нулю.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «DeliveryAddressGuard» с частным строковым полем «адрес».\n2. Реализуйте конструктор, обеспечивающий безопасный резервный вариант «Марказий Омбор», если адрес равен нулю.\n3. Реализуйте метод получения getAddress().\n4. В «main» передайте конструктору значение null и проверьте безопасный резервный вариант.\n5. Распечатать адрес доставки."
     },
     "story": {
       "uz": "Agar yetkazish manzili sifatida 'null' uzatilsa, konstruktor uni 'Markaziy Ombor' deb o'rnatishi kerak. NullPointerException dan himoyalangan konstruktorni yozing.",
-      "en": "Protect against NPE by substituting fallback location if incoming address is null."
+      "en": "Protect against NPE by substituting fallback location if incoming address is null.",
+      "ru": "Защитите себя от NPE, подставив резервное местоположение, если входящий адрес равен нулю."
     },
     "steps": {
       "uz": [
@@ -3596,6 +4445,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement getter 'getAddress()'.",
         "In 'main', pass null to constructor and verify safe fallback.",
         "Print delivery address."
+      ],
+      "ru": [
+        "Объявите класс «DeliveryAddressGuard» с частным строковым полем «адрес».",
+        "Реализуйте конструктор, обеспечивающий безопасный резервный вариант «Марказий Омбор», если адрес равен нулю.",
+        "Реализуйте метод получения getAddress().",
+        "В «main» передайте конструктору значение null и проверьте безопасный резервный вариант.",
+        "Распечатать адрес доставки."
       ]
     },
     "requirements": {
@@ -3628,7 +4484,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>DeliveryAddressGuard</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>DeliveryAddressGuard</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3638,15 +4500,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "55. Asaxiy — Yangi Ob'yektni Avtomatik 'Faol' (active=true) Holatda Ochish",
-      "en": "55. Asaxiy — Initial Boolean State Activation in Constructor"
+      "en": "55. Asaxiy — Initial Boolean State Activation in Constructor",
+      "ru": "55. Asaxy — активация начального логического состояния в конструкторе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitobxon kartasi yaratilganda uning 'isActive' maydoni konstruktordan parametr sifatida so'ralmaydi, balki har doim avtomatik 'true' qilib ochiladi. Konstruktorni shunday sozlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'LibraryCard' sinfini xususiy (private) String toifasidagi 'cardNo' va xususiy (private) boolean toifasidagi 'active' maydonlari bilan oching.\n\n2. 'public LibraryCard(String cardNo)' konstruktorida karta raqamini qabul qilib, 'this' orqali 'active' maydoniga qiymat bering deb standart faol holatni o'rnating.\n\n3. 'public String getCardNo()' va 'public boolean isActive()' getterlarini bering.\n\n4. 'Main' metodida 'LIB-102' raqamli kartani oching.\n\n5. Karta faolligini konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nConstructor guarantees initial active status without relying on external parameter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LibraryCard' with cardNo and active fields.\n\n2. Write constructor initializing cardNo and setting active to true by default.\n\n3. Implement accessors 'getCardNo()' and 'isActive()'.\n\n4. In 'main', instantiate card for 'LIB-102'.\n\n5. Print active status."
+      "en": "📖 Real-World Scenario & Context\nConstructor guarantees initial active status without relying on external parameter.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LibraryCard' with cardNo and active fields.\n\n2. Write constructor initializing cardNo and setting active to true by default.\n\n3. Implement accessors 'getCardNo()' and 'isActive()'.\n\n4. In 'main', instantiate card for 'LIB-102'.\n\n5. Print active status.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор гарантирует начальное активное состояние, не полагаясь на внешний параметр.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «LibraryCard» с номером карты и активными полями.\n2. Напишите конструктор, инициализирующий cardNo и устанавливающий active значение true по умолчанию.\n3. Реализуйте методы доступа getCardNo() и isActive().\n4. В «main» создайте экземпляр карты для «LIB-102».\n5. Распечатать активный статус."
     },
     "story": {
       "uz": "Kitobxon kartasi yaratilganda uning 'isActive' maydoni konstruktordan parametr sifatida so'ralmaydi, balki har doim avtomatik 'true' qilib ochiladi. Konstruktorni shunday sozlang.",
-      "en": "Constructor guarantees initial active status without relying on external parameter."
+      "en": "Constructor guarantees initial active status without relying on external parameter.",
+      "ru": "Конструктор гарантирует начальное активное состояние, не полагаясь на внешний параметр."
     },
     "steps": {
       "uz": [
@@ -3662,6 +4527,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement accessors 'getCardNo()' and 'isActive()'.",
         "In 'main', instantiate card for 'LIB-102'.",
         "Print active status."
+      ],
+      "ru": [
+        "Объявите класс «LibraryCard» с номером карты и активными полями.",
+        "Напишите конструктор, инициализирующий cardNo и устанавливающий active значение true по умолчанию.",
+        "Реализуйте методы доступа getCardNo() и isActive().",
+        "В «main» создайте экземпляр карты для «LIB-102».",
+        "Распечатать активный статус."
       ]
     },
     "requirements": {
@@ -3696,7 +4568,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>LibraryCard</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>LibraryCard</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3706,15 +4584,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "56. Dodo Pizza — Ichki Ro'yxatni Konstruktorda Initsializatsiya Qilish",
-      "en": "56. Dodo Pizza — Collection Field Initialization in Constructor"
+      "en": "56. Dodo Pizza — Collection Field Initialization in Constructor",
+      "ru": "56. Dodo Pizza — Инициализация поля коллекции в конструкторе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma ob'yekti yaratilganda uning ichki pitssalar ro'yxati 'new ArrayList<>()' deb yaratilishi shart, aks holda element qo'shilganda NullPointerException beradi. Konstruktorda ro'yxatni oching.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PizzaOrderBasket' sinfini xususiy (private) String toifasidagi 'orderId' va xususiy (private) int toifasidagi 'itemCount' maydonlari bilan oching.\n\n2. 'public PizzaOrderBasket(String orderId)' konstruktorida 'this' orqali 'itemCount' maydoniga qiymat bering qilib initsializatsiya qiling.\n\n3. 'public void addPizza(String name)' metodida savatdagi pitsalar sonini bittaga oshirib qiling.\n\n4. 'public int getItemCount()' getterini yozing.\n\n5. 'Main' metodida pitsa qo'shib, savatdagi pitsalar sonini chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInitialize internal List inside constructor to guarantee safe collection operations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrderBasket' with orderId and itemCount fields.\n\n2. Write constructor initializing itemCount to 0.\n\n3. Implement 'addPizza(String name)' incrementing item count.\n\n4. Implement accessor 'getItemCount()'.\n\n5. In 'main', add pizza and print basket count."
+      "en": "📖 Real-World Scenario & Context\nInitialize internal List inside constructor to guarantee safe collection operations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrderBasket' with orderId and itemCount fields.\n\n2. Write constructor initializing itemCount to 0.\n\n3. Implement 'addPizza(String name)' incrementing item count.\n\n4. Implement accessor 'getItemCount()'.\n\n5. In 'main', add pizza and print basket count.",
+      "ru": "📖 Контекст и описание задачи\nИнициализируйте внутренний список внутри конструктора, чтобы гарантировать безопасные операции сбора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PizzaOrderBasket с полями orderId и itemCount.\n2. Write constructor initializing itemCount to 0.\n3. Implement 'addPizza(String name)' incrementing item count.\n4. Implement accessor 'getItemCount()'.\n5. В «main» добавьте пиццу и распечатайте количество корзин."
     },
     "story": {
       "uz": "Buyurtma ob'yekti yaratilganda uning ichki pitssalar ro'yxati 'new ArrayList<>()' deb yaratilishi shart, aks holda element qo'shilganda NullPointerException beradi. Konstruktorda ro'yxatni oching.",
-      "en": "Initialize internal List inside constructor to guarantee safe collection operations."
+      "en": "Initialize internal List inside constructor to guarantee safe collection operations.",
+      "ru": "Инициализируйте внутренний список внутри конструктора, чтобы гарантировать безопасные операции сбора."
     },
     "steps": {
       "uz": [
@@ -3730,6 +4611,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 'addPizza(String name)' incrementing item count.",
         "Implement accessor 'getItemCount()'.",
         "In 'main', add pizza and print basket count."
+      ],
+      "ru": [
+        "Объявите класс PizzaOrderBasket с полями orderId и itemCount.",
+        "Write constructor initializing itemCount to 0.",
+        "Implement 'addPizza(String name)' incrementing item count.",
+        "Implement accessor 'getItemCount()'.",
+        "В «main» добавьте пиццу и распечатайте количество корзин."
       ]
     },
     "requirements": {
@@ -3764,7 +4652,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PizzaOrderBasket</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>PizzaOrderBasket</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3774,15 +4668,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "57. Kapitalbank — Kod Uzunligini Tekshiruvchi Konstruktor",
-      "en": "57. Kapitalbank — Strict Code Length Enforcement in Constructor"
+      "en": "57. Kapitalbank — Strict Code Length Enforcement in Constructor",
+      "ru": "57. Капиталбанк — Строгое соблюдение длины кода в конструкторе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nFilial kodi qat'iy 4 ta belgidan iborat bo'lishi shart (masalan, 'KAP1'). Agar boshqa uzunlik berilsa 'DEFAULT' deb o'rnatuvchi konstruktorni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BankBranch' sinfini xususiy (private) String toifasidagi 'branchCode' maydoni bilan e'lon qiling.\n\n2. 'public BankBranch(String code)' konstruktorida agar kod uzunligi 6 tadan oshsa 'this' orqali 'branchCode' maydoniga qiymat bering, aks holda 'this' orqali 'branchCode' maydoniga qiymat bering qiling.\n\n3. 'public String getBranchCode()' getterini taqdim eting.\n\n4. 'Main' metodida 'TOOLONGCODE' berib tekshiring.\n\n5. Konsolga filial kodini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nConstructor verifies exact string length normalizing invalid codes to safe fallback.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankBranch' with private String field 'branchCode'.\n\n2. Implement constructor validating code length: clamp to 'DEFAULT' if length > 6.\n\n3. Implement accessor 'getBranchCode()'.\n\n4. In 'main', pass 'TOOLONGCODE' and verify fallback.\n\n5. Print branch code."
+      "en": "📖 Real-World Scenario & Context\nConstructor verifies exact string length normalizing invalid codes to safe fallback.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankBranch' with private String field 'branchCode'.\n\n2. Implement constructor validating code length: clamp to 'DEFAULT' if length > 6.\n\n3. Implement accessor 'getBranchCode()'.\n\n4. In 'main', pass 'TOOLONGCODE' and verify fallback.\n\n5. Print branch code.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор проверяет точную длину строки, нормализуя недопустимые коды для безопасного возврата.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BankBranch с частным строковым полем BranchCode.\n2. Реализуйте конструктор, проверяющий длину кода: зафиксируйте значение «DEFAULT», если длина > 6.\n3. Реализуйте метод доступа getBranchCode().\n4. В «main» передайте «TOOLONGCODE» и проверьте резервный вариант.\n5. Print branch code."
     },
     "story": {
       "uz": "Filial kodi qat'iy 4 ta belgidan iborat bo'lishi shart (masalan, 'KAP1'). Agar boshqa uzunlik berilsa 'DEFAULT' deb o'rnatuvchi konstruktorni yozing.",
-      "en": "Constructor verifies exact string length normalizing invalid codes to safe fallback."
+      "en": "Constructor verifies exact string length normalizing invalid codes to safe fallback.",
+      "ru": "Конструктор проверяет точную длину строки, нормализуя недопустимые коды для безопасного возврата."
     },
     "steps": {
       "uz": [
@@ -3797,6 +4694,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement constructor validating code length: clamp to 'DEFAULT' if length > 6.",
         "Implement accessor 'getBranchCode()'.",
         "In 'main', pass 'TOOLONGCODE' and verify fallback.",
+        "Print branch code."
+      ],
+      "ru": [
+        "Объявите класс BankBranch с частным строковым полем BranchCode.",
+        "Реализуйте конструктор, проверяющий длину кода: зафиксируйте значение «DEFAULT», если длина > 6.",
+        "Реализуйте метод доступа getBranchCode().",
+        "В «main» передайте «TOOLONGCODE» и проверьте резервный вариант.",
         "Print branch code."
       ]
     },
@@ -3830,7 +4734,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BankBranch</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>BankBranch</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3840,15 +4750,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "58. Beeline — O'zgarmas (final) Maydonlarni To'ldiruvchi Konstruktor",
-      "en": "58. Beeline — Final Immutable Field Initialization via Constructor"
+      "en": "58. Beeline — Final Immutable Field Initialization via Constructor",
+      "ru": "58. Билайн — финальная инициализация неизменяемого поля через конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSIM-karta ICCID kodi 'private final String iccid' bo'lib, faqat konstruktor ichida bir marta berilishi mumkin. O'zgarmas maydonli konstruktorni tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SimCardChip' klassini o'zgarmas 'private final String iccid' maydoni bilan yarating.\n\n2. 'public SimCardChip(String iccid)' konstruktorida 'this' orqali 'iccid' maydoniga qiymat bering orqali o'rnatilishini ta'minlang.\n\n3. 'public String getIccid()' getterini yozing.\n\n4. 'Main' metodida '899980123456' kodi bilan chipni initsializatsiya qiling.\n\n5. Konsolga 'Chip ICCID: ' + chip.getIccid() chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInitialize private final field within constructor establishing immutable identity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimCardChip' with immutable 'private final String iccid'.\n\n2. Implement constructor 'public SimCardChip(String iccid)' assigning final field.\n\n3. Implement accessor 'getIccid()'.\n\n4. In 'main', instantiate chip with '899980123456'.\n\n5. Print chip ICCID."
+      "en": "📖 Real-World Scenario & Context\nInitialize private final field within constructor establishing immutable identity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SimCardChip' with immutable 'private final String iccid'.\n\n2. Implement constructor 'public SimCardChip(String iccid)' assigning final field.\n\n3. Implement accessor 'getIccid()'.\n\n4. In 'main', instantiate chip with '899980123456'.\n\n5. Print chip ICCID.",
+      "ru": "📖 Контекст и описание задачи\nИнициализируйте частное конечное поле внутри конструктора, устанавливая неизменяемую идентичность.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SimCardChip с неизменяемой частной конечной строкой iccid.\n2. Реализуйте конструктор public SimCardChip(String iccid) с назначением конечного поля.\n3. Реализуйте метод доступа getIccid().\n4. В «main» создайте экземпляр чипа с «899980123456».\n5. Печать чипа ICCID."
     },
     "story": {
       "uz": "SIM-karta ICCID kodi 'private final String iccid' bo'lib, faqat konstruktor ichida bir marta berilishi mumkin. O'zgarmas maydonli konstruktorni tuzing.",
-      "en": "Initialize private final field within constructor establishing immutable identity."
+      "en": "Initialize private final field within constructor establishing immutable identity.",
+      "ru": "Инициализируйте частное конечное поле внутри конструктора, устанавливая неизменяемую идентичность."
     },
     "steps": {
       "uz": [
@@ -3864,6 +4777,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement accessor 'getIccid()'.",
         "In 'main', instantiate chip with '899980123456'.",
         "Print chip ICCID."
+      ],
+      "ru": [
+        "Объявите класс SimCardChip с неизменяемой частной конечной строкой iccid.",
+        "Реализуйте конструктор public SimCardChip(String iccid) с назначением конечного поля.",
+        "Реализуйте метод доступа getIccid().",
+        "В «main» создайте экземпляр чипа с «899980123456».",
+        "Печать чипа ICCID."
       ]
     },
     "requirements": {
@@ -3897,7 +4817,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SimCardChip</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Конструктор яратилганды Java сукутдаги (по умолчанию) параметры конструктора автоматических функций; агар бо'ш конструктор керак бо'лса уни очик э'лон килин.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>SimCardChip</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3907,15 +4833,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "59. UzAirways — Ob'yekt Yaratilganini Bildiruvchi Konstruktor",
-      "en": "59. UzAirways — Constructor Announcing Object Creation"
+      "en": "59. UzAirways — Constructor Announcing Object Creation",
+      "ru": "59. UzAirways — Конструктор объявляет о создании объекта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nReys yaratilganda konstruktor konsolga 'Reys ochildi: HY-051' xabarini chiqaradi. Xabar beruvchi konstruktorni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'FlightScheduler' sinfini xususiy (private) String toifasidagi 'flightCode' maydoni bilan oching.\n\n2. 'public FlightScheduler(String flightCode)' konstruktorida 'this' orqali 'flightCode' maydoniga qiymat bering qiling va 'System.out.print(\"Reys ochildi: \" + flightCode + \" \")' xabarini bering.\n\n3. 'public String getFlightCode()' getterini yozing.\n\n4. 'Main' metodida 'HY-051' reysini ro'yxatdan o'tkazing.\n\n5. Konsolga 'Tasdiq kodi: ' + fs.getFlightCode() deb chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nConstructor executes startup announcement printing creation confirmation message.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightScheduler' with private String field 'flightCode'.\n\n2. Write constructor initializing code and logging creation event via System.out.print.\n\n3. Implement accessor 'getFlightCode()'.\n\n4. In 'main', schedule flight 'HY-051'.\n\n5. Print confirmation code."
+      "en": "📖 Real-World Scenario & Context\nConstructor executes startup announcement printing creation confirmation message.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightScheduler' with private String field 'flightCode'.\n\n2. Write constructor initializing code and logging creation event via System.out.print.\n\n3. Implement accessor 'getFlightCode()'.\n\n4. In 'main', schedule flight 'HY-051'.\n\n5. Print confirmation code.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор выполняет сообщение о подтверждении создания печати объявления о запуске.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FlightScheduler с частным строковым полем FlightCode.\n2. Write constructor initializing code and logging creation event via System.out.print.\n3. Implement accessor 'getFlightCode()'.\n4. In 'main', schedule flight 'HY-051'.\n5. Print confirmation code."
     },
     "story": {
       "uz": "Reys yaratilganda konstruktor konsolga 'Reys ochildi: HY-051' xabarini chiqaradi. Xabar beruvchi konstruktorni dasturlang.",
-      "en": "Constructor executes startup announcement printing creation confirmation message."
+      "en": "Constructor executes startup announcement printing creation confirmation message.",
+      "ru": "Конструктор выполняет сообщение о подтверждении создания печати объявления о запуске."
     },
     "steps": {
       "uz": [
@@ -3927,6 +4856,13 @@ window.OOP_CHALLENGES_W2 = [
       ],
       "en": [
         "Declare class 'FlightScheduler' with private String field 'flightCode'.",
+        "Write constructor initializing code and logging creation event via System.out.print.",
+        "Implement accessor 'getFlightCode()'.",
+        "In 'main', schedule flight 'HY-051'.",
+        "Print confirmation code."
+      ],
+      "ru": [
+        "Объявите класс FlightScheduler с частным строковым полем FlightCode.",
         "Write constructor initializing code and logging creation event via System.out.print.",
         "Implement accessor 'getFlightCode()'.",
         "In 'main', schedule flight 'HY-051'.",
@@ -3963,7 +4899,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>FlightScheduler</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>FlightScheduler</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -3973,15 +4915,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "46-60: Constructor Fundamentals",
     "title": {
       "uz": "60. WIUT SRS — Talaba Ro'yxatdan O'tkazuvchi To'liq Konstruktor (Master)",
-      "en": "60. WIUT SRS — Comprehensive Validating Registration Constructor Master"
+      "en": "60. WIUT SRS — Comprehensive Validating Registration Constructor Master",
+      "ru": "60. WIUT SRS — Мастер конструктора регистрации комплексной проверки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalaba yaratilganda ID (bo'sh bo'lmasligi), ism (trim qilinishi) va boshlang'ich kreditlar (0 dan kam bo'lmasligi) tekshiriladi. Barcha shartlarni bitta mustahkam konstruktorda bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'EnrolledStudent' sinfini 'studentId', 'fullName', 'credits' xususiy maydonlari bilan yarating.\n\n2. 3 parametrli 'public EnrolledStudent(String studentId, String fullName, int credits)' master konstruktorida: ismni 'trim()' qiling va kredit 0 dan kichik bo'lsa 0 ga tenglang.\n\n3. 'public String getProfileSummary()' metodida talabaning to'liq ismi, ID raqami va kreditlar sonini birlashtirib namunadagi xulosani qaytaring.\n\n4. 'Main' metodida '00015522', '  Jasur  ', 60 bilan talabani initsializatsiya qiling.\n\n5. Konsolga talaba profilini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nMaster student registration constructor validating ID, sanitizing name, and checking credit bounds.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'EnrolledStudent' with studentId, fullName, and credits fields.\n\n2. Implement master constructor applying complete trimming and non-negative credit validation.\n\n3. Implement summary accessor 'getProfileSummary()'.\n\n4. In 'main', instantiate student with '00015522', '  Jasur  ', and 60 credits.\n\n5. Print verified profile summary to console."
+      "en": "📖 Real-World Scenario & Context\nMaster student registration constructor validating ID, sanitizing name, and checking credit bounds.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'EnrolledStudent' with studentId, fullName, and credits fields.\n\n2. Implement master constructor applying complete trimming and non-negative credit validation.\n\n3. Implement summary accessor 'getProfileSummary()'.\n\n4. In 'main', instantiate student with '00015522', '  Jasur  ', and 60 credits.\n\n5. Print verified profile summary to console.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор регистрации студентов магистратуры, проверяющий удостоверение личности, очищающий имя и проверяющий границы кредита.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс EnrolledStudent с полями StudentId, FullName и Credits.\n2. Реализуйте главный конструктор, применяющий полную обрезку и неотрицательную проверку кредитоспособности.\n3. Реализуйте метод доступа к сводке getProfileSummary().\n4. В «основном» экземпляре ученика с «00015522», «Джасур» и 60 кредитами.\n5. Print verified profile summary to console."
     },
     "story": {
       "uz": "Talaba yaratilganda ID (bo'sh bo'lmasligi), ism (trim qilinishi) va boshlang'ich kreditlar (0 dan kam bo'lmasligi) tekshiriladi. Barcha shartlarni bitta mustahkam konstruktorda bajaring.",
-      "en": "Master student registration constructor validating ID, sanitizing name, and checking credit bounds."
+      "en": "Master student registration constructor validating ID, sanitizing name, and checking credit bounds.",
+      "ru": "Конструктор регистрации студентов магистратуры, проверяющий удостоверение личности, очищающий имя и проверяющий границы кредита."
     },
     "steps": {
       "uz": [
@@ -3996,6 +4941,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement master constructor applying complete trimming and non-negative credit validation.",
         "Implement summary accessor 'getProfileSummary()'.",
         "In 'main', instantiate student with '00015522', '  Jasur  ', and 60 credits.",
+        "Print verified profile summary to console."
+      ],
+      "ru": [
+        "Объявите класс EnrolledStudent с полями StudentId, FullName и Credits.",
+        "Реализуйте главный конструктор, применяющий полную обрезку и неотрицательную проверку кредитоспособности.",
+        "Реализуйте метод доступа к сводке getProfileSummary().",
+        "В «основном» экземпляре ученика с «00015522», «Джасур» и 60 кредитами.",
         "Print verified profile summary to console."
       ]
     },
@@ -4031,7 +4983,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>EnrolledStudent</code>: WIUT standartlariga mos konstruktor va metod arxitekturasi."
       ],
       "pitfalls": "Konstruktor yaratilganda Java sukutdagi (default) parametrsiz konstruktorni avtomatik o'chirib yuboradi; agar bo'sh konstruktor kerak bo'lsa uni ochiq e'lon qiling.",
-      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring."
+      "cw2Tip": "CW2 Console Order Applicationda ob'yektlar noto'g'ri holatda yaratilishining oldini olish uchun konstruktorda to'liq validatsiya bajaring.",
+      "theoryRu": "Модификаторы доступа и конструкторы определяют инициализацию и целостность объектов. Помощники изолируют внутренние алгоритмы, а конструкторы обеспечивают начальные инварианты.",
+      "pitfallsRu": "Когда создается конструктор, Java автоматически удаляет конструктор без параметров по умолчанию; если вам нужен пустой конструктор, объявите его общедоступным.",
+      "breakdownRu": [
+        "<code>private helper / constructor</code>: Внутренняя логика скрыта внутри класса и безопасно инициализируется.",
+        "<code>EnrolledStudent</code>: WIUT-совместимый конструктор и архитектура методов."
+      ]
     }
   },
   {
@@ -4041,15 +4999,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "61. Uzum Market — Bo'sh Konstruktordan 2 Parametrli Zanjir: this(name, price)",
-      "en": "61. Uzum Market — No-Arg Chaining to Parameterized Constructor via this()"
+      "en": "61. Uzum Market — No-Arg Chaining to Parameterized Constructor via this()",
+      "ru": "61. Uzum Market — связывание без аргументов с параметризованным конструктором с помощью this()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida (Slide 24): bir konstruktordan boshqasini chaqirish uchun 'this(...)' ishlatiladi. 'Product()' konstruktori 'this(\"Standart\", 1000.0)' orqali asosiy konstruktorga yo'naltirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ProductChain' klassini xususiy (private) String toifasidagi 'name' va xususiy (private) double toifasidagi 'price' maydonlari bilan oching.\n\n2. Asosiy 2 parametrli 'public ProductChain(String name, double price)' konstruktorini yozing.\n\n3. 'this(\"Standart\", 1000.0)' chaqiruvi orqali default qiymatlarni beruvchi parametrsiz 'public ProductChain()' konstruktorini yarating.\n\n4. 'getName()' va 'getPrice()' getterlarini taqdim eting.\n\n5. 'Main' metodida boshlang'ich parametrlar bilan ob'yektni yarating, konsolga mahsulot nomi va narxini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nChain no-arg constructor to two-parameter constructor using this(...) syntax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductChain' with name and price fields.\n\n2. Write 2-parameter master constructor.\n\n3. Implement no-arg constructor delegating via 'this(\"Standart\", 1000.0)'.\n\n4. Implement accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate no-arg constructor and print results."
+      "en": "📖 Real-World Scenario & Context\nChain no-arg constructor to two-parameter constructor using this(...) syntax.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductChain' with name and price fields.\n\n2. Write 2-parameter master constructor.\n\n3. Implement no-arg constructor delegating via 'this(\"Standart\", 1000.0)'.\n\n4. Implement accessors 'getName()' and 'getPrice()'.\n\n5. In 'main', instantiate no-arg constructor and print results.",
+      "ru": "📖 Контекст и описание задачи\nСвяжите конструктор без аргументов с конструктором с двумя параметрами, используя этот(...) синтаксис.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ProductChain с полями имени и цены.\n2. Write 2-parameter master constructor.\n3. Реализуйте конструктор без аргументов, делегирующий через this («Standart», 1000.0)».\n4. Implement accessors 'getName()' and 'getPrice()'.\n5. В «main» создайте экземпляр конструктора без аргументов и распечатайте результаты."
     },
     "story": {
       "uz": "WIUT leksiyasida (Slide 24): bir konstruktordan boshqasini chaqirish uchun 'this(...)' ishlatiladi. 'Product()' konstruktori 'this(\"Standart\", 1000.0)' orqali asosiy konstruktorga yo'naltirsin.",
-      "en": "Chain no-arg constructor to two-parameter constructor using this(...) syntax."
+      "en": "Chain no-arg constructor to two-parameter constructor using this(...) syntax.",
+      "ru": "Свяжите конструктор без аргументов с конструктором с двумя параметрами, используя этот(...) синтаксис."
     },
     "steps": {
       "uz": [
@@ -4065,6 +5026,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement no-arg constructor delegating via 'this(\"Standart\", 1000.0)'.",
         "Implement accessors 'getName()' and 'getPrice()'.",
         "In 'main', instantiate no-arg constructor and print results."
+      ],
+      "ru": [
+        "Объявите класс ProductChain с полями имени и цены.",
+        "Write 2-parameter master constructor.",
+        "Реализуйте конструктор без аргументов, делегирующий через this («Standart», 1000.0)».",
+        "Implement accessors 'getName()' and 'getPrice()'.",
+        "В «main» создайте экземпляр конструктора без аргументов и распечатайте результаты."
       ]
     },
     "requirements": {
@@ -4099,7 +5067,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ProductChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>ProductChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4109,15 +5083,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "62. Payme — this(...) Birinchi Satrda Bo'lish Qat'iy Qoidasi",
-      "en": "62. Payme — this(...) as Strictly the First Statement in Constructor"
+      "en": "62. Payme — this(...) as Strictly the First Statement in Constructor",
+      "ru": "62. Payme — это(...) как строго первое выражение в конструкторе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nJava kompilyatori qoidasi: 'Call to this() must be first statement in constructor'. Hamyon nomini qabul qiluvchi konstruktor 'this(owner, 0.0)' orqali birinchi satrda chaqirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'WalletChaining' sinfini 'owner' va 'balance' maydonlari bilan oching.\n\n2. 2 parametrli 'public WalletChaining(String owner, double balance)' master konstruktorini yozing.\n\n3. Bitta parametrli 'public WalletChaining(String owner)' konstruktorida 'this(owner, 0.0)' orqali zanjir hosil qiling.\n\n4. 'getOwner()' va 'getBalance()' getterlarini taqdim eting.\n\n5. 'Main' metodida faqat egasini berib hamyon oching va ma'lumotlarni chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nDemonstrate that this(...) constructor invocation must strictly appear on the very first line.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletChaining' with owner and balance fields.\n\n2. Write master constructor 'public WalletChaining(String owner, double balance)'.\n\n3. Implement single-param constructor chaining via 'this(owner, 0.0)'.\n\n4. Implement accessors 'getOwner()' and 'getBalance()'.\n\n5. In 'main', instantiate wallet with owner name and verify balance defaults to 0.0."
+      "en": "📖 Real-World Scenario & Context\nDemonstrate that this(...) constructor invocation must strictly appear on the very first line.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletChaining' with owner and balance fields.\n\n2. Write master constructor 'public WalletChaining(String owner, double balance)'.\n\n3. Implement single-param constructor chaining via 'this(owner, 0.0)'.\n\n4. Implement accessors 'getOwner()' and 'getBalance()'.\n\n5. In 'main', instantiate wallet with owner name and verify balance defaults to 0.0.",
+      "ru": "📖 Контекст и описание задачи\nПродемонстрируйте, что этот(...) вызов конструктора должен находиться строго в самой первой строке.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс WalletChaining с полями владельца и баланса.\n2. Напишите главный конструктор «public WalletChaining (владелец строки, двойной баланс)».\n3. Implement single-param constructor chaining via 'this(owner, 0.0)'.\n4. Реализуйте методы доступа getOwner() и getBalance().\n5. В «main» создайте экземпляр кошелька с именем владельца и проверьте, что баланс по умолчанию равен 0,0."
     },
     "story": {
       "uz": "Java kompilyatori qoidasi: 'Call to this() must be first statement in constructor'. Hamyon nomini qabul qiluvchi konstruktor 'this(owner, 0.0)' orqali birinchi satrda chaqirsin.",
-      "en": "Demonstrate that this(...) constructor invocation must strictly appear on the very first line."
+      "en": "Demonstrate that this(...) constructor invocation must strictly appear on the very first line.",
+      "ru": "Продемонстрируйте, что этот(...) вызов конструктора должен находиться строго в самой первой строке."
     },
     "steps": {
       "uz": [
@@ -4133,6 +5110,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement single-param constructor chaining via 'this(owner, 0.0)'.",
         "Implement accessors 'getOwner()' and 'getBalance()'.",
         "In 'main', instantiate wallet with owner name and verify balance defaults to 0.0."
+      ],
+      "ru": [
+        "Объявите класс WalletChaining с полями владельца и баланса.",
+        "Напишите главный конструктор «public WalletChaining (владелец строки, двойной баланс)».",
+        "Implement single-param constructor chaining via 'this(owner, 0.0)'.",
+        "Реализуйте методы доступа getOwner() и getBalance().",
+        "В «main» создайте экземпляр кошелька с именем владельца и проверьте, что баланс по умолчанию равен 0,0."
       ]
     },
     "requirements": {
@@ -4167,7 +5151,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>WalletChaining</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>WalletChaining</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4177,15 +5167,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "63. Korzinka — 3 Bosqichli Konstruktorlar Zanjiri",
-      "en": "63. Korzinka — Three-Stage Constructor Delegation Chain"
+      "en": "63. Korzinka — Three-Stage Constructor Delegation Chain",
+      "ru": "63. Корзинка — Трехэтапная цепочка делегирования конструктора"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDo'konda 3 xil usulda tovar ochiladi: 1) parametrsiz, 2) faqat nom bilan, 3) nom va narx bilan. Barcha konstruktorlar bir-biriga zanjirlangan holda oxirgi konstruktorga yo'naltirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ChainedProduct' sinfini 'name' va 'price' xususiy maydonlari bilan oching.\n\n2. 3 bosqichli konstruktorlar zanjirini tuzing: 'ChainedProduct()' -> 'this(\"Noma\\'lum\")'.\n\n3. 'ChainedProduct(String name)' -> 'this(name, 3000.0)'.\n\n4. Asosiy 'public ChainedProduct(String name, double price)' maydonlarni o'zlashtirsin.\n\n5. 'Main' metodida 'new ChainedProduct(\"Non\")' ochib, nom va standart narxni chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nImplement 3-tier constructor chain cascading from no-arg down to primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ChainedProduct' with name and price fields.\n\n2. Implement 3-stage constructor chain: () -> (name) -> (name, price).\n\n3. No-arg calls this(\"Noma'lum\"), 1-arg calls this(name, 3000.0).\n\n4. Master constructor initializes fields directly.\n\n5. In 'main', instantiate with 'Non' and print name and chained default price."
+      "en": "📖 Real-World Scenario & Context\nImplement 3-tier constructor chain cascading from no-arg down to primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ChainedProduct' with name and price fields.\n\n2. Implement 3-stage constructor chain: () -> (name) -> (name, price).\n\n3. No-arg calls this(\"Noma'lum\"), 1-arg calls this(name, 3000.0).\n\n4. Master constructor initializes fields directly.\n\n5. In 'main', instantiate with 'Non' and print name and chained default price.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте каскадную трехуровневую цепочку конструкторов от no-arg до первичного конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ChainedProduct с полями имени и цены.\n2. Реализуйте трехэтапную цепочку конструкторов: () -> (имя) -> (имя, цена).\n3. No-arg вызывает this(\"Noma'lum\"), 1-arg вызывает this(name, 3000.0).\n4. Главный конструктор инициализирует поля напрямую.\n5. В «main» создайте экземпляр с «Non» и напечатайте имя и связанную цену по умолчанию."
     },
     "story": {
       "uz": "Do'konda 3 xil usulda tovar ochiladi: 1) parametrsiz, 2) faqat nom bilan, 3) nom va narx bilan. Barcha konstruktorlar bir-biriga zanjirlangan holda oxirgi konstruktorga yo'naltirsin.",
-      "en": "Implement 3-tier constructor chain cascading from no-arg down to primary constructor."
+      "en": "Implement 3-tier constructor chain cascading from no-arg down to primary constructor.",
+      "ru": "Реализуйте каскадную трехуровневую цепочку конструкторов от no-arg до первичного конструктора."
     },
     "steps": {
       "uz": [
@@ -4201,6 +5194,13 @@ window.OOP_CHALLENGES_W2 = [
         "No-arg calls this(\"Noma'lum\"), 1-arg calls this(name, 3000.0).",
         "Master constructor initializes fields directly.",
         "In 'main', instantiate with 'Non' and print name and chained default price."
+      ],
+      "ru": [
+        "Объявите класс ChainedProduct с полями имени и цены.",
+        "Реализуйте трехэтапную цепочку конструкторов: () -> (имя) -> (имя, цена).",
+        "No-arg вызывает this(\"Noma'lum\"), 1-arg вызывает this(name, 3000.0).",
+        "Главный конструктор инициализирует поля напрямую.",
+        "В «main» создайте экземпляр с «Non» и напечатайте имя и связанную цену по умолчанию."
       ]
     },
     "requirements": {
@@ -4235,7 +5235,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ChainedProduct</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>ChainedProduct</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4245,15 +5251,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "64. Yandex Go — Sukutdagi Miqdor Bilan 4 Bosqichli Zanjir",
-      "en": "64. Yandex Go — 4-Stage Cascade with Default Quantity Parameter"
+      "en": "64. Yandex Go — 4-Stage Cascade with Default Quantity Parameter",
+      "ru": "64. Yandex Go — 4-ступенчатый каскад с параметром количества по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTaksi ehtiyot qismlari omborida miqdor aytilmasa 1 dona deb olinadi. 4 ta konstruktorni zanjirlab eng to'liq 'CarPart(name, price, qty, inStock)' ga yetib boring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CarPart' klassini 'name', 'price', 'quantity' maydonlari bilan oching.\n\n2. To'liq 3 parametrli 'public CarPart(String name, double price, int quantity)' konstruktorini yozing.\n\n3. 2 parametrli 'public CarPart(String name, double price)' konstruktorida 'this(name, price, 1)' orqali sukutdagi 1 dona miqdorini bering.\n\n4. 'getName()' va 'getQuantity()' getterlarini taqdim eting.\n\n5. 'Main' metodida ehtiyot qismini yaratib, sukutdagi miqdori 1 dona ekanini tasdiqlang.",
-      "en": "📖 Real-World Scenario & Context\nCascade 4 overloaded constructors supplying default quantity of 1 if omitted.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CarPart' with name, price, and quantity fields.\n\n2. Write 3-parameter master constructor.\n\n3. Implement 2-parameter constructor defaulting quantity to 1 via 'this(name, price, 1)'.\n\n4. Implement accessors 'getName()' and 'getQuantity()'.\n\n5. In 'main', instantiate part and print name and default quantity."
+      "en": "📖 Real-World Scenario & Context\nCascade 4 overloaded constructors supplying default quantity of 1 if omitted.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CarPart' with name, price, and quantity fields.\n\n2. Write 3-parameter master constructor.\n\n3. Implement 2-parameter constructor defaulting quantity to 1 via 'this(name, price, 1)'.\n\n4. Implement accessors 'getName()' and 'getQuantity()'.\n\n5. In 'main', instantiate part and print name and default quantity.",
+      "ru": "📖 Контекст и описание задачи\nПерегруженные конструкторы Cascade 4, предоставляющие количество по умолчанию, равное 1, если опущено.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CarPart с полями имени, цены и количества.\n2. Напишите главный конструктор с 3 параметрами.\n3. Реализуйте конструктор с двумя параметрами, устанавливающий количество по умолчанию равным 1 через 'this(name, Price, 1)'.\n4. Реализуйте методы доступа getName() и getQuantity().\n5. В «main» создайте экземпляр детали и напечатайте имя и количество по умолчанию."
     },
     "story": {
       "uz": "Taksi ehtiyot qismlari omborida miqdor aytilmasa 1 dona deb olinadi. 4 ta konstruktorni zanjirlab eng to'liq 'CarPart(name, price, qty, inStock)' ga yetib boring.",
-      "en": "Cascade 4 overloaded constructors supplying default quantity of 1 if omitted."
+      "en": "Cascade 4 overloaded constructors supplying default quantity of 1 if omitted.",
+      "ru": "Перегруженные конструкторы Cascade 4, предоставляющие количество по умолчанию, равное 1, если опущено."
     },
     "steps": {
       "uz": [
@@ -4269,6 +5278,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 2-parameter constructor defaulting quantity to 1 via 'this(name, price, 1)'.",
         "Implement accessors 'getName()' and 'getQuantity()'.",
         "In 'main', instantiate part and print name and default quantity."
+      ],
+      "ru": [
+        "Объявите класс CarPart с полями имени, цены и количества.",
+        "Напишите главный конструктор с 3 параметрами.",
+        "Реализуйте конструктор с двумя параметрами, устанавливающий количество по умолчанию равным 1 через 'this(name, Price, 1)'.",
+        "Реализуйте методы доступа getName() и getQuantity().",
+        "В «main» создайте экземпляр детали и напечатайте имя и количество по умолчанию."
       ]
     },
     "requirements": {
@@ -4304,7 +5320,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CarPart</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>CarPart</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4314,15 +5336,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "65. Click — Seminar 2 Customer Zanjiri: this(name, points, balance)",
-      "en": "65. Click — Seminar 2 Customer Constructor Chaining Implementation"
+      "en": "65. Click — Seminar 2 Customer Constructor Chaining Implementation",
+      "ru": "65. Click — Семинар 2. Реализация цепочки конструктора клиентов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 rasmiy 'Customer.java' dagi zanjir: 'public Customer(String name, int points, double balance, String address) { this(name, points, balance); this.address = address; }'. Aynan shu zanjirni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ClickCustomer' sinfini 'name', 'points', 'balance', 'address' maydonlari bilan e'lon qiling.\n\n2. WIUT Seminar 2 'Customer.java' andazasi: 3 parametrli 'public ClickCustomer(String name, int points, double balance)' konstruktorini yozing.\n\n3. 4 parametrli 'public ClickCustomer(String name, int points, double balance, String address)' konstruktorida mavjud 3 parametrli konstruktorni chaqirib, so'ng manzilni maydonga o'zlashtirish orqali zanjir hosil qiling.\n\n4. 'getName()' va 'getAddress()' getterlarini bering.\n\n5. 'Main' metodida 4 parametrli mijoz yaratib ma'lumotlarni konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nImplement Seminar 2 Customer constructor chaining pattern where 4-arg delegates to 3-arg constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClickCustomer' matching Seminar 2 Customer fields.\n\n2. Write 3-parameter constructor initializing name, points, balance.\n\n3. Implement 4-parameter constructor chaining: mavjud 3 parametrli konstruktorni chaqirib, so'ng manzilni maydonga o'zlashtirish.\n\n4. Implement accessors 'getName()' and 'getAddress()'.\n\n5. In 'main', instantiate 4-parameter customer and print summary."
+      "en": "📖 Real-World Scenario & Context\nImplement Seminar 2 Customer constructor chaining pattern where 4-arg delegates to 3-arg constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ClickCustomer' matching Seminar 2 Customer fields.\n\n2. Write 3-parameter constructor initializing name, points, balance.\n\n3. Implement 4-parameter constructor chaining: mavjud 3 parametrli konstruktorni chaqirib, so'ng manzilni maydonga o'zlashtirish.\n\n4. Implement accessors 'getName()' and 'getAddress()'.\n\n5. In 'main', instantiate 4-parameter customer and print summary.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте шаблон цепочки конструкторов клиентов семинара 2, в котором делегирование с 4 аргументами конструктору с 3 аргументами.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ClickCustomer, соответствующий полям «Клиент» семинара 2.\n2. Напишите трехпараметрический конструктор, инициализирующий имя, баллы и баланс.\n3. Реализуйте цепочку конструкторов с 4 параметрами: добавьте 3 конструктора chaqirib, чтобы получить больше возможностей.\n4. Реализуйте методы доступа getName() и getAddress().\n5. В «main» создайте экземпляр клиента с 4 параметрами и распечатайте сводку."
     },
     "story": {
       "uz": "Seminar 2 rasmiy 'Customer.java' dagi zanjir: 'public Customer(String name, int points, double balance, String address) { this(name, points, balance); this.address = address; }'. Aynan shu zanjirni bajaring.",
-      "en": "Implement Seminar 2 Customer constructor chaining pattern where 4-arg delegates to 3-arg constructor."
+      "en": "Implement Seminar 2 Customer constructor chaining pattern where 4-arg delegates to 3-arg constructor.",
+      "ru": "Реализуйте шаблон цепочки конструкторов клиентов семинара 2, в котором делегирование с 4 аргументами конструктору с 3 аргументами."
     },
     "steps": {
       "uz": [
@@ -4338,6 +5363,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 4-parameter constructor chaining: mavjud 3 parametrli konstruktorni chaqirib, so'ng manzilni maydonga o'zlashtirish.",
         "Implement accessors 'getName()' and 'getAddress()'.",
         "In 'main', instantiate 4-parameter customer and print summary."
+      ],
+      "ru": [
+        "Объявите класс ClickCustomer, соответствующий полям «Клиент» семинара 2.",
+        "Напишите трехпараметрический конструктор, инициализирующий имя, баллы и баланс.",
+        "Реализуйте цепочку конструкторов с 4 параметрами: добавьте 3 конструктора chaqirib, чтобы получить больше возможностей.",
+        "Реализуйте методы доступа getName() и getAddress().",
+        "В «main» создайте экземпляр клиента с 4 параметрами и распечатайте сводку."
       ]
     },
     "requirements": {
@@ -4374,7 +5406,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ClickCustomer</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>ClickCustomer</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4384,15 +5422,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "66. Safia — Zanjir Orqali Barcha Validatsiyani 1 Joyda Markazlashtirish",
-      "en": "66. Safia — Centralized Validation via Master Constructor Delegation"
+      "en": "66. Safia — Centralized Validation via Master Constructor Delegation",
+      "ru": "66. Safia — централизованная проверка через делегирование главного конструктора."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAgar 3 ta konstruktor bo'lsa, har birida 'if (price < 0)' yozish xatodir. Qisqa konstruktorlar 'this(...)' orqali master konstruktorga borsa, tekshiruv faqat 1 ta joyda amalga oshadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CentralizedCake' sinfini xususiy (private) double toifasidagi 'price' maydoni bilan oching.\n\n2. Parametrsiz 'public CentralizedCake()' konstruktorida 'this(0.0)' chaqiring.\n\n3. Asosiy 'public CentralizedCake(double price)' konstruktorida validatsiyani markazlashtiring: 'this' orqali 'price' maydoniga qiymat bering.\n\n4. 'public double getPrice()' getterini yozing.\n\n5. 'Main' metodida -10000.0 narx berib, 0.0 ga xavfsiz to'g'rilanganini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nFunnel all constructor paths through one master constructor where validation resides.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CentralizedCake' with private double field 'price'.\n\n2. Implement no-arg constructor chaining to 'this(0.0)'.\n\n3. Centralize input validation in master constructor clamping negative to 0.0.\n\n4. Implement accessor 'getPrice()'.\n\n5. In 'main', pass -10000.0 and verify clamped 0.0 result."
+      "en": "📖 Real-World Scenario & Context\nFunnel all constructor paths through one master constructor where validation resides.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CentralizedCake' with private double field 'price'.\n\n2. Implement no-arg constructor chaining to 'this(0.0)'.\n\n3. Centralize input validation in master constructor clamping negative to 0.0.\n\n4. Implement accessor 'getPrice()'.\n\n5. In 'main', pass -10000.0 and verify clamped 0.0 result.",
+      "ru": "📖 Контекст и описание задачи\nНаправьте все пути конструктора через один главный конструктор, в котором находится проверка.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CentralizedCake» с частным двойным полем «цена».\n2. Реализуйте цепочку конструкторов без аргументов к «this(0.0)».\n3. Централизовать проверку ввода в главном конструкторе, зафиксировав отрицательное значение на 0,0.\n4. Реализуйте метод доступа getPrice().\n5. В «main» передайте -10000.0 и проверьте зафиксированный результат 0,0."
     },
     "story": {
       "uz": "Agar 3 ta konstruktor bo'lsa, har birida 'if (price < 0)' yozish xatodir. Qisqa konstruktorlar 'this(...)' orqali master konstruktorga borsa, tekshiruv faqat 1 ta joyda amalga oshadi.",
-      "en": "Funnel all constructor paths through one master constructor where validation resides."
+      "en": "Funnel all constructor paths through one master constructor where validation resides.",
+      "ru": "Направьте все пути конструктора через один главный конструктор, в котором находится проверка."
     },
     "steps": {
       "uz": [
@@ -4408,6 +5449,13 @@ window.OOP_CHALLENGES_W2 = [
         "Centralize input validation in master constructor clamping negative to 0.0.",
         "Implement accessor 'getPrice()'.",
         "In 'main', pass -10000.0 and verify clamped 0.0 result."
+      ],
+      "ru": [
+        "Объявите класс «CentralizedCake» с частным двойным полем «цена».",
+        "Реализуйте цепочку конструкторов без аргументов к «this(0.0)».",
+        "Централизовать проверку ввода в главном конструкторе, зафиксировав отрицательное значение на 0,0.",
+        "Реализуйте метод доступа getPrice().",
+        "В «main» передайте -10000.0 и проверьте зафиксированный результат 0,0."
       ]
     },
     "requirements": {
@@ -4440,7 +5488,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CentralizedCake</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>CentralizedCake</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4450,15 +5504,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "67. Dodo Pizza — Parametr Turlari Bo'yicha Qayta Yuklash (int id vs String code)",
-      "en": "67. Dodo Pizza — Constructor Overloading by Distinct Parameter Types"
+      "en": "67. Dodo Pizza — Constructor Overloading by Distinct Parameter Types",
+      "ru": "67. Dodo Pizza — перегрузка конструктора разными типами параметров"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLeksiyada (Slide 24): konstruktorlar parametrlari turlari bilan farqlanishi mumkin. Biri raqamli buyurtma id ('105'), ikkinchisi matnli kod ('ORD-105') qabul qiluvchi 2 ta konstruktorni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'OrderIdentifier' klassini xususiy (private) String toifasidagi 'code' maydoni bilan e'lon qiling.\n\n2. Butun son qabul qiluvchi 'public OrderIdentifier(int id)' konstruktorida 'this' orqali 'code' maydoniga qiymat bering qiling.\n\n3. Satr qabul qiluvchi 'public OrderIdentifier(String code)' konstruktorida 'this' orqali 'code' maydoniga qiymat bering qiling.\n\n4. 'public String getCode()' getterini yozing.\n\n5. 'Main' metodida ikkala konstruktorni ham ishlatib kodlarni konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nOverload constructor with int identifier and String identifier converting int to string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderIdentifier' with private String field 'code'.\n\n2. Implement constructor overloading by type: (int id) prepending 'ORD-'.\n\n3. Implement constructor overloading by type: (String code) direct assignment.\n\n4. Implement accessor 'getCode()'.\n\n5. In 'main', instantiate both constructor variants and print results."
+      "en": "📖 Real-World Scenario & Context\nOverload constructor with int identifier and String identifier converting int to string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderIdentifier' with private String field 'code'.\n\n2. Implement constructor overloading by type: (int id) prepending 'ORD-'.\n\n3. Implement constructor overloading by type: (String code) direct assignment.\n\n4. Implement accessor 'getCode()'.\n\n5. In 'main', instantiate both constructor variants and print results.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор перегрузки с идентификатором int и идентификатором String, преобразующий int в строку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderIdentifier с частным строковым полем «code».\n2. Реализуйте перегрузку конструктора по типу: (int id) с добавлением 'ORD-'.\n3. Implement constructor overloading by type: (String code) direct assignment.\n4. Implement accessor 'getCode()'.\n5. In 'main', instantiate both constructor variants and print results."
     },
     "story": {
       "uz": "Leksiyada (Slide 24): konstruktorlar parametrlari turlari bilan farqlanishi mumkin. Biri raqamli buyurtma id ('105'), ikkinchisi matnli kod ('ORD-105') qabul qiluvchi 2 ta konstruktorni yozing.",
-      "en": "Overload constructor with int identifier and String identifier converting int to string."
+      "en": "Overload constructor with int identifier and String identifier converting int to string.",
+      "ru": "Конструктор перегрузки с идентификатором int и идентификатором String, преобразующий int в строку."
     },
     "steps": {
       "uz": [
@@ -4471,6 +5528,13 @@ window.OOP_CHALLENGES_W2 = [
       "en": [
         "Declare class 'OrderIdentifier' with private String field 'code'.",
         "Implement constructor overloading by type: (int id) prepending 'ORD-'.",
+        "Implement constructor overloading by type: (String code) direct assignment.",
+        "Implement accessor 'getCode()'.",
+        "In 'main', instantiate both constructor variants and print results."
+      ],
+      "ru": [
+        "Объявите класс OrderIdentifier с частным строковым полем «code».",
+        "Реализуйте перегрузку конструктора по типу: (int id) с добавлением 'ORD-'.",
         "Implement constructor overloading by type: (String code) direct assignment.",
         "Implement accessor 'getCode()'.",
         "In 'main', instantiate both constructor variants and print results."
@@ -4506,7 +5570,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>OrderIdentifier</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>OrderIdentifier</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4516,15 +5586,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "68. Texnomart — Parametrlar Tartibi va Rollari Bo'yicha Qayta Yuklash",
-      "en": "68. Texnomart — Parameter Ordering and Role Differentiated Overloading"
+      "en": "68. Texnomart — Parameter Ordering and Role Differentiated Overloading",
+      "ru": "68. Texnomart — упорядочение параметров и дифференцированная по ролям перегрузка"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBitta konstruktor (nom, narx), ikkinchisi esa (nom, narx, kafolatOyi) qabul qiladi. Qisqasi 'this(nom, narx, 12)' orqali standart 12 oy kafolat beruvchi zanjirni yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ApplianceWarranty' sinfini 'name', 'price', 'warrantyMonths' maydonlari bilan yarating.\n\n2. 3 parametrli 'public ApplianceWarranty(String name, double price, int warrantyMonths)' master konstruktorini yozing.\n\n3. 2 parametrli 'public ApplianceWarranty(String name, double price)' konstruktorida 'this(name, price, 12)' orqali 12 oylik kafolatni o'rnating.\n\n4. 'getName()' va 'getWarrantyMonths()' getterlarini taqdim eting.\n\n5. 'Main' metodida mahsulot yaratib, sukutdagi 12 oylik kafolatni chop eting.",
-      "en": "📖 Real-World Scenario & Context\nOverload constructors providing default 12-month warranty when omitted.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ApplianceWarranty' with name, price, and warrantyMonths fields.\n\n2. Write master constructor 'public ApplianceWarranty(String name, double price, int warrantyMonths)'.\n\n3. Implement 2-parameter constructor chaining: 'this(name, price, 12)'.\n\n4. Implement accessors 'getName()' and 'getWarrantyMonths()'.\n\n5. In 'main', instantiate item and print warranty period."
+      "en": "📖 Real-World Scenario & Context\nOverload constructors providing default 12-month warranty when omitted.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ApplianceWarranty' with name, price, and warrantyMonths fields.\n\n2. Write master constructor 'public ApplianceWarranty(String name, double price, int warrantyMonths)'.\n\n3. Implement 2-parameter constructor chaining: 'this(name, price, 12)'.\n\n4. Implement accessors 'getName()' and 'getWarrantyMonths()'.\n\n5. In 'main', instantiate item and print warranty period.",
+      "ru": "📖 Контекст и описание задачи\nКонструкторы перегрузки предоставляют 12-месячную гарантию по умолчанию, если их не использовать.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ApplianceWarranty с полями имени, цены и гарантированности месяцев.\n2. Write master constructor 'public ApplianceWarranty(String name, double price, int warrantyMonths)'.\n3. Реализуйте цепочку конструкторов с двумя параметрами: «this(name, Price, 12)».\n4. Реализуйте методы доступа getName() и getWarrantyMonths().\n5. В «основном» создайте экземпляр элемента и распечатайте гарантийный срок."
     },
     "story": {
       "uz": "Bitta konstruktor (nom, narx), ikkinchisi esa (nom, narx, kafolatOyi) qabul qiladi. Qisqasi 'this(nom, narx, 12)' orqali standart 12 oy kafolat beruvchi zanjirni yarating.",
-      "en": "Overload constructors providing default 12-month warranty when omitted."
+      "en": "Overload constructors providing default 12-month warranty when omitted.",
+      "ru": "Конструкторы перегрузки предоставляют 12-месячную гарантию по умолчанию, если их не использовать."
     },
     "steps": {
       "uz": [
@@ -4540,6 +5613,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement 2-parameter constructor chaining: 'this(name, price, 12)'.",
         "Implement accessors 'getName()' and 'getWarrantyMonths()'.",
         "In 'main', instantiate item and print warranty period."
+      ],
+      "ru": [
+        "Объявите класс ApplianceWarranty с полями имени, цены и гарантированности месяцев.",
+        "Write master constructor 'public ApplianceWarranty(String name, double price, int warrantyMonths)'.",
+        "Реализуйте цепочку конструкторов с двумя параметрами: «this(name, Price, 12)».",
+        "Реализуйте методы доступа getName() и getWarrantyMonths().",
+        "В «основном» создайте экземпляр элемента и распечатайте гарантийный срок."
       ]
     },
     "requirements": {
@@ -4575,7 +5655,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ApplianceWarranty</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>ApplianceWarranty</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4585,15 +5671,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "69. Medion — Nusxa Oluvchi Konstruktor (Copy Constructor)",
-      "en": "69. Medion — Copy Constructor Duplicating Entity State"
+      "en": "69. Medion — Copy Constructor Duplicating Entity State",
+      "ru": "69. Medion — конструктор копирования, дублирующий состояние сущности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBemorning eski qabul varaqasi asosida yangi qabul nusxasini yaratish uchun 'PatientRecord(PatientRecord other)' nusxa oluvchi konstruktorini yozing. U mavjud ob'yekt maydonlarini ko'chiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PatientRecord' sinfini 'name' va 'age' xususiy maydonlari bilan oching.\n\n2. Parametrli 'public PatientRecord(String name, int age)' konstruktorini yozing.\n\n3. Nusxa konstruktori (Copy Constructor): 'public PatientRecord(PatientRecord other)' ichida 'this(other.name, other.age)' orqali holatni klonlang.\n\n4. 'getName()' va 'getAge()' getterlarini bering.\n\n5. 'Main' metodida birinchi bemordan nusxa olib, nusxa ob'yektining ma'lumotlarini chop eting.",
-      "en": "📖 Real-World Scenario & Context\nImplement copy constructor taking existing instance and duplicating fields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PatientRecord' with name and age fields.\n\n2. Write standard constructor 'public PatientRecord(String name, int age)'.\n\n3. Implement copy constructor 'public PatientRecord(PatientRecord other)' chaining via 'this(other.name, other.age)'.\n\n4. Implement accessors 'getName()' and 'getAge()'.\n\n5. In 'main', copy record and print cloned state."
+      "en": "📖 Real-World Scenario & Context\nImplement copy constructor taking existing instance and duplicating fields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PatientRecord' with name and age fields.\n\n2. Write standard constructor 'public PatientRecord(String name, int age)'.\n\n3. Implement copy constructor 'public PatientRecord(PatientRecord other)' chaining via 'this(other.name, other.age)'.\n\n4. Implement accessors 'getName()' and 'getAge()'.\n\n5. In 'main', copy record and print cloned state.",
+      "ru": "📖 Контекст и описание задачи\nРеализуйте конструктор копирования, использующий существующий экземпляр и дублирующий поля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PatientRecord с полями имени и возраста.\n2. Напишите стандартный конструктор «public PatientRecord (имя строки, int age)».\n3. Implement copy constructor 'public PatientRecord(PatientRecord other)' chaining via 'this(other.name, other.age)'.\n4. Implement accessors 'getName()' and 'getAge()'.\n5. В «основном» скопируйте запись и распечатайте клонированное состояние."
     },
     "story": {
       "uz": "Bemorning eski qabul varaqasi asosida yangi qabul nusxasini yaratish uchun 'PatientRecord(PatientRecord other)' nusxa oluvchi konstruktorini yozing. U mavjud ob'yekt maydonlarini ko'chiradi.",
-      "en": "Implement copy constructor taking existing instance and duplicating fields."
+      "en": "Implement copy constructor taking existing instance and duplicating fields.",
+      "ru": "Реализуйте конструктор копирования, использующий существующий экземпляр и дублирующий поля."
     },
     "steps": {
       "uz": [
@@ -4609,6 +5698,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement copy constructor 'public PatientRecord(PatientRecord other)' chaining via 'this(other.name, other.age)'.",
         "Implement accessors 'getName()' and 'getAge()'.",
         "In 'main', copy record and print cloned state."
+      ],
+      "ru": [
+        "Объявите класс PatientRecord с полями имени и возраста.",
+        "Напишите стандартный конструктор «public PatientRecord (имя строки, int age)».",
+        "Implement copy constructor 'public PatientRecord(PatientRecord other)' chaining via 'this(other.name, other.age)'.",
+        "Implement accessors 'getName()' and 'getAge()'.",
+        "В «основном» скопируйте запись и распечатайте клонированное состояние."
       ]
     },
     "requirements": {
@@ -4643,7 +5739,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PatientRecord</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "Вызов this(...) должен быть помещен в самую ПЕРВУЮ строку тела конструктора, иначе произойдет ошибка компиляции.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Konstruktorlar zanjiri kod takrorlanishini yo'qotadi, Guard Clause esa chuqur if-else ichma-ichligini to'xtatadi.",
+        "<code>PatientRecord</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4653,15 +5755,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "70. Express24 — Zanjirda Boshlang'ich Sodiqlik Balli Berish",
-      "en": "70. Express24 — Welcome Bonus Points Preset in Constructor Chain"
+      "en": "70. Express24 — Welcome Bonus Points Preset in Constructor Chain",
+      "ru": "70. Express24 — предустановленные приветственные бонусные баллы в цепочке конструкторов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYangi mijoz ro'yxatdan o'tganda faqat ismi kiritilsa, zanjirli konstruktor unga avtomatik 50 ball xush kelibsiz bonusi bilan 'this(name, 50)' deb hisob ochsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CourierClient' sinfini 'name' va 'bonusPoints' maydonlari bilan e'lon qiling.\n\n2. 2 parametrli 'public CourierClient(String name, int bonusPoints)' master konstruktorini yozing.\n\n3. Bitta parametrli 'public CourierClient(String name)' konstruktorida 'this(name, 50)' orqali xush kelibsiz bonusini bering.\n\n4. 'getName()' va 'getBonusPoints()' getterlarini bering.\n\n5. 'Main' metodida 'Dilshod' nomli yangi mijoz ochib, 50 ball berilganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nChain single-parameter user constructor to provide 50 welcome points automatically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierClient' with name and bonusPoints fields.\n\n2. Write master constructor 'public CourierClient(String name, int bonusPoints)'.\n\n3. Implement single-param constructor chaining: 'this(name, 50)'.\n\n4. Implement accessors 'getName()' and 'getBonusPoints()'.\n\n5. In 'main', instantiate client and verify welcome bonus points."
+      "en": "📖 Real-World Scenario & Context\nChain single-parameter user constructor to provide 50 welcome points automatically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierClient' with name and bonusPoints fields.\n\n2. Write master constructor 'public CourierClient(String name, int bonusPoints)'.\n\n3. Implement single-param constructor chaining: 'this(name, 50)'.\n\n4. Implement accessors 'getName()' and 'getBonusPoints()'.\n\n5. In 'main', instantiate client and verify welcome bonus points.",
+      "ru": "📖 Контекст и описание задачи\nСцепите пользовательский конструктор с одним параметром для автоматического предоставления 50 приветственных баллов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CourierClient с полями имени и бонусных баллов.\n2. Напишите главный конструктор «public CourierClient (String name, int BonusPoints)».\n3. Реализуйте цепочку конструкторов с одним параметром: «this(name, 50)».\n4. Реализуйте методы доступа getName() и getBonusPoints().\n5. В «main» создайте экземпляр клиента и проверьте приветственные бонусные баллы."
     },
     "story": {
       "uz": "Yangi mijoz ro'yxatdan o'tganda faqat ismi kiritilsa, zanjirli konstruktor unga avtomatik 50 ball xush kelibsiz bonusi bilan 'this(name, 50)' deb hisob ochsin.",
-      "en": "Chain single-parameter user constructor to provide 50 welcome points automatically."
+      "en": "Chain single-parameter user constructor to provide 50 welcome points automatically.",
+      "ru": "Сцепите пользовательский конструктор с одним параметром для автоматического предоставления 50 приветственных баллов."
     },
     "steps": {
       "uz": [
@@ -4677,6 +5782,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement single-param constructor chaining: 'this(name, 50)'.",
         "Implement accessors 'getName()' and 'getBonusPoints()'.",
         "In 'main', instantiate client and verify welcome bonus points."
+      ],
+      "ru": [
+        "Объявите класс CourierClient с полями имени и бонусных баллов.",
+        "Напишите главный конструктор «public CourierClient (String name, int BonusPoints)».",
+        "Реализуйте цепочку конструкторов с одним параметром: «this(name, 50)».",
+        "Реализуйте методы доступа getName() и getBonusPoints().",
+        "В «main» создайте экземпляр клиента и проверьте приветственные бонусные баллы."
       ]
     },
     "requirements": {
@@ -4711,7 +5823,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CourierClient</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>CourierClient</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4721,15 +5839,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "71. Asaxiy — Zanjir Orqali Faollik Holatini O'rnatish",
-      "en": "71. Asaxiy — Lifecycle Status Preset via Chained Constructor"
+      "en": "71. Asaxiy — Lifecycle Status Preset via Chained Constructor",
+      "ru": "71. Asaxy — предустановка статуса жизненного цикла через цепной конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitob xaridi boshlanganda uning holati 'NEW' bo'ladi. 'BookOrder(String book)' konstruktori 'this(book, \"NEW\")' orqali asosiy konstruktorga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BookOrderChain' sinfini 'book' va 'status' maydonlari bilan yarating.\n\n2. 2 parametrli 'public BookOrderChain(String book, String status)' master konstruktorini yozing.\n\n3. Bitta parametrli 'public BookOrderChain(String book)' konstruktorida 'this(book, \"NEW\")' deb boshlang'ich holatni o'rnating.\n\n4. 'getBook()' va 'getStatus()' getterlarini taqdim eting.\n\n5. 'Main' metodida kitob buyurtmasi holatini konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nChain book constructor supplying 'NEW' lifecycle state to primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookOrderChain' with book and status fields.\n\n2. Write master constructor 'public BookOrderChain(String book, String status)'.\n\n3. Implement single-parameter constructor chaining: 'this(book, \"NEW\")'.\n\n4. Implement accessors 'getBook()' and 'getStatus()'.\n\n5. In 'main', instantiate order and print lifecycle status."
+      "en": "📖 Real-World Scenario & Context\nChain book constructor supplying 'NEW' lifecycle state to primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookOrderChain' with book and status fields.\n\n2. Write master constructor 'public BookOrderChain(String book, String status)'.\n\n3. Implement single-parameter constructor chaining: 'this(book, \"NEW\")'.\n\n4. Implement accessors 'getBook()' and 'getStatus()'.\n\n5. In 'main', instantiate order and print lifecycle status.",
+      "ru": "📖 Контекст и описание задачи\nКонструктор цепной книги, передающий состояние жизненного цикла «НОВОЕ» первичному конструктору.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BookOrderChain с полями книги и статуса.\n2. Напишите главный конструктор «public BookOrderChain (String book, String status)».\n3. Реализуйте цепочку конструкторов с одним параметром: «this(book, «NEW»)».\n4. Реализуйте методы доступа getBook() и getStatus().\n5. В «main» создайте экземпляр заказа и распечатайте статус жизненного цикла."
     },
     "story": {
       "uz": "Kitob xaridi boshlanganda uning holati 'NEW' bo'ladi. 'BookOrder(String book)' konstruktori 'this(book, \"NEW\")' orqali asosiy konstruktorga murojaat qilsin.",
-      "en": "Chain book constructor supplying 'NEW' lifecycle state to primary constructor."
+      "en": "Chain book constructor supplying 'NEW' lifecycle state to primary constructor.",
+      "ru": "Конструктор цепной книги, передающий состояние жизненного цикла «НОВОЕ» первичному конструктору."
     },
     "steps": {
       "uz": [
@@ -4745,6 +5866,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement single-parameter constructor chaining: 'this(book, \"NEW\")'.",
         "Implement accessors 'getBook()' and 'getStatus()'.",
         "In 'main', instantiate order and print lifecycle status."
+      ],
+      "ru": [
+        "Объявите класс BookOrderChain с полями книги и статуса.",
+        "Напишите главный конструктор «public BookOrderChain (String book, String status)».",
+        "Реализуйте цепочку конструкторов с одним параметром: «this(book, «NEW»)».",
+        "Реализуйте методы доступа getBook() и getStatus().",
+        "В «main» создайте экземпляр заказа и распечатайте статус жизненного цикла."
       ]
     },
     "requirements": {
@@ -4779,7 +5907,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BookOrderChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>BookOrderChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4789,15 +5923,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "72. Kapitalbank — Milliy Valyuta (UZS) Standartli Zanjir",
-      "en": "72. Kapitalbank — National Currency Default Fallback Constructor Chain"
+      "en": "72. Kapitalbank — National Currency Default Fallback Constructor Chain",
+      "ru": "72. Капиталбанк — Цепочка конструкторов запасных вариантов дефолта национальной валюты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nValyuta ko'rsatilmaganda 'this(amount, \"UZS\")' deb chaqiriluvchi zanjirli konstruktorni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BankTransferChain' sinfini 'amount' va 'currency' maydonlari bilan oching.\n\n2. 2 parametrli 'public BankTransferChain(double amount, String currency)' master konstruktorini yozing.\n\n3. Bitta parametrli 'public BankTransferChain(double amount)' konstruktorida 'this(amount, \"UZS\")' orqali milliy valyutani standart qiling.\n\n4. 'getAmount()' va 'getCurrency()' getterlarini bering.\n\n5. 'Main' metodida 500000.0 uchun o'tkazma yaratib konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nDefault currency to UZS when not specified via constructor chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankTransferChain' with amount and currency fields.\n\n2. Write master constructor 'public BankTransferChain(double amount, String currency)'.\n\n3. Implement single-parameter constructor defaulting currency: 'this(amount, \"UZS\")'.\n\n4. Implement accessors 'getAmount()' and 'getCurrency()'.\n\n5. In 'main', instantiate transfer and print amount and currency."
+      "en": "📖 Real-World Scenario & Context\nDefault currency to UZS when not specified via constructor chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BankTransferChain' with amount and currency fields.\n\n2. Write master constructor 'public BankTransferChain(double amount, String currency)'.\n\n3. Implement single-parameter constructor defaulting currency: 'this(amount, \"UZS\")'.\n\n4. Implement accessors 'getAmount()' and 'getCurrency()'.\n\n5. In 'main', instantiate transfer and print amount and currency.",
+      "ru": "📖 Контекст и описание задачи\nВалюта по умолчанию — сум, если она не указана в цепочке конструкторов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BankTransferChain с полями суммы и валюты.\n2. Напишите главный конструктор «public BankTransferChain (двойная сумма, строковая валюта)».\n3. Реализовать конструктор с одним параметром, определяющий валюту по умолчанию: «this(amount, «UZS»)».\n4. Реализуйте методы доступа getAmount() и getCurrency().\n5. В «main» создайте экземпляр перевода и распечатайте сумму и валюту."
     },
     "story": {
       "uz": "Valyuta ko'rsatilmaganda 'this(amount, \"UZS\")' deb chaqiriluvchi zanjirli konstruktorni dasturlang.",
-      "en": "Default currency to UZS when not specified via constructor chaining."
+      "en": "Default currency to UZS when not specified via constructor chaining.",
+      "ru": "Валюта по умолчанию — сум, если она не указана в цепочке конструкторов."
     },
     "steps": {
       "uz": [
@@ -4813,6 +5950,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement single-parameter constructor defaulting currency: 'this(amount, \"UZS\")'.",
         "Implement accessors 'getAmount()' and 'getCurrency()'.",
         "In 'main', instantiate transfer and print amount and currency."
+      ],
+      "ru": [
+        "Объявите класс BankTransferChain с полями суммы и валюты.",
+        "Напишите главный конструктор «public BankTransferChain (двойная сумма, строковая валюта)».",
+        "Реализовать конструктор с одним параметром, определяющий валюту по умолчанию: «this(amount, «UZS»)».",
+        "Реализуйте методы доступа getAmount() и getCurrency().",
+        "В «main» создайте экземпляр перевода и распечатайте сумму и валюту."
       ]
     },
     "requirements": {
@@ -4847,7 +5991,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BankTransferChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>BankTransferChain</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4857,15 +6007,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "73. Beeline — Ichki Obyektni Yangidan Yaratuvchi Xavfsiz Nusxa Konstruktori",
-      "en": "73. Beeline — Defensive Copying Constructor for Sub-Objects"
+      "en": "73. Beeline — Defensive Copying Constructor for Sub-Objects",
+      "ru": "73. Билайн — конструктор защитного копирования подобъектов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAbonent nusxasi yaratilayotganda ichki xizmat ob'yekti shunchaki o'zlashtirib qo'yilmasdan, yangi 'new ServicePlan(other.plan)' sifatida xavfsiz nusxa olinsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SubscriberClone' sinfini 'name' va 'planName' maydonlari bilan yarating.\n\n2. 2 parametrli 'public SubscriberClone(String name, String planName)' konstruktorini yozing.\n\n3. Nusxa konstruktori: 'public SubscriberClone(SubscriberClone other)' ichida 'this(other.name, other.planName)' qiling.\n\n4. 'public String getPlanName()' getterini yozing.\n\n5. 'Main' metodida abonentdan nusxa olib, nusxa rejasini ekranga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nEnsure copy constructor creates an independent clone rather than sharing reference.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SubscriberClone' with name and planName fields.\n\n2. Write standard constructor 'public SubscriberClone(String name, String planName)'.\n\n3. Implement copy constructor 'public SubscriberClone(SubscriberClone other)'.\n\n4. Implement accessor 'getPlanName()'.\n\n5. In 'main', copy subscriber and print plan name."
+      "en": "📖 Real-World Scenario & Context\nEnsure copy constructor creates an independent clone rather than sharing reference.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SubscriberClone' with name and planName fields.\n\n2. Write standard constructor 'public SubscriberClone(String name, String planName)'.\n\n3. Implement copy constructor 'public SubscriberClone(SubscriberClone other)'.\n\n4. Implement accessor 'getPlanName()'.\n\n5. In 'main', copy subscriber and print plan name.",
+      "ru": "📖 Контекст и описание задачи\nУбедитесь, что конструктор копирования создает независимый клон, а не передает ссылку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SubscriberClone с полями name и planName.\n2. Напишите стандартный конструктор «public SubscriberClone (имя строки, имя плана строки)».\n3. Реализуйте конструктор копирования «public SubscriberClone (SubscriberClone Other)».\n4. Реализуйте метод доступа getPlanName().\n5. В «main» скопируйте подписчика и распечатайте имя плана."
     },
     "story": {
       "uz": "Abonent nusxasi yaratilayotganda ichki xizmat ob'yekti shunchaki o'zlashtirib qo'yilmasdan, yangi 'new ServicePlan(other.plan)' sifatida xavfsiz nusxa olinsin.",
-      "en": "Ensure copy constructor creates an independent clone rather than sharing reference."
+      "en": "Ensure copy constructor creates an independent clone rather than sharing reference.",
+      "ru": "Убедитесь, что конструктор копирования создает независимый клон, а не передает ссылку."
     },
     "steps": {
       "uz": [
@@ -4881,6 +6034,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement copy constructor 'public SubscriberClone(SubscriberClone other)'.",
         "Implement accessor 'getPlanName()'.",
         "In 'main', copy subscriber and print plan name."
+      ],
+      "ru": [
+        "Объявите класс SubscriberClone с полями name и planName.",
+        "Напишите стандартный конструктор «public SubscriberClone (имя строки, имя плана строки)».",
+        "Реализуйте конструктор копирования «public SubscriberClone (SubscriberClone Other)».",
+        "Реализуйте метод доступа getPlanName().",
+        "В «main» скопируйте подписчика и распечатайте имя плана."
       ]
     },
     "requirements": {
@@ -4914,7 +6074,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SubscriberClone</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>SubscriberClone</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4924,15 +6090,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "74. UzAirways — Mehmon, Ro'yxatdan O'tgan va Korporativ Yo'lovchi Konstruktorlari",
-      "en": "74. UzAirways — Multi-Role Passenger Constructors: Guest, Registered, Corporate"
+      "en": "74. UzAirways — Multi-Role Passenger Constructors: Guest, Registered, Corporate",
+      "ru": "74. UzAirways — Многоцелевые пассажирские конструкторы: гостевые, зарегистрированные, корпоративные."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzAirways 3 xil profilli yo'lovchini qabul qiladi: faqat ismli (Mehmon), pasportli (Ro'yxatdan o'tgan) va korporativ kompaniya nomli. 3 ta konstruktor zanjirini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PassengerProfile' sinfini 'name' va 'type' maydonlari bilan e'lon qiling.\n\n2. 2 parametrli 'public PassengerProfile(String name, String type)' master konstruktorini yozing.\n\n3. Bitta parametrli 'public PassengerProfile(String name)' konstruktorida 'this(name, \"GUEST\")' deb standart toifani bering.\n\n4. 'getName()' va 'getType()' getterlarini taqdim eting.\n\n5. 'Main' metodida yo'lovchi profilini ochib toifasini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nOverload constructors for Guest, Registered, and Corporate passenger categories.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PassengerProfile' with name and type fields.\n\n2. Write master constructor 'public PassengerProfile(String name, String type)'.\n\n3. Implement single-parameter constructor defaulting type: 'this(name, \"GUEST\")'.\n\n4. Implement accessors 'getName()' and 'getType()'.\n\n5. In 'main', instantiate passenger and print type."
+      "en": "📖 Real-World Scenario & Context\nOverload constructors for Guest, Registered, and Corporate passenger categories.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PassengerProfile' with name and type fields.\n\n2. Write master constructor 'public PassengerProfile(String name, String type)'.\n\n3. Implement single-parameter constructor defaulting type: 'this(name, \"GUEST\")'.\n\n4. Implement accessors 'getName()' and 'getType()'.\n\n5. In 'main', instantiate passenger and print type.",
+      "ru": "📖 Контекст и описание задачи\nКонструкторы перегрузки для категорий гостей, зарегистрированных и корпоративных пассажиров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PassengerProfile с полями имени и типа.\n2. Напишите главный конструктор «public PassengerProfile (имя строки, тип строки)».\n3. Реализуйте тип по умолчанию конструктора с одним параметром: «this(name, «GUEST»)».\n4. Реализуйте методы доступа getName() и getType().\n5. В «main» создайте экземпляр пассажира и тип печати."
     },
     "story": {
       "uz": "UzAirways 3 xil profilli yo'lovchini qabul qiladi: faqat ismli (Mehmon), pasportli (Ro'yxatdan o'tgan) va korporativ kompaniya nomli. 3 ta konstruktor zanjirini tuzing.",
-      "en": "Overload constructors for Guest, Registered, and Corporate passenger categories."
+      "en": "Overload constructors for Guest, Registered, and Corporate passenger categories.",
+      "ru": "Конструкторы перегрузки для категорий гостей, зарегистрированных и корпоративных пассажиров."
     },
     "steps": {
       "uz": [
@@ -4948,6 +6117,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement single-parameter constructor defaulting type: 'this(name, \"GUEST\")'.",
         "Implement accessors 'getName()' and 'getType()'.",
         "In 'main', instantiate passenger and print type."
+      ],
+      "ru": [
+        "Объявите класс PassengerProfile с полями имени и типа.",
+        "Напишите главный конструктор «public PassengerProfile (имя строки, тип строки)».",
+        "Реализуйте тип по умолчанию конструктора с одним параметром: «this(name, «GUEST»)».",
+        "Реализуйте методы доступа getName() и getType().",
+        "В «main» создайте экземпляр пассажира и тип печати."
       ]
     },
     "requirements": {
@@ -4982,7 +6158,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PassengerProfile</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>PassengerProfile</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -4992,15 +6174,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "61-75: Constructor Overloading & Chaining",
     "title": {
       "uz": "75. WIUT SRS — 5 Bosqichli Konstruktorlar Zanjirining To'liq Cho'qqisi (Master)",
-      "en": "75. WIUT SRS — 5-Level Constructor Delegation Master Architecture"
+      "en": "75. WIUT SRS — 5-Level Constructor Delegation Master Architecture",
+      "ru": "75. WIUT SRS — 5-уровневая мастер-архитектура делегирования конструктора"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalaba profili 5 xil darajada ochilishi mumkin (minimaldan to'liqgacha). Barcha 4 ta qisqa konstruktor 'this(...)' orqali yagona 5-chi to'liq master konstruktorga ulanadi va tekshiruvdan o'tadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'MasterEnrollment' sinfini 'id', 'name', 'year', 'credits' maydonlari bilan yarating.\n\n2. 4 bosqichli zanjir: 'MasterEnrollment(String id)' -> 'this(id, \"Noma\\'lum\")'.\n\n3. 'MasterEnrollment(String id, String name)' -> 'this(id, name, 1)'.\n\n4. 'MasterEnrollment(String id, String name, int year)' -> 'this(id, name, year, 0)'.\n\n5. Asosiy 4 parametrli konstruktorda maydonlarni o'zlashtirib, 'getSummary()' orqali talaba xulosasini konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nMaster 5-level constructor cascade funneling completely into one validated primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MasterEnrollment' with id, name, year, and credits fields.\n\n2. Implement 4-stage constructor cascade: (id) -> (id, name) -> (id, name, year) -> (id, name, year, credits).\n\n3. Each chained constructor supplies respective safe defaults.\n\n4. Implement summary accessor 'getSummary()'.\n\n5. In 'main', test single-parameter master enrollment and print summary."
+      "en": "📖 Real-World Scenario & Context\nMaster 5-level constructor cascade funneling completely into one validated primary constructor.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MasterEnrollment' with id, name, year, and credits fields.\n\n2. Implement 4-stage constructor cascade: (id) -> (id, name) -> (id, name, year) -> (id, name, year, credits).\n\n3. Each chained constructor supplies respective safe defaults.\n\n4. Implement summary accessor 'getSummary()'.\n\n5. In 'main', test single-parameter master enrollment and print summary.",
+      "ru": "📖 Контекст и описание задачи\nОсвойте пятиуровневый каскад конструкторов, полностью объединяющий один проверенный первичный конструктор.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс MasterEnrollment с полями идентификатора, имени, года и кредитов.\n2. Реализуйте четырехэтапный каскад конструкторов: (id) -> (id, имя) -> (id, имя, год) -> (id, имя, год, кредиты).\n3. Каждый связанный конструктор предоставляет соответствующие безопасные значения по умолчанию.\n4. Реализуйте метод доступа к сводке getSummary().\n5. В «main» проверьте регистрацию основного параметра с одним параметром и распечатайте сводку."
     },
     "story": {
       "uz": "Talaba profili 5 xil darajada ochilishi mumkin (minimaldan to'liqgacha). Barcha 4 ta qisqa konstruktor 'this(...)' orqali yagona 5-chi to'liq master konstruktorga ulanadi va tekshiruvdan o'tadi.",
-      "en": "Master 5-level constructor cascade funneling completely into one validated primary constructor."
+      "en": "Master 5-level constructor cascade funneling completely into one validated primary constructor.",
+      "ru": "Освойте пятиуровневый каскад конструкторов, полностью объединяющий один проверенный первичный конструктор."
     },
     "steps": {
       "uz": [
@@ -5016,6 +6201,13 @@ window.OOP_CHALLENGES_W2 = [
         "Each chained constructor supplies respective safe defaults.",
         "Implement summary accessor 'getSummary()'.",
         "In 'main', test single-parameter master enrollment and print summary."
+      ],
+      "ru": [
+        "Объявите класс MasterEnrollment с полями идентификатора, имени, года и кредитов.",
+        "Реализуйте четырехэтапный каскад конструкторов: (id) -> (id, имя) -> (id, имя, год) -> (id, имя, год, кредиты).",
+        "Каждый связанный конструктор предоставляет соответствующие безопасные значения по умолчанию.",
+        "Реализуйте метод доступа к сводке getSummary().",
+        "В «main» проверьте регистрацию основного параметра с одним параметром и распечатайте сводку."
       ]
     },
     "requirements": {
@@ -5051,7 +6243,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>MasterEnrollment</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>MasterEnrollment</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5061,15 +6259,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "76. Uzum Market — Guard Clause: 'if (price < 0) return;' va Nestingni Yo'qotish",
-      "en": "76. Uzum Market — Guard Clause Pattern Eliminating Nested Indentation"
+      "en": "76. Uzum Market — Guard Clause Pattern Eliminating Nested Indentation",
+      "ru": "76. Рынок Узум — шаблон защитного предложения, исключающий вложенные отступы"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nToza kod (Clean Code) va WIUT Seminar 2 qoidasi: xato holatni boshida tekshirib darhol 'return;' qilish (Guard Clause). Chuqur if-else ichma-ichligini yo'qotuvchi setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'GuardClausePricing' sinfini xususiy (private) double toifasidagi 'price' maydoni bilan oching.\n\n2. 'public GuardClausePricing(double price)' konstruktorini yozing.\n\n3. 'public double getPrice()' getterini yozing.\n\n4. Guard Clause andazasi: 'public void setPrice(double price)' setterida 'if (price < 0) return' tekshiruvini boshiga qo'ying va nestingdan qutuling.\n\n5. 'Main' metodida manfiy narx berib narx o'zgarmay saqlanganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nApply guard clause early return pattern to reject invalid prices cleanly.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GuardClausePricing' with private double field 'price'.\n\n2. Write constructor 'public GuardClausePricing(double price)'.\n\n3. Write accessor 'getPrice()'.\n\n4. Apply Guard Clause early return: 'if (price < 0) return; this.price = price'.\n\n5. In 'main', pass negative price and print retained value."
+      "en": "📖 Real-World Scenario & Context\nApply guard clause early return pattern to reject invalid prices cleanly.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GuardClausePricing' with private double field 'price'.\n\n2. Write constructor 'public GuardClausePricing(double price)'.\n\n3. Write accessor 'getPrice()'.\n\n4. Apply Guard Clause early return: 'if (price < 0) return; this.price = price'.\n\n5. In 'main', pass negative price and print retained value.",
+      "ru": "📖 Контекст и описание задачи\nПримените шаблон раннего возврата защитного пункта, чтобы полностью отклонить недействительные цены.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «GuardClausePricing» с частным двойным полем «цена».\n2. Напишите конструктор «public GuardClausePricing (двойная цена)».\n3. Напишите метод доступа getPrice().\n4. Применить пункт охраны, ранний возврат: 'if (price < 0) return; this.price = цена'.\n5. В «main» передайте отрицательную цену и распечатайте оставшуюся стоимость."
     },
     "story": {
       "uz": "Toza kod (Clean Code) va WIUT Seminar 2 qoidasi: xato holatni boshida tekshirib darhol 'return;' qilish (Guard Clause). Chuqur if-else ichma-ichligini yo'qotuvchi setterni yozing.",
-      "en": "Apply guard clause early return pattern to reject invalid prices cleanly."
+      "en": "Apply guard clause early return pattern to reject invalid prices cleanly.",
+      "ru": "Примените шаблон раннего возврата защитного пункта, чтобы полностью отклонить недействительные цены."
     },
     "steps": {
       "uz": [
@@ -5085,6 +6286,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getPrice()'.",
         "Apply Guard Clause early return: 'if (price < 0) return; this.price = price'.",
         "In 'main', pass negative price and print retained value."
+      ],
+      "ru": [
+        "Объявите класс «GuardClausePricing» с частным двойным полем «цена».",
+        "Напишите конструктор «public GuardClausePricing (двойная цена)».",
+        "Напишите метод доступа getPrice().",
+        "Применить пункт охраны, ранний возврат: 'if (price < 0) return; this.price = цена'.",
+        "В «main» передайте отрицательную цену и распечатайте оставшуюся стоимость."
       ]
     },
     "requirements": {
@@ -5118,7 +6326,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>GuardClausePricing</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>GuardClausePricing</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5128,15 +6342,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "77. Payme — Nol Yoki Manfiy To'lovni Rad Etuvchi Guard Clause",
-      "en": "77. Payme — Strictly Positive Transaction Invariant Guard"
+      "en": "77. Payme — Strictly Positive Transaction Invariant Guard",
+      "ru": "77. Payme — строго положительная транзакционная инвариантная защита"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme to'lovida summa 0 yoki manfiy bo'lishi aslo mumkin emas. 'if (amount <= 0)' sharti orqali to'lovni rad etuvchi va 'Amount must be positive' xabarini beruvchi metodni tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'StrictPayment' sinfini xususiy (private) double toifasidagi 'balance' maydoni bilan e'lon qiling.\n\n2. 'public StrictPayment(double balance)' konstruktorini yozing.\n\n3. 'public void pay(double amount)' metodida agar 'amount <= 0' bo'lsa 'Amount must be positive' deb ogohlantirib, darhol return qiling.\n\n4. 'public double getBalance()' getterini yozing.\n\n5. 'Main' metodida 0.0 summa to'lashga urinib ogohlantirishni ko'rsating.",
-      "en": "📖 Real-World Scenario & Context\nGuard transaction execution enforcing that payment amounts must be strictly positive.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StrictPayment' with private double field 'balance'.\n\n2. Write constructor 'public StrictPayment(double balance)'.\n\n3. In 'pay(double amount)', guard against amount <= 0 printing 'Amount must be positive'.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt zero payment and print balance."
+      "en": "📖 Real-World Scenario & Context\nGuard transaction execution enforcing that payment amounts must be strictly positive.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StrictPayment' with private double field 'balance'.\n\n2. Write constructor 'public StrictPayment(double balance)'.\n\n3. In 'pay(double amount)', guard against amount <= 0 printing 'Amount must be positive'.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt zero payment and print balance.",
+      "ru": "📖 Контекст и описание задачи\nЗащита выполнения транзакций, гарантирующая, что суммы платежей должны быть строго положительными.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «StrictPayment» с частным двойным полем «баланс».\n2. Напишите конструктор «public StrictPayment(двойной баланс)».\n3. В «pay(двойная сумма)» остерегайтесь того, чтобы сумма <= 0 печатала «Сумма должна быть положительной».\n4. Реализуйте метод доступа getBalance().\n5. В «главном» попытайтесь обнулить платеж и распечатайте баланс."
     },
     "story": {
       "uz": "Payme to'lovida summa 0 yoki manfiy bo'lishi aslo mumkin emas. 'if (amount <= 0)' sharti orqali to'lovni rad etuvchi va 'Amount must be positive' xabarini beruvchi metodni tuzing.",
-      "en": "Guard transaction execution enforcing that payment amounts must be strictly positive."
+      "en": "Guard transaction execution enforcing that payment amounts must be strictly positive.",
+      "ru": "Защита выполнения транзакций, гарантирующая, что суммы платежей должны быть строго положительными."
     },
     "steps": {
       "uz": [
@@ -5152,6 +6369,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'pay(double amount)', guard against amount <= 0 printing 'Amount must be positive'.",
         "Implement accessor 'getBalance()'.",
         "In 'main', attempt zero payment and print balance."
+      ],
+      "ru": [
+        "Объявите класс «StrictPayment» с частным двойным полем «баланс».",
+        "Напишите конструктор «public StrictPayment(двойной баланс)».",
+        "В «pay(двойная сумма)» остерегайтесь того, чтобы сумма <= 0 печатала «Сумма должна быть положительной».",
+        "Реализуйте метод доступа getBalance().",
+        "В «главном» попытайтесь обнулить платеж и распечатайте баланс."
       ]
     },
     "requirements": {
@@ -5185,7 +6409,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>StrictPayment</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>StrictPayment</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5195,15 +6425,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "78. Korzinka — Matn Bo'shligi va Minimal Uzunlik Guard Tekshiruvi",
-      "en": "78. Korzinka — Non-Blank and Minimum Character Length Guard Clause"
+      "en": "78. Korzinka — Non-Blank and Minimum Character Length Guard Clause",
+      "ru": "78. Корзинка — защитное предложение непустой и минимальной длины символов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar nomi 'null', bo'sh yoki 2 ta harfdan kam bo'lsa uni qat'iy rad etuvchi va 'Name is too short' degan ogohlantirish beruvchi himoyaviy setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ValidatedItemName' sinfini xususiy (private) String toifasidagi 'name' maydoni bilan oching.\n\n2. 'public ValidatedItemName(String name)' konstruktorini yozing.\n\n3. 'public String getName()' getterini yozing.\n\n4. 'public void setName(String name)' setterida: agar name null yoki uzunligi 2 dan kichik bo'lsa 'Name is too short' deb ogohlantirib return qiling.\n\n5. 'Main' metodida 'A' berib xatolik xabarini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nValidate string parameter checking for null, blank, and minimum 2-character requirement.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ValidatedItemName' with private String field 'name'.\n\n2. Write constructor 'public ValidatedItemName(String name)'.\n\n3. Write accessor 'getName()'.\n\n4. In 'setName(String name)', guard against null or length < 2 printing 'Name is too short'.\n\n5. In 'main', pass 'A' and verify error handling."
+      "en": "📖 Real-World Scenario & Context\nValidate string parameter checking for null, blank, and minimum 2-character requirement.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ValidatedItemName' with private String field 'name'.\n\n2. Write constructor 'public ValidatedItemName(String name)'.\n\n3. Write accessor 'getName()'.\n\n4. In 'setName(String name)', guard against null or length < 2 printing 'Name is too short'.\n\n5. In 'main', pass 'A' and verify error handling.",
+      "ru": "📖 Контекст и описание задачи\nПроверьте проверку строковых параметров на наличие нулевых, пустых значений и минимальной длины в 2 символа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ValidatedItemName с частным строковым полем name.\n2. Напишите конструктор «public ValidatedItemName (имя строки)».\n3. Напишите метод доступа getName().\n4. В «setName(String name)» следует избегать печати значения null или length < 2 «Имя слишком короткое».\n5. В «main» передайте «A» и проверьте обработку ошибок."
     },
     "story": {
       "uz": "Tovar nomi 'null', bo'sh yoki 2 ta harfdan kam bo'lsa uni qat'iy rad etuvchi va 'Name is too short' degan ogohlantirish beruvchi himoyaviy setterni yozing.",
-      "en": "Validate string parameter checking for null, blank, and minimum 2-character requirement."
+      "en": "Validate string parameter checking for null, blank, and minimum 2-character requirement.",
+      "ru": "Проверьте проверку строковых параметров на наличие нулевых, пустых значений и минимальной длины в 2 символа."
     },
     "steps": {
       "uz": [
@@ -5219,6 +6452,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getName()'.",
         "In 'setName(String name)', guard against null or length < 2 printing 'Name is too short'.",
         "In 'main', pass 'A' and verify error handling."
+      ],
+      "ru": [
+        "Объявите класс ValidatedItemName с частным строковым полем name.",
+        "Напишите конструктор «public ValidatedItemName (имя строки)».",
+        "Напишите метод доступа getName().",
+        "В «setName(String name)» следует избегать печати значения null или length < 2 «Имя слишком короткое».",
+        "В «main» передайте «A» и проверьте обработку ошибок."
       ]
     },
     "requirements": {
@@ -5252,7 +6492,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ValidatedItemName</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>ValidatedItemName</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5262,15 +6508,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "79. Yandex Go — Telefon Raqami Standartini Tekshiruvchi Guard Clause",
-      "en": "79. Yandex Go — Phone Prefix and Length Format Verification Guard"
+      "en": "79. Yandex Go — Phone Prefix and Length Format Verification Guard",
+      "ru": "79. Yandex Go — защита проверки префикса телефона и формата длины"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHaydovchi telefon raqami '+998' bilan boshlanishi va 13 belgidan iborat bo'lishi shart. Boshqa har qanday formatni rad etuvchi xavfsiz setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DriverPhoneGuard' sinfini xususiy (private) String toifasidagi 'phone' maydoni bilan oching.\n\n2. 'public DriverPhoneGuard(String phone)' konstruktorini yozing.\n\n3. 'public String getPhone()' getterini bering.\n\n4. 'public void setPhone(String phone)' setterida: agar raqam null bo'lsa yoki '+998' bilan boshlanmasa darhol return qiling.\n\n5. 'Main' metodida noto'g'ri formatdagi '901112233' ni berib, eski telefon saqlanib qolganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nValidate international prefix and exact length before storing driver phone number.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DriverPhoneGuard' with private String field 'phone'.\n\n2. Write constructor 'public DriverPhoneGuard(String phone)'.\n\n3. Write accessor 'getPhone()'.\n\n4. In 'setPhone', guard using early return if phone is null or does not start with '+998'.\n\n5. In 'main', attempt setting invalid phone and print retained phone."
+      "en": "📖 Real-World Scenario & Context\nValidate international prefix and exact length before storing driver phone number.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DriverPhoneGuard' with private String field 'phone'.\n\n2. Write constructor 'public DriverPhoneGuard(String phone)'.\n\n3. Write accessor 'getPhone()'.\n\n4. In 'setPhone', guard using early return if phone is null or does not start with '+998'.\n\n5. In 'main', attempt setting invalid phone and print retained phone.",
+      "ru": "📖 Контекст и описание задачи\nПрежде чем сохранять номер телефона водителя, проверьте международный префикс и точную длину.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс DriverPhoneGuard с частным строковым полем «телефон».\n2. Напишите конструктор «public DriverPhoneGuard (String phone)».\n3. Напишите метод доступа getPhone().\n4. В «setPhone» защитите использование раннего возврата, если номер телефона равен нулю или не начинается с «+998».\n5. В «главном» попытайтесь установить неверный телефон и распечатайте сохраненный телефон."
     },
     "story": {
       "uz": "Haydovchi telefon raqami '+998' bilan boshlanishi va 13 belgidan iborat bo'lishi shart. Boshqa har qanday formatni rad etuvchi xavfsiz setterni yozing.",
-      "en": "Validate international prefix and exact length before storing driver phone number."
+      "en": "Validate international prefix and exact length before storing driver phone number.",
+      "ru": "Прежде чем сохранять номер телефона водителя, проверьте международный префикс и точную длину."
     },
     "steps": {
       "uz": [
@@ -5286,6 +6535,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getPhone()'.",
         "In 'setPhone', guard using early return if phone is null or does not start with '+998'.",
         "In 'main', attempt setting invalid phone and print retained phone."
+      ],
+      "ru": [
+        "Объявите класс DriverPhoneGuard с частным строковым полем «телефон».",
+        "Напишите конструктор «public DriverPhoneGuard (String phone)».",
+        "Напишите метод доступа getPhone().",
+        "В «setPhone» защитите использование раннего возврата, если номер телефона равен нулю или не начинается с «+998».",
+        "В «главном» попытайтесь установить неверный телефон и распечатайте сохраненный телефон."
       ]
     },
     "requirements": {
@@ -5319,7 +6575,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>DriverPhoneGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>DriverPhoneGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5329,15 +6591,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "80. Click — Tovar Miqdori Hech Qachon Manfiy Bo'lmasligi Invarianti",
-      "en": "80. Click — Inventory Non-Negative Invariant Matching Seminar 2"
+      "en": "80. Click — Inventory Non-Negative Invariant Matching Seminar 2",
+      "ru": "80. Click — Семинар по инвентаризации неотрицательных инвариантных сопоставлений 2"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 'Product.java' rasmiy kodi: 'if (quantity < 0) { System.out.println(\"Quantity cannot be negative - quantity was not changed.\"); return; }'. Ombordagi miqdor invariantini saqlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'StockInvariantProduct' sinfini xususiy (private) int toifasidagi 'quantity' maydoni bilan oching.\n\n2. 'public StockInvariantProduct(int quantity)' konstruktorini yozing.\n\n3. 'public int getQuantity()' getterini yozing.\n\n4. Seminar 2 andazasi: 'public void setQuantity(int quantity)' setterida: agar quantity < 0 bo'lsa 'Quantity cannot be negative - quantity was not changed.' deb ogohlantirib return qiling.\n\n5. 'Main' metodida manfiy miqdor (-5) berib ogohlantirish va qoldiqni tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nGuard stock quantity preserving non-negative invariant matching Seminar 2.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StockInvariantProduct' with private int field 'quantity'.\n\n2. Write constructor 'public StockInvariantProduct(int quantity)'.\n\n3. Write accessor 'getQuantity()'.\n\n4. Apply Seminar 2 Product quantity invariant: reject negative values with warning.\n\n5. In 'main', pass -5 and print resulting state."
+      "en": "📖 Real-World Scenario & Context\nGuard stock quantity preserving non-negative invariant matching Seminar 2.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StockInvariantProduct' with private int field 'quantity'.\n\n2. Write constructor 'public StockInvariantProduct(int quantity)'.\n\n3. Write accessor 'getQuantity()'.\n\n4. Apply Seminar 2 Product quantity invariant: reject negative values with warning.\n\n5. In 'main', pass -5 and print resulting state.",
+      "ru": "📖 Контекст и описание задачи\nКоличество защитного запаса, сохраняющее неотрицательный инвариант соответствия. Семинар 2.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс StockInvariantProduct с частным полем int «количество».\n2. Напишите конструктор «public StockInvariantProduct (количество int)».\n3. Напишите метод доступа getQuantity().\n4. Применить Семинар 2. Неизменное количество продукта: отклонять отрицательные значения с предупреждением.\n5. В «main» передайте -5 и напечатайте полученное состояние."
     },
     "story": {
       "uz": "Seminar 2 'Product.java' rasmiy kodi: 'if (quantity < 0) { System.out.println(\"Quantity cannot be negative - quantity was not changed.\"); return; }'. Ombordagi miqdor invariantini saqlang.",
-      "en": "Guard stock quantity preserving non-negative invariant matching Seminar 2."
+      "en": "Guard stock quantity preserving non-negative invariant matching Seminar 2.",
+      "ru": "Количество защитного запаса, сохраняющее неотрицательный инвариант соответствия. Семинар 2."
     },
     "steps": {
       "uz": [
@@ -5353,6 +6618,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getQuantity()'.",
         "Apply Seminar 2 Product quantity invariant: reject negative values with warning.",
         "In 'main', pass -5 and print resulting state."
+      ],
+      "ru": [
+        "Объявите класс StockInvariantProduct с частным полем int «количество».",
+        "Напишите конструктор «public StockInvariantProduct (количество int)».",
+        "Напишите метод доступа getQuantity().",
+        "Применить Семинар 2. Неизменное количество продукта: отклонять отрицательные значения с предупреждением.",
+        "В «main» передайте -5 и напечатайте полученное состояние."
       ]
     },
     "requirements": {
@@ -5386,7 +6658,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>StockInvariantProduct</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>StockInvariantProduct</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5396,15 +6674,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "81. Safia — Chegirma Asl Narxdan Oshib Ketmasligi Invarianti",
-      "en": "81. Safia — Discount Cannot Exceed Base Price Invariant Check"
+      "en": "81. Safia — Discount Cannot Exceed Base Price Invariant Check",
+      "ru": "81. Safia — скидка не может превышать базовую цену, неизменяемая проверка"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nChegirma miqdori (so'mda) tovarning asl narxidan katta bo'lishi mumkin emas. Agar kassir narxdan katta chegirma bersa rad etuvchi himoyaviy metodni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PastryDiscountGuard' sinfini xususiy (private) double toifasidagi 'price' maydoni bilan oching.\n\n2. 'public PastryDiscountGuard(double price)' konstruktorini yozing.\n\n3. 'public void applyFixedDiscount(double discount)' metodida agar chegirma narxdan katta bo'lsa darhol return qiling.\n\n4. 'public double getPrice()' getterini yozing.\n\n5. 'Main' metodida 50000.0 narxdan 60000.0 chegirma o'tkazishga urinib, narx saqlanganini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nReject discount deduction if it exceeds the underlying product price.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PastryDiscountGuard' with private double field 'price'.\n\n2. Write constructor 'public PastryDiscountGuard(double price)'.\n\n3. In 'applyFixedDiscount', guard against discount exceeding base price.\n\n4. Implement accessor 'getPrice()'.\n\n5. In 'main', attempt applying 60000.0 discount on 50000.0 item and print price."
+      "en": "📖 Real-World Scenario & Context\nReject discount deduction if it exceeds the underlying product price.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PastryDiscountGuard' with private double field 'price'.\n\n2. Write constructor 'public PastryDiscountGuard(double price)'.\n\n3. In 'applyFixedDiscount', guard against discount exceeding base price.\n\n4. Implement accessor 'getPrice()'.\n\n5. In 'main', attempt applying 60000.0 discount on 50000.0 item and print price.",
+      "ru": "📖 Контекст и описание задачи\nОтклонить вычет скидки, если она превышает базовую цену продукта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PastryDiscountGuard с частным двойным полем «цена».\n2. Напишите конструктор «public PastryDiscountGuard(двойная цена)».\n3. В «applyFixedDiscount» не допускайте превышения скидки базовой цены.\n4. Реализуйте метод доступа getPrice().\n5. В разделе «Основной» попытайтесь применить скидку 60 000,0 к товару 50 000,0 и цене печати."
     },
     "story": {
       "uz": "Chegirma miqdori (so'mda) tovarning asl narxidan katta bo'lishi mumkin emas. Agar kassir narxdan katta chegirma bersa rad etuvchi himoyaviy metodni yozing.",
-      "en": "Reject discount deduction if it exceeds the underlying product price."
+      "en": "Reject discount deduction if it exceeds the underlying product price.",
+      "ru": "Отклонить вычет скидки, если она превышает базовую цену продукта."
     },
     "steps": {
       "uz": [
@@ -5420,6 +6701,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'applyFixedDiscount', guard against discount exceeding base price.",
         "Implement accessor 'getPrice()'.",
         "In 'main', attempt applying 60000.0 discount on 50000.0 item and print price."
+      ],
+      "ru": [
+        "Объявите класс PastryDiscountGuard с частным двойным полем «цена».",
+        "Напишите конструктор «public PastryDiscountGuard(двойная цена)».",
+        "В «applyFixedDiscount» не допускайте превышения скидки базовой цены.",
+        "Реализуйте метод доступа getPrice().",
+        "В разделе «Основной» попытайтесь применить скидку 60 000,0 к товару 50 000,0 и цене печати."
       ]
     },
     "requirements": {
@@ -5453,7 +6741,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>PastryDiscountGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>PastryDiscountGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5463,15 +6757,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "82. Dodo Pizza — Kuryer Yoshi Mantiqiy Oralig'i (16 dan 100 gacha)",
-      "en": "82. Dodo Pizza — Courier Age Invariant Guard (16 to 100)"
+      "en": "82. Dodo Pizza — Courier Age Invariant Guard (16 to 100)",
+      "ru": "82. Додо Пицца — Курьер, инвариантный к возрасту охранник (с 16 по 100)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMehnat qonunchiligiga ko'ra kuryer yoshi 16 dan kam yoki 100 dan katta bo'lishi mumkin emas. Mantiqsiz yosh kiritilganda qiymatni o'zgartirmasdan rad eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CourierAgeGuard' sinfini xususiy (private) int toifasidagi 'age' maydoni bilan oching.\n\n2. 'public CourierAgeGuard(int age)' konstruktorini yozing.\n\n3. 'public int getAge()' getterini yozing.\n\n4. 'public void setAge(int age)' setterida: agar yosh 18 dan kichik yoki 65 dan katta bo'lsa darhol return qiling.\n\n5. 'Main' metodida 12 yosh berib, rad etilganini ko'rsating.",
-      "en": "📖 Real-World Scenario & Context\nGuard against illogical human age values preserving 16-100 invariant.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierAgeGuard' with private int field 'age'.\n\n2. Write constructor 'public CourierAgeGuard(int age)'.\n\n3. Write accessor 'getAge()'.\n\n4. In 'setAge(int age)', guard against age < 18 or age > 65 using early return.\n\n5. In 'main', pass 12 and verify age is unchanged."
+      "en": "📖 Real-World Scenario & Context\nGuard against illogical human age values preserving 16-100 invariant.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CourierAgeGuard' with private int field 'age'.\n\n2. Write constructor 'public CourierAgeGuard(int age)'.\n\n3. Write accessor 'getAge()'.\n\n4. In 'setAge(int age)', guard against age < 18 or age > 65 using early return.\n\n5. In 'main', pass 12 and verify age is unchanged.",
+      "ru": "📖 Контекст и описание задачи\nОстерегайтесь нелогичных значений возраста человека, сохраняя инвариант 16-100.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CourierAgeGuard с частным полем int age.\n2. Напишите конструктор public CourierAgeGuard(int age)».\n3. Напишите метод доступа getAge().\n4. В 'setAge(int age)' защитите возраст < 18 или возраст > 65, используя ранний возврат.\n5. В «main» передайте 12 и убедитесь, что возраст не изменился."
     },
     "story": {
       "uz": "Mehnat qonunchiligiga ko'ra kuryer yoshi 16 dan kam yoki 100 dan katta bo'lishi mumkin emas. Mantiqsiz yosh kiritilganda qiymatni o'zgartirmasdan rad eting.",
-      "en": "Guard against illogical human age values preserving 16-100 invariant."
+      "en": "Guard against illogical human age values preserving 16-100 invariant.",
+      "ru": "Остерегайтесь нелогичных значений возраста человека, сохраняя инвариант 16-100."
     },
     "steps": {
       "uz": [
@@ -5487,6 +6784,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getAge()'.",
         "In 'setAge(int age)', guard against age < 18 or age > 65 using early return.",
         "In 'main', pass 12 and verify age is unchanged."
+      ],
+      "ru": [
+        "Объявите класс CourierAgeGuard с частным полем int age.",
+        "Напишите конструктор public CourierAgeGuard(int age)».",
+        "Напишите метод доступа getAge().",
+        "В 'setAge(int age)' защитите возраст < 18 или возраст > 65, используя ранний возврат.",
+        "В «main» передайте 12 и убедитесь, что возраст не изменился."
       ]
     },
     "requirements": {
@@ -5520,7 +6824,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CourierAgeGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>CourierAgeGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5530,15 +6840,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "83. Texnomart — Yetarli Qoldiq Mavjudligi Guard Sharti",
-      "en": "83. Texnomart — Insufficient Balance Invariant Guard"
+      "en": "83. Texnomart — Insufficient Balance Invariant Guard",
+      "ru": "83. Texnomart — Недостаточный балансовый инвариантный защитник"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHisobdan pul yechishda 'if (amount > balance)' bo'lsa tranzaksiya rad etilishi va 'Yetarli mablag' yo'q' degan xabar chiqishi shart. Balans invariantini himoyalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CustomerCreditLine' sinfini xususiy (private) double toifasidagi 'balance' maydoni bilan yarating.\n\n2. 'public CustomerCreditLine(double balance)' konstruktorini yozing.\n\n3. 'public void withdraw(double amount)' metodida agar 'amount > this.balance' bo'lsa 'Yetarli mablag\\' yo\\'q' deb ogohlantirib return qiling.\n\n4. 'public double getBalance()' getterini bering.\n\n5. 'Main' metodida 100000.0 balansdan 150000.0 yechishga urinib xabar va balansni chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nGuard against overdraft by validating that withdrawal amount does not exceed available balance.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerCreditLine' with private double field 'balance'.\n\n2. Write constructor 'public CustomerCreditLine(double balance)'.\n\n3. In 'withdraw(double amount)', guard against overdraft printing 'Yetarli mablag\\' yo\\'q'.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt over-withdrawing and print balance."
+      "en": "📖 Real-World Scenario & Context\nGuard against overdraft by validating that withdrawal amount does not exceed available balance.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerCreditLine' with private double field 'balance'.\n\n2. Write constructor 'public CustomerCreditLine(double balance)'.\n\n3. In 'withdraw(double amount)', guard against overdraft printing 'Yetarli mablag\\' yo\\'q'.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt over-withdrawing and print balance.",
+      "ru": "📖 Контекст и описание задачи\nЗащитите себя от овердрафта, проверив, что сумма вывода не превышает доступный баланс.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CustomerCreditLine» с частным двойным полем «баланс».\n2. Напишите конструктор «public CustomerCreditLine (двойной баланс)».\n3. В режиме вывода (двойная сумма) остерегайтесь печати овердрафта «Yetarli mablag\\' yo\\'q».\n4. Реализуйте метод доступа getBalance().\n5. В «главном» попытайтесь вывести слишком много средств и распечатать баланс."
     },
     "story": {
       "uz": "Hisobdan pul yechishda 'if (amount > balance)' bo'lsa tranzaksiya rad etilishi va 'Yetarli mablag' yo'q' degan xabar chiqishi shart. Balans invariantini himoyalang.",
-      "en": "Guard against overdraft by validating that withdrawal amount does not exceed available balance."
+      "en": "Guard against overdraft by validating that withdrawal amount does not exceed available balance.",
+      "ru": "Защитите себя от овердрафта, проверив, что сумма вывода не превышает доступный баланс."
     },
     "steps": {
       "uz": [
@@ -5554,6 +6867,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'withdraw(double amount)', guard against overdraft printing 'Yetarli mablag\\' yo\\'q'.",
         "Implement accessor 'getBalance()'.",
         "In 'main', attempt over-withdrawing and print balance."
+      ],
+      "ru": [
+        "Объявите класс «CustomerCreditLine» с частным двойным полем «баланс».",
+        "Напишите конструктор «public CustomerCreditLine (двойной баланс)».",
+        "В режиме вывода (двойная сумма) остерегайтесь печати овердрафта «Yetarli mablag\\' yo\\'q».",
+        "Реализуйте метод доступа getBalance().",
+        "В «главном» попытайтесь вывести слишком много средств и распечатать баланс."
       ]
     },
     "requirements": {
@@ -5587,7 +6907,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CustomerCreditLine</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>CustomerCreditLine</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5597,15 +6923,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "84. Medion — Parol Murakkabligi Invarianti (8 ta belgi va raqam)",
-      "en": "84. Medion — Password Complexity Invariant (Min 8 Characters and Digit)"
+      "en": "84. Medion — Password Complexity Invariant (Min 8 Characters and Digit)",
+      "ru": "84. Medion — инвариант сложности пароля (минимум 8 символов и цифр)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nShifokor paroli kamida 8 ta belgidan iborat bo'lishi va ichida kamida 1 ta raqam qatnashishi shart. Zaif parollarni rad etuvchi setterni yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DoctorAuthGuard' sinfini 'password' va 'changed' maydonlari bilan oching.\n\n2. 'public DoctorAuthGuard(String password)' konstruktorida 'this' orqali 'changed' maydoniga qiymat bering qiling.\n\n3. 'public void setPassword(String password)' setterida: agar parol null bo'lsa yoki uzunligi 8 dan kichik bo'lsa return qiling; aks holda parolni o'zgartirib 'this' orqali 'changed' maydoniga qiymat bering qiling.\n\n4. 'public boolean isChanged()' getterini bering.\n\n5. 'Main' metodida qisqa 'simple' parolini berib o'zgarmaganini tekshiring.",
-      "en": "📖 Real-World Scenario & Context\nValidate password strength checking for minimum 8 characters and numeric presence.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DoctorAuthGuard' with password and changed fields.\n\n2. Write constructor initializing changed flag to false.\n\n3. In 'setPassword(String password)', guard against null or length < 8 using early return.\n\n4. Implement accessor 'isChanged()'.\n\n5. In 'main', attempt setting short password and verify changed remains false."
+      "en": "📖 Real-World Scenario & Context\nValidate password strength checking for minimum 8 characters and numeric presence.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DoctorAuthGuard' with password and changed fields.\n\n2. Write constructor initializing changed flag to false.\n\n3. In 'setPassword(String password)', guard against null or length < 8 using early return.\n\n4. Implement accessor 'isChanged()'.\n\n5. In 'main', attempt setting short password and verify changed remains false.",
+      "ru": "📖 Контекст и описание задачи\nПроверьте надежность пароля на предмет наличия минимум 8 символов и цифр.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс DoctorAuthGuard с паролем и измененными полями.\n2. Напишите конструктор, инициализирующий измененный флаг значением false.\n3. В 'setPassword(String пароль)' защищайтесь от нуля или длины < 8, используя ранний возврат.\n4. Реализуйте метод доступа isChanged().\n5. В «основном» попытайтесь установить короткий пароль и убедитесь, что изменение остается ложным."
     },
     "story": {
       "uz": "Shifokor paroli kamida 8 ta belgidan iborat bo'lishi va ichida kamida 1 ta raqam qatnashishi shart. Zaif parollarni rad etuvchi setterni yozing.",
-      "en": "Validate password strength checking for minimum 8 characters and numeric presence."
+      "en": "Validate password strength checking for minimum 8 characters and numeric presence.",
+      "ru": "Проверьте надежность пароля на предмет наличия минимум 8 символов и цифр."
     },
     "steps": {
       "uz": [
@@ -5621,6 +6950,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'setPassword(String password)', guard against null or length < 8 using early return.",
         "Implement accessor 'isChanged()'.",
         "In 'main', attempt setting short password and verify changed remains false."
+      ],
+      "ru": [
+        "Объявите класс DoctorAuthGuard с паролем и измененными полями.",
+        "Напишите конструктор, инициализирующий измененный флаг значением false.",
+        "В 'setPassword(String пароль)' защищайтесь от нуля или длины < 8, используя ранний возврат.",
+        "Реализуйте метод доступа isChanged().",
+        "В «основном» попытайтесь установить короткий пароль и убедитесь, что изменение остается ложным."
       ]
     },
     "requirements": {
@@ -5655,7 +6991,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>DoctorAuthGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>DoctorAuthGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5665,15 +7007,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "85. Express24 — Email Manzili Shakli Invarianti (@ va . belgisi)",
-      "en": "85. Express24 — Email Format Invariant Guarding Customer Profile"
+      "en": "85. Express24 — Email Format Invariant Guarding Customer Profile",
+      "ru": "85. Express24 — защита профиля клиента в неизменном формате электронной почты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz elektron pochtasi ichida '@' belgisi va undan keyin nuqta '.' bo'lishi shart. Noto'g'ri elektron pochtani rad etuvchi setterni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CustomerEmailGuard' sinfini xususiy (private) String toifasidagi 'email' maydoni bilan e'lon qiling.\n\n2. 'public CustomerEmailGuard(String email)' konstruktorini yozing.\n\n3. 'public String getEmail()' getterini bering.\n\n4. 'public void setEmail(String email)' setterida: agar email null bo'lsa yoki '@' hamda '.' belgilarini o'z ichiga olmasa darhol return qiling.\n\n5. 'Main' metodida noto'g'ri 'invalidemail' berilganda eski email saqlanib qolganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nVerify that stored email string contains required @ and domain separator dot.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerEmailGuard' with private String field 'email'.\n\n2. Write constructor 'public CustomerEmailGuard(String email)'.\n\n3. Write accessor 'getEmail()'.\n\n4. In 'setEmail', guard against null or strings lacking '@' or '.' using early return.\n\n5. In 'main', pass invalid email and verify original email is preserved."
+      "en": "📖 Real-World Scenario & Context\nVerify that stored email string contains required @ and domain separator dot.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CustomerEmailGuard' with private String field 'email'.\n\n2. Write constructor 'public CustomerEmailGuard(String email)'.\n\n3. Write accessor 'getEmail()'.\n\n4. In 'setEmail', guard against null or strings lacking '@' or '.' using early return.\n\n5. In 'main', pass invalid email and verify original email is preserved.",
+      "ru": "📖 Контекст и описание задачи\nУбедитесь, что сохраненная строка электронной почты содержит обязательную @ и точку-разделитель домена.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CustomerEmailGuard» с частным строковым полем «email».\n2. Напишите конструктор «public CustomerEmailGuard(String email)».\n3. Напишите метод доступа getEmail().\n4. В 'setEmail' остерегайтесь нулевых значений или строк без '@' или '.' используя досрочный возврат.\n5. В «main» укажите недействительный адрес электронной почты и убедитесь, что исходный адрес электронной почты сохранен."
     },
     "story": {
       "uz": "Mijoz elektron pochtasi ichida '@' belgisi va undan keyin nuqta '.' bo'lishi shart. Noto'g'ri elektron pochtani rad etuvchi setterni dasturlang.",
-      "en": "Verify that stored email string contains required @ and domain separator dot."
+      "en": "Verify that stored email string contains required @ and domain separator dot.",
+      "ru": "Убедитесь, что сохраненная строка электронной почты содержит обязательную @ и точку-разделитель домена."
     },
     "steps": {
       "uz": [
@@ -5689,6 +7034,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getEmail()'.",
         "In 'setEmail', guard against null or strings lacking '@' or '.' using early return.",
         "In 'main', pass invalid email and verify original email is preserved."
+      ],
+      "ru": [
+        "Объявите класс «CustomerEmailGuard» с частным строковым полем «email».",
+        "Напишите конструктор «public CustomerEmailGuard(String email)».",
+        "Напишите метод доступа getEmail().",
+        "В 'setEmail' остерегайтесь нулевых значений или строк без '@' или '.' используя досрочный возврат.",
+        "В «main» укажите недействительный адрес электронной почты и убедитесь, что исходный адрес электронной почты сохранен."
       ]
     },
     "requirements": {
@@ -5722,7 +7074,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>CustomerEmailGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>CustomerEmailGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5732,15 +7090,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "86. Asaxiy — Yakunlangan Buyurtma Holatini Orqaga Qaytarmaslik Invarianti",
-      "en": "86. Asaxiy — Terminal Lifecycle State Invariant Guard"
+      "en": "86. Asaxiy — Terminal Lifecycle State Invariant Guard",
+      "ru": "86. Asaxy — Инвариантная защита состояния жизненного цикла терминала"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma holati 'DELIVERED' (Yetkazildi) bo'lgach, uni qayta 'PENDING' yoki 'PROCESSING' ga o'zgartirib bo'lmaydi. Yakuniy holat invariantini himoyalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'OrderLifecycleGuard' sinfini xususiy (private) String toifasidagi 'status' maydoni bilan e'lon qiling.\n\n2. 'public OrderLifecycleGuard(String status)' konstruktorini yozing.\n\n3. 'public String getStatus()' getterini yozing.\n\n4. Terminal holat qoidasi: 'public void setStatus(String status)' setterida agar joriy holat 'DELIVERED' bo'lsa hech qanday o'zgartirish qabul qilinmasdan darhol return qilinsin.\n\n5. 'Main' metodida yetkazilgan buyurtmani PENDING holatiga qaytarishga urinib ko'ring.",
-      "en": "📖 Real-World Scenario & Context\nPrevent regression from terminal DELIVERED status back to earlier processing stages.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderLifecycleGuard' with private String field 'status'.\n\n2. Write constructor 'public OrderLifecycleGuard(String status)'.\n\n3. Write accessor 'getStatus()'.\n\n4. In 'setStatus', guard against reverting terminal 'DELIVERED' state via early return.\n\n5. In 'main', attempt reverting delivered order to PENDING and verify status remains DELIVERED."
+      "en": "📖 Real-World Scenario & Context\nPrevent regression from terminal DELIVERED status back to earlier processing stages.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderLifecycleGuard' with private String field 'status'.\n\n2. Write constructor 'public OrderLifecycleGuard(String status)'.\n\n3. Write accessor 'getStatus()'.\n\n4. In 'setStatus', guard against reverting terminal 'DELIVERED' state via early return.\n\n5. In 'main', attempt reverting delivered order to PENDING and verify status remains DELIVERED.",
+      "ru": "📖 Контекст и описание задачи\nПредотвращение возврата из статуса терминала ДОСТАВЛЕНО обратно на более ранние этапы обработки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderLifecycleGuard с частным строковым полем «статус».\n2. Напишите конструктор «public OrderLifecycleGuard (String status)».\n3. Напишите метод доступа getStatus().\n4. В «setStatus» предохраняйтесь от возврата состояния терминала «DELIVERED» посредством раннего возврата.\n5. В «основном» попытайтесь вернуть доставленный заказ в состояние «ОЖИДАНИЕ» и убедитесь, что статус остается «ДОСТАВЛЕНО»."
     },
     "story": {
       "uz": "Buyurtma holati 'DELIVERED' (Yetkazildi) bo'lgach, uni qayta 'PENDING' yoki 'PROCESSING' ga o'zgartirib bo'lmaydi. Yakuniy holat invariantini himoyalang.",
-      "en": "Prevent regression from terminal DELIVERED status back to earlier processing stages."
+      "en": "Prevent regression from terminal DELIVERED status back to earlier processing stages.",
+      "ru": "Предотвращение возврата из статуса терминала ДОСТАВЛЕНО обратно на более ранние этапы обработки."
     },
     "steps": {
       "uz": [
@@ -5756,6 +7117,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getStatus()'.",
         "In 'setStatus', guard against reverting terminal 'DELIVERED' state via early return.",
         "In 'main', attempt reverting delivered order to PENDING and verify status remains DELIVERED."
+      ],
+      "ru": [
+        "Объявите класс OrderLifecycleGuard с частным строковым полем «статус».",
+        "Напишите конструктор «public OrderLifecycleGuard (String status)».",
+        "Напишите метод доступа getStatus().",
+        "В «setStatus» предохраняйтесь от возврата состояния терминала «DELIVERED» посредством раннего возврата.",
+        "В «основном» попытайтесь вернуть доставленный заказ в состояние «ОЖИДАНИЕ» и убедитесь, что статус остается «ДОСТАВЛЕНО»."
       ]
     },
     "requirements": {
@@ -5789,7 +7157,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>OrderLifecycleGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>OrderLifecycleGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5799,15 +7173,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "87. Kapitalbank — Nolga Bo'lishdan Himoya (Division by Zero Guard)",
-      "en": "87. Kapitalbank — Division by Zero Guard in Average Metric Computation"
+      "en": "87. Kapitalbank — Division by Zero Guard in Average Metric Computation",
+      "ru": "87. Капиталбанк — Деление нулевой защитой в расчете средней метрики"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nO'rtacha tranzaksiya summasini hisoblashda agar tranzaksiyalar soni 0 bo'lsa, xatolik berish o'rniga 0.0 qaytaruvchi nolga bo'linish guardini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AverageSpendingGuard' sinfini 'total' va 'count' maydonlari bilan yarating.\n\n2. 'public AverageSpendingGuard(double total, int count)' konstruktorini yozing.\n\n3. Nolga bo'lish xavfini bartaraf etuvchi Guard Clause: 'public double getAverageTxAmount()' ichida 'if (this.count == 0) return 0.0' qilib, so'ng 'this.total / this.count' ni qaytaring.\n\n4. 'Main' metodida total=0.0 va count=0 bilan tekshirib ko'ring.\n\n5. Konsolga o'rtacha summani chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nGuard average calculation against division by zero when transaction count is zero.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AverageSpendingGuard' with total and count fields.\n\n2. Write constructor 'public AverageSpendingGuard(double total, int count)'.\n\n3. In 'getAverageTxAmount()', guard against division by zero returning 0.0 if count == 0.\n\n4. In 'main', test with 0 count.\n\n5. Print average transaction amount."
+      "en": "📖 Real-World Scenario & Context\nGuard average calculation against division by zero when transaction count is zero.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AverageSpendingGuard' with total and count fields.\n\n2. Write constructor 'public AverageSpendingGuard(double total, int count)'.\n\n3. In 'getAverageTxAmount()', guard against division by zero returning 0.0 if count == 0.\n\n4. In 'main', test with 0 count.\n\n5. Print average transaction amount.",
+      "ru": "📖 Контекст и описание задачи\nЗащищайте вычисление среднего значения от деления на ноль, когда количество транзакций равно нулю.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «AverageSpendingGuard» с полями общего количества и количества.\n2. Напишите конструктор «public AverageSpendingGuard (двойная сумма, int count)».\n3. В getAverageTxAmount() предохраняйтесь от деления на ноль, возвращающего 0,0, если count == 0.\n4. В «основном» тестируйте с 0 счетчиком.\n5. Выведите среднюю сумму транзакции."
     },
     "story": {
       "uz": "O'rtacha tranzaksiya summasini hisoblashda agar tranzaksiyalar soni 0 bo'lsa, xatolik berish o'rniga 0.0 qaytaruvchi nolga bo'linish guardini yozing.",
-      "en": "Guard average calculation against division by zero when transaction count is zero."
+      "en": "Guard average calculation against division by zero when transaction count is zero.",
+      "ru": "Защищайте вычисление среднего значения от деления на ноль, когда количество транзакций равно нулю."
     },
     "steps": {
       "uz": [
@@ -5823,6 +7200,13 @@ window.OOP_CHALLENGES_W2 = [
         "In 'getAverageTxAmount()', guard against division by zero returning 0.0 if count == 0.",
         "In 'main', test with 0 count.",
         "Print average transaction amount."
+      ],
+      "ru": [
+        "Объявите класс «AverageSpendingGuard» с полями общего количества и количества.",
+        "Напишите конструктор «public AverageSpendingGuard (двойная сумма, int count)».",
+        "В getAverageTxAmount() предохраняйтесь от деления на ноль, возвращающего 0,0, если count == 0.",
+        "В «основном» тестируйте с 0 счетчиком.",
+        "Выведите среднюю сумму транзакции."
       ]
     },
     "requirements": {
@@ -5856,7 +7240,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>AverageSpendingGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>AverageSpendingGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5866,15 +7256,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "88. Beeline — Maydonlararo Mantiqiy Moslik (Raqamli Tovar Og'irligi 0)",
-      "en": "88. Beeline — Cross-Field Consistency Invariant Guard"
+      "en": "88. Beeline — Cross-Field Consistency Invariant Guard",
+      "ru": "88. «Билайн» — инвариантная защита межполевой согласованности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAgar tovar 'isDigital == true' bo'lsa, uning og'irligi 'weightKg' qat'iy 0.0 bo'lishi shart. Agar musbat og'irlik kiritilsa uni rad etuvchi invariantni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'ProductTypeConsistency' sinfini 'isDigital' va 'weightKg' maydonlari bilan oching.\n\n2. 'public ProductTypeConsistency(boolean isDigital, double weightKg)' konstruktorini yozing.\n\n3. 'public double getWeightKg()' getterini bering.\n\n4. Maydonlararo invariant: 'public void setWeightKg(double weightKg)' metodida agar 'isDigital' true bo'lsa va vazn 0 dan katta berilsa darhol return qiling.\n\n5. 'Main' metodida raqamli tovar vaznini 5.5 kg ga o'zgartirishga urinib ko'ring.",
-      "en": "📖 Real-World Scenario & Context\nMaintain cross-field invariant: digital goods cannot possess non-zero weight.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductTypeConsistency' with isDigital and weightKg fields.\n\n2. Write constructor 'public ProductTypeConsistency(boolean isDigital, double weightKg)'.\n\n3. Write accessor 'getWeightKg()'.\n\n4. Enforce cross-field invariant in 'setWeightKg': if digital product, reject weight > 0.\n\n5. In 'main', attempt assigning 5.5 kg to digital product and verify weight remains 0.0."
+      "en": "📖 Real-World Scenario & Context\nMaintain cross-field invariant: digital goods cannot possess non-zero weight.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductTypeConsistency' with isDigital and weightKg fields.\n\n2. Write constructor 'public ProductTypeConsistency(boolean isDigital, double weightKg)'.\n\n3. Write accessor 'getWeightKg()'.\n\n4. Enforce cross-field invariant in 'setWeightKg': if digital product, reject weight > 0.\n\n5. In 'main', attempt assigning 5.5 kg to digital product and verify weight remains 0.0.",
+      "ru": "📖 Контекст и описание задачи\nСохраняйте межполевой инвариант: цифровые товары не могут иметь ненулевой вес.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ProductTypeConsistency с полями isDigital и WeightKg.\n2. Напишите конструктор «public ProductTypeConsistency (логическое значение isDigital, двойной весKg)».\n3. Напишите метод доступа getWeightKg().\n4. Обеспечить межполевой инвариант в setWeightKg: если цифровой продукт, отклонять вес > 0.\n5. В «основном» попробуйте присвоить цифровому товару 5,5 кг и убедитесь, что вес остается равным 0,0."
     },
     "story": {
       "uz": "Agar tovar 'isDigital == true' bo'lsa, uning og'irligi 'weightKg' qat'iy 0.0 bo'lishi shart. Agar musbat og'irlik kiritilsa uni rad etuvchi invariantni bajaring.",
-      "en": "Maintain cross-field invariant: digital goods cannot possess non-zero weight."
+      "en": "Maintain cross-field invariant: digital goods cannot possess non-zero weight.",
+      "ru": "Сохраняйте межполевой инвариант: цифровые товары не могут иметь ненулевой вес."
     },
     "steps": {
       "uz": [
@@ -5890,6 +7283,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getWeightKg()'.",
         "Enforce cross-field invariant in 'setWeightKg': if digital product, reject weight > 0.",
         "In 'main', attempt assigning 5.5 kg to digital product and verify weight remains 0.0."
+      ],
+      "ru": [
+        "Объявите класс ProductTypeConsistency с полями isDigital и WeightKg.",
+        "Напишите конструктор «public ProductTypeConsistency (логическое значение isDigital, двойной весKg)».",
+        "Напишите метод доступа getWeightKg().",
+        "Обеспечить межполевой инвариант в setWeightKg: если цифровой продукт, отклонять вес > 0.",
+        "В «основном» попробуйте присвоить цифровому товару 5,5 кг и убедитесь, что вес остается равным 0,0."
       ]
     },
     "requirements": {
@@ -5924,7 +7324,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>ProductTypeConsistency</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>ProductTypeConsistency</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -5934,15 +7340,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "89. UzAirways — Minimal Chegara Maksimaldan Oshmasligi Invarianti",
-      "en": "89. UzAirways — Multi-Bound Capacity Invariant Enforcement"
+      "en": "89. UzAirways — Multi-Bound Capacity Invariant Enforcement",
+      "ru": "89. UzAirways — Применение инвариантов мультиграничной пропускной способности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYuk qabul qilishda minimal ruxsat etilgan vazn maksimal sig'imdan katta bo'lishi mumkin emas ('minWeight <= maxWeight'). Zid oraliqlarni rad eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'BaggageCapacityGuard' sinfini 'minWeight' va 'maxWeight' maydonlari bilan e'lon qiling.\n\n2. 'public BaggageCapacityGuard(double minWeight, double maxWeight)' konstruktorini yozing.\n\n3. 'public double getMinWeight()' getterini yozing.\n\n4. 'public void setMinWeight(double minWeight)' setterida: agar yangi minimal vazn mavjud 'maxWeight' dan katta bo'lsa darhol return qiling.\n\n5. 'Main' metodida minWeight ni 40.0 ga (max 32.0 dan katta) o'zgartirishga urinib ko'ring.",
-      "en": "📖 Real-World Scenario & Context\nEnforce multi-bound consistency invariant where minimum constraint cannot exceed maximum.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BaggageCapacityGuard' with minWeight and maxWeight fields.\n\n2. Write constructor 'public BaggageCapacityGuard(double minWeight, double maxWeight)'.\n\n3. Write accessor 'getMinWeight()'.\n\n4. In 'setMinWeight', guard against minWeight exceeding maxWeight via early return.\n\n5. In 'main', pass 40.0 (greater than 32.0 max) and verify minWeight is unchanged."
+      "en": "📖 Real-World Scenario & Context\nEnforce multi-bound consistency invariant where minimum constraint cannot exceed maximum.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BaggageCapacityGuard' with minWeight and maxWeight fields.\n\n2. Write constructor 'public BaggageCapacityGuard(double minWeight, double maxWeight)'.\n\n3. Write accessor 'getMinWeight()'.\n\n4. In 'setMinWeight', guard against minWeight exceeding maxWeight via early return.\n\n5. In 'main', pass 40.0 (greater than 32.0 max) and verify minWeight is unchanged.",
+      "ru": "📖 Контекст и описание задачи\nОбеспечьте соблюдение инварианта согласованности с несколькими границами, где минимальное ограничение не может превышать максимальное.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BaggageCapacityGuard с полями minWeight и maxWeight.\n2. Напишите конструктор «public BaggageCapacityGuard(double minWeight, double maxWeight)».\n3. Напишите метод доступа getMinWeight().\n4. В 'setMinWeight' предохраняйте minWeight от превышения maxWeight посредством раннего возврата.\n5. В «main» передайте 40,0 (макс. больше 32,0) и убедитесь, что minWeight не изменился."
     },
     "story": {
       "uz": "Yuk qabul qilishda minimal ruxsat etilgan vazn maksimal sig'imdan katta bo'lishi mumkin emas ('minWeight <= maxWeight'). Zid oraliqlarni rad eting.",
-      "en": "Enforce multi-bound consistency invariant where minimum constraint cannot exceed maximum."
+      "en": "Enforce multi-bound consistency invariant where minimum constraint cannot exceed maximum.",
+      "ru": "Обеспечьте соблюдение инварианта согласованности с несколькими границами, где минимальное ограничение не может превышать максимальное."
     },
     "steps": {
       "uz": [
@@ -5958,6 +7367,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write accessor 'getMinWeight()'.",
         "In 'setMinWeight', guard against minWeight exceeding maxWeight via early return.",
         "In 'main', pass 40.0 (greater than 32.0 max) and verify minWeight is unchanged."
+      ],
+      "ru": [
+        "Объявите класс BaggageCapacityGuard с полями minWeight и maxWeight.",
+        "Напишите конструктор «public BaggageCapacityGuard(double minWeight, double maxWeight)».",
+        "Напишите метод доступа getMinWeight().",
+        "В 'setMinWeight' предохраняйте minWeight от превышения maxWeight посредством раннего возврата.",
+        "В «main» передайте 40,0 (макс. больше 32,0) и убедитесь, что minWeight не изменился."
       ]
     },
     "requirements": {
@@ -5992,7 +7408,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>BaggageCapacityGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>BaggageCapacityGuard</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -6002,15 +7424,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "76-90: Invariants & Guard Clauses",
     "title": {
       "uz": "90. WIUT SRS — Bank Hisobi 5 Ta Kritik Invariantini Himoyalash (Master)",
-      "en": "90. WIUT SRS — Bank Account 5-Invariant Defensive Fortress Master"
+      "en": "90. WIUT SRS — Bank Account 5-Invariant Defensive Fortress Master",
+      "ru": "90. ВИУТ СРС — Банковский счет 5-Инвариант Защитной Крепости Мастер"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHisob raqami quyidagi 5 ta invariantni qat'iy saqlaydi: 1) Musbat to'ldirish, 2) Yetarli qoldiq, 3) Kunlik limit (5 mln), 4) Bloklanmagan holat, 5) PIN to'g'riligi. Barchasini bitta sinfda himoyalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'SecureBankAccount' sinfini 'balance' va 'pin' xususiy maydonlari bilan yarating.\n\n2. 'public SecureBankAccount(double balance, String pin)' konstruktorini yozing.\n\n3. 5 ta invariantni tekshiruvchi 'public boolean withdrawWithPin(double amount, String pin)' metodida: summa musbatligi, PIN to'g'riligi va balans yetarliligini tekshirib, xato bo'lsa false, to'g'ri bo'lsa pulni yechib true qaytaring.\n\n4. 'public double getBalance()' getterini bering.\n\n5. 'Main' metodida yetarli bo'lmagan summa (2000000.0) yechishga urinib ko'rib, yechilmaganini va balans saqlanganini chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nMaster defensive fortress guarding positive deposit, balance, daily cap, frozen state, and PIN.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SecureBankAccount' with balance and pin fields.\n\n2. Write constructor 'public SecureBankAccount(double balance, String pin)'.\n\n3. Implement fortress method 'withdrawWithPin(double amount, String pin)' guarding positive amount, PIN match, and sufficient funds.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt overdraft withdrawal and print results."
+      "en": "📖 Real-World Scenario & Context\nMaster defensive fortress guarding positive deposit, balance, daily cap, frozen state, and PIN.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SecureBankAccount' with balance and pin fields.\n\n2. Write constructor 'public SecureBankAccount(double balance, String pin)'.\n\n3. Implement fortress method 'withdrawWithPin(double amount, String pin)' guarding positive amount, PIN match, and sufficient funds.\n\n4. Implement accessor 'getBalance()'.\n\n5. In 'main', attempt overdraft withdrawal and print results.",
+      "ru": "📖 Контекст и описание задачи\nГлавная защитная крепость, охраняющая положительный депозит, баланс, дневной лимит, замороженное состояние и PIN-код.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс SecureBankAccount с полями баланса и PIN-кода.\n2. Напишите конструктор «public SecureBankAccount (двойной баланс, строковый вывод)».\n3. Реализуйте метод крепости «withdrawWithPin(double sum, String pin)», защищающий положительную сумму, совпадение PIN-кода и достаточное количество средств.\n4. Реализуйте метод доступа getBalance().\n5. В главном меню попытайтесь снять овердрафт и распечатайте результаты."
     },
     "story": {
       "uz": "Hisob raqami quyidagi 5 ta invariantni qat'iy saqlaydi: 1) Musbat to'ldirish, 2) Yetarli qoldiq, 3) Kunlik limit (5 mln), 4) Bloklanmagan holat, 5) PIN to'g'riligi. Barchasini bitta sinfda himoyalang.",
-      "en": "Master defensive fortress guarding positive deposit, balance, daily cap, frozen state, and PIN."
+      "en": "Master defensive fortress guarding positive deposit, balance, daily cap, frozen state, and PIN.",
+      "ru": "Главная защитная крепость, охраняющая положительный депозит, баланс, дневной лимит, замороженное состояние и PIN-код."
     },
     "steps": {
       "uz": [
@@ -6026,6 +7451,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement fortress method 'withdrawWithPin(double amount, String pin)' guarding positive amount, PIN match, and sufficient funds.",
         "Implement accessor 'getBalance()'.",
         "In 'main', attempt overdraft withdrawal and print results."
+      ],
+      "ru": [
+        "Объявите класс SecureBankAccount с полями баланса и PIN-кода.",
+        "Напишите конструктор «public SecureBankAccount (двойной баланс, строковый вывод)».",
+        "Реализуйте метод крепости «withdrawWithPin(double sum, String pin)», защищающий положительную сумму, совпадение PIN-кода и достаточное количество средств.",
+        "Реализуйте метод доступа getBalance().",
+        "В главном меню попытайтесь снять овердрафт и распечатайте результаты."
       ]
     },
     "requirements": {
@@ -6060,7 +7492,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>SecureBankAccount</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
       ],
       "pitfalls": "'this(...)' chaqiruvi konstruktor tanasida mutlaqo BIRINCHI qatorda joylashishi shart, aks holda kompilyatsiya xatosi ro'y beradi.",
-      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "CW2 tizimida turli toifadagi foydalanuvchilar (Guest, VIP, Corporate) uchun zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Цепочка конструкторов с помощью this(...) централизует логику инициализации и позволяет избежать дублирования кода в перегруженных вариантах конструктора.",
+      "pitfallsRu": "'это (...)' чакируви конструктор танасида мутлако БИРИНЧИ qatorda joylashishi shart, акс держит компиляцию xatosi ro'y beradi.",
+      "breakdownRu": [
+        "<code>this(...) & Guard Clause</code>: Цепочка конструкторов исключает повторение кода, а предложение Guard предотвращает глубокую вложенность if-else.",
+        "<code>SecureBankAccount</code>: Mustahkam himoyalangan va qayta yuklangan toza sinf arxitekturasi."
+      ]
     }
   },
   {
@@ -6070,15 +7508,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "91. Uzum Market — Jami Qiymatni Hisoblash (getTotalValue)",
-      "en": "91. Uzum Market — Batch Total Value Computed Getter"
+      "en": "91. Uzum Market — Batch Total Value Computed Getter",
+      "ru": "91. Рынок Узум — метод расчета общей стоимости партии"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar partiyasi omborda turibdi. Narx va miqdor alohida saqlanadi, lekin jami qiymat maydon sifatida saqlanmasdan 'getTotalValue()' metodi ichida 'price * quantity' ko'rinishida hisoblab qaytarilishi kerak.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. ProductBatch klassini yarating va unga xususiy (private) double toifasidagi 'price', int toifasidagi 'quantity' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public ProductBatch(double price, int quantity)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getTotalValue()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'ProductBatch' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nProduct batches track price and quantity. Expose computed getTotalValue = price * quantity without redundant fields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'ProductBatch' with private fields: double 'price', int 'quantity'.\n\n2. Write constructor 'public ProductBatch(double price, int quantity)'.\n\n3. Implement computed getter 'public double getTotalValue()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'ProductBatch'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nProduct batches track price and quantity. Expose computed getTotalValue = price * quantity without redundant fields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'ProductBatch' with private fields: double 'price', int 'quantity'.\n\n2. Write constructor 'public ProductBatch(double price, int quantity)'.\n\n3. Implement computed getter 'public double getTotalValue()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'ProductBatch'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nПартии продуктов отслеживают цену и количество. Предоставьте вычисленное значение getTotalValue = цена * количество без лишних полей.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс ProductBatch с частными полями: double «цена», int «количество».\n2. Напишите конструктор «public ProductBatch (двойная цена, целое количество)».\n3. Реализуйте вычисляемый метод получения public double getTotalValue(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «ProductBatch».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Tovar partiyasi omborda turibdi. Narx va miqdor alohida saqlanadi, lekin jami qiymat maydon sifatida saqlanmasdan 'getTotalValue()' metodi ichida 'price * quantity' ko'rinishida hisoblab qaytarilishi kerak.",
-      "en": "Product batches track price and quantity. Expose computed getTotalValue = price * quantity without redundant fields."
+      "en": "Product batches track price and quantity. Expose computed getTotalValue = price * quantity without redundant fields.",
+      "ru": "Партии продуктов отслеживают цену и количество. Предоставьте вычисленное значение getTotalValue = цена * количество без лишних полей."
     },
     "steps": {
       "uz": [
@@ -6094,6 +7535,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getTotalValue()' calculating derived value dynamically.",
         "In 'main', instantiate 'ProductBatch'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс ProductBatch с частными полями: double «цена», int «количество».",
+        "Напишите конструктор «public ProductBatch (двойная цена, целое количество)».",
+        "Реализуйте вычисляемый метод получения public double getTotalValue(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «ProductBatch».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6129,7 +7577,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getTotalValue()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'totalValue' degan ortiqcha maydon ochmang, faqat 'getTotalValue()' metodida hisoblab bering.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma jami summasini har doim hisoblanuvchi getter orqali oling."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma jami summasini har doim hisoblanuvchi getter orqali oling.",
+      "theoryRu": "Вычисляемые свойства предотвращают десинхронизацию состояния, получая значения «на лету», а не кэшируя повторяющиеся поля.",
+      "pitfallsRu": "«totalValue» или «totalValue» может быть использован, как и метод «getTotalValue()».",
+      "breakdownRu": [
+        "<code>getTotalValue()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6139,15 +7592,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "92. Payme — Keshbek Summasini Hisoblash (getCashbackAmount)",
-      "en": "92. Payme — 1% Cashback Amount Computed Getter"
+      "en": "92. Payme — 1% Cashback Amount Computed Getter",
+      "ru": "92. Payme — рассчитанная сумма кэшбэка 1%"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme to'lovidan 1% keshbek beriladi. 'getCashbackAmount()' metodida to'lov summasining 1 foizini ('amount * 0.01') hisoblab qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. CashbackPayment klassini yarating va unga xususiy (private) double toifasidagi 'amount' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public CashbackPayment(double amount)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getCashbackAmount()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'CashbackPayment' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nPayme awards 1% cashback on payments. Implement getCashbackAmount returning amount * 0.01.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'CashbackPayment' with private fields: double 'amount'.\n\n2. Write constructor 'public CashbackPayment(double amount)'.\n\n3. Implement computed getter 'public double getCashbackAmount()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'CashbackPayment'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nPayme awards 1% cashback on payments. Implement getCashbackAmount returning amount * 0.01.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'CashbackPayment' with private fields: double 'amount'.\n\n2. Write constructor 'public CashbackPayment(double amount)'.\n\n3. Implement computed getter 'public double getCashbackAmount()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'CashbackPayment'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nPayme начисляет кэшбэк в размере 1% за платежи. Реализуйте getCashbackAmount, возвращающую сумму * 0,01.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «CashbackPayment» с приватными полями: двойное «сумма».\n2. Напишите конструктор «public CashbackPayment(двойная сумма)».\n3. Реализуйте вычисляемый метод получения public double getCashbackAmount(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «CashbackPayment».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Payme to'lovidan 1% keshbek beriladi. 'getCashbackAmount()' metodida to'lov summasining 1 foizini ('amount * 0.01') hisoblab qaytaring.",
-      "en": "Payme awards 1% cashback on payments. Implement getCashbackAmount returning amount * 0.01."
+      "en": "Payme awards 1% cashback on payments. Implement getCashbackAmount returning amount * 0.01.",
+      "ru": "Payme начисляет кэшбэк в размере 1% за платежи. Реализуйте getCashbackAmount, возвращающую сумму * 0,01."
     },
     "steps": {
       "uz": [
@@ -6163,6 +7619,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getCashbackAmount()' calculating derived value dynamically.",
         "In 'main', instantiate 'CashbackPayment'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «CashbackPayment» с приватными полями: двойное «сумма».",
+        "Напишите конструктор «public CashbackPayment(двойная сумма)».",
+        "Реализуйте вычисляемый метод получения public double getCashbackAmount(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «CashbackPayment».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6197,7 +7660,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getCashbackAmount()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "1 foiz 0.01 ga ko'paytiriladi, 0.1 emas (0.1 bu 10 foiz bo'lib qoladi).",
-      "cw2Tip": "Sodiqlik tizimlarida mukofotlarni hisoblanuvchi metodlar orqali ko'rsating."
+      "cw2Tip": "Sodiqlik tizimlarida mukofotlarni hisoblanuvchi metodlar orqali ko'rsating.",
+      "theoryRu": "Расчеты вознаграждения производятся детерминированным образом на основе базовых сумм платежей, не требуя постоянных полей.",
+      "pitfallsRu": "1 фоиз 0,01 га ко'пайтирилади, 0,1 эмас (0,1 бу 10 фоиз бо'либ колади).",
+      "breakdownRu": [
+        "<code>getCashbackAmount()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6207,15 +7675,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "93. Yandex Go — Safarning Jami Narxi (getTotalFare)",
-      "en": "93. Yandex Go — Total Fare Computed Getter"
+      "en": "93. Yandex Go — Total Fare Computed Getter",
+      "ru": "93. Yandex Go — счетчик общей стоимости проезда"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafar narxi bazaviy narx va har bir kilometr uchun 2000 so'm qo'shilishidan hosil bo'ladi. 'getTotalFare()' metodi 'baseFare + (distanceKm * 2000.0)' formulasini hisoblab bersin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. RideBill klassini yarating va unga xususiy (private) double toifasidagi 'baseFare', double toifasidagi 'distanceKm' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public RideBill(double baseFare, double distanceKm)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getTotalFare()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'RideBill' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nYandex Go calculates total fare via baseFare + (distanceKm * 2000.0). Implement getTotalFare.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'RideBill' with private fields: double 'baseFare', double 'distanceKm'.\n\n2. Write constructor 'public RideBill(double baseFare, double distanceKm)'.\n\n3. Implement computed getter 'public double getTotalFare()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'RideBill'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nYandex Go calculates total fare via baseFare + (distanceKm * 2000.0). Implement getTotalFare.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'RideBill' with private fields: double 'baseFare', double 'distanceKm'.\n\n2. Write constructor 'public RideBill(double baseFare, double distanceKm)'.\n\n3. Implement computed getter 'public double getTotalFare()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'RideBill'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nYandex Go рассчитывает общую стоимость проезда через baseFare + (distanceKm * 2000.0). Реализовать getTotalFare.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «RideBill» с частными полями: двойное «baseFare», двойное «distanceKm».\n2. Напишите конструктор «public RideBill (double baseFare, double distanceKm)».\n3. Реализуйте вычисляемый метод получения public double getTotalFare(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «RideBill».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Safar narxi bazaviy narx va har bir kilometr uchun 2000 so'm qo'shilishidan hosil bo'ladi. 'getTotalFare()' metodi 'baseFare + (distanceKm * 2000.0)' formulasini hisoblab bersin.",
-      "en": "Yandex Go calculates total fare via baseFare + (distanceKm * 2000.0). Implement getTotalFare."
+      "en": "Yandex Go calculates total fare via baseFare + (distanceKm * 2000.0). Implement getTotalFare.",
+      "ru": "Yandex Go рассчитывает общую стоимость проезда через baseFare + (distanceKm * 2000.0). Реализовать getTotalFare."
     },
     "steps": {
       "uz": [
@@ -6231,6 +7702,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getTotalFare()' calculating derived value dynamically.",
         "In 'main', instantiate 'RideBill'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «RideBill» с частными полями: двойное «baseFare», двойное «distanceKm».",
+        "Напишите конструктор «public RideBill (double baseFare, double distanceKm)».",
+        "Реализуйте вычисляемый метод получения public double getTotalFare(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «RideBill».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6266,7 +7744,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getTotalFare()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Qavslar tartibi va arifmetik amallarga e'tibor bering.",
-      "cw2Tip": "Taksi yoki yetkazish xizmatlari chekini hisoblovchi getterlar qulay arxitektura namunasidir."
+      "cw2Tip": "Taksi yoki yetkazish xizmatlari chekini hisoblovchi getterlar qulay arxitektura namunasidir.",
+      "theoryRu": "Многопараметрические формулы вычисляются лениво, гарантируя полную согласованность с полями ввода.",
+      "pitfallsRu": "Кавслар тартиби ва арифметика и тибор беринг.",
+      "breakdownRu": [
+        "<code>getTotalFare()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6276,15 +7759,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "94. Korzinka — Chegirmali Narxni Hisoblash (getFinalPrice)",
-      "en": "94. Korzinka — Discounted Final Price Computed Getter"
+      "en": "94. Korzinka — Discounted Final Price Computed Getter",
+      "ru": "94. Корзинка — рассчитанный получатель окончательной цены со скидкой"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsl narx va chegirma foizi asosida mijoz to'lashi kerak bo'lgan summani hisoblab beruvchi 'getFinalPrice()' metodini yozing: 'price - (price * discountPct / 100.0)'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. DiscountedProduct klassini yarating va unga xususiy (private) double toifasidagi 'price', double toifasidagi 'discountPct' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public DiscountedProduct(double price, double discountPct)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getFinalPrice()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'DiscountedProduct' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nKorzinka computes final price as price - (price * discountPct / 100.0). Implement getFinalPrice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DiscountedProduct' with private fields: double 'price', double 'discountPct'.\n\n2. Write constructor 'public DiscountedProduct(double price, double discountPct)'.\n\n3. Implement computed getter 'public double getFinalPrice()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DiscountedProduct'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nKorzinka computes final price as price - (price * discountPct / 100.0). Implement getFinalPrice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DiscountedProduct' with private fields: double 'price', double 'discountPct'.\n\n2. Write constructor 'public DiscountedProduct(double price, double discountPct)'.\n\n3. Implement computed getter 'public double getFinalPrice()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DiscountedProduct'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nКорзинка вычисляет окончательную цену как цену - (цена * скидкаPct / 100,0). Реализуйте getFinalPrice.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «DiscountedProduct» с частными полями: двойная цена, двойная «скидкаPct».\n2. Напишите конструктор «public DiscountedProduct(двойная цена, двойная скидкаPct)».\n3. Реализуйте вычисляемый метод получения public double getFinalPrice(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «DiscountedProduct».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Asl narx va chegirma foizi asosida mijoz to'lashi kerak bo'lgan summani hisoblab beruvchi 'getFinalPrice()' metodini yozing: 'price - (price * discountPct / 100.0)'.",
-      "en": "Korzinka computes final price as price - (price * discountPct / 100.0). Implement getFinalPrice."
+      "en": "Korzinka computes final price as price - (price * discountPct / 100.0). Implement getFinalPrice.",
+      "ru": "Корзинка вычисляет окончательную цену как цену - (цена * скидкаPct / 100,0). Реализуйте getFinalPrice."
     },
     "steps": {
       "uz": [
@@ -6300,6 +7786,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getFinalPrice()' calculating derived value dynamically.",
         "In 'main', instantiate 'DiscountedProduct'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «DiscountedProduct» с частными полями: двойная цена, двойная «скидкаPct».",
+        "Напишите конструктор «public DiscountedProduct(двойная цена, двойная скидкаPct)».",
+        "Реализуйте вычисляемый метод получения public double getFinalPrice(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «DiscountedProduct».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6335,7 +7828,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getFinalPrice()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'discountPct / 100.0' da o'nlik kasr (100.0) bilan bo'ling.",
-      "cw2Tip": "CW2 savdo aravachasida chegirmali tovarlarni hisoblashda aynan shu formuladan foydalaniladi."
+      "cw2Tip": "CW2 savdo aravachasida chegirmali tovarlarni hisoblashda aynan shu formuladan foydalaniladi.",
+      "theoryRu": "Динамические пересчеты цен мгновенно реагируют на изменения скидок при использовании вычисляемых геттеров.",
+      "pitfallsRu": "'discountPct / 100,0' для каждого случая (100,0) как минимум.",
+      "breakdownRu": [
+        "<code>getFinalPrice()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6345,15 +7843,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "95. Click — To'lov Komissiyasini Hisoblash (getFeeAmount)",
-      "en": "95. Click — 0.5% Payment Fee Computed Getter"
+      "en": "95. Click — 0.5% Payment Fee Computed Getter",
+      "ru": "95. Клик — 0,5% комиссии за платеж, вычисляемый получатель."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKommunal to'lovdan 0.5% xizmat haqi olinadi. 'getFeeAmount()' metodida 'amount * 0.005' qiymatini qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BillTransaction klassini yarating va unga xususiy (private) double toifasidagi 'amount' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public BillTransaction(double amount)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getFeeAmount()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'BillTransaction' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nUtility bills incur 0.5% commission. Provide getFeeAmount returning amount * 0.005.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'BillTransaction' with private fields: double 'amount'.\n\n2. Write constructor 'public BillTransaction(double amount)'.\n\n3. Implement computed getter 'public double getFeeAmount()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'BillTransaction'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nUtility bills incur 0.5% commission. Provide getFeeAmount returning amount * 0.005.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'BillTransaction' with private fields: double 'amount'.\n\n2. Write constructor 'public BillTransaction(double amount)'.\n\n3. Implement computed getter 'public double getFeeAmount()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'BillTransaction'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nЗа коммунальные услуги взимается комиссия 0,5%. Укажите возвращаемую сумму getFeeAmount * 0,005.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «BillTransaction» с частными полями: двойное «сумма».\n2. Напишите конструктор «public BillTransaction(двойная сумма)».\n3. Реализуйте вычисляемый метод получения public double getFeeAmount(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «BillTransaction».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Kommunal to'lovdan 0.5% xizmat haqi olinadi. 'getFeeAmount()' metodida 'amount * 0.005' qiymatini qaytaring.",
-      "en": "Utility bills incur 0.5% commission. Provide getFeeAmount returning amount * 0.005."
+      "en": "Utility bills incur 0.5% commission. Provide getFeeAmount returning amount * 0.005.",
+      "ru": "За коммунальные услуги взимается комиссия 0,5%. Укажите возвращаемую сумму getFeeAmount * 0,005."
     },
     "steps": {
       "uz": [
@@ -6369,6 +7870,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getFeeAmount()' calculating derived value dynamically.",
         "In 'main', instantiate 'BillTransaction'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «BillTransaction» с частными полями: двойное «сумма».",
+        "Напишите конструктор «public BillTransaction(двойная сумма)».",
+        "Реализуйте вычисляемый метод получения public double getFeeAmount(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «BillTransaction».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6403,7 +7911,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getFeeAmount()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "0.5% bu 0.005 koeffitsiyent ekanligiga diqqat qiling.",
-      "cw2Tip": "Bank komissiyalarini hisoblashda sonli koeffitsiyentlarni to'g'ri tanlang."
+      "cw2Tip": "Bank komissiyalarini hisoblashda sonli koeffitsiyentlarni to'g'ri tanlang.",
+      "theoryRu": "Комиссия за обработку транзакций рассчитывается динамически на основе сумм транзакций.",
+      "pitfallsRu": "0,5% от 0,005 коэффициента ekanligiga diqqat qiling.",
+      "breakdownRu": [
+        "<code>getFeeAmount()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6413,15 +7926,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "96. Asaxiy — Kitobni O'qishga Ketadigan Taxminiy Vaqt",
-      "en": "96. Asaxiy — Estimated Reading Hours Computed Getter"
+      "en": "96. Asaxiy — Estimated Reading Hours Computed Getter",
+      "ru": "96. Asaxy — расчетный геттер примерного количества часов чтения"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nO'rtacha 1 soatda 30 bet o'qilsa, kitob hajmi bo'yicha ketadigan vaqtni 'getEstimatedReadingHours()' metodida 'pageCount / 30.0' qilib hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BookReading klassini yarating va unga xususiy (private) int toifasidagi 'pageCount' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public BookReading(int pageCount)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getEstimatedReadingHours()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'BookReading' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nReading 30 pages/hour on average, compute read time via getEstimatedReadingHours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'BookReading' with private fields: int 'pageCount'.\n\n2. Write constructor 'public BookReading(int pageCount)'.\n\n3. Implement computed getter 'public double getEstimatedReadingHours()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'BookReading'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nReading 30 pages/hour on average, compute read time via getEstimatedReadingHours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'BookReading' with private fields: int 'pageCount'.\n\n2. Write constructor 'public BookReading(int pageCount)'.\n\n3. Implement computed getter 'public double getEstimatedReadingHours()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'BookReading'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nЧитая в среднем 30 страниц в час, вычислите время чтения с помощью getEstimatedReadingHours.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «BookReading» с закрытыми полями: int «pageCount».\n2. Напишите конструктор «public BookReading(int pageCount)».\n3. Реализуйте вычисляемый метод получения public double getEstimatedReadingHours(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «BookReading».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "O'rtacha 1 soatda 30 bet o'qilsa, kitob hajmi bo'yicha ketadigan vaqtni 'getEstimatedReadingHours()' metodida 'pageCount / 30.0' qilib hisoblang.",
-      "en": "Reading 30 pages/hour on average, compute read time via getEstimatedReadingHours."
+      "en": "Reading 30 pages/hour on average, compute read time via getEstimatedReadingHours.",
+      "ru": "Читая в среднем 30 страниц в час, вычислите время чтения с помощью getEstimatedReadingHours."
     },
     "steps": {
       "uz": [
@@ -6437,6 +7953,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getEstimatedReadingHours()' calculating derived value dynamically.",
         "In 'main', instantiate 'BookReading'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «BookReading» с закрытыми полями: int «pageCount».",
+        "Напишите конструктор «public BookReading(int pageCount)».",
+        "Реализуйте вычисляемый метод получения public double getEstimatedReadingHours(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «BookReading».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6471,7 +7994,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getEstimatedReadingHours()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'pageCount / 30' emas, 'pageCount / 30.0' deb yozing, aks holda kasr qismi yo'qoladi.",
-      "cw2Tip": "Bo'lish amallarida o'nlik kasr aniqligini saqlash uchun '.0' qo'shish qoidasini unutmang."
+      "cw2Tip": "Bo'lish amallarida o'nlik kasr aniqligini saqlash uchun '.0' qo'shish qoidasini unutmang.",
+      "theoryRu": "Разделив целочисленные показатели страницы на частоту с плавающей запятой, можно получить точные дробные часы чтения.",
+      "pitfallsRu": "«pageCount / 30» emas, «pageCount / 30.0» deb yozing, aks Holda kasr qismi yo'qoladi.",
+      "breakdownRu": [
+        "<code>getEstimatedReadingHours()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6481,15 +8009,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "97. Uztelecom — Trafik Sarflanish Foizi (getUsagePercentage)",
-      "en": "97. Uztelecom — Traffic Usage Percentage Computed Getter"
+      "en": "97. Uztelecom — Traffic Usage Percentage Computed Getter",
+      "ru": "97. Узтелеком — вычисляемый процент использования трафика"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nIshlatilgan megabayt va jami limit nisbatini foizda hisoblovchi 'getUsagePercentage()' metodini yozing: '(usedMb * 100.0) / totalMb'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. DataUsage klassini yarating va unga xususiy (private) double toifasidagi 'usedMb', double toifasidagi 'totalMb' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public DataUsage(double usedMb, double totalMb)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getUsagePercentage()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'DataUsage' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nTrack consumption ratio using getUsagePercentage returning (usedMb * 100.0) / totalMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DataUsage' with private fields: double 'usedMb', double 'totalMb'.\n\n2. Write constructor 'public DataUsage(double usedMb, double totalMb)'.\n\n3. Implement computed getter 'public double getUsagePercentage()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DataUsage'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nTrack consumption ratio using getUsagePercentage returning (usedMb * 100.0) / totalMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DataUsage' with private fields: double 'usedMb', double 'totalMb'.\n\n2. Write constructor 'public DataUsage(double usedMb, double totalMb)'.\n\n3. Implement computed getter 'public double getUsagePercentage()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DataUsage'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nОтслеживайте коэффициент потребления, используя метод getUsagePercentage, возвращающий (usedMb * 100,0)/totalMb.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «DataUsage» с частными полями: двойной «usedMb», двойной «totalMb».\n2. Напишите конструктор «public DataUsage (double UsedMb, double totalMb)».\n3. Реализуйте вычисляемый метод получения public double getUsagePercentage(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «DataUsage».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Ishlatilgan megabayt va jami limit nisbatini foizda hisoblovchi 'getUsagePercentage()' metodini yozing: '(usedMb * 100.0) / totalMb'.",
-      "en": "Track consumption ratio using getUsagePercentage returning (usedMb * 100.0) / totalMb."
+      "en": "Track consumption ratio using getUsagePercentage returning (usedMb * 100.0) / totalMb.",
+      "ru": "Отслеживайте коэффициент потребления, используя метод getUsagePercentage, возвращающий (usedMb * 100,0)/totalMb."
     },
     "steps": {
       "uz": [
@@ -6505,6 +8036,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getUsagePercentage()' calculating derived value dynamically.",
         "In 'main', instantiate 'DataUsage'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «DataUsage» с частными полями: двойной «usedMb», двойной «totalMb».",
+        "Напишите конструктор «public DataUsage (double UsedMb, double totalMb)».",
+        "Реализуйте вычисляемый метод получения public double getUsagePercentage(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «DataUsage».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6540,7 +8078,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getUsagePercentage()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Foizga ko'paytirishni (100.0) bo'lishdan oldin bajaring.",
-      "cw2Tip": "Statistika va progress ko'rsatkichlarini getter orqali hisoblash qulaydir."
+      "cw2Tip": "Statistika va progress ko'rsatkichlarini getter orqali hisoblash qulaydir.",
+      "theoryRu": "Коэффициенты использования четко инкапсулируются в вычисляемые геттеры без хранения промежуточных процентов.",
+      "pitfallsRu": "Foizga ko'paytirishni (100.0) bo'lishdan oldin bajaring.",
+      "breakdownRu": [
+        "<code>getUsagePercentage()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6550,15 +8093,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "98. Texnomart — Foyda Marjasini Hisoblash (getProfitMargin)",
-      "en": "98. Texnomart — Profit Margin Computed Getter"
+      "en": "98. Texnomart — Profit Margin Computed Getter",
+      "ru": "98. Texnomart — расчет прибыли"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSotish narxi va tannarx o'rtasidagi sof foydani 'getProfitMargin()' metodida 'sellingPrice - costPrice' formulasi bilan qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. SalesItem klassini yarating va unga xususiy (private) double toifasidagi 'sellingPrice', double toifasidagi 'costPrice' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public SalesItem(double sellingPrice, double costPrice)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getProfitMargin()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'SalesItem' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCompute net product profit via getProfitMargin returning sellingPrice - costPrice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'SalesItem' with private fields: double 'sellingPrice', double 'costPrice'.\n\n2. Write constructor 'public SalesItem(double sellingPrice, double costPrice)'.\n\n3. Implement computed getter 'public double getProfitMargin()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'SalesItem'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nCompute net product profit via getProfitMargin returning sellingPrice - costPrice.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'SalesItem' with private fields: double 'sellingPrice', double 'costPrice'.\n\n2. Write constructor 'public SalesItem(double sellingPrice, double costPrice)'.\n\n3. Implement computed getter 'public double getProfitMargin()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'SalesItem'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nВычислите чистую прибыль от продукта с помощью getProfitMargin, возвращающего SellPrice - CostPrice.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс SalesItem с частными полями: double «sellingPrice», double «costPrice».\n2. Напишите конструктор «public SalesItem(double SellPrice, double CostPrice)».\n3. Реализуйте вычисляемый метод получения public double getProfitMargin(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «SalesItem».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Sotish narxi va tannarx o'rtasidagi sof foydani 'getProfitMargin()' metodida 'sellingPrice - costPrice' formulasi bilan qaytaring.",
-      "en": "Compute net product profit via getProfitMargin returning sellingPrice - costPrice."
+      "en": "Compute net product profit via getProfitMargin returning sellingPrice - costPrice.",
+      "ru": "Вычислите чистую прибыль от продукта с помощью getProfitMargin, возвращающего SellPrice - CostPrice."
     },
     "steps": {
       "uz": [
@@ -6574,6 +8120,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getProfitMargin()' calculating derived value dynamically.",
         "In 'main', instantiate 'SalesItem'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс SalesItem с частными полями: double «sellingPrice», double «costPrice».",
+        "Напишите конструктор «public SalesItem(double SellPrice, double CostPrice)».",
+        "Реализуйте вычисляемый метод получения public double getProfitMargin(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «SalesItem».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6609,7 +8162,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getProfitMargin()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Sotish narxidan tannarxni ayirish ketma-ketligini adashtirmang.",
-      "cw2Tip": "Savdo va moliya dasturlarida hosilaviy ko'rsatkichlarni doimo getterda hisoblang."
+      "cw2Tip": "Savdo va moliya dasturlarida hosilaviy ko'rsatkichlarni doimo getterda hisoblang.",
+      "theoryRu": "Размер прибыли рассчитывается динамически, чтобы предотвратить устаревшее финансовое состояние при обновлении цен.",
+      "pitfallsRu": "Сотиш нарксидан таннархни айириш кетма-кетлигини адаштирманг.",
+      "breakdownRu": [
+        "<code>getProfitMargin()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6619,15 +8177,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "99. Milliy Bank — Yillik Foiz Daromadi (getAnnualInterestPayout)",
-      "en": "99. Milliy Bank — Annual Interest Payout Computed Getter"
+      "en": "99. Milliy Bank — Annual Interest Payout Computed Getter",
+      "ru": "99. Миллий Банк — Расчетный геттер годовой выплаты процентов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOmonat summasi va yillik stavka bo'yicha mijoz oladigan yillik daromadni 'getAnnualInterestPayout()' orqali hisoblang: 'depositAmount * interestRate / 100.0'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. DepositEarning klassini yarating va unga xususiy (private) double toifasidagi 'depositAmount', double toifasidagi 'interestRate' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public DepositEarning(double depositAmount, double interestRate)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getAnnualInterestPayout()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'DepositEarning' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCompute annual deposit yield using getAnnualInterestPayout = depositAmount * interestRate / 100.0.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DepositEarning' with private fields: double 'depositAmount', double 'interestRate'.\n\n2. Write constructor 'public DepositEarning(double depositAmount, double interestRate)'.\n\n3. Implement computed getter 'public double getAnnualInterestPayout()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DepositEarning'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nCompute annual deposit yield using getAnnualInterestPayout = depositAmount * interestRate / 100.0.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'DepositEarning' with private fields: double 'depositAmount', double 'interestRate'.\n\n2. Write constructor 'public DepositEarning(double depositAmount, double interestRate)'.\n\n3. Implement computed getter 'public double getAnnualInterestPayout()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'DepositEarning'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте годовую доходность по депозиту, используя getAnnualInterestPayout = DepositAmount *interestRate / 100.0.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «DepositEarning» с частными полями: двойной «depositAmount», двойным «interestRate».\n2. Напишите конструктор «public DepositEarning (двойной депозит, двойная процентная ставка)».\n3. Реализуйте вычисляемый метод получения public double getAnnualInterestPayout(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «DepositEarning».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Omonat summasi va yillik stavka bo'yicha mijoz oladigan yillik daromadni 'getAnnualInterestPayout()' orqali hisoblang: 'depositAmount * interestRate / 100.0'.",
-      "en": "Compute annual deposit yield using getAnnualInterestPayout = depositAmount * interestRate / 100.0."
+      "en": "Compute annual deposit yield using getAnnualInterestPayout = depositAmount * interestRate / 100.0.",
+      "ru": "Рассчитайте годовую доходность по депозиту, используя getAnnualInterestPayout = DepositAmount *interestRate / 100.0."
     },
     "steps": {
       "uz": [
@@ -6643,6 +8204,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getAnnualInterestPayout()' calculating derived value dynamically.",
         "In 'main', instantiate 'DepositEarning'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «DepositEarning» с частными полями: двойной «depositAmount», двойным «interestRate».",
+        "Напишите конструктор «public DepositEarning (двойной депозит, двойная процентная ставка)».",
+        "Реализуйте вычисляемый метод получения public double getAnnualInterestPayout(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «DepositEarning».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6678,7 +8246,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getAnnualInterestPayout()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'interestRate / 100.0' ifodasida to'g'ri bo'lishga e'tibor bering.",
-      "cw2Tip": "Moliyaviy prognozlarni xavfsiz hisoblash metodlaridan foydalaning."
+      "cw2Tip": "Moliyaviy prognozlarni xavfsiz hisoblash metodlaridan foydalaning.",
+      "theoryRu": "Прогнозы выплат по депозитам рассчитываются в реальном времени с использованием текущего баланса депозита и процентных ставок.",
+      "pitfallsRu": "'interestRate / 100.0' ifodasida to'g'ri bo'lishga e'tibor bering.",
+      "breakdownRu": [
+        "<code>getAnnualInterestPayout()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6688,15 +8261,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "100. Medion — Tana Massasi Indeksini Hisoblash (getBmi)",
-      "en": "100. Medion — BMI Health Metric Computed Getter"
+      "en": "100. Medion — BMI Health Metric Computed Getter",
+      "ru": "100. Medion — компьютерный метод получения показателей здоровья ИМТ."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nVrach qabulida bemor vazni (kg) va bo'yi (metrda) bo'yicha BMI ko'rsatkichini hisoblash zarur: 'getBmi()' metodida 'weightKg / (heightM * heightM)' formulasini qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. HealthMetrics klassini yarating va unga xususiy (private) double toifasidagi 'weightKg', double toifasidagi 'heightM' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public HealthMetrics(double weightKg, double heightM)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getBmi()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'HealthMetrics' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCompute Body Mass Index via getBmi = weightKg / (heightM * heightM).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'HealthMetrics' with private fields: double 'weightKg', double 'heightM'.\n\n2. Write constructor 'public HealthMetrics(double weightKg, double heightM)'.\n\n3. Implement computed getter 'public double getBmi()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'HealthMetrics'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nCompute Body Mass Index via getBmi = weightKg / (heightM * heightM).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'HealthMetrics' with private fields: double 'weightKg', double 'heightM'.\n\n2. Write constructor 'public HealthMetrics(double weightKg, double heightM)'.\n\n3. Implement computed getter 'public double getBmi()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'HealthMetrics'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте индекс массы тела с помощью getBmi = вес, кг / (ростM * ростM).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс HealthMetrics с частными полями: двойной «весКг», двойной «высотаМ».\n2. Напишите конструктор «public HealthMetrics (двойной вес, кг, двойная высота М)».\n3. Реализуйте вычисляемый метод получения public double getBmi(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «HealthMetrics».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Vrach qabulida bemor vazni (kg) va bo'yi (metrda) bo'yicha BMI ko'rsatkichini hisoblash zarur: 'getBmi()' metodida 'weightKg / (heightM * heightM)' formulasini qaytaring.",
-      "en": "Compute Body Mass Index via getBmi = weightKg / (heightM * heightM)."
+      "en": "Compute Body Mass Index via getBmi = weightKg / (heightM * heightM).",
+      "ru": "Рассчитайте индекс массы тела с помощью getBmi = вес, кг / (ростM * ростM)."
     },
     "steps": {
       "uz": [
@@ -6712,6 +8288,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getBmi()' calculating derived value dynamically.",
         "In 'main', instantiate 'HealthMetrics'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс HealthMetrics с частными полями: двойной «весКг», двойной «высотаМ».",
+        "Напишите конструктор «public HealthMetrics (двойной вес, кг, двойная высота М)».",
+        "Реализуйте вычисляемый метод получения public double getBmi(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «HealthMetrics».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6747,7 +8330,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getBmi()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Bo'y parametrini santimetrda emas, metrda (1.80) qabul qiling.",
-      "cw2Tip": "Kompleks formulalarni getter ichida toza ifodalashni o'rganing."
+      "cw2Tip": "Kompleks formulalarni getter ichida toza ifodalashni o'rganing.",
+      "theoryRu": "Индексы массы тела рассчитываются синхронно на основе показателей физического состояния без кэширования.",
+      "pitfallsRu": "Если параметр сантиметра равен, метрда (1,80) кабул цилин.",
+      "breakdownRu": [
+        "<code>getBmi()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6757,15 +8345,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "101. UzAirways — Parvozning Qolgan Masofasi (getRemainingDistanceKm)",
-      "en": "101. UzAirways — Flight Remaining Distance Computed Getter"
+      "en": "101. UzAirways — Flight Remaining Distance Computed Getter",
+      "ru": "101. UzAirways — Расчет оставшегося расстояния полета"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSamolyot parvozi vaqtida jami masofadan bosib o'tilgan masofa ayirilib, qolgan kilometr 'getRemainingDistanceKm()' metodi orqali hisoblanadi: 'totalKm - flownKm'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. FlightDistance klassini yarating va unga xususiy (private) double toifasidagi 'totalKm', double toifasidagi 'flownKm' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public FlightDistance(double totalKm, double flownKm)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getRemainingDistanceKm()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'FlightDistance' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nTrack flight progress via getRemainingDistanceKm returning totalKm - flownKm.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'FlightDistance' with private fields: double 'totalKm', double 'flownKm'.\n\n2. Write constructor 'public FlightDistance(double totalKm, double flownKm)'.\n\n3. Implement computed getter 'public double getRemainingDistanceKm()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'FlightDistance'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nTrack flight progress via getRemainingDistanceKm returning totalKm - flownKm.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'FlightDistance' with private fields: double 'totalKm', double 'flownKm'.\n\n2. Write constructor 'public FlightDistance(double totalKm, double flownKm)'.\n\n3. Implement computed getter 'public double getRemainingDistanceKm()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'FlightDistance'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nОтслеживайте ход полета с помощью getRemainingDistanceKm, возвращающего totalKm -flynKm.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс FlightDistance с частными полями: double «totalKm», double «flynKm».\n2. Напишите конструктор «public FlightDistance (double totalKm, double flownKm)».\n3. Реализуйте вычисляемый метод получения public double getRemainingDistanceKm(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «FlightDistance».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Samolyot parvozi vaqtida jami masofadan bosib o'tilgan masofa ayirilib, qolgan kilometr 'getRemainingDistanceKm()' metodi orqali hisoblanadi: 'totalKm - flownKm'.",
-      "en": "Track flight progress via getRemainingDistanceKm returning totalKm - flownKm."
+      "en": "Track flight progress via getRemainingDistanceKm returning totalKm - flownKm.",
+      "ru": "Отслеживайте ход полета с помощью getRemainingDistanceKm, возвращающего totalKm -flynKm."
     },
     "steps": {
       "uz": [
@@ -6781,6 +8372,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getRemainingDistanceKm()' calculating derived value dynamically.",
         "In 'main', instantiate 'FlightDistance'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс FlightDistance с частными полями: double «totalKm», double «flynKm».",
+        "Напишите конструктор «public FlightDistance (double totalKm, double flownKm)».",
+        "Реализуйте вычисляемый метод получения public double getRemainingDistanceKm(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «FlightDistance».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6816,7 +8414,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getRemainingDistanceKm()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Ayirish amalini 'totalKm - flownKm' tartibida bajaring.",
-      "cw2Tip": "Jarayonlarni modellashtirishda qoldiq miqdorlarni getter bilan ko'rsating."
+      "cw2Tip": "Jarayonlarni modellashtirishda qoldiq miqdorlarni getter bilan ko'rsating.",
+      "theoryRu": "Телеметрия прогресса рассчитывается непосредственно на основе общих целей и текущих показателей прогресса.",
+      "pitfallsRu": "Айириш амалини 'totalKm - FlightKm' tartibida bajaring.",
+      "breakdownRu": [
+        "<code>getRemainingDistanceKm()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6826,15 +8429,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "102. Express24 — Taomlar va Yetkazish Jami Cheki (getGrandTotal)",
-      "en": "102. Express24 — Grand Total Invoice Computed Getter"
+      "en": "102. Express24 — Grand Total Invoice Computed Getter",
+      "ru": "102. Express24 — вычисляемый метод получения общей суммы счета"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma chekida taomlar qiymati va yetkazish xarajati qo'shilib jami to'lov chiqariladi: 'getGrandTotal()' metodi 'foodSubtotal + deliveryFee' ni qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. OrderInvoice klassini yarating va unga xususiy (private) double toifasidagi 'foodSubtotal', double toifasidagi 'deliveryFee' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public OrderInvoice(double foodSubtotal, double deliveryFee)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getGrandTotal()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'OrderInvoice' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInvoice checkout sums food items and delivery costs via getGrandTotal.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'OrderInvoice' with private fields: double 'foodSubtotal', double 'deliveryFee'.\n\n2. Write constructor 'public OrderInvoice(double foodSubtotal, double deliveryFee)'.\n\n3. Implement computed getter 'public double getGrandTotal()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'OrderInvoice'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nInvoice checkout sums food items and delivery costs via getGrandTotal.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'OrderInvoice' with private fields: double 'foodSubtotal', double 'deliveryFee'.\n\n2. Write constructor 'public OrderInvoice(double foodSubtotal, double deliveryFee)'.\n\n3. Implement computed getter 'public double getGrandTotal()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'OrderInvoice'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nВ счете-фактуре суммируются продукты питания и стоимость доставки через getGrandTotal.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс OrderInvoice с частными полями: double «foodSubtotal», double «deliveryFee».\n2. Напишите конструктор «public OrderInvoice (двойной промежуточный итог еды, двойная плата за доставку)».\n3. Реализуйте вычисляемый метод получения public double getGrandTotal(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр OrderInvoice.\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Buyurtma chekida taomlar qiymati va yetkazish xarajati qo'shilib jami to'lov chiqariladi: 'getGrandTotal()' metodi 'foodSubtotal + deliveryFee' ni qaytarsin.",
-      "en": "Invoice checkout sums food items and delivery costs via getGrandTotal."
+      "en": "Invoice checkout sums food items and delivery costs via getGrandTotal.",
+      "ru": "В счете-фактуре суммируются продукты питания и стоимость доставки через getGrandTotal."
     },
     "steps": {
       "uz": [
@@ -6850,6 +8456,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getGrandTotal()' calculating derived value dynamically.",
         "In 'main', instantiate 'OrderInvoice'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс OrderInvoice с частными полями: double «foodSubtotal», double «deliveryFee».",
+        "Напишите конструктор «public OrderInvoice (двойной промежуточный итог еды, двойная плата за доставку)».",
+        "Реализуйте вычисляемый метод получения public double getGrandTotal(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр OrderInvoice.",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6885,7 +8498,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getGrandTotal()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Ikkala double maydonni qo'shib qaytaring.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma yakuniy chekini shu metod bilan tuzasiz."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma yakuniy chekini shu metod bilan tuzasiz.",
+      "theoryRu": "Суммирование промежуточных итогов по товарам и дополнительных сборов за логистику по требованию предотвращает расхождения при оформлении заказа.",
+      "pitfallsRu": "Иккала двойной майдонни ко'шиб гайтаринг.",
+      "breakdownRu": [
+        "<code>getGrandTotal()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6895,15 +8513,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "103. WIUT LMS — Talabaning To'liq Ismi (getFullName)",
-      "en": "103. WIUT LMS — Student Full Name String Computed Getter"
+      "en": "103. WIUT LMS — Student Full Name String Computed Getter",
+      "ru": "103. WIUT LMS — вычисляемый метод получения строки полного имени студента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalaba profilida ism va familiya alohida saqlanadi. 'getFullName()' metodi orqali ularni bitta probel bilan birlashtirib qaytaring: 'firstName + \" \" + lastName'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. StudentProfile klassini yarating va unga xususiy (private) String toifasidagi 'firstName', String toifasidagi 'lastName' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public StudentProfile(String firstName, String lastName)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public String getFullName()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'StudentProfile' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nWIUT students store first and last names. Expose concatenated getFullName = firstName + ' ' + lastName.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'StudentProfile' with private fields: String 'firstName', String 'lastName'.\n\n2. Write constructor 'public StudentProfile(String firstName, String lastName)'.\n\n3. Implement computed getter 'public String getFullName()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'StudentProfile'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nWIUT students store first and last names. Expose concatenated getFullName = firstName + ' ' + lastName.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'StudentProfile' with private fields: String 'firstName', String 'lastName'.\n\n2. Write constructor 'public StudentProfile(String firstName, String lastName)'.\n\n3. Implement computed getter 'public String getFullName()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'StudentProfile'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nСтуденты МВУТ сохраняют имена и фамилии. Предоставьте объединенный getFullName = firstName + ' ' + LastName.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «StudentProfile» с частными полями: строка «firstName», строка «lastName».\n2. Напишите конструктор «public StudentProfile (String firstName, String LastName)».\n3. Реализуйте вычисляемый метод получения public String getFullName(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «StudentProfile».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Talaba profilida ism va familiya alohida saqlanadi. 'getFullName()' metodi orqali ularni bitta probel bilan birlashtirib qaytaring: 'firstName + \" \" + lastName'.",
-      "en": "WIUT students store first and last names. Expose concatenated getFullName = firstName + ' ' + lastName."
+      "en": "WIUT students store first and last names. Expose concatenated getFullName = firstName + ' ' + lastName.",
+      "ru": "Студенты МВУТ сохраняют имена и фамилии. Предоставьте объединенный getFullName = firstName + ' ' + LastName."
     },
     "steps": {
       "uz": [
@@ -6919,6 +8540,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public String getFullName()' calculating derived value dynamically.",
         "In 'main', instantiate 'StudentProfile'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «StudentProfile» с частными полями: строка «firstName», строка «lastName».",
+        "Напишите конструктор «public StudentProfile (String firstName, String LastName)».",
+        "Реализуйте вычисляемый метод получения public String getFullName(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «StudentProfile».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -6954,7 +8582,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getFullName()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "Ism va familiya orasida bo'sh joy (\" \") qo'shishni unutmang.",
-      "cw2Tip": "Mijoz va xodim profillarida 'getFullName()' universal metod hisoblanadi."
+      "cw2Tip": "Mijoz va xodim profillarida 'getFullName()' universal metod hisoblanadi.",
+      "theoryRu": "Конкатенация строк в геттерах синтезирует составные полные имена без избыточного хранения.",
+      "pitfallsRu": "Ism va familiya orasida bo'sh joy («») qo'shishni unutmang.",
+      "breakdownRu": [
+        "<code>getFullName()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -6964,15 +8597,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "104. Apex Pizza — Bir Bo'lak Pitsa Narxini Hisoblash",
-      "en": "104. Apex Pizza — Single Slice Price Computed Getter"
+      "en": "104. Apex Pizza — Single Slice Price Computed Getter",
+      "ru": "104. Apex Pizza — метод расчета цены за один кусок"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDo'stlar davrasida pitsa narxini teng bo'lish uchun 'getSlicePrice()' metodi umumiy narxni bo'laklar soniga bo'lib bersin: 'totalPrice / sliceCount'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. PizzaSlices klassini yarating va unga xususiy (private) double toifasidagi 'totalPrice', int toifasidagi 'sliceCount' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public PizzaSlices(double totalPrice, int sliceCount)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getSlicePrice()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'PizzaSlices' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCompute per-slice cost via getSlicePrice returning totalPrice / sliceCount.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'PizzaSlices' with private fields: double 'totalPrice', int 'sliceCount'.\n\n2. Write constructor 'public PizzaSlices(double totalPrice, int sliceCount)'.\n\n3. Implement computed getter 'public double getSlicePrice()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'PizzaSlices'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nCompute per-slice cost via getSlicePrice returning totalPrice / sliceCount.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'PizzaSlices' with private fields: double 'totalPrice', int 'sliceCount'.\n\n2. Write constructor 'public PizzaSlices(double totalPrice, int sliceCount)'.\n\n3. Implement computed getter 'public double getSlicePrice()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'PizzaSlices'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nВычислите стоимость среза с помощью метода getSlicePrice, возвращающего totalPrice/sliceCount.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс «PizzaSlices» с частными полями: double «totalPrice», int «sliceCount».\n2. Напишите конструктор «public PizzaSlices(double totalPrice, int slimCount)».\n3. Реализуйте вычисляемый метод получения public double getSlicePrice(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «PizzaSlices».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "Do'stlar davrasida pitsa narxini teng bo'lish uchun 'getSlicePrice()' metodi umumiy narxni bo'laklar soniga bo'lib bersin: 'totalPrice / sliceCount'.",
-      "en": "Compute per-slice cost via getSlicePrice returning totalPrice / sliceCount."
+      "en": "Compute per-slice cost via getSlicePrice returning totalPrice / sliceCount.",
+      "ru": "Вычислите стоимость среза с помощью метода getSlicePrice, возвращающего totalPrice/sliceCount."
     },
     "steps": {
       "uz": [
@@ -6988,6 +8624,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getSlicePrice()' calculating derived value dynamically.",
         "In 'main', instantiate 'PizzaSlices'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс «PizzaSlices» с частными полями: double «totalPrice», int «sliceCount».",
+        "Напишите конструктор «public PizzaSlices(double totalPrice, int slimCount)».",
+        "Реализуйте вычисляемый метод получения public double getSlicePrice(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «PizzaSlices».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -7023,7 +8666,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getSlicePrice()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'sliceCount' int bo'lsa ham 'totalPrice' double bo'lgani uchun natija double bo'ladi.",
-      "cw2Tip": "Tovarlar bo'yicha dona narxini hisoblashda ushbu tamoyil qo'llaniladi."
+      "cw2Tip": "Tovarlar bo'yicha dona narxini hisoblashda ushbu tamoyil qo'llaniladi.",
+      "theoryRu": "Анализ себестоимости единицы продукции плавно вытекает из совокупной цены и количества компонентов.",
+      "pitfallsRu": "'sliceCount' int bo'lsa ham 'totalPrice' двойной бо'лгани учун натиджа двойной бо'лади.",
+      "breakdownRu": [
+        "<code>getSlicePrice()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -7033,15 +8681,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "91-105: Hisoblanuvchi Getterlar",
     "title": {
       "uz": "105. Safia — Qandolat Kaloriyasini Hisoblash (getTotalCalories)",
-      "en": "105. Safia — Pastry Total Calories Computed Getter"
+      "en": "105. Safia — Pastry Total Calories Computed Getter",
+      "ru": "105. Сафия — подсчет общего количества калорий в кондитерских изделиях"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n100 gramm mahsulotdagi kaloriya va tortning umumiy og'irligi (grammda) asosida jami kaloriyani 'getTotalCalories()' orqali hisoblang: 'caloriesPer100g * (weightGram / 100.0)'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. PastryCalories klassini yarating va unga xususiy (private) double toifasidagi 'caloriesPer100g', double toifasidagi 'weightGram' maydonlarini qo'shing.\n\n2. Parametrlarni qabul qilib maydonlarga o'zlashtiruvchi 'public PastryCalories(double caloriesPer100g, double weightGram)' konstruktorini yozing.\n\n3. Ortiqcha maydon ochmasdan formulani dinamik hisoblab qaytaruvchi 'public double getTotalCalories()' metodini yozing.\n\n4. 'Main' klassi 'main' metodida 'PastryCalories' ob'yektini parametrlar bilan yarating.\n\n5. Hisoblanuvchi xususiyatni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nCalculate total pastry caloric intake via getTotalCalories.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'PastryCalories' with private fields: double 'caloriesPer100g', double 'weightGram'.\n\n2. Write constructor 'public PastryCalories(double caloriesPer100g, double weightGram)'.\n\n3. Implement computed getter 'public double getTotalCalories()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'PastryCalories'.\n\n5. Print computed property to console."
+      "en": "📖 Real-World Scenario & Context\nCalculate total pastry caloric intake via getTotalCalories.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create class 'PastryCalories' with private fields: double 'caloriesPer100g', double 'weightGram'.\n\n2. Write constructor 'public PastryCalories(double caloriesPer100g, double weightGram)'.\n\n3. Implement computed getter 'public double getTotalCalories()' calculating derived value dynamically.\n\n4. In 'main', instantiate 'PastryCalories'.\n\n5. Print computed property to console.",
+      "ru": "📖 Контекст и описание задачи\nРассчитайте общую калорийность выпечки с помощью getTotalCalories.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс PastryCalories с частными полями: дважды «калории на 100 г», дважды «вес в грамме».\n2. Напишите конструктор «public PastryCalories (двойные калории на 100 г, двойной вес в граммах)».\n3. Реализуйте вычисляемый метод получения public double getTotalCalories(), динамически вычисляющий производное значение.\n4. В «main» создайте экземпляр «PastryCalories».\n5. Выведите вычисленное свойство на консоль."
     },
     "story": {
       "uz": "100 gramm mahsulotdagi kaloriya va tortning umumiy og'irligi (grammda) asosida jami kaloriyani 'getTotalCalories()' orqali hisoblang: 'caloriesPer100g * (weightGram / 100.0)'.",
-      "en": "Calculate total pastry caloric intake via getTotalCalories."
+      "en": "Calculate total pastry caloric intake via getTotalCalories.",
+      "ru": "Рассчитайте общую калорийность выпечки с помощью getTotalCalories."
     },
     "steps": {
       "uz": [
@@ -7057,6 +8708,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement computed getter 'public double getTotalCalories()' calculating derived value dynamically.",
         "In 'main', instantiate 'PastryCalories'.",
         "Print computed property to console."
+      ],
+      "ru": [
+        "Создайте класс PastryCalories с частными полями: дважды «калории на 100 г», дважды «вес в грамме».",
+        "Напишите конструктор «public PastryCalories (двойные калории на 100 г, двойной вес в граммах)».",
+        "Реализуйте вычисляемый метод получения public double getTotalCalories(), динамически вычисляющий производное значение.",
+        "В «main» создайте экземпляр «PastryCalories».",
+        "Выведите вычисленное свойство на консоль."
       ]
     },
     "requirements": {
@@ -7092,7 +8750,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>getTotalCalories()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
       ],
       "pitfalls": "'weightGram / 100.0' qismini qavs ichida ifodalang.",
-      "cw2Tip": "Mijozga to'liq tovar tafsilotlarini berishda hisoblanuvchi xususiyatlar juda foydali."
+      "cw2Tip": "Mijozga to'liq tovar tafsilotlarini berishda hisoblanuvchi xususiyatlar juda foydali.",
+      "theoryRu": "Пищевые агрегаты четко выводятся на основе эталонных показателей плотности и массы брутто.",
+      "pitfallsRu": "'weightGram / 100.0' qismini qavs ichida ifodalang.",
+      "breakdownRu": [
+        "<code>getTotalCalories()</code>: Maydon sifatida xotirada saqlanmasdan, mavjud qiymatlardan darhol hisoblab beriluvchi xususiyat."
+      ]
     }
   },
   {
@@ -7102,15 +8765,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "106. Uzum Market — Omborga Tovar Qo'shish (restock) va Sotish (sell)",
-      "en": "106. Uzum Market — Inventory Restock and Sell Operations"
+      "en": "106. Uzum Market — Inventory Restock and Sell Operations",
+      "ru": "106. Рынок Узум — пополнение запасов и операции по продаже."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 2 da ta'kidlanganidek, shunchaki 'setQuantity' berish o'rniga biznes operatsiyalari yoziladi: 'public void restock(int amount)' miqdorni oshiradi, 'public boolean sell(int amount)' esa yetarli bo'lsa kamaytirib true, bo'lmasa false qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. ProductStock klassini yarating va unga xususiy (private) int toifasidagi 'quantity' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public ProductStock(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('restock(...)', 'sell(...)', 'getQuantity(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nSeminar 2 best practice: replace raw setters with domain operations restock(amount) and sell(amount) returning boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductStock' with private fields: int 'quantity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'restock(...)', 'sell(...)', 'getQuantity(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nSeminar 2 best practice: replace raw setters with domain operations restock(amount) and sell(amount) returning boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ProductStock' with private fields: int 'quantity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'restock(...)', 'sell(...)', 'getQuantity(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nЛучшая практика семинара 2: замените необработанные установщики операциями домена restock(amount) и Sell(amount), возвращающими логическое значение.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ProductStock с закрытыми полями: int «количество».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «restock(...)», «sell(...)», «getQuantity(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Seminar 2 da ta'kidlanganidek, shunchaki 'setQuantity' berish o'rniga biznes operatsiyalari yoziladi: 'public void restock(int amount)' miqdorni oshiradi, 'public boolean sell(int amount)' esa yetarli bo'lsa kamaytirib true, bo'lmasa false qaytaradi.",
-      "en": "Seminar 2 best practice: replace raw setters with domain operations restock(amount) and sell(amount) returning boolean."
+      "en": "Seminar 2 best practice: replace raw setters with domain operations restock(amount) and sell(amount) returning boolean.",
+      "ru": "Лучшая практика семинара 2: замените необработанные установщики операциями домена restock(amount) и Sell(amount), возвращающими логическое значение."
     },
     "steps": {
       "uz": [
@@ -7126,6 +8792,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'restock(...)', 'sell(...)', 'getQuantity(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс ProductStock с закрытыми полями: int «количество».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «restock(...)», «sell(...)», «getQuantity(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7162,7 +8835,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('restock', 'sell') bajarish topshiriladi."
       ],
       "pitfalls": "'sell' metodida yetarli qoldiq borligini tekshirishni unutmaslik kerak (quantity >= amount).",
-      "cw2Tip": "CW2 Console Order Applicationda tovar xarid qilinganda uning ombordagi soni 'sell()' kabi metod orqali kamaytirilishi shart."
+      "cw2Tip": "CW2 Console Order Applicationda tovar xarid qilinganda uning ombordagi soni 'sell()' kabi metod orqali kamaytirilishi shart.",
+      "theoryRu": "Принцип «Говори, не спрашивай»: инкапсулируйте переходы состояний в рамках операций предметной области (пополнение запасов/продажа), а не раскрывайте необработанные установщики.",
+      "pitfallsRu": "«продать» метод етарли qoldiq borligini tekshirishni unutmaslik kerak (количество >= сумма).",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('restock', 'sell') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7172,15 +8850,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "107. Payme — Pul Qo'yish (deposit) va Pul Yechish (withdraw)",
-      "en": "107. Payme — Bank Balance Deposit and Withdraw Operations"
+      "en": "107. Payme — Bank Balance Deposit and Withdraw Operations",
+      "ru": "107. Payme — операции по вводу и снятию средств с банковского баланса"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBank hisobiga to'g'ridan-to'g'ri 'setBalance' qilinmaydi! 'public void deposit(double amount)' pul qo'shadi, 'public boolean withdraw(double amount)' esa yetarli mablag' bo'lsagina pul yechadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. WalletBalance klassini yarating va unga xususiy (private) double toifasidagi 'balance' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public WalletBalance(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('deposit(...)', 'withdraw(...)', 'getBalance(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nBanks never expose raw setBalance. Implement domain operations deposit(amount) and withdraw(amount) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletBalance' with private fields: double 'balance'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'deposit(...)', 'withdraw(...)', 'getBalance(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nBanks never expose raw setBalance. Implement domain operations deposit(amount) and withdraw(amount) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'WalletBalance' with private fields: double 'balance'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'deposit(...)', 'withdraw(...)', 'getBalance(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nБанки никогда не раскрывают необработанный setBalance. Реализуйте операции с доменом: депозит(сумма) и вывод(сумма) логические значения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс WalletBalance с приватными полями: двойной баланс.\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «депозит(...)», «снятие(...)», «getBalance(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Bank hisobiga to'g'ridan-to'g'ri 'setBalance' qilinmaydi! 'public void deposit(double amount)' pul qo'shadi, 'public boolean withdraw(double amount)' esa yetarli mablag' bo'lsagina pul yechadi.",
-      "en": "Banks never expose raw setBalance. Implement domain operations deposit(amount) and withdraw(amount) boolean."
+      "en": "Banks never expose raw setBalance. Implement domain operations deposit(amount) and withdraw(amount) boolean.",
+      "ru": "Банки никогда не раскрывают необработанный setBalance. Реализуйте операции с доменом: депозит(сумма) и вывод(сумма) логические значения."
     },
     "steps": {
       "uz": [
@@ -7196,6 +8877,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'deposit(...)', 'withdraw(...)', 'getBalance(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс WalletBalance с приватными полями: двойной баланс.",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «депозит(...)», «снятие(...)», «getBalance(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7232,7 +8920,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('deposit', 'withdraw') bajarish topshiriladi."
       ],
       "pitfalls": "Balans yetarli bo'lmasa pul yechilmasligi va 'false' qaytishi lozim.",
-      "cw2Tip": "To'lov jarayonini modellashtirishda 'withdraw' metodi standart talabdir."
+      "cw2Tip": "To'lov jarayonini modellashtirishda 'withdraw' metodi standart talabdir.",
+      "theoryRu": "Логические возвраты методов вывода средств сообщают об успехе операции без возникновения исключений.",
+      "pitfallsRu": "Баланс етарли болмаса пул йечилмаслиги ва «ложный» гайтиши лозим.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('deposit', 'withdraw') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7242,15 +8935,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "108. Yandex Go — Yoqilg'i Quyish (refuel) va Sarflash (consumeFuel)",
-      "en": "108. Yandex Go — Vehicle Fuel Refuel and Consume Operations"
+      "en": "108. Yandex Go — Vehicle Fuel Refuel and Consume Operations",
+      "ru": "108. Yandex Go — операции по заправке и расходу топлива для транспортных средств"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAvtomobil bakiga benzin quyuvchi 'public void refuel(double liters)' va safar davomida yoqilg'i yetarli bo'lsa sarflovchi 'public boolean consumeFuel(double liters)' metodlarini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. CarFuel klassini yarating va unga xususiy (private) double toifasidagi 'fuelLiters' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public CarFuel(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('refuel(...)', 'consumeFuel(...)', 'getFuelLiters(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nManage taxi fuel levels via refuel(liters) and consumeFuel(liters) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CarFuel' with private fields: double 'fuelLiters'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'refuel(...)', 'consumeFuel(...)', 'getFuelLiters(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nManage taxi fuel levels via refuel(liters) and consumeFuel(liters) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CarFuel' with private fields: double 'fuelLiters'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'refuel(...)', 'consumeFuel(...)', 'getFuelLiters(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nУправляйте уровнем топлива в такси с помощью логических значений refuel(liters) и ConsumerFuel(liters).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CarFuel с частными полями: double «fuelLiters».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «refuel(...)», «consumeFuel(...)», «getFuelLiters(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Avtomobil bakiga benzin quyuvchi 'public void refuel(double liters)' va safar davomida yoqilg'i yetarli bo'lsa sarflovchi 'public boolean consumeFuel(double liters)' metodlarini yozing.",
-      "en": "Manage taxi fuel levels via refuel(liters) and consumeFuel(liters) boolean."
+      "en": "Manage taxi fuel levels via refuel(liters) and consumeFuel(liters) boolean.",
+      "ru": "Управляйте уровнем топлива в такси с помощью логических значений refuel(liters) и ConsumerFuel(liters)."
     },
     "steps": {
       "uz": [
@@ -7266,6 +8962,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'refuel(...)', 'consumeFuel(...)', 'getFuelLiters(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс CarFuel с частными полями: double «fuelLiters».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «refuel(...)», «consumeFuel(...)», «getFuelLiters(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7302,7 +9005,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('refuel', 'consumeFuel') bajarish topshiriladi."
       ],
       "pitfalls": "Yoqilg'i miqdori manfiy bo'lib ketishidan 'fuelLiters >= liters' sharti orqali saqlaning.",
-      "cw2Tip": "Resurslarni iste'mol qiluvchi ob'yektlarda boolean natija qaytarish qulay usuldir."
+      "cw2Tip": "Resurslarni iste'mol qiluvchi ob'yektlarda boolean natija qaytarish qulay usuldir.",
+      "theoryRu": "Смена топливных ресурсов регулируется инкапсулированными методами дозаправки и потребления.",
+      "pitfallsRu": "Yoqilg'i miqdori manfiy bo'lib ketishidan 'fuelLiters >= литров' sharti orqali saqlaning.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('refuel', 'consumeFuel') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7312,15 +9020,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "109. Korzinka — Bonuslarni To'plash (earnPoints) va Sarflash (redeemPoints)",
-      "en": "109. Korzinka — Loyalty Points Earn and Redeem Operations"
+      "en": "109. Korzinka — Loyalty Points Earn and Redeem Operations",
+      "ru": "109. Корзинка — Операции начисления и списания баллов лояльности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXarid uchun bonus to'plovchi 'earnPoints(int pts)' va kassa to'lovida bonus yetarli bo'lsa sarflovchi 'redeemPoints(int pts)' metodlarini yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BonusTracker klassini yarating va unga xususiy (private) int toifasidagi 'points' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public BonusTracker(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('earnPoints(...)', 'redeemPoints(...)', 'getPoints(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nKorzinka rewards earnPoints(pts) and redeems points via boolean redeemPoints(pts).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BonusTracker' with private fields: int 'points'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'earnPoints(...)', 'redeemPoints(...)', 'getPoints(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nKorzinka rewards earnPoints(pts) and redeems points via boolean redeemPoints(pts).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BonusTracker' with private fields: int 'points'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'earnPoints(...)', 'redeemPoints(...)', 'getPoints(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nKorzinka rewards earnPoints(pts) and redeems points via boolean redeemPoints(pts).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Declare class 'BonusTracker' with private fields: int 'points'.\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Implement business methods: 'earnPoints(...)', 'redeemPoints(...)', 'getPoints(...)'.\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Xarid uchun bonus to'plovchi 'earnPoints(int pts)' va kassa to'lovida bonus yetarli bo'lsa sarflovchi 'redeemPoints(int pts)' metodlarini yarating.",
-      "en": "Korzinka rewards earnPoints(pts) and redeems points via boolean redeemPoints(pts)."
+      "en": "Korzinka rewards earnPoints(pts) and redeems points via boolean redeemPoints(pts).",
+      "ru": "Реализуйте операции начисления и списания баллов лояльности в системе Корзинка."
     },
     "steps": {
       "uz": [
@@ -7336,6 +9047,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'earnPoints(...)', 'redeemPoints(...)', 'getPoints(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс с приватным полем для баллов.",
+        "Реализуйте метод начисления earnPoints(int pts).",
+        "Реализуйте метод списания redeemPoints(int pts) с проверкой баланса.",
+        "Проверьте правильность расчетов в методе main.",
+        "Выведите итоговый баланс баллов в консоль."
       ]
     },
     "requirements": {
@@ -7372,7 +9090,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('earnPoints', 'redeemPoints') bajarish topshiriladi."
       ],
       "pitfalls": "Yetarli ball bo'lmasa qoldiq o'zgarmasligi lozim.",
-      "cw2Tip": "Sodiqlik tizimlarini biznes metodlari yordamida loyihalashni mashq qiling."
+      "cw2Tip": "Sodiqlik tizimlarini biznes metodlari yordamida loyihalashni mashq qiling.",
+      "theoryRu": "Point redemption protocols encapsulate debit/credit operations behind safe boundary logic.",
+      "pitfallsRu": "Yetarli ball bo'lmasa qoldiq o'zgarmasligi lozim.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('earnPoints', 'redeemPoints') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7382,15 +9105,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "110. Click — Oylik Xavfsizlik Limitidan Sarflash (spendFromLimit)",
-      "en": "110. Click — Monthly Security Spending Limit Operation"
+      "en": "110. Click — Monthly Security Spending Limit Operation",
+      "ru": "110. Нажмите — Ежемесячный лимит расходов на безопасность."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nFoydalanuvchi oylik limitidan pul sarflaydi: 'public boolean spendFromLimit(double amount)' agar summa qolgan limitdan oshmasa uni kamaytiradi va true, oshsa rad etib false qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. SpendingLimit klassini yarating va unga xususiy (private) double toifasidagi 'remainingLimit' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public SpendingLimit(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('spendFromLimit(...)', 'getRemainingLimit(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nClick controls user spending caps via spendFromLimit(amount) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SpendingLimit' with private fields: double 'remainingLimit'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'spendFromLimit(...)', 'getRemainingLimit(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nClick controls user spending caps via spendFromLimit(amount) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'SpendingLimit' with private fields: double 'remainingLimit'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'spendFromLimit(...)', 'getRemainingLimit(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nClick контролирует ограничение расходов пользователей с помощью логического значения saveFromLimit(amount).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «SpendingLimit» с частными полями: double «remainingLimit».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «spendFromLimit(...)», «getRemainingLimit(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Foydalanuvchi oylik limitidan pul sarflaydi: 'public boolean spendFromLimit(double amount)' agar summa qolgan limitdan oshmasa uni kamaytiradi va true, oshsa rad etib false qaytaradi.",
-      "en": "Click controls user spending caps via spendFromLimit(amount) boolean."
+      "en": "Click controls user spending caps via spendFromLimit(amount) boolean.",
+      "ru": "Click контролирует ограничение расходов пользователей с помощью логического значения saveFromLimit(amount)."
     },
     "steps": {
       "uz": [
@@ -7406,6 +9132,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'spendFromLimit(...)', 'getRemainingLimit(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «SpendingLimit» с частными полями: double «remainingLimit».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «spendFromLimit(...)», «getRemainingLimit(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7441,7 +9174,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('spendFromLimit', 'getRemainingLimit') bajarish topshiriladi."
       ],
       "pitfalls": "Limit yetmaganda maydon o'zgarmasdan qolishi shart.",
-      "cw2Tip": "Foydalanuvchi balansi va limitlarini boshqarishda ushbu usul juda samarali."
+      "cw2Tip": "Foydalanuvchi balansi va limitlarini boshqarishda ushbu usul juda samarali.",
+      "theoryRu": "Лимиты безопасности карты защищены от перерасхода средств с помощью методов подтверждения домена.",
+      "pitfallsRu": "Ограничьте еще маганда майдон узгармасдан колиши шарт.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('spendFromLimit', 'getRemainingLimit') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7451,15 +9189,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "111. Asaxiy — Kitobni Ijaraga Berish (rentOut) va Qaytarish (returnBook)",
-      "en": "111. Asaxiy — Book Rental Inventory Operations"
+      "en": "111. Asaxiy — Book Rental Inventory Operations",
+      "ru": "111. Асаксий — Инвентаризационные операции по аренде книг"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKutubxonada nusxalar soni mavjud. 'returnBook(int count)' nusxalar sonini oshiradi, 'rentOut(int count)' esa yetarli kitob bo'lsagina nusxani kamaytirib true qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BookInventory klassini yarating va unga xususiy (private) int toifasidagi 'availableCopies' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public BookInventory(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('returnBook(...)', 'rentOut(...)', 'getAvailableCopies(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nManage rental copies using returnBook(count) and rentOut(count) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookInventory' with private fields: int 'availableCopies'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'returnBook(...)', 'rentOut(...)', 'getAvailableCopies(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nManage rental copies using returnBook(count) and rentOut(count) boolean.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BookInventory' with private fields: int 'availableCopies'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'returnBook(...)', 'rentOut(...)', 'getAvailableCopies(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nУправляйте арендованными копиями с помощью логических значений returnBook(count) и rentOut(count).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «BookInventory» с закрытыми полями: int «availableCopies».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «returnBook(...)», «rentOut(...)», «getAvailableCopies(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Kutubxonada nusxalar soni mavjud. 'returnBook(int count)' nusxalar sonini oshiradi, 'rentOut(int count)' esa yetarli kitob bo'lsagina nusxani kamaytirib true qaytaradi.",
-      "en": "Manage rental copies using returnBook(count) and rentOut(count) boolean."
+      "en": "Manage rental copies using returnBook(count) and rentOut(count) boolean.",
+      "ru": "Управляйте арендованными копиями с помощью логических значений returnBook(count) и rentOut(count)."
     },
     "steps": {
       "uz": [
@@ -7475,6 +9216,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'returnBook(...)', 'rentOut(...)', 'getAvailableCopies(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «BookInventory» с закрытыми полями: int «availableCopies».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «returnBook(...)», «rentOut(...)», «getAvailableCopies(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7511,7 +9259,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('returnBook', 'rentOut') bajarish topshiriladi."
       ],
       "pitfalls": "'rentOut' metodida 'availableCopies >= count' shartini unutmang.",
-      "cw2Tip": "Kutubxona yoki ijara tizimlarini loyihalashda ushbu metodlar asosiy rolni o'ynaydi."
+      "cw2Tip": "Kutubxona yoki ijara tizimlarini loyihalashda ushbu metodlar asosiy rolni o'ynaydi.",
+      "theoryRu": "Рабочие процессы библиотеки извлечения и возврата четко инкапсулированы в операционные мутаторы.",
+      "pitfallsRu": "'rentOut' метод 'availableCopies >= count' shartini unutmang.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('returnBook', 'rentOut') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7521,15 +9274,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "112. Uztelecom — Megabaytlarni To'ldirish (topUpData) va Sarflash (useData)",
-      "en": "112. Uztelecom — Mobile Data TopUp and Consume Operations"
+      "en": "112. Uztelecom — Mobile Data TopUp and Consume Operations",
+      "ru": "112. Узтелеком — Операции пополнения и потребления мобильных данных"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nInternet paket sotib olinganda 'topUpData(int mb)' megabayt qo'shadi, internet ishlatilganda 'useData(int mb)' yetarli bo'lsagina sarflab true qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. MobileData klassini yarating va unga xususiy (private) int toifasidagi 'remainingMb' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public MobileData(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('topUpData(...)', 'useData(...)', 'getRemainingMb(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nTelematics topUpData(mb) and useData(mb) boolean guard connectivity limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MobileData' with private fields: int 'remainingMb'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'topUpData(...)', 'useData(...)', 'getRemainingMb(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nTelematics topUpData(mb) and useData(mb) boolean guard connectivity limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MobileData' with private fields: int 'remainingMb'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'topUpData(...)', 'useData(...)', 'getRemainingMb(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nТелематические значения topUpData(mb) и useData(mb) логические ограничения на возможность подключения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «MobileData» с закрытыми полями: int «remainingMb».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «topUpData(...)», «useData(...)», «getRemainingMb(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Internet paket sotib olinganda 'topUpData(int mb)' megabayt qo'shadi, internet ishlatilganda 'useData(int mb)' yetarli bo'lsagina sarflab true qaytaradi.",
-      "en": "Telematics topUpData(mb) and useData(mb) boolean guard connectivity limits."
+      "en": "Telematics topUpData(mb) and useData(mb) boolean guard connectivity limits.",
+      "ru": "Телематические значения topUpData(mb) и useData(mb) логические ограничения на возможность подключения."
     },
     "steps": {
       "uz": [
@@ -7545,6 +9301,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'topUpData(...)', 'useData(...)', 'getRemainingMb(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «MobileData» с закрытыми полями: int «remainingMb».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «topUpData(...)», «useData(...)», «getRemainingMb(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7581,7 +9344,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('topUpData', 'useData') bajarish topshiriladi."
       ],
       "pitfalls": "Trafik tugaganda maydon manfiy songa tushib ketmasligi lozim.",
-      "cw2Tip": "Hisob-kitob modellarida operatsiyalar xavfsizligini ta'minlang."
+      "cw2Tip": "Hisob-kitob modellarida operatsiyalar xavfsizligini ta'minlang.",
+      "theoryRu": "Измерители плана данных инкапсулируют операции уменьшения, лежащие в основе утверждений о емкости.",
+      "pitfallsRu": "Трафик тугаганда майдон манфий сонга тушиб кетмаслиги лозим.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('topUpData', 'useData') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7591,15 +9359,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "113. Texnomart — Mahsulotni Band Qilish (reserveItem) va Bo'shatish",
-      "en": "113. Texnomart — Product Reservation Operations"
+      "en": "113. Texnomart — Product Reservation Operations",
+      "ru": "113. Texnomart — Операции по резервированию продукции"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXaridor tovar tanlaganda 'reserveItem(int count)' agar erkin tovarlar yetarli bo'lsa band qilib true qaytaradi, 'releaseReservation(int count)' esa bekor qilinganda zaxirani kamaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. ItemReservation klassini yarating va unga xususiy (private) int toifasidagi 'reservedCount', int toifasidagi 'availableStock' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public ItemReservation(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nManage checkout cart reservations using reserveItem(count) and releaseReservation(count).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ItemReservation' with private fields: int 'reservedCount', int 'availableStock'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nManage checkout cart reservations using reserveItem(count) and releaseReservation(count).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ItemReservation' with private fields: int 'reservedCount', int 'availableStock'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nУправляйте резервированием корзины оформления заказа с помощью ReserveItem(count) и ReleaseReservation(count).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «ItemReservation» с закрытыми полями: int «reservedCount», int «availableStock».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: 'reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)'.\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Xaridor tovar tanlaganda 'reserveItem(int count)' agar erkin tovarlar yetarli bo'lsa band qilib true qaytaradi, 'releaseReservation(int count)' esa bekor qilinganda zaxirani kamaytiradi.",
-      "en": "Manage checkout cart reservations using reserveItem(count) and releaseReservation(count)."
+      "en": "Manage checkout cart reservations using reserveItem(count) and releaseReservation(count).",
+      "ru": "Управляйте резервированием корзины оформления заказа с помощью ReserveItem(count) и ReleaseReservation(count)."
     },
     "steps": {
       "uz": [
@@ -7615,6 +9386,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «ItemReservation» с закрытыми полями: int «reservedCount», int «availableStock».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: 'reserveItem(...)', 'releaseReservation(...)', 'getReservedCount(...)'.",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7652,7 +9430,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('reserveItem', 'releaseReservation') bajarish topshiriladi."
       ],
       "pitfalls": "Band qilingan son mavjud erkin zaxiradan oshmasligi kerak.",
-      "cw2Tip": "CW2 Console Order ilovasida buyurtma berishdan oldin tovarlarni band qilish mantiqini qo'llang."
+      "cw2Tip": "CW2 Console Order ilovasida buyurtma berishdan oldin tovarlarni band qilish mantiqini qo'llang.",
+      "theoryRu": "Резервирование запасов безопасно координирует одновременные заявки на корзину внутри объектов домена.",
+      "pitfallsRu": "Группа килинган сын мавджуд эркин захирадан ошмаслиги керак.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('reserveItem', 'releaseReservation') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7662,15 +9445,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "114. Milliy Bank — Kredit Qarzini Qisman To'lash (repayPrincipal)",
-      "en": "114. Milliy Bank — Loan Principal Repayment Operation"
+      "en": "114. Milliy Bank — Loan Principal Repayment Operation",
+      "ru": "114. Миллий Банк — Операция по погашению основной суммы кредита"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz kredit qarzini qisman to'laydi: 'repayPrincipal(double amount)' agar to'lov summasi qarzdan oshmasa uni kamaytiradi va true qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. LoanDebt klassini yarating va unga xususiy (private) double toifasidagi 'remainingDebt' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public LoanDebt(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('repayPrincipal(...)', 'getRemainingDebt(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nClients repay credit via repayPrincipal(amount) ensuring amount does not exceed remainingDebt.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LoanDebt' with private fields: double 'remainingDebt'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'repayPrincipal(...)', 'getRemainingDebt(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nClients repay credit via repayPrincipal(amount) ensuring amount does not exceed remainingDebt.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'LoanDebt' with private fields: double 'remainingDebt'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'repayPrincipal(...)', 'getRemainingDebt(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nКлиенты погашают кредит через repayPrincipal(amount), гарантируя, что сумма не превышает оставшуюся задолженность.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «LoanDebt» с закрытыми полями: double «remainingDebt».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «repayPrincipal(...)», «getRemainingDebt(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Mijoz kredit qarzini qisman to'laydi: 'repayPrincipal(double amount)' agar to'lov summasi qarzdan oshmasa uni kamaytiradi va true qaytaradi.",
-      "en": "Clients repay credit via repayPrincipal(amount) ensuring amount does not exceed remainingDebt."
+      "en": "Clients repay credit via repayPrincipal(amount) ensuring amount does not exceed remainingDebt.",
+      "ru": "Клиенты погашают кредит через repayPrincipal(amount), гарантируя, что сумма не превышает оставшуюся задолженность."
     },
     "steps": {
       "uz": [
@@ -7686,6 +9472,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'repayPrincipal(...)', 'getRemainingDebt(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «LoanDebt» с закрытыми полями: double «remainingDebt».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «repayPrincipal(...)», «getRemainingDebt(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7721,7 +9514,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('repayPrincipal', 'getRemainingDebt') bajarish topshiriladi."
       ],
       "pitfalls": "'amount <= remainingDebt' shartini to'g'ri tekshiring.",
-      "cw2Tip": "Kreditlarni yopish va to'lovlarni qayd etishda xususiy operatsiyalardan foydalaning."
+      "cw2Tip": "Kreditlarni yopish va to'lovlarni qayd etishda xususiy operatsiyalardan foydalaning.",
+      "theoryRu": "Ликвидация долга предотвращает переплату благодаря логике атомарного сдерживания.",
+      "pitfallsRu": "'сумма <= оставшийся долг' шартини то'гри текширинг.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('repayPrincipal', 'getRemainingDebt') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7731,15 +9529,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "115. Medion — Shifokor Qabul O'rnini Band Qilish (bookSlot)",
-      "en": "115. Medion — Doctor Appointment Slot Booking"
+      "en": "115. Medion — Doctor Appointment Slot Booking",
+      "ru": "115. Medion — запись на прием к врачу"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nShifokor qabuliga navbat olish: 'bookSlot()' bo'sh joy bo'lsa uni 1 taga kamaytirib true qaytaradi, 'cancelSlot()' esa bekor qilinganda bo'sh o'rinni 1 taga oshiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. DoctorSchedule klassini yarating va unga xususiy (private) int toifasidagi 'availableSlots' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public DoctorSchedule(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('bookSlot(...)', 'cancelSlot(...)', 'getAvailableSlots(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nManage clinic appointment slots using bookSlot() boolean and cancelSlot().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DoctorSchedule' with private fields: int 'availableSlots'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'bookSlot(...)', 'cancelSlot(...)', 'getAvailableSlots(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nManage clinic appointment slots using bookSlot() boolean and cancelSlot().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DoctorSchedule' with private fields: int 'availableSlots'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'bookSlot(...)', 'cancelSlot(...)', 'getAvailableSlots(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nУправляйте интервалами посещений клиники с помощью логических значений bookSlot() и cancelSlot().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс DoctorSchedule с закрытыми полями: int «availableSlots».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «bookSlot(...)», «cancelSlot(...)», «getAvailableSlots(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Shifokor qabuliga navbat olish: 'bookSlot()' bo'sh joy bo'lsa uni 1 taga kamaytirib true qaytaradi, 'cancelSlot()' esa bekor qilinganda bo'sh o'rinni 1 taga oshiradi.",
-      "en": "Manage clinic appointment slots using bookSlot() boolean and cancelSlot()."
+      "en": "Manage clinic appointment slots using bookSlot() boolean and cancelSlot().",
+      "ru": "Управляйте интервалами посещений клиники с помощью логических значений bookSlot() и cancelSlot()."
     },
     "steps": {
       "uz": [
@@ -7755,6 +9556,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'bookSlot(...)', 'cancelSlot(...)', 'getAvailableSlots(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс DoctorSchedule с закрытыми полями: int «availableSlots».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «bookSlot(...)», «cancelSlot(...)», «getAvailableSlots(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7791,7 +9599,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('bookSlot', 'cancelSlot') bajarish topshiriladi."
       ],
       "pitfalls": "O'rinlar 0 ga teng bo'lganda 'bookSlot' false qaytarishi shart.",
-      "cw2Tip": "Xizmat ko'rsatish sig'imini boshqaruvchi modellarni toza loyihalang."
+      "cw2Tip": "Xizmat ko'rsatish sig'imini boshqaruvchi modellarni toza loyihalang.",
+      "theoryRu": "Атомное уменьшение/приращение слотов обеспечивает точные счетчики пропускной способности клиники.",
+      "pitfallsRu": "O'rinlar 0 ga teng bo'lganda 'bookSlot' false qaytarishi shart.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('bookSlot', 'cancelSlot') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7801,15 +9614,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "116. UzAirways — Yo'lovchini Samolyotga Chiqarish (boardPassenger)",
-      "en": "116. UzAirways — Passenger Boarding Operation"
+      "en": "116. UzAirways — Passenger Boarding Operation",
+      "ru": "116. UzAirways — Посадка пассажиров"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSamolyot eshigida yo'lovchilarni qabul qilish: 'boardPassenger()' agar chiqqanlar soni maksimal sig'imdan kam bo'lsa uni 1 taga oshirib true, to'lgan bo'lsa false qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. FlightBoarding klassini yarating va unga xususiy (private) int toifasidagi 'boardedCount', int toifasidagi 'maxCapacity' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public FlightBoarding(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('boardPassenger(...)', 'getBoardedCount(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nBoard passengers onto flight ensuring capacity limit is not breached.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightBoarding' with private fields: int 'boardedCount', int 'maxCapacity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'boardPassenger(...)', 'getBoardedCount(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nBoard passengers onto flight ensuring capacity limit is not breached.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FlightBoarding' with private fields: int 'boardedCount', int 'maxCapacity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'boardPassenger(...)', 'getBoardedCount(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nПосадка пассажиров на рейс, гарантируя, что предел вместимости не будет нарушен.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FlightBoarding с закрытыми полями: int «boardedCount», int «maxCapacity».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «boardPassenger(...)», «getBoardedCount(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Samolyot eshigida yo'lovchilarni qabul qilish: 'boardPassenger()' agar chiqqanlar soni maksimal sig'imdan kam bo'lsa uni 1 taga oshirib true, to'lgan bo'lsa false qaytaradi.",
-      "en": "Board passengers onto flight ensuring capacity limit is not breached."
+      "en": "Board passengers onto flight ensuring capacity limit is not breached.",
+      "ru": "Посадка пассажиров на рейс, гарантируя, что предел вместимости не будет нарушен."
     },
     "steps": {
       "uz": [
@@ -7825,6 +9641,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'boardPassenger(...)', 'getBoardedCount(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс FlightBoarding с закрытыми полями: int «boardedCount», int «maxCapacity».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «boardPassenger(...)», «getBoardedCount(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7861,7 +9684,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('boardPassenger', 'getBoardedCount') bajarish topshiriladi."
       ],
       "pitfalls": "'boardedCount < maxCapacity' shartini to'g'ri o'rnating.",
-      "cw2Tip": "Sig'im va limitlar bilan ishlashda bunday operatsion metodlar juda qulay."
+      "cw2Tip": "Sig'im va limitlar bilan ishlashda bunday operatsion metodlar juda qulay.",
+      "theoryRu": "Пограничные проверки внутри эксплуатационного борта «Пассажир» сохраняют инварианты безопасности авиационных пассажиров.",
+      "pitfallsRu": "'boardedCount < maxCapacity' shartini to'g'ri o'rnating.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('boardPassenger', 'getBoardedCount') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7871,15 +9699,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "117. Express24 — Buyurtma Bosqichini Oldinga Surish (advanceStatus)",
-      "en": "117. Express24 — Order Lifecycle Stage Advancement"
+      "en": "117. Express24 — Order Lifecycle Stage Advancement",
+      "ru": "117. Express24 — Повышение стадии жизненного цикла заказа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma hayotiy tsikli: 'NEW' -> 'PREPARING' -> 'ON_WAY' -> 'DELIVERED'. 'advanceStatus()' metodi chaqirilganda statusni keyingi bosqichga o'tkazsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. OrderStatusTracker klassini yarating va unga xususiy (private) String toifasidagi 'status' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public OrderStatusTracker(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('advanceStatus(...)', 'getCurrentStatus(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nOrder lifecycles transition from NEW to DELIVERED. Build advanceStatus state machine.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderStatusTracker' with private fields: String 'status'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'advanceStatus(...)', 'getCurrentStatus(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nOrder lifecycles transition from NEW to DELIVERED. Build advanceStatus state machine.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderStatusTracker' with private fields: String 'status'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'advanceStatus(...)', 'getCurrentStatus(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nПереход жизненного цикла заказа с НОВОГО на ПОСТАВЛЕННЫЙ. Постройте конечный автомат AdvanceStatus.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderStatusTracker с закрытыми полями: строка status.\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «advanceStatus(...)», «getCurrentStatus(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Buyurtma hayotiy tsikli: 'NEW' -> 'PREPARING' -> 'ON_WAY' -> 'DELIVERED'. 'advanceStatus()' metodi chaqirilganda statusni keyingi bosqichga o'tkazsin.",
-      "en": "Order lifecycles transition from NEW to DELIVERED. Build advanceStatus state machine."
+      "en": "Order lifecycles transition from NEW to DELIVERED. Build advanceStatus state machine.",
+      "ru": "Переход жизненного цикла заказа с НОВОГО на ПОСТАВЛЕННЫЙ. Постройте конечный автомат AdvanceStatus."
     },
     "steps": {
       "uz": [
@@ -7895,6 +9726,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'advanceStatus(...)', 'getCurrentStatus(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс OrderStatusTracker с закрытыми полями: строка status.",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «advanceStatus(...)», «getCurrentStatus(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -7930,7 +9768,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('advanceStatus', 'getCurrentStatus') bajarish topshiriladi."
       ],
       "pitfalls": "Stringlarni '.equals()' orqali solishtiring.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma holatini boshqarishda ushbu yondashuv tavsiya etiladi."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma holatini boshqarishda ushbu yondashuv tavsiya etiladi.",
+      "theoryRu": "Переходы конечного автомата защищены от незаконных переходов методами последовательного продвижения.",
+      "pitfallsRu": "Строка '.equals()' или слишком утомительна.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('advanceStatus', 'getCurrentStatus') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -7940,15 +9783,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "118. WIUT LMS — Dars Qoldirilishini Qayd Qilish (recordAbsence)",
-      "en": "118. WIUT LMS — Student Absence Tracking & Barred Status"
+      "en": "118. WIUT LMS — Student Absence Tracking & Barred Status",
+      "ru": "118. WIUT LMS — отслеживание отсутствия студентов и статус запрета"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTalaba dars qoldirganda 'recordAbsence(int hours)' soatni qo'shadi, agar qoldirilgan soatlar 12 tadan oshsa 'isBarredFromExam()' true qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. AbsenceTracker klassini yarating va unga xususiy (private) int toifasidagi 'absenceHours' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public AbsenceTracker(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nTrack student absences via recordAbsence(hours) and flag isBarredFromExam when hours > 12.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AbsenceTracker' with private fields: int 'absenceHours'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nTrack student absences via recordAbsence(hours) and flag isBarredFromExam when hours > 12.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AbsenceTracker' with private fields: int 'absenceHours'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nОтслеживайте отсутствие учащихся с помощью RecordAbsence(hours) и отмечайте isBarredFromExam, когда часов > 12.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс AbsenceTracker с приватными полями: int absenceHours.\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: 'recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)'.\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Talaba dars qoldirganda 'recordAbsence(int hours)' soatni qo'shadi, agar qoldirilgan soatlar 12 tadan oshsa 'isBarredFromExam()' true qaytaradi.",
-      "en": "Track student absences via recordAbsence(hours) and flag isBarredFromExam when hours > 12."
+      "en": "Track student absences via recordAbsence(hours) and flag isBarredFromExam when hours > 12.",
+      "ru": "Отслеживайте отсутствие учащихся с помощью RecordAbsence(hours) и отмечайте isBarredFromExam, когда часов > 12."
     },
     "steps": {
       "uz": [
@@ -7964,6 +9810,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс AbsenceTracker с приватными полями: int absenceHours.",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: 'recordAbsence(...)', 'isBarredFromExam(...)', 'getAbsenceHours(...)'.",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -8000,7 +9853,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('recordAbsence', 'isBarredFromExam') bajarish topshiriladi."
       ],
       "pitfalls": "'absenceHours > 12' shartini to'g'ri tekshiring.",
-      "cw2Tip": "Universitet ichki qoidalariga oid modellarda talabalar intizomini tahlil qilishni o'rganing."
+      "cw2Tip": "Universitet ichki qoidalariga oid modellarda talabalar intizomini tahlil qilishni o'rganing.",
+      "theoryRu": "Совокупные счетчики нарушений плавно управляют логическими предикатами состояния.",
+      "pitfallsRu": "'absenceHours > 12' Шартини то'гри текширинг.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('recordAbsence', 'isBarredFromExam') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -8010,15 +9868,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "119. Apex Pizza — Pech Sig'imini Boshqarish (loadPizza & unloadPizza)",
-      "en": "119. Apex Pizza — Pizza Oven Capacity Operations"
+      "en": "119. Apex Pizza — Pizza Oven Capacity Operations",
+      "ru": "119. Apex Pizza — Эксплуатация мощности печи для пиццы"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPechga maksimal 4 ta pitsa sig'adi: 'loadPizza()' joy bo'lsa yuklab true qaytaradi, 'unloadPizza()' pishgan pitsani olib sonini bittaga kamaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. PizzaOven klassini yarating va unga xususiy (private) int toifasidagi 'currentLoad', int toifasidagi 'capacity' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public PizzaOven(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nPizzeria ovens hold up to 4 pizzas. Build loadPizza() boolean and unloadPizza().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOven' with private fields: int 'currentLoad', int 'capacity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nPizzeria ovens hold up to 4 pizzas. Build loadPizza() boolean and unloadPizza().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'PizzaOven' with private fields: int 'currentLoad', int 'capacity'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nПечи для пиццерий вмещают до 4 пицц. Создайте логическое значение loadPizza() и unloadPizza().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «PizzaOven» с частными полями: int «currentLoad», int «capacity».\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: 'loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)'.\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Pechga maksimal 4 ta pitsa sig'adi: 'loadPizza()' joy bo'lsa yuklab true qaytaradi, 'unloadPizza()' pishgan pitsani olib sonini bittaga kamaytiradi.",
-      "en": "Pizzeria ovens hold up to 4 pizzas. Build loadPizza() boolean and unloadPizza()."
+      "en": "Pizzeria ovens hold up to 4 pizzas. Build loadPizza() boolean and unloadPizza().",
+      "ru": "Печи для пиццерий вмещают до 4 пицц. Создайте логическое значение loadPizza() и unloadPizza()."
     },
     "steps": {
       "uz": [
@@ -8034,6 +9895,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс «PizzaOven» с частными полями: int «currentLoad», int «capacity».",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: 'loadPizza(...)', 'unloadPizza(...)', 'getCurrentLoad(...)'.",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -8071,7 +9939,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('loadPizza', 'unloadPizza') bajarish topshiriladi."
       ],
       "pitfalls": "'unloadPizza' chaqirilganda yuklama 0 dan kamayib ketmasligi shart.",
-      "cw2Tip": "Uskuna va resurslarni boshqarishda bunday juft metodlar juda qulaydir."
+      "cw2Tip": "Uskuna va resurslarni boshqarishda bunday juft metodlar juda qulaydir.",
+      "theoryRu": "Модели оборудования с ограниченной мощностью обеспечивают атомарное ограничение нагрузки.",
+      "pitfallsRu": "'unloadPizza' chaqirilganda yuklama 0 dan kamayib ketmasligi shart.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('loadPizza', 'unloadPizza') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -8081,15 +9954,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "106-120: Domen Operatsiyalari",
     "title": {
       "uz": "120. Safia — Kechki Chegirmani Qo'llash (applyDiscount)",
-      "en": "120. Safia — Evening Discount Domain Operation"
+      "en": "120. Safia — Evening Discount Domain Operation",
+      "ru": "120. Safia — Вечерняя скидка на работу домена"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSoat 20:00 dan keyin shirinliklarga chegirma e'lon qilinadi: 'applyDiscount(double percent)' metodi narxni kiritilgan foizga kamaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. EveningDiscount klassini yarating va unga xususiy (private) double toifasidagi 'finalPrice' maydonlarini qo'shing.\n\n2. Boshlang'ich holatni o'rnatuvchi 'public EveningDiscount(...)' konstruktorini e'lon qiling.\n\n3. Biznes operatsiyalarini ifodalovchi domen metodlarini ('applyDiscount(...)', 'getFinalPrice(...)') toza mantiq bilan yozing.\n\n4. 'Main' metodida ob'yekt yarating va domen amallarini bajaring.\n\n5. Natijalarni namunadagidek konsolga chiqaring.",
-      "en": "📖 Real-World Scenario & Context\nSafia applies promotional markdowns via applyDiscount(percent).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'EveningDiscount' with private fields: double 'finalPrice'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'applyDiscount(...)', 'getFinalPrice(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console."
+      "en": "📖 Real-World Scenario & Context\nSafia applies promotional markdowns via applyDiscount(percent).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'EveningDiscount' with private fields: double 'finalPrice'.\n\n2. Write constructor initializing starting domain state.\n\n3. Implement business methods: 'applyDiscount(...)', 'getFinalPrice(...)'.\n\n4. In 'main', instantiate object and invoke domain operations.\n\n5. Print results to console.",
+      "ru": "📖 Контекст и описание задачи\nSafia применяет рекламные скидки через applyDiscount(percent).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс EveningDiscount с приватными полями: double FinalPrice.\n2. Напишите конструктор, инициализирующий начальное состояние домена.\n3. Реализуйте бизнес-методы: «applyDiscount(...)», «getFinalPrice(...)».\n4. В «main» создайте экземпляр объекта и вызовите операции домена.\n5. Выведите результаты на консоль."
     },
     "story": {
       "uz": "Soat 20:00 dan keyin shirinliklarga chegirma e'lon qilinadi: 'applyDiscount(double percent)' metodi narxni kiritilgan foizga kamaytiradi.",
-      "en": "Safia applies promotional markdowns via applyDiscount(percent)."
+      "en": "Safia applies promotional markdowns via applyDiscount(percent).",
+      "ru": "Safia применяет рекламные скидки через applyDiscount(percent)."
     },
     "steps": {
       "uz": [
@@ -8105,6 +9981,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement business methods: 'applyDiscount(...)', 'getFinalPrice(...)'.",
         "In 'main', instantiate object and invoke domain operations.",
         "Print results to console."
+      ],
+      "ru": [
+        "Объявите класс EveningDiscount с приватными полями: double FinalPrice.",
+        "Напишите конструктор, инициализирующий начальное состояние домена.",
+        "Реализуйте бизнес-методы: «applyDiscount(...)», «getFinalPrice(...)».",
+        "В «main» создайте экземпляр объекта и вызовите операции домена.",
+        "Выведите результаты на консоль."
       ]
     },
     "requirements": {
@@ -8140,7 +10023,12 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('applyDiscount', 'getFinalPrice') bajarish topshiriladi."
       ],
       "pitfalls": "Foiz qiymatini 100 ga bo'lib ayirish amalini bajaring.",
-      "cw2Tip": "Do'kon aksiyalari va kassa operatsiyalarini shunday metodlar orqali amalga oshiring."
+      "cw2Tip": "Do'kon aksiyalari va kassa operatsiyalarini shunday metodlar orqali amalga oshiring.",
+      "theoryRu": "Операции по снижению цен напрямую применяют бизнес-формулы к переходному состоянию.",
+      "pitfallsRu": "Foiz qiymatini 100 ga bo'lib ayirish amalini bajaring.",
+      "breakdownRu": [
+        "<code>Tell, Don't Ask</code>: Obyektga to'g'ridan-to'g'ri 'set...' chaqirmasdan, biznes operatsiyalarini ('applyDiscount', 'getFinalPrice') bajarish topshiriladi."
+      ]
     }
   },
   {
@@ -8150,15 +10038,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "121. Uzum Market — Buyurtma Fiskal Cheki (OrderReceipt)",
-      "en": "121. Uzum Market — Immutable Order Receipt"
+      "en": "121. Uzum Market — Immutable Order Receipt",
+      "ru": "121. Рынок Узум — неизменяемая квитанция о заказе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXarid amalga oshirilgach, soliq va audit talablariga ko'ra chek ma'lumotlari (receiptNo va totalAmount) o'zgarmas bo'lishi shart. Uni 'final' maydonlar va faqat getterlar bilan himoyalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. OrderReceipt klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'receiptNo', double toifasidagi 'totalAmount') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public OrderReceipt(String receiptNo, double totalAmount)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getReceiptNo()', 'getTotalAmount()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'OrderReceipt' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nAudit and tax requirements require fiscal receipts to be strictly immutable once generated. Implement with final fields and no setters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderReceipt' with immutable fields: String 'receiptNo', double 'totalAmount'.\n\n2. Write constructor 'public OrderReceipt(String receiptNo, double totalAmount)' initializing all final fields.\n\n3. Implement read-only accessors: 'getReceiptNo()', 'getTotalAmount()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'OrderReceipt' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nAudit and tax requirements require fiscal receipts to be strictly immutable once generated. Implement with final fields and no setters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'OrderReceipt' with immutable fields: String 'receiptNo', double 'totalAmount'.\n\n2. Write constructor 'public OrderReceipt(String receiptNo, double totalAmount)' initializing all final fields.\n\n3. Implement read-only accessors: 'getReceiptNo()', 'getTotalAmount()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'OrderReceipt' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nТребования аудита и налогообложения требуют, чтобы финансовые поступления были строго неизменными после их создания. Реализуйте с конечными полями и без сеттеров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderReceipt с неизменяемыми полями: строка «receiptNo», двойная «totalAmount».\n2. Напишите конструктор «public OrderReceipt (String ReceiptNo, double totalAmount)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getReceiptNo()', 'getTotalAmount()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемого OrderReceipt в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Xarid amalga oshirilgach, soliq va audit talablariga ko'ra chek ma'lumotlari (receiptNo va totalAmount) o'zgarmas bo'lishi shart. Uni 'final' maydonlar va faqat getterlar bilan himoyalang.",
-      "en": "Audit and tax requirements require fiscal receipts to be strictly immutable once generated. Implement with final fields and no setters."
+      "en": "Audit and tax requirements require fiscal receipts to be strictly immutable once generated. Implement with final fields and no setters.",
+      "ru": "Требования аудита и налогообложения требуют, чтобы финансовые поступления были строго неизменными после их создания. Реализуйте с конечными полями и без сеттеров."
     },
     "steps": {
       "uz": [
@@ -8174,6 +10065,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getReceiptNo()', 'getTotalAmount()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'OrderReceipt' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс OrderReceipt с неизменяемыми полями: строка «receiptNo», двойная «totalAmount».",
+        "Напишите конструктор «public OrderReceipt (String ReceiptNo, double totalAmount)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getReceiptNo()', 'getTotalAmount()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемого OrderReceipt в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8212,7 +10110,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Immutable sinflarda hech qachon setter (setReceiptNo, setTotalAmount) yozilmaydi.",
-      "cw2Tip": "CW2 Console Order Applicationda tranzaksiya identifikatorlari va kvitansiyalar uchun immutability tamoyilidan foydalaning."
+      "cw2Tip": "CW2 Console Order Applicationda tranzaksiya identifikatorlari va kvitansiyalar uchun immutability tamoyilidan foydalaning.",
+      "theoryRu": "Неизменяемый объект гарантирует потокобезопасность и целостность данных, помечая поля как «частные окончательные» и опуская методы-мутаторы.",
+      "pitfallsRu": "Неизменяемый синфларда hech qachon setter (setReceiptNo, setTotalAmount) yozilmaydi.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8222,15 +10126,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "122. Payme — O'zgarmas Tranzaksiya Identyfikatori (TransactionId)",
-      "en": "122. Payme — Immutable Transaction Identifier"
+      "en": "122. Payme — Immutable Transaction Identifier",
+      "ru": "122. Payme — неизменяемый идентификатор транзакции"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMoliyaviy tranzaksiya unikal identifikatori (prefix va numericCode) to'lov paytida bir marta shakllanadi va keyinchalik o'zgartirilishi xavfsizlikka ziddir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. TransactionId klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'prefix', long toifasidagi 'numericCode') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public TransactionId(String prefix, long numericCode)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getPrefix()', 'getNumericCode()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'TransactionId' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nTransaction IDs must never mutate after initiation. Implement an immutable TransactionId holder.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TransactionId' with immutable fields: String 'prefix', long 'numericCode'.\n\n2. Write constructor 'public TransactionId(String prefix, long numericCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getPrefix()', 'getNumericCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'TransactionId' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nTransaction IDs must never mutate after initiation. Implement an immutable TransactionId holder.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'TransactionId' with immutable fields: String 'prefix', long 'numericCode'.\n\n2. Write constructor 'public TransactionId(String prefix, long numericCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getPrefix()', 'getNumericCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'TransactionId' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nИдентификаторы транзакций никогда не должны меняться после инициации. Реализуйте неизменяемый держатель TransactionId.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TransactionId с неизменяемыми полями: строка «префикс», длинный «numericCode».\n2. Напишите конструктор «public TransactionId (префикс String, длинный numericCode)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getPrefix()', 'getNumericCode()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого TransactionId в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Moliyaviy tranzaksiya unikal identifikatori (prefix va numericCode) to'lov paytida bir marta shakllanadi va keyinchalik o'zgartirilishi xavfsizlikka ziddir.",
-      "en": "Transaction IDs must never mutate after initiation. Implement an immutable TransactionId holder."
+      "en": "Transaction IDs must never mutate after initiation. Implement an immutable TransactionId holder.",
+      "ru": "Идентификаторы транзакций никогда не должны меняться после инициации. Реализуйте неизменяемый держатель TransactionId."
     },
     "steps": {
       "uz": [
@@ -8246,6 +10153,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getPrefix()', 'getNumericCode()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'TransactionId' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс TransactionId с неизменяемыми полями: строка «префикс», длинный «numericCode».",
+        "Напишите конструктор «public TransactionId (префикс String, длинный numericCode)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getPrefix()', 'getNumericCode()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого TransactionId в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8284,7 +10198,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "'final' maydon konstruktorda boshlang'ich qiymat olmasa kompilyatsiya xatosi beradi.",
-      "cw2Tip": "Buyurtma ID si kabi yagona kodlarni final qilib yaratish xavfsizlikni oshiradi."
+      "cw2Tip": "Buyurtma ID si kabi yagona kodlarni final qilib yaratish xavfsizlikni oshiradi.",
+      "theoryRu": "Модификатор Final гарантирует, что назначенные ссылочные и примитивные поля не могут быть переназначены после создания.",
+      "pitfallsRu": "«Окончательный» майдонский конструктор бошлангъич киймат олмаса компиляция хатоси беради.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8294,15 +10214,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "123. Yandex Go — Xarita Koordinatasi (GeoLocation)",
-      "en": "123. Yandex Go — Immutable Geo Location Coordinate"
+      "en": "123. Yandex Go — Immutable Geo Location Coordinate",
+      "ru": "123. Yandex Go — неизменяемая координата географического местоположения"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma berilgan manzilning GPS kenglik (latitude) va uzunlik (longitude) nuqtasi o'zgarmas qiymat obyekti (Value Object) sifatida yaratilishi kerak.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. GeoLocation klassini yarating va unga o'zgarmas 'private final' maydonlarini (double toifasidagi 'latitude', double toifasidagi 'longitude') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public GeoLocation(double latitude, double longitude)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getLatitude()', 'getLongitude()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'GeoLocation' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nGPS coordinates represent pure value objects that should never mutate once captured from geolocation services.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GeoLocation' with immutable fields: double 'latitude', double 'longitude'.\n\n2. Write constructor 'public GeoLocation(double latitude, double longitude)' initializing all final fields.\n\n3. Implement read-only accessors: 'getLatitude()', 'getLongitude()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'GeoLocation' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nGPS coordinates represent pure value objects that should never mutate once captured from geolocation services.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'GeoLocation' with immutable fields: double 'latitude', double 'longitude'.\n\n2. Write constructor 'public GeoLocation(double latitude, double longitude)' initializing all final fields.\n\n3. Implement read-only accessors: 'getLatitude()', 'getLongitude()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'GeoLocation' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nКоординаты GPS представляют собой чистые ценные объекты, которые никогда не должны изменяться после получения от служб геолокации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс GeoLocation с неизменяемыми полями: двойную широту и двойную долготу.\n2. Напишите конструктор «public GeoLocation (двойная широта, двойная долгота)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getLatitude()', 'getLongitude()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемого «GeoLocation» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Buyurtma berilgan manzilning GPS kenglik (latitude) va uzunlik (longitude) nuqtasi o'zgarmas qiymat obyekti (Value Object) sifatida yaratilishi kerak.",
-      "en": "GPS coordinates represent pure value objects that should never mutate once captured from geolocation services."
+      "en": "GPS coordinates represent pure value objects that should never mutate once captured from geolocation services.",
+      "ru": "Координаты GPS представляют собой чистые ценные объекты, которые никогда не должны изменяться после получения от служб геолокации."
     },
     "steps": {
       "uz": [
@@ -8318,6 +10241,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getLatitude()', 'getLongitude()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'GeoLocation' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс GeoLocation с неизменяемыми полями: двойную широту и двойную долготу.",
+        "Напишите конструктор «public GeoLocation (двойная широта, двойная долгота)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getLatitude()', 'getLongitude()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемого «GeoLocation» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8356,7 +10286,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Setter metodlarini qo'shmang, koordinatalar yangilansa yangi ob'yekt yaratiladi.",
-      "cw2Tip": "Manzil koordinatalari uchun Value Object modelidan foydalanish yuqori baholanadi."
+      "cw2Tip": "Manzil koordinatalari uchun Value Object modelidan foydalanish yuqori baholanadi.",
+      "theoryRu": "Объекты значений домена (координаты, денежные суммы, моменты времени) всегда должны быть неизменяемыми, чтобы избежать побочных эффектов.",
+      "pitfallsRu": "Setter metodlarini qo'shmang, koordinatalar yangilansa yangi ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8366,15 +10302,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "124. Soliq Uz — Fiskal Belgisi (FiscalSign)",
-      "en": "124. Soliq Uz — Immutable Fiscal Signature"
+      "en": "124. Soliq Uz — Immutable Fiscal Signature",
+      "ru": "124. Солик Уз — Неизменяемая фискальная подпись"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSoliq qo'mitasi kassa mashinasidan uzatiladigan fiskal belgi (fiscalNumber va terminalId) qalbaki o'zgarishlardan 100% himoyalangan bo'lishi talab etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. FiscalSign klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'fiscalNumber', String toifasidagi 'terminalId') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public FiscalSign(String fiscalNumber, String terminalId)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getFiscalNumber()', 'getTerminalId()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'FiscalSign' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nState fiscal signatures submitted by POS terminals must be immutably sealed against fraudulent tampering.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FiscalSign' with immutable fields: String 'fiscalNumber', String 'terminalId'.\n\n2. Write constructor 'public FiscalSign(String fiscalNumber, String terminalId)' initializing all final fields.\n\n3. Implement read-only accessors: 'getFiscalNumber()', 'getTerminalId()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'FiscalSign' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nState fiscal signatures submitted by POS terminals must be immutably sealed against fraudulent tampering.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'FiscalSign' with immutable fields: String 'fiscalNumber', String 'terminalId'.\n\n2. Write constructor 'public FiscalSign(String fiscalNumber, String terminalId)' initializing all final fields.\n\n3. Implement read-only accessors: 'getFiscalNumber()', 'getTerminalId()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'FiscalSign' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nГосударственные фискальные подписи, представленные через POS-терминалы, должны быть непреложно опечатаны от мошеннических подделок.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс FiscalSign с неизменяемыми полями: String «fiscalNumber», String «terminalId».\n2. Напишите конструктор public FiscalSign(String FinancialNumber, String TerminalId)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getFiscalNumber()', 'getTerminalId()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого «FiscalSign» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Soliq qo'mitasi kassa mashinasidan uzatiladigan fiskal belgi (fiscalNumber va terminalId) qalbaki o'zgarishlardan 100% himoyalangan bo'lishi talab etiladi.",
-      "en": "State fiscal signatures submitted by POS terminals must be immutably sealed against fraudulent tampering."
+      "en": "State fiscal signatures submitted by POS terminals must be immutably sealed against fraudulent tampering.",
+      "ru": "Государственные фискальные подписи, представленные через POS-терминалы, должны быть непреложно опечатаны от мошеннических подделок."
     },
     "steps": {
       "uz": [
@@ -8390,6 +10329,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getFiscalNumber()', 'getTerminalId()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'FiscalSign' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс FiscalSign с неизменяемыми полями: String «fiscalNumber», String «terminalId».",
+        "Напишите конструктор public FiscalSign(String FinancialNumber, String TerminalId)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getFiscalNumber()', 'getTerminalId()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого «FiscalSign» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8428,7 +10374,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Har ikkala maydon ham 'private final' bo'lishi va faqat getter orqali o'qilishi lozim.",
-      "cw2Tip": "Soliq va chek ma'lumotlarini dasturda saqlashda ushbu namunadan foydalaning."
+      "cw2Tip": "Soliq va chek ma'lumotlarini dasturda saqlashda ushbu namunadan foydalaning.",
+      "theoryRu": "Неизменяемые структуры данных обеспечивают архитектурную безопасность от нежелательного изменения состояния через границы потоков.",
+      "pitfallsRu": "Хар иккала майдон хам «частный финал» bo'lishi va faqat getter orqali o'qilishi lozim.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8438,15 +10390,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "125. CBU — Rasmiy Valyuta Kursi Yozuvi (CurrencyUnit)",
-      "en": "125. CBU — Immutable Currency Exchange Snapshot"
+      "en": "125. CBU — Immutable Currency Exchange Snapshot",
+      "ru": "125. CBU — Неизменяемый снимок обмена валюты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMarkaziy bank e'lon qilgan kunlik valyuta kursi (currencyCode va rateInUzs) kun davomida bir xil saqlanishi kerak bo'lgan o'zgarmas fakt yozuvidir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. CurrencyUnit klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'currencyCode', double toifasidagi 'rateInUzs') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public CurrencyUnit(String currencyCode, double rateInUzs)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getCurrencyCode()', 'getRateInUzs()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'CurrencyUnit' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nOfficial daily exchange rates published by the Central Bank represent fixed historical facts that must remain immutable.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CurrencyUnit' with immutable fields: String 'currencyCode', double 'rateInUzs'.\n\n2. Write constructor 'public CurrencyUnit(String currencyCode, double rateInUzs)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCurrencyCode()', 'getRateInUzs()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'CurrencyUnit' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nOfficial daily exchange rates published by the Central Bank represent fixed historical facts that must remain immutable.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'CurrencyUnit' with immutable fields: String 'currencyCode', double 'rateInUzs'.\n\n2. Write constructor 'public CurrencyUnit(String currencyCode, double rateInUzs)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCurrencyCode()', 'getRateInUzs()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'CurrencyUnit' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nОфициальные ежедневные обменные курсы, публикуемые Центральным банком, представляют собой фиксированные исторические факты, которые должны оставаться неизменными.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CurrencyUnit с неизменяемыми полями: строка «currencyCode», двойная «rateInUzs».\n2. Напишите конструктор «public CurrencyUnit (StringcurrencyCode, doublerateInUzs)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getCurrencyCode()', 'getRateInUzs()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого CurrencyUnit в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Markaziy bank e'lon qilgan kunlik valyuta kursi (currencyCode va rateInUzs) kun davomida bir xil saqlanishi kerak bo'lgan o'zgarmas fakt yozuvidir.",
-      "en": "Official daily exchange rates published by the Central Bank represent fixed historical facts that must remain immutable."
+      "en": "Official daily exchange rates published by the Central Bank represent fixed historical facts that must remain immutable.",
+      "ru": "Официальные ежедневные обменные курсы, публикуемые Центральным банком, представляют собой фиксированные исторические факты, которые должны оставаться неизменными."
     },
     "steps": {
       "uz": [
@@ -8462,6 +10417,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getCurrencyCode()', 'getRateInUzs()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'CurrencyUnit' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс CurrencyUnit с неизменяемыми полями: строка «currencyCode», двойная «rateInUzs».",
+        "Напишите конструктор «public CurrencyUnit (StringcurrencyCode, doublerateInUzs)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getCurrencyCode()', 'getRateInUzs()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого CurrencyUnit в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8500,7 +10462,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Valyuta kodi va kurs qiymati konstruktorda o'rnatilgach qayta o'zgarmaydi.",
-      "cw2Tip": "Valyuta konvertatsiyasi uchun foydalaniladigan kurslarni immutable ob'yektlarda saqlang."
+      "cw2Tip": "Valyuta konvertatsiyasi uchun foydalaniladigan kurslarni immutable ob'yektlarda saqlang.",
+      "theoryRu": "Исторические снимки и фиксация валют выигрывают от неизменяемого дизайна, предотвращающего случайные перерасчеты.",
+      "pitfallsRu": "Используйте коды, которые помогут вам построить конструкционный код или использовать его.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8510,15 +10478,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "126. Asaxiy Books — Kitob ISBN Raqami (IsbnNumber)",
-      "en": "126. Asaxiy Books — Immutable Book ISBN Record"
+      "en": "126. Asaxiy Books — Immutable Book ISBN Record",
+      "ru": "126. Asaxy Books — неизменяемая запись ISBN книги"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nNashr etilgan har bir kitobning xalqaro standart raqami (countryCode va bookCode) umrbod o'zgarmaydi. 'IsbnNumber' sinfini o'zgarmas qilib yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. IsbnNumber klassini yarating va unga o'zgarmas 'private final' maydonlarini (int toifasidagi 'countryCode', String toifasidagi 'bookCode') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public IsbnNumber(int countryCode, String bookCode)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getCountryCode()', 'getBookCode()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'IsbnNumber' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nBook ISBNs uniquely identify publications worldwide and must remain unchanged throughout the catalog life cycle.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'IsbnNumber' with immutable fields: int 'countryCode', String 'bookCode'.\n\n2. Write constructor 'public IsbnNumber(int countryCode, String bookCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCountryCode()', 'getBookCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'IsbnNumber' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nBook ISBNs uniquely identify publications worldwide and must remain unchanged throughout the catalog life cycle.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'IsbnNumber' with immutable fields: int 'countryCode', String 'bookCode'.\n\n2. Write constructor 'public IsbnNumber(int countryCode, String bookCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCountryCode()', 'getBookCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'IsbnNumber' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nКнижные ISBN однозначно идентифицируют публикации во всем мире и должны оставаться неизменными на протяжении всего жизненного цикла каталога.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «IsbnNumber» с неизменяемыми полями: int «countryCode», String «bookCode».\n2. Напишите конструктор «public IsbnNumber(int CountryCode, String bookCode)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getCountryCode()', 'getBookCode()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемого IsbnNumber в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Nashr etilgan har bir kitobning xalqaro standart raqami (countryCode va bookCode) umrbod o'zgarmaydi. 'IsbnNumber' sinfini o'zgarmas qilib yarating.",
-      "en": "Book ISBNs uniquely identify publications worldwide and must remain unchanged throughout the catalog life cycle."
+      "en": "Book ISBNs uniquely identify publications worldwide and must remain unchanged throughout the catalog life cycle.",
+      "ru": "Книжные ISBN однозначно идентифицируют публикации во всем мире и должны оставаться неизменными на протяжении всего жизненного цикла каталога."
     },
     "steps": {
       "uz": [
@@ -8534,6 +10505,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getCountryCode()', 'getBookCode()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'IsbnNumber' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «IsbnNumber» с неизменяемыми полями: int «countryCode», String «bookCode».",
+        "Напишите конструктор «public IsbnNumber(int CountryCode, String bookCode)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getCountryCode()', 'getBookCode()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемого IsbnNumber в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8572,7 +10550,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "countryCode int, bookCode String turida bo'lishi va ikkisi ham 'final' bo'lishi kerak.",
-      "cw2Tip": "Mahsulot shtrix-kodi yoki artikulini o'zgarmas maydon sifatida belgilang."
+      "cw2Tip": "Mahsulot shtrix-kodi yoki artikulini o'zgarmas maydon sifatida belgilang.",
+      "theoryRu": "Стандартизированные идентификаторы международного каталога естественным образом соответствуют неизменяемым моделям классов.",
+      "pitfallsRu": "CountryCode int, bookCode String turida bo'lishi va ikkisi ham 'final' bo'lishi kerak.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8582,15 +10566,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "127. Ucell — SIM Karta IMSI Identifikatori (ImsiIdentifier)",
-      "en": "127. Ucell — Immutable SIM Card IMSI Identifier"
+      "en": "127. Ucell — Immutable SIM Card IMSI Identifier",
+      "ru": "127. Ucell — неизменяемый IMSI-идентификатор SIM-карты"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUyali aloqa operatorida har bir SIM kartaning chipida yozilgan IMSI raqami (mccMnc va subscriberId) o'zgarmas apparat kodi hisoblanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. ImsiIdentifier klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'mccMnc', String toifasidagi 'subscriberId') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public ImsiIdentifier(String mccMnc, String subscriberId)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getMccMnc()', 'getSubscriberId()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'ImsiIdentifier' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nMobile network subscriber IMSI chips store permanent network code identifiers that cannot be reassigned.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ImsiIdentifier' with immutable fields: String 'mccMnc', String 'subscriberId'.\n\n2. Write constructor 'public ImsiIdentifier(String mccMnc, String subscriberId)' initializing all final fields.\n\n3. Implement read-only accessors: 'getMccMnc()', 'getSubscriberId()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'ImsiIdentifier' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nMobile network subscriber IMSI chips store permanent network code identifiers that cannot be reassigned.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'ImsiIdentifier' with immutable fields: String 'mccMnc', String 'subscriberId'.\n\n2. Write constructor 'public ImsiIdentifier(String mccMnc, String subscriberId)' initializing all final fields.\n\n3. Implement read-only accessors: 'getMccMnc()', 'getSubscriberId()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'ImsiIdentifier' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nЧипы IMSI абонентов мобильной сети хранят постоянные идентификаторы кода сети, которые нельзя переназначить.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ImsiIdentifier с неизменяемыми полями: строка «mccMnc», строка «subscriberId».\n2. Напишите конструктор «public ImsiIdentifier (String mccMnc, String subscriberId)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getMccMnc()', 'getSubscriberId()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого ImsiIdentifier в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Uyali aloqa operatorida har bir SIM kartaning chipida yozilgan IMSI raqami (mccMnc va subscriberId) o'zgarmas apparat kodi hisoblanadi.",
-      "en": "Mobile network subscriber IMSI chips store permanent network code identifiers that cannot be reassigned."
+      "en": "Mobile network subscriber IMSI chips store permanent network code identifiers that cannot be reassigned.",
+      "ru": "Чипы IMSI абонентов мобильной сети хранят постоянные идентификаторы кода сети, которые нельзя переназначить."
     },
     "steps": {
       "uz": [
@@ -8606,6 +10593,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getMccMnc()', 'getSubscriberId()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'ImsiIdentifier' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс ImsiIdentifier с неизменяемыми полями: строка «mccMnc», строка «subscriberId».",
+        "Напишите конструктор «public ImsiIdentifier (String mccMnc, String subscriberId)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getMccMnc()', 'getSubscriberId()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого ImsiIdentifier в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8644,7 +10638,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Maydonlar oldiga 'private final' qo'yishni unutmang.",
-      "cw2Tip": "Tizim konfiguratsiyalari va identifikatorlarini immutability tamoyili bilan quring."
+      "cw2Tip": "Tizim konfiguratsiyalari va identifikatorlarini immutability tamoyili bilan quring.",
+      "theoryRu": "Сериализации оборудования и идентификаторы чипов должны быть защищены от случайной мутации с помощью конечных полей.",
+      "pitfallsRu": "Maydonlar oldiga 'частный финал' qo'yishni unutmang.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8654,15 +10654,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "128. Korzinka Go — Tovar Shtrix-Kodi (BarCode)",
-      "en": "128. Korzinka Go — Immutable Product Barcode"
+      "en": "128. Korzinka Go — Immutable Product Barcode",
+      "ru": "128. Корзинка Go — неизменяемый штрих-код продукта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSupermarket kassa skaneridan o'tuvchi tovar shtrix-kodi (countryPrefix va itemDigits) qat'iy o'zgarmas obyekt bo'lishi lozim.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BarCode klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'countryPrefix', String toifasidagi 'itemDigits') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public BarCode(String countryPrefix, String itemDigits)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getCountryPrefix()', 'getItemDigits()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'BarCode' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nPoint-of-sale barcode scans represent rigid product identities that must remain immutable.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BarCode' with immutable fields: String 'countryPrefix', String 'itemDigits'.\n\n2. Write constructor 'public BarCode(String countryPrefix, String itemDigits)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCountryPrefix()', 'getItemDigits()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'BarCode' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nPoint-of-sale barcode scans represent rigid product identities that must remain immutable.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BarCode' with immutable fields: String 'countryPrefix', String 'itemDigits'.\n\n2. Write constructor 'public BarCode(String countryPrefix, String itemDigits)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCountryPrefix()', 'getItemDigits()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'BarCode' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nСканирование штрих-кодов в точках продаж представляет собой жесткую идентификацию продукта, которая должна оставаться неизменной.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «BarCode» с неизменяемыми полями: строка «countryPrefix», строка «itemDigits».\n2. Напишите конструктор «public BarCode (String CountryPrefix, String itemDigits)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getCountryPrefix()', 'getItemDigits()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемого «BarCode» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Supermarket kassa skaneridan o'tuvchi tovar shtrix-kodi (countryPrefix va itemDigits) qat'iy o'zgarmas obyekt bo'lishi lozim.",
-      "en": "Point-of-sale barcode scans represent rigid product identities that must remain immutable."
+      "en": "Point-of-sale barcode scans represent rigid product identities that must remain immutable.",
+      "ru": "Сканирование штрих-кодов в точках продаж представляет собой жесткую идентификацию продукта, которая должна оставаться неизменной."
     },
     "steps": {
       "uz": [
@@ -8678,6 +10681,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getCountryPrefix()', 'getItemDigits()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'BarCode' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «BarCode» с неизменяемыми полями: строка «countryPrefix», строка «itemDigits».",
+        "Напишите конструктор «public BarCode (String CountryPrefix, String itemDigits)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getCountryPrefix()', 'getItemDigits()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемого «BarCode» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8716,7 +10726,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Getter metodlari qiymatni o'zgartirmaydi, shunchaki qaytaradi.",
-      "cw2Tip": "Tovar kodlari va artikullar ustida ishlaganda immutable yondashuvdan foydalaning."
+      "cw2Tip": "Tovar kodlari va artikullar ustida ishlaganda immutable yondashuvdan foydalaning.",
+      "theoryRu": "После инициализации в конструкторе конечное состояние сохраняет детерминированную идентичность на протяжении всего выполнения во время выполнения.",
+      "pitfallsRu": "Getter metodlari qiymatni o’zgartirmaydi, shunchaki qaytaradi.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8726,15 +10742,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "129. Ipak Yo'li Bank — Bank MFO Kodu (MfoCode)",
-      "en": "129. Ipak Yoli Bank — Immutable Bank MFO Code"
+      "en": "129. Ipak Yoli Bank — Immutable Bank MFO Code",
+      "ru": "129. Ипак Йоли Банк — Неизменяемый код банка МФО"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBanklararo hisob-kitoblar uchun O'zbekiston bank filiallariga berilgan MFO raqami (bankCode va branchSuffix) o'zgarmas yuridik rekvizitdir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. MfoCode klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'bankCode', int toifasidagi 'branchSuffix') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public MfoCode(String bankCode, int branchSuffix)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getBankCode()', 'getBranchSuffix()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'MfoCode' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInterbank branch clearing codes represent immutable legal identifiers that must never be altered.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MfoCode' with immutable fields: String 'bankCode', int 'branchSuffix'.\n\n2. Write constructor 'public MfoCode(String bankCode, int branchSuffix)' initializing all final fields.\n\n3. Implement read-only accessors: 'getBankCode()', 'getBranchSuffix()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'MfoCode' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nInterbank branch clearing codes represent immutable legal identifiers that must never be altered.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'MfoCode' with immutable fields: String 'bankCode', int 'branchSuffix'.\n\n2. Write constructor 'public MfoCode(String bankCode, int branchSuffix)' initializing all final fields.\n\n3. Implement read-only accessors: 'getBankCode()', 'getBranchSuffix()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'MfoCode' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nКлиринговые коды межбанковских отделений представляют собой неизменяемые юридические идентификаторы, которые никогда нельзя изменять.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «MfoCode» с неизменяемыми полями: String «bankCode», int «branchSuffix».\n2. Напишите конструктор «public MfoCode (String BankCode, int BranchSuffix)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getBankCode()', 'getBranchSuffix()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого «MfoCode» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Banklararo hisob-kitoblar uchun O'zbekiston bank filiallariga berilgan MFO raqami (bankCode va branchSuffix) o'zgarmas yuridik rekvizitdir.",
-      "en": "Interbank branch clearing codes represent immutable legal identifiers that must never be altered."
+      "en": "Interbank branch clearing codes represent immutable legal identifiers that must never be altered.",
+      "ru": "Клиринговые коды межбанковских отделений представляют собой неизменяемые юридические идентификаторы, которые никогда нельзя изменять."
     },
     "steps": {
       "uz": [
@@ -8750,6 +10769,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getBankCode()', 'getBranchSuffix()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'MfoCode' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «MfoCode» с неизменяемыми полями: String «bankCode», int «branchSuffix».",
+        "Напишите конструктор «public MfoCode (String BankCode, int BranchSuffix)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getBankCode()', 'getBranchSuffix()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого «MfoCode» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8788,7 +10814,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "int va String turlariga mos 'final' maydonlarni to'g'ri e'lon qiling.",
-      "cw2Tip": "Bank va to'lov rekvizitlarini modellashtirishda setterlarsiz klasslar yarating."
+      "cw2Tip": "Bank va to'lov rekvizitlarini modellashtirishda setterlarsiz klasslar yarating.",
+      "theoryRu": "Номера банковской маршрутизации обеспечивают соответствие нормативным требованиям благодаря строго неизменному моделированию домена.",
+      "pitfallsRu": "int va String turlariga mos 'final' maydonlarni to'g'ri e'lon qiling.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8798,15 +10830,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "130. Akfa Medline — Qon Guruhi Rekviziti (BloodGroup)",
-      "en": "130. Akfa Medline — Immutable Blood Group Record"
+      "en": "130. Akfa Medline — Immutable Blood Group Record",
+      "ru": "130. Akfa Medline — неизменяемая запись группы крови."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBemorning genetik qon guruhi (groupName, masalan 'A+' va rezus musbatligi rhPositive) inson hayoti davomida o'zgarmaydigan biologik xususiyatdir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. BloodGroup klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'groupName', boolean toifasidagi 'rhPositive') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public BloodGroup(String groupName, boolean rhPositive)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getGroupName()', 'isRhPositive()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'BloodGroup' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nA patient's biological blood type is genetically immutable and should never be editable once confirmed by lab tests.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BloodGroup' with immutable fields: String 'groupName', boolean 'rhPositive'.\n\n2. Write constructor 'public BloodGroup(String groupName, boolean rhPositive)' initializing all final fields.\n\n3. Implement read-only accessors: 'getGroupName()', 'isRhPositive()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'BloodGroup' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nA patient's biological blood type is genetically immutable and should never be editable once confirmed by lab tests.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'BloodGroup' with immutable fields: String 'groupName', boolean 'rhPositive'.\n\n2. Write constructor 'public BloodGroup(String groupName, boolean rhPositive)' initializing all final fields.\n\n3. Implement read-only accessors: 'getGroupName()', 'isRhPositive()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'BloodGroup' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nБиологическая группа крови пациента генетически неизменяема, и ее нельзя редактировать после ее подтверждения лабораторными тестами.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «BloodGroup» с неизменяемыми полями: строка «groupName», логическое значение «rhPositive».\n2. Напишите конструктор «public BloodGroup (String groupName, boolean rhPositive)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getGroupName()', 'isRhPositive()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемой «BloodGroup» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Bemorning genetik qon guruhi (groupName, masalan 'A+' va rezus musbatligi rhPositive) inson hayoti davomida o'zgarmaydigan biologik xususiyatdir.",
-      "en": "A patient's biological blood type is genetically immutable and should never be editable once confirmed by lab tests."
+      "en": "A patient's biological blood type is genetically immutable and should never be editable once confirmed by lab tests.",
+      "ru": "Биологическая группа крови пациента генетически неизменяема, и ее нельзя редактировать после ее подтверждения лабораторными тестами."
     },
     "steps": {
       "uz": [
@@ -8822,6 +10857,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getGroupName()', 'isRhPositive()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'BloodGroup' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «BloodGroup» с неизменяемыми полями: строка «groupName», логическое значение «rhPositive».",
+        "Напишите конструктор «public BloodGroup (String groupName, boolean rhPositive)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getGroupName()', 'isRhPositive()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемой «BloodGroup» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8860,7 +10902,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "boolean turdagi getter 'getRhPositive' emas, balki 'isRhPositive' deb nomlanadi.",
-      "cw2Tip": "Mijozning o'zgarmas atributlari (masalan pasport raqami) uchun 'final' maydonlardan foydalaning."
+      "cw2Tip": "Mijozning o'zgarmas atributlari (masalan pasport raqami) uchun 'final' maydonlardan foydalaning.",
+      "theoryRu": "В медицинских записях с постоянными физиологическими фактами используются неизменяемые классы, сочетающие логические значения с методами доступа «is...».",
+      "pitfallsRu": "логические команды getter 'getRhPositive', балки 'isRhPositive' deb nomlanadi.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8870,15 +10918,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "131. Uzbekistan Airways — Aeroport IATA Kodi (AirportCode)",
-      "en": "131. Uzbekistan Airways — Immutable Airport IATA Code"
+      "en": "131. Uzbekistan Airways — Immutable Airport IATA Code",
+      "ru": "131. «Узбекистон хаво йуллари» — неизменный код аэропорта ИАТА."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXalqaro havo transporti assotsiatsiyasi (IATA) tomonidan Toshkent aeroportiga berilgan 3 harfli kod (iataCode va cityName) o'zgarmas rasmiy belgidir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. AirportCode klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'iataCode', String toifasidagi 'cityName') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public AirportCode(String iataCode, String cityName)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getIataCode()', 'getCityName()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'AirportCode' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nInternational airport 3-letter IATA designations are globally static navigation references.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AirportCode' with immutable fields: String 'iataCode', String 'cityName'.\n\n2. Write constructor 'public AirportCode(String iataCode, String cityName)' initializing all final fields.\n\n3. Implement read-only accessors: 'getIataCode()', 'getCityName()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'AirportCode' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nInternational airport 3-letter IATA designations are globally static navigation references.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'AirportCode' with immutable fields: String 'iataCode', String 'cityName'.\n\n2. Write constructor 'public AirportCode(String iataCode, String cityName)' initializing all final fields.\n\n3. Implement read-only accessors: 'getIataCode()', 'getCityName()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'AirportCode' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nТрехбуквенные обозначения международных аэропортов IATA являются глобальными статическими навигационными ориентирами.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс AirportCode с неизменяемыми полями: строка «iataCode», строка «cityName».\n2. Напишите конструктор «public AirportCode (String iataCode, String cityName)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getIataCode()', 'getCityName()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого «AirportCode» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Xalqaro havo transporti assotsiatsiyasi (IATA) tomonidan Toshkent aeroportiga berilgan 3 harfli kod (iataCode va cityName) o'zgarmas rasmiy belgidir.",
-      "en": "International airport 3-letter IATA designations are globally static navigation references."
+      "en": "International airport 3-letter IATA designations are globally static navigation references.",
+      "ru": "Трехбуквенные обозначения международных аэропортов IATA являются глобальными статическими навигационными ориентирами."
     },
     "steps": {
       "uz": [
@@ -8894,6 +10945,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getIataCode()', 'getCityName()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'AirportCode' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс AirportCode с неизменяемыми полями: строка «iataCode», строка «cityName».",
+        "Напишите конструктор «public AirportCode (String iataCode, String cityName)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getIataCode()', 'getCityName()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого «AirportCode» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -8932,7 +10990,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Ikkala maydon ham 'final' bo'lishi va setterlar umuman bo'lmasligi lozim.",
-      "cw2Tip": "Parvoz va lokatsiya kodlarini immutable qilib tuzish eng xavfsiz yo'ldir."
+      "cw2Tip": "Parvoz va lokatsiya kodlarini immutable qilib tuzish eng xavfsiz yo'ldir.",
+      "theoryRu": "Глобальные логистические коды остаются неизменными, чтобы предотвратить расхождения в навигации или отправке в полете.",
+      "pitfallsRu": "Иккала майдон хам 'финальный' бо'лиши ва сеттерлар умуман болмаслиги лозим.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -8942,15 +11006,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "132. Express24 — Yetkazish Nuqtasi Koordinatasi (DeliveryPoint)",
-      "en": "132. Express24 — Immutable Delivery Drop-off Point"
+      "en": "132. Express24 — Immutable Delivery Drop-off Point",
+      "ru": "132. Express24 — неизменяемая точка доставки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazib berish buyurtmasi tasdiqlangandan so'ng xaridor manzili va pochta indeksi (addressText va postalCode) o'zgarmas kvitansiya sifatida saqlanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. DeliveryPoint klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'addressText', int toifasidagi 'postalCode') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public DeliveryPoint(String addressText, int postalCode)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getAddressText()', 'getPostalCode()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'DeliveryPoint' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nConfirmed order delivery destinations seal the postal code and address string into an immutable dispatch snapshot.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryPoint' with immutable fields: String 'addressText', int 'postalCode'.\n\n2. Write constructor 'public DeliveryPoint(String addressText, int postalCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getAddressText()', 'getPostalCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'DeliveryPoint' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nConfirmed order delivery destinations seal the postal code and address string into an immutable dispatch snapshot.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'DeliveryPoint' with immutable fields: String 'addressText', int 'postalCode'.\n\n2. Write constructor 'public DeliveryPoint(String addressText, int postalCode)' initializing all final fields.\n\n3. Implement read-only accessors: 'getAddressText()', 'getPostalCode()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'DeliveryPoint' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nПодтвержденные пункты доставки заказов запечатывают почтовый индекс и строку адреса в неизменяемый снимок отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «DeliveryPoint» с неизменяемыми полями: String «addressText», int «postalCode».\n2. Напишите конструктор public DeliveryPoint(String AddressText, int postalCode)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getAddressText()', 'getPostalCode()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого объекта «DeliveryPoint» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Yetkazib berish buyurtmasi tasdiqlangandan so'ng xaridor manzili va pochta indeksi (addressText va postalCode) o'zgarmas kvitansiya sifatida saqlanadi.",
-      "en": "Confirmed order delivery destinations seal the postal code and address string into an immutable dispatch snapshot."
+      "en": "Confirmed order delivery destinations seal the postal code and address string into an immutable dispatch snapshot.",
+      "ru": "Подтвержденные пункты доставки заказов запечатывают почтовый индекс и строку адреса в неизменяемый снимок отправки."
     },
     "steps": {
       "uz": [
@@ -8966,6 +11033,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getAddressText()', 'getPostalCode()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'DeliveryPoint' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «DeliveryPoint» с неизменяемыми полями: String «addressText», int «postalCode».",
+        "Напишите конструктор public DeliveryPoint(String AddressText, int postalCode)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getAddressText()', 'getPostalCode()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого объекта «DeliveryPoint» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -9004,7 +11078,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "int va String turlarini o'zaro adashtirmang.",
-      "cw2Tip": "Buyurtma manzillarini saqlashda o'zgarmas Value Objectlardan foydalaning."
+      "cw2Tip": "Buyurtma manzillarini saqlashda o'zgarmas Value Objectlardan foydalaning.",
+      "theoryRu": "Координаты отправки действуют как неизменные контракты между клиентом и парком доставки.",
+      "pitfallsRu": "int va String turlarini o’zaro adashtirmang.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -9014,15 +11094,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "133. WIUT Intranet — Talaba ID Yozuvi (StudentIdRecord)",
-      "en": "133. WIUT Intranet — Immutable Student ID Record"
+      "en": "133. WIUT Intranet — Immutable Student ID Record",
+      "ru": "133. Интранет WIUT — неизменяемая запись студенческого билета"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT universitetiga qabul qilingan talabaning 8 xonali ID raqami (studentId) va qabul qilingan o'quv yili (academicYear) o'qish yakunlanguncha o'zgarmaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. StudentIdRecord klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'studentId', int toifasidagi 'academicYear') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public StudentIdRecord(String studentId, int academicYear)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getStudentId()', 'getAcademicYear()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'StudentIdRecord' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nMatriculation credentials issued by WIUT university are immutable records tied permanently to the student dossier.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StudentIdRecord' with immutable fields: String 'studentId', int 'academicYear'.\n\n2. Write constructor 'public StudentIdRecord(String studentId, int academicYear)' initializing all final fields.\n\n3. Implement read-only accessors: 'getStudentId()', 'getAcademicYear()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'StudentIdRecord' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nMatriculation credentials issued by WIUT university are immutable records tied permanently to the student dossier.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'StudentIdRecord' with immutable fields: String 'studentId', int 'academicYear'.\n\n2. Write constructor 'public StudentIdRecord(String studentId, int academicYear)' initializing all final fields.\n\n3. Implement read-only accessors: 'getStudentId()', 'getAcademicYear()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'StudentIdRecord' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nУдостоверения о зачислении, выданные университетом МВУТ, представляют собой неизменяемые записи, постоянно привязанные к досье студента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «StudentIdRecord» с неизменяемыми полями: String «studentId», int «academicYear».\n2. Напишите конструктор public StudentIdRecord(String StudentId, int AcademicYear)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getStudentId()', 'getAcademicYear()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого объекта «StudentIdRecord» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "WIUT universitetiga qabul qilingan talabaning 8 xonali ID raqami (studentId) va qabul qilingan o'quv yili (academicYear) o'qish yakunlanguncha o'zgarmaydi.",
-      "en": "Matriculation credentials issued by WIUT university are immutable records tied permanently to the student dossier."
+      "en": "Matriculation credentials issued by WIUT university are immutable records tied permanently to the student dossier.",
+      "ru": "Удостоверения о зачислении, выданные университетом МВУТ, представляют собой неизменяемые записи, постоянно привязанные к досье студента."
     },
     "steps": {
       "uz": [
@@ -9038,6 +11121,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getStudentId()', 'getAcademicYear()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'StudentIdRecord' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс «StudentIdRecord» с неизменяемыми полями: String «studentId», int «academicYear».",
+        "Напишите конструктор public StudentIdRecord(String StudentId, int AcademicYear)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getStudentId()', 'getAcademicYear()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого объекта «StudentIdRecord» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -9076,7 +11166,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "studentId String sifatida saqlanishi kerak (boshidagi nollarni saqlab qolish uchun).",
-      "cw2Tip": "CW2 foydalanuvchi tizimida mijoz ID sini immutable qilib yarating."
+      "cw2Tip": "CW2 foydalanuvchi tizimida mijoz ID sini immutable qilib yarating.",
+      "theoryRu": "Идентификаторы студентов учебных заведений должны быть защищены от изменения посредством неизменности.",
+      "pitfallsRu": "StudentId String sifatida saqlanishi kerak (boshidagi nollarni saqlab qolish uchun).",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -9086,15 +11182,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "134. Dodo Pizza — Retsept Ingredient Portiyasi (IngredientPortion)",
-      "en": "134. Dodo Pizza — Immutable Recipe Ingredient Portion"
+      "en": "134. Dodo Pizza — Immutable Recipe Ingredient Portion",
+      "ru": "134. Додо Пицца — часть ингредиентов неизменного рецепта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nStandart pitsa retseptida har bir ingredient nomi (ingredientName) va uning gramm og'irligi (gramWeight) qat'iy standart bo'lib, pishirish vaqtida o'zgarmasdir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. IngredientPortion klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'ingredientName', double toifasidagi 'gramWeight') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public IngredientPortion(String ingredientName, double gramWeight)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getIngredientName()', 'getGramWeight()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'IngredientPortion' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nStandardized culinary recipes specify rigid ingredient portions that serve as immutable preparation formulas.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'IngredientPortion' with immutable fields: String 'ingredientName', double 'gramWeight'.\n\n2. Write constructor 'public IngredientPortion(String ingredientName, double gramWeight)' initializing all final fields.\n\n3. Implement read-only accessors: 'getIngredientName()', 'getGramWeight()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'IngredientPortion' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nStandardized culinary recipes specify rigid ingredient portions that serve as immutable preparation formulas.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'IngredientPortion' with immutable fields: String 'ingredientName', double 'gramWeight'.\n\n2. Write constructor 'public IngredientPortion(String ingredientName, double gramWeight)' initializing all final fields.\n\n3. Implement read-only accessors: 'getIngredientName()', 'getGramWeight()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'IngredientPortion' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nСтандартизированные кулинарные рецепты определяют жесткие порции ингредиентов, которые служат неизменными формулами приготовления.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс IngredientPortion с неизменяемыми полями: строка «ingredientName», двойная «gramWeight».\n2. Напишите конструктор public IngredientPortion (String IngredientName, двойной gramWeight)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getIngredientName()', 'getGramWeight()' (НЕ объявляйте какие-либо установщики мутаторов).\n4. Создайте экземпляр неизменяемого IngredientPortion в main.\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Standart pitsa retseptida har bir ingredient nomi (ingredientName) va uning gramm og'irligi (gramWeight) qat'iy standart bo'lib, pishirish vaqtida o'zgarmasdir.",
-      "en": "Standardized culinary recipes specify rigid ingredient portions that serve as immutable preparation formulas."
+      "en": "Standardized culinary recipes specify rigid ingredient portions that serve as immutable preparation formulas.",
+      "ru": "Стандартизированные кулинарные рецепты определяют жесткие порции ингредиентов, которые служат неизменными формулами приготовления."
     },
     "steps": {
       "uz": [
@@ -9110,6 +11209,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getIngredientName()', 'getGramWeight()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'IngredientPortion' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс IngredientPortion с неизменяемыми полями: строка «ingredientName», двойная «gramWeight».",
+        "Напишите конструктор public IngredientPortion (String IngredientName, двойной gramWeight)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getIngredientName()', 'getGramWeight()' (НЕ объявляйте какие-либо установщики мутаторов).",
+        "Создайте экземпляр неизменяемого IngredientPortion в main.",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -9148,7 +11254,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "double va String maydonlari faqat konstruktorda to'ldiriladi.",
-      "cw2Tip": "Taom va mahsulot tarkibini modellashtirishda immutable sinflardan foydalaning."
+      "cw2Tip": "Taom va mahsulot tarkibini modellashtirishda immutable sinflardan foydalaning.",
+      "theoryRu": "Формулы рецептов сохраняют гарантию качества благодаря фиксированному неизменному соотношению компонентов.",
+      "pitfallsRu": "двойная строка может быть использована для создания конструкции.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -9158,15 +11270,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "121-135: O'zgarmas Klasslar",
     "title": {
       "uz": "135. Halal Standart — Halal Sertifikat Raqami (HalalCertificate)",
-      "en": "135. Halal Standard — Immutable Halal Certificate Stamp"
+      "en": "135. Halal Standard — Immutable Halal Certificate Stamp",
+      "ru": "135. Стандарт Халяль — неизменяемый штамп сертификата Халяль."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nGo'sht mahsulotiga berilgan xalqaro Halal sertifikati raqami (certificateId va issuerOrg) o'zgarmas rasmiy guvohnomadir.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. HalalCertificate klassini yarating va unga o'zgarmas 'private final' maydonlarini (String toifasidagi 'certificateId', String toifasidagi 'issuerOrg') e'lon qiling.\n\n2. Barcha maydonlarni bir marta initsializatsiya qiluvchi 'public HalalCertificate(String certificateId, String issuerOrg)' konstruktorini yozing.\n\n3. Maydonlarni o'qish uchun getter metodlarini ('getCertificateId()', 'getIssuerOrg()') taqdim eting (ammo hech qanday setter YOZILMASLIGI SHART!).\n\n4. 'Main' klassi 'main' metodida 'HalalCertificate' o'zgarmas ob'yektini yarating.\n\n5. Ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nOfficial Halal compliance certificates are legally sealed credentials that must never be modified.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'HalalCertificate' with immutable fields: String 'certificateId', String 'issuerOrg'.\n\n2. Write constructor 'public HalalCertificate(String certificateId, String issuerOrg)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCertificateId()', 'getIssuerOrg()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'HalalCertificate' in 'main'.\n\n5. Print state to console."
+      "en": "📖 Real-World Scenario & Context\nOfficial Halal compliance certificates are legally sealed credentials that must never be modified.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare class 'HalalCertificate' with immutable fields: String 'certificateId', String 'issuerOrg'.\n\n2. Write constructor 'public HalalCertificate(String certificateId, String issuerOrg)' initializing all final fields.\n\n3. Implement read-only accessors: 'getCertificateId()', 'getIssuerOrg()' (do NOT declare any mutator setters).\n\n4. Instantiate immutable 'HalalCertificate' in 'main'.\n\n5. Print state to console.",
+      "ru": "📖 Контекст и описание задачи\nОфициальные сертификаты соответствия Халяль — это юридически заверенные сертификаты соответствия, которые никогда не следует изменять.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс HalalCertificate с неизменяемыми полями: строка «certificateId», строка «issuerOrg».\n2. Напишите конструктор «public HalalCertificate (String certificateId, String IssuerOrg)», инициализирующий все конечные поля.\n3. Реализуйте методы доступа только для чтения: 'getCertificateId()', 'getIssuerOrg()' (НЕ объявляйте никаких установщиков мутаторов).\n4. Создайте экземпляр неизменяемого «HalalCertificate» в «main».\n5. Выведите состояние на консоль."
     },
     "story": {
       "uz": "Go'sht mahsulotiga berilgan xalqaro Halal sertifikati raqami (certificateId va issuerOrg) o'zgarmas rasmiy guvohnomadir.",
-      "en": "Official Halal compliance certificates are legally sealed credentials that must never be modified."
+      "en": "Official Halal compliance certificates are legally sealed credentials that must never be modified.",
+      "ru": "Официальные сертификаты соответствия Халяль — это юридически заверенные сертификаты соответствия, которые никогда не следует изменять."
     },
     "steps": {
       "uz": [
@@ -9182,6 +11297,13 @@ window.OOP_CHALLENGES_W2 = [
         "Implement read-only accessors: 'getCertificateId()', 'getIssuerOrg()' (do NOT declare any mutator setters).",
         "Instantiate immutable 'HalalCertificate' in 'main'.",
         "Print state to console."
+      ],
+      "ru": [
+        "Объявите класс HalalCertificate с неизменяемыми полями: строка «certificateId», строка «issuerOrg».",
+        "Напишите конструктор «public HalalCertificate (String certificateId, String IssuerOrg)», инициализирующий все конечные поля.",
+        "Реализуйте методы доступа только для чтения: 'getCertificateId()', 'getIssuerOrg()' (НЕ объявляйте никаких установщиков мутаторов).",
+        "Создайте экземпляр неизменяемого «HalalCertificate» в «main».",
+        "Выведите состояние на консоль."
       ]
     },
     "requirements": {
@@ -9220,7 +11342,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
       ],
       "pitfalls": "Barcha maydonlar 'private final' ekanligini tekshiring.",
-      "cw2Tip": "Sertifikat va litsenziya modellarini immutable tarzda yarating."
+      "cw2Tip": "Sertifikat va litsenziya modellarini immutable tarzda yarating.",
+      "theoryRu": "Штампы соответствия законодательству и метаданные сертификации должны оставаться неизменяемыми на всех уровнях.",
+      "pitfallsRu": "Barcha maydonlar 'частный финал' ekanligini tekshiring.",
+      "breakdownRu": [
+        "<code>private final</code>: Maydon xotirada faqat bir marta konstruktorda qiymat oladi va keyin aslo o'zgarmaydi.",
+        "<code>No Setters</code>: O'zgarmaslik (immutability) ma'lumotlar yaxlitligi va xavfsizligini kafolatlaydi."
+      ]
     }
   },
   {
@@ -9230,15 +11358,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "136. Uzum Market — Mijoz va Yetkazish Manzili (Customer & Address)",
-      "en": "136. Uzum Market — Customer Has-A Delivery Address"
+      "en": "136. Uzum Market — Customer Has-A Delivery Address",
+      "ru": "136. Рынок Узум — у клиента есть адрес доставки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 2 Exercise 6 da o'rganilganidek, 'Customer' sinfi 'Address' obyektini o'z ichiga oladi (Customer has an Address). Mijoz ismi va uning manzilini bog'lab, zanjirli getter orqali shahar nomini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Address' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Customer' ni yarating va unga tarkibiy 'Address' maydonini qo'shing.\n\n3. 'Customer' konstruktorida 'Address' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Address' komponentini, so'ng uni uzatib 'Customer' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 2 Exercise 6 composition pattern: Customer has an Address. Query the customer's city via chained getters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Address' with fields, constructor, and getters.\n\n2. Create composite class 'Customer' embedding 'Address' reference.\n\n3. Write 'Customer' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 2 Exercise 6 composition pattern: Customer has an Address. Query the customer's city via chained getters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Address' with fields, constructor, and getters.\n\n2. Create composite class 'Customer' embedding 'Address' reference.\n\n3. Write 'Customer' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nРеализация шаблона композиции упражнения 6 семинара WIUT 2: У клиента есть адрес. Запросите город клиента через цепные геттеры.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Адрес» с полями, конструктором и геттерами.\n2. Создайте составной класс «Клиент», встраивая ссылку «Адрес».\n3. Напишите конструктор «Клиент», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "WIUT Seminar 2 Exercise 6 da o'rganilganidek, 'Customer' sinfi 'Address' obyektini o'z ichiga oladi (Customer has an Address). Mijoz ismi va uning manzilini bog'lab, zanjirli getter orqali shahar nomini oling.",
-      "en": "Implementing WIUT Seminar 2 Exercise 6 composition pattern: Customer has an Address. Query the customer's city via chained getters."
+      "en": "Implementing WIUT Seminar 2 Exercise 6 composition pattern: Customer has an Address. Query the customer's city via chained getters.",
+      "ru": "Реализация шаблона композиции упражнения 6 семинара WIUT 2: У клиента есть адрес. Запросите город клиента через цепные геттеры."
     },
     "steps": {
       "uz": [
@@ -9254,6 +11385,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Customer' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Адрес» с полями, конструктором и геттерами.",
+        "Создайте составной класс «Клиент», встраивая ссылку «Адрес».",
+        "Напишите конструктор «Клиент», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9297,7 +11435,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Customer ichida shahar va ko'cha uchun alohida String maydon ochmang; u to'g'ridan-to'g'ri 'Address' obyektini saqlashi shart.",
-      "cw2Tip": "CW2 Console Order Applicationda 'Order' klassi 'Customer' va 'Product' obyektlarini kompozitsiya orqali o'z ichiga oladi."
+      "cw2Tip": "CW2 Console Order Applicationda 'Order' klassi 'Customer' va 'Product' obyektlarini kompozitsiya orqali o'z ichiga oladi.",
+      "theoryRu": "Композиция представляет собой отношение «Has-A», где составной класс содержит ссылку на класс компонента, что обеспечивает модульность и повторное использование.",
+      "pitfallsRu": "Клиент ичида шахар ва ко'ча учун алохида Стринг майдон очманг; у то'гидан-то'гри 'Адрес' объектани саклаши шарт.",
+      "breakdownRu": [
+        "<code>Address inside Customer</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9307,15 +11451,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "137. Korzinka Go — Tovar va Ta'minotchi (Product & Supplier)",
-      "en": "137. Korzinka Go — Product Has-A Supplier"
+      "en": "137. Korzinka Go — Product Has-A Supplier",
+      "ru": "137. Корзинка Го — Поставщик продуктов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHar bir mahsulot (Product) ma'lum bir ta'minotchi kompaniyaga (Supplier) tegishli bo'ladi (Product has a Supplier). Mahsulot orqali ta'minotchi nomini 'product.getSupplier().getCompanyName()' tarzida oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Supplier' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Product' ni yarating va unga tarkibiy 'Supplier' maydonini qo'shing.\n\n3. 'Product' konstruktorida 'Supplier' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Supplier' komponentini, so'ng uni uzatib 'Product' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nProduct models hold a reference to their official Supplier. Access supplier company name through chained accessors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Supplier' with fields, constructor, and getters.\n\n2. Create composite class 'Product' embedding 'Supplier' reference.\n\n3. Write 'Product' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nProduct models hold a reference to their official Supplier. Access supplier company name through chained accessors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Supplier' with fields, constructor, and getters.\n\n2. Create composite class 'Product' embedding 'Supplier' reference.\n\n3. Write 'Product' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nМодели продуктов содержат ссылку на своего официального поставщика. Получите доступ к названию компании-поставщика через цепочки доступа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Поставщик» с полями, конструктором и методами получения.\n2. Создайте составной класс «Продукт», встроив ссылку «Поставщик».\n3. Напишите конструктор «Продукт», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Har bir mahsulot (Product) ma'lum bir ta'minotchi kompaniyaga (Supplier) tegishli bo'ladi (Product has a Supplier). Mahsulot orqali ta'minotchi nomini 'product.getSupplier().getCompanyName()' tarzida oling.",
-      "en": "Product models hold a reference to their official Supplier. Access supplier company name through chained accessors."
+      "en": "Product models hold a reference to their official Supplier. Access supplier company name through chained accessors.",
+      "ru": "Модели продуктов содержат ссылку на своего официального поставщика. Получите доступ к названию компании-поставщика через цепочки доступа."
     },
     "steps": {
       "uz": [
@@ -9331,6 +11478,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Product' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Поставщик» с полями, конструктором и методами получения.",
+        "Создайте составной класс «Продукт», встроив ссылку «Поставщик».",
+        "Напишите конструктор «Продукт», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9374,7 +11528,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Ta'minotchi ma'lumotlarini tovar ichida takrorlamang, havoladan (reference) foydalaning.",
-      "cw2Tip": "CW2 da tovar va toifa (Category) yoki sotuvchi o'rtasidagi bog'lanish kompozitsiya orqali amalga oshiriladi."
+      "cw2Tip": "CW2 da tovar va toifa (Category) yoki sotuvchi o'rtasidagi bog'lanish kompozitsiya orqali amalga oshiriladi.",
+      "theoryRu": "Модульная структура четко отделяет сведения о поставщике от позиций запасов, что повышает удобство обслуживания.",
+      "pitfallsRu": "Ta'minotchi ma'lumotlarini tovar ichida takrorlamang, havoladan (ссылка) foydalaning.",
+      "breakdownRu": [
+        "<code>Supplier inside Product</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9384,15 +11544,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "138. Payme — Plastik Karta va Emitent Bank (BankCard & BankIssuer)",
-      "en": "138. Payme — BankCard Has-A BankIssuer"
+      "en": "138. Payme — BankCard Has-A BankIssuer",
+      "ru": "138. Payme — Банковская карта имеет банк-эмитент"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPlastik karta (BankCard) o'zining emitent banki (BankIssuer) obyektiga ega. Karta orqali bank nomini 'card.getIssuer().getBankName()' tarzida oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'BankIssuer' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'BankCard' ni yarating va unga tarkibiy 'BankIssuer' maydonini qo'shing.\n\n3. 'BankCard' konstruktorida 'BankIssuer' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'BankIssuer' komponentini, so'ng uni uzatib 'BankCard' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nPayment cards encapsulate an issuing bank reference. Retrieve bank credentials via composite navigation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'BankIssuer' with fields, constructor, and getters.\n\n2. Create composite class 'BankCard' embedding 'BankIssuer' reference.\n\n3. Write 'BankCard' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nPayment cards encapsulate an issuing bank reference. Retrieve bank credentials via composite navigation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'BankIssuer' with fields, constructor, and getters.\n\n2. Create composite class 'BankCard' embedding 'BankIssuer' reference.\n\n3. Write 'BankCard' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nПлатежные карты содержат ссылку на банк-эмитент. Получите банковские учетные данные с помощью составной навигации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента BankIssuer с полями, конструктором и методами получения.\n2. Создайте составной класс BankCard, встроив ссылку BankIssuer.\n3. Напишите конструктор BankCard, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Plastik karta (BankCard) o'zining emitent banki (BankIssuer) obyektiga ega. Karta orqali bank nomini 'card.getIssuer().getBankName()' tarzida oling.",
-      "en": "Payment cards encapsulate an issuing bank reference. Retrieve bank credentials via composite navigation."
+      "en": "Payment cards encapsulate an issuing bank reference. Retrieve bank credentials via composite navigation.",
+      "ru": "Платежные карты содержат ссылку на банк-эмитент. Получите банковские учетные данные с помощью составной навигации."
     },
     "steps": {
       "uz": [
@@ -9408,6 +11571,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'BankCard' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента BankIssuer с полями, конструктором и методами получения.",
+        "Создайте составной класс BankCard, встроив ссылку BankIssuer.",
+        "Напишите конструктор BankCard, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9451,7 +11621,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "BankIssuer obyektini 'null' uzatmaslikka e'tibor bering.",
-      "cw2Tip": "To'lov tizimlarida karta va bank o'zaro kompozitsiya orqali bog'lanadi."
+      "cw2Tip": "To'lov tizimlarida karta va bank o'zaro kompozitsiya orqali bog'lanadi.",
+      "theoryRu": "Платежная карта содержит ссылку на свое финансовое учреждение, иллюстрируя классическую структурную структуру.",
+      "pitfallsRu": "BankEssuer obyektini 'null' uzatmaslikka e'tibor bering.",
+      "breakdownRu": [
+        "<code>BankIssuer inside BankCard</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9461,15 +11637,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "139. Yandex Go — Taksi Avtomobili va Dvigatel (TaxiCar & Engine)",
-      "en": "139. Yandex Go — TaxiCar Has-An Engine"
+      "en": "139. Yandex Go — TaxiCar Has-An Engine",
+      "ru": "139. Яндекс Го — У таксимобиля есть двигатель"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 2 Exercise 6 ning ikkinchi klassik namunasi: Taksi avtomobili (TaxiCar) dvigatelga (Engine) ega (Car has an Engine). Avtomobil modeli va dvigatel ot kuchi (horsePower) ni zanjirli getter orqali oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Engine' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'TaxiCar' ni yarating va unga tarkibiy 'Engine' maydonini qo'shing.\n\n3. 'TaxiCar' konstruktorida 'Engine' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Engine' komponentini, so'ng uni uzatib 'TaxiCar' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 2 Exercise 6 Car-Engine composition: TaxiCar has an Engine. Access engine horsepower cleanly.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Engine' with fields, constructor, and getters.\n\n2. Create composite class 'TaxiCar' embedding 'Engine' reference.\n\n3. Write 'TaxiCar' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 2 Exercise 6 Car-Engine composition: TaxiCar has an Engine. Access engine horsepower cleanly.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Engine' with fields, constructor, and getters.\n\n2. Create composite class 'TaxiCar' embedding 'Engine' reference.\n\n3. Write 'TaxiCar' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nРеализация семинара WIUT 2. Упражнение 6. Состав автомобиля и двигателя: у TaxiCar есть двигатель. Чистый доступ к мощности двигателя.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Engine» с полями, конструктором и геттерами.\n2. Создайте составной класс TaxiCar, встроив ссылку на Engine.\n3. Напишите конструктор TaxiCar, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "WIUT Seminar 2 Exercise 6 ning ikkinchi klassik namunasi: Taksi avtomobili (TaxiCar) dvigatelga (Engine) ega (Car has an Engine). Avtomobil modeli va dvigatel ot kuchi (horsePower) ni zanjirli getter orqali oling.",
-      "en": "Implementing WIUT Seminar 2 Exercise 6 Car-Engine composition: TaxiCar has an Engine. Access engine horsepower cleanly."
+      "en": "Implementing WIUT Seminar 2 Exercise 6 Car-Engine composition: TaxiCar has an Engine. Access engine horsepower cleanly.",
+      "ru": "Реализация семинара WIUT 2. Упражнение 6. Состав автомобиля и двигателя: у TaxiCar есть двигатель. Чистый доступ к мощности двигателя."
     },
     "steps": {
       "uz": [
@@ -9485,6 +11664,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'TaxiCar' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Engine» с полями, конструктором и геттерами.",
+        "Создайте составной класс TaxiCar, встроив ссылку на Engine.",
+        "Напишите конструктор TaxiCar, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9528,7 +11714,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Ot kuchi dvigatelga tegishli, mashina ichiga to'g'ridan-to'g'ri 'horsePower' deb qo'shmang.",
-      "cw2Tip": "Murakkab transport va yetkazish vositalarini modellashtirishda kompozitsiya qo'llaniladi."
+      "cw2Tip": "Murakkab transport va yetkazish vositalarini modellashtirishda kompozitsiya qo'llaniladi.",
+      "theoryRu": "Объединение двигателя в автомобиль наглядно иллюстрирует, как инкапсулируются и объединяются составные подсистемы.",
+      "pitfallsRu": "От кучи двигателя тегишли, машина ичига то'гидан-то'г'ри 'лошадиная сила' деб ко'шманг.",
+      "breakdownRu": [
+        "<code>Engine inside TaxiCar</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9538,15 +11730,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "140. Express24 — Taom Buyurtmasi va Mijoz (FoodOrder & ClientProfile)",
-      "en": "140. Express24 — FoodOrder Has-A ClientProfile"
+      "en": "140. Express24 — FoodOrder Has-A ClientProfile",
+      "ru": "140. Express24 — FoodOrder имеет профиль клиента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHar bir taom buyurtmasi (FoodOrder) o'z buyurtmachisiga (ClientProfile) ega. Buyurtma orqali mijoz telefon raqamini 'order.getClient().getPhone()' tarzida oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'ClientProfile' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'FoodOrder' ni yarating va unga tarkibiy 'ClientProfile' maydonini qo'shing.\n\n3. 'FoodOrder' konstruktorida 'ClientProfile' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'ClientProfile' komponentini, so'ng uni uzatib 'FoodOrder' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nFood delivery orders associate directly with a client profile object. Query the client contact phone.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'ClientProfile' with fields, constructor, and getters.\n\n2. Create composite class 'FoodOrder' embedding 'ClientProfile' reference.\n\n3. Write 'FoodOrder' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nFood delivery orders associate directly with a client profile object. Query the client contact phone.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'ClientProfile' with fields, constructor, and getters.\n\n2. Create composite class 'FoodOrder' embedding 'ClientProfile' reference.\n\n3. Write 'FoodOrder' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nЗаказы на доставку еды напрямую связаны с объектом профиля клиента. Запросите контактный телефон клиента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента ClientProfile с полями, конструктором и методами получения.\n2. Создайте составной класс FoodOrder, внедрив ссылку ClientProfile.\n3. Напишите конструктор FoodOrder, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Har bir taom buyurtmasi (FoodOrder) o'z buyurtmachisiga (ClientProfile) ega. Buyurtma orqali mijoz telefon raqamini 'order.getClient().getPhone()' tarzida oling.",
-      "en": "Food delivery orders associate directly with a client profile object. Query the client contact phone."
+      "en": "Food delivery orders associate directly with a client profile object. Query the client contact phone.",
+      "ru": "Заказы на доставку еды напрямую связаны с объектом профиля клиента. Запросите контактный телефон клиента."
     },
     "steps": {
       "uz": [
@@ -9562,6 +11757,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'FoodOrder' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента ClientProfile с полями, конструктором и методами получения.",
+        "Создайте составной класс FoodOrder, внедрив ссылку ClientProfile.",
+        "Напишите конструктор FoodOrder, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9605,7 +11807,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "client maydoni ClientProfile turida bo'lishi shart.",
-      "cw2Tip": "CW2 Console Order Applicationda 'Order' klassi aynan shunday 'Customer' kompozitsiyasiga ega bo'ladi."
+      "cw2Tip": "CW2 Console Order Applicationda 'Order' klassi aynan shunday 'Customer' kompozitsiyasiga ega bo'ladi.",
+      "theoryRu": "В заказах сохраняются ссылки на клиентов, а не дублируются контактные данные клиентов в нескольких записях.",
+      "pitfallsRu": "клиент maydoni ClientProfile turida bo'lishi shart.",
+      "breakdownRu": [
+        "<code>ClientProfile inside FoodOrder</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9615,15 +11823,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "141. Click — To'lov Kvitansiyasi va Tranzaksiya Tafsiloti (PaymentReceipt & TxDetails)",
-      "en": "141. Click — PaymentReceipt Has-A TxDetails"
+      "en": "141. Click — PaymentReceipt Has-A TxDetails",
+      "ru": "141. Нажмите — PaymentReceipt Has-A TxDetails."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nElektron to'lov cheki (PaymentReceipt) tranzaksiya tafsilotlarini (TxDetails: txId va provider) o'z ichiga oladi. Kvitansiya orqali provayder nomini zanjirli getter bilan oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'TxDetails' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'PaymentReceipt' ni yarating va unga tarkibiy 'TxDetails' maydonini qo'shing.\n\n3. 'PaymentReceipt' konstruktorida 'TxDetails' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'TxDetails' komponentini, so'ng uni uzatib 'PaymentReceipt' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nPayment receipts wrap transaction metadata objects. Access the payment service provider via chained calls.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'TxDetails' with fields, constructor, and getters.\n\n2. Create composite class 'PaymentReceipt' embedding 'TxDetails' reference.\n\n3. Write 'PaymentReceipt' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nPayment receipts wrap transaction metadata objects. Access the payment service provider via chained calls.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'TxDetails' with fields, constructor, and getters.\n\n2. Create composite class 'PaymentReceipt' embedding 'TxDetails' reference.\n\n3. Write 'PaymentReceipt' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nКвитанции об оплате обертывают объекты метаданных транзакции. Получите доступ к поставщику платежных услуг через цепочки вызовов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента TxDetails с полями, конструктором и методами получения.\n2. Создайте составной класс PaymentReceipt, включив ссылку TxDetails.\n3. Напишите конструктор PaymentReceipt, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Elektron to'lov cheki (PaymentReceipt) tranzaksiya tafsilotlarini (TxDetails: txId va provider) o'z ichiga oladi. Kvitansiya orqali provayder nomini zanjirli getter bilan oling.",
-      "en": "Payment receipts wrap transaction metadata objects. Access the payment service provider via chained calls."
+      "en": "Payment receipts wrap transaction metadata objects. Access the payment service provider via chained calls.",
+      "ru": "Квитанции об оплате обертывают объекты метаданных транзакции. Получите доступ к поставщику платежных услуг через цепочки вызовов."
     },
     "steps": {
       "uz": [
@@ -9639,6 +11850,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'PaymentReceipt' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента TxDetails с полями, конструктором и методами получения.",
+        "Создайте составной класс PaymentReceipt, включив ссылку TxDetails.",
+        "Напишите конструктор PaymentReceipt, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9682,7 +11900,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "details maydonini getter orqali o'qiganda 'rec.getDetails().getProvider()' zanjiridan foydalaning.",
-      "cw2Tip": "To'lov kvitansiyalarini shakllantirishda tranzaksiya obyektini ichki kompozitsiya qiling."
+      "cw2Tip": "To'lov kvitansiyalarini shakllantirishda tranzaksiya obyektini ichki kompozitsiya qiling.",
+      "theoryRu": "Инкапсуляция сведений о транзакциях в объектах квитанций поддерживает модульное тестирование и модульные обновления.",
+      "pitfallsRu": "подробнее maydonini getter orqali o'qiganda 'rec.getDetails().getProvider()' zanjiridan Foydalaning.",
+      "breakdownRu": [
+        "<code>TxDetails inside PaymentReceipt</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9692,15 +11916,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "142. Asaxiy Books — Nashr Kitobi va Muallif (Book & Author)",
-      "en": "142. Asaxiy Books — Book Has-An Author"
+      "en": "142. Asaxiy Books — Book Has-An Author",
+      "ru": "142. Asaxy Books — Книга имеет автора"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitob (Book) o'z muallifiga (Author) ega (Book has an Author). Kitob sarlavhasi va muallifning tug'ilgan yurtini zanjirli getter orqali konsolga chiqaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Author' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Book' ni yarating va unga tarkibiy 'Author' maydonini qo'shing.\n\n3. 'Book' konstruktorida 'Author' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Author' komponentini, so'ng uni uzatib 'Book' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nBooks encapsulate an Author reference. Display book title alongside author country of origin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Author' with fields, constructor, and getters.\n\n2. Create composite class 'Book' embedding 'Author' reference.\n\n3. Write 'Book' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nBooks encapsulate an Author reference. Display book title alongside author country of origin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Author' with fields, constructor, and getters.\n\n2. Create composite class 'Book' embedding 'Author' reference.\n\n3. Write 'Book' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nКниги инкапсулируют ссылку на автора. Отображение названия книги вместе со страной происхождения автора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Автор» с полями, конструктором и геттерами.\n2. Создайте составной класс «Книга», встраивая ссылку «Автор».\n3. Напишите конструктор «Книга», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Kitob (Book) o'z muallifiga (Author) ega (Book has an Author). Kitob sarlavhasi va muallifning tug'ilgan yurtini zanjirli getter orqali konsolga chiqaring.",
-      "en": "Books encapsulate an Author reference. Display book title alongside author country of origin."
+      "en": "Books encapsulate an Author reference. Display book title alongside author country of origin.",
+      "ru": "Книги инкапсулируют ссылку на автора. Отображение названия книги вместе со страной происхождения автора."
     },
     "steps": {
       "uz": [
@@ -9716,6 +11943,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Book' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Автор» с полями, конструктором и геттерами.",
+        "Создайте составной класс «Книга», встраивая ссылку «Автор».",
+        "Напишите конструктор «Книга», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9759,7 +11993,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Muallif nomini Book ichida shunchaki String qilib qoldirmang, Author obyektidan foydalaning.",
-      "cw2Tip": "Katalog tizimlarida muallif yoki ishlab chiqaruvchi obyektlarini alohida sinf qilib kompozitsiyaga oling."
+      "cw2Tip": "Katalog tizimlarida muallif yoki ishlab chiqaruvchi obyektlarini alohida sinf qilib kompozitsiyaga oling.",
+      "theoryRu": "Выделение автора в независимый класс обеспечивает возможность повторного использования автора в нескольких экземплярах книги.",
+      "pitfallsRu": "Книга Muallif nomini ichida shunchaki String qilib qoldirmang, Автор obyektidan foydalaning.",
+      "breakdownRu": [
+        "<code>Author inside Book</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9769,15 +12009,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "143. Beeline — Abonent va Tarif Rejasi (Subscriber & TariffPlan)",
-      "en": "143. Beeline — Subscriber Has-A TariffPlan"
+      "en": "143. Beeline — Subscriber Has-A TariffPlan",
+      "ru": "143. Билайн — у абонента есть тарифный план"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMobil aloqa abonenti (Subscriber) muayyan tarif rejasiga (TariffPlan: planName va monthlyPrice) ulangan bo'ladi. Abonent orqali tarif narxini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'TariffPlan' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Subscriber' ni yarating va unga tarkibiy 'TariffPlan' maydonini qo'shing.\n\n3. 'Subscriber' konstruktorida 'TariffPlan' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'TariffPlan' komponentini, so'ng uni uzatib 'Subscriber' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nTelecom subscribers encapsulate an assigned TariffPlan. Retrieve subscriber monthly tariff charges.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'TariffPlan' with fields, constructor, and getters.\n\n2. Create composite class 'Subscriber' embedding 'TariffPlan' reference.\n\n3. Write 'Subscriber' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nTelecom subscribers encapsulate an assigned TariffPlan. Retrieve subscriber monthly tariff charges.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'TariffPlan' with fields, constructor, and getters.\n\n2. Create composite class 'Subscriber' embedding 'TariffPlan' reference.\n\n3. Write 'Subscriber' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nАбоненты связи инкапсулируют назначенный Тарифный План. Получите ежемесячную абонентскую плату за тарифы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «ТарифПлан» с полями, конструктором и геттерами.\n2. Создайте составной класс «Абонент», внедрив ссылку «Тарифный план».\n3. Напишите конструктор «Подписчик», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Mobil aloqa abonenti (Subscriber) muayyan tarif rejasiga (TariffPlan: planName va monthlyPrice) ulangan bo'ladi. Abonent orqali tarif narxini oling.",
-      "en": "Telecom subscribers encapsulate an assigned TariffPlan. Retrieve subscriber monthly tariff charges."
+      "en": "Telecom subscribers encapsulate an assigned TariffPlan. Retrieve subscriber monthly tariff charges.",
+      "ru": "Абоненты связи инкапсулируют назначенный Тарифный План. Получите ежемесячную абонентскую плату за тарифы."
     },
     "steps": {
       "uz": [
@@ -9793,6 +12036,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Subscriber' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «ТарифПлан» с полями, конструктором и геттерами.",
+        "Создайте составной класс «Абонент», внедрив ссылку «Тарифный план».",
+        "Напишите конструктор «Подписчик», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9836,7 +12086,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "monthlyPrice double turida ekanligiga e'tibor qarating.",
-      "cw2Tip": "Obuna va a'zolik modellarini loyihalashda kompozitsiya strukturasidan foydalaning."
+      "cw2Tip": "Obuna va a'zolik modellarini loyihalashda kompozitsiya strukturasidan foydalaning.",
+      "theoryRu": "Композиция позволяет менять объекты тарифов во время выполнения, не переписывая внутренности класса абонента.",
+      "pitfallsRu": "Ежемесячная цена двойная цена ekanligiga e'tibor qarating.",
+      "breakdownRu": [
+        "<code>TariffPlan inside Subscriber</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9846,15 +12102,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "144. Texnomart — Noutbuk va Protsessor (Laptop & Processor)",
-      "en": "144. Texnomart — Laptop Has-A Processor"
+      "en": "144. Texnomart — Laptop Has-A Processor",
+      "ru": "144. Texnomart — Ноутбук имеет процессор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nNoutbuk kompyuter (Laptop) protsessor (Processor: brand va coreCount) tarkibiy qismiga ega (Laptop has a Processor). Noutbuk orqali protsessor yadrolar sonini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Processor' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Laptop' ni yarating va unga tarkibiy 'Processor' maydonini qo'shing.\n\n3. 'Laptop' konstruktorida 'Processor' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Processor' komponentini, so'ng uni uzatib 'Laptop' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nLaptops encapsulate an internal processor component. Access processor core count through chained getters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Processor' with fields, constructor, and getters.\n\n2. Create composite class 'Laptop' embedding 'Processor' reference.\n\n3. Write 'Laptop' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nLaptops encapsulate an internal processor component. Access processor core count through chained getters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Processor' with fields, constructor, and getters.\n\n2. Create composite class 'Laptop' embedding 'Processor' reference.\n\n3. Write 'Laptop' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nНоутбуки содержат внутренний компонент процессора. Доступ к количеству ядер процессора через цепочки геттеров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Процессор» с полями, конструктором и геттерами.\n2. Создайте составной класс «Ноутбук», встраивая ссылку «Процессор».\n3. Напишите конструктор «Ноутбук», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Noutbuk kompyuter (Laptop) protsessor (Processor: brand va coreCount) tarkibiy qismiga ega (Laptop has a Processor). Noutbuk orqali protsessor yadrolar sonini oling.",
-      "en": "Laptops encapsulate an internal processor component. Access processor core count through chained getters."
+      "en": "Laptops encapsulate an internal processor component. Access processor core count through chained getters.",
+      "ru": "Ноутбуки содержат внутренний компонент процессора. Доступ к количеству ядер процессора через цепочки геттеров."
     },
     "steps": {
       "uz": [
@@ -9870,6 +12129,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Laptop' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Процессор» с полями, конструктором и геттерами.",
+        "Создайте составной класс «Ноутбук», встраивая ссылку «Процессор».",
+        "Напишите конструктор «Ноутбук», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9913,7 +12179,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "getProcessor() metodi Processor sinfidagi ob'yektni qaytaradi.",
-      "cw2Tip": "Qurilmalar va komponentlarni ajratib loyihalashtirish CW2 mezonlariga mos keladi."
+      "cw2Tip": "Qurilmalar va komponentlarni ajratib loyihalashtirish CW2 mezonlariga mos keladi.",
+      "theoryRu": "Компонентное моделирование узлов физического оборудования демонстрирует четкое разделение задач.",
+      "pitfallsRu": "Метод getProcessor() Процессор отображает объекты обработки.",
+      "breakdownRu": [
+        "<code>Processor inside Laptop</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -9923,15 +12195,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "145. Kapitalbank — Bank Hisobi va Mijoz (BankAccount & AccountHolder)",
-      "en": "145. Kapitalbank — BankAccount Has-An AccountHolder"
+      "en": "145. Kapitalbank — BankAccount Has-An AccountHolder",
+      "ru": "145. Капиталбанк — Банковский счет имеет владельца счета."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBank hisobvarag'i (BankAccount) o'z hisob egasiga (AccountHolder: fullName va passportNo) ega. Hisob orqali mijozning pasport seriyasini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'AccountHolder' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'BankAccount' ni yarating va unga tarkibiy 'AccountHolder' maydonini qo'shing.\n\n3. 'BankAccount' konstruktorida 'AccountHolder' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'AccountHolder' komponentini, so'ng uni uzatib 'BankAccount' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nBank accounts encapsulate account holder identity models. Retrieve the holder passport identifier.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'AccountHolder' with fields, constructor, and getters.\n\n2. Create composite class 'BankAccount' embedding 'AccountHolder' reference.\n\n3. Write 'BankAccount' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nBank accounts encapsulate account holder identity models. Retrieve the holder passport identifier.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'AccountHolder' with fields, constructor, and getters.\n\n2. Create composite class 'BankAccount' embedding 'AccountHolder' reference.\n\n3. Write 'BankAccount' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nБанковские счета инкапсулируют модели идентификации владельцев счетов. Получите идентификатор паспорта владельца.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента AccountHolder с полями, конструктором и методами получения.\n2. Создайте составной класс BankAccount, встроив ссылку AccountHolder.\n3. Напишите конструктор BankAccount, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Bank hisobvarag'i (BankAccount) o'z hisob egasiga (AccountHolder: fullName va passportNo) ega. Hisob orqali mijozning pasport seriyasini oling.",
-      "en": "Bank accounts encapsulate account holder identity models. Retrieve the holder passport identifier."
+      "en": "Bank accounts encapsulate account holder identity models. Retrieve the holder passport identifier.",
+      "ru": "Банковские счета инкапсулируют модели идентификации владельцев счетов. Получите идентификатор паспорта владельца."
     },
     "steps": {
       "uz": [
@@ -9947,6 +12222,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'BankAccount' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента AccountHolder с полями, конструктором и методами получения.",
+        "Создайте составной класс BankAccount, встроив ссылку AccountHolder.",
+        "Напишите конструктор BankAccount, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -9990,7 +12272,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "holder maydonini private qilib, faqat getHolder() orqali o'qishga ruxsat bering.",
-      "cw2Tip": "Hisob va mijoz munosabatlarini kompozitsiya bilan bog'lang."
+      "cw2Tip": "Hisob va mijoz munosabatlarini kompozitsiya bilan bog'lang.",
+      "theoryRu": "Отделение банковского счета от владельца личного счета позволяет четко организовать деловые отношения «один ко многим».",
+      "pitfallsRu": "держатель maydonini приватный qilib, faqat getHolder() orqali o'qishga ruxsat bering.",
+      "breakdownRu": [
+        "<code>AccountHolder inside BankAccount</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -10000,15 +12288,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "146. Medion Clinic — Bemor Kartasi va Shifokor (PatientRecord & Doctor)",
-      "en": "146. Medion Clinic — PatientRecord Has-A Doctor"
+      "en": "146. Medion Clinic — PatientRecord Has-A Doctor",
+      "ru": "146. Клиника Медион — У пациента есть врач"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBemorning tibbiy kartasi (PatientRecord) tayinlangan davolovchi shifokor (Doctor: docName va specialization) obyektiga ega. Bemor kartasi orqali shifokor mutaxassisligini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Doctor' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'PatientRecord' ni yarating va unga tarkibiy 'Doctor' maydonini qo'shing.\n\n3. 'PatientRecord' konstruktorida 'Doctor' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Doctor' komponentini, so'ng uni uzatib 'PatientRecord' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nClinical patient records encapsulate assigned physician details. Access the doctor's medical specialization.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Doctor' with fields, constructor, and getters.\n\n2. Create composite class 'PatientRecord' embedding 'Doctor' reference.\n\n3. Write 'PatientRecord' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nClinical patient records encapsulate assigned physician details. Access the doctor's medical specialization.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Doctor' with fields, constructor, and getters.\n\n2. Create composite class 'PatientRecord' embedding 'Doctor' reference.\n\n3. Write 'PatientRecord' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nКлинические записи пациентов содержат назначенные им данные врача. Доступ к медицинской специализации врача.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Доктор» с полями, конструктором и геттерами.\n2. Создайте составной класс «PatientRecord», встраивающий ссылку «Доктор».\n3. Напишите конструктор PatientRecord, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Bemorning tibbiy kartasi (PatientRecord) tayinlangan davolovchi shifokor (Doctor: docName va specialization) obyektiga ega. Bemor kartasi orqali shifokor mutaxassisligini oling.",
-      "en": "Clinical patient records encapsulate assigned physician details. Access the doctor's medical specialization."
+      "en": "Clinical patient records encapsulate assigned physician details. Access the doctor's medical specialization.",
+      "ru": "Клинические записи пациентов содержат назначенные им данные врача. Доступ к медицинской специализации врача."
     },
     "steps": {
       "uz": [
@@ -10024,6 +12315,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'PatientRecord' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Доктор» с полями, конструктором и геттерами.",
+        "Создайте составной класс «PatientRecord», встраивающий ссылку «Доктор».",
+        "Напишите конструктор PatientRecord, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -10067,7 +12365,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Shifokor ismi va mutaxassisligi Doctor sinfida saqlanishi kerak.",
-      "cw2Tip": "Xizmat ko'rsatuvchi xodim va mijoz/buyurtma munosabatlarini kompozitsiya orqali yarating."
+      "cw2Tip": "Xizmat ko'rsatuvchi xodim va mijoz/buyurtma munosabatlarini kompozitsiya orqali yarating.",
+      "theoryRu": "Врачи действуют как автономные объекты, встроенные в медицинские карты посредством композиции объектов.",
+      "pitfallsRu": "Шифокор исми ва мутаксассилиги Доктор Синфида Сакланиши Керак.",
+      "breakdownRu": [
+        "<code>Doctor inside PatientRecord</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -10077,15 +12381,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "147. Uzbekistan Airways — Aviaparvoz va Samolyot (Flight & Aircraft)",
-      "en": "147. Uzbekistan Airways — Flight Has-An Aircraft"
+      "en": "147. Uzbekistan Airways — Flight Has-An Aircraft",
+      "ru": "147. Узбекские авиалинии — Рейс Has-An Aircraft"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHar bir aviaparvoz (Flight) qatnovni amalga oshiruvchi samolyot (Aircraft: planeModel va seatCapacity) obyektiga ega (Flight has an Aircraft). Parvoz orqali samolyot sig'imini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Aircraft' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Flight' ni yarating va unga tarkibiy 'Aircraft' maydonini qo'shing.\n\n3. 'Flight' konstruktorida 'Aircraft' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Aircraft' komponentini, so'ng uni uzatib 'Flight' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nScheduled flights encapsulate assigned aircraft specs. Retrieve the total flight seat capacity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Aircraft' with fields, constructor, and getters.\n\n2. Create composite class 'Flight' embedding 'Aircraft' reference.\n\n3. Write 'Flight' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nScheduled flights encapsulate assigned aircraft specs. Retrieve the total flight seat capacity.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Aircraft' with fields, constructor, and getters.\n\n2. Create composite class 'Flight' embedding 'Aircraft' reference.\n\n3. Write 'Flight' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nРегулярные полеты отражают назначенные характеристики самолета. Получите общее количество мест в самолете.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Самолет» с полями, конструктором и геттерами.\n2. Создайте составной класс «Полет», встраивая ссылку «Самолет».\n3. Напишите конструктор «Полет», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Har bir aviaparvoz (Flight) qatnovni amalga oshiruvchi samolyot (Aircraft: planeModel va seatCapacity) obyektiga ega (Flight has an Aircraft). Parvoz orqali samolyot sig'imini oling.",
-      "en": "Scheduled flights encapsulate assigned aircraft specs. Retrieve the total flight seat capacity."
+      "en": "Scheduled flights encapsulate assigned aircraft specs. Retrieve the total flight seat capacity.",
+      "ru": "Регулярные полеты отражают назначенные характеристики самолета. Получите общее количество мест в самолете."
     },
     "steps": {
       "uz": [
@@ -10101,6 +12408,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Flight' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Самолет» с полями, конструктором и геттерами.",
+        "Создайте составной класс «Полет», встраивая ссылку «Самолет».",
+        "Напишите конструктор «Полет», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -10144,7 +12458,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "seatCapacity int turida ekanligiga e'tibor qarating.",
-      "cw2Tip": "Transport reysi va transport vositasi o'rtasida kompozitsiya munosabatini o'rnating."
+      "cw2Tip": "Transport reysi va transport vositasi o'rtasida kompozitsiya munosabatini o'rnating.",
+      "theoryRu": "Расписание полетов и инвентаризация парка изящно разделены посредством композиционных ссылок.",
+      "pitfallsRu": "SeatCapacity int turida ekanligiga e'tibor qarating.",
+      "breakdownRu": [
+        "<code>Aircraft inside Flight</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -10154,15 +12474,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "148. Bringo — Kuryerlik Buyurtmasi va Kuryer (DeliveryShipment & Courier)",
-      "en": "148. Bringo — DeliveryShipment Has-A Courier"
+      "en": "148. Bringo — DeliveryShipment Has-A Courier",
+      "ru": "148. Bringo — ДоставкаУ доставки есть курьер"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazib berish jo'natmasi (DeliveryShipment) tayinlangan kuryer (Courier: courierName va transportType) obyektini o'z ichiga oladi. Jo'natma orqali kuryer transport turini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'Courier' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'DeliveryShipment' ni yarating va unga tarkibiy 'Courier' maydonini qo'shing.\n\n3. 'DeliveryShipment' konstruktorida 'Courier' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'Courier' komponentini, so'ng uni uzatib 'DeliveryShipment' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nDispatched shipments encapsulate assigned courier details. Query the delivery courier transport vehicle type.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Courier' with fields, constructor, and getters.\n\n2. Create composite class 'DeliveryShipment' embedding 'Courier' reference.\n\n3. Write 'DeliveryShipment' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nDispatched shipments encapsulate assigned courier details. Query the delivery courier transport vehicle type.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'Courier' with fields, constructor, and getters.\n\n2. Create composite class 'DeliveryShipment' embedding 'Courier' reference.\n\n3. Write 'DeliveryShipment' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nОтправленные отправления содержат данные назначенного курьера. Запросите тип транспортного средства курьерской доставки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «Курьер» с полями, конструктором и геттерами.\n2. Создайте составной класс «DeliveryShipment», внедрив ссылку «Курьер».\n3. Напишите конструктор DeliveryShipment, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Yetkazib berish jo'natmasi (DeliveryShipment) tayinlangan kuryer (Courier: courierName va transportType) obyektini o'z ichiga oladi. Jo'natma orqali kuryer transport turini oling.",
-      "en": "Dispatched shipments encapsulate assigned courier details. Query the delivery courier transport vehicle type."
+      "en": "Dispatched shipments encapsulate assigned courier details. Query the delivery courier transport vehicle type.",
+      "ru": "Отправленные отправления содержат данные назначенного курьера. Запросите тип транспортного средства курьерской доставки."
     },
     "steps": {
       "uz": [
@@ -10178,6 +12501,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'DeliveryShipment' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «Курьер» с полями, конструктором и геттерами.",
+        "Создайте составной класс «DeliveryShipment», внедрив ссылку «Курьер».",
+        "Напишите конструктор DeliveryShipment, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -10221,7 +12551,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "Kuryer transport turini shunchaki jo'natma ichida String qilib saqlamang.",
-      "cw2Tip": "Logistika va yetkazish tizimlarida buyurtma va kuryerni kompozitsiya bilan bog'lang."
+      "cw2Tip": "Logistika va yetkazish tizimlarida buyurtma va kuryerni kompozitsiya bilan bog'lang.",
+      "theoryRu": "Курьеры и отправления представляют собой отдельные сущности домена, связанные вместе посредством композиции.",
+      "pitfallsRu": "Курьер транспорт турини сюнчаки jo'natma ichida String qilib saqlamang.",
+      "breakdownRu": [
+        "<code>Courier inside DeliveryShipment</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -10231,15 +12567,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "149. WIUT Registratura — Talaba va Akademik Baholar (Student & AcademicRecord)",
-      "en": "149. WIUT Registry — Student Has-An AcademicRecord"
+      "en": "149. WIUT Registry — Student Has-An AcademicRecord",
+      "ru": "149. Реестр МВУТ — студент имеет академическую успеваемость."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT talabasi (Student) o'zining akademik baholar daftarchasiga (AcademicRecord: gpa va creditsCompleted) ega (Student has an AcademicRecord). Talaba orqali uning to'plagan kreditlarini oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'AcademicRecord' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'Student' ni yarating va unga tarkibiy 'AcademicRecord' maydonini qo'shing.\n\n3. 'Student' konstruktorida 'AcademicRecord' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'AcademicRecord' komponentini, so'ng uni uzatib 'Student' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nWIUT student dossiers encapsulate academic records. Retrieve the student completed credit count.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'AcademicRecord' with fields, constructor, and getters.\n\n2. Create composite class 'Student' embedding 'AcademicRecord' reference.\n\n3. Write 'Student' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nWIUT student dossiers encapsulate academic records. Retrieve the student completed credit count.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'AcademicRecord' with fields, constructor, and getters.\n\n2. Create composite class 'Student' embedding 'AcademicRecord' reference.\n\n3. Write 'Student' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nДосье студентов МВУТ содержат академические достижения. Получите подсчет выполненных студентом кредитов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «AcademicRecord» с полями, конструктором и методами получения.\n2. Создайте составной класс «Студент», внедрив ссылку «AcademicRecord».\n3. Напишите конструктор «Студент», получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "WIUT talabasi (Student) o'zining akademik baholar daftarchasiga (AcademicRecord: gpa va creditsCompleted) ega (Student has an AcademicRecord). Talaba orqali uning to'plagan kreditlarini oling.",
-      "en": "WIUT student dossiers encapsulate academic records. Retrieve the student completed credit count."
+      "en": "WIUT student dossiers encapsulate academic records. Retrieve the student completed credit count.",
+      "ru": "Досье студентов МВУТ содержат академические достижения. Получите подсчет выполненных студентом кредитов."
     },
     "steps": {
       "uz": [
@@ -10255,6 +12594,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'Student' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «AcademicRecord» с полями, конструктором и методами получения.",
+        "Создайте составной класс «Студент», внедрив ссылку «AcademicRecord».",
+        "Напишите конструктор «Студент», получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -10298,7 +12644,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "creditsCompleted int, gpa double turida bo'lishi lozim.",
-      "cw2Tip": "Talaba va baholar reytingini modellashtirishda kompozitsiyadan foydalaning."
+      "cw2Tip": "Talaba va baholar reytingini modellashtirishda kompozitsiyadan foydalaning.",
+      "theoryRu": "Разделение профилей учащихся и академических показателей на составные классы четко отражает реальные системы регистраторов.",
+      "pitfallsRu": "кредитыЗавершено int, двойной средний балл turida bo'lishi lozim.",
+      "breakdownRu": [
+        "<code>AcademicRecord inside Student</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   },
   {
@@ -10308,15 +12660,18 @@ window.OOP_CHALLENGES_W2 = [
     "sector": "136-150: Obyektlar Kompozitsiyasi",
     "title": {
       "uz": "150. Dodo Pizza — Pitssa Buyurtmasi va Manzil (PizzaOrder & DeliveryAddress)",
-      "en": "150. Dodo Pizza — PizzaOrder Has-A DeliveryAddress"
+      "en": "150. Dodo Pizza — PizzaOrder Has-A DeliveryAddress",
+      "ru": "150. Додо Пицца — Заказ пиццы имеет адрес доставки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWeek 2 ning yakuniy 150-masalasi: Pitsaxona buyurtmasi (PizzaOrder) yetkazib berish manziliga (DeliveryAddress: street va apartment) ega. Buyurtma orqali xonadon raqamini 'order.getAddress().getApartment()' tarzida oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Birinchi tarkibiy sinf 'DeliveryAddress' ni yarating: tegishli maydonlar, konstruktor va getterlar.\n\n2. Asosiy kompozitsiya sinfi 'PizzaOrder' ni yarating va unga tarkibiy 'DeliveryAddress' maydonini qo'shing.\n\n3. 'PizzaOrder' konstruktorida 'DeliveryAddress' ob'yektini qabul qilib maydonga o'zlashtiring.\n\n4. 'Main' metodida avval 'DeliveryAddress' komponentini, so'ng uni uzatib 'PizzaOrder' ob'yektini yarating.\n\n5. Zanjirli getter orqali ma'lumotlarni namunadagidek konsolga chop eting.",
-      "en": "📖 Real-World Scenario & Context\nGrand finale challenge 150: Pizza orders encapsulate a delivery address. Query the customer apartment number.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'DeliveryAddress' with fields, constructor, and getters.\n\n2. Create composite class 'PizzaOrder' embedding 'DeliveryAddress' reference.\n\n3. Write 'PizzaOrder' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors."
+      "en": "📖 Real-World Scenario & Context\nGrand finale challenge 150: Pizza orders encapsulate a delivery address. Query the customer apartment number.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create component class 'DeliveryAddress' with fields, constructor, and getters.\n\n2. Create composite class 'PizzaOrder' embedding 'DeliveryAddress' reference.\n\n3. Write 'PizzaOrder' constructor receiving component reference.\n\n4. In 'main', instantiate component object first, then composite entity.\n\n5. Print results via chained accessors.",
+      "ru": "📖 Контекст и описание задачи\nГрандиозное финальное задание 150: в заказах на пиццу указывается адрес доставки. Запросить номер квартиры клиента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс компонента «DeliveryAddress» с полями, конструктором и методами получения.\n2. Создайте составной класс PizzaOrder, встроив ссылку DeliveryAddress.\n3. Напишите конструктор PizzaOrder, получающий ссылку на компонент.\n4. В «main» сначала создайте экземпляр объекта компонента, затем составной объект.\n5. Распечатайте результаты с помощью связанных аксессоров."
     },
     "story": {
       "uz": "Week 2 ning yakuniy 150-masalasi: Pitsaxona buyurtmasi (PizzaOrder) yetkazib berish manziliga (DeliveryAddress: street va apartment) ega. Buyurtma orqali xonadon raqamini 'order.getAddress().getApartment()' tarzida oling.",
-      "en": "Grand finale challenge 150: Pizza orders encapsulate a delivery address. Query the customer apartment number."
+      "en": "Grand finale challenge 150: Pizza orders encapsulate a delivery address. Query the customer apartment number.",
+      "ru": "Грандиозное финальное задание 150: в заказах на пиццу указывается адрес доставки. Запросить номер квартиры клиента."
     },
     "steps": {
       "uz": [
@@ -10332,6 +12687,13 @@ window.OOP_CHALLENGES_W2 = [
         "Write 'PizzaOrder' constructor receiving component reference.",
         "In 'main', instantiate component object first, then composite entity.",
         "Print results via chained accessors."
+      ],
+      "ru": [
+        "Создайте класс компонента «DeliveryAddress» с полями, конструктором и методами получения.",
+        "Создайте составной класс PizzaOrder, встроив ссылку DeliveryAddress.",
+        "Напишите конструктор PizzaOrder, получающий ссылку на компонент.",
+        "В «main» сначала создайте экземпляр объекта компонента, затем составной объект.",
+        "Распечатайте результаты с помощью связанных аксессоров."
       ]
     },
     "requirements": {
@@ -10375,7 +12737,13 @@ window.OOP_CHALLENGES_W2 = [
         "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
       ],
       "pitfalls": "apartment int, street String turida bo'lishi va zanjirli getter orqali to'g'ri olinishi kerak.",
-      "cw2Tip": "CW2 Console Order Applicationda butun arxitektura bir nechta obyektlarning (Order, Customer, Product, Address) kompozitsiyasidan iborat bo'ladi."
+      "cw2Tip": "CW2 Console Order Applicationda butun arxitektura bir nechta obyektlarning (Order, Customer, Product, Address) kompozitsiyasidan iborat bo'ladi.",
+      "theoryRu": "Композиция завершает освоение инкапсуляции второй недели, демонстрируя, как модульные доменные компоненты собираются в надежные системы.",
+      "pitfallsRu": "квартира int, улица String turida bo'lishi va zanjirli getter orqali to'g'ri olinishi kerak.",
+      "breakdownRu": [
+        "<code>DeliveryAddress inside PizzaOrder</code>: Kompozitsiya ('Has-A') orqali ikki mustaqil ob'yekt o'zaro bog'langan.",
+        "<code>Chained Access</code>: 'obj.getComponent().getProperty()' orqali ichki holat xavfsiz o'qiladi."
+      ]
     }
   }
 ];

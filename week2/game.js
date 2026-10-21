@@ -444,14 +444,20 @@
     const elFeedback = document.getElementById('feedbackBox');
 
     const isEn = window.I18N && window.I18N.getLang() === 'en';
+    const isRu = window.I18N && window.I18N.getLang() === 'ru';
     const t = (k, fb) => (window.I18N ? window.I18N.t(k, fb) : fb);
 
-    if (elFloor) elFloor.textContent = isEn ? `Floor ${secId}: Relational Schema & Keys` : `${secId}-Qavat: EER Modelga Kengaytirish`;
-    if (elSub) elSub.textContent = isEn ? "Analytical Practical Case" : (q.difficulty || "Amaliy Keys");
-    if (elQNum) elQNum.textContent = `${isEn ? 'Case' : 'Keys'} #${q.id} / 150`;
+    if (elFloor) elFloor.textContent = isRu ? `Этаж ${secId}: Расширение EER модели` : (isEn ? `Floor ${secId}: Relational Schema & Keys` : `${secId}-Qavat: EER Modelga Kengaytirish`);
+    if (elSub) elSub.textContent = isRu ? "Аналитический практический кейс" : (isEn ? "Analytical Practical Case" : (q.difficulty || "Amaliy Keys"));
+    if (elQNum) elQNum.textContent = `${isRu ? 'Кейс' : (isEn ? 'Case' : 'Keys')} #${q.id} / 150`;
     if (elDiff) {
       let diffText = q.difficulty || "O'rta";
-      if (isEn) {
+      if (isRu) {
+        if (/boshlang/i.test(diffText)) diffText = t('diff_basic', 'Начальный');
+        else if (/yuqori|qiyin/i.test(diffText)) diffText = t('diff_hard', 'Продвинутый');
+        else if (/ekspert/i.test(diffText)) diffText = t('diff_expert', 'Эксперт');
+        else diffText = t('diff_medium', 'Средний');
+      } else if (isEn) {
         if (/boshlang/i.test(diffText)) diffText = t('diff_basic', 'Beginner');
         else if (/yuqori|qiyin/i.test(diffText)) diffText = t('diff_hard', 'Advanced');
         else if (/ekspert/i.test(diffText)) diffText = t('diff_expert', 'Expert');
@@ -459,8 +465,8 @@
       }
       elDiff.textContent = diffText;
     }
-    if (elSource) elSource.textContent = isEn ? "Seminar 02 • EER Model" : "Seminar 02 • EER Modeli";
-    if (elTitle) elTitle.textContent = isEn ? (q.titleEn || q.title || "EER Extension") : (q.title || "EER Kengaytirish");
+    if (elSource) elSource.textContent = isRu ? "Семинар 02 • Модель EER" : (isEn ? "Seminar 02 • EER Model" : "Seminar 02 • EER Modeli");
+    if (elTitle) elTitle.textContent = isRu ? (q.titleRu || q.titleEn || q.title || "Расширение EER") : (isEn ? (q.titleEn || q.title || "EER Extension") : (q.title || "EER Kengaytirish"));
 
     // Format Markdown Helper
     function formatInlineMarkdown(str) {
@@ -479,20 +485,22 @@
     const elTasks = document.getElementById('caseTasksBox');
 
     if (elNarrative) {
-      const storyRaw = isEn ? (q.storyEn || q.story || '') : (q.story || '');
+      const storyRaw = isRu ? (q.storyRu || q.storyEn || q.story || '') : (isEn ? (q.storyEn || q.story || '') : (q.story || ''));
       const paras = storyRaw.split('\n\n').filter(p => p.trim());
       elNarrative.innerHTML = paras.map(p => `<p>${formatInlineMarkdown(p)}</p>`).join('');
     }
 
     if (elTasks) {
-      const inst = isEn 
-        ? (q.instructionEn || q.instruction || "Extend the initial model based on EER requirements.")
-        : (q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Dastlabki modelni EER qoidalari asosida kengaytiring.")));
+      const inst = isRu
+        ? (q.instructionRu || q.instructionEn || q.instruction || "Расширьте исходную модель согласно требованиям EER.")
+        : (isEn 
+          ? (q.instructionEn || q.instruction || "Extend the initial model based on EER requirements.")
+          : (q.instruction || (q.caseStudy?.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz.split('\n')[0] : "Dastlabki modelni EER qoidalari asosida kengaytiring."))));
       
       elTasks.innerHTML = `
         <div class="case-instruction-pill" style="display:flex; align-items:flex-start; gap:8px; padding:10px 14px; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:6px; color:#f0f0f0; font-size:13px; line-height:1.5;">
           <span style="font-size:16px;">🎯</span>
-          <div><strong>${isEn ? 'Task:' : 'Topshiriq:'}</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
+          <div><strong>${isRu ? 'Задание:' : (isEn ? 'Task:' : 'Topshiriq:')}</strong> ${formatInlineMarkdown(inst.replace(/^[a-d]\)\s*/i, ''))}</div>
         </div>
       `;
 
@@ -505,7 +513,7 @@
         btnDetail.style.marginTop = '12px';
         elTasks.appendChild(btnDetail);
       }
-      btnDetail.innerHTML = `<span>📖 ${isEn ? 'Detailed' : 'Batafsil'}</span> <small style="opacity:0.85;">(${isEn ? 'Theory & Examples' : 'Nazariya & Misollar'})</small>`;
+      btnDetail.innerHTML = `<span>📖 ${isRu ? 'Подробно' : (isEn ? 'Detailed' : 'Batafsil')}</span> <small style="opacity:0.85;">(${isRu ? 'Теория и примеры' : (isEn ? 'Theory & Examples' : 'Nazariya & Misollar')})</small>`;
       btnDetail.onclick = () => {
         if (window.databaseEncyclopedia) {
           window.databaseEncyclopedia.openForQuestion(q, 2);
@@ -515,10 +523,12 @@
 
     if (elHint) {
       elHint.style.display = 'none';
-      const hintContent = isEn 
-        ? (q.hintEn || q.hint || "Focus on subclasses, ISA relationship and constraints.")
-        : (q.hint || "Subklasslar, ISA uchburchagi va {Mandatory, Or} / {Optional, And} cheklovlariga e'tibor bering.");
-      elHint.textContent = `💡 ${isEn ? 'Hint:' : 'Maslahat:'} ${hintContent}`;
+      const hintContent = isRu
+        ? (q.hintRu || q.hintEn || q.hint || "Обратите внимание на подклассы, связь ISA и ограничения {Mandatory, Or} / {Optional, And}.")
+        : (isEn 
+          ? (q.hintEn || q.hint || "Focus on subclasses, ISA relationship and constraints.")
+          : (q.hint || "Subklasslar, ISA uchburchagi va {Mandatory, Or} / {Optional, And} cheklovlariga e'tibor bering."));
+      elHint.textContent = `💡 ${isRu ? 'Подсказка:' : (isEn ? 'Hint:' : 'Maslahat:')} ${hintContent}`;
     }
     if (elFeedback) {
       elFeedback.style.display = 'none';
@@ -526,12 +536,12 @@
     }
 
     if (atelier2D) {
-      atelier2D.setClient(q.clientName || (isEn ? "Chief Architect Atlas" : "Bosh Me'mor Atlas"), q.clientRole || (isEn ? "Consultant" : "Maslahatchi"), q.title);
+      atelier2D.setClient(q.clientName || (isRu ? "Главный архитектор Атлас" : (isEn ? "Chief Architect Atlas" : "Bosh Me'mor Atlas")), (isRu && q.clientRoleRu ? q.clientRoleRu : (q.clientRole || (isRu ? "Консультант" : (isEn ? "Consultant" : "Maslahatchi")))), (isRu && q.titleRu ? q.titleRu : q.title));
     }
     const tickerSpeaker = document.getElementById('tickerSpeaker');
     const tickerMessage = document.getElementById('tickerMessage');
-    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? q.clientRole.toUpperCase() : (isEn ? "CHIEF ARCHITECT ATLAS" : "BOSH ME'MOR ATLAS");
-    if (tickerMessage) tickerMessage.textContent = isEn ? "Complete the new EER requirements based on your Week 1 model." : "1-haftada yaratilgan model asosida yangi EER talablarini to'ldiring.";
+    if (tickerSpeaker) tickerSpeaker.textContent = q.clientRole ? (isRu && q.clientRoleRu ? q.clientRoleRu.toUpperCase() : q.clientRole.toUpperCase()) : (isRu ? "ГЛАВНЫЙ АРХИТЕКТОР АТЛАС" : (isEn ? "CHIEF ARCHITECT ATLAS" : "BOSH ME'MOR ATLAS"));
+    if (tickerMessage) tickerMessage.textContent = isRu ? "Дополните модель новыми требованиями EER на основе схемы Недели 1." : (isEn ? "Complete the new EER requirements based on your Week 1 model." : "1-haftada yaratilgan model asosida yangi EER talablarini to'ldiring.");
 
     // Load Starter Diagram into EER Canvas (One-way Inheritance from Week 1!)
     if (eerCanvas) {

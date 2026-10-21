@@ -1,7 +1,6 @@
 // WIUT OOP (5COSC018C) — WEEK 5 DATASET (150 PROGRESSIVE CHALLENGES)
-// Comprehensive syllabus alignment: UML Class Diagrams, Visibility (+, -, #, ~, /), Static (Underlined), Generalization, Realization, Dependency, Association, Aggregation, Composition, Git 3 Areas, .gitignore, Commit Standards, Branching, Merging, Remote, CW2 DrawIO Architecture
-// Generated strictly following the 1-5 step format and 100% verified with JavaAnalyzer.
-window.OOP_CHALLENGES_W5 = [
+// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
+(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W5 = [
   {
     "id": 1,
     "tier": 1,
@@ -9,11 +8,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "1. Uzum Market — UML da Xususiy Maydonlar (- private) va Ochiq Metodlar (+ public)",
-      "en": "1. Uzum Market — Private Fields and Public Accessors in UML"
+      "en": "1. Uzum Market — Private Fields and Public Accessors in UML",
+      "ru": "1. Рынок Uzum — частные поля и публичные средства доступа в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market tizimida 'Product' klassi UML diagrammasida quyidagicha berilgan: '- name: String', '- price: double' va '+ getPriceWithTax(): double'. Ushbu UML spetsifikatsiyasini to'liq Java sinfiga o'giring va 12% QQS bilan narxni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Product' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... getPriceWithTax(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Product product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'",
-      "en": "📖 Real-World Scenario & Context\nOn Uzum Market, 'Product' is specified in UML with '- name: String', '- price: double', and '+ getPriceWithTax(): double'. Translate into Java with 12% VAT.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Product' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getPriceWithTax(...)'.\n5. Instantiate in 'main' and print result: 'Product product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'"
+      "en": "📖 Real-World Scenario & Context\nOn Uzum Market, 'Product' is specified in UML with '- name: String', '- price: double', and '+ getPriceWithTax(): double'. Translate into Java with 12% VAT.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Product' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getPriceWithTax(...)'.\n5. Instantiate in 'main' and print result: 'Product product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'",
+      "ru": "📖 Контекст и описание задачи\nНа Uzum Market «Продукт» указывается в UML с помощью «- name: String», «- цена: double» и «+ getPriceWithTax(): double». Перевести на Java с НДС 12%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Продукт» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции getPriceWithTax(...)'.\n5. Создайте экземпляр в «main» и распечатайте результат: «Product Product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'"
     },
     "requirements": {
       "classes": [
@@ -35,7 +36,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getPriceWithTax</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Product</code>: UML qutisidagi sinf nomi.",
+        "<code>getPriceWithTax</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Mahsulot: Smartfon | QQS bilan narx: 2240000.0"
@@ -43,7 +50,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Mahsulot: Smartfon | QQS bilan narx: 2240000.0",
     "story": {
       "uz": "Uzum Market tizimida 'Product' klassi UML diagrammasida quyidagicha berilgan: '- name: String', '- price: double' va '+ getPriceWithTax(): double'. Ushbu UML spetsifikatsiyasini to'liq Java sinfiga o'giring va 12% QQS bilan narxni hisoblang.",
-      "en": "On Uzum Market, 'Product' is specified in UML with '- name: String', '- price: double', and '+ getPriceWithTax(): double'. Translate into Java with 12% VAT."
+      "en": "On Uzum Market, 'Product' is specified in UML with '- name: String', '- price: double', and '+ getPriceWithTax(): double'. Translate into Java with 12% VAT.",
+      "ru": "На Uzum Market «Продукт» указывается в UML с помощью «- name: String», «- цена: double» и «+ getPriceWithTax(): double». Перевести на Java с НДС 12%."
     },
     "steps": {
       "uz": [
@@ -59,6 +67,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'getPriceWithTax(...)'.",
         "Instantiate in 'main' and print result: 'Product product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'"
+      ],
+      "ru": [
+        "Объявите класс «Продукт» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции getPriceWithTax(...)'.",
+        "Создайте экземпляр в «main» и распечатайте результат: «Product Product = new Product(\"Smartfon\", 2000000.0);         System.out.println(\"Mahsulot: \" + product.getName() + \" | QQS bilan narx: \" + product.getPriceWithTax());'"
       ]
     }
   },
@@ -69,11 +84,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "2. Payme — Himoyalangan Maydon (# protected) va Getter",
-      "en": "2. Payme — Protected Field (#) Translation to Java"
+      "en": "2. Payme — Protected Field (#) Translation to Java",
+      "ru": "2. Payme — перевод защищенного поля (#) на Java"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme to'lov tizimida 'Account' klassi UML diagrammasida '# balance: double' (himoyalangan) va '+ deposit(amount: double): void' ko'rinishida belgilangan. '#' belgisi Java da 'protected' kalit so'ziga to'g'ri kelishini ifodalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Account' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... deposit(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Account acc = new Account(500000.0);         acc.deposit(150000.0);         System.out.println(\"Yangi balans: \" + acc.getBalance());'",
-      "en": "📖 Real-World Scenario & Context\nIn Payme UML diagram, 'Account' contains '# balance: double' and '+ deposit(amount: double): void'. Implement protected field in Java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Account' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'deposit(...)'.\n5. Instantiate in 'main' and print result: 'Account acc = new Account(500000.0);         acc.deposit(150000.0);         System.out.println(\"Yangi balans: \" + acc.getBalance());'"
+      "en": "📖 Real-World Scenario & Context\nIn Payme UML diagram, 'Account' contains '# balance: double' and '+ deposit(amount: double): void'. Implement protected field in Java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Account' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'deposit(...)'.\n5. Instantiate in 'main' and print result: 'Account acc = new Account(500000.0);         acc.deposit(150000.0);         System.out.println(\"Yangi balans: \" + acc.getBalance());'",
+      "ru": "📖 Контекст и описание задачи\nНа UML-диаграмме Payme «Счет» содержит «# баланс: двойной» и «+ депозит (сумма: двойной): недействительный». Реализуйте защищенное поле в Java.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Учетная запись» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «депозит (...)».\n5. Создайте экземпляр в «main» и распечатайте результат: «Account acc = new Account(500000.0);         акк.депозит(150000.0);         System.out.println(\"Янги балансы: \" + acc.getBalance());'"
     },
     "requirements": {
       "classes": [
@@ -95,7 +112,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>deposit</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Account</code>: UML qutisidagi sinf nomi.",
+        "<code>deposit</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Yangi balans: 650000.0"
@@ -103,7 +126,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yangi balans: 650000.0",
     "story": {
       "uz": "Payme to'lov tizimida 'Account' klassi UML diagrammasida '# balance: double' (himoyalangan) va '+ deposit(amount: double): void' ko'rinishida belgilangan. '#' belgisi Java da 'protected' kalit so'ziga to'g'ri kelishini ifodalang.",
-      "en": "In Payme UML diagram, 'Account' contains '# balance: double' and '+ deposit(amount: double): void'. Implement protected field in Java."
+      "en": "In Payme UML diagram, 'Account' contains '# balance: double' and '+ deposit(amount: double): void'. Implement protected field in Java.",
+      "ru": "На UML-диаграмме Payme «Счет» содержит «# баланс: двойной» и «+ депозит (сумма: двойной): недействительный». Реализуйте защищенное поле в Java."
     },
     "steps": {
       "uz": [
@@ -119,6 +143,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'deposit(...)'.",
         "Instantiate in 'main' and print result: 'Account acc = new Account(500000.0);         acc.deposit(150000.0);         System.out.println(\"Yangi balans: \" + acc.getBalance());'"
+      ],
+      "ru": [
+        "Объявите класс «Учетная запись» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «депозит (...)».",
+        "Создайте экземпляр в «main» и распечатайте результат: «Account acc = new Account(500000.0);         акк.депозит(150000.0);         System.out.println(\"Янги балансы: \" + acc.getBalance());'"
       ]
     }
   },
@@ -129,11 +160,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "3. Korzinka — Paket Ichida Ochiq Maydon (~ package-private)",
-      "en": "3. Korzinka — Package-Private (~) Visibility in UML"
+      "en": "3. Korzinka — Package-Private (~) Visibility in UML",
+      "ru": "3. Корзинка — видимость приватного пакета (~) в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka kassa modulida 'Cashier' klassi UML da '~ cashierShift: String' ko'rinishida berilgan. UML dagi '~' belgisi Java da modifikatorsiz (package-private) e'lon qilinishini dasturda ko'rsating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Cashier' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... getShiftInfo(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'",
-      "en": "📖 Real-World Scenario & Context\nKorzinka Cashier specification has '~ cashierShift: String'. The '~' sign translates to package-private in Java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Cashier' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getShiftInfo(...)'.\n5. Instantiate in 'main' and print result: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'"
+      "en": "📖 Real-World Scenario & Context\nKorzinka Cashier specification has '~ cashierShift: String'. The '~' sign translates to package-private in Java.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Cashier' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getShiftInfo(...)'.\n5. Instantiate in 'main' and print result: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'",
+      "ru": "📖 Контекст и описание задачи\nВ спецификации Korzinka Cashier указано ~ CashierShift: String. Знак «~» в Java переводится как «частный пакет».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Кассир» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции getShiftInfo(...)'.\n5. Создайте экземпляр в 'main' и распечатайте результат: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'"
     },
     "requirements": {
       "classes": [
@@ -155,7 +188,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getShiftInfo</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Cashier</code>: UML qutisidagi sinf nomi.",
+        "<code>getShiftInfo</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Kassir: Nodir | Smena: KUNDUZGI"
@@ -163,7 +202,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kassir: Nodir | Smena: KUNDUZGI",
     "story": {
       "uz": "Korzinka kassa modulida 'Cashier' klassi UML da '~ cashierShift: String' ko'rinishida berilgan. UML dagi '~' belgisi Java da modifikatorsiz (package-private) e'lon qilinishini dasturda ko'rsating.",
-      "en": "Korzinka Cashier specification has '~ cashierShift: String'. The '~' sign translates to package-private in Java."
+      "en": "Korzinka Cashier specification has '~ cashierShift: String'. The '~' sign translates to package-private in Java.",
+      "ru": "В спецификации Korzinka Cashier указано ~ CashierShift: String. Знак «~» в Java переводится как «частный пакет»."
     },
     "steps": {
       "uz": [
@@ -179,6 +219,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'getShiftInfo(...)'.",
         "Instantiate in 'main' and print result: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'"
+      ],
+      "ru": [
+        "Объявите класс «Кассир» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции getShiftInfo(...)'.",
+        "Создайте экземпляр в 'main' и распечатайте результат: 'Cashier c = new Cashier(\"Nodir\", \"KUNDUZGI\");         System.out.println(c.getShiftInfo());'"
       ]
     }
   },
@@ -189,11 +236,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "4. Yandex Go — UML Klass Konstruktori Spetsifikatsiyasi",
-      "en": "4. Yandex Go — Constructor Representation in UML Class Box"
+      "en": "4. Yandex Go — Constructor Representation in UML Class Box",
+      "ru": "4. Yandex Go — представление конструктора в поле классов UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go haydovchisi uchun UML diagrammasida '+ Driver(name: String, rating: double)' konstruktori va '+ isTopRated(): boolean' metodi ko'rsatilgan. 4.8 va undan yuqori reytingli haydovchini aniqlovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Driver' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... isTopRated(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Driver driver = new Driver(\"Sobir\", 4.9);         System.out.println(\"Haydovchi: \" + driver.getName() + \" | Top haydovchimi: \" + driver.isTopRated());'",
-      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML diagram, '+ Driver(name: String, rating: double)' constructor is specified. Check if rating >= 4.8.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Driver' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isTopRated(...)'.\n5. Instantiate in 'main' and print result: 'Driver driver = new Driver(\"Sobir\", 4.9);         System.out.println(\"Haydovchi: \" + driver.getName() + \" | Top haydovchimi: \" + driver.isTopRated());'"
+      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML diagram, '+ Driver(name: String, rating: double)' constructor is specified. Check if rating >= 4.8.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Driver' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isTopRated(...)'.\n5. Instantiate in 'main' and print result: 'Driver driver = new Driver(\"Sobir\", 4.9);         System.out.println(\"Haydovchi: \" + driver.getName() + \" | Top haydovchimi: \" + driver.isTopRated());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML-диаграмме Yandex Go указан конструктор «+ Driver(name: String, рейтинг: double)». Проверьте, если рейтинг >= 4,8.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Драйвер» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «isTopRated(...)».\n5. Создайте экземпляр в «main» и распечатайте результат: «Driver driver = new Driver(\"Собир\", 4.9);         System.out.println(\"Хайдовчи: \" + driver.getName() + \" | Топ хайдовчими: \" + driver.isTopRated());'"
     },
     "requirements": {
       "classes": [
@@ -215,7 +264,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isTopRated</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Driver</code>: UML qutisidagi sinf nomi.",
+        "<code>isTopRated</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Haydovchi: Sobir | Top haydovchimi: true"
@@ -223,7 +278,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Haydovchi: Sobir | Top haydovchimi: true",
     "story": {
       "uz": "Yandex Go haydovchisi uchun UML diagrammasida '+ Driver(name: String, rating: double)' konstruktori va '+ isTopRated(): boolean' metodi ko'rsatilgan. 4.8 va undan yuqori reytingli haydovchini aniqlovchi klass tuzing.",
-      "en": "In Yandex Go UML diagram, '+ Driver(name: String, rating: double)' constructor is specified. Check if rating >= 4.8."
+      "en": "In Yandex Go UML diagram, '+ Driver(name: String, rating: double)' constructor is specified. Check if rating >= 4.8.",
+      "ru": "В UML-диаграмме Yandex Go указан конструктор «+ Driver(name: String, рейтинг: double)». Проверьте, если рейтинг >= 4,8."
     },
     "steps": {
       "uz": [
@@ -239,6 +295,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'isTopRated(...)'.",
         "Instantiate in 'main' and print result: 'Driver driver = new Driver(\"Sobir\", 4.9);         System.out.println(\"Haydovchi: \" + driver.getName() + \" | Top haydovchimi: \" + driver.isTopRated());'"
+      ],
+      "ru": [
+        "Объявите класс «Драйвер» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «isTopRated(...)».",
+        "Создайте экземпляр в «main» и распечатайте результат: «Driver driver = new Driver(\"Собир\", 4.9);         System.out.println(\"Хайдовчи: \" + driver.getName() + \" | Топ хайдовчими: \" + driver.isTopRated());'"
       ]
     }
   },
@@ -249,11 +312,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "5. Express24 — Boshlang'ich Qiymatli Maydon (name : type = default)",
-      "en": "5. Express24 — Field with Default Value in UML Syntax"
+      "en": "5. Express24 — Field with Default Value in UML Syntax",
+      "ru": "5. Express24 — поле со значением по умолчанию в синтаксисе UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 buyurtmasi UML da '- status: String = \"PENDING\"' va '- isExpress: boolean = false' deb belgilangan. Konstruktorda ushbu boshlang'ich qiymatlarni o'rnatuvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'ExpressOrder' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... getStatus(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'ExpressOrder order = new ExpressOrder(\"ORD-11\");         System.out.println(\"Buyurtma: \" + order.getOrderId() + \" | Status: \" + order.getStatus());'",
-      "en": "📖 Real-World Scenario & Context\nExpress24 Order is specified in UML with default attribute values '- status: String = \"PENDING\"'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ExpressOrder' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getStatus(...)'.\n5. Instantiate in 'main' and print result: 'ExpressOrder order = new ExpressOrder(\"ORD-11\");         System.out.println(\"Buyurtma: \" + order.getOrderId() + \" | Status: \" + order.getStatus());'"
+      "en": "📖 Real-World Scenario & Context\nExpress24 Order is specified in UML with default attribute values '- status: String = \"PENDING\"'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'ExpressOrder' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getStatus(...)'.\n5. Instantiate in 'main' and print result: 'ExpressOrder order = new ExpressOrder(\"ORD-11\");         System.out.println(\"Buyurtma: \" + order.getOrderId() + \" | Status: \" + order.getStatus());'",
+      "ru": "📖 Контекст и описание задачи\nЗаказ Express24 указан в UML со значениями атрибутов по умолчанию '- status: String = \"PENDING\"'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс ExpressOrder в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции getStatus(...)'.\n5. Создайте экземпляр в «main» и распечатайте результат: «ExpressOrder order = new ExpressOrder («ORD-11»);         System.out.println(\"Купить: \" + order.getOrderId() + \" | Статус: \" + order.getStatus());'"
     },
     "requirements": {
       "classes": [
@@ -275,7 +340,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getStatus</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>ExpressOrder</code>: UML qutisidagi sinf nomi.",
+        "<code>getStatus</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Buyurtma: ORD-11 | Status: PENDING"
@@ -283,7 +354,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma: ORD-11 | Status: PENDING",
     "story": {
       "uz": "Express24 buyurtmasi UML da '- status: String = \"PENDING\"' va '- isExpress: boolean = false' deb belgilangan. Konstruktorda ushbu boshlang'ich qiymatlarni o'rnatuvchi sinf tuzing.",
-      "en": "Express24 Order is specified in UML with default attribute values '- status: String = \"PENDING\"'."
+      "en": "Express24 Order is specified in UML with default attribute values '- status: String = \"PENDING\"'.",
+      "ru": "Заказ Express24 указан в UML со значениями атрибутов по умолчанию '- status: String = \"PENDING\"'."
     },
     "steps": {
       "uz": [
@@ -299,6 +371,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'getStatus(...)'.",
         "Instantiate in 'main' and print result: 'ExpressOrder order = new ExpressOrder(\"ORD-11\");         System.out.println(\"Buyurtma: \" + order.getOrderId() + \" | Status: \" + order.getStatus());'"
+      ],
+      "ru": [
+        "Объявите класс ExpressOrder в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции getStatus(...)'.",
+        "Создайте экземпляр в «main» и распечатайте результат: «ExpressOrder order = new ExpressOrder («ORD-11»);         System.out.println(\"Купить: \" + order.getOrderId() + \" | Статус: \" + order.getStatus());'"
       ]
     }
   },
@@ -309,11 +388,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "6. Medion — Bir Nechta Parametrli UML Metodi",
-      "en": "6. Medion — Multi-parameter UML Method Signature"
+      "en": "6. Medion — Multi-parameter UML Method Signature",
+      "ru": "6. Medion — сигнатура многопараметрического метода UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion narx kalkulyatori UML da '+ calculateFinal(basePrice: double, discount: double, tax: double): double' ko'rinishida berilgan. Ushbu metod parametrlarini to'g'ri qabul qilib yakuniy narxni qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'PriceCalculator' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... calculateFinal(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'PriceCalculator calc = new PriceCalculator();         double finalPrice = calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Yakuniy narx: \" + finalPrice);'",
-      "en": "📖 Real-World Scenario & Context\nMedion PriceCalculator specifies '+ calculateFinal(basePrice: double, discount: double, tax: double): double' in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCalculator' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'calculateFinal(...)'.\n5. Instantiate in 'main' and print result: 'PriceCalculator calc = new PriceCalculator();         double finalPrice = calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Yakuniy narx: \" + finalPrice);'"
+      "en": "📖 Real-World Scenario & Context\nMedion PriceCalculator specifies '+ calculateFinal(basePrice: double, discount: double, tax: double): double' in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceCalculator' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'calculateFinal(...)'.\n5. Instantiate in 'main' and print result: 'PriceCalculator calc = new PriceCalculator();         double finalPrice = calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Yakuniy narx: \" + finalPrice);'",
+      "ru": "📖 Контекст и описание задачи\nMedion PriceCalculator указывает «+ CalculFinal(basePrice: double, Discount: Double, Tax: Double): Double» в UML.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PriceCalculator в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «calculateFinal(...)».\n5. Создайте экземпляр в «main» и распечатайте результат: «PriceCalculator Calc = new PriceCalculator();         Double FinalPrice = Calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Якуний наркс: \" + FinalPrice);'"
     },
     "requirements": {
       "classes": [
@@ -335,7 +416,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>calculateFinal</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>PriceCalculator</code>: UML qutisidagi sinf nomi.",
+        "<code>calculateFinal</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Yakuniy narx: 1008000.0"
@@ -343,7 +430,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yakuniy narx: 1008000.0",
     "story": {
       "uz": "Medion narx kalkulyatori UML da '+ calculateFinal(basePrice: double, discount: double, tax: double): double' ko'rinishida berilgan. Ushbu metod parametrlarini to'g'ri qabul qilib yakuniy narxni qaytaring.",
-      "en": "Medion PriceCalculator specifies '+ calculateFinal(basePrice: double, discount: double, tax: double): double' in UML."
+      "en": "Medion PriceCalculator specifies '+ calculateFinal(basePrice: double, discount: double, tax: double): double' in UML.",
+      "ru": "Medion PriceCalculator указывает «+ CalculFinal(basePrice: double, Discount: Double, Tax: Double): Double» в UML."
     },
     "steps": {
       "uz": [
@@ -359,6 +447,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'calculateFinal(...)'.",
         "Instantiate in 'main' and print result: 'PriceCalculator calc = new PriceCalculator();         double finalPrice = calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Yakuniy narx: \" + finalPrice);'"
+      ],
+      "ru": [
+        "Объявите класс PriceCalculator в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «calculateFinal(...)».",
+        "Создайте экземпляр в «main» и распечатайте результат: «PriceCalculator Calc = new PriceCalculator();         Double FinalPrice = Calc.calculateFinal(1000000.0, 10.0, 12.0);         System.out.println(\"Якуний наркс: \" + FinalPrice);'"
       ]
     }
   },
@@ -369,11 +464,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "7. Click — Void Qaytuvchi UML Metodi (+ processPayment() : void)",
-      "en": "7. Click — Void Return Operation in UML Specification"
+      "en": "7. Click — Void Return Operation in UML Specification",
+      "ru": "7. Нажмите — операция возврата Void в спецификации UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick tranzaksiyasi UML diagrammasida '+ executePayment(amount: double): void' ko'rinishida berilgan. UML da void qaytuvchi metodlar operatsiyani bajarib qiymat qaytarmaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'PaymentTransaction' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... executePayment(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'PaymentTransaction txn = new PaymentTransaction(\"TXN-99\", 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'",
-      "en": "📖 Real-World Scenario & Context\nIn Click UML diagram, '+ executePayment(amount: double): void' has no return value. Update internal balance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PaymentTransaction' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'executePayment(...)'.\n5. Instantiate in 'main' and print result: 'PaymentTransaction txn = new PaymentTransaction(\"TXN-99\", 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'"
+      "en": "📖 Real-World Scenario & Context\nIn Click UML diagram, '+ executePayment(amount: double): void' has no return value. Update internal balance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PaymentTransaction' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'executePayment(...)'.\n5. Instantiate in 'main' and print result: 'PaymentTransaction txn = new PaymentTransaction(\"TXN-99\", 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'",
+      "ru": "📖 Контекст и описание задачи\nНа диаграмме Click UML «+executePayment(amount: double): void» не имеет возвращаемого значения. Обновить внутренний баланс.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «PaymentTransaction» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «executePayment(...)».\n5. Создайте экземпляр в «main» и распечатайте результат: «PaymentTransaction txn = new PaymentTransaction(»TXN-99», 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'"
     },
     "requirements": {
       "classes": [
@@ -395,7 +492,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>executePayment</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>PaymentTransaction</code>: UML qutisidagi sinf nomi.",
+        "<code>executePayment</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Qoldiq: 250000.0"
@@ -403,7 +506,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Qoldiq: 250000.0",
     "story": {
       "uz": "Click tranzaksiyasi UML diagrammasida '+ executePayment(amount: double): void' ko'rinishida berilgan. UML da void qaytuvchi metodlar operatsiyani bajarib qiymat qaytarmaydi.",
-      "en": "In Click UML diagram, '+ executePayment(amount: double): void' has no return value. Update internal balance."
+      "en": "In Click UML diagram, '+ executePayment(amount: double): void' has no return value. Update internal balance.",
+      "ru": "На диаграмме Click UML «+executePayment(amount: double): void» не имеет возвращаемого значения. Обновить внутренний баланс."
     },
     "steps": {
       "uz": [
@@ -419,6 +523,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'executePayment(...)'.",
         "Instantiate in 'main' and print result: 'PaymentTransaction txn = new PaymentTransaction(\"TXN-99\", 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'"
+      ],
+      "ru": [
+        "Объявите класс «PaymentTransaction» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «executePayment(...)».",
+        "Создайте экземпляр в «main» и распечатайте результат: «PaymentTransaction txn = new PaymentTransaction(»TXN-99», 300000.0);         txn.executePayment(50000.0);         System.out.println(\"Qoldiq: \" + txn.getBalance());'"
       ]
     }
   },
@@ -429,11 +540,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "8. Asaxiy — UML Belgilaridan Java Kodini Tiklash",
-      "en": "8. Asaxiy — Restoring Java Class from UML Notation"
+      "en": "8. Asaxiy — Restoring Java Class from UML Notation",
+      "ru": "8. Asaxyy — восстановление класса Java из нотации UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy kitoblar bazasi UML da: 'Book' sinfi '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'. Ushbu diagrammani Java sinfiga o'giring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Book' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... isAffordable(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'",
-      "en": "📖 Real-World Scenario & Context\nTranslate Asaxiy 'Book' UML specification with '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Book' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isAffordable(...)'.\n5. Instantiate in 'main' and print result: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'"
+      "en": "📖 Real-World Scenario & Context\nTranslate Asaxiy 'Book' UML specification with '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Book' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isAffordable(...)'.\n5. Instantiate in 'main' and print result: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'",
+      "ru": "📖 Контекст и описание задачи\nПереведите UML-спецификацию Asaxy 'Book' с '- title: String', '- цена: double', '+ isAffordable(maxPrice: double): boolean'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Книга» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «isAffordable(...)».\n5. Создайте экземпляр в 'main' и распечатайте результат: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'"
     },
     "requirements": {
       "classes": [
@@ -455,7 +568,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isAffordable</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Book</code>: UML qutisidagi sinf nomi.",
+        "<code>isAffordable</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Hamyonbopmi: true"
@@ -463,7 +582,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Hamyonbopmi: true",
     "story": {
       "uz": "Asaxiy kitoblar bazasi UML da: 'Book' sinfi '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'. Ushbu diagrammani Java sinfiga o'giring.",
-      "en": "Translate Asaxiy 'Book' UML specification with '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'."
+      "en": "Translate Asaxiy 'Book' UML specification with '- title: String', '- price: double', '+ isAffordable(maxPrice: double): boolean'.",
+      "ru": "Переведите UML-спецификацию Asaxy 'Book' с '- title: String', '- цена: double', '+ isAffordable(maxPrice: double): boolean'."
     },
     "steps": {
       "uz": [
@@ -479,6 +599,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'isAffordable(...)'.",
         "Instantiate in 'main' and print result: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'"
+      ],
+      "ru": [
+        "Объявите класс «Книга» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «isAffordable(...)».",
+        "Создайте экземпляр в 'main' и распечатайте результат: 'Book book = new Book(\"O'tkan Kunlar\", 45000.0);         System.out.println(\"Hamyonbopmi: \" + book.isAffordable(50000.0));'"
       ]
     }
   },
@@ -489,11 +616,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "9. Safia — Himoyalangan Yordamchi Metod (# helper() in UML)",
-      "en": "9. Safia — Protected Helper Method in UML Class Diagram"
+      "en": "9. Safia — Protected Helper Method in UML Class Diagram",
+      "ru": "9. Safia — защищенный вспомогательный метод в диаграмме классов UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia qandolat tizimida 'Cake' klassi UML da '# calculateBakingTime(layers: int): int' (har bir qavat uchun 15 daqiqa) deb berilgan. Ushbu yordamchi metodni 'protected' qilib e'lon qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Cake' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... calculateBakingTime(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Cake cake = new Cake(\"Napoleon\");         System.out.println(\"Pishirish vaqti: \" + cake.calculateBakingTime(3) + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nIn Safia Cake class, UML specifies '# calculateBakingTime(layers: int): int' as a protected helper.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Cake' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'calculateBakingTime(...)'.\n5. Instantiate in 'main' and print result: 'Cake cake = new Cake(\"Napoleon\");         System.out.println(\"Pishirish vaqti: \" + cake.calculateBakingTime(3) + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nIn Safia Cake class, UML specifies '# calculateBakingTime(layers: int): int' as a protected helper.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Cake' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'calculateBakingTime(...)'.\n5. Instantiate in 'main' and print result: 'Cake cake = new Cake(\"Napoleon\");         System.out.println(\"Pishirish vaqti: \" + cake.calculateBakingTime(3) + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nВ классе Safia Cake UML указывает «# CalculBakingTime(layers: int): int» в качестве защищенного помощника.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Cake» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «calculateBakingTime(...)».\n5. Создайте экземпляр в 'main' и напечатайте результат: 'Cake cake = new Cake(\"Наполеон\");         System.out.println(\"Пишириш вакти: \" + cake.calculateBakingTime(3) + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -515,7 +644,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>calculateBakingTime</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Cake</code>: UML qutisidagi sinf nomi.",
+        "<code>calculateBakingTime</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Pishirish vaqti: 45 daqiqa"
@@ -523,7 +658,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Pishirish vaqti: 45 daqiqa",
     "story": {
       "uz": "Safia qandolat tizimida 'Cake' klassi UML da '# calculateBakingTime(layers: int): int' (har bir qavat uchun 15 daqiqa) deb berilgan. Ushbu yordamchi metodni 'protected' qilib e'lon qiling.",
-      "en": "In Safia Cake class, UML specifies '# calculateBakingTime(layers: int): int' as a protected helper."
+      "en": "In Safia Cake class, UML specifies '# calculateBakingTime(layers: int): int' as a protected helper.",
+      "ru": "В классе Safia Cake UML указывает «# CalculBakingTime(layers: int): int» в качестве защищенного помощника."
     },
     "steps": {
       "uz": [
@@ -539,6 +675,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'calculateBakingTime(...)'.",
         "Instantiate in 'main' and print result: 'Cake cake = new Cake(\"Napoleon\");         System.out.println(\"Pishirish vaqti: \" + cake.calculateBakingTime(3) + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите класс «Cake» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «calculateBakingTime(...)».",
+        "Создайте экземпляр в 'main' и напечатайте результат: 'Cake cake = new Cake(\"Наполеон\");         System.out.println(\"Пишириш вакти: \" + cake.calculateBakingTime(3) + \" daqiqa\");'"
       ]
     }
   },
@@ -549,11 +692,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "10. Dodo Pizza — Boolean Maydon va IsGetter UML Modeli",
-      "en": "10. Dodo Pizza — Boolean Field and isSpicy Getter in UML"
+      "en": "10. Dodo Pizza — Boolean Field and isSpicy Getter in UML",
+      "ru": "10. Додо Пицца — логическое поле и isSpicy Getter в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza retseptida '- isSpicy: boolean' va '+ isSpicy(): boolean' UML spetsifikatsiyasi berilgan. Pitsaning achchiqlik holatini qaytaruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'PizzaItem' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... isSpicy(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'PizzaItem pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Pitsa: \" + pizza.getName() + \" | Achchiqmi: \" + pizza.isSpicy());'",
-      "en": "📖 Real-World Scenario & Context\nAt Dodo Pizza, UML models '- isSpicy: boolean' with getter '+ isSpicy(): boolean'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaItem' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isSpicy(...)'.\n5. Instantiate in 'main' and print result: 'PizzaItem pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Pitsa: \" + pizza.getName() + \" | Achchiqmi: \" + pizza.isSpicy());'"
+      "en": "📖 Real-World Scenario & Context\nAt Dodo Pizza, UML models '- isSpicy: boolean' with getter '+ isSpicy(): boolean'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaItem' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isSpicy(...)'.\n5. Instantiate in 'main' and print result: 'PizzaItem pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Pitsa: \" + pizza.getName() + \" | Achchiqmi: \" + pizza.isSpicy());'",
+      "ru": "📖 Контекст и описание задачи\nВ Dodo Pizza модели UML '- isSpicy: boolean' с геттером '+ isSpicy(): boolean'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PizzaItem в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализовать метод операции «isSpicy(...)».\n5. Создайте экземпляр в 'main' и распечатайте результат: 'PizzaItem Pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Пица: \" + Pizza.getName() + \" | Achchiqmi: \" + Pizza.isSpicy());'"
     },
     "requirements": {
       "classes": [
@@ -575,7 +720,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isSpicy</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>PizzaItem</code>: UML qutisidagi sinf nomi.",
+        "<code>isSpicy</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Pitsa: Diablo | Achchiqmi: true"
@@ -583,7 +734,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Pitsa: Diablo | Achchiqmi: true",
     "story": {
       "uz": "Dodo Pizza retseptida '- isSpicy: boolean' va '+ isSpicy(): boolean' UML spetsifikatsiyasi berilgan. Pitsaning achchiqlik holatini qaytaruvchi sinf tuzing.",
-      "en": "At Dodo Pizza, UML models '- isSpicy: boolean' with getter '+ isSpicy(): boolean'."
+      "en": "At Dodo Pizza, UML models '- isSpicy: boolean' with getter '+ isSpicy(): boolean'.",
+      "ru": "В Dodo Pizza модели UML '- isSpicy: boolean' с геттером '+ isSpicy(): boolean'."
     },
     "steps": {
       "uz": [
@@ -599,6 +751,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'isSpicy(...)'.",
         "Instantiate in 'main' and print result: 'PizzaItem pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Pitsa: \" + pizza.getName() + \" | Achchiqmi: \" + pizza.isSpicy());'"
+      ],
+      "ru": [
+        "Объявите класс PizzaItem в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализовать метод операции «isSpicy(...)».",
+        "Создайте экземпляр в 'main' и распечатайте результат: 'PizzaItem Pizza = new PizzaItem(\"Diablo\", true);         System.out.println(\"Пица: \" + Pizza.getName() + \" | Achchiqmi: \" + Pizza.isSpicy());'"
       ]
     }
   },
@@ -609,11 +768,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "11. Texnomart — To'liq UML Ko'rinish Modifikatorlari To'plami",
-      "en": "11. Texnomart — Comprehensive UML Visibility Showcase"
+      "en": "11. Texnomart — Comprehensive UML Visibility Showcase",
+      "ru": "11. Texnomart — комплексная демонстрация видимости UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart qurilmasi UML da: '+ model: String', '- serialNumber: String', '# warrantyMonths: int'. Barcha 3 xil modifikatorni to'g'ri ifodalovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Device' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... getDeviceInfo(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'",
-      "en": "📖 Real-World Scenario & Context\nTexnomart appliance specifies public model, private serial, and protected warranty.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Device' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getDeviceInfo(...)'.\n5. Instantiate in 'main' and print result: 'Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'"
+      "en": "📖 Real-World Scenario & Context\nTexnomart appliance specifies public model, private serial, and protected warranty.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Device' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'getDeviceInfo(...)'.\n5. Instantiate in 'main' and print result: 'Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'",
+      "ru": "📖 Контекст и описание задачи\nДля устройства Texnomart указана общедоступная модель, частный серийный номер и защищенная гарантия.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Устройство» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции getDeviceInfo(...)'.\n5. Создайте экземпляр в «main» и распечатайте результат: «Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'"
     },
     "requirements": {
       "classes": [
@@ -635,7 +796,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getDeviceInfo</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Device</code>: UML qutisidagi sinf nomi.",
+        "<code>getDeviceInfo</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Model: Samsung TV | SN: SN-1234 | Kafolat: 24 oy"
@@ -643,7 +810,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Model: Samsung TV | SN: SN-1234 | Kafolat: 24 oy",
     "story": {
       "uz": "Texnomart qurilmasi UML da: '+ model: String', '- serialNumber: String', '# warrantyMonths: int'. Barcha 3 xil modifikatorni to'g'ri ifodalovchi klass tuzing.",
-      "en": "Texnomart appliance specifies public model, private serial, and protected warranty."
+      "en": "Texnomart appliance specifies public model, private serial, and protected warranty.",
+      "ru": "Для устройства Texnomart указана общедоступная модель, частный серийный номер и защищенная гарантия."
     },
     "steps": {
       "uz": [
@@ -659,6 +827,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'getDeviceInfo(...)'.",
         "Instantiate in 'main' and print result: 'Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'"
+      ],
+      "ru": [
+        "Объявите класс «Устройство» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции getDeviceInfo(...)'.",
+        "Создайте экземпляр в «main» и распечатайте результат: «Device dev = new Device(\"Samsung TV\", \"SN-1234\", 24);         System.out.println(dev.getDeviceInfo());'"
       ]
     }
   },
@@ -669,11 +844,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "12. UzAirways — Reys Statusi va Tekshiruv Metodi",
-      "en": "12. UzAirways — Flight Status and Validation in UML"
+      "en": "12. UzAirways — Flight Status and Validation in UML",
+      "ru": "12. UzAirways — Статус рейса и валидация в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways reysi UML da: '- flightCode: String', '- seatsAvailable: int', '+ hasSeats(): boolean'. Joylar soni 0 dan katta ekanini tekshiruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Flight' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... hasSeats(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Flight flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + flight.getFlightCode() + \" | Joy bormi: \" + flight.hasSeats());'",
-      "en": "📖 Real-World Scenario & Context\nUzbekistan Airways flight specifies '- seatsAvailable: int' and '+ hasSeats(): boolean' in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Flight' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'hasSeats(...)'.\n5. Instantiate in 'main' and print result: 'Flight flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + flight.getFlightCode() + \" | Joy bormi: \" + flight.hasSeats());'"
+      "en": "📖 Real-World Scenario & Context\nUzbekistan Airways flight specifies '- seatsAvailable: int' and '+ hasSeats(): boolean' in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Flight' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'hasSeats(...)'.\n5. Instantiate in 'main' and print result: 'Flight flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + flight.getFlightCode() + \" | Joy bormi: \" + flight.hasSeats());'",
+      "ru": "📖 Контекст и описание задачи\nНа рейсе «Uzbekistan Airways» в UML указано «- SeatsAvailable: int» и «+ hasSeats(): boolean».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Полет» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции hasSeats(...)'.\n5. Создайте экземпляр в «main» и распечатайте результат: «Flight Flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + Flight.getFlightCode() + \" | Радость Борми: \" + Flight.hasSeats());'"
     },
     "requirements": {
       "classes": [
@@ -695,7 +872,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>hasSeats</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Flight</code>: UML qutisidagi sinf nomi.",
+        "<code>hasSeats</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Reys: HY-101 | Joy bormi: true"
@@ -703,7 +886,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Reys: HY-101 | Joy bormi: true",
     "story": {
       "uz": "Uzbekistan Airways reysi UML da: '- flightCode: String', '- seatsAvailable: int', '+ hasSeats(): boolean'. Joylar soni 0 dan katta ekanini tekshiruvchi klass tuzing.",
-      "en": "Uzbekistan Airways flight specifies '- seatsAvailable: int' and '+ hasSeats(): boolean' in UML."
+      "en": "Uzbekistan Airways flight specifies '- seatsAvailable: int' and '+ hasSeats(): boolean' in UML.",
+      "ru": "На рейсе «Uzbekistan Airways» в UML указано «- SeatsAvailable: int» и «+ hasSeats(): boolean»."
     },
     "steps": {
       "uz": [
@@ -719,6 +903,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'hasSeats(...)'.",
         "Instantiate in 'main' and print result: 'Flight flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + flight.getFlightCode() + \" | Joy bormi: \" + flight.hasSeats());'"
+      ],
+      "ru": [
+        "Объявите класс «Полет» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции hasSeats(...)'.",
+        "Создайте экземпляр в «main» и распечатайте результат: «Flight Flight = new Flight(\"HY-101\", 12);         System.out.println(\"Reys: \" + Flight.getFlightCode() + \" | Радость Борми: \" + Flight.hasSeats());'"
       ]
     }
   },
@@ -729,11 +920,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "13. Kapitalbank — Balansni To'ldirish va Yechish UML Modeli",
-      "en": "13. Kapitalbank — Deposit and Withdraw Operations in UML"
+      "en": "13. Kapitalbank — Deposit and Withdraw Operations in UML",
+      "ru": "13. Капиталбанк — Операции по вводу и выводу средств в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank hisobida UML da '+ withdraw(amount: double): boolean' metodi belgilangan bo'lib, mablag' yetarli bo'lsa balansdan ayiradi va true qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'BankAccount' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... withdraw(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'BankAccount ba = new BankAccount(500000.0);         boolean ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'",
-      "en": "📖 Real-World Scenario & Context\nKapitalbank account specifies '+ withdraw(amount: double): boolean' checking sufficient balance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BankAccount' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'withdraw(...)'.\n5. Instantiate in 'main' and print result: 'BankAccount ba = new BankAccount(500000.0);         boolean ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'"
+      "en": "📖 Real-World Scenario & Context\nKapitalbank account specifies '+ withdraw(amount: double): boolean' checking sufficient balance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'BankAccount' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'withdraw(...)'.\n5. Instantiate in 'main' and print result: 'BankAccount ba = new BankAccount(500000.0);         boolean ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'",
+      "ru": "📖 Контекст и описание задачи\nНа счете Капиталбанка указывается «+ вывод (сумма: двойной): логическое значение», проверяющее достаточный баланс.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс BankAccount в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «снять(...)».\n5. Создайте экземпляр в «main» и распечатайте результат: «BankAccount ba = new BankAccount(500000.0);         логическое значение ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'"
     },
     "requirements": {
       "classes": [
@@ -755,7 +948,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>withdraw</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>BankAccount</code>: UML qutisidagi sinf nomi.",
+        "<code>withdraw</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Yechildimi: true | Qoldiq: 300000.0"
@@ -763,7 +962,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yechildimi: true | Qoldiq: 300000.0",
     "story": {
       "uz": "Kapitalbank hisobida UML da '+ withdraw(amount: double): boolean' metodi belgilangan bo'lib, mablag' yetarli bo'lsa balansdan ayiradi va true qaytaradi.",
-      "en": "Kapitalbank account specifies '+ withdraw(amount: double): boolean' checking sufficient balance."
+      "en": "Kapitalbank account specifies '+ withdraw(amount: double): boolean' checking sufficient balance.",
+      "ru": "На счете Капиталбанка указывается «+ вывод (сумма: двойной): логическое значение», проверяющее достаточный баланс."
     },
     "steps": {
       "uz": [
@@ -779,6 +979,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'withdraw(...)'.",
         "Instantiate in 'main' and print result: 'BankAccount ba = new BankAccount(500000.0);         boolean ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'"
+      ],
+      "ru": [
+        "Объявите класс BankAccount в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «снять(...)».",
+        "Создайте экземпляр в «main» и распечатайте результат: «BankAccount ba = new BankAccount(500000.0);         логическое значение ok = ba.withdraw(200000.0);         System.out.println(\"Yechildimi: \" + ok + \" | Qoldiq: \" + ba.getBalance());'"
       ]
     }
   },
@@ -789,11 +996,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "14. Bellissimo — Narx Chegirmasi Metodi Spetsifikatsiyasi",
-      "en": "14. Bellissimo — Applying Percentage Discount from UML Model"
+      "en": "14. Bellissimo — Applying Percentage Discount from UML Model",
+      "ru": "14. Беллиссимо — применение процентной скидки из модели UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBellissimo menyusi UML da: '+ applyDiscount(percent: double): void' ko'rinishida berilgan bo'lib, pitsa narxini chegirmaga kamaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'PizzaOrder' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... applyDiscount(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Chegirmali narx: \" + po.getPrice());'",
-      "en": "📖 Real-World Scenario & Context\nBellissimo Pizza specifies '+ applyDiscount(percent: double): void' reducing base price.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrder' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'applyDiscount(...)'.\n5. Instantiate in 'main' and print result: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Chegirmali narx: \" + po.getPrice());'"
+      "en": "📖 Real-World Scenario & Context\nBellissimo Pizza specifies '+ applyDiscount(percent: double): void' reducing base price.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaOrder' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'applyDiscount(...)'.\n5. Instantiate in 'main' and print result: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Chegirmali narx: \" + po.getPrice());'",
+      "ru": "📖 Контекст и описание задачи\nBellissimo Pizza указывает «+ applyDiscount(percent: double): void», уменьшая базовую цену.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PizzaOrder в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции applyDiscount(...)'.\n5. Создайте экземпляр в 'main' и распечатайте результат: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Чегирмали наркс: \" + po.getPrice());'"
     },
     "requirements": {
       "classes": [
@@ -815,7 +1024,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>applyDiscount</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>PizzaOrder</code>: UML qutisidagi sinf nomi.",
+        "<code>applyDiscount</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Chegirmali narx: 68000.0"
@@ -823,7 +1038,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Chegirmali narx: 68000.0",
     "story": {
       "uz": "Bellissimo menyusi UML da: '+ applyDiscount(percent: double): void' ko'rinishida berilgan bo'lib, pitsa narxini chegirmaga kamaytiradi.",
-      "en": "Bellissimo Pizza specifies '+ applyDiscount(percent: double): void' reducing base price."
+      "en": "Bellissimo Pizza specifies '+ applyDiscount(percent: double): void' reducing base price.",
+      "ru": "Bellissimo Pizza указывает «+ applyDiscount(percent: double): void», уменьшая базовую цену."
     },
     "steps": {
       "uz": [
@@ -839,6 +1055,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'applyDiscount(...)'.",
         "Instantiate in 'main' and print result: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Chegirmali narx: \" + po.getPrice());'"
+      ],
+      "ru": [
+        "Объявите класс PizzaOrder в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции applyDiscount(...)'.",
+        "Создайте экземпляр в 'main' и распечатайте результат: 'PizzaOrder po = new PizzaOrder(\"Kombinator\", 80000.0);         po.applyDiscount(15.0);         System.out.println(\"Чегирмали наркс: \" + po.getPrice());'"
       ]
     }
   },
@@ -849,11 +1072,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "1-15: UML Klass Qutilari va Ko'rinish (+, -, #, ~)",
     "title": {
       "uz": "15. WIUT — Talaba Bahosi va O'tish Holati UML Modeli",
-      "en": "15. WIUT — Student Mark and Passing Status in UML Class Box"
+      "en": "15. WIUT — Student Mark and Passing Status in UML Class Box",
+      "ru": "15. WIUT — оценка учащегося и статус прохождения в поле классов UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT talabasi UML diagrammasida '- studentId: String', '- courseworkMark: int', '+ isPassed(): boolean' (mark >= 40) deb ifodalangan. Ushbu sinfni yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasiga mos holda 'Student' sinfini e'lon qiling.\n2. UML dagi ko'rinish modifikatorlariga mos maydonlarni (+ public, - private, # protected, ~ package-private) qo'shing.\n3. Parametrlarni qabul qiluvchi konstruktor va getter/setter metodlarini taqdim eting.\n4. UML dagi operatsiyaga mos 'public ... isPassed(...)' metodini yozing.\n5. 'Main' sinfida ob'yekt yaratib natijani chop eting: 'Student s = new Student(\"00012345\", 68);         System.out.println(\"Talaba: \" + s.getStudentId() + \" | O'tdimi: \" + s.isPassed());'",
-      "en": "📖 Real-World Scenario & Context\nWIUT Student UML specification defines '- courseworkMark: int' and '+ isPassed(): boolean' (mark >= 40).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Student' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isPassed(...)'.\n5. Instantiate in 'main' and print result: 'Student s = new Student(\"00012345\", 68);         System.out.println(\"Talaba: \" + s.getStudentId() + \" | O'tdimi: \" + s.isPassed());'"
+      "en": "📖 Real-World Scenario & Context\nWIUT Student UML specification defines '- courseworkMark: int' and '+ isPassed(): boolean' (mark >= 40).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'Student' according to UML class box.\n2. Map UML visibility signs (+ public, - private, # protected, ~ package-private) into Java fields.\n3. Provide constructor and accessor/mutator methods.\n4. Implement operation method 'isPassed(...)'.\n5. Instantiate in 'main' and print result: 'Student s = new Student(\"00012345\", 68);         System.out.println(\"Talaba: \" + s.getStudentId() + \" | O'tdimi: \" + s.isPassed());'",
+      "ru": "📖 Контекст и описание задачи\nСпецификация WIUT Student UML определяет '- CourseworkMark: int' и '+ isPassed(): boolean' (отметка >= 40).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «Студент» в соответствии с полем класса UML.\n2. Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.\n3. Предоставьте методы конструктора и средства доступа/мутатора.\n4. Реализуйте метод операции «isPassed(...)».\n5. Создайте экземпляр в «main» и напечатайте результат: «Student s = new Student(»00012345», 68);         System.out.println(\"Талаба: \" + s.getStudentId() + \" | Отпустить: \" + s.isPassed());'"
     },
     "requirements": {
       "classes": [
@@ -875,7 +1100,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isPassed</code>: UML operatsiyasi."
       ],
       "pitfalls": "UML da 'attribute : type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi ('type attribute;').",
-      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi."
+      "cw2Tip": "CW2 hisobotingizda barcha klasslar uchun UML diagrammasini tuzishingiz va unda ko'rinish belgilarini (+, -, #) to'g'ri ko'rsatishingiz talab etiladi.",
+      "theoryRu": "Блок класса UML состоит из трех отсеков: «Имя», «Атрибуты» и «Операции». Обозначения видимости: «+» общедоступный, «-» частный, «#» защищенный, «~» частный для пакета.",
+      "pitfallsRu": "UML da 'attribute: type' ko'rinishida yoziladi, lekin Java da birinchi tur, keyin nom yoziladi («атрибут типа;»).",
+      "breakdownRu": [
+        "<code>Student</code>: UML qutisidagi sinf nomi.",
+        "<code>isPassed</code>: UML operatsiyasi."
+      ]
     },
     "sampleData": [
       "Talaba: 00012345 | O'tdimi: true"
@@ -883,7 +1114,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Talaba: 00012345 | O'tdimi: true",
     "story": {
       "uz": "WIUT talabasi UML diagrammasida '- studentId: String', '- courseworkMark: int', '+ isPassed(): boolean' (mark >= 40) deb ifodalangan. Ushbu sinfni yarating.",
-      "en": "WIUT Student UML specification defines '- courseworkMark: int' and '+ isPassed(): boolean' (mark >= 40)."
+      "en": "WIUT Student UML specification defines '- courseworkMark: int' and '+ isPassed(): boolean' (mark >= 40).",
+      "ru": "Спецификация WIUT Student UML определяет '- CourseworkMark: int' и '+ isPassed(): boolean' (отметка >= 40)."
     },
     "steps": {
       "uz": [
@@ -899,6 +1131,13 @@ window.OOP_CHALLENGES_W5 = [
         "Provide constructor and accessor/mutator methods.",
         "Implement operation method 'isPassed(...)'.",
         "Instantiate in 'main' and print result: 'Student s = new Student(\"00012345\", 68);         System.out.println(\"Talaba: \" + s.getStudentId() + \" | O'tdimi: \" + s.isPassed());'"
+      ],
+      "ru": [
+        "Объявите класс «Студент» в соответствии с полем класса UML.",
+        "Сопоставьте знаки видимости UML (+ public, - Private, # protected, ~ package-private) с полями Java.",
+        "Предоставьте методы конструктора и средства доступа/мутатора.",
+        "Реализуйте метод операции «isPassed(...)».",
+        "Создайте экземпляр в «main» и напечатайте результат: «Student s = new Student(»00012345», 68);         System.out.println(\"Талаба: \" + s.getStudentId() + \" | Отпустить: \" + s.isPassed());'"
       ]
     }
   },
@@ -909,11 +1148,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "16. Uzum Market — Statik Hisoblagich (UML da Chizilgan/Underlined)",
-      "en": "16. Uzum Market — Static Attribute Underlined in UML Box"
+      "en": "16. Uzum Market — Static Attribute Underlined in UML Box",
+      "ru": "16. Рынок Узум — статический атрибут, подчеркнутый в поле UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market tovarlar sonini sanovchi statik o'zgaruvchi UML da tagiga chizilgan holda ('- <u>productCount: int = 0</u>') berilgan. Har bir yangi ob'yekt yaratilganda statik sanagichni oshiruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'MarketProduct' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'MarketProduct p1 = new MarketProduct(\"Choynak\");         MarketProduct p2 = new MarketProduct(\"Piyola\");         System.out.println(\"Jami yaratilgan mahsulotlar soni: \" + MarketProduct.getProductCount());'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, static members are indicated by underlined text. Track product count with static field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MarketProduct'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'MarketProduct p1 = new MarketProduct(\"Choynak\");         MarketProduct p2 = new MarketProduct(\"Piyola\");         System.out.println(\"Jami yaratilgan mahsulotlar soni: \" + MarketProduct.getProductCount());'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, static members are indicated by underlined text. Track product count with static field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'MarketProduct'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'MarketProduct p1 = new MarketProduct(\"Choynak\");         MarketProduct p2 = new MarketProduct(\"Piyola\");         System.out.println(\"Jami yaratilgan mahsulotlar soni: \" + MarketProduct.getProductCount());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML статические члены обозначаются подчеркнутым текстом. Отслеживайте количество продуктов с помощью статического поля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс MarketProduct.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'MarketProduct p1 = new MarketProduct(\"Чойнак\");         MarketProduct p2 = новый MarketProduct(\"Пийола\");         System.out.println(\"Джами яратилган махсулотлар сони: \" + MarketProduct.getProductCount());'"
     },
     "requirements": {
       "classes": [
@@ -935,7 +1176,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getProductCount</code>: statik metod."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>MarketProduct</code>: statik a'zoga ega sinf.",
+        "<code>getProductCount</code>: statik metod."
+      ]
     },
     "sampleData": [
       "Jami yaratilgan mahsulotlar soni: 2"
@@ -943,7 +1190,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Jami yaratilgan mahsulotlar soni: 2",
     "story": {
       "uz": "Uzum Market tovarlar sonini sanovchi statik o'zgaruvchi UML da tagiga chizilgan holda ('- <u>productCount: int = 0</u>') berilgan. Har bir yangi ob'yekt yaratilganda statik sanagichni oshiruvchi sinf tuzing.",
-      "en": "In UML, static members are indicated by underlined text. Track product count with static field."
+      "en": "In UML, static members are indicated by underlined text. Track product count with static field.",
+      "ru": "В UML статические члены обозначаются подчеркнутым текстом. Отслеживайте количество продуктов с помощью статического поля."
     },
     "steps": {
       "uz": [
@@ -959,6 +1207,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'MarketProduct p1 = new MarketProduct(\"Choynak\");         MarketProduct p2 = new MarketProduct(\"Piyola\");         System.out.println(\"Jami yaratilgan mahsulotlar soni: \" + MarketProduct.getProductCount());'"
+      ],
+      "ru": [
+        "Объявите класс MarketProduct.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'MarketProduct p1 = new MarketProduct(\"Чойнак\");         MarketProduct p2 = новый MarketProduct(\"Пийола\");         System.out.println(\"Джами яратилган махсулотлар сони: \" + MarketProduct.getProductCount());'"
       ]
     }
   },
@@ -969,11 +1224,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "17. Uzum Market — Hisoblanadigan Hosilaviy Maydon (/ lineTotal)",
-      "en": "17. Uzum Market — Derived Attribute (/ lineTotal) in UML"
+      "en": "17. Uzum Market — Derived Attribute (/ lineTotal) in UML",
+      "ru": "17. Uzum Market — производный атрибут (/lineTotal) в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market buyurtma qatori UML da '/ lineTotal: double' (oldida slesh belgisi bor) deb ko'rsatilgan. UML dagi '/' belgisi bu maydon xotirada saqlanmasdan, 'unitPrice * quantity' orqali dinamik hisoblanishini anglatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'OrderItemLine' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Hosilaviy qator summasi (/lineTotal): \" + line.getLineTotal());'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, derived attributes are prefixed with '/' and computed dynamically (not stored directly).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'OrderItemLine'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Hosilaviy qator summasi (/lineTotal): \" + line.getLineTotal());'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, derived attributes are prefixed with '/' and computed dynamically (not stored directly).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'OrderItemLine'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Hosilaviy qator summasi (/lineTotal): \" + line.getLineTotal());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML производные атрибуты имеют префикс «/» и вычисляются динамически (не сохраняются напрямую).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс OrderItemLine.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Постоянная сумма сумм (/lineTotal): \" + line.getLineTotal());'"
     },
     "requirements": {
       "classes": [
@@ -995,7 +1252,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getLineTotal</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>OrderItemLine</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getLineTotal</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Hosilaviy qator summasi (/lineTotal): 255000.0"
@@ -1003,7 +1266,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Hosilaviy qator summasi (/lineTotal): 255000.0",
     "story": {
       "uz": "Uzum Market buyurtma qatori UML da '/ lineTotal: double' (oldida slesh belgisi bor) deb ko'rsatilgan. UML dagi '/' belgisi bu maydon xotirada saqlanmasdan, 'unitPrice * quantity' orqali dinamik hisoblanishini anglatadi.",
-      "en": "In UML, derived attributes are prefixed with '/' and computed dynamically (not stored directly)."
+      "en": "In UML, derived attributes are prefixed with '/' and computed dynamically (not stored directly).",
+      "ru": "В UML производные атрибуты имеют префикс «/» и вычисляются динамически (не сохраняются напрямую)."
     },
     "steps": {
       "uz": [
@@ -1019,6 +1283,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Hosilaviy qator summasi (/lineTotal): \" + line.getLineTotal());'"
+      ],
+      "ru": [
+        "Объявите класс OrderItemLine.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'OrderItemLine line = new OrderItemLine(\"Sichqoncha\", 85000.0, 3);         System.out.println(\"Постоянная сумма сумм (/lineTotal): \" + line.getLineTotal());'"
       ]
     }
   },
@@ -1029,11 +1300,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "18. Payme — Statik Valyuta Kursi Konvertori (<u>convertUsd()</u>)",
-      "en": "18. Payme — Static Conversion Method Underlined in UML"
+      "en": "18. Payme — Static Conversion Method Underlined in UML",
+      "ru": "18. Payme — метод статического преобразования, подчеркнутый в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme da valyuta aylantirish metodi UML da tagiga chizilgan holda '+ <u>convertToUzs(usd: double): double</u>' ko'rinishida berilgan. Statik metod orqali 1 USD = 12800 so'm hisobini amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CurrencyExchange' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 USD so'mda: \" + uzs);'",
-      "en": "📖 Real-World Scenario & Context\nStatic methods belong to the class and are underlined in UML. Implement '+ <u>convertToUzs(usd: double): double</u>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CurrencyExchange'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 USD so'mda: \" + uzs);'"
+      "en": "📖 Real-World Scenario & Context\nStatic methods belong to the class and are underlined in UML. Implement '+ <u>convertToUzs(usd: double): double</u>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CurrencyExchange'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 USD so'mda: \" + uzs);'",
+      "ru": "📖 Контекст и описание задачи\nСтатические методы принадлежат классу и подчеркнуты в UML. Реализуйте '+ <u>convertToUzs(usd: double): double</u>'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CurrencyExchange.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 долларов США: \" + uzs);'"
     },
     "requirements": {
       "classes": [
@@ -1055,7 +1328,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>convertToUzs</code>: statik metod."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>CurrencyExchange</code>: statik a'zoga ega sinf.",
+        "<code>convertToUzs</code>: statik metod."
+      ]
     },
     "sampleData": [
       "50 USD so'mda: 640000.0"
@@ -1063,7 +1342,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "50 USD so'mda: 640000.0",
     "story": {
       "uz": "Payme da valyuta aylantirish metodi UML da tagiga chizilgan holda '+ <u>convertToUzs(usd: double): double</u>' ko'rinishida berilgan. Statik metod orqali 1 USD = 12800 so'm hisobini amalga oshiring.",
-      "en": "Static methods belong to the class and are underlined in UML. Implement '+ <u>convertToUzs(usd: double): double</u>'."
+      "en": "Static methods belong to the class and are underlined in UML. Implement '+ <u>convertToUzs(usd: double): double</u>'.",
+      "ru": "Статические методы принадлежат классу и подчеркнуты в UML. Реализуйте '+ <u>convertToUzs(usd: double): double</u>'."
     },
     "steps": {
       "uz": [
@@ -1079,6 +1359,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 USD so'mda: \" + uzs);'"
+      ],
+      "ru": [
+        "Объявите класс CurrencyExchange.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'double uzs = CurrencyExchange.convertToUzs(50.0);         System.out.println(\"50 долларов США: \" + uzs);'"
       ]
     }
   },
@@ -1089,11 +1376,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "19. Korzinka — Xarid Savatchasi Hosilaviy Maydoni (/ grandTotal)",
-      "en": "19. Korzinka — Derived Grand Total Attribute in UML Cart"
+      "en": "19. Korzinka — Derived Grand Total Attribute in UML Cart",
+      "ru": "19. Корзинка — производный атрибут общего итога в UML Cart"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka savati UML diagrammasida '/ grandTotal: double' derived maydoniga ega. Mahsulotlar summasi va 5% xizmat haqini qo'shib hisoblovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CartSummary' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'CartSummary cart = new CartSummary(100000.0, 50000.0);         System.out.println(\"Hosilaviy jami summa (/grandTotal): \" + cart.getGrandTotal());'",
-      "en": "📖 Real-World Scenario & Context\nAt Korzinka, '/ grandTotal: double' is a derived attribute summing prices with a 5% fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CartSummary'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'CartSummary cart = new CartSummary(100000.0, 50000.0);         System.out.println(\"Hosilaviy jami summa (/grandTotal): \" + cart.getGrandTotal());'"
+      "en": "📖 Real-World Scenario & Context\nAt Korzinka, '/ grandTotal: double' is a derived attribute summing prices with a 5% fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CartSummary'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'CartSummary cart = new CartSummary(100000.0, 50000.0);         System.out.println(\"Hosilaviy jami summa (/grandTotal): \" + cart.getGrandTotal());'",
+      "ru": "📖 Контекст и описание задачи\nВ Корзинке '/grandTotal:double' — это производный атрибут, суммирующий цены с комиссией 5%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс CartSummary.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'CartSummary cars = new CartSummary(100000.0, 50000.0);         System.out.println(\"Хосилавая сумма (/grandTotal): \" + cart.getGrandTotal());'"
     },
     "requirements": {
       "classes": [
@@ -1115,7 +1404,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getGrandTotal</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>CartSummary</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getGrandTotal</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Hosilaviy jami summa (/grandTotal): 157500.0"
@@ -1123,7 +1418,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Hosilaviy jami summa (/grandTotal): 157500.0",
     "story": {
       "uz": "Korzinka savati UML diagrammasida '/ grandTotal: double' derived maydoniga ega. Mahsulotlar summasi va 5% xizmat haqini qo'shib hisoblovchi metod yozing.",
-      "en": "At Korzinka, '/ grandTotal: double' is a derived attribute summing prices with a 5% fee."
+      "en": "At Korzinka, '/ grandTotal: double' is a derived attribute summing prices with a 5% fee.",
+      "ru": "В Корзинке '/grandTotal:double' — это производный атрибут, суммирующий цены с комиссией 5%."
     },
     "steps": {
       "uz": [
@@ -1139,6 +1435,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'CartSummary cart = new CartSummary(100000.0, 50000.0);         System.out.println(\"Hosilaviy jami summa (/grandTotal): \" + cart.getGrandTotal());'"
+      ],
+      "ru": [
+        "Объявите класс CartSummary.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'CartSummary cars = new CartSummary(100000.0, 50000.0);         System.out.println(\"Хосилавая сумма (/grandTotal): \" + cart.getGrandTotal());'"
       ]
     }
   },
@@ -1149,11 +1452,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "20. Yandex Go — Statik Standart Minimal Tarif (<u>BASE_FARE</u>)",
-      "en": "20. Yandex Go — Static Constant Underlined in UML Box"
+      "en": "20. Yandex Go — Static Constant Underlined in UML Box",
+      "ru": "20. Yandex Go — статическая константа, подчеркнутая в UML-блоке"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go bazaviy tarifi UML da '+ <u>BASE_FARE: double = 6000.0</u>' statik o'zgarmas sifatida ko'rsatilgan. Statik konstantadan foydalanib safar narxini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TaxiConfig' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'double fare = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Safar narxi: \" + fare);'",
-      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML, static constant '+ <u>BASE_FARE: double = 6000.0</u>' is underlined.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TaxiConfig'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'double fare = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Safar narxi: \" + fare);'"
+      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML, static constant '+ <u>BASE_FARE: double = 6000.0</u>' is underlined.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TaxiConfig'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'double fare = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Safar narxi: \" + fare);'",
+      "ru": "📖 Контекст и описание задачи\nВ UML Yandex Go статическая константа '+ <u>BASE_FARE: double = 6000.0</u>' подчеркнута.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TaxiConfig.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'двойной тариф = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Сафар Наркси: \" + тариф);'"
     },
     "requirements": {
       "classes": [
@@ -1175,7 +1480,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>calculateFare</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>TaxiConfig</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>calculateFare</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Safar narxi: 14000.0"
@@ -1183,7 +1494,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Safar narxi: 14000.0",
     "story": {
       "uz": "Yandex Go bazaviy tarifi UML da '+ <u>BASE_FARE: double = 6000.0</u>' statik o'zgarmas sifatida ko'rsatilgan. Statik konstantadan foydalanib safar narxini hisoblang.",
-      "en": "In Yandex Go UML, static constant '+ <u>BASE_FARE: double = 6000.0</u>' is underlined."
+      "en": "In Yandex Go UML, static constant '+ <u>BASE_FARE: double = 6000.0</u>' is underlined.",
+      "ru": "В UML Yandex Go статическая константа '+ <u>BASE_FARE: double = 6000.0</u>' подчеркнута."
     },
     "steps": {
       "uz": [
@@ -1199,6 +1511,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'double fare = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Safar narxi: \" + fare);'"
+      ],
+      "ru": [
+        "Объявите класс TaxiConfig.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'двойной тариф = TaxiConfig.calculateFare(4.0, 2000.0);         System.out.println(\"Сафар Наркси: \" + тариф);'"
       ]
     }
   },
@@ -1209,11 +1528,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "21. Express24 — Hosilaviy Yetkazish Masofasi (/ totalDistanceKm)",
-      "en": "21. Express24 — Derived Delivery Distance from Waypoints"
+      "en": "21. Express24 — Derived Delivery Distance from Waypoints",
+      "ru": "21. Express24 — определение расстояния доставки от путевых точек."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 kuryerining umumiy masofasi UML da '/ totalDistanceKm: double' deb belgilangan. Restorandan mijozgacha va qaytish masofasi yig'indisini hisoblovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'CourierTrip' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Jami masofa (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" km\");'",
-      "en": "📖 Real-World Scenario & Context\nAt Express24, derived attribute '/ totalDistanceKm: double' is computed dynamically from two segments.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierTrip'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Jami masofa (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" km\");'"
+      "en": "📖 Real-World Scenario & Context\nAt Express24, derived attribute '/ totalDistanceKm: double' is computed dynamically from two segments.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'CourierTrip'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Jami masofa (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" km\");'",
+      "ru": "📖 Контекст и описание задачи\nВ Express24 производный атрибут / totalDistanceKm: double вычисляется динамически на основе двух сегментов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «CourierTrip».\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Джами масофа (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" км\");'"
     },
     "requirements": {
       "classes": [
@@ -1235,7 +1556,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getTotalDistanceKm</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>CourierTrip</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getTotalDistanceKm</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Jami masofa (/totalDistanceKm): 7.7 km"
@@ -1243,7 +1570,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Jami masofa (/totalDistanceKm): 7.7 km",
     "story": {
       "uz": "Express24 kuryerining umumiy masofasi UML da '/ totalDistanceKm: double' deb belgilangan. Restorandan mijozgacha va qaytish masofasi yig'indisini hisoblovchi metod yozing.",
-      "en": "At Express24, derived attribute '/ totalDistanceKm: double' is computed dynamically from two segments."
+      "en": "At Express24, derived attribute '/ totalDistanceKm: double' is computed dynamically from two segments.",
+      "ru": "В Express24 производный атрибут / totalDistanceKm: double вычисляется динамически на основе двух сегментов."
     },
     "steps": {
       "uz": [
@@ -1259,6 +1587,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Jami masofa (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" km\");'"
+      ],
+      "ru": [
+        "Объявите класс «CourierTrip».",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'CourierTrip trip = new CourierTrip(3.5, 4.2);         System.out.println(\"Джами масофа (/totalDistanceKm): \" + trip.getTotalDistanceKm() + \" км\");'"
       ]
     }
   },
@@ -1269,11 +1604,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "22. Medion — Statik Valyuta Formatteri (<u>formatPrice()</u>)",
-      "en": "22. Medion — Static Formatter Utility Underlined in UML"
+      "en": "22. Medion — Static Formatter Utility Underlined in UML",
+      "ru": "22. Medion — утилита статического форматирования, подчеркнутая в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion narxlarni formatlash uchun UML da '+ <u>formatPrice(amount: double): String</u>' statik utilita metodiga ega. Summani '1,000,000 UZS' ko'rinishida chiqaruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PriceFormatter' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'",
-      "en": "📖 Real-World Scenario & Context\nMedion uses a static formatter specified as underlined '+ <u>formatPrice(amount: double): String</u>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceFormatter'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'"
+      "en": "📖 Real-World Scenario & Context\nMedion uses a static formatter specified as underlined '+ <u>formatPrice(amount: double): String</u>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PriceFormatter'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'",
+      "ru": "📖 Контекст и описание задачи\nMedion использует статический форматтер, указанный как подчеркнутый '+ <u>formatPrice(amount: double): String</u>'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PriceFormatter.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'"
     },
     "requirements": {
       "classes": [
@@ -1295,7 +1632,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>formatPrice</code>: statik metod."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>PriceFormatter</code>: statik a'zoga ega sinf.",
+        "<code>formatPrice</code>: statik metod."
+      ]
     },
     "sampleData": [
       "1250000.0 UZS"
@@ -1303,7 +1646,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "1250000.0 UZS",
     "story": {
       "uz": "Medion narxlarni formatlash uchun UML da '+ <u>formatPrice(amount: double): String</u>' statik utilita metodiga ega. Summani '1,000,000 UZS' ko'rinishida chiqaruvchi sinf tuzing.",
-      "en": "Medion uses a static formatter specified as underlined '+ <u>formatPrice(amount: double): String</u>'."
+      "en": "Medion uses a static formatter specified as underlined '+ <u>formatPrice(amount: double): String</u>'.",
+      "ru": "Medion использует статический форматтер, указанный как подчеркнутый '+ <u>formatPrice(amount: double): String</u>'."
     },
     "steps": {
       "uz": [
@@ -1319,6 +1663,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'"
+      ],
+      "ru": [
+        "Объявите класс PriceFormatter.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'System.out.println(PriceFormatter.formatPrice(1250000.0));'"
       ]
     }
   },
@@ -1329,11 +1680,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "23. Click — Hosilaviy Komissiya Miqdori (/ commissionFee)",
-      "en": "23. Click — Derived Commission Fee Attribute in UML"
+      "en": "23. Click — Derived Commission Fee Attribute in UML",
+      "ru": "23. Click — производный атрибут комиссии в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick tranzaksiyasida '/ commissionFee: double' maydoni saqlanmasdan, tranzaksiya summasining 1% i sifatida hisoblanadi. Hosilaviy komissiyani qaytaruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'TransferAudit' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'TransferAudit audit = new TransferAudit(200000.0);         System.out.println(\"Komissiya (/commissionFee): \" + audit.getCommissionFee());'",
-      "en": "📖 Real-World Scenario & Context\nIn Click transaction UML, '/ commissionFee: double' is derived as 1% of the transfer amount.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TransferAudit'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'TransferAudit audit = new TransferAudit(200000.0);         System.out.println(\"Komissiya (/commissionFee): \" + audit.getCommissionFee());'"
+      "en": "📖 Real-World Scenario & Context\nIn Click transaction UML, '/ commissionFee: double' is derived as 1% of the transfer amount.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'TransferAudit'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'TransferAudit audit = new TransferAudit(200000.0);         System.out.println(\"Komissiya (/commissionFee): \" + audit.getCommissionFee());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML-транзакции Click «/ CommissionFee: double» рассчитывается как 1% от суммы перевода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс TransferAudit.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'TransferAudit Audit = new TransferAudit(200000.0);         System.out.println(\"Комиссия (/commissionFee): \" + Audit.getCommissionFee());'"
     },
     "requirements": {
       "classes": [
@@ -1355,7 +1708,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getCommissionFee</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>TransferAudit</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getCommissionFee</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Komissiya (/commissionFee): 2000.0"
@@ -1363,7 +1722,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Komissiya (/commissionFee): 2000.0",
     "story": {
       "uz": "Click tranzaksiyasida '/ commissionFee: double' maydoni saqlanmasdan, tranzaksiya summasining 1% i sifatida hisoblanadi. Hosilaviy komissiyani qaytaruvchi metod yozing.",
-      "en": "In Click transaction UML, '/ commissionFee: double' is derived as 1% of the transfer amount."
+      "en": "In Click transaction UML, '/ commissionFee: double' is derived as 1% of the transfer amount.",
+      "ru": "В UML-транзакции Click «/ CommissionFee: double» рассчитывается как 1% от суммы перевода."
     },
     "steps": {
       "uz": [
@@ -1379,6 +1739,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'TransferAudit audit = new TransferAudit(200000.0);         System.out.println(\"Komissiya (/commissionFee): \" + audit.getCommissionFee());'"
+      ],
+      "ru": [
+        "Объявите класс TransferAudit.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'TransferAudit Audit = new TransferAudit(200000.0);         System.out.println(\"Комиссия (/commissionFee): \" + Audit.getCommissionFee());'"
       ]
     }
   },
@@ -1389,11 +1756,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "24. Asaxiy — Statik Unikal Kitob Id Generator (<u>nextId()</u>)",
-      "en": "24. Asaxiy — Static Unique ID Generator Underlined in UML"
+      "en": "24. Asaxiy — Static Unique ID Generator Underlined in UML",
+      "ru": "24. Asaxy — генератор статических уникальных идентификаторов, подчеркнутых в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy nashriyotida kitoblarga ketma-ket ID beruvchi '+ <u>generateId(): String</u>' statik metodi UML da tagiga chizilgan. Ketma-ket unikal ID beruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'IdGenerator' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'String id1 = IdGenerator.generateId();         String id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'",
-      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, static generator '+ <u>generateId(): String</u>' issues sequential identifiers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'IdGenerator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'String id1 = IdGenerator.generateId();         String id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'"
+      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, static generator '+ <u>generateId(): String</u>' issues sequential identifiers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'IdGenerator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'String id1 = IdGenerator.generateId();         String id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'",
+      "ru": "📖 Контекст и описание задачи\nВ Asaxy статический генератор '+ <u>generateId(): String</u>' выдает последовательные идентификаторы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс IdGenerator.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'String id1 = IdGenerator.generateId();         Строка id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'"
     },
     "requirements": {
       "classes": [
@@ -1415,7 +1784,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>generateId</code>: statik metod."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>IdGenerator</code>: statik a'zoga ega sinf.",
+        "<code>generateId</code>: statik metod."
+      ]
     },
     "sampleData": [
       "ID-1: BOOK-1 | ID-2: BOOK-2"
@@ -1423,7 +1798,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "ID-1: BOOK-1 | ID-2: BOOK-2",
     "story": {
       "uz": "Asaxiy nashriyotida kitoblarga ketma-ket ID beruvchi '+ <u>generateId(): String</u>' statik metodi UML da tagiga chizilgan. Ketma-ket unikal ID beruvchi klass tuzing.",
-      "en": "At Asaxiy, static generator '+ <u>generateId(): String</u>' issues sequential identifiers."
+      "en": "At Asaxiy, static generator '+ <u>generateId(): String</u>' issues sequential identifiers.",
+      "ru": "В Asaxy статический генератор '+ <u>generateId(): String</u>' выдает последовательные идентификаторы."
     },
     "steps": {
       "uz": [
@@ -1439,6 +1815,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'String id1 = IdGenerator.generateId();         String id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'"
+      ],
+      "ru": [
+        "Объявите класс IdGenerator.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'String id1 = IdGenerator.generateId();         Строка id2 = IdGenerator.generateId();         System.out.println(\"ID-1: \" + id1 + \" | ID-2: \" + id2);'"
       ]
     }
   },
@@ -1449,11 +1832,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "25. Safia — Hosilaviy Tort Kaloriyasi (/ totalCalories)",
-      "en": "25. Safia — Derived Calorie Calculation in UML Box"
+      "en": "25. Safia — Derived Calorie Calculation in UML Box",
+      "ru": "25. Сафия — расчет калорий в UML Box."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia desertida '/ totalCalories: int' hosilaviy maydoni krem va biskvit kaloriyalari yig'indisi sifatida hisoblanadi. Dinamik hosilaviy kaloriya hisoblovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DessertCalorieCalculator' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'DessertCalorieCalculator calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Jami kaloriya (/totalCalories): \" + calc.getTotalCalories());'",
-      "en": "📖 Real-World Scenario & Context\nSafia Cake specifies derived attribute '/ totalCalories: int' dynamically computed.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'DessertCalorieCalculator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'DessertCalorieCalculator calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Jami kaloriya (/totalCalories): \" + calc.getTotalCalories());'"
+      "en": "📖 Real-World Scenario & Context\nSafia Cake specifies derived attribute '/ totalCalories: int' dynamically computed.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'DessertCalorieCalculator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'DessertCalorieCalculator calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Jami kaloriya (/totalCalories): \" + calc.getTotalCalories());'",
+      "ru": "📖 Контекст и описание задачи\nSafia Cake определяет производный атрибут '/ totalCalories: int', вычисляемый динамически.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс DessertCalorieCalculator.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'DessertCalorieCalculator Calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Джами калория (/totalCalories): \" +calc.getTotalCalories());'"
     },
     "requirements": {
       "classes": [
@@ -1475,7 +1860,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getTotalCalories</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>DessertCalorieCalculator</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getTotalCalories</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Jami kaloriya (/totalCalories): 430"
@@ -1483,7 +1874,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Jami kaloriya (/totalCalories): 430",
     "story": {
       "uz": "Safia desertida '/ totalCalories: int' hosilaviy maydoni krem va biskvit kaloriyalari yig'indisi sifatida hisoblanadi. Dinamik hosilaviy kaloriya hisoblovchi metod yozing.",
-      "en": "Safia Cake specifies derived attribute '/ totalCalories: int' dynamically computed."
+      "en": "Safia Cake specifies derived attribute '/ totalCalories: int' dynamically computed.",
+      "ru": "Safia Cake определяет производный атрибут '/ totalCalories: int', вычисляемый динамически."
     },
     "steps": {
       "uz": [
@@ -1499,6 +1891,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'DessertCalorieCalculator calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Jami kaloriya (/totalCalories): \" + calc.getTotalCalories());'"
+      ],
+      "ru": [
+        "Объявите класс DessertCalorieCalculator.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'DessertCalorieCalculator Calc = new DessertCalorieCalculator(250, 180);         System.out.println(\"Джами калория (/totalCalories): \" +calc.getTotalCalories());'"
       ]
     }
   },
@@ -1509,11 +1908,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "26. Dodo Pizza — Statik Chegirma Foizi (<u>GLOBAL_DISCOUNT</u>)",
-      "en": "26. Dodo Pizza — Global Static Discount Underlined in UML"
+      "en": "26. Dodo Pizza — Global Static Discount Underlined in UML",
+      "ru": "26. Dodo Pizza — глобальная статическая скидка, подчеркнутая в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza aksiyasida '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' barcha pitsalar uchun umumiy statik maydon sifatida ko'rsatilgan. Statik maydon orqali chegirmali narxni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'PizzaPromotion' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Aksiyali narx: \" + promo.getDiscountedPrice());'",
-      "en": "📖 Real-World Scenario & Context\nDodo Pizza uses a static constant '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' underlined in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaPromotion'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Aksiyali narx: \" + promo.getDiscountedPrice());'"
+      "en": "📖 Real-World Scenario & Context\nDodo Pizza uses a static constant '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' underlined in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'PizzaPromotion'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Aksiyali narx: \" + promo.getDiscountedPrice());'",
+      "ru": "📖 Контекст и описание задачи\n«Додо Пицца» использует статическую константу «+ <u>GLOBAL_DISCOUNT: double = 10.0</u>», подчеркнутую в UML.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс PizzaPromotion.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Аксияли нарх: \" + promo.getDiscountedPrice());'"
     },
     "requirements": {
       "classes": [
@@ -1535,7 +1936,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getDiscountedPrice</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>PizzaPromotion</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getDiscountedPrice</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Aksiyali narx: 81000.0"
@@ -1543,7 +1950,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Aksiyali narx: 81000.0",
     "story": {
       "uz": "Dodo Pizza aksiyasida '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' barcha pitsalar uchun umumiy statik maydon sifatida ko'rsatilgan. Statik maydon orqali chegirmali narxni hisoblang.",
-      "en": "Dodo Pizza uses a static constant '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' underlined in UML."
+      "en": "Dodo Pizza uses a static constant '+ <u>GLOBAL_DISCOUNT: double = 10.0</u>' underlined in UML.",
+      "ru": "«Додо Пицца» использует статическую константу «+ <u>GLOBAL_DISCOUNT: double = 10.0</u>», подчеркнутую в UML."
     },
     "steps": {
       "uz": [
@@ -1559,6 +1967,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Aksiyali narx: \" + promo.getDiscountedPrice());'"
+      ],
+      "ru": [
+        "Объявите класс PizzaPromotion.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'PizzaPromotion promo = new PizzaPromotion(90000.0);         System.out.println(\"Аксияли нарх: \" + promo.getDiscountedPrice());'"
       ]
     }
   },
@@ -1569,11 +1984,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "27. Texnomart — Hosilaviy Oylik Bo'lib To'lash Narxi (/ monthlyPayment)",
-      "en": "27. Texnomart — Derived Monthly Installment (/ monthlyPayment)"
+      "en": "27. Texnomart — Derived Monthly Installment (/ monthlyPayment)",
+      "ru": "27. Texnomart — Производный ежемесячный платеж (/monthPayment)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomartda noutbuk narxi va oylar sonidan kelib chiqib '/ monthlyPayment: double' hosilaviy maydoni hisoblanadi. Dinamik to'lovni hisoblovchi sinf yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'InstallmentPlan' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'InstallmentPlan plan = new InstallmentPlan(6000000.0, 12);         System.out.println(\"Oylik to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'",
-      "en": "📖 Real-World Scenario & Context\nTexnomart computes derived attribute '/ monthlyPayment: double' by dividing price by months.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'InstallmentPlan'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'InstallmentPlan plan = new InstallmentPlan(6000000.0, 12);         System.out.println(\"Oylik to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'"
+      "en": "📖 Real-World Scenario & Context\nTexnomart computes derived attribute '/ monthlyPayment: double' by dividing price by months.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'InstallmentPlan'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'InstallmentPlan plan = new InstallmentPlan(6000000.0, 12);         System.out.println(\"Oylik to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'",
+      "ru": "📖 Контекст и описание задачи\nTexnomart вычисляет производный атрибут «/monthPayment: double» путем деления цены на месяцы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «InstalmentPlan».\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'План установки = новый План установки (6000000.0, 12);         System.out.println(\"Ойлик to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'"
     },
     "requirements": {
       "classes": [
@@ -1595,7 +2012,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getMonthlyPayment</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>InstallmentPlan</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getMonthlyPayment</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Oylik to'lov (/monthlyPayment): 500000.0"
@@ -1603,7 +2026,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Oylik to'lov (/monthlyPayment): 500000.0",
     "story": {
       "uz": "Texnomartda noutbuk narxi va oylar sonidan kelib chiqib '/ monthlyPayment: double' hosilaviy maydoni hisoblanadi. Dinamik to'lovni hisoblovchi sinf yozing.",
-      "en": "Texnomart computes derived attribute '/ monthlyPayment: double' by dividing price by months."
+      "en": "Texnomart computes derived attribute '/ monthlyPayment: double' by dividing price by months.",
+      "ru": "Texnomart вычисляет производный атрибут «/monthPayment: double» путем деления цены на месяцы."
     },
     "steps": {
       "uz": [
@@ -1619,6 +2043,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'InstallmentPlan plan = new InstallmentPlan(6000000.0, 12);         System.out.println(\"Oylik to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'"
+      ],
+      "ru": [
+        "Объявите класс «InstalmentPlan».",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'План установки = новый План установки (6000000.0, 12);         System.out.println(\"Ойлик to'lov (/monthlyPayment): \" + plan.getMonthlyPayment());'"
       ]
     }
   },
@@ -1629,11 +2060,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "28. UzAirways — Statik Aeroport Kodi Validatori (<u>isValidCode()</u>)",
-      "en": "28. UzAirways — Static Airport Code Validator Underlined in UML"
+      "en": "28. UzAirways — Static Airport Code Validator Underlined in UML",
+      "ru": "28. UzAirways — Статический валидатор кода аэропорта, подчеркнутый в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways UML diagrammasida '+ <u>isValidCode(code: String): boolean</u>' statik metodi kodi 3 ta harfdan iboratligini tekshiradi (masalan, 'TAS', 'DXB').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'AirportCodeValidator' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'",
-      "en": "📖 Real-World Scenario & Context\nUzAirways specifies underlined static method '+ <u>isValidCode(code: String): boolean</u>' verifying 3-letter IATA codes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'AirportCodeValidator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'"
+      "en": "📖 Real-World Scenario & Context\nUzAirways specifies underlined static method '+ <u>isValidCode(code: String): boolean</u>' verifying 3-letter IATA codes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'AirportCodeValidator'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'",
+      "ru": "📖 Контекст и описание задачи\nUzAirways указывает подчеркнутый статический метод '+ <u>isValidCode(code: String): boolean</u>', проверяющий 3-буквенные коды IATA.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс AirportCodeValidator.\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'"
     },
     "requirements": {
       "classes": [
@@ -1655,7 +2088,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isValidCode</code>: statik metod."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>AirportCodeValidator</code>: statik a'zoga ega sinf.",
+        "<code>isValidCode</code>: statik metod."
+      ]
     },
     "sampleData": [
       "TAS to'g'rimi: true"
@@ -1663,7 +2102,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "TAS to'g'rimi: true",
     "story": {
       "uz": "Uzbekistan Airways UML diagrammasida '+ <u>isValidCode(code: String): boolean</u>' statik metodi kodi 3 ta harfdan iboratligini tekshiradi (masalan, 'TAS', 'DXB').",
-      "en": "UzAirways specifies underlined static method '+ <u>isValidCode(code: String): boolean</u>' verifying 3-letter IATA codes."
+      "en": "UzAirways specifies underlined static method '+ <u>isValidCode(code: String): boolean</u>' verifying 3-letter IATA codes.",
+      "ru": "UzAirways указывает подчеркнутый статический метод '+ <u>isValidCode(code: String): boolean</u>', проверяющий 3-буквенные коды IATA."
     },
     "steps": {
       "uz": [
@@ -1679,6 +2119,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'"
+      ],
+      "ru": [
+        "Объявите класс AirportCodeValidator.",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'System.out.println(\"TAS to'g'rimi: \" + AirportCodeValidator.isValidCode(\"TAS\"));'"
       ]
     }
   },
@@ -1689,11 +2136,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "29. Kapitalbank — Hosilaviy Depozit Daromadi (/ interestEarned)",
-      "en": "29. Kapitalbank — Derived Interest Earned Calculation in UML"
+      "en": "29. Kapitalbank — Derived Interest Earned Calculation in UML",
+      "ru": "29. Капиталбанк — расчет полученных процентов в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank depozitida '/ interestEarned: double' hosilaviy maydoni omonat summasi va yillik stavka orqali hisoblab chiqariladi. Hosilaviy daromadni hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'DepositCalculation' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'",
-      "en": "📖 Real-World Scenario & Context\nKapitalbank Deposit specifies derived attribute '/ interestEarned: double' computed from principal and rate.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'DepositCalculation'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'"
+      "en": "📖 Real-World Scenario & Context\nKapitalbank Deposit specifies derived attribute '/ interestEarned: double' computed from principal and rate.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'DepositCalculation'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'",
+      "ru": "📖 Контекст и описание задачи\nДепозит Капиталбанка указывает производный атрибут «/interestEarned: double», рассчитанный на основе основной суммы и ставки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «DepositCalculation».\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'"
     },
     "requirements": {
       "classes": [
@@ -1715,7 +2164,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getInterestEarned</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>DepositCalculation</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getInterestEarned</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Yillik daromad (/interestEarned): 2200000.0"
@@ -1723,7 +2178,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yillik daromad (/interestEarned): 2200000.0",
     "story": {
       "uz": "Kapitalbank depozitida '/ interestEarned: double' hosilaviy maydoni omonat summasi va yillik stavka orqali hisoblab chiqariladi. Hosilaviy daromadni hisoblang.",
-      "en": "Kapitalbank Deposit specifies derived attribute '/ interestEarned: double' computed from principal and rate."
+      "en": "Kapitalbank Deposit specifies derived attribute '/ interestEarned: double' computed from principal and rate.",
+      "ru": "Депозит Капиталбанка указывает производный атрибут «/interestEarned: double», рассчитанный на основе основной суммы и ставки."
     },
     "steps": {
       "uz": [
@@ -1739,6 +2195,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'"
+      ],
+      "ru": [
+        "Объявите класс «DepositCalculation».",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'DepositCalculation dep = new DepositCalculation(10000000.0, 22.0);         System.out.println(\"Yillik daromad (/interestEarned): \" + dep.getInterestEarned());'"
       ]
     }
   },
@@ -1749,11 +2212,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "16-30: Underlined Static va Derived (/) Maydonlar",
     "title": {
       "uz": "30. WIUT — Hosilaviy Talaba Yoshini Hisoblash (/ age)",
-      "en": "30. WIUT — Derived Age Calculation (/ age) from Birth Year"
+      "en": "30. WIUT — Derived Age Calculation (/ age) from Birth Year",
+      "ru": "30. WIUT — расчет возраста (/возраст) по году рождения."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT talabalar registratsiyasida talabaning yoshi saqlanmaydi, balki tug'ilgan yili orqali '/ age: int' hosilaviy (derived) xususiyat sifatida hisoblanadi (2026 - birthYear).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 'StudentProfile' sinfini e'lon qiling.\n2. UML da tagiga chizilgan bo'lsa 'static' maydon yoki metod, oldida '/' bo'lsa hosilaviy (derived) metod yarating.\n3. Hosilaviy maydon xotirada saqlanmasdan, boshqa atributlar orqali dinamik hisoblanishi zarur.\n4. 'Main' sinfida klass yoki ob'yekt orqali metodni chaqiring.\n5. Natijani chop eting: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Talaba ID: \" + sp.getStudentId() + \" | Yoshi (/age): \" + sp.getAge());'",
-      "en": "📖 Real-World Scenario & Context\nAt WIUT, student age is a derived attribute '/ age: int' calculated dynamically from birthYear.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'StudentProfile'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Talaba ID: \" + sp.getStudentId() + \" | Yoshi (/age): \" + sp.getAge());'"
+      "en": "📖 Real-World Scenario & Context\nAt WIUT, student age is a derived attribute '/ age: int' calculated dynamically from birthYear.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare class 'StudentProfile'.\n2. Implement static members for underlined UML items, or dynamic derived accessors for '/' items.\n3. Derived attributes are computed dynamically without storing state.\n4. Invoke method in 'main'.\n5. Print result to console: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Talaba ID: \" + sp.getStudentId() + \" | Yoshi (/age): \" + sp.getAge());'",
+      "ru": "📖 Контекст и описание задачи\nВ WIUT возраст учащегося является производным атрибутом / age: int, рассчитываемым динамически на основе года рождения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс «StudentProfile».\n2. Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.\n3. Производные атрибуты вычисляются динамически без сохранения состояния.\n4. Вызовите метод в «main».\n5. Выведите результат на консоль: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Идентификатор Талаба: \" + sp.getStudentId() + \" | Йоши (/age): \" + sp.getAge());'"
     },
     "requirements": {
       "classes": [
@@ -1775,7 +2240,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getAge</code>: dinamik hisoblanuvchi getter."
       ],
       "pitfalls": "Derived atribut uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (redundancy) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
-      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir."
+      "cw2Tip": "Seminar 4 dagi 'OrderItem.getUnitPrice()' va 'Order.getTotal()' hosilaviy (derived) metodlarga yorqin misoldir.",
+      "theoryRu": "В диаграммах классов UML статические члены подчеркнуты. Производные атрибуты имеют префикс косой черты ('/'), указывающий, что они не сохраняются напрямую, а вычисляются динамически.",
+      "pitfallsRu": "Производный атрибут uchun alohida 'private double lineTotal;' maydoni ochish xato hisoblanadi, chunki u ma'lumotlar ortiqchaligiga (избыточность) olib keladi. Uni 'getLineTotal()' ichida hisoblash kifoya.",
+      "breakdownRu": [
+        "<code>StudentProfile</code>: hosilaviy derived maydonga ega sinf.",
+        "<code>getAge</code>: dinamik hisoblanuvchi getter."
+      ]
     },
     "sampleData": [
       "Talaba ID: 00014050 | Yoshi (/age): 22"
@@ -1783,7 +2254,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Talaba ID: 00014050 | Yoshi (/age): 22",
     "story": {
       "uz": "WIUT talabalar registratsiyasida talabaning yoshi saqlanmaydi, balki tug'ilgan yili orqali '/ age: int' hosilaviy (derived) xususiyat sifatida hisoblanadi (2026 - birthYear).",
-      "en": "At WIUT, student age is a derived attribute '/ age: int' calculated dynamically from birthYear."
+      "en": "At WIUT, student age is a derived attribute '/ age: int' calculated dynamically from birthYear.",
+      "ru": "В WIUT возраст учащегося является производным атрибутом / age: int, рассчитываемым динамически на основе года рождения."
     },
     "steps": {
       "uz": [
@@ -1799,6 +2271,13 @@ window.OOP_CHALLENGES_W5 = [
         "Derived attributes are computed dynamically without storing state.",
         "Invoke method in 'main'.",
         "Print result to console: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Talaba ID: \" + sp.getStudentId() + \" | Yoshi (/age): \" + sp.getAge());'"
+      ],
+      "ru": [
+        "Объявите класс «StudentProfile».",
+        "Реализуйте статические члены для подчеркнутых элементов UML или динамические производные методы доступа для элементов '/'.",
+        "Производные атрибуты вычисляются динамически без сохранения состояния.",
+        "Вызовите метод в «main».",
+        "Выведите результат на консоль: 'StudentProfile sp = new StudentProfile(\"00014050\", 2004);         System.out.println(\"Идентификатор Талаба: \" + sp.getStudentId() + \" | Йоши (/age): \" + sp.getAge());'"
       ]
     }
   },
@@ -1809,11 +2288,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "31. Uzum Market — Product va PhysicalProduct Generalization",
-      "en": "31. Uzum Market — Product and PhysicalProduct Generalization in UML"
+      "en": "31. Uzum Market — Product and PhysicalProduct Generalization in UML",
+      "ru": "31. Рынок Узум — обобщение продуктов и физических продуктов в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market da 'PhysicalProduct' sinfi 'Product' ota sinfiga tutashgan bo'lib, UML da uchi oq uchburchakli to'g'ri chiziq (Generalization) bilan ko'rsatilgan. Avlod sinf 'weightKg' xususiyatini qo'shib ota sinfni kengaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Product' ni  e'lon qiling.\n2. Avlod sinf 'PhysicalProduct' ni yarating va 'extends Product' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateDeliveryCost()' metodini qo'shing.\n5. 'Main' metodida 'PhysicalProduct' ob'yektini yaratib natijani chop eting: 'PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nIn Uzum UML diagram, 'PhysicalProduct' generalizes into 'Product' with a solid line and hollow arrow. Subclass adds 'weightKg'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Product' .\n2. Create subclass 'PhysicalProduct' extending 'Product' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nIn Uzum UML diagram, 'PhysicalProduct' generalizes into 'Product' with a solid line and hollow arrow. Subclass adds 'weightKg'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Product' .\n2. Create subclass 'PhysicalProduct' extending 'Product' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nНа диаграмме Uzum UML «Физический продукт» обобщается на «Продукт» со сплошной линией и полой стрелкой. Подкласс добавляет «весКг».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product.\n2. Создайте подкласс «PhysicalProduct», расширяющий «Product», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateDeliveryCost()».\n5. Проверьте в «main»: «PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -1839,7 +2320,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>PhysicalProduct</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>PhysicalProduct</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Mahsulot: Smartfon | Yetkazish: 15000.0"
@@ -1847,7 +2334,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Mahsulot: Smartfon | Yetkazish: 15000.0",
     "story": {
       "uz": "Uzum Market da 'PhysicalProduct' sinfi 'Product' ota sinfiga tutashgan bo'lib, UML da uchi oq uchburchakli to'g'ri chiziq (Generalization) bilan ko'rsatilgan. Avlod sinf 'weightKg' xususiyatini qo'shib ota sinfni kengaytiradi.",
-      "en": "In Uzum UML diagram, 'PhysicalProduct' generalizes into 'Product' with a solid line and hollow arrow. Subclass adds 'weightKg'."
+      "en": "In Uzum UML diagram, 'PhysicalProduct' generalizes into 'Product' with a solid line and hollow arrow. Subclass adds 'weightKg'.",
+      "ru": "На диаграмме Uzum UML «Физический продукт» обобщается на «Продукт» со сплошной линией и полой стрелкой. Подкласс добавляет «весКг»."
     },
     "steps": {
       "uz": [
@@ -1863,6 +2351,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateDeliveryCost()'.",
         "Verify in 'main': 'PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product.",
+        "Создайте подкласс «PhysicalProduct», расширяющий «Product», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateDeliveryCost()».",
+        "Проверьте в «main»: «PhysicalProduct phone = new PhysicalProduct(\"Smartfon\", 2500000.0, 0.4);         System.out.println(\"Mahsulot: \" + phone.getName() + \" | Yetkazish: \" + phone.calculateDeliveryCost());'"
       ]
     }
   },
@@ -1873,11 +2368,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "32. Uzum Market — DigitalProduct va Elektron Yetkazish",
-      "en": "32. Uzum Market — DigitalProduct Subclass under Product"
+      "en": "32. Uzum Market — DigitalProduct Subclass under Product",
+      "ru": "32. Рынок Узум — подкласс DigitalProduct в разделе «Продукт»."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market dagi raqamli tovarlar uchun 'DigitalProduct extends Product' UML da ikkinchi avlod sifatida tasvirlangan. Raqamli mahsulot uchun yetkazish xarajati 0.0 bo'lishini ta'minlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Product' ni  e'lon qiling.\n2. Avlod sinf 'DigitalProduct' ni yarating va 'extends Product' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateDeliveryCost()' metodini qo'shing.\n5. 'Main' metodida 'DigitalProduct' ob'yektini yaratib natijani chop eting: 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Raqamli tovar: \" + ebook.getName() + \" | Yetkazish narxi: \" + ebook.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nUzum Market models 'DigitalProduct' as a concrete subclass of 'Product' with 0.0 delivery cost.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Product' .\n2. Create subclass 'DigitalProduct' extending 'Product' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Raqamli tovar: \" + ebook.getName() + \" | Yetkazish narxi: \" + ebook.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nUzum Market models 'DigitalProduct' as a concrete subclass of 'Product' with 0.0 delivery cost.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Product' .\n2. Create subclass 'DigitalProduct' extending 'Product' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Raqamli tovar: \" + ebook.getName() + \" | Yetkazish narxi: \" + ebook.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nUzum Market моделирует «Цифровой продукт» как конкретный подкласс «Продукта» со стоимостью доставки 0,0.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product.\n2. Создайте подкласс «DigitalProduct», расширяющий «Продукт», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateDeliveryCost()».\n5. Проверьте в 'main': 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Ракамли товар: \" + ebook.getName() + \" | Йетказиш нарси: \" + ebook.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -1903,7 +2400,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>DigitalProduct</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>DigitalProduct</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Raqamli tovar: Java OOP Video Kurs | Yetkazish narxi: 0.0"
@@ -1911,7 +2414,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Raqamli tovar: Java OOP Video Kurs | Yetkazish narxi: 0.0",
     "story": {
       "uz": "Uzum Market dagi raqamli tovarlar uchun 'DigitalProduct extends Product' UML da ikkinchi avlod sifatida tasvirlangan. Raqamli mahsulot uchun yetkazish xarajati 0.0 bo'lishini ta'minlang.",
-      "en": "Uzum Market models 'DigitalProduct' as a concrete subclass of 'Product' with 0.0 delivery cost."
+      "en": "Uzum Market models 'DigitalProduct' as a concrete subclass of 'Product' with 0.0 delivery cost.",
+      "ru": "Uzum Market моделирует «Цифровой продукт» как конкретный подкласс «Продукта» со стоимостью доставки 0,0."
     },
     "steps": {
       "uz": [
@@ -1927,6 +2431,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateDeliveryCost()'.",
         "Verify in 'main': 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Raqamli tovar: \" + ebook.getName() + \" | Yetkazish narxi: \" + ebook.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product.",
+        "Создайте подкласс «DigitalProduct», расширяющий «Продукт», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateDeliveryCost()».",
+        "Проверьте в 'main': 'DigitalProduct ebook = new DigitalProduct(\"Java OOP Video Kurs\", 150000.0, \"https:uzum.uz/dl/java\");         System.out.println(\"Ракамли товар: \" + ebook.getName() + \" | Йетказиш нарси: \" + ebook.calculateDeliveryCost());'"
       ]
     }
   },
@@ -1937,11 +2448,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "33. Payme — Abstrakt Payment Klassi ({abstract} in UML)",
-      "en": "33. Payme — Abstract Payment Class Specified in UML"
+      "en": "33. Payme — Abstract Payment Class Specified in UML",
+      "ru": "33. Payme — абстрактный класс платежей, указанный в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme UML diagrammasida 'Payment' klassi kursi bilan yozilgan (*Payment*) yoki uning tepasida '{abstract}' tegi bor. 'public abstract double calculateFee();' metodiga ega abstrakt sinf va uning 'CardPayment' bolasini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Payment' ni abstrakt ('abstract class') sifatida e'lon qiling.\n2. Avlod sinf 'CardPayment' ni yarating va 'extends Payment' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateFee()' metodini @Override orqali realizatsiya qiling.\n5. 'Main' metodida 'CardPayment' ob'yektini yaratib natijani chop eting: 'CardPayment cp = new CardPayment(\"PAY-101\", 100000.0);         System.out.println(\"To'lov: \" + cp.getPaymentId() + \" | Komissiya: \" + cp.calculateFee());'",
-      "en": "📖 Real-World Scenario & Context\nIn Payme UML diagram, 'Payment' is italicized indicating an abstract class. Implement abstract method in CardPayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Payment' as abstract.\n2. Create subclass 'CardPayment' extending 'Payment' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateFee()'.\n5. Verify in 'main': 'CardPayment cp = new CardPayment(\"PAY-101\", 100000.0);         System.out.println(\"To'lov: \" + cp.getPaymentId() + \" | Komissiya: \" + cp.calculateFee());'"
+      "en": "📖 Real-World Scenario & Context\nIn Payme UML diagram, 'Payment' is italicized indicating an abstract class. Implement abstract method in CardPayment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Payment' as abstract.\n2. Create subclass 'CardPayment' extending 'Payment' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateFee()'.\n5. Verify in 'main': 'CardPayment cp = new CardPayment(\"PAY-101\", 100000.0);         System.out.println(\"To'lov: \" + cp.getPaymentId() + \" | Komissiya: \" + cp.calculateFee());'",
+      "ru": "📖 Контекст и описание задачи\nНа UML-диаграмме Payme слово «Платеж» выделено курсивом, что указывает на абстрактный класс. Реализуйте абстрактный метод в CardPayment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Платежи» как абстрактный.\n2. Создайте подкласс «CardPayment», расширяющий «Payment», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateFee()».\n5. Проверьте в «main»: «CardPayment cp = new CardPayment(»PAY-101», 100000.0);         System.out.println(\"То'лов: \" + cp.getPaymentId() + \" | Комиссия: \" + cp.calculateFee());'"
     },
     "requirements": {
       "classes": [
@@ -1968,7 +2481,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CardPayment</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>CardPayment</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "To'lov: PAY-101 | Komissiya: 1000.0"
@@ -1976,7 +2495,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "To'lov: PAY-101 | Komissiya: 1000.0",
     "story": {
       "uz": "Payme UML diagrammasida 'Payment' klassi kursi bilan yozilgan (*Payment*) yoki uning tepasida '{abstract}' tegi bor. 'public abstract double calculateFee();' metodiga ega abstrakt sinf va uning 'CardPayment' bolasini tuzing.",
-      "en": "In Payme UML diagram, 'Payment' is italicized indicating an abstract class. Implement abstract method in CardPayment."
+      "en": "In Payme UML diagram, 'Payment' is italicized indicating an abstract class. Implement abstract method in CardPayment.",
+      "ru": "На UML-диаграмме Payme слово «Платеж» выделено курсивом, что указывает на абстрактный класс. Реализуйте абстрактный метод в CardPayment."
     },
     "steps": {
       "uz": [
@@ -1992,6 +2512,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateFee()'.",
         "Verify in 'main': 'CardPayment cp = new CardPayment(\"PAY-101\", 100000.0);         System.out.println(\"To'lov: \" + cp.getPaymentId() + \" | Komissiya: \" + cp.calculateFee());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Платежи» как абстрактный.",
+        "Создайте подкласс «CardPayment», расширяющий «Payment», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateFee()».",
+        "Проверьте в «main»: «CardPayment cp = new CardPayment(»PAY-101», 100000.0);         System.out.println(\"То'лов: \" + cp.getPaymentId() + \" | Комиссия: \" + cp.calculateFee());'"
       ]
     }
   },
@@ -2002,11 +2529,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "34. Korzinka — DiscountableItem Abstrakt Ierarxiyasi",
-      "en": "34. Korzinka — Abstract DiscountableItem Generalization"
+      "en": "34. Korzinka — Abstract DiscountableItem Generalization",
+      "ru": "34. Корзинка — абстрактное обобщение дисконтируемых предметов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka mahsulotlari UML da '*DiscountableItem*' abstrakt sinfidan meros oladi. 'SeasonalFruit' avlod sinfi ota sinfdagi 'getDiscountedPrice()' abstrakt metodini o'ziga xos 20% chegirma bilan realizatsiya qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'DiscountableItem' ni abstrakt ('abstract class') sifatida e'lon qiling.\n2. Avlod sinf 'SeasonalFruit' ni yarating va 'extends DiscountableItem' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'getDiscountedPrice()' metodini @Override orqali realizatsiya qiling.\n5. 'Main' metodida 'SeasonalFruit' ob'yektini yaratib natijani chop eting: 'SeasonalFruit fruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Meva: \" + fruit.getName() + \" | Chegirmali narx: \" + fruit.getDiscountedPrice());'",
-      "en": "📖 Real-World Scenario & Context\nAt Korzinka, SeasonalFruit extends abstract DiscountableItem, overriding getDiscountedPrice() with a 20% rebate.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'DiscountableItem' as abstract.\n2. Create subclass 'SeasonalFruit' extending 'DiscountableItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getDiscountedPrice()'.\n5. Verify in 'main': 'SeasonalFruit fruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Meva: \" + fruit.getName() + \" | Chegirmali narx: \" + fruit.getDiscountedPrice());'"
+      "en": "📖 Real-World Scenario & Context\nAt Korzinka, SeasonalFruit extends abstract DiscountableItem, overriding getDiscountedPrice() with a 20% rebate.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'DiscountableItem' as abstract.\n2. Create subclass 'SeasonalFruit' extending 'DiscountableItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getDiscountedPrice()'.\n5. Verify in 'main': 'SeasonalFruit fruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Meva: \" + fruit.getName() + \" | Chegirmali narx: \" + fruit.getDiscountedPrice());'",
+      "ru": "📖 Контекст и описание задачи\nВ Корзинке SeasonalFruit расширяет абстрактный DiscountableItem, переопределяя getDiscountedPrice() с 20% скидкой.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «DiscountableItem» как абстрактный.\n2. Создайте подкласс SeasonalFruit, расширяющий DiscountableItem, моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализовать/переопределить getDiscountedPrice().\n5. Проверьте в 'main': 'SeasonalFruitfruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Мева: \" + Fruit.getName() + \" | Чегирмали наркс: \" + Fruit.getDiscountedPrice());'"
     },
     "requirements": {
       "classes": [
@@ -2033,7 +2562,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>SeasonalFruit</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>SeasonalFruit</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Meva: Olma | Chegirmali narx: 16000.0"
@@ -2041,7 +2576,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Meva: Olma | Chegirmali narx: 16000.0",
     "story": {
       "uz": "Korzinka mahsulotlari UML da '*DiscountableItem*' abstrakt sinfidan meros oladi. 'SeasonalFruit' avlod sinfi ota sinfdagi 'getDiscountedPrice()' abstrakt metodini o'ziga xos 20% chegirma bilan realizatsiya qiladi.",
-      "en": "At Korzinka, SeasonalFruit extends abstract DiscountableItem, overriding getDiscountedPrice() with a 20% rebate."
+      "en": "At Korzinka, SeasonalFruit extends abstract DiscountableItem, overriding getDiscountedPrice() with a 20% rebate.",
+      "ru": "В Корзинке SeasonalFruit расширяет абстрактный DiscountableItem, переопределяя getDiscountedPrice() с 20% скидкой."
     },
     "steps": {
       "uz": [
@@ -2057,6 +2593,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'getDiscountedPrice()'.",
         "Verify in 'main': 'SeasonalFruit fruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Meva: \" + fruit.getName() + \" | Chegirmali narx: \" + fruit.getDiscountedPrice());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «DiscountableItem» как абстрактный.",
+        "Создайте подкласс SeasonalFruit, расширяющий DiscountableItem, моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализовать/переопределить getDiscountedPrice().",
+        "Проверьте в 'main': 'SeasonalFruitfruit = new SeasonalFruit(\"Olma\", 20000.0);         System.out.println(\"Мева: \" + Fruit.getName() + \" | Чегирмали наркс: \" + Fruit.getDiscountedPrice());'"
       ]
     }
   },
@@ -2067,11 +2610,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "35. Yandex Go — Vehicle va ElectricTaxi Generalization",
-      "en": "35. Yandex Go — Vehicle and ElectricTaxi Inheritance in UML"
+      "en": "35. Yandex Go — Vehicle and ElectricTaxi Inheritance in UML",
+      "ru": "35. Yandex Go — наследование транспортных средств и электротакси в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go transport ierarxiyasida 'Vehicle' umumiy xususiyatlarni saqlaydi, 'ElectricTaxi' esa 'batteryCapacity' maydonini qo'shib 'calculateRangeKm()' metodini taklif etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Vehicle' ni  e'lon qiling.\n2. Avlod sinf 'ElectricTaxi' ni yarating va 'extends Vehicle' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateRangeKm()' metodini qo'shing.\n5. 'Main' metodida 'ElectricTaxi' ob'yektini yaratib natijani chop eting: 'ElectricTaxi taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Elektrotaksi: \" + taxi.getModel() + \" | Zaxira masofasi: \" + taxi.calculateRangeKm() + \" km\");'",
-      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML, ElectricTaxi extends Vehicle adding batteryCapacity and range estimation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Vehicle' .\n2. Create subclass 'ElectricTaxi' extending 'Vehicle' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateRangeKm()'.\n5. Verify in 'main': 'ElectricTaxi taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Elektrotaksi: \" + taxi.getModel() + \" | Zaxira masofasi: \" + taxi.calculateRangeKm() + \" km\");'"
+      "en": "📖 Real-World Scenario & Context\nIn Yandex Go UML, ElectricTaxi extends Vehicle adding batteryCapacity and range estimation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Vehicle' .\n2. Create subclass 'ElectricTaxi' extending 'Vehicle' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateRangeKm()'.\n5. Verify in 'main': 'ElectricTaxi taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Elektrotaksi: \" + taxi.getModel() + \" | Zaxira masofasi: \" + taxi.calculateRangeKm() + \" km\");'",
+      "ru": "📖 Контекст и описание задачи\nВ Yandex Go UML ElectricTaxi расширяет возможности транспортного средства, добавляя емкость аккумулятора и оценку дальности полета.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Транспортное средство».\n2. Создайте подкласс ElectricTaxi, расширяющий обобщение UML моделирования транспортных средств.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите 'calculateRangeKm()'.\n5. Проверьте в «main»: «ElectricTaxi Taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Электротакси: \" + Taxi.getModel() + \" | Заявление пользователя: \" + Taxi.calculateRangeKm() + \" km\");'"
     },
     "requirements": {
       "classes": [
@@ -2097,7 +2642,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>ElectricTaxi</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>ElectricTaxi</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Elektrotaksi: BYD Song | Zaxira masofasi: 420.0 km"
@@ -2105,7 +2656,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Elektrotaksi: BYD Song | Zaxira masofasi: 420.0 km",
     "story": {
       "uz": "Yandex Go transport ierarxiyasida 'Vehicle' umumiy xususiyatlarni saqlaydi, 'ElectricTaxi' esa 'batteryCapacity' maydonini qo'shib 'calculateRangeKm()' metodini taklif etadi.",
-      "en": "In Yandex Go UML, ElectricTaxi extends Vehicle adding batteryCapacity and range estimation."
+      "en": "In Yandex Go UML, ElectricTaxi extends Vehicle adding batteryCapacity and range estimation.",
+      "ru": "В Yandex Go UML ElectricTaxi расширяет возможности транспортного средства, добавляя емкость аккумулятора и оценку дальности полета."
     },
     "steps": {
       "uz": [
@@ -2121,6 +2673,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateRangeKm()'.",
         "Verify in 'main': 'ElectricTaxi taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Elektrotaksi: \" + taxi.getModel() + \" | Zaxira masofasi: \" + taxi.calculateRangeKm() + \" km\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Транспортное средство».",
+        "Создайте подкласс ElectricTaxi, расширяющий обобщение UML моделирования транспортных средств.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите 'calculateRangeKm()'.",
+        "Проверьте в «main»: «ElectricTaxi Taxi = new ElectricTaxi(\"BYD Song\", 60.0);         System.out.println(\"Электротакси: \" + Taxi.getModel() + \" | Заявление пользователя: \" + Taxi.calculateRangeKm() + \" km\");'"
       ]
     }
   },
@@ -2131,11 +2690,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "36. Express24 — Abstrakt Courier va BikeCourier",
-      "en": "36. Express24 — Abstract Courier and Specialized BikeCourier"
+      "en": "36. Express24 — Abstract Courier and Specialized BikeCourier",
+      "ru": "36. Express24 — абстрактный курьер и специализированный велосипедный курьер."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 da '*Courier*' abstrakt klassi 'abstract double calculateSpeed();' metodiga ega. 'BikeCourier' velosipeddagi kuryer tezligini 18.0 km/h qilib qaytaruvchi sinfni yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Courier' ni abstrakt ('abstract class') sifatida e'lon qiling.\n2. Avlod sinf 'BikeCourier' ni yarating va 'extends Courier' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateSpeed()' metodini @Override orqali realizatsiya qiling.\n5. 'Main' metodida 'BikeCourier' ob'yektini yaratib natijani chop eting: 'BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Kuryer: \" + courier.getName() + \" | Tezlik: \" + courier.calculateSpeed() + \" km/h\");'",
-      "en": "📖 Real-World Scenario & Context\nExpress24 specifies abstract Courier with abstract calculateSpeed(). BikeCourier returns 18.0 km/h.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Courier' as abstract.\n2. Create subclass 'BikeCourier' extending 'Courier' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateSpeed()'.\n5. Verify in 'main': 'BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Kuryer: \" + courier.getName() + \" | Tezlik: \" + courier.calculateSpeed() + \" km/h\");'"
+      "en": "📖 Real-World Scenario & Context\nExpress24 specifies abstract Courier with abstract calculateSpeed(). BikeCourier returns 18.0 km/h.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Courier' as abstract.\n2. Create subclass 'BikeCourier' extending 'Courier' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateSpeed()'.\n5. Verify in 'main': 'BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Kuryer: \" + courier.getName() + \" | Tezlik: \" + courier.calculateSpeed() + \" km/h\");'",
+      "ru": "📖 Контекст и описание задачи\nExpress24 определяет абстрактный Courier с помощью абстрактного метода CalculateSpeed(). BikeCourier возвращает скорость 18,0 км/ч.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Курьер» как абстрактный.\n2. Создайте подкласс BikeCourier, расширяющий обобщение UML моделирования Courier.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateSpeed()».\n5. Проверьте в «main»: «BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Курьер: \" + courier.getName() + \" | Тезлик: \" + courier.calculateSpeed() + \" км/ч\");'"
     },
     "requirements": {
       "classes": [
@@ -2162,7 +2723,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BikeCourier</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>BikeCourier</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Kuryer: Jasur | Tezlik: 18.0 km/h"
@@ -2170,7 +2737,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kuryer: Jasur | Tezlik: 18.0 km/h",
     "story": {
       "uz": "Express24 da '*Courier*' abstrakt klassi 'abstract double calculateSpeed();' metodiga ega. 'BikeCourier' velosipeddagi kuryer tezligini 18.0 km/h qilib qaytaruvchi sinfni yarating.",
-      "en": "Express24 specifies abstract Courier with abstract calculateSpeed(). BikeCourier returns 18.0 km/h."
+      "en": "Express24 specifies abstract Courier with abstract calculateSpeed(). BikeCourier returns 18.0 km/h.",
+      "ru": "Express24 определяет абстрактный Courier с помощью абстрактного метода CalculateSpeed(). BikeCourier возвращает скорость 18,0 км/ч."
     },
     "steps": {
       "uz": [
@@ -2186,6 +2754,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateSpeed()'.",
         "Verify in 'main': 'BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Kuryer: \" + courier.getName() + \" | Tezlik: \" + courier.calculateSpeed() + \" km/h\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Курьер» как абстрактный.",
+        "Создайте подкласс BikeCourier, расширяющий обобщение UML моделирования Courier.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateSpeed()».",
+        "Проверьте в «main»: «BikeCourier courier = new BikeCourier(\"Jasur\");         System.out.println(\"Курьер: \" + courier.getName() + \" | Тезлик: \" + courier.calculateSpeed() + \" км/ч\");'"
       ]
     }
   },
@@ -2196,11 +2771,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "37. Medion — ElectronicDevice (3-Darajali Ierarxiya)",
-      "en": "37. Medion — Multi-level Inheritance in UML Class Diagram"
+      "en": "37. Medion — Multi-level Inheritance in UML Class Diagram",
+      "ru": "37. Medion — многоуровневое наследование в диаграмме классов UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida 'Product' -> 'PhysicalProduct' -> 'ElectronicDevice' ko'rinishidagi 3 bosqichli UML ierarxiyasi berilgan. 'ElectronicDevice' o'zida 'warrantyMonths' maydonini saqlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'PhysicalProduct' ni  e'lon qiling.\n2. Avlod sinf 'ElectronicDevice' ni yarating va 'extends PhysicalProduct' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'getDeviceInfo()' metodini qo'shing.\n5. 'Main' metodida 'ElectronicDevice' ob'yektini yaratib natijani chop eting: 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'",
-      "en": "📖 Real-World Scenario & Context\nFollowing WIUT course slides: Product -> PhysicalProduct -> ElectronicDevice 3-tier hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'PhysicalProduct' .\n2. Create subclass 'ElectronicDevice' extending 'PhysicalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getDeviceInfo()'.\n5. Verify in 'main': 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'"
+      "en": "📖 Real-World Scenario & Context\nFollowing WIUT course slides: Product -> PhysicalProduct -> ElectronicDevice 3-tier hierarchy.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'PhysicalProduct' .\n2. Create subclass 'ElectronicDevice' extending 'PhysicalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getDeviceInfo()'.\n5. Verify in 'main': 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'",
+      "ru": "📖 Контекст и описание задачи\nСледующие слайды курса WIUT: Продукт -> Физический продукт -> Электронное устройство. Трехуровневая иерархия.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PhysicalProduct.\n2. Создайте подкласс «ElectronicDevice», расширяющий «PhysicalProduct», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализовать/переопределить getDeviceInfo().\n5. Проверьте в 'main': 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'"
     },
     "requirements": {
       "classes": [
@@ -2226,7 +2803,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>ElectronicDevice</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>ElectronicDevice</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Asus Noutbuk | Og'irligi: 2.1 kg | Kafolat: 24 oy"
@@ -2234,7 +2817,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Asus Noutbuk | Og'irligi: 2.1 kg | Kafolat: 24 oy",
     "story": {
       "uz": "WIUT darsligida 'Product' -> 'PhysicalProduct' -> 'ElectronicDevice' ko'rinishidagi 3 bosqichli UML ierarxiyasi berilgan. 'ElectronicDevice' o'zida 'warrantyMonths' maydonini saqlaydi.",
-      "en": "Following WIUT course slides: Product -> PhysicalProduct -> ElectronicDevice 3-tier hierarchy."
+      "en": "Following WIUT course slides: Product -> PhysicalProduct -> ElectronicDevice 3-tier hierarchy.",
+      "ru": "Следующие слайды курса WIUT: Продукт -> Физический продукт -> Электронное устройство. Трехуровневая иерархия."
     },
     "steps": {
       "uz": [
@@ -2250,6 +2834,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'getDeviceInfo()'.",
         "Verify in 'main': 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'"
+      ],
+      "ru": [
+        "Объявите суперкласс PhysicalProduct.",
+        "Создайте подкласс «ElectronicDevice», расширяющий «PhysicalProduct», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализовать/переопределить getDeviceInfo().",
+        "Проверьте в 'main': 'ElectronicDevice device = new ElectronicDevice(\"Noutbuk\", 8000000.0, 2.1, \"Asus\", 24);         System.out.println(device.getDeviceInfo());'"
       ]
     }
   },
@@ -2260,11 +2851,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "38. Click — ServiceProvider va UtilityProvider Generalization",
-      "en": "38. Click — ServiceProvider Inheritance Structure"
+      "en": "38. Click — ServiceProvider Inheritance Structure",
+      "ru": "38. Нажмите — Структура наследования поставщика услуг."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick tizimida 'ServiceProvider' ota sinfidan 'UtilityProvider' meros oladi va hisoblagich raqamini tekshirish qobiliyatini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'ServiceProvider' ni  e'lon qiling.\n2. Avlod sinf 'UtilityProvider' ni yarating va 'extends ServiceProvider' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'validateMeter()' metodini qo'shing.\n5. 'Main' metodida 'UtilityProvider' ob'yektini yaratib natijani chop eting: 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Provayder: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'",
-      "en": "📖 Real-World Scenario & Context\nIn Click, UtilityProvider extends ServiceProvider adding meter validation logic.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'ServiceProvider' .\n2. Create subclass 'UtilityProvider' extending 'ServiceProvider' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'validateMeter()'.\n5. Verify in 'main': 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Provayder: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'"
+      "en": "📖 Real-World Scenario & Context\nIn Click, UtilityProvider extends ServiceProvider adding meter validation logic.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'ServiceProvider' .\n2. Create subclass 'UtilityProvider' extending 'ServiceProvider' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'validateMeter()'.\n5. Verify in 'main': 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Provayder: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'",
+      "ru": "📖 Контекст и описание задачи\nВ Click UtilityProvider расширяет ServiceProvider, добавляя логику проверки счетчиков.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс ServiceProvider.\n2. Создайте подкласс «UtilityProvider», расширяющий «ServiceProvider», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализовать/переопределить «validateMeter()».\n5. Проверьте в 'main': 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Провайдер: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'"
     },
     "requirements": {
       "classes": [
@@ -2290,7 +2883,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>UtilityProvider</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>UtilityProvider</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Provayder: HududGaz | Hisoblagich to'g'rimi: true"
@@ -2298,7 +2897,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Provayder: HududGaz | Hisoblagich to'g'rimi: true",
     "story": {
       "uz": "Click tizimida 'ServiceProvider' ota sinfidan 'UtilityProvider' meros oladi va hisoblagich raqamini tekshirish qobiliyatini qo'shadi.",
-      "en": "In Click, UtilityProvider extends ServiceProvider adding meter validation logic."
+      "en": "In Click, UtilityProvider extends ServiceProvider adding meter validation logic.",
+      "ru": "В Click UtilityProvider расширяет ServiceProvider, добавляя логику проверки счетчиков."
     },
     "steps": {
       "uz": [
@@ -2314,6 +2914,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'validateMeter()'.",
         "Verify in 'main': 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Provayder: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'"
+      ],
+      "ru": [
+        "Объявите суперкласс ServiceProvider.",
+        "Создайте подкласс «UtilityProvider», расширяющий «ServiceProvider», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализовать/переопределить «validateMeter()».",
+        "Проверьте в 'main': 'UtilityProvider gaz = new UtilityProvider(\"HududGaz\", \"UZ-GAS-1122\");         System.out.println(\"Провайдер: \" + gaz.getName() + \" | Hisoblagich to'g'rimi: \" + gaz.validateMeter());'"
       ]
     }
   },
@@ -2324,11 +2931,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "39. Asaxiy — EBook (DigitalProduct Vorisi)",
-      "en": "39. Asaxiy — EBook Subclassing DigitalProduct in UML"
+      "en": "39. Asaxiy — EBook Subclassing DigitalProduct in UML",
+      "ru": "39. Asaxy — подкласс электронных книг DigitalProduct в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy da 'EBook' sinfi 'DigitalProduct' dan meros oladi (3-bosqich) va kitob muallifi hamda sahifalar sonini o'zida saqlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'DigitalProduct' ni  e'lon qiling.\n2. Avlod sinf 'EBook' ni yarating va 'extends DigitalProduct' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'getBookDetails()' metodini qo'shing.\n5. 'Main' metodida 'EBook' ob'yektini yaratib natijani chop eting: 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxiy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'",
-      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, EBook extends DigitalProduct, tracking author and page count.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'DigitalProduct' .\n2. Create subclass 'EBook' extending 'DigitalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getBookDetails()'.\n5. Verify in 'main': 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxiy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'"
+      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, EBook extends DigitalProduct, tracking author and page count.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'DigitalProduct' .\n2. Create subclass 'EBook' extending 'DigitalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getBookDetails()'.\n5. Verify in 'main': 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxiy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'",
+      "ru": "📖 Контекст и описание задачи\nВ Asaxyy электронная книга расширяет возможности DigitalProduct, отслеживая автора и количество страниц.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс DigitalProduct.\n2. Создайте подкласс «EBook», расширяющий «DigitalProduct», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализовать/переопределить getBookDetails().\n5. Проверьте в 'main': 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'"
     },
     "requirements": {
       "classes": [
@@ -2354,7 +2963,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>EBook</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>EBook</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "O'tkan Kunlar | Muallif: Abdulla Qodiriy | Sahifalar: 410"
@@ -2362,7 +2977,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "O'tkan Kunlar | Muallif: Abdulla Qodiriy | Sahifalar: 410",
     "story": {
       "uz": "Asaxiy da 'EBook' sinfi 'DigitalProduct' dan meros oladi (3-bosqich) va kitob muallifi hamda sahifalar sonini o'zida saqlaydi.",
-      "en": "At Asaxiy, EBook extends DigitalProduct, tracking author and page count."
+      "en": "At Asaxiy, EBook extends DigitalProduct, tracking author and page count.",
+      "ru": "В Asaxyy электронная книга расширяет возможности DigitalProduct, отслеживая автора и количество страниц."
     },
     "steps": {
       "uz": [
@@ -2378,6 +2994,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'getBookDetails()'.",
         "Verify in 'main': 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxiy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'"
+      ],
+      "ru": [
+        "Объявите суперкласс DigitalProduct.",
+        "Создайте подкласс «EBook», расширяющий «DigitalProduct», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализовать/переопределить getBookDetails().",
+        "Проверьте в 'main': 'EBook book = new EBook(\"O'tkan Kunlar\", 30000.0, \"https:asaxy.uz/eb/1\", \"Abdulla Qodiriy\", 410);         System.out.println(book.getBookDetails());'"
       ]
     }
   },
@@ -2388,11 +3011,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "40. Safia — BakeryItem va BirthdayCake Ierarxiyasi",
-      "en": "40. Safia — BakeryItem and BirthdayCake Generalization"
+      "en": "40. Safia — BakeryItem and BirthdayCake Generalization",
+      "ru": "40. Сафия — обобщение BakeryItem и BirthdayCake"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia pishiriqlari 'BakeryItem' umumiy sinfidan tarqaladi. 'BirthdayCake' torti shamlar soni va tabrik matnini qo'shib narxni hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'BakeryItem' ni  e'lon qiling.\n2. Avlod sinf 'BirthdayCake' ni yarating va 'extends BakeryItem' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateTotalCost()' metodini qo'shing.\n5. 'Main' metodida 'BirthdayCake' ob'yektini yaratib natijani chop eting: 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'",
-      "en": "📖 Real-World Scenario & Context\nSafia BirthdayCake extends BakeryItem adding candle count and custom inscription.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'BakeryItem' .\n2. Create subclass 'BirthdayCake' extending 'BakeryItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateTotalCost()'.\n5. Verify in 'main': 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'"
+      "en": "📖 Real-World Scenario & Context\nSafia BirthdayCake extends BakeryItem adding candle count and custom inscription.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'BakeryItem' .\n2. Create subclass 'BirthdayCake' extending 'BakeryItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateTotalCost()'.\n5. Verify in 'main': 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'",
+      "ru": "📖 Контекст и описание задачи\nSafia BirthdayCake расширяет BakeryItem, добавляя количество свечей и пользовательскую надпись.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BakeryItem.\n2. Создайте подкласс «BirthdayCake», расширяющий «BakeryItem», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateTotalCost()».\n5. Проверьте в 'main': 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'"
     },
     "requirements": {
       "classes": [
@@ -2418,7 +3043,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BirthdayCake</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>BirthdayCake</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Tort: Shokoladli Tort | Jami qiymat: 125000.0"
@@ -2426,7 +3057,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Tort: Shokoladli Tort | Jami qiymat: 125000.0",
     "story": {
       "uz": "Safia pishiriqlari 'BakeryItem' umumiy sinfidan tarqaladi. 'BirthdayCake' torti shamlar soni va tabrik matnini qo'shib narxni hisoblaydi.",
-      "en": "Safia BirthdayCake extends BakeryItem adding candle count and custom inscription."
+      "en": "Safia BirthdayCake extends BakeryItem adding candle count and custom inscription.",
+      "ru": "Safia BirthdayCake расширяет BakeryItem, добавляя количество свечей и пользовательскую надпись."
     },
     "steps": {
       "uz": [
@@ -2442,6 +3074,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateTotalCost()'.",
         "Verify in 'main': 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'"
+      ],
+      "ru": [
+        "Объявите суперкласс BakeryItem.",
+        "Создайте подкласс «BirthdayCake», расширяющий «BakeryItem», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateTotalCost()».",
+        "Проверьте в 'main': 'BirthdayCake cake = new BirthdayCake(\"Shokoladli Tort\", 120000.0, 5);         System.out.println(\"Tort: \" + cake.getName() + \" | Jami qiymat: \" + cake.calculateTotalCost());'"
       ]
     }
   },
@@ -2452,11 +3091,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "41. Dodo Pizza — FastFoodItem va HotDog Generalization",
-      "en": "41. Dodo Pizza — FastFoodItem and HotDog Subclassing"
+      "en": "41. Dodo Pizza — FastFoodItem and HotDog Subclassing",
+      "ru": "41. Додо Пицца — подклассы FastFoodItem и HotDog"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo tez ovqatlanish menyusida 'FastFoodItem' ota sinfidan 'HotDog' sinfi meros oladi va sosiska turini belgilaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'FastFoodItem' ni  e'lon qiling.\n2. Avlod sinf 'HotDog' ni yarating va 'extends FastFoodItem' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'getFoodDescription()' metodini qo'shing.\n5. 'Main' metodida 'HotDog' ob'yektini yaratib natijani chop eting: 'HotDog hd = new HotDog(\"Danko Hotdog\", 25000.0, \"Mol go'shti\");         System.out.println(hd.getFoodDescription());'",
-      "en": "📖 Real-World Scenario & Context\nIn Dodo FastFood hierarchy, HotDog extends FastFoodItem specifying sausage type.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'FastFoodItem' .\n2. Create subclass 'HotDog' extending 'FastFoodItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getFoodDescription()'.\n5. Verify in 'main': 'HotDog hd = new HotDog(\"Danko Hotdog\", 25000.0, \"Mol go'shti\");         System.out.println(hd.getFoodDescription());'"
+      "en": "📖 Real-World Scenario & Context\nIn Dodo FastFood hierarchy, HotDog extends FastFoodItem specifying sausage type.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'FastFoodItem' .\n2. Create subclass 'HotDog' extending 'FastFoodItem' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getFoodDescription()'.\n5. Verify in 'main': 'HotDog hd = new HotDog(\"Danko Hotdog\", 25000.0, \"Mol go'shti\");         System.out.println(hd.getFoodDescription());'",
+      "ru": "📖 Контекст и описание задачи\nВ иерархии Dodo FastFood HotDog расширяет FastFoodItem, указывая тип колбасы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс FastFoodItem.\n2. Создайте подкласс HotDog, расширяющий FastFoodItem, моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите getFoodDescription().\n5. Проверьте в 'main': 'HotDog hd = new HotDog(\"Данко Хотдог\", 25000.0, \"Мол го'шти\");         System.out.println(hd.getFoodDescription());'"
     },
     "requirements": {
       "classes": [
@@ -2482,7 +3123,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>HotDog</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>HotDog</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Danko Hotdog (Mol go'shti) narxi: 25000.0"
@@ -2490,7 +3137,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Danko Hotdog (Mol go'shti) narxi: 25000.0",
     "story": {
       "uz": "Dodo tez ovqatlanish menyusida 'FastFoodItem' ota sinfidan 'HotDog' sinfi meros oladi va sosiska turini belgilaydi.",
-      "en": "In Dodo FastFood hierarchy, HotDog extends FastFoodItem specifying sausage type."
+      "en": "In Dodo FastFood hierarchy, HotDog extends FastFoodItem specifying sausage type.",
+      "ru": "В иерархии Dodo FastFood HotDog расширяет FastFoodItem, указывая тип колбасы."
     },
     "steps": {
       "uz": [
@@ -2506,6 +3154,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'getFoodDescription()'.",
         "Verify in 'main': 'HotDog hd = new HotDog(\"Danko Hotdog\", 25000.0, \"Mol go'shti\");         System.out.println(hd.getFoodDescription());'"
+      ],
+      "ru": [
+        "Объявите суперкласс FastFoodItem.",
+        "Создайте подкласс HotDog, расширяющий FastFoodItem, моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите getFoodDescription().",
+        "Проверьте в 'main': 'HotDog hd = new HotDog(\"Данко Хотдог\", 25000.0, \"Мол го'шти\");         System.out.println(hd.getFoodDescription());'"
       ]
     }
   },
@@ -2516,11 +3171,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "42. Texnomart — Clothing (PhysicalProduct Vorisi)",
-      "en": "42. Texnomart — Clothing Subclass under PhysicalProduct"
+      "en": "42. Texnomart — Clothing Subclass under PhysicalProduct",
+      "ru": "42. Texnomart — подкласс одежды в разделе PhysicalProduct."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 4 Ex7 ga ko'ra 'Clothing extends PhysicalProduct' kiyim o'lchami va materialini saqlaydi hamda yetkazish narxini 20000 so'm standart belgilaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'PhysicalProduct' ni  e'lon qiling.\n2. Avlod sinf 'Clothing' ni yarating va 'extends PhysicalProduct' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateDeliveryCost()' metodini qo'shing.\n5. 'Main' metodida 'Clothing' ob'yektini yaratib natijani chop eting: 'Clothing jacket = new Clothing(\"Qishki Kurtka\", 450000.0, 1.2, \"L\", \"Polyester\");         System.out.println(\"Kiyim: \" + jacket.getName() + \" | O'lcham: \" + jacket.getSize() + \" | Yetkazish: \" + jacket.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nFollowing Seminar 4 Ex7, Clothing extends PhysicalProduct with size, material, and flat delivery.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'PhysicalProduct' .\n2. Create subclass 'Clothing' extending 'PhysicalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'Clothing jacket = new Clothing(\"Qishki Kurtka\", 450000.0, 1.2, \"L\", \"Polyester\");         System.out.println(\"Kiyim: \" + jacket.getName() + \" | O'lcham: \" + jacket.getSize() + \" | Yetkazish: \" + jacket.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nFollowing Seminar 4 Ex7, Clothing extends PhysicalProduct with size, material, and flat delivery.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'PhysicalProduct' .\n2. Create subclass 'Clothing' extending 'PhysicalProduct' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateDeliveryCost()'.\n5. Verify in 'main': 'Clothing jacket = new Clothing(\"Qishki Kurtka\", 450000.0, 1.2, \"L\", \"Polyester\");         System.out.println(\"Kiyim: \" + jacket.getName() + \" | O'lcham: \" + jacket.getSize() + \" | Yetkazish: \" + jacket.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nПосле семинара 4 Ex7 компания Clothing расширяет возможности PhysicalProduct за счет размера, материала и доставки в плоском виде.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PhysicalProduct.\n2. Создайте подкласс «Одежда», расширяющий «Физический продукт», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateDeliveryCost()».\n5. Проверяем в 'main': 'Одежда куртки = новая одежда(\"Кишки Куртка\", 450000.0, 1.2, \"L\", \"Полиэстер\");         System.out.println(\"Кийим: \" + Jacket.getName() + \" | О'лчам: \" + Jacket.getSize() + \" | Йетказиш: \" + Jacket.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -2546,7 +3203,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Clothing</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>Clothing</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Kiyim: Qishki Kurtka | O'lcham: L | Yetkazish: 20000.0"
@@ -2554,7 +3217,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kiyim: Qishki Kurtka | O'lcham: L | Yetkazish: 20000.0",
     "story": {
       "uz": "Seminar 4 Ex7 ga ko'ra 'Clothing extends PhysicalProduct' kiyim o'lchami va materialini saqlaydi hamda yetkazish narxini 20000 so'm standart belgilaydi.",
-      "en": "Following Seminar 4 Ex7, Clothing extends PhysicalProduct with size, material, and flat delivery."
+      "en": "Following Seminar 4 Ex7, Clothing extends PhysicalProduct with size, material, and flat delivery.",
+      "ru": "После семинара 4 Ex7 компания Clothing расширяет возможности PhysicalProduct за счет размера, материала и доставки в плоском виде."
     },
     "steps": {
       "uz": [
@@ -2570,6 +3234,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateDeliveryCost()'.",
         "Verify in 'main': 'Clothing jacket = new Clothing(\"Qishki Kurtka\", 450000.0, 1.2, \"L\", \"Polyester\");         System.out.println(\"Kiyim: \" + jacket.getName() + \" | O'lcham: \" + jacket.getSize() + \" | Yetkazish: \" + jacket.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Объявите суперкласс PhysicalProduct.",
+        "Создайте подкласс «Одежда», расширяющий «Физический продукт», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateDeliveryCost()».",
+        "Проверяем в 'main': 'Одежда куртки = новая одежда(\"Кишки Куртка\", 450000.0, 1.2, \"L\", \"Полиэстер\");         System.out.println(\"Кийим: \" + Jacket.getName() + \" | О'лчам: \" + Jacket.getSize() + \" | Йетказиш: \" + Jacket.calculateDeliveryCost());'"
       ]
     }
   },
@@ -2580,11 +3251,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "43. UzAirways — Abstrakt Flight va DomesticFlight",
-      "en": "43. UzAirways — Abstract Flight and DomesticFlight in UML"
+      "en": "43. UzAirways — Abstract Flight and DomesticFlight in UML",
+      "ru": "43. UzAirways — Абстрактные рейсы и внутренние рейсы в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways da '*Flight*' abstrakt bo'lib, 'DomesticFlight' reysi ichki aeroport solig'ini hisoblab qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Flight' ni abstrakt ('abstract class') sifatida e'lon qiling.\n2. Avlod sinf 'DomesticFlight' ni yarating va 'extends Flight' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateTotalFare()' metodini @Override orqali realizatsiya qiling.\n5. 'Main' metodida 'DomesticFlight' ob'yektini yaratib natijani chop eting: 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Toshkent-Nukus\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan chipta: \" + df.calculateTotalFare());'",
-      "en": "📖 Real-World Scenario & Context\nUzAirways models abstract Flight with DomesticFlight implementing airport domestic tax calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Flight' as abstract.\n2. Create subclass 'DomesticFlight' extending 'Flight' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateTotalFare()'.\n5. Verify in 'main': 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Toshkent-Nukus\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan chipta: \" + df.calculateTotalFare());'"
+      "en": "📖 Real-World Scenario & Context\nUzAirways models abstract Flight with DomesticFlight implementing airport domestic tax calculation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Flight' as abstract.\n2. Create subclass 'DomesticFlight' extending 'Flight' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateTotalFare()'.\n5. Verify in 'main': 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Toshkent-Nukus\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan chipta: \" + df.calculateTotalFare());'",
+      "ru": "📖 Контекст и описание задачи\nUzAirways моделирует абстрактный рейс с DomesticFlight, реализуя расчет внутренних аэропортовых сборов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Flight как абстрактный.\n2. Создайте подкласс «DomesticFlight», расширяющий обобщение UML моделирования «Полета».\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите функцию «calculateTotalFare()».\n5. Проверьте в 'main': 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Тошкент-Нукус\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan Chipta: \" + df.calculateTotalFare());'"
     },
     "requirements": {
       "classes": [
@@ -2611,7 +3284,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>DomesticFlight</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>DomesticFlight</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Reys: HY-011 | Soliq bilan chipta: 630000.0"
@@ -2619,7 +3298,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Reys: HY-011 | Soliq bilan chipta: 630000.0",
     "story": {
       "uz": "Uzbekistan Airways da '*Flight*' abstrakt bo'lib, 'DomesticFlight' reysi ichki aeroport solig'ini hisoblab qaytaradi.",
-      "en": "UzAirways models abstract Flight with DomesticFlight implementing airport domestic tax calculation."
+      "en": "UzAirways models abstract Flight with DomesticFlight implementing airport domestic tax calculation.",
+      "ru": "UzAirways моделирует абстрактный рейс с DomesticFlight, реализуя расчет внутренних аэропортовых сборов."
     },
     "steps": {
       "uz": [
@@ -2635,6 +3315,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateTotalFare()'.",
         "Verify in 'main': 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Toshkent-Nukus\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan chipta: \" + df.calculateTotalFare());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Flight как абстрактный.",
+        "Создайте подкласс «DomesticFlight», расширяющий обобщение UML моделирования «Полета».",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите функцию «calculateTotalFare()».",
+        "Проверьте в 'main': 'DomesticFlight df = new DomesticFlight(\"HY-011\", \"Тошкент-Нукус\", 600000.0);         System.out.println(\"Reys: \" + df.getFlightCode() + \" | Soliq bilan Chipta: \" + df.calculateTotalFare());'"
       ]
     }
   },
@@ -2645,11 +3332,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "44. Kapitalbank — Abstrakt Loan va ConsumerLoan",
-      "en": "44. Kapitalbank — Abstract Loan and ConsumerLoan Generalization"
+      "en": "44. Kapitalbank — Abstract Loan and ConsumerLoan Generalization",
+      "ru": "44. Капиталбанк — абстрактный кредит и обобщение потребительского кредита."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank kredit tizimida '*Loan*' abstrakt sinfi 'calculateMonthlyPayment()' metodini e'lon qiladi. 'ConsumerLoan' iste'mol krediti uchun to'lovni hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Loan' ni abstrakt ('abstract class') sifatida e'lon qiling.\n2. Avlod sinf 'ConsumerLoan' ni yarating va 'extends Loan' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'calculateMonthlyPayment()' metodini @Override orqali realizatsiya qiling.\n5. 'Main' metodida 'ConsumerLoan' ob'yektini yaratib natijani chop eting: 'ConsumerLoan loan = new ConsumerLoan(24000000.0, 12);         System.out.println(\"Iste'mol krediti oylik to'lovi: \" + loan.calculateMonthlyPayment());'",
-      "en": "📖 Real-World Scenario & Context\nKapitalbank specifies abstract Loan. ConsumerLoan calculates monthly installment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' as abstract.\n2. Create subclass 'ConsumerLoan' extending 'Loan' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateMonthlyPayment()'.\n5. Verify in 'main': 'ConsumerLoan loan = new ConsumerLoan(24000000.0, 12);         System.out.println(\"Iste'mol krediti oylik to'lovi: \" + loan.calculateMonthlyPayment());'"
+      "en": "📖 Real-World Scenario & Context\nKapitalbank specifies abstract Loan. ConsumerLoan calculates monthly installment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' as abstract.\n2. Create subclass 'ConsumerLoan' extending 'Loan' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'calculateMonthlyPayment()'.\n5. Verify in 'main': 'ConsumerLoan loan = new ConsumerLoan(24000000.0, 12);         System.out.println(\"Iste'mol krediti oylik to'lovi: \" + loan.calculateMonthlyPayment());'",
+      "ru": "📖 Контекст и описание задачи\nКапиталбанк указывает абстрактный Заем. ConsumerLoan рассчитывает ежемесячный платеж.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ссуда» как абстрактный.\n2. Создайте подкласс «ConsumerLoan», расширяющий обобщение UML моделирования «Ссуды».\n3. Вызов super(...) из дочернего конструктора.\n4. Реализуйте/переопределите «calculateMonthlyPayment()».\n5. Проверьте в «main»: «Потребительский кредит = новый потребительский кредит (24000000.0, 12);         System.out.println(\"Получить кредитный лимит: \" + кредит.calculateMonthlyPayment());'"
     },
     "requirements": {
       "classes": [
@@ -2676,7 +3365,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>ConsumerLoan</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>ConsumerLoan</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Iste'mol krediti oylik to'lovi: 2000000.0"
@@ -2684,7 +3379,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Iste'mol krediti oylik to'lovi: 2000000.0",
     "story": {
       "uz": "Kapitalbank kredit tizimida '*Loan*' abstrakt sinfi 'calculateMonthlyPayment()' metodini e'lon qiladi. 'ConsumerLoan' iste'mol krediti uchun to'lovni hisoblaydi.",
-      "en": "Kapitalbank specifies abstract Loan. ConsumerLoan calculates monthly installment."
+      "en": "Kapitalbank specifies abstract Loan. ConsumerLoan calculates monthly installment.",
+      "ru": "Капиталбанк указывает абстрактный Заем. ConsumerLoan рассчитывает ежемесячный платеж."
     },
     "steps": {
       "uz": [
@@ -2700,6 +3396,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'calculateMonthlyPayment()'.",
         "Verify in 'main': 'ConsumerLoan loan = new ConsumerLoan(24000000.0, 12);         System.out.println(\"Iste'mol krediti oylik to'lovi: \" + loan.calculateMonthlyPayment());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ссуда» как абстрактный.",
+        "Создайте подкласс «ConsumerLoan», расширяющий обобщение UML моделирования «Ссуды».",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализуйте/переопределите «calculateMonthlyPayment()».",
+        "Проверьте в «main»: «Потребительский кредит = новый потребительский кредит (24000000.0, 12);         System.out.println(\"Получить кредитный лимит: \" + кредит.calculateMonthlyPayment());'"
       ]
     }
   },
@@ -2710,11 +3413,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "31-45: Generalization (Solid Arrow) va Abstract Classes",
     "title": {
       "uz": "45. WIUT — Person va Student Generalization",
-      "en": "45. WIUT — Person and Student Generalization in UML"
+      "en": "45. WIUT — Person and Student Generalization in UML",
+      "ru": "45. WIUT — Обобщение человека и студента в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT universitetida 'Student extends Person' umumiy inson sinfidan talaba ID raqami va yo'nalishini qo'shib kengayadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML diagrammasidagi ota sinf 'Person' ni  e'lon qiling.\n2. Avlod sinf 'Student' ni yarating va 'extends Person' orqali Generalization munosabatini o'rnating.\n3. 'super(...)' yordamida ota sinf konstruktorini chaqirib yangi xususiyatlarni biriktiring.\n4. 'getFullInfo()' metodini qo'shing.\n5. 'Main' metodida 'Student' ob'yektini yaratib natijani chop eting: 'Student student = new Student(\"Aziz Karimov\", \"00012345\", \"Business Information Systems\");         System.out.println(student.getFullInfo());'",
-      "en": "📖 Real-World Scenario & Context\nAt WIUT, Student extends Person adding studentId and major fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Person' .\n2. Create subclass 'Student' extending 'Person' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getFullInfo()'.\n5. Verify in 'main': 'Student student = new Student(\"Aziz Karimov\", \"00012345\", \"Business Information Systems\");         System.out.println(student.getFullInfo());'"
+      "en": "📖 Real-World Scenario & Context\nAt WIUT, Student extends Person adding studentId and major fields.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare superclass 'Person' .\n2. Create subclass 'Student' extending 'Person' modeling UML Generalization.\n3. Call super(...) from child constructor.\n4. Implement/override 'getFullInfo()'.\n5. Verify in 'main': 'Student student = new Student(\"Aziz Karimov\", \"00012345\", \"Business Information Systems\");         System.out.println(student.getFullInfo());'",
+      "ru": "📖 Контекст и описание задачи\nВ WIUT Student расширяет Person, добавляя StudentId и основные поля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Person.\n2. Создайте подкласс «Студент», расширяющий «Человек», моделирующий обобщение UML.\n3. Вызов super(...) из дочернего конструктора.\n4. Реализовать/переопределить getFullInfo().\n5. Проверьте в 'main': 'Студент студент = новый студент(\"Азиз Каримов\", \"00012345\", \"Бизнес-информационные системы\");         System.out.println(student.getFullInfo());'"
     },
     "requirements": {
       "classes": [
@@ -2740,7 +3445,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Student</code>: ota sinfni meros oluvchi voris sinf."
       ],
       "pitfalls": "Abstrakt ota sinfdan to'g'ridan-to'g'ri ob'yekt olib bo'lmaydi (new SuperClass() xato). Faqat uning aniq (concrete) bolalari orqali ob'yekt yaratiladi.",
-      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi."
+      "cw2Tip": "Seminar 4 drawio yechimida 'Product' ota sinfi bo'lib, 'PhysicalProduct' va 'DigitalProduct' undan Generalization orqali tarqaladi.",
+      "theoryRu": "В UML обобщение (наследование) изображается сплошной линией с полой треугольной стрелкой, указывающей на суперкласс. Абстрактные классы выделяются курсивом или помечаются тегом «{abstract}».",
+      "pitfallsRu": "Абстракт ота синфдан то'гидан-то'г'ри объект олибоб болмайди (новый SuperClass() xato). Faqat uning aniq (конкретные) bolalari orqali ob'yekt yaratiladi.",
+      "breakdownRu": [
+        "<code>Generalization</code>: UML dagi oq uchburchakli to'g'ri chiziq (extends).",
+        "<code>Student</code>: ota sinfni meros oluvchi voris sinf."
+      ]
     },
     "sampleData": [
       "Ism: Aziz Karimov | ID: 00012345 | Yo'nalish: Business Information Systems"
@@ -2748,7 +3459,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Ism: Aziz Karimov | ID: 00012345 | Yo'nalish: Business Information Systems",
     "story": {
       "uz": "WIUT universitetida 'Student extends Person' umumiy inson sinfidan talaba ID raqami va yo'nalishini qo'shib kengayadi.",
-      "en": "At WIUT, Student extends Person adding studentId and major fields."
+      "en": "At WIUT, Student extends Person adding studentId and major fields.",
+      "ru": "В WIUT Student расширяет Person, добавляя StudentId и основные поля."
     },
     "steps": {
       "uz": [
@@ -2764,6 +3476,13 @@ window.OOP_CHALLENGES_W5 = [
         "Call super(...) from child constructor.",
         "Implement/override 'getFullInfo()'.",
         "Verify in 'main': 'Student student = new Student(\"Aziz Karimov\", \"00012345\", \"Business Information Systems\");         System.out.println(student.getFullInfo());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Person.",
+        "Создайте подкласс «Студент», расширяющий «Человек», моделирующий обобщение UML.",
+        "Вызов super(...) из дочернего конструктора.",
+        "Реализовать/переопределить getFullInfo().",
+        "Проверьте в 'main': 'Студент студент = новый студент(\"Азиз Каримов\", \"00012345\", \"Бизнес-информационные системы\");         System.out.println(student.getFullInfo());'"
       ]
     }
   },
@@ -2774,11 +3493,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "46. Uzum Market — Deliverable Interfeysi Realization",
-      "en": "46. Uzum Market — Deliverable Interface Realization in UML"
+      "en": "46. Uzum Market — Deliverable Interface Realization in UML",
+      "ru": "46. Uzum Market — реализация реализуемого интерфейса на UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market UML diagrammasida 'Deliverable' interfeysi '<<interface>>' deb belgilangan va 'Parcel' sinfiga chiziqli uzuq-uzuq (dashed line) uchburchak strelka (Realization) bilan ulangan. 'deliver()' metodini realizatsiya qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Deliverable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'Parcel' sinfini 'implements Deliverable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'deliver(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Deliverable obj = new Parcel(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Deliverable p = new Parcel(\"BOX-123\", \"Amir Temur 5\");         p.deliver();'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, an interface realization is shown with a dashed line and hollow triangular arrow pointing to '<<interface>>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Deliverable'.\n2. Implement it in 'Parcel' using 'implements'.\n3. Override and provide implementation for 'deliver(...)'.\n4. Use interface reference 'Deliverable obj = new Parcel(...);' in 'main'.\n5. Print result to console: 'Deliverable p = new Parcel(\"BOX-123\", \"Amir Temur 5\");         p.deliver();'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, an interface realization is shown with a dashed line and hollow triangular arrow pointing to '<<interface>>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Deliverable'.\n2. Implement it in 'Parcel' using 'implements'.\n3. Override and provide implementation for 'deliver(...)'.\n4. Use interface reference 'Deliverable obj = new Parcel(...);' in 'main'.\n5. Print result to console: 'Deliverable p = new Parcel(\"BOX-123\", \"Amir Temur 5\");         p.deliver();'",
+      "ru": "📖 Контекст и описание задачи\nВ UML реализация интерфейса отображается пунктирной линией и полой треугольной стрелкой, указывающей на «<<интерфейс>>».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Доставляемый».\n2. Реализуйте это в «Посылке», используя «инструменты».\n3. Переопределить и предоставить реализацию для «доставки(...)».\n4. Используйте ссылку на интерфейс «Доставляемый объект = новая посылка (...);» в «главном».\n5. Вывести результат на консоль: 'Доставленный p = новая посылка(\"BOX-123\", \"Амир Темур 5\");         p.deliver();'"
     },
     "requirements": {
       "classes": [
@@ -2806,7 +3527,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Deliverable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Deliverable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "BOX-123 qutisi Amir Temur 5 manziliga yetkazildi."
@@ -2814,7 +3541,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "BOX-123 qutisi Amir Temur 5 manziliga yetkazildi.",
     "story": {
       "uz": "Uzum Market UML diagrammasida 'Deliverable' interfeysi '<<interface>>' deb belgilangan va 'Parcel' sinfiga chiziqli uzuq-uzuq (dashed line) uchburchak strelka (Realization) bilan ulangan. 'deliver()' metodini realizatsiya qiling.",
-      "en": "In UML, an interface realization is shown with a dashed line and hollow triangular arrow pointing to '<<interface>>'."
+      "en": "In UML, an interface realization is shown with a dashed line and hollow triangular arrow pointing to '<<interface>>'.",
+      "ru": "В UML реализация интерфейса отображается пунктирной линией и полой треугольной стрелкой, указывающей на «<<интерфейс>>»."
     },
     "steps": {
       "uz": [
@@ -2830,6 +3558,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'deliver(...)'.",
         "Use interface reference 'Deliverable obj = new Parcel(...);' in 'main'.",
         "Print result to console: 'Deliverable p = new Parcel(\"BOX-123\", \"Amir Temur 5\");         p.deliver();'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Доставляемый».",
+        "Реализуйте это в «Посылке», используя «инструменты».",
+        "Переопределить и предоставить реализацию для «доставки(...)».",
+        "Используйте ссылку на интерфейс «Доставляемый объект = новая посылка (...);» в «главном».",
+        "Вывести результат на консоль: 'Доставленный p = новая посылка(\"BOX-123\", \"Амир Темур 5\");         p.deliver();'"
       ]
     }
   },
@@ -2840,11 +3575,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "47. Payme — Payable Interfeysi va To'lov Shartnomasi",
-      "en": "47. Payme — Payable Interface Realization Contract"
+      "en": "47. Payme — Payable Interface Realization Contract",
+      "ru": "47. Payme — Контракт на реализацию платёжного интерфейса"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme tizimida 'Payable' interfeysi '+ pay(amount: double): boolean' metodini talab qiladi. 'WalletPayment' klassi ushbu shartnomani 'implements' kalit so'zi bilan bajaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Payable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'WalletPayment' sinfini 'implements Payable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'pay(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Payable obj = new WalletPayment(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Payable payment = new WalletPayment(200000.0);         boolean success = payment.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + success);'",
-      "en": "📖 Real-World Scenario & Context\nPayme Payable interface requires 'pay(amount)'. WalletPayment implements this realization contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Payable'.\n2. Implement it in 'WalletPayment' using 'implements'.\n3. Override and provide implementation for 'pay(...)'.\n4. Use interface reference 'Payable obj = new WalletPayment(...);' in 'main'.\n5. Print result to console: 'Payable payment = new WalletPayment(200000.0);         boolean success = payment.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + success);'"
+      "en": "📖 Real-World Scenario & Context\nPayme Payable interface requires 'pay(amount)'. WalletPayment implements this realization contract.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Payable'.\n2. Implement it in 'WalletPayment' using 'implements'.\n3. Override and provide implementation for 'pay(...)'.\n4. Use interface reference 'Payable obj = new WalletPayment(...);' in 'main'.\n5. Print result to console: 'Payable payment = new WalletPayment(200000.0);         boolean success = payment.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + success);'",
+      "ru": "📖 Контекст и описание задачи\nИнтерфейс Payme Payable требует «pay(amount)». WalletPayment реализует этот договор реализации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<interface>> Payable».\n2. Реализуйте это в «WalletPayment», используя «инструменты».\n3. Переопределить и обеспечить реализацию «pay(...)».\n4. Используйте ссылку на интерфейс «Payable obj = new WalletPayment(...);» в «главном».\n5. Выведите результат на консоль: 'Оплачиваемый платеж = новый WalletPayment(200000.0);         логический успех = платеж.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + успех);'"
     },
     "requirements": {
       "classes": [
@@ -2872,7 +3609,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Payable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Payable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "To'lov muvaffaqiyatlimi: true"
@@ -2880,7 +3623,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "To'lov muvaffaqiyatlimi: true",
     "story": {
       "uz": "Payme tizimida 'Payable' interfeysi '+ pay(amount: double): boolean' metodini talab qiladi. 'WalletPayment' klassi ushbu shartnomani 'implements' kalit so'zi bilan bajaradi.",
-      "en": "Payme Payable interface requires 'pay(amount)'. WalletPayment implements this realization contract."
+      "en": "Payme Payable interface requires 'pay(amount)'. WalletPayment implements this realization contract.",
+      "ru": "Интерфейс Payme Payable требует «pay(amount)». WalletPayment реализует этот договор реализации."
     },
     "steps": {
       "uz": [
@@ -2896,6 +3640,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'pay(...)'.",
         "Use interface reference 'Payable obj = new WalletPayment(...);' in 'main'.",
         "Print result to console: 'Payable payment = new WalletPayment(200000.0);         boolean success = payment.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + success);'"
+      ],
+      "ru": [
+        "Объявите «<<interface>> Payable».",
+        "Реализуйте это в «WalletPayment», используя «инструменты».",
+        "Переопределить и обеспечить реализацию «pay(...)».",
+        "Используйте ссылку на интерфейс «Payable obj = new WalletPayment(...);» в «главном».",
+        "Выведите результат на консоль: 'Оплачиваемый платеж = новый WalletPayment(200000.0);         логический успех = платеж.pay(75000.0);         System.out.println(\"To'lov muvaffaqiyatlimi: \" + успех);'"
       ]
     }
   },
@@ -2906,11 +3657,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "48. Korzinka — Scannable Shtrix-kod Interfeysi",
-      "en": "48. Korzinka — Scannable Barcode Interface in UML"
+      "en": "48. Korzinka — Scannable Barcode Interface in UML",
+      "ru": "48. Корзинка — Интерфейс сканируемого штрих-кода в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka kassa modulida skanerlanadigan tovarlar 'Scannable' interfeysini amalga oshiradi ('+ getBarcode(): String'). 'GroceryItem' sinfiga interfeysni biriktiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Scannable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'GroceryItem' sinfini 'implements Scannable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getBarcode(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Scannable obj = new GroceryItem(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Scannable item = new GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'",
-      "en": "📖 Real-World Scenario & Context\nKorzinka specifies '<<interface>> Scannable' with '+ getBarcode(): String'. Realize it in GroceryItem.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Scannable'.\n2. Implement it in 'GroceryItem' using 'implements'.\n3. Override and provide implementation for 'getBarcode(...)'.\n4. Use interface reference 'Scannable obj = new GroceryItem(...);' in 'main'.\n5. Print result to console: 'Scannable item = new GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'"
+      "en": "📖 Real-World Scenario & Context\nKorzinka specifies '<<interface>> Scannable' with '+ getBarcode(): String'. Realize it in GroceryItem.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Scannable'.\n2. Implement it in 'GroceryItem' using 'implements'.\n3. Override and provide implementation for 'getBarcode(...)'.\n4. Use interface reference 'Scannable obj = new GroceryItem(...);' in 'main'.\n5. Print result to console: 'Scannable item = new GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'",
+      "ru": "📖 Контекст и описание задачи\nКорзинка указывает «<<interface>> Scannable» с помощью «+ getBarcode(): String». Реализуйте это в GroceryItem.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Scannable».\n2. Реализуйте это в «GroceryItem», используя «инструменты».\n3. Переопределить и предоставить реализацию getBarcode(...)'.\n4. Используйте ссылку на интерфейс «Scanable obj = new GroceryItem(...);» в «главном».\n5. Выведите результат на консоль: 'Сканируемый элемент = новый GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'"
     },
     "requirements": {
       "classes": [
@@ -2938,7 +3691,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Scannable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Scannable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Skanerlangan shtrix-kod: 4780011223344"
@@ -2946,7 +3705,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Skanerlangan shtrix-kod: 4780011223344",
     "story": {
       "uz": "Korzinka kassa modulida skanerlanadigan tovarlar 'Scannable' interfeysini amalga oshiradi ('+ getBarcode(): String'). 'GroceryItem' sinfiga interfeysni biriktiring.",
-      "en": "Korzinka specifies '<<interface>> Scannable' with '+ getBarcode(): String'. Realize it in GroceryItem."
+      "en": "Korzinka specifies '<<interface>> Scannable' with '+ getBarcode(): String'. Realize it in GroceryItem.",
+      "ru": "Корзинка указывает «<<interface>> Scannable» с помощью «+ getBarcode(): String». Реализуйте это в GroceryItem."
     },
     "steps": {
       "uz": [
@@ -2962,6 +3722,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getBarcode(...)'.",
         "Use interface reference 'Scannable obj = new GroceryItem(...);' in 'main'.",
         "Print result to console: 'Scannable item = new GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Scannable».",
+        "Реализуйте это в «GroceryItem», используя «инструменты».",
+        "Переопределить и предоставить реализацию getBarcode(...)'.",
+        "Используйте ссылку на интерфейс «Scanable obj = new GroceryItem(...);» в «главном».",
+        "Выведите результат на консоль: 'Сканируемый элемент = новый GroceryItem(\"Sut\", \"4780011223344\");         System.out.println(\"Skanerlangan shtrix-kod: \" + item.getBarcode());'"
       ]
     }
   },
@@ -2972,11 +3739,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "49. Yandex Go — Trackable GPS Kuzatuv Interfeysi",
-      "en": "49. Yandex Go — Trackable Location Interface Realization"
+      "en": "49. Yandex Go — Trackable Location Interface Realization",
+      "ru": "49. Yandex Go — реализация интерфейса отслеживания местоположения"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go xaritasida haydovchi 'Trackable' interfeysini amalga oshiradi ('+ getCurrentLocation(): String'). Haydovchi koordinatalarini qaytaruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Trackable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'TaxiCab' sinfini 'implements Trackable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getCurrentLocation(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Trackable obj = new TaxiCab(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Trackable taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Taksi lokatsiyasi: \" + taxi.getCurrentLocation());'",
-      "en": "📖 Real-World Scenario & Context\nIn Yandex Go, TaxiCab implements Trackable returning real-time coordinates.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Trackable'.\n2. Implement it in 'TaxiCab' using 'implements'.\n3. Override and provide implementation for 'getCurrentLocation(...)'.\n4. Use interface reference 'Trackable obj = new TaxiCab(...);' in 'main'.\n5. Print result to console: 'Trackable taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Taksi lokatsiyasi: \" + taxi.getCurrentLocation());'"
+      "en": "📖 Real-World Scenario & Context\nIn Yandex Go, TaxiCab implements Trackable returning real-time coordinates.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Trackable'.\n2. Implement it in 'TaxiCab' using 'implements'.\n3. Override and provide implementation for 'getCurrentLocation(...)'.\n4. Use interface reference 'Trackable obj = new TaxiCab(...);' in 'main'.\n5. Print result to console: 'Trackable taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Taksi lokatsiyasi: \" + taxi.getCurrentLocation());'",
+      "ru": "📖 Контекст и описание задачи\nВ Яндекс Go TaxiCab реализует Trackable, возвращающий координаты в реальном времени.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Trackable».\n2. Реализуйте это в «Такси», используя «инструменты».\n3. Переопределить и предоставить реализацию для getCurrentLocation(...)'.\n4. Используйте ссылку на интерфейс «Trackable obj = new TaxiCab(...);» в «главном».\n5. Выведите результат на консоль: 'Trackable Taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Такси локации: \" + Taxi.getCurrentLocation());'"
     },
     "requirements": {
       "classes": [
@@ -3004,7 +3773,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Trackable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Trackable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Taksi lokatsiyasi: 41.31108, 69.24056"
@@ -3012,7 +3787,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Taksi lokatsiyasi: 41.31108, 69.24056",
     "story": {
       "uz": "Yandex Go xaritasida haydovchi 'Trackable' interfeysini amalga oshiradi ('+ getCurrentLocation(): String'). Haydovchi koordinatalarini qaytaruvchi sinf tuzing.",
-      "en": "In Yandex Go, TaxiCab implements Trackable returning real-time coordinates."
+      "en": "In Yandex Go, TaxiCab implements Trackable returning real-time coordinates.",
+      "ru": "В Яндекс Go TaxiCab реализует Trackable, возвращающий координаты в реальном времени."
     },
     "steps": {
       "uz": [
@@ -3028,6 +3804,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getCurrentLocation(...)'.",
         "Use interface reference 'Trackable obj = new TaxiCab(...);' in 'main'.",
         "Print result to console: 'Trackable taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Taksi lokatsiyasi: \" + taxi.getCurrentLocation());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Trackable».",
+        "Реализуйте это в «Такси», используя «инструменты».",
+        "Переопределить и предоставить реализацию для getCurrentLocation(...)'.",
+        "Используйте ссылку на интерфейс «Trackable obj = new TaxiCab(...);» в «главном».",
+        "Выведите результат на консоль: 'Trackable Taxi = new TaxiCab(\"01 A 777 AA\", \"41.31108, 69.24056\");         System.out.println(\"Такси локации: \" + Taxi.getCurrentLocation());'"
       ]
     }
   },
@@ -3038,11 +3821,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "50. Express24 — Dispatchable Kuryerlik Vazifasi Interfeysi",
-      "en": "50. Express24 — Dispatchable Order Assignment Interface"
+      "en": "50. Express24 — Dispatchable Order Assignment Interface",
+      "ru": "50. Express24 — интерфейс диспетчерского назначения заказов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 kuryerlik buyurtmalari 'Dispatchable' interfeysini ('+ assignCourier(name: String): void') realizatsiya qiladi. Kuryer biriktirilishini tasdiqlovchi sinf yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Dispatchable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'FoodDeliveryOrder' sinfini 'implements Dispatchable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'assignCourier(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Dispatchable obj = new FoodDeliveryOrder(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Dispatchable order = new FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Rustam\");'",
-      "en": "📖 Real-World Scenario & Context\nExpress24 orders implement Dispatchable allowing courier assignment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Dispatchable'.\n2. Implement it in 'FoodDeliveryOrder' using 'implements'.\n3. Override and provide implementation for 'assignCourier(...)'.\n4. Use interface reference 'Dispatchable obj = new FoodDeliveryOrder(...);' in 'main'.\n5. Print result to console: 'Dispatchable order = new FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Rustam\");'"
+      "en": "📖 Real-World Scenario & Context\nExpress24 orders implement Dispatchable allowing courier assignment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Dispatchable'.\n2. Implement it in 'FoodDeliveryOrder' using 'implements'.\n3. Override and provide implementation for 'assignCourier(...)'.\n4. Use interface reference 'Dispatchable obj = new FoodDeliveryOrder(...);' in 'main'.\n5. Print result to console: 'Dispatchable order = new FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Rustam\");'",
+      "ru": "📖 Контекст и описание задачи\nВ заказах Express24 реализован Dispatchable, позволяющий назначать курьера.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Dispatchable».\n2. Реализуйте его в «FoodDeliveryOrder», используя «инструменты».\n3. Переопределить и предоставить реализацию для 'assignCourier(...)'.\n4. Используйте ссылку на интерфейс «Dispatchable obj = new FoodDeliveryOrder(...);» в «главном».\n5. Выведите результат на консоль: 'Отправляемый заказ = новый FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Рустам\");'"
     },
     "requirements": {
       "classes": [
@@ -3070,7 +3855,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Dispatchable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Dispatchable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Buyurtma EXP-55 kuryer Rustamga biriktirildi."
@@ -3078,7 +3869,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma EXP-55 kuryer Rustamga biriktirildi.",
     "story": {
       "uz": "Express24 kuryerlik buyurtmalari 'Dispatchable' interfeysini ('+ assignCourier(name: String): void') realizatsiya qiladi. Kuryer biriktirilishini tasdiqlovchi sinf yozing.",
-      "en": "Express24 orders implement Dispatchable allowing courier assignment."
+      "en": "Express24 orders implement Dispatchable allowing courier assignment.",
+      "ru": "В заказах Express24 реализован Dispatchable, позволяющий назначать курьера."
     },
     "steps": {
       "uz": [
@@ -3094,6 +3886,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'assignCourier(...)'.",
         "Use interface reference 'Dispatchable obj = new FoodDeliveryOrder(...);' in 'main'.",
         "Print result to console: 'Dispatchable order = new FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Rustam\");'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Dispatchable».",
+        "Реализуйте его в «FoodDeliveryOrder», используя «инструменты».",
+        "Переопределить и предоставить реализацию для 'assignCourier(...)'.",
+        "Используйте ссылку на интерфейс «Dispatchable obj = new FoodDeliveryOrder(...);» в «главном».",
+        "Выведите результат на консоль: 'Отправляемый заказ = новый FoodDeliveryOrder(\"EXP-55\");         order.assignCourier(\"Рустам\");'"
       ]
     }
   },
@@ -3104,11 +3903,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "51. Medion — WarrantyCovered Kafolat Shartnomasi",
-      "en": "51. Medion — WarrantyCovered Interface Specification in UML"
+      "en": "51. Medion — WarrantyCovered Interface Specification in UML",
+      "ru": "51. Medion — Спецификация интерфейса, на который распространяется гарантия, в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion do'konida barcha kafolatli mahsulotlar 'WarrantyCovered' interfeysini ('+ getWarrantyDurationMonths(): int') amalga oshiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> WarrantyCovered' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'SmartWatch' sinfini 'implements WarrantyCovered' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getWarrantyDurationMonths(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'WarrantyCovered obj = new SmartWatch(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'WarrantyCovered watch = new SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Kafolat muddati: \" + watch.getWarrantyDurationMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nMedion appliances realize WarrantyCovered returning warranty duration in months.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> WarrantyCovered'.\n2. Implement it in 'SmartWatch' using 'implements'.\n3. Override and provide implementation for 'getWarrantyDurationMonths(...)'.\n4. Use interface reference 'WarrantyCovered obj = new SmartWatch(...);' in 'main'.\n5. Print result to console: 'WarrantyCovered watch = new SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Kafolat muddati: \" + watch.getWarrantyDurationMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nMedion appliances realize WarrantyCovered returning warranty duration in months.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> WarrantyCovered'.\n2. Implement it in 'SmartWatch' using 'implements'.\n3. Override and provide implementation for 'getWarrantyDurationMonths(...)'.\n4. Use interface reference 'WarrantyCovered obj = new SmartWatch(...);' in 'main'.\n5. Print result to console: 'WarrantyCovered watch = new SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Kafolat muddati: \" + watch.getWarrantyDurationMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nНа технику Medion распространяется гарантия с возвратом в течение нескольких месяцев.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Заявите, что «<<интерфейс>> покрывается гарантией».\n2. Реализуйте это в «SmartWatch», используя «инструменты».\n3. Переопределить и предоставить реализацию для getWarrantyDurationMonths(...)'.\n4. Используйте ссылку на интерфейс «WarrantyCovered obj = new SmartWatch(...);» в «главном».\n5. Выведите результат на консоль: 'Часы с гарантийным покрытием = новые SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Кафолат муддати: \" + watch.getWarrantyDurationMonths() + \" ой\");'"
     },
     "requirements": {
       "classes": [
@@ -3136,7 +3937,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>WarrantyCovered</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>WarrantyCovered</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Kafolat muddati: 12 oy"
@@ -3144,7 +3951,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kafolat muddati: 12 oy",
     "story": {
       "uz": "Medion do'konida barcha kafolatli mahsulotlar 'WarrantyCovered' interfeysini ('+ getWarrantyDurationMonths(): int') amalga oshiradi.",
-      "en": "Medion appliances realize WarrantyCovered returning warranty duration in months."
+      "en": "Medion appliances realize WarrantyCovered returning warranty duration in months.",
+      "ru": "На технику Medion распространяется гарантия с возвратом в течение нескольких месяцев."
     },
     "steps": {
       "uz": [
@@ -3160,6 +3968,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getWarrantyDurationMonths(...)'.",
         "Use interface reference 'WarrantyCovered obj = new SmartWatch(...);' in 'main'.",
         "Print result to console: 'WarrantyCovered watch = new SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Kafolat muddati: \" + watch.getWarrantyDurationMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Заявите, что «<<интерфейс>> покрывается гарантией».",
+        "Реализуйте это в «SmartWatch», используя «инструменты».",
+        "Переопределить и предоставить реализацию для getWarrantyDurationMonths(...)'.",
+        "Используйте ссылку на интерфейс «WarrantyCovered obj = new SmartWatch(...);» в «главном».",
+        "Выведите результат на консоль: 'Часы с гарантийным покрытием = новые SmartWatch(\"Apple Watch\", 12);         System.out.println(\"Кафолат муддати: \" + watch.getWarrantyDurationMonths() + \" ой\");'"
       ]
     }
   },
@@ -3170,11 +3985,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "52. Click — Refundable To'lovni Qaytarish Interfeysi",
-      "en": "52. Click — Refundable Transaction Contract Realization"
+      "en": "52. Click — Refundable Transaction Contract Realization",
+      "ru": "52. Нажмите — Реализация контракта возвратной транзакции."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick tranzaksiyasi 'Refundable' interfeysini ('+ refund(amount: double): boolean') realizatsiya qiladi. Mablag' muvaffaqiyatli qaytarilishini ta'minlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Refundable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'MerchantPayment' sinfini 'implements Refundable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'refund(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Refundable obj = new MerchantPayment(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         boolean refunded = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + refunded);'",
-      "en": "📖 Real-World Scenario & Context\nIn Click, Refundable interface specifies refund operation on eligible transactions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Refundable'.\n2. Implement it in 'MerchantPayment' using 'implements'.\n3. Override and provide implementation for 'refund(...)'.\n4. Use interface reference 'Refundable obj = new MerchantPayment(...);' in 'main'.\n5. Print result to console: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         boolean refunded = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + refunded);'"
+      "en": "📖 Real-World Scenario & Context\nIn Click, Refundable interface specifies refund operation on eligible transactions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Refundable'.\n2. Implement it in 'MerchantPayment' using 'implements'.\n3. Override and provide implementation for 'refund(...)'.\n4. Use interface reference 'Refundable obj = new MerchantPayment(...);' in 'main'.\n5. Print result to console: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         boolean refunded = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + refunded);'",
+      "ru": "📖 Контекст и описание задачи\nВ интерфейсе Click Refundable указывается операция возврата по соответствующим транзакциям.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Возвратный».\n2. Реализуйте это в «MerchantPayment», используя «инструменты».\n3. Переопределить и обеспечить реализацию «refund(...)».\n4. Используйте ссылку на интерфейс «Refundable obj = new MerchantPayment(...);» в «главном».\n5. Выведите результат на консоль: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         логическое значение возмещено = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + возмещено);'"
     },
     "requirements": {
       "classes": [
@@ -3202,7 +4019,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Refundable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Refundable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Pul qaytarildimi: true"
@@ -3210,7 +4033,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Pul qaytarildimi: true",
     "story": {
       "uz": "Click tranzaksiyasi 'Refundable' interfeysini ('+ refund(amount: double): boolean') realizatsiya qiladi. Mablag' muvaffaqiyatli qaytarilishini ta'minlang.",
-      "en": "In Click, Refundable interface specifies refund operation on eligible transactions."
+      "en": "In Click, Refundable interface specifies refund operation on eligible transactions.",
+      "ru": "В интерфейсе Click Refundable указывается операция возврата по соответствующим транзакциям."
     },
     "steps": {
       "uz": [
@@ -3226,6 +4050,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'refund(...)'.",
         "Use interface reference 'Refundable obj = new MerchantPayment(...);' in 'main'.",
         "Print result to console: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         boolean refunded = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + refunded);'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Возвратный».",
+        "Реализуйте это в «MerchantPayment», используя «инструменты».",
+        "Переопределить и обеспечить реализацию «refund(...)».",
+        "Используйте ссылку на интерфейс «Refundable obj = new MerchantPayment(...);» в «главном».",
+        "Выведите результат на консоль: 'Refundable txn = new MerchantPayment(\"MP-909\", 150000.0);         логическое значение возмещено = txn.refund(150000.0);         System.out.println(\"Pul qaytarildimi: \" + возмещено);'"
       ]
     }
   },
@@ -3236,11 +4067,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "53. Asaxiy — Downloadable Raqamli Resurs Interfeysi",
-      "en": "53. Asaxiy — Downloadable Interface for Digital Content"
+      "en": "53. Asaxiy — Downloadable Interface for Digital Content",
+      "ru": "53. Asaxyy — загружаемый интерфейс для цифрового контента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy elektron kutubxonasida 'Downloadable' interfeysi '+ download(): void' va '+ getDownloadUrl(): String' metodlarini belgilaydi. AudioKitob klassida uni bajaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Downloadable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'AudioBook' sinfini 'implements Downloadable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getDownloadUrl(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Downloadable obj = new AudioBook(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Downloadable audio = new AudioBook(\"Dunyoning Ishlari\", \"asaxiy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'",
-      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, AudioBook implements Downloadable interface providing audio streams.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Downloadable'.\n2. Implement it in 'AudioBook' using 'implements'.\n3. Override and provide implementation for 'getDownloadUrl(...)'.\n4. Use interface reference 'Downloadable obj = new AudioBook(...);' in 'main'.\n5. Print result to console: 'Downloadable audio = new AudioBook(\"Dunyoning Ishlari\", \"asaxiy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'"
+      "en": "📖 Real-World Scenario & Context\nAt Asaxiy, AudioBook implements Downloadable interface providing audio streams.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Downloadable'.\n2. Implement it in 'AudioBook' using 'implements'.\n3. Override and provide implementation for 'getDownloadUrl(...)'.\n4. Use interface reference 'Downloadable obj = new AudioBook(...);' in 'main'.\n5. Print result to console: 'Downloadable audio = new AudioBook(\"Dunyoning Ishlari\", \"asaxiy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'",
+      "ru": "📖 Контекст и описание задачи\nВ Asaxiy AudioBook реализует загружаемый интерфейс, обеспечивающий аудиопотоки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Загружаемый».\n2. Реализуйте это в «Аудиокниге», используя «инструменты».\n3. Переопределить и предоставить реализацию для getDownloadUrl(...)'.\n4. Используйте ссылку на интерфейс «Загружаемый объект = новая аудиокнига (...);» в «главном».\n5. Вывести результат на консоль: 'Загружаемый аудиофайл = новая аудиокнига(\"Dunyoning Ishlari\", \"asaxy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'"
     },
     "requirements": {
       "classes": [
@@ -3268,7 +4101,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Downloadable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Downloadable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Yuklab olish manzili: asaxiy.uz/audio/12"
@@ -3276,7 +4115,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yuklab olish manzili: asaxiy.uz/audio/12",
     "story": {
       "uz": "Asaxiy elektron kutubxonasida 'Downloadable' interfeysi '+ download(): void' va '+ getDownloadUrl(): String' metodlarini belgilaydi. AudioKitob klassida uni bajaring.",
-      "en": "At Asaxiy, AudioBook implements Downloadable interface providing audio streams."
+      "en": "At Asaxiy, AudioBook implements Downloadable interface providing audio streams.",
+      "ru": "В Asaxiy AudioBook реализует загружаемый интерфейс, обеспечивающий аудиопотоки."
     },
     "steps": {
       "uz": [
@@ -3292,6 +4132,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getDownloadUrl(...)'.",
         "Use interface reference 'Downloadable obj = new AudioBook(...);' in 'main'.",
         "Print result to console: 'Downloadable audio = new AudioBook(\"Dunyoning Ishlari\", \"asaxiy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Загружаемый».",
+        "Реализуйте это в «Аудиокниге», используя «инструменты».",
+        "Переопределить и предоставить реализацию для getDownloadUrl(...)'.",
+        "Используйте ссылку на интерфейс «Загружаемый объект = новая аудиокнига (...);» в «главном».",
+        "Вывести результат на консоль: 'Загружаемый аудиофайл = новая аудиокнига(\"Dunyoning Ishlari\", \"asaxy.uz/audio/12\");         System.out.println(\"Yuklab olish manzili: \" + audio.getDownloadUrl());'"
       ]
     }
   },
@@ -3302,11 +4149,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "54. Safia — Perishable Muddati Cheklangan Tovarlar Interfeysi",
-      "en": "54. Safia — Perishable Shelf Life Interface Realization"
+      "en": "54. Safia — Perishable Shelf Life Interface Realization",
+      "ru": "54. Safia — реализация интерфейса для скоропортящихся продуктов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia qandolat mahsulotlari 'Perishable' interfeysini ('+ getShelfLifeDays(): int') realizatsiya qiladi. Desertning saqlanish muddatini qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Perishable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'FreshPastry' sinfini 'implements Perishable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getShelfLifeDays(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Perishable obj = new FreshPastry(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Perishable cake = new FreshPastry(\"Eclair\", 3);         System.out.println(\"Saqlash muddati: \" + cake.getShelfLifeDays() + \" kun\");'",
-      "en": "📖 Real-World Scenario & Context\nSafia Pastry implements Perishable indicating shelf-life limit in days.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Perishable'.\n2. Implement it in 'FreshPastry' using 'implements'.\n3. Override and provide implementation for 'getShelfLifeDays(...)'.\n4. Use interface reference 'Perishable obj = new FreshPastry(...);' in 'main'.\n5. Print result to console: 'Perishable cake = new FreshPastry(\"Eclair\", 3);         System.out.println(\"Saqlash muddati: \" + cake.getShelfLifeDays() + \" kun\");'"
+      "en": "📖 Real-World Scenario & Context\nSafia Pastry implements Perishable indicating shelf-life limit in days.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Perishable'.\n2. Implement it in 'FreshPastry' using 'implements'.\n3. Override and provide implementation for 'getShelfLifeDays(...)'.\n4. Use interface reference 'Perishable obj = new FreshPastry(...);' in 'main'.\n5. Print result to console: 'Perishable cake = new FreshPastry(\"Eclair\", 3);         System.out.println(\"Saqlash muddati: \" + cake.getShelfLifeDays() + \" kun\");'",
+      "ru": "📖 Контекст и описание задачи\nSafia Pastry реализует скоропортящиеся товары с указанием срока годности в днях.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Скоропортящийся».\n2. Реализуйте это в «FreshPastry», используя «инструменты».\n3. Переопределить и предоставить реализацию для getShelfLifeDays(...)'.\n4. Используйте ссылку на интерфейс «Скоропортящийся объект = новый FreshPastry(...);» в «главном».\n5. Выведите результат на консоль: 'Скоропортящийся торт = new FreshPastry(\"Эклер\", 3);         System.out.println(\"Саклаш муддати: \" + cake.getShelfLifeDays() + \" кун\");'"
     },
     "requirements": {
       "classes": [
@@ -3334,7 +4183,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Perishable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Perishable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Saqlash muddati: 3 kun"
@@ -3342,7 +4197,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Saqlash muddati: 3 kun",
     "story": {
       "uz": "Safia qandolat mahsulotlari 'Perishable' interfeysini ('+ getShelfLifeDays(): int') realizatsiya qiladi. Desertning saqlanish muddatini qaytaring.",
-      "en": "Safia Pastry implements Perishable indicating shelf-life limit in days."
+      "en": "Safia Pastry implements Perishable indicating shelf-life limit in days.",
+      "ru": "Safia Pastry реализует скоропортящиеся товары с указанием срока годности в днях."
     },
     "steps": {
       "uz": [
@@ -3358,6 +4214,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getShelfLifeDays(...)'.",
         "Use interface reference 'Perishable obj = new FreshPastry(...);' in 'main'.",
         "Print result to console: 'Perishable cake = new FreshPastry(\"Eclair\", 3);         System.out.println(\"Saqlash muddati: \" + cake.getShelfLifeDays() + \" kun\");'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Скоропортящийся».",
+        "Реализуйте это в «FreshPastry», используя «инструменты».",
+        "Переопределить и предоставить реализацию для getShelfLifeDays(...)'.",
+        "Используйте ссылку на интерфейс «Скоропортящийся объект = новый FreshPastry(...);» в «главном».",
+        "Выведите результат на консоль: 'Скоропортящийся торт = new FreshPastry(\"Эклер\", 3);         System.out.println(\"Саклаш муддати: \" + cake.getShelfLifeDays() + \" кун\");'"
       ]
     }
   },
@@ -3368,11 +4231,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "55. Dodo Pizza — Cookable Pishirish Vaqti Interfeysi",
-      "en": "55. Dodo Pizza — Cookable Preparation Interface in UML"
+      "en": "55. Dodo Pizza — Cookable Preparation Interface in UML",
+      "ru": "55. Dodo Pizza — интерфейс приготовления блюд на UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza taomlari 'Cookable' interfeysini ('+ getCookingTimeMinutes(): int') amalga oshiradi. Pitsaning pishirish vaqtini qaytaruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Cookable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'ClassicPizza' sinfini 'implements Cookable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getCookingTimeMinutes(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Cookable obj = new ClassicPizza(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Cookable pizza = new ClassicPizza(\"Margarita\", 15);         System.out.println(\"Pishirish vaqti: \" + pizza.getCookingTimeMinutes() + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nAt Dodo Pizza, Cookable interface specifies kitchen preparation time in minutes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Cookable'.\n2. Implement it in 'ClassicPizza' using 'implements'.\n3. Override and provide implementation for 'getCookingTimeMinutes(...)'.\n4. Use interface reference 'Cookable obj = new ClassicPizza(...);' in 'main'.\n5. Print result to console: 'Cookable pizza = new ClassicPizza(\"Margarita\", 15);         System.out.println(\"Pishirish vaqti: \" + pizza.getCookingTimeMinutes() + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nAt Dodo Pizza, Cookable interface specifies kitchen preparation time in minutes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Cookable'.\n2. Implement it in 'ClassicPizza' using 'implements'.\n3. Override and provide implementation for 'getCookingTimeMinutes(...)'.\n4. Use interface reference 'Cookable obj = new ClassicPizza(...);' in 'main'.\n5. Print result to console: 'Cookable pizza = new ClassicPizza(\"Margarita\", 15);         System.out.println(\"Pishirish vaqti: \" + pizza.getCookingTimeMinutes() + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nВ «Додо Пицца» интерфейс Cookable указывает время приготовления на кухне в минутах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Cookable».\n2. Реализуйте это в «ClassicPizza», используя «инструменты».\n3. Переопределить и предоставить реализацию для getCookingTimeMinutes(...)'.\n4. Используйте ссылку на интерфейс «Cookable obj = new ClassicPizza(...);» в «главном».\n5. Выведите результат на консоль: 'Пицца, которую можно приготовить = новая КлассическаяПицца(\"Маргарита\", 15);         System.out.println(\"Отправьте сообщение: \" + Pizza.getCookingTimeMinutes() + \" daqiqa\");'"
     },
     "requirements": {
       "classes": [
@@ -3400,7 +4265,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Cookable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Cookable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Pishirish vaqti: 15 daqiqa"
@@ -3408,7 +4279,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Pishirish vaqti: 15 daqiqa",
     "story": {
       "uz": "Dodo Pizza taomlari 'Cookable' interfeysini ('+ getCookingTimeMinutes(): int') amalga oshiradi. Pitsaning pishirish vaqtini qaytaruvchi klass tuzing.",
-      "en": "At Dodo Pizza, Cookable interface specifies kitchen preparation time in minutes."
+      "en": "At Dodo Pizza, Cookable interface specifies kitchen preparation time in minutes.",
+      "ru": "В «Додо Пицца» интерфейс Cookable указывает время приготовления на кухне в минутах."
     },
     "steps": {
       "uz": [
@@ -3424,6 +4296,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getCookingTimeMinutes(...)'.",
         "Use interface reference 'Cookable obj = new ClassicPizza(...);' in 'main'.",
         "Print result to console: 'Cookable pizza = new ClassicPizza(\"Margarita\", 15);         System.out.println(\"Pishirish vaqti: \" + pizza.getCookingTimeMinutes() + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Cookable».",
+        "Реализуйте это в «ClassicPizza», используя «инструменты».",
+        "Переопределить и предоставить реализацию для getCookingTimeMinutes(...)'.",
+        "Используйте ссылку на интерфейс «Cookable obj = new ClassicPizza(...);» в «главном».",
+        "Выведите результат на консоль: 'Пицца, которую можно приготовить = новая КлассическаяПицца(\"Маргарита\", 15);         System.out.println(\"Отправьте сообщение: \" + Pizza.getCookingTimeMinutes() + \" daqiqa\");'"
       ]
     }
   },
@@ -3434,11 +4313,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "56. Texnomart — Insurable Sug'urta Himoyasi Interfeysi",
-      "en": "56. Texnomart — Insurable Equipment Contract in UML"
+      "en": "56. Texnomart — Insurable Equipment Contract in UML",
+      "ru": "56. Texnomart — Договор страхования оборудования в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart texnikasi 'Insurable' interfeysini ('+ calculateInsuranceFee(): double') amalga oshiradi. Qiymatning 5% miqdorida sug'urta narxini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Insurable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'Refrigerator' sinfini 'implements Insurable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'calculateInsuranceFee(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Insurable obj = new Refrigerator(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Insurable fridge = new Refrigerator(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + fridge.calculateInsuranceFee());'",
-      "en": "📖 Real-World Scenario & Context\nTexnomart appliances implement Insurable computing a 5% insurance surcharge.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Insurable'.\n2. Implement it in 'Refrigerator' using 'implements'.\n3. Override and provide implementation for 'calculateInsuranceFee(...)'.\n4. Use interface reference 'Insurable obj = new Refrigerator(...);' in 'main'.\n5. Print result to console: 'Insurable fridge = new Refrigerator(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + fridge.calculateInsuranceFee());'"
+      "en": "📖 Real-World Scenario & Context\nTexnomart appliances implement Insurable computing a 5% insurance surcharge.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Insurable'.\n2. Implement it in 'Refrigerator' using 'implements'.\n3. Override and provide implementation for 'calculateInsuranceFee(...)'.\n4. Use interface reference 'Insurable obj = new Refrigerator(...);' in 'main'.\n5. Print result to console: 'Insurable fridge = new Refrigerator(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + fridge.calculateInsuranceFee());'",
+      "ru": "📖 Контекст и описание задачи\nТехника Texnomart реализует Insurable Computing со страховой надбавкой в размере 5%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Страховой».\n2. Реализуйте это в «Холодильнике», используя «инструменты».\n3. Переопределить и предоставить реализацию для «calculateInsuranceFee(...)».\n4. Используйте ссылку на интерфейс «Insurable obj = новый холодильник (...);» в «главном».\n5. Выведите результат на консоль: 'Застрахованный холодильник = новый холодильник(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + холодильник.calculateInsuranceFee());'"
     },
     "requirements": {
       "classes": [
@@ -3466,7 +4347,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Insurable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Insurable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Sug'urta haqi: 300000.0"
@@ -3474,7 +4361,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Sug'urta haqi: 300000.0",
     "story": {
       "uz": "Texnomart texnikasi 'Insurable' interfeysini ('+ calculateInsuranceFee(): double') amalga oshiradi. Qiymatning 5% miqdorida sug'urta narxini hisoblang.",
-      "en": "Texnomart appliances implement Insurable computing a 5% insurance surcharge."
+      "en": "Texnomart appliances implement Insurable computing a 5% insurance surcharge.",
+      "ru": "Техника Texnomart реализует Insurable Computing со страховой надбавкой в размере 5%."
     },
     "steps": {
       "uz": [
@@ -3490,6 +4378,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'calculateInsuranceFee(...)'.",
         "Use interface reference 'Insurable obj = new Refrigerator(...);' in 'main'.",
         "Print result to console: 'Insurable fridge = new Refrigerator(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + fridge.calculateInsuranceFee());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Страховой».",
+        "Реализуйте это в «Холодильнике», используя «инструменты».",
+        "Переопределить и предоставить реализацию для «calculateInsuranceFee(...)».",
+        "Используйте ссылку на интерфейс «Insurable obj = новый холодильник (...);» в «главном».",
+        "Выведите результат на консоль: 'Застрахованный холодильник = новый холодильник(\"LG NoFrost\", 6000000.0);         System.out.println(\"Sug'urta haqi: \" + холодильник.calculateInsuranceFee());'"
       ]
     }
   },
@@ -3500,11 +4395,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "57. UzAirways — Boardable Samolyotga Chiqish Chiptasi",
-      "en": "57. UzAirways — Boardable Passenger Pass Realization"
+      "en": "57. UzAirways — Boardable Passenger Pass Realization",
+      "ru": "57. UzAirways — реализация посадочных пассажирских билетов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways yo'lovchi chiptasi 'Boardable' interfeysini ('+ getGateNumber(): String') amalga oshiradi. Bortga chiqish eshigi raqamini qaytaring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Boardable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'BoardingPass' sinfini 'implements Boardable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getGateNumber(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Boardable obj = new BoardingPass(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Boardable pass = new BoardingPass(\"Aziz Karimov\", \"Gate B-4\");         System.out.println(\"Bortga chiqish eshigi: \" + pass.getGateNumber());'",
-      "en": "📖 Real-World Scenario & Context\nUzAirways BoardingPass realizes Boardable interface returning gate assignment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Boardable'.\n2. Implement it in 'BoardingPass' using 'implements'.\n3. Override and provide implementation for 'getGateNumber(...)'.\n4. Use interface reference 'Boardable obj = new BoardingPass(...);' in 'main'.\n5. Print result to console: 'Boardable pass = new BoardingPass(\"Aziz Karimov\", \"Gate B-4\");         System.out.println(\"Bortga chiqish eshigi: \" + pass.getGateNumber());'"
+      "en": "📖 Real-World Scenario & Context\nUzAirways BoardingPass realizes Boardable interface returning gate assignment.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Boardable'.\n2. Implement it in 'BoardingPass' using 'implements'.\n3. Override and provide implementation for 'getGateNumber(...)'.\n4. Use interface reference 'Boardable obj = new BoardingPass(...);' in 'main'.\n5. Print result to console: 'Boardable pass = new BoardingPass(\"Aziz Karimov\", \"Gate B-4\");         System.out.println(\"Bortga chiqish eshigi: \" + pass.getGateNumber());'",
+      "ru": "📖 Контекст и описание задачи\nUzAirways BoardingPass реализует интерфейс Boardable, возвращающий назначение выходов на посадку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Boardable».\n2. Реализуйте это в «BoardingPass», используя «инструменты».\n3. Переопределить и предоставить реализацию getGateNumber(...)'.\n4. Используйте ссылку на интерфейс «Boardable obj = new BoardingPass(...);» в «главном».\n5. Выведите результат на консоль: 'Boardable pass = new BoardingPass(\"Азиз Каримов\", \"Выход B-4\");         System.out.println(\"Завершить операцию: \" + pass.getGateNumber());'"
     },
     "requirements": {
       "classes": [
@@ -3532,7 +4429,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Boardable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Boardable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Bortga chiqish eshigi: Gate B-4"
@@ -3540,7 +4443,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Bortga chiqish eshigi: Gate B-4",
     "story": {
       "uz": "Uzbekistan Airways yo'lovchi chiptasi 'Boardable' interfeysini ('+ getGateNumber(): String') amalga oshiradi. Bortga chiqish eshigi raqamini qaytaring.",
-      "en": "UzAirways BoardingPass realizes Boardable interface returning gate assignment."
+      "en": "UzAirways BoardingPass realizes Boardable interface returning gate assignment.",
+      "ru": "UzAirways BoardingPass реализует интерфейс Boardable, возвращающий назначение выходов на посадку."
     },
     "steps": {
       "uz": [
@@ -3556,6 +4460,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getGateNumber(...)'.",
         "Use interface reference 'Boardable obj = new BoardingPass(...);' in 'main'.",
         "Print result to console: 'Boardable pass = new BoardingPass(\"Aziz Karimov\", \"Gate B-4\");         System.out.println(\"Bortga chiqish eshigi: \" + pass.getGateNumber());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Boardable».",
+        "Реализуйте это в «BoardingPass», используя «инструменты».",
+        "Переопределить и предоставить реализацию getGateNumber(...)'.",
+        "Используйте ссылку на интерфейс «Boardable obj = new BoardingPass(...);» в «главном».",
+        "Выведите результат на консоль: 'Boardable pass = new BoardingPass(\"Азиз Каримов\", \"Выход B-4\");         System.out.println(\"Завершить операцию: \" + pass.getGateNumber());'"
       ]
     }
   },
@@ -3566,11 +4477,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "58. Kapitalbank — Auditable Bank Tranzaksiyasi Tekshiruvi",
-      "en": "58. Kapitalbank — Auditable Banking Transaction Interface"
+      "en": "58. Kapitalbank — Auditable Banking Transaction Interface",
+      "ru": "58. Капиталбанк — Интерфейс проверяемых банковских транзакций"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank tranzaksiyalari 'Auditable' interfeysini ('+ generateAuditLog(): String') amalga oshiradi. Audit hisobotini shakllantiruvchi klass yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Auditable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'WireTransfer' sinfini 'implements Auditable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'generateAuditLog(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Auditable obj = new WireTransfer(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Auditable transfer = new WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'",
-      "en": "📖 Real-World Scenario & Context\nKapitalbank transactions implement Auditable generating compliance log entry.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Auditable'.\n2. Implement it in 'WireTransfer' using 'implements'.\n3. Override and provide implementation for 'generateAuditLog(...)'.\n4. Use interface reference 'Auditable obj = new WireTransfer(...);' in 'main'.\n5. Print result to console: 'Auditable transfer = new WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'"
+      "en": "📖 Real-World Scenario & Context\nKapitalbank transactions implement Auditable generating compliance log entry.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Auditable'.\n2. Implement it in 'WireTransfer' using 'implements'.\n3. Override and provide implementation for 'generateAuditLog(...)'.\n4. Use interface reference 'Auditable obj = new WireTransfer(...);' in 'main'.\n5. Print result to console: 'Auditable transfer = new WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'",
+      "ru": "📖 Контекст и описание задачи\nТранзакции Капиталбанка реализуют Auditable, генерирующий записи в журнале соответствия.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> проверяемый».\n2. Реализуйте это в «WireTransfer», используя «инструменты».\n3. Переопределить и предоставить реализацию для «generateAuditLog(...)».\n4. Используйте ссылку на интерфейс «Auditable obj = new WireTransfer(...);» в «главном».\n5. Выведите результат на консоль: 'Проверяемая передача = новый WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'"
     },
     "requirements": {
       "classes": [
@@ -3598,7 +4511,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Auditable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Auditable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "AUDIT: O'tkazma WT-500 | Summa: 12000000.0 UZS"
@@ -3606,7 +4525,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "AUDIT: O'tkazma WT-500 | Summa: 12000000.0 UZS",
     "story": {
       "uz": "Kapitalbank tranzaksiyalari 'Auditable' interfeysini ('+ generateAuditLog(): String') amalga oshiradi. Audit hisobotini shakllantiruvchi klass yozing.",
-      "en": "Kapitalbank transactions implement Auditable generating compliance log entry."
+      "en": "Kapitalbank transactions implement Auditable generating compliance log entry.",
+      "ru": "Транзакции Капиталбанка реализуют Auditable, генерирующий записи в журнале соответствия."
     },
     "steps": {
       "uz": [
@@ -3622,6 +4542,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'generateAuditLog(...)'.",
         "Use interface reference 'Auditable obj = new WireTransfer(...);' in 'main'.",
         "Print result to console: 'Auditable transfer = new WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> проверяемый».",
+        "Реализуйте это в «WireTransfer», используя «инструменты».",
+        "Переопределить и предоставить реализацию для «generateAuditLog(...)».",
+        "Используйте ссылку на интерфейс «Auditable obj = new WireTransfer(...);» в «главном».",
+        "Выведите результат на консоль: 'Проверяемая передача = новый WireTransfer(\"WT-500\", 12000000.0);         System.out.println(transfer.generateAuditLog());'"
       ]
     }
   },
@@ -3632,11 +4559,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "59. Beeline — Billable Hisob-Kitob Qilinadigan Xizmat",
-      "en": "59. Beeline — Billable Telecom Service Interface in UML"
+      "en": "59. Beeline — Billable Telecom Service Interface in UML",
+      "ru": "59. Билайн — Интерфейс платных услуг связи на UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline aloqa xizmatlari 'Billable' interfeysini ('+ getMonthlyCharge(): double') amalga oshiradi. Tarifning oylik to'lovini qaytaruvchi klass yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Billable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'DataPlan' sinfini 'implements Billable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getMonthlyCharge(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Billable obj = new DataPlan(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Billable plan = new DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Oylik to'lov: \" + plan.getMonthlyCharge());'",
-      "en": "📖 Real-World Scenario & Context\nBeeline services realize Billable returning fixed monthly fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Billable'.\n2. Implement it in 'DataPlan' using 'implements'.\n3. Override and provide implementation for 'getMonthlyCharge(...)'.\n4. Use interface reference 'Billable obj = new DataPlan(...);' in 'main'.\n5. Print result to console: 'Billable plan = new DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Oylik to'lov: \" + plan.getMonthlyCharge());'"
+      "en": "📖 Real-World Scenario & Context\nBeeline services realize Billable returning fixed monthly fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Billable'.\n2. Implement it in 'DataPlan' using 'implements'.\n3. Override and provide implementation for 'getMonthlyCharge(...)'.\n4. Use interface reference 'Billable obj = new DataPlan(...);' in 'main'.\n5. Print result to console: 'Billable plan = new DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Oylik to'lov: \" + plan.getMonthlyCharge());'",
+      "ru": "📖 Контекст и описание задачи\nУслуги Билайн реализуют Платную возвратную фиксированную ежемесячную плату.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<интерфейс>> Оплачиваемый».\n2. Реализуйте это в «DataPlan», используя «инструменты».\n3. Переопределить и предоставить реализацию getMonthlyCharge(...)'.\n4. Используйте ссылку на интерфейс «Оплачиваемый объект = новый DataPlan(...);» в «главном».\n5. Выведите результат на консоль: 'Оплачиваемый план = новый DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Ойлик to'lov: \" + plan.getMonthlyCharge());'"
     },
     "requirements": {
       "classes": [
@@ -3664,7 +4593,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Billable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Billable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "Oylik to'lov: 95000.0"
@@ -3672,7 +4607,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Oylik to'lov: 95000.0",
     "story": {
       "uz": "Beeline aloqa xizmatlari 'Billable' interfeysini ('+ getMonthlyCharge(): double') amalga oshiradi. Tarifning oylik to'lovini qaytaruvchi klass yozing.",
-      "en": "Beeline services realize Billable returning fixed monthly fee."
+      "en": "Beeline services realize Billable returning fixed monthly fee.",
+      "ru": "Услуги Билайн реализуют Платную возвратную фиксированную ежемесячную плату."
     },
     "steps": {
       "uz": [
@@ -3688,6 +4624,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getMonthlyCharge(...)'.",
         "Use interface reference 'Billable obj = new DataPlan(...);' in 'main'.",
         "Print result to console: 'Billable plan = new DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Oylik to'lov: \" + plan.getMonthlyCharge());'"
+      ],
+      "ru": [
+        "Объявите «<<интерфейс>> Оплачиваемый».",
+        "Реализуйте это в «DataPlan», используя «инструменты».",
+        "Переопределить и предоставить реализацию getMonthlyCharge(...)'.",
+        "Используйте ссылку на интерфейс «Оплачиваемый объект = новый DataPlan(...);» в «главном».",
+        "Выведите результат на консоль: 'Оплачиваемый план = новый DataPlan(\"Status Gold\", 95000.0);         System.out.println(\"Ойлик to'lov: \" + plan.getMonthlyCharge());'"
       ]
     }
   },
@@ -3698,11 +4641,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "46-60: Realization (Dashed Arrow with Triangle) va Interfaces",
     "title": {
       "uz": "60. WIUT — Gradable Modul Baholash Standarti Interfeysi",
-      "en": "60. WIUT — Gradable Assessment Interface in Academic UML"
+      "en": "60. WIUT — Gradable Assessment Interface in Academic UML",
+      "ru": "60. WIUT — Интерфейс градуируемого оценивания в академическом UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT universitetida barcha modullar 'Gradable' interfeysini ('+ getGradeLetter(): char') amalga oshiradi. Ball 70 dan baland bo'lsa 'A' baho qaytaruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi '<<interface>> Gradable' interfeysini e'lon qiling va unga abstrakt metod shartnomasini bering.\n2. 'OopModule' sinfini 'implements Gradable' yordamida Realization munosabatiga bog'lang.\n3. Interfeysdagi 'getGradeLetter(...)' metodini sinf ichida to'liq realizatsiya qiling (@Override).\n4. 'Main' metodida polimorfik interfeys o'zgaruvchisi 'Gradable obj = new OopModule(...);' yarating.\n5. Metod natijasini konsolga chiqaring: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"OOP Bahosi: \" + oop.getGradeLetter());'",
-      "en": "📖 Real-World Scenario & Context\nAt WIUT, modules implement Gradable returning grade letter based on mark score.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Gradable'.\n2. Implement it in 'OopModule' using 'implements'.\n3. Override and provide implementation for 'getGradeLetter(...)'.\n4. Use interface reference 'Gradable obj = new OopModule(...);' in 'main'.\n5. Print result to console: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"OOP Bahosi: \" + oop.getGradeLetter());'"
+      "en": "📖 Real-World Scenario & Context\nAt WIUT, modules implement Gradable returning grade letter based on mark score.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare '<<interface>> Gradable'.\n2. Implement it in 'OopModule' using 'implements'.\n3. Override and provide implementation for 'getGradeLetter(...)'.\n4. Use interface reference 'Gradable obj = new OopModule(...);' in 'main'.\n5. Print result to console: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"OOP Bahosi: \" + oop.getGradeLetter());'",
+      "ru": "📖 Контекст и описание задачи\nВ модулях WIUT реализована система Gradable, возвращающая оценочную букву на основе оценки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите «<<interface>> Gradable».\n2. Реализуйте его в «OopModule», используя «инструменты».\n3. Переопределить и предоставить реализацию getGradeLetter(...)'.\n4. Используйте ссылку на интерфейс «Gradable obj = new OopModule(...);» в «главном».\n5. Выведите результат на консоль: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"ООП Бахоши: \" + oop.getGradeLetter());'"
     },
     "requirements": {
       "classes": [
@@ -3730,7 +4675,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Gradable</code>: shartnoma interfeysi."
       ],
       "pitfalls": "Interfeysdagi barcha metodlar avtomatik 'public abstract' hisoblanadi. Shuning uchun ularni realizatsiya qiluvchi sinfda metod ko'rinishi albatta 'public' bo'lishi shart.",
-      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi."
+      "cw2Tip": "CW2 da to'lov shlyuzlari (Payable) yoki yetkazish usullari (Deliverable) ni interfeys orqali ajratish dizayn patternlariga zamin yaratadi.",
+      "theoryRu": "В UML реализация представлена пунктирной линией с полой треугольной стрелкой, указывающей на интерфейс. В Java это соответствует «инструментам».",
+      "pitfallsRu": "Интерфейсдаги барча автоматический метод 'публичной абстракции'. Shuning учун уларни реализация qiluvchi sinfda метод ko'rinishi albatta 'public' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>Realization</code>: UML da uzuq-uzuq chiziqli oq uchburchak strelka (implements).",
+        "<code>Gradable</code>: shartnoma interfeysi."
+      ]
     },
     "sampleData": [
       "OOP Bahosi: A"
@@ -3738,7 +4689,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "OOP Bahosi: A",
     "story": {
       "uz": "WIUT universitetida barcha modullar 'Gradable' interfeysini ('+ getGradeLetter(): char') amalga oshiradi. Ball 70 dan baland bo'lsa 'A' baho qaytaruvchi klass tuzing.",
-      "en": "At WIUT, modules implement Gradable returning grade letter based on mark score."
+      "en": "At WIUT, modules implement Gradable returning grade letter based on mark score.",
+      "ru": "В модулях WIUT реализована система Gradable, возвращающая оценочную букву на основе оценки."
     },
     "steps": {
       "uz": [
@@ -3754,6 +4706,13 @@ window.OOP_CHALLENGES_W5 = [
         "Override and provide implementation for 'getGradeLetter(...)'.",
         "Use interface reference 'Gradable obj = new OopModule(...);' in 'main'.",
         "Print result to console: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"OOP Bahosi: \" + oop.getGradeLetter());'"
+      ],
+      "ru": [
+        "Объявите «<<interface>> Gradable».",
+        "Реализуйте его в «OopModule», используя «инструменты».",
+        "Переопределить и предоставить реализацию getGradeLetter(...)'.",
+        "Используйте ссылку на интерфейс «Gradable obj = new OopModule(...);» в «главном».",
+        "Выведите результат на консоль: 'Gradable oop = new OopModule(\"5COSC018C\", 78);         System.out.println(\"ООП Бахоши: \" + oop.getGradeLetter());'"
       ]
     }
   },
@@ -3764,11 +4723,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "61. Uzum Market — InvoicePrinter va Order Dependency (..>)",
-      "en": "61. Uzum Market — InvoicePrinter Depends on Order (..>)"
+      "en": "61. Uzum Market — InvoicePrinter Depends on Order (..>)",
+      "ru": "61. Рынок Узум — принтер счетов зависит от заказа (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market da 'InvoicePrinter' sinfi 'Order' ob'yektini maydon sifatida saqlamaydi, balki faqat 'printInvoice(Order order)' metodi parametri sifatida vaqtincha ishlatadi. Bu UML da uzuq-uzuq chiziqli ochiq strelka (Dependency ..>) bilan ifodalanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'Order' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'InvoicePrinter' ni yarating.\n3. 'InvoicePrinter' ichida 'Order' ni maydon qilib saqlamay, faqat 'printInvoice(Order ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'Order order = new Order(\"ORD-101\", 180000.0);         InvoicePrinter printer = new InvoicePrinter();         System.out.println(printer.printInvoice(order));'",
-      "en": "📖 Real-World Scenario & Context\nInvoicePrinter does not maintain a field for Order; it uses Order solely as a method parameter. This models a UML Dependency (..>).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'Order'.\n2. Declare client class 'InvoicePrinter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'printInvoice(Order)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'Order order = new Order(\"ORD-101\", 180000.0);         InvoicePrinter printer = new InvoicePrinter();         System.out.println(printer.printInvoice(order));'"
+      "en": "📖 Real-World Scenario & Context\nInvoicePrinter does not maintain a field for Order; it uses Order solely as a method parameter. This models a UML Dependency (..>).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'Order'.\n2. Declare client class 'InvoicePrinter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'printInvoice(Order)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'Order order = new Order(\"ORD-101\", 180000.0);         InvoicePrinter printer = new InvoicePrinter();         System.out.println(printer.printInvoice(order));'",
+      "ru": "📖 Контекст и описание задачи\nInvoicePrinter не поддерживает поле для заказа; он использует Order исключительно как параметр метода. Это моделирует зависимость UML (..>).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «Заказ».\n2. Объявите клиентский класс InvoicePrinter.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели printInvoice(Order) UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'Order order = new Order(\"ORD-101\", 180000.0);         Принтер InvoicePrinter = новый InvoicePrinter();         System.out.println(printer.printInvoice(order));'"
     },
     "requirements": {
       "classes": [
@@ -3791,7 +4752,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>InvoicePrinter</code>: Order ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>InvoicePrinter</code>: Order ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "CHEK: ORD-101 | Summa: 180000.0 UZS"
@@ -3799,7 +4766,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "CHEK: ORD-101 | Summa: 180000.0 UZS",
     "story": {
       "uz": "Uzum Market da 'InvoicePrinter' sinfi 'Order' ob'yektini maydon sifatida saqlamaydi, balki faqat 'printInvoice(Order order)' metodi parametri sifatida vaqtincha ishlatadi. Bu UML da uzuq-uzuq chiziqli ochiq strelka (Dependency ..>) bilan ifodalanadi.",
-      "en": "InvoicePrinter does not maintain a field for Order; it uses Order solely as a method parameter. This models a UML Dependency (..>)."
+      "en": "InvoicePrinter does not maintain a field for Order; it uses Order solely as a method parameter. This models a UML Dependency (..>).",
+      "ru": "InvoicePrinter не поддерживает поле для заказа; он использует Order исключительно как параметр метода. Это моделирует зависимость UML (..>)."
     },
     "steps": {
       "uz": [
@@ -3815,6 +4783,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'printInvoice(Order)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'Order order = new Order(\"ORD-101\", 180000.0);         InvoicePrinter printer = new InvoicePrinter();         System.out.println(printer.printInvoice(order));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «Заказ».",
+        "Объявите клиентский класс InvoicePrinter.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели printInvoice(Order) UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'Order order = new Order(\"ORD-101\", 180000.0);         Принтер InvoicePrinter = новый InvoicePrinter();         System.out.println(printer.printInvoice(order));'"
       ]
     }
   },
@@ -3825,11 +4800,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "62. Payme — PaymentValidator va SmsToken Dependency (..>)",
-      "en": "62. Payme — PaymentValidator Depends on SmsToken (..>)"
+      "en": "62. Payme — PaymentValidator Depends on SmsToken (..>)",
+      "ru": "62. Payme — Валидатор платежа зависит от SmsToken (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme to'lov tekshiruvchisi 'PaymentValidator' o'zida 'SmsToken' ni saqlamaydi. Faqat 'validate(SmsToken token)' metodida tokenni tekshiradi. Ushbu qaramlikni Java kodida ifodalang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'SmsToken' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'PaymentValidator' ni yarating.\n3. 'PaymentValidator' ichida 'SmsToken' ni maydon qilib saqlamay, faqat 'validate(SmsToken ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'SmsToken token = new SmsToken(\"9941\");         PaymentValidator validator = new PaymentValidator();         System.out.println(\"Token yaroqlimi: \" + validator.validate(token));'",
-      "en": "📖 Real-World Scenario & Context\nPaymentValidator relies temporarily on SmsToken as a parameter without an instance field (UML Dependency).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'SmsToken'.\n2. Declare client class 'PaymentValidator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'validate(SmsToken)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'SmsToken token = new SmsToken(\"9941\");         PaymentValidator validator = new PaymentValidator();         System.out.println(\"Token yaroqlimi: \" + validator.validate(token));'"
+      "en": "📖 Real-World Scenario & Context\nPaymentValidator relies temporarily on SmsToken as a parameter without an instance field (UML Dependency).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'SmsToken'.\n2. Declare client class 'PaymentValidator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'validate(SmsToken)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'SmsToken token = new SmsToken(\"9941\");         PaymentValidator validator = new PaymentValidator();         System.out.println(\"Token yaroqlimi: \" + validator.validate(token));'",
+      "ru": "📖 Контекст и описание задачи\nPaymentValidator временно использует SmsToken как параметр без поля экземпляра (зависимость UML).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «SmsToken».\n2. Объявите клиентский класс «PaymentValidator».\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «validate(SmsToken)» UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'SmsToken token = new SmsToken(\"9941\");         Валидатор PaymentValidator = новый PaymentValidator();         System.out.println(\"Токен yaroqlimi: \" + validator.validate(токен));'"
     },
     "requirements": {
       "classes": [
@@ -3852,7 +4829,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>PaymentValidator</code>: SmsToken ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>PaymentValidator</code>: SmsToken ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Token yaroqlimi: true"
@@ -3860,7 +4843,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Token yaroqlimi: true",
     "story": {
       "uz": "Payme to'lov tekshiruvchisi 'PaymentValidator' o'zida 'SmsToken' ni saqlamaydi. Faqat 'validate(SmsToken token)' metodida tokenni tekshiradi. Ushbu qaramlikni Java kodida ifodalang.",
-      "en": "PaymentValidator relies temporarily on SmsToken as a parameter without an instance field (UML Dependency)."
+      "en": "PaymentValidator relies temporarily on SmsToken as a parameter without an instance field (UML Dependency).",
+      "ru": "PaymentValidator временно использует SmsToken как параметр без поля экземпляра (зависимость UML)."
     },
     "steps": {
       "uz": [
@@ -3876,6 +4860,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'validate(SmsToken)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'SmsToken token = new SmsToken(\"9941\");         PaymentValidator validator = new PaymentValidator();         System.out.println(\"Token yaroqlimi: \" + validator.validate(token));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «SmsToken».",
+        "Объявите клиентский класс «PaymentValidator».",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «validate(SmsToken)» UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'SmsToken token = new SmsToken(\"9941\");         Валидатор PaymentValidator = новый PaymentValidator();         System.out.println(\"Токен yaroqlimi: \" + validator.validate(токен));'"
       ]
     }
   },
@@ -3886,11 +4877,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "63. Korzinka — ReceiptCalculator va ShoppingBasket Dependency (..>)",
-      "en": "63. Korzinka — ReceiptCalculator Depends on ShoppingBasket"
+      "en": "63. Korzinka — ReceiptCalculator Depends on ShoppingBasket",
+      "ru": "63. Корзинка — Калькулятор чеков зависит от корзины покупок"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka hisob-kitob servisi 'ReceiptCalculator' savatchadagi ('ShoppingBasket') tovarlar narxini 'computeTotal(ShoppingBasket basket)' metodi orqali vaqtinchalik hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'ShoppingBasket' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'ReceiptCalculator' ni yarating.\n3. 'ReceiptCalculator' ichida 'ShoppingBasket' ni maydon qilib saqlamay, faqat 'computeTotal(ShoppingBasket ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'ShoppingBasket basket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator calc = new ReceiptCalculator();         System.out.println(\"Savatcha summasi: \" + calc.computeTotal(basket));'",
-      "en": "📖 Real-World Scenario & Context\nReceiptCalculator depends on ShoppingBasket via method parameter to calculate basket total.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'ShoppingBasket'.\n2. Declare client class 'ReceiptCalculator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'computeTotal(ShoppingBasket)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'ShoppingBasket basket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator calc = new ReceiptCalculator();         System.out.println(\"Savatcha summasi: \" + calc.computeTotal(basket));'"
+      "en": "📖 Real-World Scenario & Context\nReceiptCalculator depends on ShoppingBasket via method parameter to calculate basket total.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'ShoppingBasket'.\n2. Declare client class 'ReceiptCalculator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'computeTotal(ShoppingBasket)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'ShoppingBasket basket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator calc = new ReceiptCalculator();         System.out.println(\"Savatcha summasi: \" + calc.computeTotal(basket));'",
+      "ru": "📖 Контекст и описание задачи\nReceiptCalculator зависит от ShoppingBasket через параметр метода для расчета общей суммы корзины.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «ShoppingBasket».\n2. Объявите клиентский класс ReceiptCalculator.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «computeTotal(ShoppingBasket)» UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'Корзина ShoppingBasket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator Calc = новый ReceiptCalculator();         System.out.println(\"Сумма сумм: \" + Calc.computeTotal(корзина));'"
     },
     "requirements": {
       "classes": [
@@ -3913,7 +4906,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>ReceiptCalculator</code>: ShoppingBasket ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>ReceiptCalculator</code>: ShoppingBasket ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Savatcha summasi: 80000.0"
@@ -3921,7 +4920,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Savatcha summasi: 80000.0",
     "story": {
       "uz": "Korzinka hisob-kitob servisi 'ReceiptCalculator' savatchadagi ('ShoppingBasket') tovarlar narxini 'computeTotal(ShoppingBasket basket)' metodi orqali vaqtinchalik hisoblaydi.",
-      "en": "ReceiptCalculator depends on ShoppingBasket via method parameter to calculate basket total."
+      "en": "ReceiptCalculator depends on ShoppingBasket via method parameter to calculate basket total.",
+      "ru": "ReceiptCalculator зависит от ShoppingBasket через параметр метода для расчета общей суммы корзины."
     },
     "steps": {
       "uz": [
@@ -3937,6 +4937,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'computeTotal(ShoppingBasket)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'ShoppingBasket basket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator calc = new ReceiptCalculator();         System.out.println(\"Savatcha summasi: \" + calc.computeTotal(basket));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «ShoppingBasket».",
+        "Объявите клиентский класс ReceiptCalculator.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «computeTotal(ShoppingBasket)» UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'Корзина ShoppingBasket = new ShoppingBasket(45000.0, 35000.0);         ReceiptCalculator Calc = новый ReceiptCalculator();         System.out.println(\"Сумма сумм: \" + Calc.computeTotal(корзина));'"
       ]
     }
   },
@@ -3947,11 +4954,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "64. Yandex Go — RouteEstimator va GeoPoint Dependency (..>)",
-      "en": "64. Yandex Go — RouteEstimator Depends on GeoPoint (..>)"
+      "en": "64. Yandex Go — RouteEstimator Depends on GeoPoint (..>)",
+      "ru": "64. Yandex Go — RouteEstimator зависит от GeoPoint (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go marshrut hisoblagichi 'RouteEstimator' ikkita lokatsiya nuqtasi 'GeoPoint' orasidagi masofani 'estimateDistance(GeoPoint p1, GeoPoint p2)' orqali hisoblaydi (UML Dependency ..>).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'GeoPoint' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'RouteEstimator' ni yarating.\n3. 'RouteEstimator' ichida 'GeoPoint' ni maydon qilib saqlamay, faqat 'estimateDistance(GeoPoint ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = new GeoPoint(41.35, 69.28);         RouteEstimator est = new RouteEstimator();         System.out.println(\"Oraliq masofa: \" + est.estimateDistance(a, b) + \" km\");'",
-      "en": "📖 Real-World Scenario & Context\nRouteEstimator calculates distance using two GeoPoint parameters without persisting them.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'GeoPoint'.\n2. Declare client class 'RouteEstimator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'estimateDistance(GeoPoint)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = new GeoPoint(41.35, 69.28);         RouteEstimator est = new RouteEstimator();         System.out.println(\"Oraliq masofa: \" + est.estimateDistance(a, b) + \" km\");'"
+      "en": "📖 Real-World Scenario & Context\nRouteEstimator calculates distance using two GeoPoint parameters without persisting them.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'GeoPoint'.\n2. Declare client class 'RouteEstimator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'estimateDistance(GeoPoint)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = new GeoPoint(41.35, 69.28);         RouteEstimator est = new RouteEstimator();         System.out.println(\"Oraliq masofa: \" + est.estimateDistance(a, b) + \" km\");'",
+      "ru": "📖 Контекст и описание задачи\nRouteEstimator вычисляет расстояние, используя два параметра GeoPoint, не сохраняя их.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «GeoPoint».\n2. Объявите клиентский класс RouteEstimator.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели 'estimateDistance(GeoPoint)', моделирующей зависимость UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = новая GeoPoint(41.35, 69.28);         RouteEstimator est = новый RouteEstimator();         System.out.println(\"Оралик масофа: \" + est.estimateDistance(a, b) + \" км\");'"
     },
     "requirements": {
       "classes": [
@@ -3974,7 +4983,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>RouteEstimator</code>: GeoPoint ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>RouteEstimator</code>: GeoPoint ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Oraliq masofa: 8.0 km"
@@ -3982,7 +4997,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Oraliq masofa: 8.0 km",
     "story": {
       "uz": "Yandex Go marshrut hisoblagichi 'RouteEstimator' ikkita lokatsiya nuqtasi 'GeoPoint' orasidagi masofani 'estimateDistance(GeoPoint p1, GeoPoint p2)' orqali hisoblaydi (UML Dependency ..>).",
-      "en": "RouteEstimator calculates distance using two GeoPoint parameters without persisting them."
+      "en": "RouteEstimator calculates distance using two GeoPoint parameters without persisting them.",
+      "ru": "RouteEstimator вычисляет расстояние, используя два параметра GeoPoint, не сохраняя их."
     },
     "steps": {
       "uz": [
@@ -3998,6 +5014,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'estimateDistance(GeoPoint)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = new GeoPoint(41.35, 69.28);         RouteEstimator est = new RouteEstimator();         System.out.println(\"Oraliq masofa: \" + est.estimateDistance(a, b) + \" km\");'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «GeoPoint».",
+        "Объявите клиентский класс RouteEstimator.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели 'estimateDistance(GeoPoint)', моделирующей зависимость UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'GeoPoint a = new GeoPoint(41.31, 69.24);         GeoPoint b = новая GeoPoint(41.35, 69.28);         RouteEstimator est = новый RouteEstimator();         System.out.println(\"Оралик масофа: \" + est.estimateDistance(a, b) + \" км\");'"
       ]
     }
   },
@@ -4008,11 +5031,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "65. Express24 — CourierNotifier va DeliveryAlert Dependency (..>)",
-      "en": "65. Express24 — CourierNotifier Depends on DeliveryAlert"
+      "en": "65. Express24 — CourierNotifier Depends on DeliveryAlert",
+      "ru": "65. Express24 — CourierNotifier зависит от DeliveryAlert"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 kuryerga xabar berish moduli 'CourierNotifier' ogohlantirish ob'yektini 'send(DeliveryAlert alert)' parametri sifatida qabul qilib xabarni jo'natadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'DeliveryAlert' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'CourierNotifier' ni yarating.\n3. 'CourierNotifier' ichida 'DeliveryAlert' ni maydon qilib saqlamay, faqat 'send(DeliveryAlert ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         CourierNotifier notifier = new CourierNotifier();         System.out.println(notifier.send(alert));'",
-      "en": "📖 Real-World Scenario & Context\nCourierNotifier temporarily consumes DeliveryAlert to dispatch messages.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'DeliveryAlert'.\n2. Declare client class 'CourierNotifier'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'send(DeliveryAlert)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         CourierNotifier notifier = new CourierNotifier();         System.out.println(notifier.send(alert));'"
+      "en": "📖 Real-World Scenario & Context\nCourierNotifier temporarily consumes DeliveryAlert to dispatch messages.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'DeliveryAlert'.\n2. Declare client class 'CourierNotifier'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'send(DeliveryAlert)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         CourierNotifier notifier = new CourierNotifier();         System.out.println(notifier.send(alert));'",
+      "ru": "📖 Контекст и описание задачи\nCourierNotifier временно использует DeliveryAlert для отправки сообщений.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «DeliveryAlert».\n2. Объявите клиентский класс CourierNotifier.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в send(DeliveryAlert) при моделировании зависимости UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         Уведомитель CourierNotifier = новый CourierNotifier();         System.out.println(notifier.send(alert));'"
     },
     "requirements": {
       "classes": [
@@ -4035,7 +5060,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CourierNotifier</code>: DeliveryAlert ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>CourierNotifier</code>: DeliveryAlert ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Kuryerga yuborildi: Yangi buyurtma tayyor!"
@@ -4043,7 +5074,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kuryerga yuborildi: Yangi buyurtma tayyor!",
     "story": {
       "uz": "Express24 kuryerga xabar berish moduli 'CourierNotifier' ogohlantirish ob'yektini 'send(DeliveryAlert alert)' parametri sifatida qabul qilib xabarni jo'natadi.",
-      "en": "CourierNotifier temporarily consumes DeliveryAlert to dispatch messages."
+      "en": "CourierNotifier temporarily consumes DeliveryAlert to dispatch messages.",
+      "ru": "CourierNotifier временно использует DeliveryAlert для отправки сообщений."
     },
     "steps": {
       "uz": [
@@ -4059,6 +5091,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'send(DeliveryAlert)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         CourierNotifier notifier = new CourierNotifier();         System.out.println(notifier.send(alert));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «DeliveryAlert».",
+        "Объявите клиентский класс CourierNotifier.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в send(DeliveryAlert) при моделировании зависимости UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'DeliveryAlert alert = new DeliveryAlert(\"Yangi buyurtma tayyor!\");         Уведомитель CourierNotifier = новый CourierNotifier();         System.out.println(notifier.send(alert));'"
       ]
     }
   },
@@ -4069,11 +5108,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "66. Medion — DeviceDiagnostic va HardwareSpec Dependency (..>)",
-      "en": "66. Medion — DeviceDiagnostic Depends on HardwareSpec (..>)"
+      "en": "66. Medion — DeviceDiagnostic Depends on HardwareSpec (..>)",
+      "ru": "66. Medion — диагностика устройства зависит от HardwareSpec (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion servisida 'DeviceDiagnostic' qurilma xususiyatlarini 'HardwareSpec' ob'yekti orqali vaqtinchalik test qiladi ('checkCompatibility(HardwareSpec spec)').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'HardwareSpec' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'DeviceDiagnostic' ni yarating.\n3. 'DeviceDiagnostic' ichida 'HardwareSpec' ni maydon qilib saqlamay, faqat 'checkCompatibility(HardwareSpec ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic diag = new DeviceDiagnostic();         System.out.println(\"Mos keladimi: \" + diag.checkCompatibility(spec));'",
-      "en": "📖 Real-World Scenario & Context\nDeviceDiagnostic checks compatibility taking HardwareSpec as a method parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'HardwareSpec'.\n2. Declare client class 'DeviceDiagnostic'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'checkCompatibility(HardwareSpec)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic diag = new DeviceDiagnostic();         System.out.println(\"Mos keladimi: \" + diag.checkCompatibility(spec));'"
+      "en": "📖 Real-World Scenario & Context\nDeviceDiagnostic checks compatibility taking HardwareSpec as a method parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'HardwareSpec'.\n2. Declare client class 'DeviceDiagnostic'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'checkCompatibility(HardwareSpec)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic diag = new DeviceDiagnostic();         System.out.println(\"Mos keladimi: \" + diag.checkCompatibility(spec));'",
+      "ru": "📖 Контекст и описание задачи\nDeviceDiagnostic проверяет совместимость, используя HardwareSpec в качестве параметра метода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «HardwareSpec».\n2. Объявите клиентский класс DeviceDiagnostic.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «checkCompatibility(HardwareSpec)», моделирующем зависимость UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic Diag = новый DeviceDiagnostic ();         System.out.println(\"Можно сделать: \" +diag.checkCompatibility(spec));'"
     },
     "requirements": {
       "classes": [
@@ -4096,7 +5137,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>DeviceDiagnostic</code>: HardwareSpec ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>DeviceDiagnostic</code>: HardwareSpec ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Mos keladimi: true"
@@ -4104,7 +5151,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Mos keladimi: true",
     "story": {
       "uz": "Medion servisida 'DeviceDiagnostic' qurilma xususiyatlarini 'HardwareSpec' ob'yekti orqali vaqtinchalik test qiladi ('checkCompatibility(HardwareSpec spec)').",
-      "en": "DeviceDiagnostic checks compatibility taking HardwareSpec as a method parameter."
+      "en": "DeviceDiagnostic checks compatibility taking HardwareSpec as a method parameter.",
+      "ru": "DeviceDiagnostic проверяет совместимость, используя HardwareSpec в качестве параметра метода."
     },
     "steps": {
       "uz": [
@@ -4120,6 +5168,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'checkCompatibility(HardwareSpec)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic diag = new DeviceDiagnostic();         System.out.println(\"Mos keladimi: \" + diag.checkCompatibility(spec));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «HardwareSpec».",
+        "Объявите клиентский класс DeviceDiagnostic.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «checkCompatibility(HardwareSpec)», моделирующем зависимость UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'HardwareSpec spec = new HardwareSpec(16, 512);         DeviceDiagnostic Diag = новый DeviceDiagnostic ();         System.out.println(\"Можно сделать: \" +diag.checkCompatibility(spec));'"
       ]
     }
   },
@@ -4130,11 +5185,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "67. Click — QrDecoder va QrPayload Dependency (..>)",
-      "en": "67. Click — QrDecoder Depends on QrPayload (..>)"
+      "en": "67. Click — QrDecoder Depends on QrPayload (..>)",
+      "ru": "67. Нажмите — QrDecoder зависит от QrPayload (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick QR to'lov moduli 'QrDecoder' QR ma'lumotlar paketini 'decode(QrPayload payload)' parametri sifatida qabul qilib summa ma'lumotini ajratib oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'QrPayload' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'QrDecoder' ni yarating.\n3. 'QrDecoder' ichida 'QrPayload' ni maydon qilib saqlamay, faqat 'decode(QrPayload ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         QrDecoder decoder = new QrDecoder();         System.out.println(\"Ajratilgan kod: \" + decoder.decode(qr));'",
-      "en": "📖 Real-World Scenario & Context\nQrDecoder decodes payment info from a temporary QrPayload object parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'QrPayload'.\n2. Declare client class 'QrDecoder'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'decode(QrPayload)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         QrDecoder decoder = new QrDecoder();         System.out.println(\"Ajratilgan kod: \" + decoder.decode(qr));'"
+      "en": "📖 Real-World Scenario & Context\nQrDecoder decodes payment info from a temporary QrPayload object parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'QrPayload'.\n2. Declare client class 'QrDecoder'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'decode(QrPayload)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         QrDecoder decoder = new QrDecoder();         System.out.println(\"Ajratilgan kod: \" + decoder.decode(qr));'",
+      "ru": "📖 Контекст и описание задачи\nQrDecoder декодирует информацию о платеже из временного параметра объекта QrPayload.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «QrPayload».\n2. Объявите клиентский класс QrDecoder.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели декодирования (QrPayload) UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         Декодер QrDecoder = новый QrDecoder();         System.out.println(\"Аджратилган код: \" + decoder.decode(qr));'"
     },
     "requirements": {
       "classes": [
@@ -4157,7 +5214,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>QrDecoder</code>: QrPayload ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>QrDecoder</code>: QrPayload ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Ajratilgan kod: CLICK-MERCHANT-50000"
@@ -4165,7 +5228,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Ajratilgan kod: CLICK-MERCHANT-50000",
     "story": {
       "uz": "Click QR to'lov moduli 'QrDecoder' QR ma'lumotlar paketini 'decode(QrPayload payload)' parametri sifatida qabul qilib summa ma'lumotini ajratib oladi.",
-      "en": "QrDecoder decodes payment info from a temporary QrPayload object parameter."
+      "en": "QrDecoder decodes payment info from a temporary QrPayload object parameter.",
+      "ru": "QrDecoder декодирует информацию о платеже из временного параметра объекта QrPayload."
     },
     "steps": {
       "uz": [
@@ -4181,6 +5245,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'decode(QrPayload)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         QrDecoder decoder = new QrDecoder();         System.out.println(\"Ajratilgan kod: \" + decoder.decode(qr));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «QrPayload».",
+        "Объявите клиентский класс QrDecoder.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели декодирования (QrPayload) UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'QrPayload qr = new QrPayload(\"CLICK-MERCHANT-50000\");         Декодер QrDecoder = новый QrDecoder();         System.out.println(\"Аджратилган код: \" + decoder.decode(qr));'"
       ]
     }
   },
@@ -4191,11 +5262,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "68. Asaxiy — BookExporter va BookRecord Dependency (..>)",
-      "en": "68. Asaxiy — BookExporter Depends on BookRecord (..>)"
+      "en": "68. Asaxiy — BookExporter Depends on BookRecord (..>)",
+      "ru": "68. Асаксий — BookExporter зависит от BookRecord (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy ma'lumotlar eksport moduli 'BookExporter' kitob yozuvini 'exportJson(BookRecord record)' orqali JSON formatidagi satrga o'giradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'BookRecord' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'BookExporter' ni yarating.\n3. 'BookExporter' ichida 'BookRecord' ni maydon qilib saqlamay, faqat 'exportJson(BookRecord ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'BookRecord rec = new BookRecord(\"Clean Code\", \"Robert Martin\");         BookExporter exp = new BookExporter();         System.out.println(exp.exportJson(rec));'",
-      "en": "📖 Real-World Scenario & Context\nBookExporter processes a BookRecord parameter converting it to formatted text.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'BookRecord'.\n2. Declare client class 'BookExporter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'exportJson(BookRecord)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'BookRecord rec = new BookRecord(\"Clean Code\", \"Robert Martin\");         BookExporter exp = new BookExporter();         System.out.println(exp.exportJson(rec));'"
+      "en": "📖 Real-World Scenario & Context\nBookExporter processes a BookRecord parameter converting it to formatted text.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'BookRecord'.\n2. Declare client class 'BookExporter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'exportJson(BookRecord)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'BookRecord rec = new BookRecord(\"Clean Code\", \"Robert Martin\");         BookExporter exp = new BookExporter();         System.out.println(exp.exportJson(rec));'",
+      "ru": "📖 Контекст и описание задачи\nBookExporter обрабатывает параметр BookRecord, преобразуя его в форматированный текст.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика BookRecord.\n2. Объявите клиентский класс BookExporter.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «exportJson(BookRecord)», моделирующем зависимость UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'BookRecord Rec = new BookRecord(\"Чистый код\", \"Роберт Мартин\");         BookExporter exp = новый BookExporter();         System.out.println(exp.exportJson(rec));'"
     },
     "requirements": {
       "classes": [
@@ -4218,7 +5291,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BookExporter</code>: BookRecord ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>BookExporter</code>: BookRecord ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "{\"title\": \"Clean Code\", \"author\": \"Robert Martin\"}"
@@ -4226,7 +5305,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "{\"title\": \"Clean Code\", \"author\": \"Robert Martin\"}",
     "story": {
       "uz": "Asaxiy ma'lumotlar eksport moduli 'BookExporter' kitob yozuvini 'exportJson(BookRecord record)' orqali JSON formatidagi satrga o'giradi.",
-      "en": "BookExporter processes a BookRecord parameter converting it to formatted text."
+      "en": "BookExporter processes a BookRecord parameter converting it to formatted text.",
+      "ru": "BookExporter обрабатывает параметр BookRecord, преобразуя его в форматированный текст."
     },
     "steps": {
       "uz": [
@@ -4242,6 +5322,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'exportJson(BookRecord)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'BookRecord rec = new BookRecord(\"Clean Code\", \"Robert Martin\");         BookExporter exp = new BookExporter();         System.out.println(exp.exportJson(rec));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика BookRecord.",
+        "Объявите клиентский класс BookExporter.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «exportJson(BookRecord)», моделирующем зависимость UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'BookRecord Rec = new BookRecord(\"Чистый код\", \"Роберт Мартин\");         BookExporter exp = новый BookExporter();         System.out.println(exp.exportJson(rec));'"
       ]
     }
   },
@@ -4252,11 +5339,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "69. Safia — NutritionAnalyzer va IngredientList Dependency (..>)",
-      "en": "69. Safia — NutritionAnalyzer Depends on IngredientList (..>)"
+      "en": "69. Safia — NutritionAnalyzer Depends on IngredientList (..>)",
+      "ru": "69. Сафия — Анализатор питания зависит от списка ингредиентов (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia sifat nazorati 'NutritionAnalyzer' masalliqlar ro'yxatini 'analyze(IngredientList list)' metodida qabul qilib uning xavfsizligini tekshiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'IngredientList' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'NutritionAnalyzer' ni yarating.\n3. 'NutritionAnalyzer' ichida 'IngredientList' ni maydon qilib saqlamay, faqat 'analyze(IngredientList ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'IngredientList ing = new IngredientList(4);         NutritionAnalyzer analyzer = new NutritionAnalyzer();         System.out.println(\"Masalliqlar xavfsizmi: \" + analyzer.analyze(ing));'",
-      "en": "📖 Real-World Scenario & Context\nNutritionAnalyzer evaluates safety by taking IngredientList as a method parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'IngredientList'.\n2. Declare client class 'NutritionAnalyzer'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'analyze(IngredientList)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'IngredientList ing = new IngredientList(4);         NutritionAnalyzer analyzer = new NutritionAnalyzer();         System.out.println(\"Masalliqlar xavfsizmi: \" + analyzer.analyze(ing));'"
+      "en": "📖 Real-World Scenario & Context\nNutritionAnalyzer evaluates safety by taking IngredientList as a method parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'IngredientList'.\n2. Declare client class 'NutritionAnalyzer'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'analyze(IngredientList)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'IngredientList ing = new IngredientList(4);         NutritionAnalyzer analyzer = new NutritionAnalyzer();         System.out.println(\"Masalliqlar xavfsizmi: \" + analyzer.analyze(ing));'",
+      "ru": "📖 Контекст и описание задачи\nNutritionAnalyzer оценивает безопасность, принимая IngredientList в качестве параметра метода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «IngredientList».\n2. Объявите клиентский класс «NutritionAnalyzer».\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в анализе (IngredientList) при моделировании зависимости UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'IngredientList ing = new IngredientList(4);         Анализатор NutritionAnalyzer = новый NutritionAnalyzer();         System.out.println(\"Установка xavfsizmi: \" + анализатор.анализ(ing));'"
     },
     "requirements": {
       "classes": [
@@ -4279,7 +5368,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>NutritionAnalyzer</code>: IngredientList ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>NutritionAnalyzer</code>: IngredientList ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Masalliqlar xavfsizmi: true"
@@ -4287,7 +5382,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Masalliqlar xavfsizmi: true",
     "story": {
       "uz": "Safia sifat nazorati 'NutritionAnalyzer' masalliqlar ro'yxatini 'analyze(IngredientList list)' metodida qabul qilib uning xavfsizligini tekshiradi.",
-      "en": "NutritionAnalyzer evaluates safety by taking IngredientList as a method parameter."
+      "en": "NutritionAnalyzer evaluates safety by taking IngredientList as a method parameter.",
+      "ru": "NutritionAnalyzer оценивает безопасность, принимая IngredientList в качестве параметра метода."
     },
     "steps": {
       "uz": [
@@ -4303,6 +5399,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'analyze(IngredientList)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'IngredientList ing = new IngredientList(4);         NutritionAnalyzer analyzer = new NutritionAnalyzer();         System.out.println(\"Masalliqlar xavfsizmi: \" + analyzer.analyze(ing));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «IngredientList».",
+        "Объявите клиентский класс «NutritionAnalyzer».",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в анализе (IngredientList) при моделировании зависимости UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'IngredientList ing = new IngredientList(4);         Анализатор NutritionAnalyzer = новый NutritionAnalyzer();         System.out.println(\"Установка xavfsizmi: \" + анализатор.анализ(ing));'"
       ]
     }
   },
@@ -4313,11 +5416,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "70. Dodo Pizza — BoxLabelPrinter va PizzaBox Dependency (..>)",
-      "en": "70. Dodo Pizza — BoxLabelPrinter Depends on PizzaBox (..>)"
+      "en": "70. Dodo Pizza — BoxLabelPrinter Depends on PizzaBox (..>)",
+      "ru": "70. Додо Пицца — BoxLabelPrinter зависит от PizzaBox (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza qutichaga yorliq chop etuvchi 'BoxLabelPrinter' sinfi 'PizzaBox' qutisini 'printLabel(PizzaBox box)' orqali qabul qilib yorliq matnini qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'PizzaBox' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'BoxLabelPrinter' ni yarating.\n3. 'BoxLabelPrinter' ichida 'PizzaBox' ni maydon qilib saqlamay, faqat 'printLabel(PizzaBox ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         BoxLabelPrinter printer = new BoxLabelPrinter();         System.out.println(printer.printLabel(box));'",
-      "en": "📖 Real-World Scenario & Context\nBoxLabelPrinter formats label text from a temporary PizzaBox parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'PizzaBox'.\n2. Declare client class 'BoxLabelPrinter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'printLabel(PizzaBox)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         BoxLabelPrinter printer = new BoxLabelPrinter();         System.out.println(printer.printLabel(box));'"
+      "en": "📖 Real-World Scenario & Context\nBoxLabelPrinter formats label text from a temporary PizzaBox parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'PizzaBox'.\n2. Declare client class 'BoxLabelPrinter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'printLabel(PizzaBox)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         BoxLabelPrinter printer = new BoxLabelPrinter();         System.out.println(printer.printLabel(box));'",
+      "ru": "📖 Контекст и описание задачи\nBoxLabelPrinter форматирует текст метки на основе временного параметра PizzaBox.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «PizzaBox».\n2. Объявите клиентский класс BoxLabelPrinter.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели printLabel(PizzaBox) UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         Принтер BoxLabelPrinter = новый BoxLabelPrinter ();         System.out.println(printer.printLabel(box));'"
     },
     "requirements": {
       "classes": [
@@ -4340,7 +5445,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BoxLabelPrinter</code>: PizzaBox ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>BoxLabelPrinter</code>: PizzaBox ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "YORLIQ: Pepperoni (Katta)"
@@ -4348,7 +5459,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "YORLIQ: Pepperoni (Katta)",
     "story": {
       "uz": "Dodo Pizza qutichaga yorliq chop etuvchi 'BoxLabelPrinter' sinfi 'PizzaBox' qutisini 'printLabel(PizzaBox box)' orqali qabul qilib yorliq matnini qaytaradi.",
-      "en": "BoxLabelPrinter formats label text from a temporary PizzaBox parameter."
+      "en": "BoxLabelPrinter formats label text from a temporary PizzaBox parameter.",
+      "ru": "BoxLabelPrinter форматирует текст метки на основе временного параметра PizzaBox."
     },
     "steps": {
       "uz": [
@@ -4364,6 +5476,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'printLabel(PizzaBox)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         BoxLabelPrinter printer = new BoxLabelPrinter();         System.out.println(printer.printLabel(box));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «PizzaBox».",
+        "Объявите клиентский класс BoxLabelPrinter.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели printLabel(PizzaBox) UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'PizzaBox box = new PizzaBox(\"Pepperoni\", \"Katta\");         Принтер BoxLabelPrinter = новый BoxLabelPrinter ();         System.out.println(printer.printLabel(box));'"
       ]
     }
   },
@@ -4374,11 +5493,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "71. Texnomart — BarcodeVerifier va BarcodeTag Dependency (..>)",
-      "en": "71. Texnomart — BarcodeVerifier Depends on BarcodeTag (..>)"
+      "en": "71. Texnomart — BarcodeVerifier Depends on BarcodeTag (..>)",
+      "ru": "71. Texnomart — BarcodeVerifier зависит от BarcodeTag (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart skaneri 'BarcodeVerifier' tovar yorlig'ini 'verify(BarcodeTag tag)' metodida qabul qilib shtrix-kod uzunligini tekshiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'BarcodeTag' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'BarcodeVerifier' ni yarating.\n3. 'BarcodeVerifier' ichida 'BarcodeTag' ni maydon qilib saqlamay, faqat 'verify(BarcodeTag ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         BarcodeVerifier verifier = new BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'",
-      "en": "📖 Real-World Scenario & Context\nBarcodeVerifier temporarily validates BarcodeTag parameter length.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'BarcodeTag'.\n2. Declare client class 'BarcodeVerifier'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'verify(BarcodeTag)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         BarcodeVerifier verifier = new BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'"
+      "en": "📖 Real-World Scenario & Context\nBarcodeVerifier temporarily validates BarcodeTag parameter length.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'BarcodeTag'.\n2. Declare client class 'BarcodeVerifier'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'verify(BarcodeTag)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         BarcodeVerifier verifier = new BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'",
+      "ru": "📖 Контекст и описание задачи\nBarcodeVerifier временно проверяет длину параметра BarcodeTag.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика BarcodeTag.\n2. Объявите клиентский класс BarcodeVerifier.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «verify(BarcodeTag)» UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         Верификатор BarcodeVerifier = новый BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'"
     },
     "requirements": {
       "classes": [
@@ -4401,7 +5522,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BarcodeVerifier</code>: BarcodeTag ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>BarcodeVerifier</code>: BarcodeTag ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Yorliq to'g'rimi: true"
@@ -4409,7 +5536,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yorliq to'g'rimi: true",
     "story": {
       "uz": "Texnomart skaneri 'BarcodeVerifier' tovar yorlig'ini 'verify(BarcodeTag tag)' metodida qabul qilib shtrix-kod uzunligini tekshiradi.",
-      "en": "BarcodeVerifier temporarily validates BarcodeTag parameter length."
+      "en": "BarcodeVerifier temporarily validates BarcodeTag parameter length.",
+      "ru": "BarcodeVerifier временно проверяет длину параметра BarcodeTag."
     },
     "steps": {
       "uz": [
@@ -4425,6 +5553,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'verify(BarcodeTag)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         BarcodeVerifier verifier = new BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика BarcodeTag.",
+        "Объявите клиентский класс BarcodeVerifier.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «verify(BarcodeTag)» UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'BarcodeTag tag = new BarcodeTag(\"TX-99008811\");         Верификатор BarcodeVerifier = новый BarcodeVerifier();         System.out.println(\"Yorliq to'g'rimi: \" + verifier.verify(tag));'"
       ]
     }
   },
@@ -4435,11 +5570,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "72. UzAirways — BaggageScanner va LuggageItem Dependency (..>)",
-      "en": "72. UzAirways — BaggageScanner Depends on LuggageItem (..>)"
+      "en": "72. UzAirways — BaggageScanner Depends on LuggageItem (..>)",
+      "ru": "72. UzAirways — BaggageScanner зависит от предмета багажа (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways bagaj skaneri 'BaggageScanner' yo'lovchi chamadonini 'scan(LuggageItem item)' orqali vaznini tekshiradi (23 kg dan oshmasligi kerak).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'LuggageItem' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'BaggageScanner' ni yarating.\n3. 'BaggageScanner' ichida 'LuggageItem' ni maydon qilib saqlamay, faqat 'scan(LuggageItem ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'LuggageItem item = new LuggageItem(21.5);         BaggageScanner scanner = new BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + scanner.scan(item));'",
-      "en": "📖 Real-World Scenario & Context\nBaggageScanner scans a LuggageItem parameter verifying weight allowance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'LuggageItem'.\n2. Declare client class 'BaggageScanner'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'scan(LuggageItem)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'LuggageItem item = new LuggageItem(21.5);         BaggageScanner scanner = new BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + scanner.scan(item));'"
+      "en": "📖 Real-World Scenario & Context\nBaggageScanner scans a LuggageItem parameter verifying weight allowance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'LuggageItem'.\n2. Declare client class 'BaggageScanner'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'scan(LuggageItem)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'LuggageItem item = new LuggageItem(21.5);         BaggageScanner scanner = new BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + scanner.scan(item));'",
+      "ru": "📖 Контекст и описание задачи\nBaggageScanner сканирует параметр LuggageItem, проверяя допустимый вес.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «LuggageItem».\n2. Объявите клиентский класс BaggageScanner.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «scan(LuggageItem)», моделирующем UML-зависимость.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'LuggageItem item = new LuggageItem(21.5);         Сканер BaggageScanner = новый BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + Scanner.scan(item));'"
     },
     "requirements": {
       "classes": [
@@ -4462,7 +5599,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BaggageScanner</code>: LuggageItem ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>BaggageScanner</code>: LuggageItem ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "Bagaj qabul qilindimi: true"
@@ -4470,7 +5613,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Bagaj qabul qilindimi: true",
     "story": {
       "uz": "Uzbekistan Airways bagaj skaneri 'BaggageScanner' yo'lovchi chamadonini 'scan(LuggageItem item)' orqali vaznini tekshiradi (23 kg dan oshmasligi kerak).",
-      "en": "BaggageScanner scans a LuggageItem parameter verifying weight allowance."
+      "en": "BaggageScanner scans a LuggageItem parameter verifying weight allowance.",
+      "ru": "BaggageScanner сканирует параметр LuggageItem, проверяя допустимый вес."
     },
     "steps": {
       "uz": [
@@ -4486,6 +5630,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'scan(LuggageItem)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'LuggageItem item = new LuggageItem(21.5);         BaggageScanner scanner = new BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + scanner.scan(item));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «LuggageItem».",
+        "Объявите клиентский класс BaggageScanner.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «scan(LuggageItem)», моделирующем UML-зависимость.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'LuggageItem item = new LuggageItem(21.5);         Сканер BaggageScanner = новый BaggageScanner();         System.out.println(\"Bagaj qabul qilindimi: \" + Scanner.scan(item));'"
       ]
     }
   },
@@ -4496,11 +5647,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "73. Kapitalbank — CurrencyConverter va MoneyAmount Dependency (..>)",
-      "en": "73. Kapitalbank — CurrencyConverter Depends on MoneyAmount (..>)"
+      "en": "73. Kapitalbank — CurrencyConverter Depends on MoneyAmount (..>)",
+      "ru": "73. Капиталбанк — Конвертер валют зависит от суммы денег (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank valyuta konvertori 'CurrencyConverter' pul summasi ob'yektini 'toUsd(MoneyAmount money, double rate)' orqali vaqtincha hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'MoneyAmount' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'CurrencyConverter' ni yarating.\n3. 'CurrencyConverter' ichida 'MoneyAmount' ni maydon qilib saqlamay, faqat 'toUsd(MoneyAmount ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = new CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'",
-      "en": "📖 Real-World Scenario & Context\nCurrencyConverter converts a MoneyAmount parameter without holding an instance field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'MoneyAmount'.\n2. Declare client class 'CurrencyConverter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'toUsd(MoneyAmount)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = new CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'"
+      "en": "📖 Real-World Scenario & Context\nCurrencyConverter converts a MoneyAmount parameter without holding an instance field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'MoneyAmount'.\n2. Declare client class 'CurrencyConverter'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'toUsd(MoneyAmount)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = new CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'",
+      "ru": "📖 Контекст и описание задачи\nCurrencyConverter преобразует параметр MoneyAmount без сохранения поля экземпляра.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика MoneyAmount.\n2. Объявите клиентский класс CurrencyConverter.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели toUsd(MoneyAmount) UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = новый CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'"
     },
     "requirements": {
       "classes": [
@@ -4523,7 +5676,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CurrencyConverter</code>: MoneyAmount ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>CurrencyConverter</code>: MoneyAmount ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "USD miqdori: 100.0"
@@ -4531,7 +5690,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "USD miqdori: 100.0",
     "story": {
       "uz": "Kapitalbank valyuta konvertori 'CurrencyConverter' pul summasi ob'yektini 'toUsd(MoneyAmount money, double rate)' orqali vaqtincha hisoblaydi.",
-      "en": "CurrencyConverter converts a MoneyAmount parameter without holding an instance field."
+      "en": "CurrencyConverter converts a MoneyAmount parameter without holding an instance field.",
+      "ru": "CurrencyConverter преобразует параметр MoneyAmount без сохранения поля экземпляра."
     },
     "steps": {
       "uz": [
@@ -4547,6 +5707,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'toUsd(MoneyAmount)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = new CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика MoneyAmount.",
+        "Объявите клиентский класс CurrencyConverter.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели toUsd(MoneyAmount) UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'MoneyAmount m = new MoneyAmount(1280000.0);         CurrencyConverter conv = новый CurrencyConverter();         System.out.println(\"USD miqdori: \" + conv.toUsd(m, 12800.0));'"
       ]
     }
   },
@@ -4557,11 +5724,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "74. Beeline — SmsDispatcher va SmsMessage Dependency (..>)",
-      "en": "74. Beeline — SmsDispatcher Depends on SmsMessage (..>)"
+      "en": "74. Beeline — SmsDispatcher Depends on SmsMessage (..>)",
+      "ru": "74. Билайн — SmsDispatcher Зависит от SmsMessage (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline SMS serveri 'SmsDispatcher' xabarni 'dispatch(SmsMessage msg)' orqali tarmoqqa uzatadi (UML Dependency ..>).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'SmsMessage' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'SmsDispatcher' ni yarating.\n3. 'SmsDispatcher' ichida 'SmsMessage' ni maydon qilib saqlamay, faqat 'dispatch(SmsMessage ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Balansingiz: 25000 UZS\");         SmsDispatcher disp = new SmsDispatcher();         System.out.println(disp.dispatch(msg));'",
-      "en": "📖 Real-World Scenario & Context\nSmsDispatcher accepts SmsMessage parameter delivering it to mobile network.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'SmsMessage'.\n2. Declare client class 'SmsDispatcher'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'dispatch(SmsMessage)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Balansingiz: 25000 UZS\");         SmsDispatcher disp = new SmsDispatcher();         System.out.println(disp.dispatch(msg));'"
+      "en": "📖 Real-World Scenario & Context\nSmsDispatcher accepts SmsMessage parameter delivering it to mobile network.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'SmsMessage'.\n2. Declare client class 'SmsDispatcher'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'dispatch(SmsMessage)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Balansingiz: 25000 UZS\");         SmsDispatcher disp = new SmsDispatcher();         System.out.println(disp.dispatch(msg));'",
+      "ru": "📖 Контекст и описание задачи\nSmsDispatcher принимает параметр SmsMessage и доставляет его в мобильную сеть.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика «SmsMessage».\n2. Объявите клиентский класс «SmsDispatcher».\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «dispatch(SmsMessage)» UML-зависимости.\n4. Создание экземпляров объектов в «main».\n5. Выполнить и проверить вызов зависимости: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Балансингиз: 25000 сум\");         SmsDispatcher disp = новый SmsDispatcher();         System.out.println(disp.dispatch(msg));'"
     },
     "requirements": {
       "classes": [
@@ -4584,7 +5753,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>SmsDispatcher</code>: SmsMessage ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>SmsDispatcher</code>: SmsMessage ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "SMS yuborildi: +998901234567 -> Balansingiz: 25000 UZS"
@@ -4592,7 +5767,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "SMS yuborildi: +998901234567 -> Balansingiz: 25000 UZS",
     "story": {
       "uz": "Beeline SMS serveri 'SmsDispatcher' xabarni 'dispatch(SmsMessage msg)' orqali tarmoqqa uzatadi (UML Dependency ..>).",
-      "en": "SmsDispatcher accepts SmsMessage parameter delivering it to mobile network."
+      "en": "SmsDispatcher accepts SmsMessage parameter delivering it to mobile network.",
+      "ru": "SmsDispatcher принимает параметр SmsMessage и доставляет его в мобильную сеть."
     },
     "steps": {
       "uz": [
@@ -4608,6 +5784,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'dispatch(SmsMessage)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Balansingiz: 25000 UZS\");         SmsDispatcher disp = new SmsDispatcher();         System.out.println(disp.dispatch(msg));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика «SmsMessage».",
+        "Объявите клиентский класс «SmsDispatcher».",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в модели «dispatch(SmsMessage)» UML-зависимости.",
+        "Создание экземпляров объектов в «main».",
+        "Выполнить и проверить вызов зависимости: 'SmsMessage msg = new SmsMessage(\"+998901234567\", \"Балансингиз: 25000 сум\");         SmsDispatcher disp = новый SmsDispatcher();         System.out.println(disp.dispatch(msg));'"
       ]
     }
   },
@@ -4618,11 +5801,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "61-75: Dependency (Dashed Open Arrow ..>) va Vaqtinchalik Bog'liqlik",
     "title": {
       "uz": "75. WIUT — TranscriptGenerator va GradeReport Dependency (..>)",
-      "en": "75. WIUT — TranscriptGenerator Depends on GradeReport (..>)"
+      "en": "75. WIUT — TranscriptGenerator Depends on GradeReport (..>)",
+      "ru": "75. WIUT — TranscriptGenerator зависит от GradeReport (..>)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT akademik bo'limida 'TranscriptGenerator' talabaning baholar varaqasini 'generate(GradeReport report)' metodi orqali olib rasmiy transkript matnini qaytaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML dagi yordamchi (supplier) sinf 'GradeReport' ni maydonlari va getterlari bilan e'lon qiling.\n2. UML dagi mijoz (client) sinf 'TranscriptGenerator' ni yarating.\n3. 'TranscriptGenerator' ichida 'GradeReport' ni maydon qilib saqlamay, faqat 'generate(GradeReport ...)' parametri sifatida vaqtincha foydalaning (Dependency ..>).\n4. 'Main' sinfida har ikkala ob'yektni yarating.\n5. Metodga ob'yektni uzatib natijani chop eting: 'GradeReport rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = new TranscriptGenerator();         System.out.println(gen.generate(rep));'",
-      "en": "📖 Real-World Scenario & Context\nTranscriptGenerator relies on GradeReport as a method parameter to generate academic transcript.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'GradeReport'.\n2. Declare client class 'TranscriptGenerator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'generate(GradeReport)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'GradeReport rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = new TranscriptGenerator();         System.out.println(gen.generate(rep));'"
+      "en": "📖 Real-World Scenario & Context\nTranscriptGenerator relies on GradeReport as a method parameter to generate academic transcript.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare supplier class 'GradeReport'.\n2. Declare client class 'TranscriptGenerator'.\n3. Do not store supplier as an attribute; use it solely as a parameter in 'generate(GradeReport)' modeling UML Dependency.\n4. Instantiate objects in 'main'.\n5. Execute and verify dependency invocation: 'GradeReport rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = new TranscriptGenerator();         System.out.println(gen.generate(rep));'",
+      "ru": "📖 Контекст и описание задачи\nTranscriptGenerator использует GradeReport как параметр метода для создания академического транскрипта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс поставщика GradeReport.\n2. Объявите клиентский класс TranscriptGenerator.\n3. Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «generate(GradeReport)», моделирующем зависимость UML.\n4. Создание экземпляров объектов в «main».\n5. Выполните и проверьте вызов зависимости: 'GradeReport Rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = новый TranscriptGenerator();         System.out.println(gen.generate(rep));'"
     },
     "requirements": {
       "classes": [
@@ -4645,7 +5830,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>TranscriptGenerator</code>: GradeReport ga vaqtincha tayanuvchi klient sinfi."
       ],
       "pitfalls": "Agar sinf boshqa sinfni o'zida 'private Supplier supplier;' qilib saqlasa, bu endi Dependency emas, balki Association (yoki Aggregation/Composition) hisoblanadi.",
-      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency)."
+      "cw2Tip": "Masalan, buyurtmani chekka chiqaruvchi printer sinfi buyurtmani doimiy saqlamaydi, faqat 'print(Order order)' orqali vaqtincha ishlatadi (Dependency).",
+      "theoryRu": "В UML зависимость отмечена пунктирной стрелкой (..>). Это означает слабую связь «использования», когда клиентский класс временно использует поставщика через параметры метода или локальные переменные, не сохраняя ссылку на поле экземпляра.",
+      "pitfallsRu": "Агар синф бошка синфни озида «частный поставщик-поставщик»; qilib saqlasa, bu endi Emas Dependency, balki Association (yoki Aggregation/Composition) hisoblanadi.",
+      "breakdownRu": [
+        "<code>Dependency (..>)</code>: uzuq-uzuq ochiq strelka (boshqa ob'yekt faqat parametrda qabul qilinadi).",
+        "<code>TranscriptGenerator</code>: GradeReport ga vaqtincha tayanuvchi klient sinfi."
+      ]
     },
     "sampleData": [
       "TRANSKRIPT: 00012345 | Yakuniy ball: 82"
@@ -4653,7 +5844,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "TRANSKRIPT: 00012345 | Yakuniy ball: 82",
     "story": {
       "uz": "WIUT akademik bo'limida 'TranscriptGenerator' talabaning baholar varaqasini 'generate(GradeReport report)' metodi orqali olib rasmiy transkript matnini qaytaradi.",
-      "en": "TranscriptGenerator relies on GradeReport as a method parameter to generate academic transcript."
+      "en": "TranscriptGenerator relies on GradeReport as a method parameter to generate academic transcript.",
+      "ru": "TranscriptGenerator использует GradeReport как параметр метода для создания академического транскрипта."
     },
     "steps": {
       "uz": [
@@ -4669,6 +5861,13 @@ window.OOP_CHALLENGES_W5 = [
         "Do not store supplier as an attribute; use it solely as a parameter in 'generate(GradeReport)' modeling UML Dependency.",
         "Instantiate objects in 'main'.",
         "Execute and verify dependency invocation: 'GradeReport rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = new TranscriptGenerator();         System.out.println(gen.generate(rep));'"
+      ],
+      "ru": [
+        "Объявите класс поставщика GradeReport.",
+        "Объявите клиентский класс TranscriptGenerator.",
+        "Не храните поставщика в качестве атрибута; используйте его исключительно как параметр в «generate(GradeReport)», моделирующем зависимость UML.",
+        "Создание экземпляров объектов в «main».",
+        "Выполните и проверьте вызов зависимости: 'GradeReport Rep = new GradeReport(\"00012345\", 82);         TranscriptGenerator gen = новый TranscriptGenerator();         System.out.println(gen.generate(rep));'"
       ]
     }
   },
@@ -4679,11 +5878,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "76. Uzum Market — Customer 1 to 0..* Order Multiplicity",
-      "en": "76. Uzum Market — Customer 1 to 0..* Order Multiplicity in Java"
+      "en": "76. Uzum Market — Customer 1 to 0..* Order Multiplicity in Java",
+      "ru": "76. Uzum Market — Клиент от 1 до 0..* Множественность заказов в Java"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market UML diagrammasida Customer (1) va Order (0..*) assotsiatsiyasi berilgan: bitta mijoz nol yoki bir nechta buyurtmaga ega bo'lishi mumkin. 'private List<Order> orders = new ArrayList<>();' maydoni orqali ushbu multiplicityni dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Order' ni e'lon qiling.\n2. Asosiy 'Customer' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<Order>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'addOrder(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'Customer c = new Customer(\"Aziz Karimov\");         c.addOrder(new Order(\"ORD-1\"));         c.addOrder(new Order(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'",
-      "en": "📖 Real-World Scenario & Context\nUML multiplicity 0..* translates to a collection field 'List<Order> orders = new ArrayList<>();'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Order'.\n2. In 'Customer', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addOrder(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'Customer c = new Customer(\"Aziz Karimov\");         c.addOrder(new Order(\"ORD-1\"));         c.addOrder(new Order(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'"
+      "en": "📖 Real-World Scenario & Context\nUML multiplicity 0..* translates to a collection field 'List<Order> orders = new ArrayList<>();'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Order'.\n2. In 'Customer', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addOrder(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'Customer c = new Customer(\"Aziz Karimov\");         c.addOrder(new Order(\"ORD-1\"));         c.addOrder(new Order(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'",
+      "ru": "📖 Контекст и описание задачи\nКратность UML 0..* преобразуется в поле коллекции List<Order>orders = new ArrayList<>();'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс Order.\n2. В «Клиенте» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор addOrder(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'Клиент c = новый клиент(\"Азиз Каримов\");         c.addOrder(новый заказ(\"ORD-1\"));         c.addOrder(новый заказ(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'"
     },
     "requirements": {
       "classes": [
@@ -4706,7 +5907,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Customer</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>Customer</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Mijoz: Aziz Karimov | Buyurtmalar soni: 2"
@@ -4714,7 +5921,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Mijoz: Aziz Karimov | Buyurtmalar soni: 2",
     "story": {
       "uz": "Uzum Market UML diagrammasida Customer (1) va Order (0..*) assotsiatsiyasi berilgan: bitta mijoz nol yoki bir nechta buyurtmaga ega bo'lishi mumkin. 'private List<Order> orders = new ArrayList<>();' maydoni orqali ushbu multiplicityni dasturlang.",
-      "en": "UML multiplicity 0..* translates to a collection field 'List<Order> orders = new ArrayList<>();'."
+      "en": "UML multiplicity 0..* translates to a collection field 'List<Order> orders = new ArrayList<>();'.",
+      "ru": "Кратность UML 0..* преобразуется в поле коллекции List<Order>orders = new ArrayList<>();'."
     },
     "steps": {
       "uz": [
@@ -4730,6 +5938,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'addOrder(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'Customer c = new Customer(\"Aziz Karimov\");         c.addOrder(new Order(\"ORD-1\"));         c.addOrder(new Order(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс Order.",
+        "В «Клиенте» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор addOrder(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'Клиент c = новый клиент(\"Азиз Каримов\");         c.addOrder(новый заказ(\"ORD-1\"));         c.addOrder(новый заказ(\"ORD-2\"));         System.out.println(\"Mijoz: \" + c.getName() + \" | Buyurtmalar soni: \" + c.getOrders().size());'"
       ]
     }
   },
@@ -4740,11 +5955,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "77. Payme — User 1 to 0..1 Card Multiplicity (Ixtiyoriy Maydon)",
-      "en": "77. Payme — User 1 to 0..1 Card Multiplicity (Optional)"
+      "en": "77. Payme — User 1 to 0..1 Card Multiplicity (Optional)",
+      "ru": "77. Payme — Пользователь от 1 до 0..1. Кратность карты (опционально)."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme da foydalanuvchi nol yoki bitta asosiy kartaga ega bo'lishi mumkin ('0..1' multiplicity). UML da 0..1 ko'rinishi Java da boshlang'ich qiymati 'null' bo'lgan oddiy maydon orqali ifodalanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Card' ni e'lon qiling.\n2. Asosiy 'User' sinfida UML dagi '0..1' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<Card>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'setPrimaryCard(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'User u = new User(\"+998901112233\");         System.out.println(\"Boshlang'ich karta: \" + u.hasPrimaryCard());         u.setPrimaryCard(new Card(\"8600-1111\"));         System.out.println(\"Karta biriktirilgach: \" + u.hasPrimaryCard());'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, multiplicity 0..1 corresponds to a nullable reference field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Card'.\n2. In 'User', declare field corresponding to '0..1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'setPrimaryCard(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'User u = new User(\"+998901112233\");         System.out.println(\"Boshlang'ich karta: \" + u.hasPrimaryCard());         u.setPrimaryCard(new Card(\"8600-1111\"));         System.out.println(\"Karta biriktirilgach: \" + u.hasPrimaryCard());'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, multiplicity 0..1 corresponds to a nullable reference field.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Card'.\n2. In 'User', declare field corresponding to '0..1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'setPrimaryCard(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'User u = new User(\"+998901112233\");         System.out.println(\"Boshlang'ich karta: \" + u.hasPrimaryCard());         u.setPrimaryCard(new Card(\"8600-1111\"));         System.out.println(\"Karta biriktirilgach: \" + u.hasPrimaryCard());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML кратность 0..1 соответствует ссылочному полю, допускающему значение NULL.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс Card.\n2. В «Пользователе» объявите поле, соответствующее «0..1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор setPrimaryCard(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'User u = new User(\"+998901112233\");         System.out.println(\"Большая карта: \" + u.hasPrimaryCard());         u.setPrimaryCard(новая карта(\"8600-1111\"));         System.out.println(\"Карта обмена: \" + u.hasPrimaryCard());'"
     },
     "requirements": {
       "classes": [
@@ -4767,7 +5984,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>User</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..1</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>User</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Boshlang'ich karta: false\nKarta biriktirilgach: true"
@@ -4775,7 +5998,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Boshlang'ich karta: false\nKarta biriktirilgach: true",
     "story": {
       "uz": "Payme da foydalanuvchi nol yoki bitta asosiy kartaga ega bo'lishi mumkin ('0..1' multiplicity). UML da 0..1 ko'rinishi Java da boshlang'ich qiymati 'null' bo'lgan oddiy maydon orqali ifodalanadi.",
-      "en": "In UML, multiplicity 0..1 corresponds to a nullable reference field."
+      "en": "In UML, multiplicity 0..1 corresponds to a nullable reference field.",
+      "ru": "В UML кратность 0..1 соответствует ссылочному полю, допускающему значение NULL."
     },
     "steps": {
       "uz": [
@@ -4791,6 +6015,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'setPrimaryCard(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'User u = new User(\"+998901112233\");         System.out.println(\"Boshlang'ich karta: \" + u.hasPrimaryCard());         u.setPrimaryCard(new Card(\"8600-1111\"));         System.out.println(\"Karta biriktirilgach: \" + u.hasPrimaryCard());'"
+      ],
+      "ru": [
+        "Объявите связанный класс Card.",
+        "В «Пользователе» объявите поле, соответствующее «0..1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор setPrimaryCard(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'User u = new User(\"+998901112233\");         System.out.println(\"Большая карта: \" + u.hasPrimaryCard());         u.setPrimaryCard(новая карта(\"8600-1111\"));         System.out.println(\"Карта обмена: \" + u.hasPrimaryCard());'"
       ]
     }
   },
@@ -4801,11 +6032,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "78. Korzinka — Cashier 1 to 1 POSRegister Multiplicity",
-      "en": "78. Korzinka — Exactly-One (1) Multiplicity Initialized in Constructor"
+      "en": "78. Korzinka — Exactly-One (1) Multiplicity Initialized in Constructor",
+      "ru": "78. Корзинка — Ровно одна (1) кратность, инициализированная в конструкторе"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka kassa modulida kassir aniq bitta apparatga ('1 to 1' multiplicity) ega bo'lishi shart. UML da aniq '1' ko'rsatilganda maydon konstruktorda qat'iy talab qilinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'POSRegister' ni e'lon qiling.\n2. Asosiy 'CashierDesk' sinfida UML dagi '1' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<POSRegister>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'getRegisterInfo(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDesk desk = new CashierDesk(\"Nodira\", reg);         System.out.println(desk.getRegisterInfo());'",
-      "en": "📖 Real-World Scenario & Context\nMultiplicity exactly 1 must be supplied as a non-null constructor parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'POSRegister'.\n2. In 'CashierDesk', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getRegisterInfo(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDesk desk = new CashierDesk(\"Nodira\", reg);         System.out.println(desk.getRegisterInfo());'"
+      "en": "📖 Real-World Scenario & Context\nMultiplicity exactly 1 must be supplied as a non-null constructor parameter.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'POSRegister'.\n2. In 'CashierDesk', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getRegisterInfo(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDesk desk = new CashierDesk(\"Nodira\", reg);         System.out.println(desk.getRegisterInfo());'",
+      "ru": "📖 Контекст и описание задачи\nКратность ровно 1 должна быть указана как ненулевой параметр конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс POSRegister.\n2. В «CashierDesk» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор getRegisterInfo(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDeskdesk = новый CashierDesk(\"Нодира\", reg);         System.out.println(desk.getRegisterInfo());'"
     },
     "requirements": {
       "classes": [
@@ -4828,7 +6061,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CashierDesk</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>CashierDesk</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Kassir: Nodira | Apparat: POS-05"
@@ -4836,7 +6075,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kassir: Nodira | Apparat: POS-05",
     "story": {
       "uz": "Korzinka kassa modulida kassir aniq bitta apparatga ('1 to 1' multiplicity) ega bo'lishi shart. UML da aniq '1' ko'rsatilganda maydon konstruktorda qat'iy talab qilinadi.",
-      "en": "Multiplicity exactly 1 must be supplied as a non-null constructor parameter."
+      "en": "Multiplicity exactly 1 must be supplied as a non-null constructor parameter.",
+      "ru": "Кратность ровно 1 должна быть указана как ненулевой параметр конструктора."
     },
     "steps": {
       "uz": [
@@ -4852,6 +6092,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'getRegisterInfo(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDesk desk = new CashierDesk(\"Nodira\", reg);         System.out.println(desk.getRegisterInfo());'"
+      ],
+      "ru": [
+        "Объявите связанный класс POSRegister.",
+        "В «CashierDesk» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор getRegisterInfo(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'POSRegister reg = new POSRegister(\"POS-05\");         CashierDeskdesk = новый CashierDesk(\"Нодира\", reg);         System.out.println(desk.getRegisterInfo());'"
       ]
     }
   },
@@ -4862,11 +6109,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "79. Yandex Go — Driver 1 to 1..* Car Multiplicity",
-      "en": "79. Yandex Go — At Least One (1..*) Multiplicity Validation"
+      "en": "79. Yandex Go — At Least One (1..*) Multiplicity Validation",
+      "ru": "79. Yandex Go — хотя бы одна (1..*) проверка множественности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go da haydovchi kamida bitta avtomobilga ega bo'lishi shart ('1..*' multiplicity). Konstruktorda dastlabki avtomobil kiritilib, qo'shimcha mashinalar ro'yxatga qo'shiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'VehicleCar' ni e'lon qiling.\n2. Asosiy 'TaxiDriver' sinfida UML dagi '1..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<VehicleCar>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'addVehicle(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'VehicleCar primaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         TaxiDriver driver = new TaxiDriver(\"Mansur\", primaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Haydovchi mashinalari soni: \" + driver.getVehicles().size());'",
-      "en": "📖 Real-World Scenario & Context\nMultiplicity 1..* requires at least one instance at creation plus a list for additions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'VehicleCar'.\n2. In 'TaxiDriver', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addVehicle(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'VehicleCar primaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         TaxiDriver driver = new TaxiDriver(\"Mansur\", primaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Haydovchi mashinalari soni: \" + driver.getVehicles().size());'"
+      "en": "📖 Real-World Scenario & Context\nMultiplicity 1..* requires at least one instance at creation plus a list for additions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'VehicleCar'.\n2. In 'TaxiDriver', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addVehicle(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'VehicleCar primaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         TaxiDriver driver = new TaxiDriver(\"Mansur\", primaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Haydovchi mashinalari soni: \" + driver.getVehicles().size());'",
+      "ru": "📖 Контекст и описание задачи\nДля кратности 1..* требуется хотя бы один экземпляр при создании плюс список для дополнений.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс «VehicleCar».\n2. В «TaxiDriver» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор addVehicle(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'VehicleCar PrimaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         Водитель TaxiDriver = новый TaxiDriver(\"Мансур\", PrimaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Подача машинных сигналов: \" + driver.getVehicles().size());'"
     },
     "requirements": {
       "classes": [
@@ -4889,7 +6138,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>TaxiDriver</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>TaxiDriver</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Haydovchi mashinalari soni: 2"
@@ -4897,7 +6152,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Haydovchi mashinalari soni: 2",
     "story": {
       "uz": "Yandex Go da haydovchi kamida bitta avtomobilga ega bo'lishi shart ('1..*' multiplicity). Konstruktorda dastlabki avtomobil kiritilib, qo'shimcha mashinalar ro'yxatga qo'shiladi.",
-      "en": "Multiplicity 1..* requires at least one instance at creation plus a list for additions."
+      "en": "Multiplicity 1..* requires at least one instance at creation plus a list for additions.",
+      "ru": "Для кратности 1..* требуется хотя бы один экземпляр при создании плюс список для дополнений."
     },
     "steps": {
       "uz": [
@@ -4913,6 +6169,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'addVehicle(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'VehicleCar primaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         TaxiDriver driver = new TaxiDriver(\"Mansur\", primaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Haydovchi mashinalari soni: \" + driver.getVehicles().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс «VehicleCar».",
+        "В «TaxiDriver» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор addVehicle(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'VehicleCar PrimaryCar = new VehicleCar(\"Cobalt\", \"01 A 100 AA\");         Водитель TaxiDriver = новый TaxiDriver(\"Мансур\", PrimaryCar);         driver.addVehicle(new VehicleCar(\"Lacetti\", \"01 B 200 BB\"));         System.out.println(\"Подача машинных сигналов: \" + driver.getVehicles().size());'"
       ]
     }
   },
@@ -4923,11 +6186,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "80. Express24 — Restaurant 1 to 0..* Dish Multiplicity",
-      "en": "80. Express24 — Restaurant-to-Dishes Multiplicity in UML"
+      "en": "80. Express24 — Restaurant-to-Dishes Multiplicity in UML",
+      "ru": "80. Express24 — Множественность «от ресторана к блюду» в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 restorani 0..* ta taomga ega bo'lishi mumkin. Taomlarni ro'yxatda saqlab menyudagi barcha taomlar sonini qaytaruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'FoodDish' ni e'lon qiling.\n2. Asosiy 'FoodPlace' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<FoodDish>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'addDish(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Manti\"));         System.out.println(\"Menyu taomlari: \" + rest.getDishes().size());'",
-      "en": "📖 Real-World Scenario & Context\nExpress24 Restaurant manages 0..* Dish elements via List.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'FoodDish'.\n2. In 'FoodPlace', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addDish(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Manti\"));         System.out.println(\"Menyu taomlari: \" + rest.getDishes().size());'"
+      "en": "📖 Real-World Scenario & Context\nExpress24 Restaurant manages 0..* Dish elements via List.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'FoodDish'.\n2. In 'FoodPlace', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addDish(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Manti\"));         System.out.println(\"Menyu taomlari: \" + rest.getDishes().size());'",
+      "ru": "📖 Контекст и описание задачи\nРесторан Express24 управляет 0..* элементами блюд через список.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс FoodDish.\n2. В «FoodPlace» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор «addDish(...)».\n4. Собираем в «main».\n5. Выведите результат на консоль: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Манти\"));         System.out.println(\"Меню изменения: \" + rest.getDishes().size());'"
     },
     "requirements": {
       "classes": [
@@ -4950,7 +6215,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>FoodPlace</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>FoodPlace</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Menyu taomlari: 2"
@@ -4958,7 +6229,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Menyu taomlari: 2",
     "story": {
       "uz": "Express24 restorani 0..* ta taomga ega bo'lishi mumkin. Taomlarni ro'yxatda saqlab menyudagi barcha taomlar sonini qaytaruvchi sinf tuzing.",
-      "en": "Express24 Restaurant manages 0..* Dish elements via List."
+      "en": "Express24 Restaurant manages 0..* Dish elements via List.",
+      "ru": "Ресторан Express24 управляет 0..* элементами блюд через список."
     },
     "steps": {
       "uz": [
@@ -4974,6 +6246,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'addDish(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Manti\"));         System.out.println(\"Menyu taomlari: \" + rest.getDishes().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс FoodDish.",
+        "В «FoodPlace» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор «addDish(...)».",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'FoodPlace rest = new FoodPlace(\"Oshxona\");         rest.addDish(new FoodDish(\"Lag'mon\"));         rest.addDish(new FoodDish(\"Манти\"));         System.out.println(\"Меню изменения: \" + rest.getDishes().size());'"
       ]
     }
   },
@@ -4984,11 +6263,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "81. Medion — Brand 1 to 0..* Product Multiplicity",
-      "en": "81. Medion — Brand to Products Association Mapping"
+      "en": "81. Medion — Brand to Products Association Mapping",
+      "ru": "81. Medion — сопоставление брендов и продуктов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion brendi (masalan, Samsung) o'ziga biriktirilgan tovarlar ro'yxatini boshqaradi ('Brand 1 to 0..* Product').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'BrandItem' ni e'lon qiling.\n2. Asosiy 'BrandOwner' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<BrandItem>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'registerProduct(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'BrandOwner brand = new BrandOwner(\"Samsung\");         brand.registerProduct(new BrandItem(\"Galaxy S24\"));         brand.registerProduct(new BrandItem(\"Galaxy Tab\"));         System.out.println(\"Brend tovarlari: \" + brand.getItems().size());'",
-      "en": "📖 Real-World Scenario & Context\nMedion Brand maintains a 0..* collection of products.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'BrandItem'.\n2. In 'BrandOwner', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'registerProduct(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'BrandOwner brand = new BrandOwner(\"Samsung\");         brand.registerProduct(new BrandItem(\"Galaxy S24\"));         brand.registerProduct(new BrandItem(\"Galaxy Tab\"));         System.out.println(\"Brend tovarlari: \" + brand.getItems().size());'"
+      "en": "📖 Real-World Scenario & Context\nMedion Brand maintains a 0..* collection of products.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'BrandItem'.\n2. In 'BrandOwner', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'registerProduct(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'BrandOwner brand = new BrandOwner(\"Samsung\");         brand.registerProduct(new BrandItem(\"Galaxy S24\"));         brand.registerProduct(new BrandItem(\"Galaxy Tab\"));         System.out.println(\"Brend tovarlari: \" + brand.getItems().size());'",
+      "ru": "📖 Контекст и описание задачи\nMedion Brand поддерживает коллекцию продуктов 0..*.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс BrandItem.\n2. В «BrandOwner» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор «registerProduct(...)».\n4. Собираем в «main».\n5. Выведите результат на консоль: 'Бренд BrandOwner = новый BrandOwner(\"Samsung\");         Brand.registerProduct(new BrandItem(\"Galaxy S24\"));         Brand.registerProduct(new BrandItem(\"Вкладка \"Галактика\"));         System.out.println(\"Бренд товаров: \" + Brand.getItems().size());'"
     },
     "requirements": {
       "classes": [
@@ -5011,7 +6292,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BrandOwner</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>BrandOwner</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Brend tovarlari: 2"
@@ -5019,7 +6306,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Brend tovarlari: 2",
     "story": {
       "uz": "Medion brendi (masalan, Samsung) o'ziga biriktirilgan tovarlar ro'yxatini boshqaradi ('Brand 1 to 0..* Product').",
-      "en": "Medion Brand maintains a 0..* collection of products."
+      "en": "Medion Brand maintains a 0..* collection of products.",
+      "ru": "Medion Brand поддерживает коллекцию продуктов 0..*."
     },
     "steps": {
       "uz": [
@@ -5035,6 +6323,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'registerProduct(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'BrandOwner brand = new BrandOwner(\"Samsung\");         brand.registerProduct(new BrandItem(\"Galaxy S24\"));         brand.registerProduct(new BrandItem(\"Galaxy Tab\"));         System.out.println(\"Brend tovarlari: \" + brand.getItems().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс BrandItem.",
+        "В «BrandOwner» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор «registerProduct(...)».",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'Бренд BrandOwner = новый BrandOwner(\"Samsung\");         Brand.registerProduct(new BrandItem(\"Galaxy S24\"));         Brand.registerProduct(new BrandItem(\"Вкладка \"Галактика\"));         System.out.println(\"Бренд товаров: \" + Brand.getItems().size());'"
       ]
     }
   },
@@ -5045,11 +6340,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "82. Click — BankAccount 1 to 0..* AttachedCard Multiplicity",
-      "en": "82. Click — BankAccount 1 to Many Attached Cards in UML"
+      "en": "82. Click — BankAccount 1 to Many Attached Cards in UML",
+      "ru": "82. Нажмите — BankAccount 1 для многих привязанных карт в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick bank hisobvarag'i 1 dan 0..* gacha plastik kartani o'z ichiga oladi. Kartalarni qo'shuvchi va sonini oluvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'PlasticCard' ni e'lon qiling.\n2. Asosiy 'LinkedAccount' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<PlasticCard>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'attachCard(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Bog'langan kartalar: \" + acc.getCards().size());'",
-      "en": "📖 Real-World Scenario & Context\nClick BankAccount associates with 0..* Cards modeled with List<Card>.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'PlasticCard'.\n2. In 'LinkedAccount', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'attachCard(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Bog'langan kartalar: \" + acc.getCards().size());'"
+      "en": "📖 Real-World Scenario & Context\nClick BankAccount associates with 0..* Cards modeled with List<Card>.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'PlasticCard'.\n2. In 'LinkedAccount', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'attachCard(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Bog'langan kartalar: \" + acc.getCards().size());'",
+      "ru": "📖 Контекст и описание задачи\nЩелкните BankAccount, связанный с картами 0..*, смоделированными с помощью List<Card>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс PlasticCard.\n2. В «LinkedAccount» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор AttachCard(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Богланган карталар: \" + acc.getCards().size());'"
     },
     "requirements": {
       "classes": [
@@ -5072,7 +6369,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>LinkedAccount</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>LinkedAccount</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Bog'langan kartalar: 2"
@@ -5080,7 +6383,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Bog'langan kartalar: 2",
     "story": {
       "uz": "Click bank hisobvarag'i 1 dan 0..* gacha plastik kartani o'z ichiga oladi. Kartalarni qo'shuvchi va sonini oluvchi klass tuzing.",
-      "en": "Click BankAccount associates with 0..* Cards modeled with List<Card>."
+      "en": "Click BankAccount associates with 0..* Cards modeled with List<Card>.",
+      "ru": "Щелкните BankAccount, связанный с картами 0..*, смоделированными с помощью List<Card>."
     },
     "steps": {
       "uz": [
@@ -5096,6 +6400,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'attachCard(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Bog'langan kartalar: \" + acc.getCards().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс PlasticCard.",
+        "В «LinkedAccount» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор AttachCard(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'LinkedAccount acc = new LinkedAccount(\"ACC-7788\");         acc.attachCard(new PlasticCard(\"8600-01\"));         acc.attachCard(new PlasticCard(\"8600-02\"));         System.out.println(\"Богланган карталар: \" + acc.getCards().size());'"
       ]
     }
   },
@@ -5106,11 +6417,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "83. Asaxiy — Author 1 to 1..* Publication Multiplicity",
-      "en": "83. Asaxiy — Author 1 to 1..* Book Publications in UML"
+      "en": "83. Asaxiy — Author 1 to 1..* Book Publications in UML",
+      "ru": "83. Асаксий — Автор 1 к 1..* Книжные публикации на UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy da muallif kamida bitta kitobga ega bo'lishi shart ('1..*'). Muallif konstruktorida birinchi kitob berilib, keyingilari qo'shib boriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Publication' ni e'lon qiling.\n2. Asosiy 'Writer' sinfida UML dagi '1..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<Publication>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'addPublication(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\"));         w.addPublication(new Publication(\"Mehrobdan Chayon\"));         System.out.println(\"Muallif kitoblari soni: \" + w.getPublications().size());'",
-      "en": "📖 Real-World Scenario & Context\nAuthor requires at least one book at construction (1..* multiplicity).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Publication'.\n2. In 'Writer', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addPublication(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\"));         w.addPublication(new Publication(\"Mehrobdan Chayon\"));         System.out.println(\"Muallif kitoblari soni: \" + w.getPublications().size());'"
+      "en": "📖 Real-World Scenario & Context\nAuthor requires at least one book at construction (1..* multiplicity).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'Publication'.\n2. In 'Writer', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addPublication(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\"));         w.addPublication(new Publication(\"Mehrobdan Chayon\"));         System.out.println(\"Muallif kitoblari soni: \" + w.getPublications().size());'",
+      "ru": "📖 Контекст и описание задачи\nАвтору при построении требуется хотя бы одна книга (1..* кратность).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс «Публикация».\n2. В «Writer» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор addPublication(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\");         w.addPublication(new Publication(\"Мехробдан Чайон\"));         System.out.println(\"Многократные наборы изображений: \" + w.getPublications().size());'"
     },
     "requirements": {
       "classes": [
@@ -5133,7 +6446,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Writer</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>Writer</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Muallif kitoblari soni: 2"
@@ -5141,7 +6460,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Muallif kitoblari soni: 2",
     "story": {
       "uz": "Asaxiy da muallif kamida bitta kitobga ega bo'lishi shart ('1..*'). Muallif konstruktorida birinchi kitob berilib, keyingilari qo'shib boriladi.",
-      "en": "Author requires at least one book at construction (1..* multiplicity)."
+      "en": "Author requires at least one book at construction (1..* multiplicity).",
+      "ru": "Автору при построении требуется хотя бы одна книга (1..* кратность)."
     },
     "steps": {
       "uz": [
@@ -5157,6 +6477,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'addPublication(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\"));         w.addPublication(new Publication(\"Mehrobdan Chayon\"));         System.out.println(\"Muallif kitoblari soni: \" + w.getPublications().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс «Публикация».",
+        "В «Writer» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор addPublication(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'Writer w = new Writer(\"Qodiriy\", new Publication(\"O'tkan Kunlar\");         w.addPublication(new Publication(\"Мехробдан Чайон\"));         System.out.println(\"Многократные наборы изображений: \" + w.getPublications().size());'"
       ]
     }
   },
@@ -5167,11 +6494,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "84. Safia — Branch 1 to 1 Address Multiplicity",
-      "en": "84. Safia — Branch Exactly 1 Address Multiplicity in UML"
+      "en": "84. Safia — Branch Exactly 1 Address Multiplicity in UML",
+      "ru": "84. Safia — ветвление ровно с 1 кратностью адресов в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia filiali aniq bitta manzilga ('1' multiplicity) ega. Manzilsiz filial ob'yektini yaratib bo'lmasligini konstruktor orqali ta'minlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'StreetAddress' ni e'lon qiling.\n2. Asosiy 'BakeryShop' sinfida UML dagi '1' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<StreetAddress>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'getFullAddress(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'StreetAddress addr = new StreetAddress(\"Chilonzor 9\");         BakeryShop shop = new BakeryShop(\"Safia Chilonzor\", addr);         System.out.println(shop.getFullAddress());'",
-      "en": "📖 Real-World Scenario & Context\nSafia Branch requires exactly 1 non-null Address.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'StreetAddress'.\n2. In 'BakeryShop', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getFullAddress(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'StreetAddress addr = new StreetAddress(\"Chilonzor 9\");         BakeryShop shop = new BakeryShop(\"Safia Chilonzor\", addr);         System.out.println(shop.getFullAddress());'"
+      "en": "📖 Real-World Scenario & Context\nSafia Branch requires exactly 1 non-null Address.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'StreetAddress'.\n2. In 'BakeryShop', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getFullAddress(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'StreetAddress addr = new StreetAddress(\"Chilonzor 9\");         BakeryShop shop = new BakeryShop(\"Safia Chilonzor\", addr);         System.out.println(shop.getFullAddress());'",
+      "ru": "📖 Контекст и описание задачи\nФилиалу Safia требуется ровно 1 ненулевой адрес.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс StreetAddress.\n2. В «BakeryShop» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор getFullAddress(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'StreetAddress addr = new StreetAddress(\"Чилонзор 9\");         BakeryShop shop = new BakeryShop(\"Сафия Чилонзор\", addr);         System.out.println(shop.getFullAddress());'"
     },
     "requirements": {
       "classes": [
@@ -5194,7 +6523,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BakeryShop</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>BakeryShop</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Filial: Safia Chilonzor | Manzil: Chilonzor 9"
@@ -5202,7 +6537,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Filial: Safia Chilonzor | Manzil: Chilonzor 9",
     "story": {
       "uz": "Safia filiali aniq bitta manzilga ('1' multiplicity) ega. Manzilsiz filial ob'yektini yaratib bo'lmasligini konstruktor orqali ta'minlang.",
-      "en": "Safia Branch requires exactly 1 non-null Address."
+      "en": "Safia Branch requires exactly 1 non-null Address.",
+      "ru": "Филиалу Safia требуется ровно 1 ненулевой адрес."
     },
     "steps": {
       "uz": [
@@ -5218,6 +6554,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'getFullAddress(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'StreetAddress addr = new StreetAddress(\"Chilonzor 9\");         BakeryShop shop = new BakeryShop(\"Safia Chilonzor\", addr);         System.out.println(shop.getFullAddress());'"
+      ],
+      "ru": [
+        "Объявите связанный класс StreetAddress.",
+        "В «BakeryShop» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор getFullAddress(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'StreetAddress addr = new StreetAddress(\"Чилонзор 9\");         BakeryShop shop = new BakeryShop(\"Сафия Чилонзор\", addr);         System.out.println(shop.getFullAddress());'"
       ]
     }
   },
@@ -5228,11 +6571,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "85. Dodo Pizza — Combo 1 to 2..4 Pizza Multiplicity (Chegaralangan)",
-      "en": "85. Dodo Pizza — Fixed Range Multiplicity (2..4) Validation"
+      "en": "85. Dodo Pizza — Fixed Range Multiplicity (2..4) Validation",
+      "ru": "85. Додо Пицца — проверка фиксированного диапазона множественности (2..4)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza kombo to'plamida pitsalar soni 2 dan 4 tagacha bo'lishi mumkin ('2..4' multiplicity). Ushbu oraliqni tekshiruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'MiniPizza' ni e'lon qiling.\n2. Asosiy 'PartyPack' sinfida UML dagi '2..4' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<MiniPizza>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'addPizza(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'PartyPack pack = new PartyPack();         pack.addPizza(new MiniPizza(\"Margarita\"));         pack.addPizza(new MiniPizza(\"Pepperoni\"));         System.out.println(\"Kombo qoidalarga mosmi (>= 2): \" + pack.isValidCombo());'",
-      "en": "📖 Real-World Scenario & Context\nDodo Pizza Combo validates bounded multiplicity 2..4 range.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'MiniPizza'.\n2. In 'PartyPack', declare field corresponding to '2..4' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addPizza(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'PartyPack pack = new PartyPack();         pack.addPizza(new MiniPizza(\"Margarita\"));         pack.addPizza(new MiniPizza(\"Pepperoni\"));         System.out.println(\"Kombo qoidalarga mosmi (>= 2): \" + pack.isValidCombo());'"
+      "en": "📖 Real-World Scenario & Context\nDodo Pizza Combo validates bounded multiplicity 2..4 range.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'MiniPizza'.\n2. In 'PartyPack', declare field corresponding to '2..4' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'addPizza(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'PartyPack pack = new PartyPack();         pack.addPizza(new MiniPizza(\"Margarita\"));         pack.addPizza(new MiniPizza(\"Pepperoni\"));         System.out.println(\"Kombo qoidalarga mosmi (>= 2): \" + pack.isValidCombo());'",
+      "ru": "📖 Контекст и описание задачи\nDodo Pizza Combo проверяет ограниченный диапазон кратности 2..4.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс MiniPizza.\n2. В «PartyPack» объявите поле, соответствующее «2..4» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор «addPizza(...)».\n4. Собираем в «main».\n5. Выведите результат на консоль: 'PartyPack package = new PartyPack();         package.addPizza(новая МиниПицца(\"Маргарита\"));         package.addPizza(новая МиниПицца(\"Пепперони\"));         System.out.println(\"Комбинация qoidalarga mosmi (>= 2): \" + package.isValidCombo());'"
     },
     "requirements": {
       "classes": [
@@ -5255,7 +6600,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>PartyPack</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>2..4</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>PartyPack</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Kombo qoidalarga mosmi (>= 2): true"
@@ -5263,7 +6614,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kombo qoidalarga mosmi (>= 2): true",
     "story": {
       "uz": "Dodo Pizza kombo to'plamida pitsalar soni 2 dan 4 tagacha bo'lishi mumkin ('2..4' multiplicity). Ushbu oraliqni tekshiruvchi metod yozing.",
-      "en": "Dodo Pizza Combo validates bounded multiplicity 2..4 range."
+      "en": "Dodo Pizza Combo validates bounded multiplicity 2..4 range.",
+      "ru": "Dodo Pizza Combo проверяет ограниченный диапазон кратности 2..4."
     },
     "steps": {
       "uz": [
@@ -5279,6 +6631,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'addPizza(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'PartyPack pack = new PartyPack();         pack.addPizza(new MiniPizza(\"Margarita\"));         pack.addPizza(new MiniPizza(\"Pepperoni\"));         System.out.println(\"Kombo qoidalarga mosmi (>= 2): \" + pack.isValidCombo());'"
+      ],
+      "ru": [
+        "Объявите связанный класс MiniPizza.",
+        "В «PartyPack» объявите поле, соответствующее «2..4» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор «addPizza(...)».",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'PartyPack package = new PartyPack();         package.addPizza(новая МиниПицца(\"Маргарита\"));         package.addPizza(новая МиниПицца(\"Пепперони\"));         System.out.println(\"Комбинация qoidalarga mosmi (>= 2): \" + package.isValidCombo());'"
       ]
     }
   },
@@ -5289,11 +6648,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "86. Texnomart — Store 1 to 0..* Employee Multiplicity",
-      "en": "86. Texnomart — Store to Employees Association in UML"
+      "en": "86. Texnomart — Store to Employees Association in UML",
+      "ru": "86. Texnomart — Ассоциация магазинов для сотрудников в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart do'koni xodimlar bilan '1 to 0..*' assotsiatsiyasiga ega. Xodimlarni ro'yxatda saqlovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'StoreStaff' ni e'lon qiling.\n2. Asosiy 'RetailStore' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<StoreStaff>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'hireStaff(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Jamshid\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'",
-      "en": "📖 Real-World Scenario & Context\nTexnomart Store manages 0..* Staff members via List.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'StoreStaff'.\n2. In 'RetailStore', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'hireStaff(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Jamshid\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'"
+      "en": "📖 Real-World Scenario & Context\nTexnomart Store manages 0..* Staff members via List.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'StoreStaff'.\n2. In 'RetailStore', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'hireStaff(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Jamshid\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'",
+      "ru": "📖 Контекст и описание задачи\nМагазин Texnomart управляет 0..* сотрудниками через список.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс StoreStaff.\n2. В «RetailStore» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор «hireStaff(...)».\n4. Собираем в «main».\n5. Выведите результат на консоль: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Джамшид\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'"
     },
     "requirements": {
       "classes": [
@@ -5316,7 +6677,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>RetailStore</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>RetailStore</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Xodimlar soni: 1"
@@ -5324,7 +6691,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Xodimlar soni: 1",
     "story": {
       "uz": "Texnomart do'koni xodimlar bilan '1 to 0..*' assotsiatsiyasiga ega. Xodimlarni ro'yxatda saqlovchi klass tuzing.",
-      "en": "Texnomart Store manages 0..* Staff members via List."
+      "en": "Texnomart Store manages 0..* Staff members via List.",
+      "ru": "Магазин Texnomart управляет 0..* сотрудниками через список."
     },
     "steps": {
       "uz": [
@@ -5340,6 +6708,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'hireStaff(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Jamshid\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс StoreStaff.",
+        "В «RetailStore» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор «hireStaff(...)».",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'RetailStore store = new RetailStore(\"Texnomart Chilonzor\");         store.hireStaff(new StoreStaff(\"Джамшид\"));         System.out.println(\"Xodimlar soni: \" + store.getStaff().size());'"
       ]
     }
   },
@@ -5350,11 +6725,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "87. UzAirways — Flight 1 to 0..* PassengerTicket Multiplicity",
-      "en": "87. UzAirways — Flight to Tickets Association in UML"
+      "en": "87. UzAirways — Flight to Tickets Association in UML",
+      "ru": "87. UzAirways — Ассоциация «Полет в билеты» в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways samolyot reysi 0 dan ko'plab chiptalarga ega bo'ladi ('1 to 0..*'). Chiptalarni sanovchi metod tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'FlightTicket' ni e'lon qiling.\n2. Asosiy 'AirFlight' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<FlightTicket>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'bookTicket(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(new FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan chiptalar: \" + fl.getTickets().size());'",
-      "en": "📖 Real-World Scenario & Context\nFlight associates with 0..* PassengerTickets.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'FlightTicket'.\n2. In 'AirFlight', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'bookTicket(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(new FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan chiptalar: \" + fl.getTickets().size());'"
+      "en": "📖 Real-World Scenario & Context\nFlight associates with 0..* PassengerTickets.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'FlightTicket'.\n2. In 'AirFlight', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'bookTicket(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(new FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan chiptalar: \" + fl.getTickets().size());'",
+      "ru": "📖 Контекст и описание задачи\nРейс связан с 0..* PassengerTickets.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс FlightTicket.\n2. В «AirFlight» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор «bookTicket(...)».\n4. Собираем в «main».\n5. Выведите результат на консоль: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(новый FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan Chiptalar: \" + fl.getTickets().size());'"
     },
     "requirements": {
       "classes": [
@@ -5377,7 +6754,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>AirFlight</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>AirFlight</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Bron qilingan chiptalar: 2"
@@ -5385,7 +6768,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Bron qilingan chiptalar: 2",
     "story": {
       "uz": "Uzbekistan Airways samolyot reysi 0 dan ko'plab chiptalarga ega bo'ladi ('1 to 0..*'). Chiptalarni sanovchi metod tuzing.",
-      "en": "Flight associates with 0..* PassengerTickets."
+      "en": "Flight associates with 0..* PassengerTickets.",
+      "ru": "Рейс связан с 0..* PassengerTickets."
     },
     "steps": {
       "uz": [
@@ -5401,6 +6785,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'bookTicket(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(new FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan chiptalar: \" + fl.getTickets().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс FlightTicket.",
+        "В «AirFlight» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор «bookTicket(...)».",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'AirFlight fl = new AirFlight(\"HY-271\");         fl.bookTicket(new FlightTicket(\"TCK-1\"));         fl.bookTicket(новый FlightTicket(\"TCK-2\"));         System.out.println(\"Bron qilingan Chiptalar: \" + fl.getTickets().size());'"
       ]
     }
   },
@@ -5411,11 +6802,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "88. Kapitalbank — Client 1 to 1..* BankAccount Multiplicity",
-      "en": "88. Kapitalbank — Client to Accounts Association in UML"
+      "en": "88. Kapitalbank — Client to Accounts Association in UML",
+      "ru": "88. Капиталбанк — Ассоциация клиентов и счетов в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbankda mijoz kamida bitta bank hisobiga ega bo'lishi shart ('1 to 1..*'). Hisoblar sonini qaytaruvchi sinf yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'ClientAccount' ni e'lon qiling.\n2. Asosiy 'BankClient' sinfida UML dagi '1..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<ClientAccount>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'openAccount(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Mijoz hisoblari: \" + client.getAccounts().size());'",
-      "en": "📖 Real-World Scenario & Context\nKapitalbank Client requires at least one BankAccount upon registration (1..*).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'ClientAccount'.\n2. In 'BankClient', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'openAccount(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Mijoz hisoblari: \" + client.getAccounts().size());'"
+      "en": "📖 Real-World Scenario & Context\nKapitalbank Client requires at least one BankAccount upon registration (1..*).\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'ClientAccount'.\n2. In 'BankClient', declare field corresponding to '1..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'openAccount(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Mijoz hisoblari: \" + client.getAccounts().size());'",
+      "ru": "📖 Контекст и описание задачи\nКлиенту Капиталбанка при регистрации требуется как минимум один банковский счет (1..*).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс ClientAccount.\n2. В «BankClient» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор openAccount(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Сообщите об ошибке: \" + client.getAccounts().size());'"
     },
     "requirements": {
       "classes": [
@@ -5438,7 +6831,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BankClient</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>BankClient</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Mijoz hisoblari: 2"
@@ -5446,7 +6845,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Mijoz hisoblari: 2",
     "story": {
       "uz": "Kapitalbankda mijoz kamida bitta bank hisobiga ega bo'lishi shart ('1 to 1..*'). Hisoblar sonini qaytaruvchi sinf yozing.",
-      "en": "Kapitalbank Client requires at least one BankAccount upon registration (1..*)."
+      "en": "Kapitalbank Client requires at least one BankAccount upon registration (1..*).",
+      "ru": "Клиенту Капиталбанка при регистрации требуется как минимум один банковский счет (1..*)."
     },
     "steps": {
       "uz": [
@@ -5462,6 +6862,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'openAccount(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Mijoz hisoblari: \" + client.getAccounts().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс ClientAccount.",
+        "В «BankClient» объявите поле, соответствующее «1..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор openAccount(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'BankClient client = new BankClient(\"Sanjar\", new ClientAccount(\"20208-01\"));         client.openAccount(new ClientAccount(\"20208-02\"));         System.out.println(\"Сообщите об ошибке: \" + client.getAccounts().size());'"
       ]
     }
   },
@@ -5472,11 +6879,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "89. Beeline — Subscriber 1 to 1 SimCard Multiplicity",
-      "en": "89. Beeline — Exactly 1 SimCard Association in Telecom UML"
+      "en": "89. Beeline — Exactly 1 SimCard Association in Telecom UML",
+      "ru": "89. Билайн — ровно 1 ассоциация симкарт в телеком UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline da abonent aniq bitta faol SIM kartaga ega ('1 to 1'). Maydon konstruktorda o'rnatilib, SIM seriya raqami qaytariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'SimCardChip' ni e'lon qiling.\n2. Asosiy 'SubscriberClient' sinfida UML dagi '1' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<SimCardChip>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'getSimNumber(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'SimCardChip chip = new SimCardChip(\"SIM-899988\");         SubscriberClient sub = new SubscriberClient(\"+998901234567\", chip);         System.out.println(sub.getSimNumber());'",
-      "en": "📖 Real-World Scenario & Context\nBeeline Subscriber has exactly 1 SimCard.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'SimCardChip'.\n2. In 'SubscriberClient', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getSimNumber(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'SimCardChip chip = new SimCardChip(\"SIM-899988\");         SubscriberClient sub = new SubscriberClient(\"+998901234567\", chip);         System.out.println(sub.getSimNumber());'"
+      "en": "📖 Real-World Scenario & Context\nBeeline Subscriber has exactly 1 SimCard.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'SimCardChip'.\n2. In 'SubscriberClient', declare field corresponding to '1' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'getSimNumber(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'SimCardChip chip = new SimCardChip(\"SIM-899988\");         SubscriberClient sub = new SubscriberClient(\"+998901234567\", chip);         System.out.println(sub.getSimNumber());'",
+      "ru": "📖 Контекст и описание задачи\nУ Абонента Билайн ровно 1 Симкарта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс SimCardChip.\n2. В «SubscriberClient» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор getSimNumber(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'Чип SimCardChip = новый SimCardChip(\"SIM-899988\");         SubscriberClient sub = новый SubscriberClient(\"+998901234567\", чип);         System.out.println(sub.getSimNumber());'"
     },
     "requirements": {
       "classes": [
@@ -5499,7 +6908,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>SubscriberClient</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>1</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>SubscriberClient</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "Abonent: +998901234567 | SIM: SIM-899988"
@@ -5507,7 +6922,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Abonent: +998901234567 | SIM: SIM-899988",
     "story": {
       "uz": "Beeline da abonent aniq bitta faol SIM kartaga ega ('1 to 1'). Maydon konstruktorda o'rnatilib, SIM seriya raqami qaytariladi.",
-      "en": "Beeline Subscriber has exactly 1 SimCard."
+      "en": "Beeline Subscriber has exactly 1 SimCard.",
+      "ru": "У Абонента Билайн ровно 1 Симкарта."
     },
     "steps": {
       "uz": [
@@ -5523,6 +6939,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'getSimNumber(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'SimCardChip chip = new SimCardChip(\"SIM-899988\");         SubscriberClient sub = new SubscriberClient(\"+998901234567\", chip);         System.out.println(sub.getSimNumber());'"
+      ],
+      "ru": [
+        "Объявите связанный класс SimCardChip.",
+        "В «SubscriberClient» объявите поле, соответствующее «1» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор getSimNumber(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'Чип SimCardChip = новый SimCardChip(\"SIM-899988\");         SubscriberClient sub = новый SubscriberClient(\"+998901234567\", чип);         System.out.println(sub.getSimNumber());'"
       ]
     }
   },
@@ -5533,11 +6956,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "76-90: Assotsiatsiya va Multiplicity Modellashtirish",
     "title": {
       "uz": "90. WIUT — CourseModule 1 to 0..* EnrolledStudent Multiplicity",
-      "en": "90. WIUT — CourseModule to Enrolled Students Multiplicity"
+      "en": "90. WIUT — CourseModule to Enrolled Students Multiplicity",
+      "ru": "90. WIUT — Курсовой модуль для увеличения числа зачисленных студентов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT modulida 0 dan ko'plab talabalar ro'yxatdan o'tishi mumkin ('1 to 0..*'). Talabalarni ro'yxatga oluvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'EnrolledStudent' ni e'lon qiling.\n2. Asosiy 'CourseModule' sinfida UML dagi '0..*' multiplicityga mos maydonni (1 bo'lsa oddiy, 0..* bo'lsa 'List<EnrolledStudent>') e'lon qiling.\n3. Elementni biriktiruvchi yoki ro'yxatga qo'shuvchi 'enrollStudent(...)' metodini yozing.\n4. 'Main' sinfida ob'yektlarni yarating va munosabatni shakllantiring.\n5. Natijani chop eting: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(new EnrolledStudent(\"00012346\"));         System.out.println(\"OOP talabalari: \" + oop.getStudents().size());'",
-      "en": "📖 Real-World Scenario & Context\nWIUT CourseModule associates with 0..* EnrolledStudents.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'EnrolledStudent'.\n2. In 'CourseModule', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'enrollStudent(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(new EnrolledStudent(\"00012346\"));         System.out.println(\"OOP talabalari: \" + oop.getStudents().size());'"
+      "en": "📖 Real-World Scenario & Context\nWIUT CourseModule associates with 0..* EnrolledStudents.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare associated class 'EnrolledStudent'.\n2. In 'CourseModule', declare field corresponding to '0..*' (single reference if 1 or 0..1, List if 0..*).\n3. Implement mutator 'enrollStudent(...)'.\n4. Assemble in 'main'.\n5. Print result to console: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(new EnrolledStudent(\"00012346\"));         System.out.println(\"OOP talabalari: \" + oop.getStudents().size());'",
+      "ru": "📖 Контекст и описание задачи\nWIUT CourseModule ассоциируется с 0..* EnrolledStudents.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите связанный класс EnrolledStudent.\n2. В «CourseModule» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).\n3. Реализуйте мутатор enrollStudent(...)'.\n4. Собираем в «main».\n5. Выведите результат на консоль: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(новый EnrolledStudent(\"00012346\"));         System.out.println(\"Талабалари ООП: \" + oop.getStudents().size());'"
     },
     "requirements": {
       "classes": [
@@ -5560,7 +6985,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CourseModule</code>: bog'lanish egasi."
       ],
       "pitfalls": "'*' multiplicity uchun bitta ob'yekt maydoni ochish xato! Har doim 'List<T>' yoki 'Set<T>' to'plamidan foydalanish shart.",
-      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi."
+      "cw2Tip": "Customer (1) va Order (0..*) o'rtasidagi bog'lanish to'liq shu tamoyilga asoslanadi.",
+      "theoryRu": "UML-ассоциация представляет собой структурную связь между классами. Конечные точки множественности определяют мощность: «1» — обязательная одиночная ссылка, «0..1» — необязательная (обнуляемая), а «0..*» соответствует атрибуту коллекции (список/набор).",
+      "pitfallsRu": "'*' кратность учун битта объект майдони очиш ксато! Примените 'List<T>' и 'Set<T>' к 'пламиданному фойдаланишу шарту'.",
+      "breakdownRu": [
+        "<code>0..*</code>: UML dagi bog'lanish karraligi (multiplicity).",
+        "<code>CourseModule</code>: bog'lanish egasi."
+      ]
     },
     "sampleData": [
       "OOP talabalari: 2"
@@ -5568,7 +6999,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "OOP talabalari: 2",
     "story": {
       "uz": "WIUT modulida 0 dan ko'plab talabalar ro'yxatdan o'tishi mumkin ('1 to 0..*'). Talabalarni ro'yxatga oluvchi klass tuzing.",
-      "en": "WIUT CourseModule associates with 0..* EnrolledStudents."
+      "en": "WIUT CourseModule associates with 0..* EnrolledStudents.",
+      "ru": "WIUT CourseModule ассоциируется с 0..* EnrolledStudents."
     },
     "steps": {
       "uz": [
@@ -5584,6 +7016,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement mutator 'enrollStudent(...)'.",
         "Assemble in 'main'.",
         "Print result to console: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(new EnrolledStudent(\"00012346\"));         System.out.println(\"OOP talabalari: \" + oop.getStudents().size());'"
+      ],
+      "ru": [
+        "Объявите связанный класс EnrolledStudent.",
+        "В «CourseModule» объявите поле, соответствующее «0..*» (одиночная ссылка, если 1 или 0..1, список, если 0..*).",
+        "Реализуйте мутатор enrollStudent(...)'.",
+        "Собираем в «main».",
+        "Выведите результат на консоль: 'CourseModule oop = new CourseModule(\"5COSC018C\");         oop.enrollStudent(new EnrolledStudent(\"00012345\"));         oop.enrollStudent(новый EnrolledStudent(\"00012346\"));         System.out.println(\"Талабалари ООП: \" + oop.getStudents().size());'"
       ]
     }
   },
@@ -5594,11 +7033,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "91. Uzum Market — Customer <>-- Order Agregatsiyasi (Bo'sh Romb)",
-      "en": "91. Uzum Market — Customer <>-- Order Aggregation (Hollow Diamond)"
+      "en": "91. Uzum Market — Customer <>-- Order Aggregation (Hollow Diamond)",
+      "ru": "91. Рынок Узум — Клиент <> — Агрегация заказов (полый ромб)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market UML diagrammasida Customer va Order o'rtasida Agregatsiya belgisi (Customer tomonida ichi bo'sh romb '<>--') ko'rsatilgan. Bu Customer ob'yekti Order dan tashqarida ham yashay olishini anglatadi. Buyurtmaga mijozni biriktiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Customer' ni yarating.\n2. Asosiy 'Order' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Customer c = new Customer(\"Aziz Karimov\");         Order ord = new Order(\"ORD-101\", c);         System.out.println(\"Buyurtma kodi: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, Aggregation is marked with a hollow diamond on the whole side. Customer exists before and after Order.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Customer'.\n2. In 'Order', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Customer c = new Customer(\"Aziz Karimov\");         Order ord = new Order(\"ORD-101\", c);         System.out.println(\"Buyurtma kodi: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, Aggregation is marked with a hollow diamond on the whole side. Customer exists before and after Order.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Customer'.\n2. In 'Order', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Customer c = new Customer(\"Aziz Karimov\");         Order ord = new Order(\"ORD-101\", c);         System.out.println(\"Buyurtma kodi: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML агрегирование отмечено полым ромбом со всей стороны. Клиент существует до и после Заказа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «Клиент».\n2. В «Порядке» установите Агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Клиент c = новый клиент(\"Азиз Каримов\");         Заказ ord = новый заказ(\"ORD-101\", c);         System.out.println(\"Купить код: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'"
     },
     "requirements": {
       "classes": [
@@ -5618,7 +7059,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>Order</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Buyurtma kodi: ORD-101 | Mijoz: Aziz Karimov"
@@ -5626,7 +7073,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma kodi: ORD-101 | Mijoz: Aziz Karimov",
     "story": {
       "uz": "Uzum Market UML diagrammasida Customer va Order o'rtasida Agregatsiya belgisi (Customer tomonida ichi bo'sh romb '<>--') ko'rsatilgan. Bu Customer ob'yekti Order dan tashqarida ham yashay olishini anglatadi. Buyurtmaga mijozni biriktiring.",
-      "en": "In UML, Aggregation is marked with a hollow diamond on the whole side. Customer exists before and after Order."
+      "en": "In UML, Aggregation is marked with a hollow diamond on the whole side. Customer exists before and after Order.",
+      "ru": "В UML агрегирование отмечено полым ромбом со всей стороны. Клиент существует до и после Заказа."
     },
     "steps": {
       "uz": [
@@ -5642,6 +7090,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Customer c = new Customer(\"Aziz Karimov\");         Order ord = new Order(\"ORD-101\", c);         System.out.println(\"Buyurtma kodi: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'"
+      ],
+      "ru": [
+        "Объявите класс детали «Клиент».",
+        "В «Порядке» установите Агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Клиент c = новый клиент(\"Азиз Каримов\");         Заказ ord = новый заказ(\"ORD-101\", c);         System.out.println(\"Купить код: \" + ord.getOrderId() + \" | Mijoz: \" + ord.getCustomer().getName());'"
       ]
     }
   },
@@ -5652,11 +7107,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "92. Uzum Market — Order *-- OrderItem Kompozitsiyasi (Qora Romb)",
-      "en": "92. Uzum Market — Order *-- OrderItem Composition (Filled Diamond)"
+      "en": "92. Uzum Market — Order *-- OrderItem Composition (Filled Diamond)",
+      "ru": "92. Рынок Узум — Приказ *-- Состав OrderItem (заполненный ромб)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market UML da Order va OrderItem o'rtasida Kompozitsiya (Order tomonida to'ldirilgan qora romb '*--') tasvirlangan. OrderItem ob'yektlari faqat Order ichida 'addItem()' chaqirilganda yaratilishini ta'minlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'OrderItem' ni yarating.\n2. Asosiy 'Order' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Order ord = new Order(\"ORD-202\");         ord.addItem(\"Noutbuk Sumkasi\", 120000.0, 1);         System.out.println(\"Buyurtma qatorlari: \" + ord.getItems().size());'",
-      "en": "📖 Real-World Scenario & Context\nIn UML, Composition is marked with a filled black diamond. OrderItem is created and strictly owned by Order.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'OrderItem'.\n2. In 'Order', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Order ord = new Order(\"ORD-202\");         ord.addItem(\"Noutbuk Sumkasi\", 120000.0, 1);         System.out.println(\"Buyurtma qatorlari: \" + ord.getItems().size());'"
+      "en": "📖 Real-World Scenario & Context\nIn UML, Composition is marked with a filled black diamond. OrderItem is created and strictly owned by Order.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'OrderItem'.\n2. In 'Order', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Order ord = new Order(\"ORD-202\");         ord.addItem(\"Noutbuk Sumkasi\", 120000.0, 1);         System.out.println(\"Buyurtma qatorlari: \" + ord.getItems().size());'",
+      "ru": "📖 Контекст и описание задачи\nВ UML композиция отмечена черным ромбиком с заливкой. OrderItem создан и принадлежит только Order.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали OrderItem.\n2. В разделе «Порядок» установите состав (*-- ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Заказ ord = новый заказ(\"ORD-202\");         ord.addItem(\"Ноутбук Сумкаси\", 120000.0, 1);         System.out.println(\"Купить qatorlari: \" + ord.getItems().size());'"
     },
     "requirements": {
       "classes": [
@@ -5676,7 +7133,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>Order</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Buyurtma qatorlari: 1"
@@ -5684,7 +7147,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma qatorlari: 1",
     "story": {
       "uz": "Uzum Market UML da Order va OrderItem o'rtasida Kompozitsiya (Order tomonida to'ldirilgan qora romb '*--') tasvirlangan. OrderItem ob'yektlari faqat Order ichida 'addItem()' chaqirilganda yaratilishini ta'minlang.",
-      "en": "In UML, Composition is marked with a filled black diamond. OrderItem is created and strictly owned by Order."
+      "en": "In UML, Composition is marked with a filled black diamond. OrderItem is created and strictly owned by Order.",
+      "ru": "В UML композиция отмечена черным ромбиком с заливкой. OrderItem создан и принадлежит только Order."
     },
     "steps": {
       "uz": [
@@ -5700,6 +7164,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Order ord = new Order(\"ORD-202\");         ord.addItem(\"Noutbuk Sumkasi\", 120000.0, 1);         System.out.println(\"Buyurtma qatorlari: \" + ord.getItems().size());'"
+      ],
+      "ru": [
+        "Объявите класс детали OrderItem.",
+        "В разделе «Порядок» установите состав (*-- ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Заказ ord = новый заказ(\"ORD-202\");         ord.addItem(\"Ноутбук Сумкаси\", 120000.0, 1);         System.out.println(\"Купить qatorlari: \" + ord.getItems().size());'"
       ]
     }
   },
@@ -5710,11 +7181,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "93. Payme — Invoice *-- InvoiceItem Kompozitsiyasi",
-      "en": "93. Payme — Invoice *-- InvoiceItem Composition in UML"
+      "en": "93. Payme — Invoice *-- InvoiceItem Composition in UML",
+      "ru": "93. Payme — Счет *-- Состав InvoiceItem в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme elektron schyotida '*--' kompozitsiya qoidasiga binoan, schyot qatorlari 'Invoice' ichida yaratiladi va jami summa hisoblanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'InvoiceItem' ni yarating.\n2. Asosiy 'Invoice' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Invoice inv = new Invoice(\"INV-55\");         inv.addItem(\"Internet to'lovi\", 150000.0);         inv.addItem(\"Kommunal to'lov\", 50000.0);         System.out.println(\"Jami schyot: \" + inv.getTotal());'",
-      "en": "📖 Real-World Scenario & Context\nPayme Invoice composes (*--) InvoiceItem objects and calculates grand total.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'InvoiceItem'.\n2. In 'Invoice', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Invoice inv = new Invoice(\"INV-55\");         inv.addItem(\"Internet to'lovi\", 150000.0);         inv.addItem(\"Kommunal to'lov\", 50000.0);         System.out.println(\"Jami schyot: \" + inv.getTotal());'"
+      "en": "📖 Real-World Scenario & Context\nPayme Invoice composes (*--) InvoiceItem objects and calculates grand total.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'InvoiceItem'.\n2. In 'Invoice', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Invoice inv = new Invoice(\"INV-55\");         inv.addItem(\"Internet to'lovi\", 150000.0);         inv.addItem(\"Kommunal to'lov\", 50000.0);         System.out.println(\"Jami schyot: \" + inv.getTotal());'",
+      "ru": "📖 Контекст и описание задачи\nPayme Invoice формирует (*--) объекты InvoiceItem и вычисляет общую сумму.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «InvoiceItem».\n2. В разделе «Счет-фактура» установите состав (ромб, заполненный *).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Счет-фактура = новый счет-фактура(\"INV-55\");         inv.addItem(\"Интернет в любви\", 150000.0);         inv.addItem(\"Коммунальные товары\", 50000.0);         System.out.println(\"Джами считает: \" + inv.getTotal());'"
     },
     "requirements": {
       "classes": [
@@ -5734,7 +7207,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Invoice</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>Invoice</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Jami schyot: 200000.0"
@@ -5742,7 +7221,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Jami schyot: 200000.0",
     "story": {
       "uz": "Payme elektron schyotida '*--' kompozitsiya qoidasiga binoan, schyot qatorlari 'Invoice' ichida yaratiladi va jami summa hisoblanadi.",
-      "en": "Payme Invoice composes (*--) InvoiceItem objects and calculates grand total."
+      "en": "Payme Invoice composes (*--) InvoiceItem objects and calculates grand total.",
+      "ru": "Payme Invoice формирует (*--) объекты InvoiceItem и вычисляет общую сумму."
     },
     "steps": {
       "uz": [
@@ -5758,6 +7238,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Invoice inv = new Invoice(\"INV-55\");         inv.addItem(\"Internet to'lovi\", 150000.0);         inv.addItem(\"Kommunal to'lov\", 50000.0);         System.out.println(\"Jami schyot: \" + inv.getTotal());'"
+      ],
+      "ru": [
+        "Объявите класс детали «InvoiceItem».",
+        "В разделе «Счет-фактура» установите состав (ромб, заполненный *).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Счет-фактура = новый счет-фактура(\"INV-55\");         inv.addItem(\"Интернет в любви\", 150000.0);         inv.addItem(\"Коммунальные товары\", 50000.0);         System.out.println(\"Джами считает: \" + inv.getTotal());'"
       ]
     }
   },
@@ -5768,11 +7255,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "94. Korzinka — Supermarket <>-- Cashier Agregatsiyasi",
-      "en": "94. Korzinka — Supermarket <>-- Cashier Aggregation in UML"
+      "en": "94. Korzinka — Supermarket <>-- Cashier Aggregation in UML",
+      "ru": "94. Корзинка — Супермаркет <>-- Агрегация касс в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka supermarketida kassir 'Cashier' do'kondan mustaqil yashay oladi ('Supermarket <>-- Cashier'). Agregatsiya orqali kassirni do'konga biriktiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Cashier' ni yarating.\n2. Asosiy 'Supermarket' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Cashier cashier = new Cashier(\"Dilnoza\");         Supermarket sm = new Supermarket(\"Korzinka Aeroport\");         sm.addCashier(cashier);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Kassir: \" + sm.getCashiers().get(0).getName());'",
-      "en": "📖 Real-World Scenario & Context\nSupermarket aggregates (<>--) Cashiers whose lifecycle is independent.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Cashier'.\n2. In 'Supermarket', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Cashier cashier = new Cashier(\"Dilnoza\");         Supermarket sm = new Supermarket(\"Korzinka Aeroport\");         sm.addCashier(cashier);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Kassir: \" + sm.getCashiers().get(0).getName());'"
+      "en": "📖 Real-World Scenario & Context\nSupermarket aggregates (<>--) Cashiers whose lifecycle is independent.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Cashier'.\n2. In 'Supermarket', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Cashier cashier = new Cashier(\"Dilnoza\");         Supermarket sm = new Supermarket(\"Korzinka Aeroport\");         sm.addCashier(cashier);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Kassir: \" + sm.getCashiers().get(0).getName());'",
+      "ru": "📖 Контекст и описание задачи\nАгрегаты супермаркетов (<>--) Кассы, жизненный цикл которых независим.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «Кассир».\n2. В «Супермаркете» установите Агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Кассир кассир = новый Кассир(\"Дилноза\");         Супермаркет см = новый Супермаркет(\"Аэропорт Корзинка\");         sm.addCashier(касса);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Кассир: \" + sm.getCashiers().get(0).getName());'"
     },
     "requirements": {
       "classes": [
@@ -5792,7 +7281,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Supermarket</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>Supermarket</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Do'kon: Korzinka Aeroport | Kassir: Dilnoza"
@@ -5800,7 +7295,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Do'kon: Korzinka Aeroport | Kassir: Dilnoza",
     "story": {
       "uz": "Korzinka supermarketida kassir 'Cashier' do'kondan mustaqil yashay oladi ('Supermarket <>-- Cashier'). Agregatsiya orqali kassirni do'konga biriktiring.",
-      "en": "Supermarket aggregates (<>--) Cashiers whose lifecycle is independent."
+      "en": "Supermarket aggregates (<>--) Cashiers whose lifecycle is independent.",
+      "ru": "Агрегаты супермаркетов (<>--) Кассы, жизненный цикл которых независим."
     },
     "steps": {
       "uz": [
@@ -5816,6 +7312,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Cashier cashier = new Cashier(\"Dilnoza\");         Supermarket sm = new Supermarket(\"Korzinka Aeroport\");         sm.addCashier(cashier);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Kassir: \" + sm.getCashiers().get(0).getName());'"
+      ],
+      "ru": [
+        "Объявите класс детали «Кассир».",
+        "В «Супермаркете» установите Агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Кассир кассир = новый Кассир(\"Дилноза\");         Супермаркет см = новый Супермаркет(\"Аэропорт Корзинка\");         sm.addCashier(касса);         System.out.println(\"Do'kon: \" + sm.getName() + \" | Кассир: \" + sm.getCashiers().get(0).getName());'"
       ]
     }
   },
@@ -5826,11 +7329,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "95. Yandex Go — Car *-- Engine Kompozitsiyasi (Taqriz)",
-      "en": "95. Yandex Go — Car *-- Engine Tight Composition in UML"
+      "en": "95. Yandex Go — Car *-- Engine Tight Composition in UML",
+      "ru": "95. Yandex Go — Car *-- Плотная композиция двигателя в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida keltirilgan klassik kompozitsiya misoli: 'Car *-- Engine'. Mashina konstruktorida yangi motor yaratiladi va uning quvvati ko'rsatiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Engine' ni yarating.\n2. Asosiy 'Car' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Avtomobil: \" + car.getModel() + \" | Ot kuchi: \" + car.getEngine().getHorsepower());'",
-      "en": "📖 Real-World Scenario & Context\nClassic lecture example: Car composes (*--) Engine created internally.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Engine'.\n2. In 'Car', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Avtomobil: \" + car.getModel() + \" | Ot kuchi: \" + car.getEngine().getHorsepower());'"
+      "en": "📖 Real-World Scenario & Context\nClassic lecture example: Car composes (*--) Engine created internally.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Engine'.\n2. In 'Car', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Avtomobil: \" + car.getModel() + \" | Ot kuchi: \" + car.getEngine().getHorsepower());'",
+      "ru": "📖 Контекст и описание задачи\nКлассический пример лекции: Автомобиль составляет (*--) Двигатель, созданный внутри компании.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «Двигатель».\n2. В «Автомобиле» установите «Композицию» (*-- закрашенный ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Автомобиль: \" + car.getModel() + \" | От кучи: \" + car.getEngine().getHorsepower());'"
     },
     "requirements": {
       "classes": [
@@ -5850,7 +7355,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Car</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>Car</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Avtomobil: Cobalt | Ot kuchi: 106"
@@ -5858,7 +7369,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Avtomobil: Cobalt | Ot kuchi: 106",
     "story": {
       "uz": "WIUT darsligida keltirilgan klassik kompozitsiya misoli: 'Car *-- Engine'. Mashina konstruktorida yangi motor yaratiladi va uning quvvati ko'rsatiladi.",
-      "en": "Classic lecture example: Car composes (*--) Engine created internally."
+      "en": "Classic lecture example: Car composes (*--) Engine created internally.",
+      "ru": "Классический пример лекции: Автомобиль составляет (*--) Двигатель, созданный внутри компании."
     },
     "steps": {
       "uz": [
@@ -5874,6 +7386,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Avtomobil: \" + car.getModel() + \" | Ot kuchi: \" + car.getEngine().getHorsepower());'"
+      ],
+      "ru": [
+        "Объявите класс детали «Двигатель».",
+        "В «Автомобиле» установите «Композицию» (*-- закрашенный ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Car car = new Car(\"Cobalt\", 106);         System.out.println(\"Автомобиль: \" + car.getModel() + \" | От кучи: \" + car.getEngine().getHorsepower());'"
       ]
     }
   },
@@ -5884,11 +7403,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "96. Express24 — FoodOrder *-- FoodItem Kompozitsiyasi",
-      "en": "96. Express24 — FoodOrder *-- FoodItem Composition in UML"
+      "en": "96. Express24 — FoodOrder *-- FoodItem Composition in UML",
+      "ru": "96. Express24 — FoodOrder * — Композиция FoodItem в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nExpress24 taom buyurtmasi o'z qatorlarini kompozitsiya orqali boshqaradi ('FoodOrder *-- FoodItem'). Qatorlar summasini hisoblovchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'FoodItem' ni yarating.\n2. Asosiy 'FoodOrder' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Lavash\", 32000.0);         fo.addItem(\"Kola\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'",
-      "en": "📖 Real-World Scenario & Context\nFoodOrder composes (*--) FoodItems computing overall price.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'FoodItem'.\n2. In 'FoodOrder', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Lavash\", 32000.0);         fo.addItem(\"Kola\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'"
+      "en": "📖 Real-World Scenario & Context\nFoodOrder composes (*--) FoodItems computing overall price.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'FoodItem'.\n2. In 'FoodOrder', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Lavash\", 32000.0);         fo.addItem(\"Kola\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'",
+      "ru": "📖 Контекст и описание задачи\nFoodOrder составляет (*--) FoodItems, вычисляя общую цену.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части FoodItem.\n2. В «FoodOrder» установите состав (ромб, заполненный *).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Лаваш\", 32000.0);         fo.addItem(\"Кола\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'"
     },
     "requirements": {
       "classes": [
@@ -5908,7 +7429,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>FoodOrder</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>FoodOrder</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Taomlar jami: 42000.0"
@@ -5916,7 +7443,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Taomlar jami: 42000.0",
     "story": {
       "uz": "Express24 taom buyurtmasi o'z qatorlarini kompozitsiya orqali boshqaradi ('FoodOrder *-- FoodItem'). Qatorlar summasini hisoblovchi sinf tuzing.",
-      "en": "FoodOrder composes (*--) FoodItems computing overall price."
+      "en": "FoodOrder composes (*--) FoodItems computing overall price.",
+      "ru": "FoodOrder составляет (*--) FoodItems, вычисляя общую цену."
     },
     "steps": {
       "uz": [
@@ -5932,6 +7460,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Lavash\", 32000.0);         fo.addItem(\"Kola\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'"
+      ],
+      "ru": [
+        "Объявите класс части FoodItem.",
+        "В «FoodOrder» установите состав (ромб, заполненный *).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'FoodOrder fo = new FoodOrder(\"FO-99\");         fo.addItem(\"Лаваш\", 32000.0);         fo.addItem(\"Кола\", 10000.0);         System.out.println(\"Taomlar jami: \" + fo.calculateTotal());'"
       ]
     }
   },
@@ -5942,11 +7477,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "97. Medion — Computer *-- Motherboard Kompozitsiyasi",
-      "en": "97. Medion — Computer *-- Motherboard Composition in UML"
+      "en": "97. Medion — Computer *-- Motherboard Composition in UML",
+      "ru": "97. Medion — Компьютер *-- Состав материнской платы в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMedion kompyuteri o'z ona platasini kompozitsiya orqali yaratadi ('Computer *-- Motherboard'). Tizim tavsifini chop eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'Motherboard' ni yarating.\n2. Asosiy 'Computer' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Computer pc = new Computer(\"Medion Beast\", \"ASUS ROG B650\");         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'",
-      "en": "📖 Real-World Scenario & Context\nComputer composes (*--) Motherboard initialized in constructor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Motherboard'.\n2. In 'Computer', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Computer pc = new Computer(\"Medion Beast\", \"ASUS ROG B650\");         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'"
+      "en": "📖 Real-World Scenario & Context\nComputer composes (*--) Motherboard initialized in constructor.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'Motherboard'.\n2. In 'Computer', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Computer pc = new Computer(\"Medion Beast\", \"ASUS ROG B650\");         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'",
+      "ru": "📖 Контекст и описание задачи\nКомпьютер создает (*--) Материнская плата инициализирована в конструкторе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «Материнская плата».\n2. В «Компьютере» установите «Композицию» (*-- ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: «Компьютерный компьютер = новый компьютер («Medion Beast», «ASUS ROG B650»);         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'"
     },
     "requirements": {
       "classes": [
@@ -5966,7 +7503,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Computer</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>Computer</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "PC: Medion Beast | Plata: ASUS ROG B650"
@@ -5974,7 +7517,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "PC: Medion Beast | Plata: ASUS ROG B650",
     "story": {
       "uz": "Medion kompyuteri o'z ona platasini kompozitsiya orqali yaratadi ('Computer *-- Motherboard'). Tizim tavsifini chop eting.",
-      "en": "Computer composes (*--) Motherboard initialized in constructor."
+      "en": "Computer composes (*--) Motherboard initialized in constructor.",
+      "ru": "Компьютер создает (*--) Материнская плата инициализирована в конструкторе."
     },
     "steps": {
       "uz": [
@@ -5990,6 +7534,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Computer pc = new Computer(\"Medion Beast\", \"ASUS ROG B650\");         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'"
+      ],
+      "ru": [
+        "Объявите класс детали «Материнская плата».",
+        "В «Компьютере» установите «Композицию» (*-- ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: «Компьютерный компьютер = новый компьютер («Medion Beast», «ASUS ROG B650»);         System.out.println(\"PC: \" + pc.getName() + \" | Plata: \" + pc.getMotherboard().getChipset());'"
       ]
     }
   },
@@ -6000,11 +7551,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "98. Click — Wallet <>-- LinkedCard Agregatsiyasi",
-      "en": "98. Click — Wallet <>-- LinkedCard Aggregation in UML"
+      "en": "98. Click — Wallet <>-- LinkedCard Aggregation in UML",
+      "ru": "98. Нажмите — Кошелек <> — Агрегация LinkedCard в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick hamyonida plastik karta mustaqil yashaydi ('Wallet <>-- LinkedCard'). Kartani hamyonga bog'lash va uzish imkonini bering.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'LinkedCard' ni yarating.\n2. Asosiy 'Wallet' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'LinkedCard card = new LinkedCard(\"8600-9999\");         Wallet w = new Wallet(\"Asosiy\");         w.addCard(card);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'",
-      "en": "📖 Real-World Scenario & Context\nWallet aggregates (<>--) LinkedCards with independent lifecycle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'LinkedCard'.\n2. In 'Wallet', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'LinkedCard card = new LinkedCard(\"8600-9999\");         Wallet w = new Wallet(\"Asosiy\");         w.addCard(card);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'"
+      "en": "📖 Real-World Scenario & Context\nWallet aggregates (<>--) LinkedCards with independent lifecycle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'LinkedCard'.\n2. In 'Wallet', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'LinkedCard card = new LinkedCard(\"8600-9999\");         Wallet w = new Wallet(\"Asosiy\");         w.addCard(card);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'",
+      "ru": "📖 Контекст и описание задачи\nКошелек объединяет (<>--) карты LinkedCard с независимым жизненным циклом.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части LinkedCard.\n2. В «Кошельке» установите Агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Карта LinkedCard = новая LinkedCard(\"8600-9999\");         Кошелек w = новый Кошелек(\"Асосий\");         w.addCard(карта);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'"
     },
     "requirements": {
       "classes": [
@@ -6024,7 +7577,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Wallet</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>Wallet</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Hamyon kartasi: 8600-9999"
@@ -6032,7 +7591,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Hamyon kartasi: 8600-9999",
     "story": {
       "uz": "Click hamyonida plastik karta mustaqil yashaydi ('Wallet <>-- LinkedCard'). Kartani hamyonga bog'lash va uzish imkonini bering.",
-      "en": "Wallet aggregates (<>--) LinkedCards with independent lifecycle."
+      "en": "Wallet aggregates (<>--) LinkedCards with independent lifecycle.",
+      "ru": "Кошелек объединяет (<>--) карты LinkedCard с независимым жизненным циклом."
     },
     "steps": {
       "uz": [
@@ -6048,6 +7608,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'LinkedCard card = new LinkedCard(\"8600-9999\");         Wallet w = new Wallet(\"Asosiy\");         w.addCard(card);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'"
+      ],
+      "ru": [
+        "Объявите класс части LinkedCard.",
+        "В «Кошельке» установите Агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Карта LinkedCard = новая LinkedCard(\"8600-9999\");         Кошелек w = новый Кошелек(\"Асосий\");         w.addCard(карта);         System.out.println(\"Hamyon kartasi: \" + w.getCards().get(0).getPan());'"
       ]
     }
   },
@@ -6058,11 +7625,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "99. Asaxiy — LibraryCatalog <>-- CatalogBook Agregatsiyasi",
-      "en": "99. Asaxiy — LibraryCatalog <>-- CatalogBook Aggregation"
+      "en": "99. Asaxiy — LibraryCatalog <>-- CatalogBook Aggregation",
+      "ru": "99. Асаксий — LibraryCatalog <>-- КаталогАгрегация книг"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy katalogida kitob mustaqil ob'yekt sifatida agregatsiya qilinadi ('LibraryCatalog <>-- CatalogBook').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'CatalogBook' ni yarating.\n2. Asosiy 'LibraryCatalog' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = new LibraryCatalog(\"O'zbek Adabiyoti\");         cat.addBook(b);         System.out.println(\"Katalog kitobi: \" + cat.getBooks().get(0).getTitle());'",
-      "en": "📖 Real-World Scenario & Context\nLibraryCatalog aggregates (<>--) CatalogBook objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'CatalogBook'.\n2. In 'LibraryCatalog', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = new LibraryCatalog(\"O'zbek Adabiyoti\");         cat.addBook(b);         System.out.println(\"Katalog kitobi: \" + cat.getBooks().get(0).getTitle());'"
+      "en": "📖 Real-World Scenario & Context\nLibraryCatalog aggregates (<>--) CatalogBook objects.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'CatalogBook'.\n2. In 'LibraryCatalog', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = new LibraryCatalog(\"O'zbek Adabiyoti\");         cat.addBook(b);         System.out.println(\"Katalog kitobi: \" + cat.getBooks().get(0).getTitle());'",
+      "ru": "📖 Контекст и описание задачи\nLibraryCatalog объединяет (<>--) объекты CatalogBook.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали «CatalogBook».\n2. В «LibraryCatalog» установите агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = новый LibraryCatalog(\"Узбек Адабиёти\");         кот.addBook(б);         System.out.println(\"Каталог книг: \" + cat.getBooks().get(0).getTitle());'"
     },
     "requirements": {
       "classes": [
@@ -6082,7 +7651,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>LibraryCatalog</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>LibraryCatalog</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Katalog kitobi: Ufq"
@@ -6090,7 +7665,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Katalog kitobi: Ufq",
     "story": {
       "uz": "Asaxiy katalogida kitob mustaqil ob'yekt sifatida agregatsiya qilinadi ('LibraryCatalog <>-- CatalogBook').",
-      "en": "LibraryCatalog aggregates (<>--) CatalogBook objects."
+      "en": "LibraryCatalog aggregates (<>--) CatalogBook objects.",
+      "ru": "LibraryCatalog объединяет (<>--) объекты CatalogBook."
     },
     "steps": {
       "uz": [
@@ -6106,6 +7682,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = new LibraryCatalog(\"O'zbek Adabiyoti\");         cat.addBook(b);         System.out.println(\"Katalog kitobi: \" + cat.getBooks().get(0).getTitle());'"
+      ],
+      "ru": [
+        "Объявите класс детали «CatalogBook».",
+        "В «LibraryCatalog» установите агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'CatalogBook b = new CatalogBook(\"Ufq\");         LibraryCatalog cat = новый LibraryCatalog(\"Узбек Адабиёти\");         кот.addBook(б);         System.out.println(\"Каталог книг: \" + cat.getBooks().get(0).getTitle());'"
       ]
     }
   },
@@ -6116,11 +7699,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "100. Safia — CustomCake *-- CakeTier Kompozitsiyasi",
-      "en": "100. Safia — CustomCake *-- CakeTier Composition in UML"
+      "en": "100. Safia — CustomCake *-- CakeTier Composition in UML",
+      "ru": "100. Safia — CustomCake *-- Композиция CakeTier в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia maxsus buyurtma tortining qavatlari ('CakeTier') tort ichida yaratiladi va boshqariladi ('CustomCake *-- CakeTier').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'CakeTier' ni yarating.\n2. Asosiy 'CustomCake' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Vanilli\");         cake.addTier(2, \"Shokoladli\");         System.out.println(\"Qavatlar soni: \" + cake.getTiers().size());'",
-      "en": "📖 Real-World Scenario & Context\nCustomCake composes (*--) CakeTiers computing cumulative layers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'CakeTier'.\n2. In 'CustomCake', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Vanilli\");         cake.addTier(2, \"Shokoladli\");         System.out.println(\"Qavatlar soni: \" + cake.getTiers().size());'"
+      "en": "📖 Real-World Scenario & Context\nCustomCake composes (*--) CakeTiers computing cumulative layers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'CakeTier'.\n2. In 'CustomCake', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Vanilli\");         cake.addTier(2, \"Shokoladli\");         System.out.println(\"Qavatlar soni: \" + cake.getTiers().size());'",
+      "ru": "📖 Контекст и описание задачи\nCustomCake составляет (*--) CakeTiers, вычисляя совокупные слои.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части CakeTier.\n2. В «CustomCake» установите композицию (ромб, заполненный *).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Ванили\");         cake.addTier(2, \"Шоколадли\");         System.out.println(\"Quatlar soni: \" + cake.getTiers().size());'"
     },
     "requirements": {
       "classes": [
@@ -6140,7 +7725,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CustomCake</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>CustomCake</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Qavatlar soni: 2"
@@ -6148,7 +7739,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Qavatlar soni: 2",
     "story": {
       "uz": "Safia maxsus buyurtma tortining qavatlari ('CakeTier') tort ichida yaratiladi va boshqariladi ('CustomCake *-- CakeTier').",
-      "en": "CustomCake composes (*--) CakeTiers computing cumulative layers."
+      "en": "CustomCake composes (*--) CakeTiers computing cumulative layers.",
+      "ru": "CustomCake составляет (*--) CakeTiers, вычисляя совокупные слои."
     },
     "steps": {
       "uz": [
@@ -6164,6 +7756,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Vanilli\");         cake.addTier(2, \"Shokoladli\");         System.out.println(\"Qavatlar soni: \" + cake.getTiers().size());'"
+      ],
+      "ru": [
+        "Объявите класс части CakeTier.",
+        "В «CustomCake» установите композицию (ромб, заполненный *).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'CustomCake cake = new CustomCake(\"Kelin Torti\");         cake.addTier(1, \"Ванили\");         cake.addTier(2, \"Шоколадли\");         System.out.println(\"Quatlar soni: \" + cake.getTiers().size());'"
       ]
     }
   },
@@ -6174,11 +7773,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "101. Dodo Pizza — CustomPizza *-- PizzaIngredient Kompozitsiyasi",
-      "en": "101. Dodo Pizza — CustomPizza *-- PizzaIngredient Composition"
+      "en": "101. Dodo Pizza — CustomPizza *-- PizzaIngredient Composition",
+      "ru": "101. Пицца Додо — CustomPizza *-- Ингредиентный состав пиццы"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza maxsus pitsasidagi masalliqlar uning ajralmas qismidir ('CustomPizza *-- PizzaIngredient'). Masalliqlar narxini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'PizzaIngredient' ni yarating.\n2. Asosiy 'CustomPizza' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Pishloq\", 7000.0);         System.out.println(\"Pitsa jami: \" + cp.calculateTotal());'",
-      "en": "📖 Real-World Scenario & Context\nCustomPizza composes (*--) PizzaIngredients strictly within pizza.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'PizzaIngredient'.\n2. In 'CustomPizza', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Pishloq\", 7000.0);         System.out.println(\"Pitsa jami: \" + cp.calculateTotal());'"
+      "en": "📖 Real-World Scenario & Context\nCustomPizza composes (*--) PizzaIngredients strictly within pizza.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'PizzaIngredient'.\n2. In 'CustomPizza', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Pishloq\", 7000.0);         System.out.println(\"Pitsa jami: \" + cp.calculateTotal());'",
+      "ru": "📖 Контекст и описание задачи\nCustomPizza составляет (*--) PizzaIngredients строго внутри пиццы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части «PizzaIngredient».\n2. В «CustomPizza» установите композицию (ромб, заполненный *).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Пишлок\", 7000.0);         System.out.println(\"Пица Джами: \" + cp.calculateTotal());'"
     },
     "requirements": {
       "classes": [
@@ -6198,7 +7799,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>CustomPizza</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>CustomPizza</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Pitsa jami: 57000.0"
@@ -6206,7 +7813,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Pitsa jami: 57000.0",
     "story": {
       "uz": "Dodo Pizza maxsus pitsasidagi masalliqlar uning ajralmas qismidir ('CustomPizza *-- PizzaIngredient'). Masalliqlar narxini hisoblang.",
-      "en": "CustomPizza composes (*--) PizzaIngredients strictly within pizza."
+      "en": "CustomPizza composes (*--) PizzaIngredients strictly within pizza.",
+      "ru": "CustomPizza составляет (*--) PizzaIngredients строго внутри пиццы."
     },
     "steps": {
       "uz": [
@@ -6222,6 +7830,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Pishloq\", 7000.0);         System.out.println(\"Pitsa jami: \" + cp.calculateTotal());'"
+      ],
+      "ru": [
+        "Объявите класс части «PizzaIngredient».",
+        "В «CustomPizza» установите композицию (ромб, заполненный *).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'CustomPizza cp = new CustomPizza(\"Mening Pitsam\", 50000.0);         cp.addIngredient(\"Пишлок\", 7000.0);         System.out.println(\"Пица Джами: \" + cp.calculateTotal());'"
       ]
     }
   },
@@ -6232,11 +7847,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "102. Texnomart — WarrantyReceipt <>-- BuyerClient Agregatsiyasi",
-      "en": "102. Texnomart — WarrantyReceipt <>-- BuyerClient Aggregation"
+      "en": "102. Texnomart — WarrantyReceipt <>-- BuyerClient Aggregation",
+      "ru": "102. Texnomart — Гарантийная квитанция <> — Агрегация клиентов-покупателей"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart kafolat chekida mijoz agregatsiya qilinadi ('WarrantyReceipt <>-- BuyerClient').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'BuyerClient' ni yarating.\n2. Asosiy 'WarrantyReceipt' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'BuyerClient client = new BuyerClient(\"Alisher\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Chek egasi: \" + wr.getClient().getName());'",
-      "en": "📖 Real-World Scenario & Context\nWarrantyReceipt aggregates (<>--) BuyerClient.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'BuyerClient'.\n2. In 'WarrantyReceipt', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'BuyerClient client = new BuyerClient(\"Alisher\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Chek egasi: \" + wr.getClient().getName());'"
+      "en": "📖 Real-World Scenario & Context\nWarrantyReceipt aggregates (<>--) BuyerClient.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'BuyerClient'.\n2. In 'WarrantyReceipt', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'BuyerClient client = new BuyerClient(\"Alisher\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Chek egasi: \" + wr.getClient().getName());'",
+      "ru": "📖 Контекст и описание задачи\nWarrantyReceipt объединяет (<>--) BuyerClient.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части BuyerClient.\n2. В «WarrantyReceipt» установите «Агрегацию» (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Клиент BuyerClient = новый BuyerClient(\"Алишер\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Проверьте ответ: \" + wr.getClient().getName());'"
     },
     "requirements": {
       "classes": [
@@ -6256,7 +7873,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>WarrantyReceipt</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>WarrantyReceipt</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Chek egasi: Alisher"
@@ -6264,7 +7887,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Chek egasi: Alisher",
     "story": {
       "uz": "Texnomart kafolat chekida mijoz agregatsiya qilinadi ('WarrantyReceipt <>-- BuyerClient').",
-      "en": "WarrantyReceipt aggregates (<>--) BuyerClient."
+      "en": "WarrantyReceipt aggregates (<>--) BuyerClient.",
+      "ru": "WarrantyReceipt объединяет (<>--) BuyerClient."
     },
     "steps": {
       "uz": [
@@ -6280,6 +7904,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'BuyerClient client = new BuyerClient(\"Alisher\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Chek egasi: \" + wr.getClient().getName());'"
+      ],
+      "ru": [
+        "Объявите класс части BuyerClient.",
+        "В «WarrantyReceipt» установите «Агрегацию» (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Клиент BuyerClient = новый BuyerClient(\"Алишер\");         WarrantyReceipt wr = new WarrantyReceipt(\"WAR-11\", client);         System.out.println(\"Проверьте ответ: \" + wr.getClient().getName());'"
       ]
     }
   },
@@ -6290,11 +7921,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "103. UzAirways — Plane *-- JetWing Kompozitsiyasi",
-      "en": "103. UzAirways — Plane *-- JetWing Composition in UML"
+      "en": "103. UzAirways — Plane *-- JetWing Composition in UML",
+      "ru": "103. UzAirways — Самолет *-- Состав JetWing в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzbekistan Airways samolyot qanotlari samolyot ob'yekti ichida yaratiladi ('Plane *-- JetWing').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'JetWing' ni yarating.\n2. Asosiy 'Plane' sinfida Kompozitsiya (*-- to'ldirilgan qora romb) o'rnatib, qismni sinf ichida 'new' orqali yarating.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Samolyot: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'",
-      "en": "📖 Real-World Scenario & Context\nPlane composes (*--) JetWing instances internally.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'JetWing'.\n2. In 'Plane', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Samolyot: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'"
+      "en": "📖 Real-World Scenario & Context\nPlane composes (*--) JetWing instances internally.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'JetWing'.\n2. In 'Plane', establish Composition (*-- filled diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Samolyot: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'",
+      "ru": "📖 Контекст и описание задачи\nPlane внутренне компонует (*--) экземпляры JetWing.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс детали JetWing.\n2. В «Плоскости» установите композицию (ромб, заполненный *).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Самолёт: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'"
     },
     "requirements": {
       "classes": [
@@ -6314,7 +7947,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Plane</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Composition</code>: UML dagi *-- to'ldirilgan qora romb.",
+        "<code>Plane</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Samolyot: Dreamliner | Qanot kengligi: 60.1 m"
@@ -6322,7 +7961,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Samolyot: Dreamliner | Qanot kengligi: 60.1 m",
     "story": {
       "uz": "Uzbekistan Airways samolyot qanotlari samolyot ob'yekti ichida yaratiladi ('Plane *-- JetWing').",
-      "en": "Plane composes (*--) JetWing instances internally."
+      "en": "Plane composes (*--) JetWing instances internally.",
+      "ru": "Plane внутренне компонует (*--) экземпляры JetWing."
     },
     "steps": {
       "uz": [
@@ -6338,6 +7978,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Samolyot: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'"
+      ],
+      "ru": [
+        "Объявите класс детали JetWing.",
+        "В «Плоскости» установите композицию (ромб, заполненный *).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'Plane p = new Plane(\"Dreamliner\", 60.1);         System.out.println(\"Самолёт: \" + p.getModel() + \" | Qanot kengligi: \" + p.getWing().getSpanMeters() + \" m\");'"
       ]
     }
   },
@@ -6348,11 +7995,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "104. Kapitalbank — Department <>-- BankOfficer Agregatsiyasi",
-      "en": "104. Kapitalbank — Department <>-- BankOfficer Aggregation in UML"
+      "en": "104. Kapitalbank — Department <>-- BankOfficer Aggregation in UML",
+      "ru": "104. Капиталбанк — Отдел <>- Агрегация BankOfficer в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKapitalbank departamenti bank xodimlari bilan agregatsiya munosabatida bo'ladi ('Department <>-- BankOfficer').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'BankOfficer' ni yarating.\n2. Asosiy 'BankDept' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'BankOfficer off = new BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Kredit Bo'limi\");         dept.assignOfficer(off);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'",
-      "en": "📖 Real-World Scenario & Context\nDepartment aggregates (<>--) BankOfficers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'BankOfficer'.\n2. In 'BankDept', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'BankOfficer off = new BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Kredit Bo'limi\");         dept.assignOfficer(off);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'"
+      "en": "📖 Real-World Scenario & Context\nDepartment aggregates (<>--) BankOfficers.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'BankOfficer'.\n2. In 'BankDept', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'BankOfficer off = new BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Kredit Bo'limi\");         dept.assignOfficer(off);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'",
+      "ru": "📖 Контекст и описание задачи\nОтдел объединяет (<>--) BankOfficers.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части BankOfficer.\n2. В BankDept установите Агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'BankOfficer off = новый BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Кредитные лимиты\");         отдел.assignOfficer(выкл);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'"
     },
     "requirements": {
       "classes": [
@@ -6372,7 +8021,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>BankDept</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>BankDept</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Bo'lim xodimi: Ziyoda"
@@ -6380,7 +8035,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Bo'lim xodimi: Ziyoda",
     "story": {
       "uz": "Kapitalbank departamenti bank xodimlari bilan agregatsiya munosabatida bo'ladi ('Department <>-- BankOfficer').",
-      "en": "Department aggregates (<>--) BankOfficers."
+      "en": "Department aggregates (<>--) BankOfficers.",
+      "ru": "Отдел объединяет (<>--) BankOfficers."
     },
     "steps": {
       "uz": [
@@ -6396,6 +8052,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'BankOfficer off = new BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Kredit Bo'limi\");         dept.assignOfficer(off);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'"
+      ],
+      "ru": [
+        "Объявите класс части BankOfficer.",
+        "В BankDept установите Агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'BankOfficer off = новый BankOfficer(\"Ziyoda\");         BankDept dept = new BankDept(\"Кредитные лимиты\");         отдел.assignOfficer(выкл);         System.out.println(\"Bo'lim xodimi: \" + dept.getOfficers().get(0).getName());'"
       ]
     }
   },
@@ -6406,11 +8069,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "91-105: UML Butun-Qism Munosabatlari (<>-- va *--)",
     "title": {
       "uz": "105. WIUT — University <>-- StudentCouncil Agregatsiyasi",
-      "en": "105. WIUT — University <>-- StudentCouncil Aggregation in UML"
+      "en": "105. WIUT — University <>-- StudentCouncil Aggregation in UML",
+      "ru": "105. WIUT — Университет <> — Агрегация студенческого совета в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT universitetida Talabalar Kengashi mustaqil subyekt sifatida agregatsiya qilinadi ('University <>-- StudentCouncil').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Tarkibiy sinf 'StudentCouncil' ni yarating.\n2. Asosiy 'University' sinfida Agregatsiya (<>-- bo'sh romb) o'rnatib, qismni tashqaridan qabul qiling.\n3. Biznes metodlarini yozing.\n4. 'Main' sinfida ob'yektlarni bog'lang.\n5. Natijani chop eting: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Kengashi\");         University wiut = new University(\"WIUT\", sc);         System.out.println(\"Universitet: \" + wiut.getName() + \" | Kengash: \" + wiut.getCouncil().getName());'",
-      "en": "📖 Real-World Scenario & Context\nUniversity aggregates (<>--) StudentCouncil.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'StudentCouncil'.\n2. In 'University', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Kengashi\");         University wiut = new University(\"WIUT\", sc);         System.out.println(\"Universitet: \" + wiut.getName() + \" | Kengash: \" + wiut.getCouncil().getName());'"
+      "en": "📖 Real-World Scenario & Context\nUniversity aggregates (<>--) StudentCouncil.\n\n📋 Required Implementation Steps (1 to 5)\n1. Declare part class 'StudentCouncil'.\n2. In 'University', establish Aggregation (<>-- hollow diamond).\n3. Implement business methods.\n4. Assemble in 'main'.\n5. Print result: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Kengashi\");         University wiut = new University(\"WIUT\", sc);         System.out.println(\"Universitet: \" + wiut.getName() + \" | Kengash: \" + wiut.getCouncil().getName());'",
+      "ru": "📖 Контекст и описание задачи\nУниверситетские агрегаты (<>--) Студенческий совет.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс части «StudentCouncil».\n2. В «Университете» установите Агрегацию (<>-- полый ромб).\n3. Внедрять бизнес-методы.\n4. Собираем в «main».\n5. Результат печати: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Кенгаши\");         Университет без = новый университет(\"ВИУТ\", sc);         System.out.println(\"Университет: \" + wiut.getName() + \" | Кенгаш: \" + wiut.getCouncil().getName());'"
     },
     "requirements": {
       "classes": [
@@ -6430,7 +8095,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>University</code>: butun (whole) sinf."
       ],
       "pitfalls": "Kompozitsiyada tashqarida yaratilgan tayyor ob'yektni to'g'ridan-to'g'ri o'zlashtirish kompozitsiya qoidasini buzishi mumkin. Qismlar butunning 'addItem' yoki konstruktori ichida yaratilishi shart.",
-      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!"
+      "cw2Tip": "Seminar 4 va 5 da 'Order' va 'OrderItem' o'rtasidagi munosabat aynan qora rombli Kompozitsiyadir!",
+      "theoryRu": "В UML агрегирование отмечено полым ромбом (<>--), обозначающим независимые жизненные циклы. Композиция отмечена заполненным ромбом (*--), что означает, что части принадлежат единому целому и связаны их жизненным циклом.",
+      "pitfallsRu": "Композиция ташкарида яратилган тайёр объектни то'гридан-то'гри озлаштириш композиция койдасини бузиши мумкин. Qismlar, но настроив 'addItem', вы создадите свои конструкторы.",
+      "breakdownRu": [
+        "<code>Aggregation</code>: UML dagi <>-- ichi bo'sh romb.",
+        "<code>University</code>: butun (whole) sinf."
+      ]
     },
     "sampleData": [
       "Universitet: WIUT | Kengash: 2026/2027 Kengashi"
@@ -6438,7 +8109,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Universitet: WIUT | Kengash: 2026/2027 Kengashi",
     "story": {
       "uz": "WIUT universitetida Talabalar Kengashi mustaqil subyekt sifatida agregatsiya qilinadi ('University <>-- StudentCouncil').",
-      "en": "University aggregates (<>--) StudentCouncil."
+      "en": "University aggregates (<>--) StudentCouncil.",
+      "ru": "Университетские агрегаты (<>--) Студенческий совет."
     },
     "steps": {
       "uz": [
@@ -6454,6 +8126,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business methods.",
         "Assemble in 'main'.",
         "Print result: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Kengashi\");         University wiut = new University(\"WIUT\", sc);         System.out.println(\"Universitet: \" + wiut.getName() + \" | Kengash: \" + wiut.getCouncil().getName());'"
+      ],
+      "ru": [
+        "Объявите класс части «StudentCouncil».",
+        "В «Университете» установите Агрегацию (<>-- полый ромб).",
+        "Внедрять бизнес-методы.",
+        "Собираем в «main».",
+        "Результат печати: 'StudentCouncil sc = new StudentCouncil(\"2026/2027 Кенгаши\");         Университет без = новый университет(\"ВИУТ\", sc);         System.out.println(\"Университет: \" + wiut.getName() + \" | Кенгаш: \" + wiut.getCouncil().getName());'"
       ]
     }
   },
@@ -6464,11 +8143,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "106. Uzum Tech — Git 3 Ta Hududi: Working Directory, Staging va Repo",
-      "en": "106. Uzum Tech — Git 3 Areas Simulation (Working, Staging, Repo)"
+      "en": "106. Uzum Tech — Git 3 Areas Simulation (Working, Staging, Repo)",
+      "ru": "106. Uzum Tech — моделирование трех областей Git (работа, промежуточный этап, репозиторий)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida Git ning 3 ta hududi o'rgatilgan: Working directory (tahrir qilinayotgan fayllar), Staging area ('git add' qilinganlar) va Repository ('git commit' qilingan snapshot). 'GitRepository' sinfida faylni sahnaga qo'shish va kommit qilishni simulyatsiya qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitRepository' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'commit(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Product.java\");         String commitHash = repo.commit(\"Add Product class\");         System.out.println(\"Kommit saqlandi: \" + commitHash + \" | Kommitlar soni: \" + repo.getCommitCount());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate Git's 3 areas: Working directory, Staging area, and Repository. Add and commit files.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitRepository' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'commit(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Product.java\");         String commitHash = repo.commit(\"Add Product class\");         System.out.println(\"Kommit saqlandi: \" + commitHash + \" | Kommitlar soni: \" + repo.getCommitCount());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate Git's 3 areas: Working directory, Staging area, and Repository. Add and commit files.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitRepository' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'commit(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Product.java\");         String commitHash = repo.commit(\"Add Product class\");         System.out.println(\"Kommit saqlandi: \" + commitHash + \" | Kommitlar soni: \" + repo.getCommitCount());'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте три области Git: рабочий каталог, промежуточную область и репозиторий. Добавьте и зафиксируйте файлы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitRepository, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Внедрите бизнес-метод «commit(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Продукт.java\");         String commitHash = repo.commit(\"Добавить класс продукта\");         System.out.println(\"Коммит: \" + commitHash + \" | Коммит: \" + repo.getCommitCount());'"
     },
     "requirements": {
       "classes": [
@@ -6490,7 +8171,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>commit</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitRepository</code>: Git ish oqimi modeli.",
+        "<code>commit</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Kommit saqlandi: 3c2e8f1 | Kommitlar soni: 1"
@@ -6498,7 +8185,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kommit saqlandi: 3c2e8f1 | Kommitlar soni: 1",
     "story": {
       "uz": "WIUT leksiyasida Git ning 3 ta hududi o'rgatilgan: Working directory (tahrir qilinayotgan fayllar), Staging area ('git add' qilinganlar) va Repository ('git commit' qilingan snapshot). 'GitRepository' sinfida faylni sahnaga qo'shish va kommit qilishni simulyatsiya qiling.",
-      "en": "Simulate Git's 3 areas: Working directory, Staging area, and Repository. Add and commit files."
+      "en": "Simulate Git's 3 areas: Working directory, Staging area, and Repository. Add and commit files.",
+      "ru": "Имитируйте три области Git: рабочий каталог, промежуточную область и репозиторий. Добавьте и зафиксируйте файлы."
     },
     "steps": {
       "uz": [
@@ -6514,6 +8202,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'commit(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Product.java\");         String commitHash = repo.commit(\"Add Product class\");         System.out.println(\"Kommit saqlandi: \" + commitHash + \" | Kommitlar soni: \" + repo.getCommitCount());'"
+      ],
+      "ru": [
+        "Создайте класс GitRepository, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Внедрите бизнес-метод «commit(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitRepository repo = new GitRepository();         repo.stageFile(\"Продукт.java\");         String commitHash = repo.commit(\"Добавить класс продукта\");         System.out.println(\"Коммит: \" + commitHash + \" | Коммит: \" + repo.getCommitCount());'"
       ]
     }
   },
@@ -6524,11 +8219,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "107. Payme Dev — Kommit Xabari Standarti (Fe'l bilan boshlanish)",
-      "en": "107. Payme Dev — Commit Message Imperative Verb Validation"
+      "en": "107. Payme Dev — Commit Message Imperative Verb Validation",
+      "ru": "107. Payme Dev — проверка императивного глагола сообщения фиксации"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligiga ko'ra yaxshi kommit xabari buyruq maylidagi fe'l bilan boshlanishi kerak ('Add Product', 'Fix price in Order', 'Remove unused imports'). Kommit xabari fe'l bilan boshlanganini tekshiruvchi validator yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'CommitMessageValidator' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'isValidMessage(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'System.out.println(\"Add Order to'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Add Order class\"));         System.out.println(\"update xato bormi: \" + CommitMessageValidator.isValidMessage(\"update\"));'",
-      "en": "📖 Real-World Scenario & Context\nIn accordance with WIUT Git guidelines, valid commit messages start with an imperative verb (Add, Fix, Update, Remove).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'CommitMessageValidator' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'isValidMessage(...)'.\n4. Execute in 'main'.\n5. Print result: 'System.out.println(\"Add Order to'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Add Order class\"));         System.out.println(\"update xato bormi: \" + CommitMessageValidator.isValidMessage(\"update\"));'"
+      "en": "📖 Real-World Scenario & Context\nIn accordance with WIUT Git guidelines, valid commit messages start with an imperative verb (Add, Fix, Update, Remove).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'CommitMessageValidator' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'isValidMessage(...)'.\n4. Execute in 'main'.\n5. Print result: 'System.out.println(\"Add Order to'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Add Order class\"));         System.out.println(\"update xato bormi: \" + CommitMessageValidator.isValidMessage(\"update\"));'",
+      "ru": "📖 Контекст и описание задачи\nВ соответствии с рекомендациями WIUT Git действительные сообщения о фиксации начинаются с повелительного глагола (Добавить, Исправить, Обновить, Удалить).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс CommitMessageValidator, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод isValidMessage(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'System.out.println(\"Добавить заказ в'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Добавить класс заказа\"));         System.out.println(\"обновить xato bormi: \" + CommitMessageValidator.isValidMessage(\"обновить\"));'"
     },
     "requirements": {
       "classes": [
@@ -6550,7 +8247,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isValidMessage</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>CommitMessageValidator</code>: Git ish oqimi modeli.",
+        "<code>isValidMessage</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Add Order to'g'rimi: true\nupdate xato bormi: false"
@@ -6558,7 +8261,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Add Order to'g'rimi: true\nupdate xato bormi: false",
     "story": {
       "uz": "WIUT darsligiga ko'ra yaxshi kommit xabari buyruq maylidagi fe'l bilan boshlanishi kerak ('Add Product', 'Fix price in Order', 'Remove unused imports'). Kommit xabari fe'l bilan boshlanganini tekshiruvchi validator yozing.",
-      "en": "In accordance with WIUT Git guidelines, valid commit messages start with an imperative verb (Add, Fix, Update, Remove)."
+      "en": "In accordance with WIUT Git guidelines, valid commit messages start with an imperative verb (Add, Fix, Update, Remove).",
+      "ru": "В соответствии с рекомендациями WIUT Git действительные сообщения о фиксации начинаются с повелительного глагола (Добавить, Исправить, Обновить, Удалить)."
     },
     "steps": {
       "uz": [
@@ -6574,6 +8278,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'isValidMessage(...)'.",
         "Execute in 'main'.",
         "Print result: 'System.out.println(\"Add Order to'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Add Order class\"));         System.out.println(\"update xato bormi: \" + CommitMessageValidator.isValidMessage(\"update\"));'"
+      ],
+      "ru": [
+        "Создайте класс CommitMessageValidator, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод isValidMessage(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'System.out.println(\"Добавить заказ в'g'rimi: \" + CommitMessageValidator.isValidMessage(\"Добавить класс заказа\"));         System.out.println(\"обновить xato bormi: \" + CommitMessageValidator.isValidMessage(\"обновить\"));'"
       ]
     }
   },
@@ -6584,11 +8295,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "108. Korzinka IT — .gitignore Qoidalari Simulyatsiyasi",
-      "en": "108. Korzinka IT — .gitignore Rule Matching Simulator"
+      "en": "108. Korzinka IT — .gitignore Rule Matching Simulator",
+      "ru": "108. Korzinka IT — симулятор сопоставления правил .gitignore"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida '.gitignore' fayli kompilyatsiya qilingan fayllarni ('*.class', 'out/', '.idea/') nazoratdan chetlatishi tushuntirilgan. Fayl nomi e'tiborsiz qoldirilishi kerakligini tekshiruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitIgnoreMatcher' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'isIgnored(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class ignore qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java ignore qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'",
-      "en": "📖 Real-World Scenario & Context\nSimulate .gitignore rule matcher ignoring '.class', 'out/', and '.idea/'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitIgnoreMatcher' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'isIgnored(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class ignore qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java ignore qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'"
+      "en": "📖 Real-World Scenario & Context\nSimulate .gitignore rule matcher ignoring '.class', 'out/', and '.idea/'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitIgnoreMatcher' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'isIgnored(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class ignore qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java ignore qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'",
+      "ru": "📖 Контекст и описание задачи\nИмитировать средство сопоставления правил .gitignore, игнорирующее «.class», «out/» и «.idea/».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitIgnoreMatcher, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод isIgnored(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class игнорировать qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java игнорировать qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'"
     },
     "requirements": {
       "classes": [
@@ -6610,7 +8323,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isIgnored</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitIgnoreMatcher</code>: Git ish oqimi modeli.",
+        "<code>isIgnored</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Main.class ignore qilinadimi: true\nOrder.java ignore qilinadimi: false"
@@ -6618,7 +8337,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Main.class ignore qilinadimi: true\nOrder.java ignore qilinadimi: false",
     "story": {
       "uz": "WIUT darsligida '.gitignore' fayli kompilyatsiya qilingan fayllarni ('*.class', 'out/', '.idea/') nazoratdan chetlatishi tushuntirilgan. Fayl nomi e'tiborsiz qoldirilishi kerakligini tekshiruvchi metod yozing.",
-      "en": "Simulate .gitignore rule matcher ignoring '.class', 'out/', and '.idea/'."
+      "en": "Simulate .gitignore rule matcher ignoring '.class', 'out/', and '.idea/'.",
+      "ru": "Имитировать средство сопоставления правил .gitignore, игнорирующее «.class», «out/» и «.idea/»."
     },
     "steps": {
       "uz": [
@@ -6634,6 +8354,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'isIgnored(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class ignore qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java ignore qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'"
+      ],
+      "ru": [
+        "Создайте класс GitIgnoreMatcher, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод isIgnored(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitIgnoreMatcher matcher = new GitIgnoreMatcher();         System.out.println(\"Main.class игнорировать qilinadimi: \" + matcher.isIgnored(\"Main.class\"));         System.out.println(\"Order.java игнорировать qilinadimi: \" + matcher.isIgnored(\"Order.java\"));'"
       ]
     }
   },
@@ -6644,11 +8371,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "109. Yandex Go — Git Status (Modified, Staged, Untracked)",
-      "en": "109. Yandex Go — Git Status Inspection Model"
+      "en": "109. Yandex Go — Git Status Inspection Model",
+      "ru": "109. Yandex Go — модель проверки статуса Git"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex jamoasida 'git status' komandasi qaysi fayllar staged va qaysilari o'zgarganini ko'rsatadi. Ushbu statusni aniqlovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitStatusTracker' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'getStatus(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Driver.java statusi: \" + tracker.getStatus(\"Driver.java\"));'",
-      "en": "📖 Real-World Scenario & Context\nModel Git file status tracking: untracked, staged, committed.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitStatusTracker' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getStatus(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Driver.java statusi: \" + tracker.getStatus(\"Driver.java\"));'"
+      "en": "📖 Real-World Scenario & Context\nModel Git file status tracking: untracked, staged, committed.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitStatusTracker' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getStatus(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Driver.java statusi: \" + tracker.getStatus(\"Driver.java\"));'",
+      "ru": "📖 Контекст и описание задачи\nОтслеживание статуса файла модели Git: неотслеживаемый, подготовленный, зафиксированный.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitStatusTracker, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод getStatus(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Состояние Driver.java: \" + tracker.getStatus(\"Driver.java\"));'"
     },
     "requirements": {
       "classes": [
@@ -6670,7 +8399,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getStatus</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitStatusTracker</code>: Git ish oqimi modeli.",
+        "<code>getStatus</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Driver.java statusi: STAGED"
@@ -6678,7 +8413,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Driver.java statusi: STAGED",
     "story": {
       "uz": "Yandex jamoasida 'git status' komandasi qaysi fayllar staged va qaysilari o'zgarganini ko'rsatadi. Ushbu statusni aniqlovchi klass tuzing.",
-      "en": "Model Git file status tracking: untracked, staged, committed."
+      "en": "Model Git file status tracking: untracked, staged, committed.",
+      "ru": "Отслеживание статуса файла модели Git: неотслеживаемый, подготовленный, зафиксированный."
     },
     "steps": {
       "uz": [
@@ -6694,6 +8430,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'getStatus(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Driver.java statusi: \" + tracker.getStatus(\"Driver.java\"));'"
+      ],
+      "ru": [
+        "Создайте класс GitStatusTracker, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод getStatus(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitStatusTracker tracker = new GitStatusTracker();         tracker.addUntracked(\"Driver.java\");         tracker.stageFile(\"Driver.java\");         System.out.println(\"Состояние Driver.java: \" + tracker.getStatus(\"Driver.java\"));'"
       ]
     }
   },
@@ -6704,11 +8447,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "110. Express24 — Git Log One-Line Tarixi Formatlash",
-      "en": "110. Express24 — Git Log --oneline Output Formatter"
+      "en": "110. Express24 — Git Log --oneline Output Formatter",
+      "ru": "110. Express24 — средство форматирования вывода Git Log --oneline"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligidagi '$ git log --oneline' komandasi har bir kommitni 'hash message' formatida bir qatorda ko'rsatadi. Kommitlar ro'yxatidan one-line hisobotini chiqaruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitLogFormatter' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'formatOneLine(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Add Observer for order notifications\");         logger.addCommit(\"9b7d310\", \"Implement Builder for Pizza\");         System.out.println(logger.formatOneLine());'",
-      "en": "📖 Real-World Scenario & Context\nFormat commit history in '$ git log --oneline' style: '<hash> <message>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitLogFormatter' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'formatOneLine(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Add Observer for order notifications\");         logger.addCommit(\"9b7d310\", \"Implement Builder for Pizza\");         System.out.println(logger.formatOneLine());'"
+      "en": "📖 Real-World Scenario & Context\nFormat commit history in '$ git log --oneline' style: '<hash> <message>'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitLogFormatter' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'formatOneLine(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Add Observer for order notifications\");         logger.addCommit(\"9b7d310\", \"Implement Builder for Pizza\");         System.out.println(logger.formatOneLine());'",
+      "ru": "📖 Контекст и описание задачи\nОтформатировать историю коммитов в стиле $ git log --oneline: «<хеш> <сообщение>».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitLogFormatter, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «formatOneLine(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Добавить наблюдателя для уведомлений о заказах\");         logger.addCommit(\"9b7d310\", \"Реализовать конструктор для пиццы\");         System.out.println(logger.formatOneLine());'"
     },
     "requirements": {
       "classes": [
@@ -6730,7 +8475,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>formatOneLine</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitLogFormatter</code>: Git ish oqimi modeli.",
+        "<code>formatOneLine</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "e4f1a2c Add Observer for order notifications\n9b7d310 Implement Builder for Pizza"
@@ -6738,7 +8489,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "e4f1a2c Add Observer for order notifications\n9b7d310 Implement Builder for Pizza",
     "story": {
       "uz": "WIUT darsligidagi '$ git log --oneline' komandasi har bir kommitni 'hash message' formatida bir qatorda ko'rsatadi. Kommitlar ro'yxatidan one-line hisobotini chiqaruvchi metod yozing.",
-      "en": "Format commit history in '$ git log --oneline' style: '<hash> <message>'."
+      "en": "Format commit history in '$ git log --oneline' style: '<hash> <message>'.",
+      "ru": "Отформатировать историю коммитов в стиле $ git log --oneline: «<хеш> <сообщение>»."
     },
     "steps": {
       "uz": [
@@ -6754,6 +8506,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'formatOneLine(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Add Observer for order notifications\");         logger.addCommit(\"9b7d310\", \"Implement Builder for Pizza\");         System.out.println(logger.formatOneLine());'"
+      ],
+      "ru": [
+        "Создайте класс GitLogFormatter, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «formatOneLine(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitLogFormatter logger = new GitLogFormatter();         logger.addCommit(\"e4f1a2c\", \"Добавить наблюдателя для уведомлений о заказах\");         logger.addCommit(\"9b7d310\", \"Реализовать конструктор для пиццы\");         System.out.println(logger.formatOneLine());'"
       ]
     }
   },
@@ -6764,11 +8523,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "111. Medion — Git Blame Mualliflik Annotatsiyasi",
-      "en": "111. Medion — Git Blame Line Attribution Modeling"
+      "en": "111. Medion — Git Blame Line Attribution Modeling",
+      "ru": "111. Medion — моделирование атрибуции линии вины Git"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida IntelliJ da 'Git Blame' orqali kod satrini kim va qaysi kommitda yozganini ko'rish ko'rsatilgan. Kod satriga muallifni biriktiruvchi model tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitBlameTool' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'blameLine(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitBlameTool blame = new GitBlameTool();         blame.recordLine(1, \"Aziz Karimov\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'",
-      "en": "📖 Real-World Scenario & Context\nModel IntelliJ 'Git Blame' annotating each line with author and commit hash.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitBlameTool' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'blameLine(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitBlameTool blame = new GitBlameTool();         blame.recordLine(1, \"Aziz Karimov\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'"
+      "en": "📖 Real-World Scenario & Context\nModel IntelliJ 'Git Blame' annotating each line with author and commit hash.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitBlameTool' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'blameLine(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitBlameTool blame = new GitBlameTool();         blame.recordLine(1, \"Aziz Karimov\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'",
+      "ru": "📖 Контекст и описание задачи\nМодель IntelliJ «Git Blame», аннотирующая каждую строку с указанием автора и хеша коммита.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitBlameTool, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «blameLine(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'GitBlameTool виноват = новый GitBlameTool();         обвинять.recordLine(1, \"Азиз Каримов\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'"
     },
     "requirements": {
       "classes": [
@@ -6790,7 +8551,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>blameLine</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitBlameTool</code>: Git ish oqimi modeli.",
+        "<code>blameLine</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Satr 1: Aziz Karimov (3c2e8f1)"
@@ -6798,7 +8565,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Satr 1: Aziz Karimov (3c2e8f1)",
     "story": {
       "uz": "WIUT leksiyasida IntelliJ da 'Git Blame' orqali kod satrini kim va qaysi kommitda yozganini ko'rish ko'rsatilgan. Kod satriga muallifni biriktiruvchi model tuzing.",
-      "en": "Model IntelliJ 'Git Blame' annotating each line with author and commit hash."
+      "en": "Model IntelliJ 'Git Blame' annotating each line with author and commit hash.",
+      "ru": "Модель IntelliJ «Git Blame», аннотирующая каждую строку с указанием автора и хеша коммита."
     },
     "steps": {
       "uz": [
@@ -6814,6 +8582,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'blameLine(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitBlameTool blame = new GitBlameTool();         blame.recordLine(1, \"Aziz Karimov\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'"
+      ],
+      "ru": [
+        "Создайте класс GitBlameTool, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «blameLine(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitBlameTool виноват = новый GitBlameTool();         обвинять.recordLine(1, \"Азиз Каримов\", \"3c2e8f1\");         System.out.println(blame.blameLine(1));'"
       ]
     }
   },
@@ -6824,11 +8599,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "112. Click — Git Config Foydalanuvchi Sozlamalari",
-      "en": "112. Click — Git Global Config User Configuration"
+      "en": "112. Click — Git Global Config User Configuration",
+      "ru": "112. Нажмите — Конфигурация пользователя Git Global Config."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida 'git config --global user.name' va 'user.email' sozlanishi o'rgatilgan. Foydalanuvchi profil ma'lumotlarini saqlovchi konfiguratsiya klassini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitConfig' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'getUserSignature(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitConfig config = new GitConfig(\"Aziz Karimov\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'",
-      "en": "📖 Real-World Scenario & Context\nStore global Git user name and email settings mimicking 'git config --global'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitConfig' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getUserSignature(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitConfig config = new GitConfig(\"Aziz Karimov\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'"
+      "en": "📖 Real-World Scenario & Context\nStore global Git user name and email settings mimicking 'git config --global'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitConfig' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getUserSignature(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitConfig config = new GitConfig(\"Aziz Karimov\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'",
+      "ru": "📖 Контекст и описание задачи\nСохраните глобальное имя пользователя Git и настройки электронной почты, имитируя «git config --global».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitConfig, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод getUserSignature(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'GitConfig config = new GitConfig(\"Азиз Каримов\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'"
     },
     "requirements": {
       "classes": [
@@ -6850,7 +8627,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getUserSignature</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitConfig</code>: Git ish oqimi modeli.",
+        "<code>getUserSignature</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Muallif: Aziz Karimov <aziz@mail.com>"
@@ -6858,7 +8641,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Muallif: Aziz Karimov <aziz@mail.com>",
     "story": {
       "uz": "WIUT darsligida 'git config --global user.name' va 'user.email' sozlanishi o'rgatilgan. Foydalanuvchi profil ma'lumotlarini saqlovchi konfiguratsiya klassini yozing.",
-      "en": "Store global Git user name and email settings mimicking 'git config --global'."
+      "en": "Store global Git user name and email settings mimicking 'git config --global'.",
+      "ru": "Сохраните глобальное имя пользователя Git и настройки электронной почты, имитируя «git config --global»."
     },
     "steps": {
       "uz": [
@@ -6874,6 +8658,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'getUserSignature(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitConfig config = new GitConfig(\"Aziz Karimov\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'"
+      ],
+      "ru": [
+        "Создайте класс GitConfig, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод getUserSignature(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitConfig config = new GitConfig(\"Азиз Каримов\", \"aziz@mail.com\");         System.out.println(config.getUserSignature());'"
       ]
     }
   },
@@ -6884,11 +8675,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "113. Asaxiy — Saqlanmagan O'zgarishlarni Bekor Qilish (git restore)",
-      "en": "113. Asaxiy — Discarding Unstaged Changes via git restore"
+      "en": "113. Asaxiy — Discarding Unstaged Changes via git restore",
+      "ru": "113. Asaxy — Отмена неустановленных изменений с помощью git Restoration"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligiga ko'ra hali kommit qilinmagan xato o'zgarishlarni 'git restore <file>' orqali bekor qilish mumkin. Fayl matnini oxirgi kommit holatiga qaytaruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'WorkingCopy' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'restore(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'WorkingCopy wc = new WorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         wc.restore();         System.out.println(\"Tiklandi: \" + wc.getContent());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git restore <file>' discarding uncommitted modifications.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'WorkingCopy' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'restore(...)'.\n4. Execute in 'main'.\n5. Print result: 'WorkingCopy wc = new WorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         wc.restore();         System.out.println(\"Tiklandi: \" + wc.getContent());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git restore <file>' discarding uncommitted modifications.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'WorkingCopy' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'restore(...)'.\n4. Execute in 'main'.\n5. Print result: 'WorkingCopy wc = new WorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         wc.restore();         System.out.println(\"Tiklandi: \" + wc.getContent());'",
+      "ru": "📖 Контекст и описание задачи\nИмитировать 'git restre <file>', отбрасывая незафиксированные изменения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс WorkingCopy, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «восстановить (...)».\n4. Выполнить в «основном».\n5. Результат печати: 'WorkingCopy wc = newWorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         туалет.восстановить();         System.out.println(\"Тикланди: \" + wc.getContent());'"
     },
     "requirements": {
       "classes": [
@@ -6910,7 +8703,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>restore</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>WorkingCopy</code>: Git ish oqimi modeli.",
+        "<code>restore</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Tiklandi: Asl matn"
@@ -6918,7 +8717,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Tiklandi: Asl matn",
     "story": {
       "uz": "WIUT darsligiga ko'ra hali kommit qilinmagan xato o'zgarishlarni 'git restore <file>' orqali bekor qilish mumkin. Fayl matnini oxirgi kommit holatiga qaytaruvchi metod yozing.",
-      "en": "Simulate 'git restore <file>' discarding uncommitted modifications."
+      "en": "Simulate 'git restore <file>' discarding uncommitted modifications.",
+      "ru": "Имитировать 'git restre <file>', отбрасывая незафиксированные изменения."
     },
     "steps": {
       "uz": [
@@ -6934,6 +8734,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'restore(...)'.",
         "Execute in 'main'.",
         "Print result: 'WorkingCopy wc = new WorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         wc.restore();         System.out.println(\"Tiklandi: \" + wc.getContent());'"
+      ],
+      "ru": [
+        "Создайте класс WorkingCopy, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «восстановить (...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'WorkingCopy wc = newWorkingCopy(\"Asl matn\");         wc.modify(\"Xato matn\");         туалет.восстановить();         System.out.println(\"Тикланди: \" + wc.getContent());'"
       ]
     }
   },
@@ -6944,11 +8751,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "114. Safia — Xavfsiz Orqaga Qaytish (git revert)",
-      "en": "114. Safia — Safe Rollback using git revert (New Inverse Commit)"
+      "en": "114. Safia — Safe Rollback using git revert (New Inverse Commit)",
+      "ru": "114. Safia — безопасный откат с использованием git revert (новая обратная фиксация)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida: 'Never reset commits you already pushed. Use revert: it adds a new commit that undoes the old one'. Kommitni bekor qiluvchi yangi revert kommitini hosil qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'HistoryManager' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'revertCommit(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'HistoryManager hm = new HistoryManager();         hm.addCommit(\"c1\", \"Add Price decorator\");         String rev = hm.revertCommit(\"c1\");         System.out.println(rev);'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git revert <hash>' generating a safe inverse commit preserving history.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'HistoryManager' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'revertCommit(...)'.\n4. Execute in 'main'.\n5. Print result: 'HistoryManager hm = new HistoryManager();         hm.addCommit(\"c1\", \"Add Price decorator\");         String rev = hm.revertCommit(\"c1\");         System.out.println(rev);'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git revert <hash>' generating a safe inverse commit preserving history.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'HistoryManager' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'revertCommit(...)'.\n4. Execute in 'main'.\n5. Print result: 'HistoryManager hm = new HistoryManager();         hm.addCommit(\"c1\", \"Add Price decorator\");         String rev = hm.revertCommit(\"c1\");         System.out.println(rev);'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте 'git revert <hash>', генерируя безопасную обратную фиксацию, сохраняющую историю.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс HistoryManager, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «revertCommit(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'HistoryManager hm = новый HistoryManager();         hm.addCommit(\"c1\", \"Декоратор добавления цены\");         String rev = hm.revertCommit(\"c1\");         System.out.println(рев);'"
     },
     "requirements": {
       "classes": [
@@ -6970,7 +8779,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>revertCommit</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>HistoryManager</code>: Git ish oqimi modeli.",
+        "<code>revertCommit</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Revert 'Add Price decorator' (Hash: rev-c1)"
@@ -6978,7 +8793,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Revert 'Add Price decorator' (Hash: rev-c1)",
     "story": {
       "uz": "WIUT darsligida: 'Never reset commits you already pushed. Use revert: it adds a new commit that undoes the old one'. Kommitni bekor qiluvchi yangi revert kommitini hosil qiling.",
-      "en": "Simulate 'git revert <hash>' generating a safe inverse commit preserving history."
+      "en": "Simulate 'git revert <hash>' generating a safe inverse commit preserving history.",
+      "ru": "Имитируйте 'git revert <hash>', генерируя безопасную обратную фиксацию, сохраняющую историю."
     },
     "steps": {
       "uz": [
@@ -6994,6 +8810,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'revertCommit(...)'.",
         "Execute in 'main'.",
         "Print result: 'HistoryManager hm = new HistoryManager();         hm.addCommit(\"c1\", \"Add Price decorator\");         String rev = hm.revertCommit(\"c1\");         System.out.println(rev);'"
+      ],
+      "ru": [
+        "Создайте класс HistoryManager, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «revertCommit(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'HistoryManager hm = новый HistoryManager();         hm.addCommit(\"c1\", \"Декоратор добавления цены\");         String rev = hm.revertCommit(\"c1\");         System.out.println(рев);'"
       ]
     }
   },
@@ -7004,11 +8827,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "115. Dodo Pizza — Git Init va Boshlang'ich Kommit",
-      "en": "115. Dodo Pizza — Initializing Repository with Initial Commit"
+      "en": "115. Dodo Pizza — Initializing Repository with Initial Commit",
+      "ru": "115. Dodo Pizza — инициализация репозитория с помощью первоначальной фиксации"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDodo Pizza yangi loyihani boshlashda 'git init' va 'git commit -m \"Initial commit\"' bosqichlarini amalga oshiradi. Boshlang'ich repozitoriy holatini shakllantiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'RepoInitializer' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'initRepo(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'RepoInitializer init = new RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate repository initialization and Initial commit creation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'RepoInitializer' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'initRepo(...)'.\n4. Execute in 'main'.\n5. Print result: 'RepoInitializer init = new RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate repository initialization and Initial commit creation.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'RepoInitializer' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'initRepo(...)'.\n4. Execute in 'main'.\n5. Print result: 'RepoInitializer init = new RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'",
+      "ru": "📖 Контекст и описание задачи\nИмитация инициализации репозитория и создания первоначальной фиксации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс RepoInitializer, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «initRepo(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'RepoInitializer init = новый RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'"
     },
     "requirements": {
       "classes": [
@@ -7030,7 +8855,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>initRepo</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>RepoInitializer</code>: Git ish oqimi modeli.",
+        "<code>initRepo</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Initialized empty Git repository in /dodo-order-app/.git/ | Initial commit created."
@@ -7038,7 +8869,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Initialized empty Git repository in /dodo-order-app/.git/ | Initial commit created.",
     "story": {
       "uz": "Dodo Pizza yangi loyihani boshlashda 'git init' va 'git commit -m \"Initial commit\"' bosqichlarini amalga oshiradi. Boshlang'ich repozitoriy holatini shakllantiring.",
-      "en": "Simulate repository initialization and Initial commit creation."
+      "en": "Simulate repository initialization and Initial commit creation.",
+      "ru": "Имитация инициализации репозитория и создания первоначальной фиксации."
     },
     "steps": {
       "uz": [
@@ -7054,6 +8886,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'initRepo(...)'.",
         "Execute in 'main'.",
         "Print result: 'RepoInitializer init = new RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'"
+      ],
+      "ru": [
+        "Создайте класс RepoInitializer, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «initRepo(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'RepoInitializer init = новый RepoInitializer(\"dodo-order-app\");         System.out.println(init.initRepo());'"
       ]
     }
   },
@@ -7064,11 +8903,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "116. Texnomart — Git Add All (git add .)",
-      "en": "116. Texnomart — Staging All Files with git add ."
+      "en": "116. Texnomart — Staging All Files with git add .",
+      "ru": "116. Texnomart — размещение всех файлов с помощью git add."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomart dasturchisi loyihada o'zgargan bir nechta fayllarni 'git add .' orqali barchasini birdaniga stagingga qo'shadi. Barcha fayllarni sahnalovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'StagingService' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'stageAll(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         ss.stageAll();         System.out.println(\"Sahnaga kiritilgan fayllar soni: \" + ss.getStagedFiles().size());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git add .' staging all modified files at once.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'StagingService' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'stageAll(...)'.\n4. Execute in 'main'.\n5. Print result: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         ss.stageAll();         System.out.println(\"Sahnaga kiritilgan fayllar soni: \" + ss.getStagedFiles().size());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git add .' staging all modified files at once.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'StagingService' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'stageAll(...)'.\n4. Execute in 'main'.\n5. Print result: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         ss.stageAll();         System.out.println(\"Sahnaga kiritilgan fayllar soni: \" + ss.getStagedFiles().size());'",
+      "ru": "📖 Контекст и описание задачи\nИмитировать «git add». одновременное размещение всех измененных файлов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс StagingService, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «stageAll(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         сс.stageAll();         System.out.println(\"Sahnaga kirilgan filelar soni: \" + ss.getStagedFiles().size());'"
     },
     "requirements": {
       "classes": [
@@ -7090,7 +8931,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>stageAll</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>StagingService</code>: Git ish oqimi modeli.",
+        "<code>stageAll</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Sahnaga kiritilgan fayllar soni: 2"
@@ -7098,7 +8945,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Sahnaga kiritilgan fayllar soni: 2",
     "story": {
       "uz": "Texnomart dasturchisi loyihada o'zgargan bir nechta fayllarni 'git add .' orqali barchasini birdaniga stagingga qo'shadi. Barcha fayllarni sahnalovchi metod yozing.",
-      "en": "Simulate 'git add .' staging all modified files at once."
+      "en": "Simulate 'git add .' staging all modified files at once.",
+      "ru": "Имитировать «git add». одновременное размещение всех измененных файлов."
     },
     "steps": {
       "uz": [
@@ -7114,6 +8962,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'stageAll(...)'.",
         "Execute in 'main'.",
         "Print result: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         ss.stageAll();         System.out.println(\"Sahnaga kiritilgan fayllar soni: \" + ss.getStagedFiles().size());'"
+      ],
+      "ru": [
+        "Создайте класс StagingService, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «stageAll(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'StagingService ss = new StagingService();         ss.addModifiedFile(\"A.java\");         ss.addModifiedFile(\"B.java\");         сс.stageAll();         System.out.println(\"Sahnaga kirilgan filelar soni: \" + ss.getStagedFiles().size());'"
       ]
     }
   },
@@ -7124,11 +8979,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "117. UzAirways — Kommit Hashe va Muallif Metadatalari",
-      "en": "117. UzAirways — Commit Metadata Snapshot Model"
+      "en": "117. UzAirways — Commit Metadata Snapshot Model",
+      "ru": "117. UzAirways — Модель моментального снимка метаданных"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligiga ko'ra har bir kommit unikal xesh, muallif, sana va xabarga ega. Ushbu metama'lumotlarni saqlovchi 'GitCommit' klassini tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GitCommit' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'getSummary(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Aziz Karimov\", \"Add Product class\");         System.out.println(c.getSummary());'",
-      "en": "📖 Real-World Scenario & Context\nModel Git commit object holding hash, author, date, and message.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitCommit' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getSummary(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Aziz Karimov\", \"Add Product class\");         System.out.println(c.getSummary());'"
+      "en": "📖 Real-World Scenario & Context\nModel Git commit object holding hash, author, date, and message.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GitCommit' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getSummary(...)'.\n4. Execute in 'main'.\n5. Print result: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Aziz Karimov\", \"Add Product class\");         System.out.println(c.getSummary());'",
+      "ru": "📖 Контекст и описание задачи\nМодель объекта фиксации Git, содержащего хеш, автора, дату и сообщение.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GitCommit, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод getSummary(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Азиз Каримов\", \"Добавить класс продукта\");         System.out.println(c.getSummary());'"
     },
     "requirements": {
       "classes": [
@@ -7150,7 +9007,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getSummary</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GitCommit</code>: Git ish oqimi modeli.",
+        "<code>getSummary</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "commit 3c2e8f1 | Muallif: Aziz Karimov | Xabar: Add Product class"
@@ -7158,7 +9021,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "commit 3c2e8f1 | Muallif: Aziz Karimov | Xabar: Add Product class",
     "story": {
       "uz": "WIUT darsligiga ko'ra har bir kommit unikal xesh, muallif, sana va xabarga ega. Ushbu metama'lumotlarni saqlovchi 'GitCommit' klassini tuzing.",
-      "en": "Model Git commit object holding hash, author, date, and message."
+      "en": "Model Git commit object holding hash, author, date, and message.",
+      "ru": "Модель объекта фиксации Git, содержащего хеш, автора, дату и сообщение."
     },
     "steps": {
       "uz": [
@@ -7174,6 +9038,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'getSummary(...)'.",
         "Execute in 'main'.",
         "Print result: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Aziz Karimov\", \"Add Product class\");         System.out.println(c.getSummary());'"
+      ],
+      "ru": [
+        "Создайте класс GitCommit, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод getSummary(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'GitCommit c = new GitCommit(\"3c2e8f1\", \"Азиз Каримов\", \"Добавить класс продукта\");         System.out.println(c.getSummary());'"
       ]
     }
   },
@@ -7184,11 +9055,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "118. Kapitalbank — Git Reset Unpushed Commits Simulyatsiyasi",
-      "en": "118. Kapitalbank — Resetting Unpushed Local Commits"
+      "en": "118. Kapitalbank — Resetting Unpushed Local Commits",
+      "ru": "118. Капиталбанк — Сброс невыполненных локальных коммитов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasida: 'Remove local commits not pushed yet: git reset <hash>'. Hali serverga yuborilmagan oxirgi mahalliy kommitni o'chiruvchi tizim tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'LocalBranch' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'resetLastCommit(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Qolgan kommitlar soni: \" + lb.getCommitCount());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate resetting local unpushed commits.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'LocalBranch' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'resetLastCommit(...)'.\n4. Execute in 'main'.\n5. Print result: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Qolgan kommitlar soni: \" + lb.getCommitCount());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate resetting local unpushed commits.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'LocalBranch' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'resetLastCommit(...)'.\n4. Execute in 'main'.\n5. Print result: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Qolgan kommitlar soni: \" + lb.getCommitCount());'",
+      "ru": "📖 Контекст и описание задачи\nИмитация сброса локальных неотправленных коммитов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс LocalBranch, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «resetLastCommit(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Коммутатор: \" + lb.getCommitCount());'"
     },
     "requirements": {
       "classes": [
@@ -7210,7 +9083,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>resetLastCommit</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>LocalBranch</code>: Git ish oqimi modeli.",
+        "<code>resetLastCommit</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Qolgan kommitlar soni: 1"
@@ -7218,7 +9097,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Qolgan kommitlar soni: 1",
     "story": {
       "uz": "WIUT leksiyasida: 'Remove local commits not pushed yet: git reset <hash>'. Hali serverga yuborilmagan oxirgi mahalliy kommitni o'chiruvchi tizim tuzing.",
-      "en": "Simulate resetting local unpushed commits."
+      "en": "Simulate resetting local unpushed commits.",
+      "ru": "Имитация сброса локальных неотправленных коммитов."
     },
     "steps": {
       "uz": [
@@ -7234,6 +9114,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'resetLastCommit(...)'.",
         "Execute in 'main'.",
         "Print result: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Qolgan kommitlar soni: \" + lb.getCommitCount());'"
+      ],
+      "ru": [
+        "Создайте класс LocalBranch, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «resetLastCommit(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'LocalBranch lb = new LocalBranch();         lb.commit(\"c1\");         lb.commit(\"c2\");         lb.resetLastCommit();         System.out.println(\"Коммутатор: \" + lb.getCommitCount());'"
       ]
     }
   },
@@ -7244,11 +9131,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "119. Beeline — Bir Kommitda Bitta Aniq O'zgarish Qoidasi",
-      "en": "119. Beeline — Single Responsibility Commit Principle"
+      "en": "119. Beeline — Single Responsibility Commit Principle",
+      "ru": "119. Билайн — принцип единой ответственности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT qoidasi: 'One change per commit • be specific'. Bir nechta alohida o'zgarishlarni bitta kommitga qorishtirmay alohida saqlash modelini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'AtomicCommitTracker' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'recordChange(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Fix billing rate\");         act.recordChange(\"Add 5G support\");         System.out.println(\"Alohida kommitlar: \" + act.getCommits().size());'",
-      "en": "📖 Real-World Scenario & Context\nModel atomic commits following the 'one change per commit' principle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'AtomicCommitTracker' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'recordChange(...)'.\n4. Execute in 'main'.\n5. Print result: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Fix billing rate\");         act.recordChange(\"Add 5G support\");         System.out.println(\"Alohida kommitlar: \" + act.getCommits().size());'"
+      "en": "📖 Real-World Scenario & Context\nModel atomic commits following the 'one change per commit' principle.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'AtomicCommitTracker' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'recordChange(...)'.\n4. Execute in 'main'.\n5. Print result: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Fix billing rate\");         act.recordChange(\"Add 5G support\");         System.out.println(\"Alohida kommitlar: \" + act.getCommits().size());'",
+      "ru": "📖 Контекст и описание задачи\nМодель атомарных коммитов соответствует принципу «одно изменение на каждый коммит».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс AtomicCommitTracker, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод «recordChange(...)».\n4. Выполнить в «основном».\n5. Результат печати: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Фиксировать тариф\");         act.recordChange(\"Добавить поддержку 5G\");         System.out.println(\"Alohida commitlar: \" + act.getCommits().size());'"
     },
     "requirements": {
       "classes": [
@@ -7270,7 +9159,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>recordChange</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>AtomicCommitTracker</code>: Git ish oqimi modeli.",
+        "<code>recordChange</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Alohida kommitlar: 2"
@@ -7278,7 +9173,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Alohida kommitlar: 2",
     "story": {
       "uz": "WIUT qoidasi: 'One change per commit • be specific'. Bir nechta alohida o'zgarishlarni bitta kommitga qorishtirmay alohida saqlash modelini yozing.",
-      "en": "Model atomic commits following the 'one change per commit' principle."
+      "en": "Model atomic commits following the 'one change per commit' principle.",
+      "ru": "Модель атомарных коммитов соответствует принципу «одно изменение на каждый коммит»."
     },
     "steps": {
       "uz": [
@@ -7294,6 +9190,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'recordChange(...)'.",
         "Execute in 'main'.",
         "Print result: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Fix billing rate\");         act.recordChange(\"Add 5G support\");         System.out.println(\"Alohida kommitlar: \" + act.getCommits().size());'"
+      ],
+      "ru": [
+        "Создайте класс AtomicCommitTracker, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод «recordChange(...)».",
+        "Выполнить в «основном».",
+        "Результат печати: 'AtomicCommitTracker act = new AtomicCommitTracker();         act.recordChange(\"Фиксировать тариф\");         act.recordChange(\"Добавить поддержку 5G\");         System.out.println(\"Alohida commitlar: \" + act.getCommits().size());'"
       ]
     }
   },
@@ -7304,11 +9207,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "106-120: Git 3 Hududi, .gitignore va Kommit Tarixi",
     "title": {
       "uz": "120. WIUT — Guruh Ishida Git Repository Hamkorlik Modeli",
-      "en": "120. WIUT — Coursework Team Git Collaboration Model"
+      "en": "120. WIUT — Coursework Team Git Collaboration Model",
+      "ru": "120. WIUT — Модель совместной работы команды курсовой работы Git"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT CW loyihasida jamoa a'zolari Private GitHub repozitoriyda hamkorlik qiladi. Kommit mualliflarini hisoblab chiqib har bir talabaning hissasini ko'rsatuvchi klass yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tamoyillariga mos 'GroupRepository' sinfini yarating.\n2. 3 ta hudud (Working, Staging, Repo) yoki kommit standartlari bo'yicha maydonlarni e'lon qiling.\n3. 'getContributionCount(...)' metodini yozing.\n4. 'Main' metodida simulyatsiyani ishga tushiring.\n5. Natijani chop eting: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Aziz\");         gr.addCommit(\"Aziz\");         gr.addCommit(\"Malika\");         System.out.println(\"Aziz hissalari: \" + gr.getContributionCount(\"Aziz\"));'",
-      "en": "📖 Real-World Scenario & Context\nModel CW group repository tracking member commit contributions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GroupRepository' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getContributionCount(...)'.\n4. Execute in 'main'.\n5. Print result: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Aziz\");         gr.addCommit(\"Aziz\");         gr.addCommit(\"Malika\");         System.out.println(\"Aziz hissalari: \" + gr.getContributionCount(\"Aziz\"));'"
+      "en": "📖 Real-World Scenario & Context\nModel CW group repository tracking member commit contributions.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create class 'GroupRepository' modeling Git workflow.\n2. Declare properties for Git areas or commit metadata.\n3. Implement business method 'getContributionCount(...)'.\n4. Execute in 'main'.\n5. Print result: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Aziz\");         gr.addCommit(\"Aziz\");         gr.addCommit(\"Malika\");         System.out.println(\"Aziz hissalari: \" + gr.getContributionCount(\"Aziz\"));'",
+      "ru": "📖 Контекст и описание задачи\nРепозиторий группы Model CW отслеживает вклад участников в коммиты.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс GroupRepository, моделирующий рабочий процесс Git.\n2. Объявите свойства для областей Git или зафиксируйте метаданные.\n3. Реализуйте бизнес-метод getContributionCount(...)'.\n4. Выполнить в «основном».\n5. Результат печати: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Азиз\");         gr.addCommit(\"Азиз\");         gr.addCommit(\"Малика\");         System.out.println(\"Азиз его зарплата: \" + gr.getContributionCount(\"Азиз\"));'"
     },
     "requirements": {
       "classes": [
@@ -7330,7 +9235,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getContributionCount</code>: operatsiya metodi."
       ],
       "pitfalls": "Kompilyatsiya qilingan fayllarni (.class, out/) kommit qilish guruh a'zolarida merge konfliktlarini keltirib chiqaradi. Doimo .gitignore dan foydalaning.",
-      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi."
+      "cw2Tip": "CW2 guruh loyihangizda har bir funksional o'zgarish alohida aniq kommit qilinishi o'qituvchilar tomonidan baholanadi.",
+      "theoryRu": "Git работает в трех областях: рабочий каталог (рабочая копия), промежуточная область (индексированные изменения с помощью git add) и локальный репозиторий (постоянная история снимков с помощью git commit). Сообщения о фиксации должны начинаться с повелительного глагола.",
+      "pitfallsRu": "Компиляция qilingan filelarni (.class, out/) commit qilish guruh a'zolarida merge konfliktlarini keltirib chikaradi. Doimo .gitignore и foydalaning.",
+      "breakdownRu": [
+        "<code>GroupRepository</code>: Git ish oqimi modeli.",
+        "<code>getContributionCount</code>: operatsiya metodi."
+      ]
     },
     "sampleData": [
       "Aziz hissalari: 2"
@@ -7338,7 +9249,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Aziz hissalari: 2",
     "story": {
       "uz": "WIUT CW loyihasida jamoa a'zolari Private GitHub repozitoriyda hamkorlik qiladi. Kommit mualliflarini hisoblab chiqib har bir talabaning hissasini ko'rsatuvchi klass yozing.",
-      "en": "Model CW group repository tracking member commit contributions."
+      "en": "Model CW group repository tracking member commit contributions.",
+      "ru": "Репозиторий группы Model CW отслеживает вклад участников в коммиты."
     },
     "steps": {
       "uz": [
@@ -7354,6 +9266,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement business method 'getContributionCount(...)'.",
         "Execute in 'main'.",
         "Print result: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Aziz\");         gr.addCommit(\"Aziz\");         gr.addCommit(\"Malika\");         System.out.println(\"Aziz hissalari: \" + gr.getContributionCount(\"Aziz\"));'"
+      ],
+      "ru": [
+        "Создайте класс GroupRepository, моделирующий рабочий процесс Git.",
+        "Объявите свойства для областей Git или зафиксируйте метаданные.",
+        "Реализуйте бизнес-метод getContributionCount(...)'.",
+        "Выполнить в «основном».",
+        "Результат печати: 'GroupRepository gr = new GroupRepository();         gr.addCommit(\"Азиз\");         gr.addCommit(\"Азиз\");         gr.addCommit(\"Малика\");         System.out.println(\"Азиз его зарплата: \" + gr.getContributionCount(\"Азиз\"));'"
       ]
     }
   },
@@ -7364,11 +9283,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "121. Uzum Tech — Yangi Tarmoq Yaratish (git switch -c feature)",
-      "en": "121. Uzum Tech — Branch Creation and Switching Model"
+      "en": "121. Uzum Tech — Branch Creation and Switching Model",
+      "ru": "121. Uzum Tech — Модель создания и переключения филиалов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligiga ko'ra asosiy kodni buzmaslik uchun yangi imkoniyat alohida branchda ('git switch -c feature') yaratiladi. Faol tarmoqni boshqaruvchi 'BranchManager' klassini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'BranchManager' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'createAndSwitch(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"feature-order-tax\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git switch -c <branch>' creating and checking out a new development branch.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchManager' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'createAndSwitch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"feature-order-tax\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git switch -c <branch>' creating and checking out a new development branch.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchManager' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'createAndSwitch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"feature-order-tax\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте создание и проверку новой ветки разработки с помощью 'git switch -c <branch>'.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «BranchManager», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «createAndSwitch(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"налог на заказ функции\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'"
     },
     "requirements": {
       "classes": [
@@ -7390,7 +9311,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>createAndSwitch</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>BranchManager</code>: Git tarmoqlanish va remote modeli.",
+        "<code>createAndSwitch</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Joriy faol tarmoq: feature-order-tax"
@@ -7398,7 +9325,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Joriy faol tarmoq: feature-order-tax",
     "story": {
       "uz": "WIUT darsligiga ko'ra asosiy kodni buzmaslik uchun yangi imkoniyat alohida branchda ('git switch -c feature') yaratiladi. Faol tarmoqni boshqaruvchi 'BranchManager' klassini yozing.",
-      "en": "Simulate 'git switch -c <branch>' creating and checking out a new development branch."
+      "en": "Simulate 'git switch -c <branch>' creating and checking out a new development branch.",
+      "ru": "Имитируйте создание и проверку новой ветки разработки с помощью 'git switch -c <branch>'."
     },
     "steps": {
       "uz": [
@@ -7414,6 +9342,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'createAndSwitch(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"feature-order-tax\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'"
+      ],
+      "ru": [
+        "Создайте «BranchManager», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «createAndSwitch(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'BranchManager bm = new BranchManager(\"main\");         bm.createAndSwitch(\"налог на заказ функции\");         System.out.println(\"Joriy faol tarmoq: \" + bm.getCurrentBranch());'"
       ]
     }
   },
@@ -7424,11 +9359,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "122. Payme Dev — Tarmoqni Asosiy Tarmoqqa Birlashtirish (git merge)",
-      "en": "122. Payme Dev — Branch Merging into Main Simulation"
+      "en": "122. Payme Dev — Branch Merging into Main Simulation",
+      "ru": "122. Payme Dev — слияние ветвей с основной симуляцией"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nVazifa yakunlangach 'feature' tarmog'i 'main' ga qo'shiladi ('git merge feature'). Birlashtirish holatini ifodalovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'MergeController' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'mergeBranch(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git merge feature' merging completed branch into main.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'MergeController' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'mergeBranch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git merge feature' merging completed branch into main.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'MergeController' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'mergeBranch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'",
+      "ru": "📖 Контекст и описание задачи\nИмитировать функцию слияния git, объединяющую завершенную ветку с основной.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «MergeController», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «mergeBranch(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'"
     },
     "requirements": {
       "classes": [
@@ -7450,7 +9387,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>mergeBranch</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>MergeController</code>: Git tarmoqlanish va remote modeli.",
+        "<code>mergeBranch</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Birlashtirildimi: true | Tarmoq: main"
@@ -7458,7 +9401,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Birlashtirildimi: true | Tarmoq: main",
     "story": {
       "uz": "Vazifa yakunlangach 'feature' tarmog'i 'main' ga qo'shiladi ('git merge feature'). Birlashtirish holatini ifodalovchi metod yozing.",
-      "en": "Simulate 'git merge feature' merging completed branch into main."
+      "en": "Simulate 'git merge feature' merging completed branch into main.",
+      "ru": "Имитировать функцию слияния git, объединяющую завершенную ветку с основной."
     },
     "steps": {
       "uz": [
@@ -7474,6 +9418,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'mergeBranch(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'"
+      ],
+      "ru": [
+        "Создайте «MergeController», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «mergeBranch(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'MergeController mc = new MergeController(\"main\");         boolean merged = mc.mergeBranch(\"feature-payout\");         System.out.println(\"Birlashtirildimi: \" + merged + \" | Tarmoq: \" + mc.getCurrentBranch());'"
       ]
     }
   },
@@ -7484,11 +9435,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "123. Korzinka IT — Remote Repozitoriyga Yuklash (git push)",
-      "en": "123. Korzinka IT — Git Push to Remote Repository Model"
+      "en": "123. Korzinka IT — Git Push to Remote Repository Model",
+      "ru": "123. Korzinka IT — Модель Git Push to Remote Repository"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida 'git push origin main' mahalliy kommitlarni serverga yuklashi ko'rsatilgan. Mahalliy va masofaviy kommitlarni sinxronlovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'RemoteSyncService' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'pushToRemote(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"origin\", \"main\");         System.out.println(\"Remote kommitlar soni: \" + sync.getRemoteCommits().size());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git push origin main' uploading local commits to GitHub.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RemoteSyncService' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'pushToRemote(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"origin\", \"main\");         System.out.println(\"Remote kommitlar soni: \" + sync.getRemoteCommits().size());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git push origin main' uploading local commits to GitHub.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RemoteSyncService' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'pushToRemote(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"origin\", \"main\");         System.out.println(\"Remote kommitlar soni: \" + sync.getRemoteCommits().size());'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте загрузку локальных коммитов на GitHub с помощью команды «git push origin main».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте RemoteSyncService, имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «pushToRemote(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"происхождение\", \"основной\");         System.out.println(\"Удаленный доступ к данным: \" + sync.getRemoteCommits().size());'"
     },
     "requirements": {
       "classes": [
@@ -7510,7 +9463,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>pushToRemote</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>RemoteSyncService</code>: Git tarmoqlanish va remote modeli.",
+        "<code>pushToRemote</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Remote kommitlar soni: 1"
@@ -7518,7 +9477,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Remote kommitlar soni: 1",
     "story": {
       "uz": "WIUT darsligida 'git push origin main' mahalliy kommitlarni serverga yuklashi ko'rsatilgan. Mahalliy va masofaviy kommitlarni sinxronlovchi klass tuzing.",
-      "en": "Simulate 'git push origin main' uploading local commits to GitHub."
+      "en": "Simulate 'git push origin main' uploading local commits to GitHub.",
+      "ru": "Имитируйте загрузку локальных коммитов на GitHub с помощью команды «git push origin main»."
     },
     "steps": {
       "uz": [
@@ -7534,6 +9494,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'pushToRemote(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"origin\", \"main\");         System.out.println(\"Remote kommitlar soni: \" + sync.getRemoteCommits().size());'"
+      ],
+      "ru": [
+        "Создайте RemoteSyncService, имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «pushToRemote(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'RemoteSyncService sync = new RemoteSyncService();         sync.addLocalCommit(\"c1-add-cart\");         sync.pushToRemote(\"происхождение\", \"основной\");         System.out.println(\"Удаленный доступ к данным: \" + sync.getRemoteCommits().size());'"
       ]
     }
   },
@@ -7544,11 +9511,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "124. Yandex Go — Yangi Kommitlarni Yuklab Olish (git pull)",
-      "en": "124. Yandex Go — Git Pull (Fetch + Merge) Simulation"
+      "en": "124. Yandex Go — Git Pull (Fetch + Merge) Simulation",
+      "ru": "124. Yandex Go — моделирование Git Pull (Fetch + Merge)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT qoidasi: 'Always pull before you start working'. 'git pull' buyrug'i serverdagi yangi o'zgarishlarni yuklab oladi va fayllarni yangilaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'PullManager' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'pullChanges(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git pull' downloading and merging remote changes into local workspace.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'PullManager' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'pullChanges(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git pull' downloading and merging remote changes into local workspace.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'PullManager' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'pullChanges(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте загрузку «git pull» и объединение удаленных изменений в локальное рабочее пространство.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «PullManager», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «pullChanges(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'"
     },
     "requirements": {
       "classes": [
@@ -7570,7 +9539,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>pullChanges</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>PullManager</code>: Git tarmoqlanish va remote modeli.",
+        "<code>pullChanges</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Yuklab olingan yangilanishlar: 1"
@@ -7578,7 +9553,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yuklab olingan yangilanishlar: 1",
     "story": {
       "uz": "WIUT qoidasi: 'Always pull before you start working'. 'git pull' buyrug'i serverdagi yangi o'zgarishlarni yuklab oladi va fayllarni yangilaydi.",
-      "en": "Simulate 'git pull' downloading and merging remote changes into local workspace."
+      "en": "Simulate 'git pull' downloading and merging remote changes into local workspace.",
+      "ru": "Имитируйте загрузку «git pull» и объединение удаленных изменений в локальное рабочее пространство."
     },
     "steps": {
       "uz": [
@@ -7594,6 +9570,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'pullChanges(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'"
+      ],
+      "ru": [
+        "Создайте «PullManager», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «pullChanges(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'PullManager pm = new PullManager();         pm.addRemoteUpdate(\"c2-fix-driver-rating\");         int count = pm.pullChanges();         System.out.println(\"Yuklab olingan yangilanishlar: \" + count);'"
       ]
     }
   },
@@ -7604,11 +9587,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "125. Express24 — Push Rad Etilishi va Avval Pull Qilish Qoidasi",
-      "en": "125. Express24 — Push Rejected Resolution via Pull-First Rule"
+      "en": "125. Express24 — Push Rejected Resolution via Pull-First Rule",
+      "ru": "125. Express24 — отправьте отклоненное разрешение с помощью правила Pull-First"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasi: 'Push rejected? Someone pushed first: run git pull, then push again'. Ushbu rad etilish va pull qilish qoidasini simulyatsiya qiling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'PushGuard' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'tryPush(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'PushGuard guard = new PushGuard(true); // remote ahead         boolean pushed = guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + pushed);         guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" + guard.tryPush());'",
-      "en": "📖 Real-World Scenario & Context\nSimulate push rejection when remote is ahead, requiring pull before push.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'PushGuard' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'tryPush(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'PushGuard guard = new PushGuard(true); // remote ahead         boolean pushed = guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + pushed);         guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" + guard.tryPush());'"
+      "en": "📖 Real-World Scenario & Context\nSimulate push rejection when remote is ahead, requiring pull before push.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'PushGuard' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'tryPush(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'PushGuard guard = new PushGuard(true); // remote ahead         boolean pushed = guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + pushed);         guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" + guard.tryPush());'",
+      "ru": "📖 Контекст и описание задачи\nИмитируйте отклонение push-уведомлений, когда удаленное управление находится впереди, требуя потянуть перед нажатием.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «PushGuard», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте 'tryPush(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'PushGuard Guard = new PushGuard(true); // удаленное опережение boolean push = Guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + push);         Guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" +guard.tryPush());'"
     },
     "requirements": {
       "classes": [
@@ -7630,7 +9615,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>tryPush</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>PushGuard</code>: Git tarmoqlanish va remote modeli.",
+        "<code>tryPush</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Push muvaffaqiyatlimi: false\nPull qilingach push: true"
@@ -7638,7 +9629,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Push muvaffaqiyatlimi: false\nPull qilingach push: true",
     "story": {
       "uz": "WIUT leksiyasi: 'Push rejected? Someone pushed first: run git pull, then push again'. Ushbu rad etilish va pull qilish qoidasini simulyatsiya qiling.",
-      "en": "Simulate push rejection when remote is ahead, requiring pull before push."
+      "en": "Simulate push rejection when remote is ahead, requiring pull before push.",
+      "ru": "Имитируйте отклонение push-уведомлений, когда удаленное управление находится впереди, требуя потянуть перед нажатием."
     },
     "steps": {
       "uz": [
@@ -7654,6 +9646,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'tryPush(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'PushGuard guard = new PushGuard(true); // remote ahead         boolean pushed = guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + pushed);         guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" + guard.tryPush());'"
+      ],
+      "ru": [
+        "Создайте «PushGuard», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте 'tryPush(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'PushGuard Guard = new PushGuard(true); // удаленное опережение boolean push = Guard.tryPush();         System.out.println(\"Push muvaffaqiyatlimi: \" + push);         Guard.resolveWithPull();         System.out.println(\"Pull qilingach push: \" +guard.tryPush());'"
       ]
     }
   },
@@ -7664,11 +9663,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "126. Medion — Masofaviy Repozitoriydan Nusxa Olish (git clone)",
-      "en": "126. Medion — Git Clone Full Repository Download"
+      "en": "126. Medion — Git Clone Full Repository Download",
+      "ru": "126. Medion — загрузка полного репозитория Git Clone"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT leksiyasi: 'git clone <url> — download a full copy of a remote repository once at the start'. Loyihani klonlash modelini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'RepoCloner' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'cloneRepo(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'",
-      "en": "📖 Real-World Scenario & Context\nSimulate 'git clone <url>' initial repository download.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RepoCloner' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'cloneRepo(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'"
+      "en": "📖 Real-World Scenario & Context\nSimulate 'git clone <url>' initial repository download.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RepoCloner' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'cloneRepo(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'",
+      "ru": "📖 Контекст и описание задачи\nИмитировать первоначальную загрузку репозитория «git clone <url>».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «RepoCloner», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «cloneRepo(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'"
     },
     "requirements": {
       "classes": [
@@ -7690,7 +9691,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>cloneRepo</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>RepoCloner</code>: Git tarmoqlanish va remote modeli.",
+        "<code>cloneRepo</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Cloning into 'oop-project'... done. Remote synchronized."
@@ -7698,7 +9705,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Cloning into 'oop-project'... done. Remote synchronized.",
     "story": {
       "uz": "WIUT leksiyasi: 'git clone <url> — download a full copy of a remote repository once at the start'. Loyihani klonlash modelini yozing.",
-      "en": "Simulate 'git clone <url>' initial repository download."
+      "en": "Simulate 'git clone <url>' initial repository download.",
+      "ru": "Имитировать первоначальную загрузку репозитория «git clone <url>»."
     },
     "steps": {
       "uz": [
@@ -7714,6 +9722,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'cloneRepo(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'"
+      ],
+      "ru": [
+        "Создайте «RepoCloner», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «cloneRepo(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'RepoCloner cloner = new RepoCloner();         String res = cloner.cloneRepo(\"git@github.com:wiut/oop-project.git\");         System.out.println(res);'"
       ]
     }
   },
@@ -7724,11 +9739,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "127. Click — git fetch vs git pull Farqi",
-      "en": "127. Click — Demonstrating git fetch without altering files"
+      "en": "127. Click — Demonstrating git fetch without altering files",
+      "ru": "127. Нажмите — демонстрация git fetch без изменения файлов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida: 'git fetch download new commits, but do not change your files yet'. Fetch va pull farqini ifodalovchi model tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'FetchController' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'fetchOnly(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'FetchController fc = new FetchController();         fc.fetchOnly();         System.out.println(\"Fayllar o'zgardimi: \" + fc.isWorkspaceModified() + \" | Yangi kommitlar bormi: \" + fc.hasNewCommits());'",
-      "en": "📖 Real-World Scenario & Context\nDifferentiate git fetch (metadata download) from git pull (fetch + merge).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'FetchController' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'fetchOnly(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'FetchController fc = new FetchController();         fc.fetchOnly();         System.out.println(\"Fayllar o'zgardimi: \" + fc.isWorkspaceModified() + \" | Yangi kommitlar bormi: \" + fc.hasNewCommits());'"
+      "en": "📖 Real-World Scenario & Context\nDifferentiate git fetch (metadata download) from git pull (fetch + merge).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'FetchController' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'fetchOnly(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'FetchController fc = new FetchController();         fc.fetchOnly();         System.out.println(\"Fayllar o'zgardimi: \" + fc.isWorkspaceModified() + \" | Yangi kommitlar bormi: \" + fc.hasNewCommits());'",
+      "ru": "📖 Контекст и описание задачи\nОтличайте git fetch (загрузку метаданных) от git pull (fetch + merge).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте FetchController, имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте 'fetchOnly(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'FetchController fc = new FetchController();         ФК.fetchOnly();         System.out.println(\"Файлы разгардими: \" + fc.isWorkspaceModified() + \" | Янги коммитляров: \" + fc.hasNewCommits());'"
     },
     "requirements": {
       "classes": [
@@ -7750,7 +9767,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>fetchOnly</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>FetchController</code>: Git tarmoqlanish va remote modeli.",
+        "<code>fetchOnly</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Fayllar o'zgardimi: false | Yangi kommitlar bormi: true"
@@ -7758,7 +9781,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Fayllar o'zgardimi: false | Yangi kommitlar bormi: true",
     "story": {
       "uz": "WIUT darsligida: 'git fetch download new commits, but do not change your files yet'. Fetch va pull farqini ifodalovchi model tuzing.",
-      "en": "Differentiate git fetch (metadata download) from git pull (fetch + merge)."
+      "en": "Differentiate git fetch (metadata download) from git pull (fetch + merge).",
+      "ru": "Отличайте git fetch (загрузку метаданных) от git pull (fetch + merge)."
     },
     "steps": {
       "uz": [
@@ -7774,6 +9798,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'fetchOnly(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'FetchController fc = new FetchController();         fc.fetchOnly();         System.out.println(\"Fayllar o'zgardimi: \" + fc.isWorkspaceModified() + \" | Yangi kommitlar bormi: \" + fc.hasNewCommits());'"
+      ],
+      "ru": [
+        "Создайте FetchController, имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте 'fetchOnly(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'FetchController fc = new FetchController();         ФК.fetchOnly();         System.out.println(\"Файлы разгардими: \" + fc.isWorkspaceModified() + \" | Янги коммитляров: \" + fc.hasNewCommits());'"
       ]
     }
   },
@@ -7784,11 +9815,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "128. Asaxiy — GitHub Private Repozitoriy va Hamkorlar (Collaborators)",
-      "en": "128. Asaxiy — GitHub Private Repository Collaborator Access"
+      "en": "128. Asaxiy — GitHub Private Repository Collaborator Access",
+      "ru": "128. Asaxiy — доступ к частному репозиторию GitHub для совместной работы"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT ko'rsatmasi: 'On GitHub: New repository -> Private -> Settings -> Collaborators'. Hamkorlarni taklif qilish va ruxsatni tekshirish klassini yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'GithubRepoSecurity' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'canPush(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxiy-core\", true);         repo.addCollaborator(\"aziz-dev\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"begona push qila oladimi: \" + repo.canPush(\"stranger\"));'",
-      "en": "📖 Real-World Scenario & Context\nModel GitHub Private repository access and authorized collaborators.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'GithubRepoSecurity' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'canPush(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxiy-core\", true);         repo.addCollaborator(\"aziz-dev\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"begona push qila oladimi: \" + repo.canPush(\"stranger\"));'"
+      "en": "📖 Real-World Scenario & Context\nModel GitHub Private repository access and authorized collaborators.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'GithubRepoSecurity' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'canPush(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxiy-core\", true);         repo.addCollaborator(\"aziz-dev\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"begona push qila oladimi: \" + repo.canPush(\"stranger\"));'",
+      "ru": "📖 Контекст и описание задачи\nМодель доступа к частному репозиторию GitHub и авторизованные соавторы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте GithubRepoSecurity, имитирующую ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «canPush(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxy-core\", true);         repo.addCollaborator(\"азиз-дев\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"начнём с нажатия qila oladimi: \" + repo.canPush(\"stranger\"));'"
     },
     "requirements": {
       "classes": [
@@ -7810,7 +9843,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>canPush</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>GithubRepoSecurity</code>: Git tarmoqlanish va remote modeli.",
+        "<code>canPush</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "aziz-dev push qila oladimi: true\nbegona push qila oladimi: false"
@@ -7818,7 +9857,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "aziz-dev push qila oladimi: true\nbegona push qila oladimi: false",
     "story": {
       "uz": "WIUT ko'rsatmasi: 'On GitHub: New repository -> Private -> Settings -> Collaborators'. Hamkorlarni taklif qilish va ruxsatni tekshirish klassini yozing.",
-      "en": "Model GitHub Private repository access and authorized collaborators."
+      "en": "Model GitHub Private repository access and authorized collaborators.",
+      "ru": "Модель доступа к частному репозиторию GitHub и авторизованные соавторы."
     },
     "steps": {
       "uz": [
@@ -7834,6 +9874,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'canPush(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxiy-core\", true);         repo.addCollaborator(\"aziz-dev\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"begona push qila oladimi: \" + repo.canPush(\"stranger\"));'"
+      ],
+      "ru": [
+        "Создайте GithubRepoSecurity, имитирующую ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «canPush(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'GithubRepoSecurity repo = new GithubRepoSecurity(\"asaxy-core\", true);         repo.addCollaborator(\"азиз-дев\");         System.out.println(\"aziz-dev push qila oladimi: \" + repo.canPush(\"aziz-dev\"));         System.out.println(\"начнём с нажатия qila oladimi: \" + repo.canPush(\"stranger\"));'"
       ]
     }
   },
@@ -7844,11 +9891,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "129. Safia — Tarmoqlar Ro'yxati va Faol Tarmoq (git branch)",
-      "en": "129. Safia — Git Branch Listing and Active Marker"
+      "en": "129. Safia — Git Branch Listing and Active Marker",
+      "ru": "129. Safia — список ветвей Git и активный маркер"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSafia jamoasida mavjud tarmoqlar ro'yxati va faol tarmoq yulduzcha bilan ('* main') ko'rsatiladi. Tarmoqlar ro'yxatini formatlovchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'BranchRegistry' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'listBranches(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"main\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"main\");         System.out.println(reg.listBranches());'",
-      "en": "📖 Real-World Scenario & Context\nModel 'git branch' output marking the active branch with an asterisk (*).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchRegistry' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'listBranches(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"main\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"main\");         System.out.println(reg.listBranches());'"
+      "en": "📖 Real-World Scenario & Context\nModel 'git branch' output marking the active branch with an asterisk (*).\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchRegistry' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'listBranches(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"main\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"main\");         System.out.println(reg.listBranches());'",
+      "ru": "📖 Контекст и описание задачи\nВыходные данные модели «git Branch» обозначают активную ветку звездочкой (*).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «BranchRegistry», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте 'listBranches(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"основной\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"основной\");         System.out.println(reg.listBranches());'"
     },
     "requirements": {
       "classes": [
@@ -7870,7 +9919,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>listBranches</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>BranchRegistry</code>: Git tarmoqlanish va remote modeli.",
+        "<code>listBranches</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "* main\n  feature-cake"
@@ -7878,7 +9933,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "* main\n  feature-cake",
     "story": {
       "uz": "Safia jamoasida mavjud tarmoqlar ro'yxati va faol tarmoq yulduzcha bilan ('* main') ko'rsatiladi. Tarmoqlar ro'yxatini formatlovchi metod yozing.",
-      "en": "Model 'git branch' output marking the active branch with an asterisk (*)."
+      "en": "Model 'git branch' output marking the active branch with an asterisk (*).",
+      "ru": "Выходные данные модели «git Branch» обозначают активную ветку звездочкой (*)."
     },
     "steps": {
       "uz": [
@@ -7894,6 +9950,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'listBranches(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"main\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"main\");         System.out.println(reg.listBranches());'"
+      ],
+      "ru": [
+        "Создайте «BranchRegistry», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте 'listBranches(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'BranchRegistry reg = new BranchRegistry();         reg.addBranch(\"основной\");         reg.addBranch(\"feature-cake\");         reg.setActive(\"основной\");         System.out.println(reg.listBranches());'"
       ]
     }
   },
@@ -7904,11 +9967,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "130. Dodo Pizza — Git Remote URL Sozlamasi (git remote add origin)",
-      "en": "130. Dodo Pizza — Git Remote Origin Configuration"
+      "en": "130. Dodo Pizza — Git Remote Origin Configuration",
+      "ru": "130. Dodo Pizza — конфигурация удаленного источника Git"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligida: 'git remote add origin git@github.com:user/repo.git'. Masofaviy server nomini va manzilini saqlovchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'RemoteConfig' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'getRemoteUrl(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Origin URL: \" + cfg.getRemoteUrl(\"origin\"));'",
-      "en": "📖 Real-World Scenario & Context\nModel 'git remote add origin <url>' configuration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RemoteConfig' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'getRemoteUrl(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Origin URL: \" + cfg.getRemoteUrl(\"origin\"));'"
+      "en": "📖 Real-World Scenario & Context\nModel 'git remote add origin <url>' configuration.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'RemoteConfig' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'getRemoteUrl(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Origin URL: \" + cfg.getRemoteUrl(\"origin\"));'",
+      "ru": "📖 Контекст и описание задачи\nКонфигурация модели «git Remote Add Origin <url>».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте RemoteConfig, имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «getRemoteUrl(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Исходный URL: \" + cfg.getRemoteUrl(\"origin\"));'"
     },
     "requirements": {
       "classes": [
@@ -7930,7 +9995,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getRemoteUrl</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>RemoteConfig</code>: Git tarmoqlanish va remote modeli.",
+        "<code>getRemoteUrl</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Origin URL: git@github.com:dodo/pizza-app.git"
@@ -7938,7 +10009,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Origin URL: git@github.com:dodo/pizza-app.git",
     "story": {
       "uz": "WIUT darsligida: 'git remote add origin git@github.com:user/repo.git'. Masofaviy server nomini va manzilini saqlovchi klass tuzing.",
-      "en": "Model 'git remote add origin <url>' configuration."
+      "en": "Model 'git remote add origin <url>' configuration.",
+      "ru": "Конфигурация модели «git Remote Add Origin <url>»."
     },
     "steps": {
       "uz": [
@@ -7954,6 +10026,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'getRemoteUrl(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Origin URL: \" + cfg.getRemoteUrl(\"origin\"));'"
+      ],
+      "ru": [
+        "Создайте RemoteConfig, имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «getRemoteUrl(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'RemoteConfig cfg = new RemoteConfig();         cfg.addRemote(\"origin\", \"git@github.com:dodo/pizza-app.git\");         System.out.println(\"Исходный URL: \" + cfg.getRemoteUrl(\"origin\"));'"
       ]
     }
   },
@@ -7964,11 +10043,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "131. Texnomart — Merge Mojarosini Oldini Olish Qoidasi",
-      "en": "131. Texnomart — Avoiding Merge Conflicts Best Practice"
+      "en": "131. Texnomart — Avoiding Merge Conflicts Best Practice",
+      "ru": "131. Texnomart — передовой опыт предотвращения конфликтов слияния"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTexnomartda barcha dasturchilar .gitignore ga shaxsiy '.idea/workspace.xml' ni kiritishadi, bu esa konfliktlarni kamaytiradi. Ushbu qoidani tekshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'ConflictPrevention' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'isConflictFreeConfig(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"out/\");         System.out.println(\"Konfliktsiz sozlama bormi: \" + cp.isConflictFreeConfig());'",
-      "en": "📖 Real-World Scenario & Context\nVerify that workspace.xml is excluded to reduce merge conflicts.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'ConflictPrevention' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'isConflictFreeConfig(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"out/\");         System.out.println(\"Konfliktsiz sozlama bormi: \" + cp.isConflictFreeConfig());'"
+      "en": "📖 Real-World Scenario & Context\nVerify that workspace.xml is excluded to reduce merge conflicts.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'ConflictPrevention' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'isConflictFreeConfig(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"out/\");         System.out.println(\"Konfliktsiz sozlama bormi: \" + cp.isConflictFreeConfig());'",
+      "ru": "📖 Контекст и описание задачи\nУбедитесь, что файл workspace.xml исключен, чтобы уменьшить конфликты слияния.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «ConflictPrevention», имитирующее ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте isConflictFreeConfig(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"выход/\");         System.out.println(\"Конфликт созывается борми: \" + cp.isConflictFreeConfig());'"
     },
     "requirements": {
       "classes": [
@@ -7990,7 +10071,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>isConflictFreeConfig</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>ConflictPrevention</code>: Git tarmoqlanish va remote modeli.",
+        "<code>isConflictFreeConfig</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Konfliktsiz sozlama bormi: true"
@@ -7998,7 +10085,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Konfliktsiz sozlama bormi: true",
     "story": {
       "uz": "Texnomartda barcha dasturchilar .gitignore ga shaxsiy '.idea/workspace.xml' ni kiritishadi, bu esa konfliktlarni kamaytiradi. Ushbu qoidani tekshiring.",
-      "en": "Verify that workspace.xml is excluded to reduce merge conflicts."
+      "en": "Verify that workspace.xml is excluded to reduce merge conflicts.",
+      "ru": "Убедитесь, что файл workspace.xml исключен, чтобы уменьшить конфликты слияния."
     },
     "steps": {
       "uz": [
@@ -8014,6 +10102,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'isConflictFreeConfig(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"out/\");         System.out.println(\"Konfliktsiz sozlama bormi: \" + cp.isConflictFreeConfig());'"
+      ],
+      "ru": [
+        "Создайте «ConflictPrevention», имитирующее ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте isConflictFreeConfig(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'ConflictPrevention cp = new ConflictPrevention();         cp.ignore(\".idea/workspace.xml\");         cp.ignore(\"выход/\");         System.out.println(\"Конфликт созывается борми: \" + cp.isConflictFreeConfig());'"
       ]
     }
   },
@@ -8024,11 +10119,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "132. UzAirways — Tarmoqni O'chirish (git branch -d)",
-      "en": "132. UzAirways — Deleting Merged Feature Branch"
+      "en": "132. UzAirways — Deleting Merged Feature Branch",
+      "ru": "132. UzAirways — Удаление объединенной функциональной ветки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBirlashtirilgan 'feature-flight' tarmog'i ortiqcha yuk bo'lmasligi uchun o'chiriladi ('git branch -d'). Tarmoqni o'chiruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'BranchCleaner' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'deleteBranch(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"feature-flight\");         boolean deleted = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Tarmoq o'chirildimi: \" + deleted);'",
-      "en": "📖 Real-World Scenario & Context\nModel deleting a merged branch via 'git branch -d'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchCleaner' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'deleteBranch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"feature-flight\");         boolean deleted = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Tarmoq o'chirildimi: \" + deleted);'"
+      "en": "📖 Real-World Scenario & Context\nModel deleting a merged branch via 'git branch -d'.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchCleaner' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'deleteBranch(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"feature-flight\");         boolean deleted = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Tarmoq o'chirildimi: \" + deleted);'",
+      "ru": "📖 Контекст и описание задачи\nМодель удаления объединенной ветки с помощью «git Branch -d».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «BranchCleaner», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «deleteBranch(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"функция-полет\");         логическое значение удалено = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Тармок о'чирилдими: \" + удалено);'"
     },
     "requirements": {
       "classes": [
@@ -8050,7 +10147,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>deleteBranch</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>BranchCleaner</code>: Git tarmoqlanish va remote modeli.",
+        "<code>deleteBranch</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Tarmoq o'chirildimi: true"
@@ -8058,7 +10161,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Tarmoq o'chirildimi: true",
     "story": {
       "uz": "Birlashtirilgan 'feature-flight' tarmog'i ortiqcha yuk bo'lmasligi uchun o'chiriladi ('git branch -d'). Tarmoqni o'chiruvchi metod yozing.",
-      "en": "Model deleting a merged branch via 'git branch -d'."
+      "en": "Model deleting a merged branch via 'git branch -d'.",
+      "ru": "Модель удаления объединенной ветки с помощью «git Branch -d»."
     },
     "steps": {
       "uz": [
@@ -8074,6 +10178,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'deleteBranch(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"feature-flight\");         boolean deleted = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Tarmoq o'chirildimi: \" + deleted);'"
+      ],
+      "ru": [
+        "Создайте «BranchCleaner», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «deleteBranch(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'BranchCleaner bc = new BranchCleaner();         bc.createBranch(\"функция-полет\");         логическое значение удалено = bc.deleteBranch(\"feature-flight\");         System.out.println(\"Тармок о'чирилдими: \" + удалено);'"
       ]
     }
   },
@@ -8084,11 +10195,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "133. Kapitalbank — Asosiy Tarmoq Nomini O'zgartirish (git branch -M main)",
-      "en": "133. Kapitalbank — Renaming Default Branch to main"
+      "en": "133. Kapitalbank — Renaming Default Branch to main",
+      "ru": "133. Капиталбанк — Переименование дефолтного филиала в основной"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT darsligidagi standart: 'git branch -M main' orqali asosiy tarmoq 'main' deb nomlanadi. Standart tarmoq nomini o'rnatuvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'BranchNamer' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'renameToMain(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Yangi asosiy tarmoq nomi: \" + bn.getCurrentBranch());'",
-      "en": "📖 Real-World Scenario & Context\nModel renaming current branch to 'main' as recommended by modern Git standards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchNamer' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'renameToMain(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Yangi asosiy tarmoq nomi: \" + bn.getCurrentBranch());'"
+      "en": "📖 Real-World Scenario & Context\nModel renaming current branch to 'main' as recommended by modern Git standards.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchNamer' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'renameToMain(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Yangi asosiy tarmoq nomi: \" + bn.getCurrentBranch());'",
+      "ru": "📖 Контекст и описание задачи\nМодель переименования текущей ветки в «основную», как рекомендовано современными стандартами Git.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «BranchNamer», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте 'renameToMain(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Янги асосий тармок номи: \" + bn.getCurrentBranch());'"
     },
     "requirements": {
       "classes": [
@@ -8110,7 +10223,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>renameToMain</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>BranchNamer</code>: Git tarmoqlanish va remote modeli.",
+        "<code>renameToMain</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Yangi asosiy tarmoq nomi: main"
@@ -8118,7 +10237,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yangi asosiy tarmoq nomi: main",
     "story": {
       "uz": "WIUT darsligidagi standart: 'git branch -M main' orqali asosiy tarmoq 'main' deb nomlanadi. Standart tarmoq nomini o'rnatuvchi klass tuzing.",
-      "en": "Model renaming current branch to 'main' as recommended by modern Git standards."
+      "en": "Model renaming current branch to 'main' as recommended by modern Git standards.",
+      "ru": "Модель переименования текущей ветки в «основную», как рекомендовано современными стандартами Git."
     },
     "steps": {
       "uz": [
@@ -8134,6 +10254,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'renameToMain(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Yangi asosiy tarmoq nomi: \" + bn.getCurrentBranch());'"
+      ],
+      "ru": [
+        "Создайте «BranchNamer», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте 'renameToMain(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'BranchNamer bn = new BranchNamer(\"master\");         bn.renameToMain();         System.out.println(\"Янги асосий тармок номи: \" + bn.getCurrentBranch());'"
       ]
     }
   },
@@ -8144,11 +10271,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "134. Beeline — Tarmoqdagi Yangi Kommitlarni Tekshirish",
-      "en": "134. Beeline — Inspecting Ahead/Behind Status of Branches"
+      "en": "134. Beeline — Inspecting Ahead/Behind Status of Branches",
+      "ru": "134. Билайн — проверка статуса впереди/позади филиалов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline tarmoqlari orasida nechta kommit oldinda (ahead) yoki orqada (behind) ekanini hisoblovchi model tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'BranchComparison' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'getAheadCount(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Feature tarmog'i necha kommit oldinda: \" + comp.getAheadCount());'",
-      "en": "📖 Real-World Scenario & Context\nModel branch comparison tracking ahead/behind commit delta.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchComparison' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'getAheadCount(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Feature tarmog'i necha kommit oldinda: \" + comp.getAheadCount());'"
+      "en": "📖 Real-World Scenario & Context\nModel branch comparison tracking ahead/behind commit delta.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'BranchComparison' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'getAheadCount(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Feature tarmog'i necha kommit oldinda: \" + comp.getAheadCount());'",
+      "ru": "📖 Контекст и описание задачи\nОтслеживание сравнения ветвей модели вперед/назад от разницы в фиксации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «BranchComparison», имитирующее ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте getAheadCount(...)'.\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Функция не может быть использована раньше: \" + comp.getAheadCount());'"
     },
     "requirements": {
       "classes": [
@@ -8170,7 +10299,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>getAheadCount</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>BranchComparison</code>: Git tarmoqlanish va remote modeli.",
+        "<code>getAheadCount</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Feature tarmog'i necha kommit oldinda: 2"
@@ -8178,7 +10313,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Feature tarmog'i necha kommit oldinda: 2",
     "story": {
       "uz": "Beeline tarmoqlari orasida nechta kommit oldinda (ahead) yoki orqada (behind) ekanini hisoblovchi model tuzing.",
-      "en": "Model branch comparison tracking ahead/behind commit delta."
+      "en": "Model branch comparison tracking ahead/behind commit delta.",
+      "ru": "Отслеживание сравнения ветвей модели вперед/назад от разницы в фиксации."
     },
     "steps": {
       "uz": [
@@ -8194,6 +10330,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'getAheadCount(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Feature tarmog'i necha kommit oldinda: \" + comp.getAheadCount());'"
+      ],
+      "ru": [
+        "Создайте «BranchComparison», имитирующее ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте getAheadCount(...)'.",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'BranchComparison comp = new BranchComparison();         comp.recordCommitOnFeature();         comp.recordCommitOnFeature();         System.out.println(\"Функция не может быть использована раньше: \" + comp.getAheadCount());'"
       ]
     }
   },
@@ -8204,11 +10347,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "121-135: Git Branch, Merge, Push, Pull va Remote",
     "title": {
       "uz": "135. WIUT — CW Guruh Ishi Birlashgan Ish Oqimi",
-      "en": "135. WIUT — Coursework Complete Team Git Workflow Integration"
+      "en": "135. WIUT — Coursework Complete Team Git Workflow Integration",
+      "ru": "135. WIUT — Курсовая работа Полная интеграция рабочих процессов команды Git"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT talabalari uchun komanda ishining to'liq sikli: clone -> switch branch -> add -> commit -> pull -> push. Ushbu bosqichlar to'g'ri ketma-ketligini tekshiruvchi klass tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Git tarmoqlari yoki masofaviy repozitoriy boshqaruvchi 'StudentGitWorkflow' sinfini tuzing.\n2. Branch yaratish, almashtirish yoki merge qilish maydonlarini bering.\n3. 'verifyWorkflowOrder(...)' metodini amalga oshiring.\n4. 'Main' metodida tarmoqlar oqimini tekshiring.\n5. Natijani chop eting: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"clone\");         wf.recordStep(\"branch\");         wf.recordStep(\"commit\");         wf.recordStep(\"pull\");         wf.recordStep(\"push\");         System.out.println(\"Ish oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'",
-      "en": "📖 Real-World Scenario & Context\nModel the full collaborative coursework Git workflow.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'StudentGitWorkflow' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'verifyWorkflowOrder(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"clone\");         wf.recordStep(\"branch\");         wf.recordStep(\"commit\");         wf.recordStep(\"pull\");         wf.recordStep(\"push\");         System.out.println(\"Ish oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'"
+      "en": "📖 Real-World Scenario & Context\nModel the full collaborative coursework Git workflow.\n\n📋 Required Implementation Steps (1 to 5)\n1. Create 'StudentGitWorkflow' simulating Git branching and remote operations.\n2. Declare fields for branches and sync states.\n3. Implement 'verifyWorkflowOrder(...)'.\n4. Execute in 'main'.\n5. Print result to console: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"clone\");         wf.recordStep(\"branch\");         wf.recordStep(\"commit\");         wf.recordStep(\"pull\");         wf.recordStep(\"push\");         System.out.println(\"Ish oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'",
+      "ru": "📖 Контекст и описание задачи\nСмоделируйте полный рабочий процесс Git для совместной курсовой работы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте «StudentGitWorkflow», имитирующий ветвление Git и удаленные операции.\n2. Объявите поля для ветвей и состояний синхронизации.\n3. Реализуйте «verifyWorkflowOrder(...)».\n4. Выполнить в «основном».\n5. Выведите результат на консоль: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"клон\");         wf.recordStep(\"ветвь\");         wf.recordStep(\"фиксация\");         wf.recordStep(\"тянуть\");         wf.recordStep(\"push\");         System.out.println(\"Иш oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'"
     },
     "requirements": {
       "classes": [
@@ -8230,7 +10375,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>verifyWorkflowOrder</code>: tarmoq operatsiyasi."
       ],
       "pitfalls": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi ('Push rejected'). Buning yagona to'g'ri yechimi: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
-      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak."
+      "cw2Tip": "CW2 da har bir guruh a'zosi o'z vazifasini alohida branchda qilib, so'ngra main ga birlashtirishi kerak.",
+      "theoryRu": "'git switch -c <branch>' инициирует изолированную линию разработки. Слияние объединяет ветки («git merge»). Всегда выполняйте удаленные коммиты перед отправкой локальных изменений.",
+      "pitfallsRu": "Agar jamoadosh sizdan oldin 'git push' qilgan bo'lsa, sizning pushingiz rad etiladi («Пуш отклонен»). Бунинг ягона то'гри йечими: avval 'git pull' qilish va so'ngra qayta push qilishdir.",
+      "breakdownRu": [
+        "<code>StudentGitWorkflow</code>: Git tarmoqlanish va remote modeli.",
+        "<code>verifyWorkflowOrder</code>: tarmoq operatsiyasi."
+      ]
     },
     "sampleData": [
       "Ish oqimi to'g'rimi: true"
@@ -8238,7 +10389,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Ish oqimi to'g'rimi: true",
     "story": {
       "uz": "WIUT talabalari uchun komanda ishining to'liq sikli: clone -> switch branch -> add -> commit -> pull -> push. Ushbu bosqichlar to'g'ri ketma-ketligini tekshiruvchi klass tuzing.",
-      "en": "Model the full collaborative coursework Git workflow."
+      "en": "Model the full collaborative coursework Git workflow.",
+      "ru": "Смоделируйте полный рабочий процесс Git для совместной курсовой работы."
     },
     "steps": {
       "uz": [
@@ -8254,6 +10406,13 @@ window.OOP_CHALLENGES_W5 = [
         "Implement 'verifyWorkflowOrder(...)'.",
         "Execute in 'main'.",
         "Print result to console: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"clone\");         wf.recordStep(\"branch\");         wf.recordStep(\"commit\");         wf.recordStep(\"pull\");         wf.recordStep(\"push\");         System.out.println(\"Ish oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'"
+      ],
+      "ru": [
+        "Создайте «StudentGitWorkflow», имитирующий ветвление Git и удаленные операции.",
+        "Объявите поля для ветвей и состояний синхронизации.",
+        "Реализуйте «verifyWorkflowOrder(...)».",
+        "Выполнить в «основном».",
+        "Выведите результат на консоль: 'StudentGitWorkflow wf = new StudentGitWorkflow();         wf.recordStep(\"клон\");         wf.recordStep(\"ветвь\");         wf.recordStep(\"фиксация\");         wf.recordStep(\"тянуть\");         wf.recordStep(\"push\");         System.out.println(\"Иш oqimi to'g'rimi: \" + wf.verifyWorkflowOrder());'"
       ]
     }
   },
@@ -8264,11 +10423,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "136. Uzum Market — Product, Order, OrderItem UML Klass Diagrammasi",
-      "en": "136. Uzum Market — Full UML Class Diagram Translation to Java"
+      "en": "136. Uzum Market — Full UML Class Diagram Translation to Java",
+      "ru": "136. Uzum Market — полный перевод диаграммы классов UML на Java"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT 5-hafta 'OOP_Week5_UML_ClassDiagram_solution.drawio' faylidagi spetsifikatsiya asosida: 'Product' tovarlar, 'OrderItem' kompozitsiya qatori va 'Order' buyurtma sinfi bir butun dasturiy modelga keltiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Product laptop = new Product(\"Laptop\", 10000000.0);         Order order = new Order(\"ORD-W5-01\");         order.addItem(laptop, 2);         System.out.println(\"Buyurtma jami (QQS bilan): \" + order.calculateTotal());'",
-      "en": "📖 Real-World Scenario & Context\nDirectly translates the official WIUT Week 5 drawio solution: Product, OrderItem, and Order classes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Product laptop = new Product(\"Laptop\", 10000000.0);         Order order = new Order(\"ORD-W5-01\");         order.addItem(laptop, 2);         System.out.println(\"Buyurtma jami (QQS bilan): \" + order.calculateTotal());'"
+      "en": "📖 Real-World Scenario & Context\nDirectly translates the official WIUT Week 5 drawio solution: Product, OrderItem, and Order classes.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Product laptop = new Product(\"Laptop\", 10000000.0);         Order order = new Order(\"ORD-W5-01\");         order.addItem(laptop, 2);         System.out.println(\"Buyurtma jami (QQS bilan): \" + order.calculateTotal());'",
+      "ru": "📖 Контекст и описание задачи\nНепосредственный перевод официального решения Drawio для недели 5 WIUT: классы Product, OrderItem и Order.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатайте подтвержденный счет: 'Ноутбук продукта = новый продукт(\"Ноутбук\", 10000000.0);         Заказ заказ = новый заказ(\"ORD-W5-01\");         order.addItem(ноутбук, 2);         System.out.println(\"Купить джемы (QQS bilan): \" + order.calculateTotal());'"
     },
     "requirements": {
       "classes": [
@@ -8287,7 +10448,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Buyurtma jami (QQS bilan): 22400000.0"
@@ -8295,7 +10462,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma jami (QQS bilan): 22400000.0",
     "story": {
       "uz": "WIUT 5-hafta 'OOP_Week5_UML_ClassDiagram_solution.drawio' faylidagi spetsifikatsiya asosida: 'Product' tovarlar, 'OrderItem' kompozitsiya qatori va 'Order' buyurtma sinfi bir butun dasturiy modelga keltiriladi.",
-      "en": "Directly translates the official WIUT Week 5 drawio solution: Product, OrderItem, and Order classes."
+      "en": "Directly translates the official WIUT Week 5 drawio solution: Product, OrderItem, and Order classes.",
+      "ru": "Непосредственный перевод официального решения Drawio для недели 5 WIUT: классы Product, OrderItem и Order."
     },
     "steps": {
       "uz": [
@@ -8311,6 +10479,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Product laptop = new Product(\"Laptop\", 10000000.0);         Order order = new Order(\"ORD-W5-01\");         order.addItem(laptop, 2);         System.out.println(\"Buyurtma jami (QQS bilan): \" + order.calculateTotal());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатайте подтвержденный счет: 'Ноутбук продукта = новый продукт(\"Ноутбук\", 10000000.0);         Заказ заказ = новый заказ(\"ORD-W5-01\");         order.addItem(ноутбук, 2);         System.out.println(\"Купить джемы (QQS bilan): \" + order.calculateTotal());'"
       ]
     }
   },
@@ -8321,11 +10496,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "137. Uzum Market — PhysicalProduct va Yetkazish Xarajati",
-      "en": "137. Uzum Market — PhysicalProduct Delivery Fee in UML Hierarchy"
+      "en": "137. Uzum Market — PhysicalProduct Delivery Fee in UML Hierarchy",
+      "ru": "137. Рынок Узум — плата за доставку физического продукта в иерархии UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio yechimiga binoan: 'PhysicalProduct' og'irligi (weightKg) va nozikligi (fragile) bo'yicha 'calculateDeliveryCost()' metodini taqdim etadi. Ushbu sinfni yarating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Yetkazish xarajati: \" + tv.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nFrom Week 5 drawio solution: PhysicalProduct computes delivery fee based on weight and fragility.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Yetkazish xarajati: \" + tv.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nFrom Week 5 drawio solution: PhysicalProduct computes delivery fee based on weight and fragility.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Yetkazish xarajati: \" + tv.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nРешение Drawio начиная с недели 5: PhysicalProduct рассчитывает стоимость доставки в зависимости от веса и хрупкости.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатайте подтвержденный счет: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Етказиш хараджати: \" + tv.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -8344,7 +10521,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Yetkazish xarajati: 35000.0"
@@ -8352,7 +10535,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yetkazish xarajati: 35000.0",
     "story": {
       "uz": "Drawio yechimiga binoan: 'PhysicalProduct' og'irligi (weightKg) va nozikligi (fragile) bo'yicha 'calculateDeliveryCost()' metodini taqdim etadi. Ushbu sinfni yarating.",
-      "en": "From Week 5 drawio solution: PhysicalProduct computes delivery fee based on weight and fragility."
+      "en": "From Week 5 drawio solution: PhysicalProduct computes delivery fee based on weight and fragility.",
+      "ru": "Решение Drawio начиная с недели 5: PhysicalProduct рассчитывает стоимость доставки в зависимости от веса и хрупкости."
     },
     "steps": {
       "uz": [
@@ -8368,6 +10552,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Yetkazish xarajati: \" + tv.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатайте подтвержденный счет: 'PhysicalProduct tv = new PhysicalProduct(\"Smart TV 55\", 4500000.0, 14.5, true);         System.out.println(\"Етказиш хараджати: \" + tv.calculateDeliveryCost());'"
       ]
     }
   },
@@ -8378,11 +10569,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "138. Payme — Customer <>-- ShippingAddress (1 to 0..1) va Map (1 to 0..*)",
-      "en": "138. Payme — Customer Multi-Address UML Association Mapping"
+      "en": "138. Payme — Customer Multi-Address UML Association Mapping",
+      "ru": "138. Payme — сопоставление многоадресных UML-ассоциаций клиентов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio yechimida: 'Customer' 1 to 0..1 'shippingAddress' ga va 1 to 0..* 'deliveryAddresses: Map<String, ShippingAddress>' ga ega. Manzillarni boshqaruvchi to'liq sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'ShippingAddress home = new ShippingAddress(\"Amir Temur 12\", \"Tashkent\");         Customer c = new Customer(\"Aziz\", 500000.0, home);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Mustaqillik 5\", \"Tashkent\"));         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'",
-      "en": "📖 Real-World Scenario & Context\nCustomer associates with 0..1 default shipping address and 0..* saved addresses Map.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"Amir Temur 12\", \"Tashkent\");         Customer c = new Customer(\"Aziz\", 500000.0, home);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Mustaqillik 5\", \"Tashkent\"));         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'"
+      "en": "📖 Real-World Scenario & Context\nCustomer associates with 0..1 default shipping address and 0..* saved addresses Map.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"Amir Temur 12\", \"Tashkent\");         Customer c = new Customer(\"Aziz\", 500000.0, home);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Mustaqillik 5\", \"Tashkent\"));         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'",
+      "ru": "📖 Контекст и описание задачи\nКлиент связывается с адресом доставки по умолчанию 0..1 и сохраненными адресами 0..*. Карта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'ShippingAddress home = new ShippingAddress(\"Амира Темура 12\", \"Ташкент\");         Клиент c = новый клиент(\"Азиз\", 500000.0, домашний);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Мустакиллик 5\", \"Ташкент\");         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'"
     },
     "requirements": {
       "classes": [
@@ -8401,7 +10594,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Boshlang'ich shahar: Tashkent | Saqlanganlar: 1"
@@ -8409,7 +10608,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Boshlang'ich shahar: Tashkent | Saqlanganlar: 1",
     "story": {
       "uz": "Drawio yechimida: 'Customer' 1 to 0..1 'shippingAddress' ga va 1 to 0..* 'deliveryAddresses: Map<String, ShippingAddress>' ga ega. Manzillarni boshqaruvchi to'liq sinf tuzing.",
-      "en": "Customer associates with 0..1 default shipping address and 0..* saved addresses Map."
+      "en": "Customer associates with 0..1 default shipping address and 0..* saved addresses Map.",
+      "ru": "Клиент связывается с адресом доставки по умолчанию 0..1 и сохраненными адресами 0..*. Карта."
     },
     "steps": {
       "uz": [
@@ -8425,6 +10625,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"Amir Temur 12\", \"Tashkent\");         Customer c = new Customer(\"Aziz\", 500000.0, home);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Mustaqillik 5\", \"Tashkent\"));         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'ShippingAddress home = new ShippingAddress(\"Амира Темура 12\", \"Ташкент\");         Клиент c = новый клиент(\"Азиз\", 500000.0, домашний);         c.addDeliveryAddress(\"office\", new ShippingAddress(\"Мустакиллик 5\", \"Ташкент\");         System.out.println(\"Boshlang'ich shahar: \" + c.getShippingAddress().getCity() + \" | Saqlanganlar: \" + c.getDeliveryAddresses().size());'"
       ]
     }
   },
@@ -8435,11 +10642,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "139. Korzinka — ElectronicDevice Kafolati va Sug'urtasi (DrawIO Yechimi)",
-      "en": "139. Korzinka — ElectronicDevice Warranty & Insurance Fee Model"
+      "en": "139. Korzinka — ElectronicDevice Warranty & Insurance Fee Model",
+      "ru": "139. Корзинка — Модель гарантийного и страхового взноса на электронные устройства."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawIO diagrammasidagi 'ElectronicDevice' 'PhysicalProduct' dan meros oladi va o'zining 'warrantyMonths' maydoniga ega. Yetkazish narxiga sug'urta to'lovini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Artel\", 36);         System.out.println(\"Elektronika yetkazish: \" + dev.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nElectronicDevice extends PhysicalProduct with warranty and adds insurance fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Artel\", 36);         System.out.println(\"Elektronika yetkazish: \" + dev.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nElectronicDevice extends PhysicalProduct with warranty and adds insurance fee.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Artel\", 36);         System.out.println(\"Elektronika yetkazish: \" + dev.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nElectronicDevice продлевает гарантию на PhysicalProduct и добавляет страховой взнос.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Артель\", 36);         System.out.println(\"Электроника ещеказиш: \" + dev.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -8458,7 +10667,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Elektronika yetkazish: 55000.0"
@@ -8466,7 +10681,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Elektronika yetkazish: 55000.0",
     "story": {
       "uz": "DrawIO diagrammasidagi 'ElectronicDevice' 'PhysicalProduct' dan meros oladi va o'zining 'warrantyMonths' maydoniga ega. Yetkazish narxiga sug'urta to'lovini qo'shadi.",
-      "en": "ElectronicDevice extends PhysicalProduct with warranty and adds insurance fee."
+      "en": "ElectronicDevice extends PhysicalProduct with warranty and adds insurance fee.",
+      "ru": "ElectronicDevice продлевает гарантию на PhysicalProduct и добавляет страховой взнос."
     },
     "steps": {
       "uz": [
@@ -8482,6 +10698,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Artel\", 36);         System.out.println(\"Elektronika yetkazish: \" + dev.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'ElectronicDevice dev = new ElectronicDevice(\"Muzlatgich\", 6000000.0, 45.0, true, \"Артель\", 36);         System.out.println(\"Электроника ещеказиш: \" + dev.calculateDeliveryCost());'"
       ]
     }
   },
@@ -8492,11 +10715,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "140. Yandex Go — Clothing (O'lcham va Material) DrawIO Vorisi",
-      "en": "140. Yandex Go — Clothing Class from Week 5 DrawIO Model"
+      "en": "140. Yandex Go — Clothing Class from Week 5 DrawIO Model",
+      "ru": "140. Yandex Go — урок одежды с 5-й недели Модель DrawIO"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawIO yechimiga ko'ra 'Clothing extends PhysicalProduct' bo'lib, 'size' va 'material' xususiyatlariga ega. Yetkazish narxi tekis 20000 so'mni tashkil qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Clothing shirt = new Clothing(\"Ko'ylak\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Kiyim: \" + shirt.getName() + \" | Yetkazish: \" + shirt.calculateDeliveryCost());'",
-      "en": "📖 Real-World Scenario & Context\nClothing extends PhysicalProduct with size and material attributes and flat shipping.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Clothing shirt = new Clothing(\"Ko'ylak\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Kiyim: \" + shirt.getName() + \" | Yetkazish: \" + shirt.calculateDeliveryCost());'"
+      "en": "📖 Real-World Scenario & Context\nClothing extends PhysicalProduct with size and material attributes and flat shipping.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Clothing shirt = new Clothing(\"Ko'ylak\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Kiyim: \" + shirt.getName() + \" | Yetkazish: \" + shirt.calculateDeliveryCost());'",
+      "ru": "📖 Контекст и описание задачи\nОдежда расширяет возможности PhysicalProduct, добавляя атрибуты размера и материала, а также возможность плоской доставки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать проверенный счет: 'Одежда рубашки = новая одежда(\"Койлак\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Кийим: \" +shirt.getName() + \" | Йетказиш: \" +shirt.calculateDeliveryCost());'"
     },
     "requirements": {
       "classes": [
@@ -8515,7 +10740,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Kiyim: Ko'ylak | Yetkazish: 20000.0"
@@ -8523,7 +10754,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kiyim: Ko'ylak | Yetkazish: 20000.0",
     "story": {
       "uz": "DrawIO yechimiga ko'ra 'Clothing extends PhysicalProduct' bo'lib, 'size' va 'material' xususiyatlariga ega. Yetkazish narxi tekis 20000 so'mni tashkil qiladi.",
-      "en": "Clothing extends PhysicalProduct with size and material attributes and flat shipping."
+      "en": "Clothing extends PhysicalProduct with size and material attributes and flat shipping.",
+      "ru": "Одежда расширяет возможности PhysicalProduct, добавляя атрибуты размера и материала, а также возможность плоской доставки."
     },
     "steps": {
       "uz": [
@@ -8539,6 +10771,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Clothing shirt = new Clothing(\"Ko'ylak\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Kiyim: \" + shirt.getName() + \" | Yetkazish: \" + shirt.calculateDeliveryCost());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать проверенный счет: 'Одежда рубашки = новая одежда(\"Койлак\", 180000.0, 0.3, false, \"M\", \"Paxta\");         System.out.println(\"Кийим: \" +shirt.getName() + \" | Йетказиш: \" +shirt.calculateDeliveryCost());'"
       ]
     }
   },
@@ -8549,11 +10788,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "141. Express24 — DigitalProduct va Yuklab Olish Vaqti Bahosi",
-      "en": "141. Express24 — DigitalProduct Download Time Estimation in UML"
+      "en": "141. Express24 — DigitalProduct Download Time Estimation in UML",
+      "ru": "141. Express24 — оценка времени загрузки цифрового продукта в UML."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio da 'DigitalProduct' '+ estimateDownloadSeconds(speedMbps: double): double' metodiga ega. 1500 MB faylni 100 Mbps tezlikda yuklash soniyasini hisoblang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'",
-      "en": "📖 Real-World Scenario & Context\nDigitalProduct provides '+ estimateDownloadSeconds(speedMbps: double): double' in drawio.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'"
+      "en": "📖 Real-World Scenario & Context\nDigitalProduct provides '+ estimateDownloadSeconds(speedMbps: double): double' in drawio.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'",
+      "ru": "📖 Контекст и описание задачи\nDigitalProduct предоставляет «+ AssessmentDownloadSeconds (speedMbps: double): double» в drawio.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'"
     },
     "requirements": {
       "classes": [
@@ -8572,7 +10813,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Yuklash vaqti: 120.0 soniya"
@@ -8580,7 +10827,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yuklash vaqti: 120.0 soniya",
     "story": {
       "uz": "Drawio da 'DigitalProduct' '+ estimateDownloadSeconds(speedMbps: double): double' metodiga ega. 1500 MB faylni 100 Mbps tezlikda yuklash soniyasini hisoblang.",
-      "en": "DigitalProduct provides '+ estimateDownloadSeconds(speedMbps: double): double' in drawio."
+      "en": "DigitalProduct provides '+ estimateDownloadSeconds(speedMbps: double): double' in drawio.",
+      "ru": "DigitalProduct предоставляет «+ AssessmentDownloadSeconds (speedMbps: double): double» в drawio."
     },
     "steps": {
       "uz": [
@@ -8596,6 +10844,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'DigitalProduct video = new DigitalProduct(\"Tutorial\", 50000.0, 1500.0, \"dl-express24.uz/tutorial\");         System.out.println(\"Yuklash vaqti: \" + video.estimateDownloadSeconds(100.0) + \" soniya\");'"
       ]
     }
   },
@@ -8606,11 +10861,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "142. Medion — EBook (DigitalProduct Vorisi) Drawio Spetsifikatsiyasi",
-      "en": "142. Medion — EBook Subclass Specified in Week 5 Drawio"
+      "en": "142. Medion — EBook Subclass Specified in Week 5 Drawio",
+      "ru": "142. Medion — подкласс электронных книг, указанный на пятой неделе Drawio."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio yechimiga binoan: 'EBook' raqamli mahsulot bo'lib, 'author', 'pageCount' va 'format' maydonlariga ega. Raqamli yetkazishni amalga oshiruvchi sinf tuzing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Format: \" + eb.getFormat());'",
-      "en": "📖 Real-World Scenario & Context\nEBook extends DigitalProduct with author, pageCount, and format as drawn in solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Format: \" + eb.getFormat());'"
+      "en": "📖 Real-World Scenario & Context\nEBook extends DigitalProduct with author, pageCount, and format as drawn in solution.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Format: \" + eb.getFormat());'",
+      "ru": "📖 Контекст и описание задачи\nЭлектронная книга расширяет DigitalProduct, добавляя автора, количество страниц и формат, как показано в решении.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Формат: \" + eb.getFormat());'"
     },
     "requirements": {
       "classes": [
@@ -8629,7 +10886,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Kitob: Java Guide | Muallif: Bloch | Format: PDF"
@@ -8637,7 +10900,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Kitob: Java Guide | Muallif: Bloch | Format: PDF",
     "story": {
       "uz": "Drawio yechimiga binoan: 'EBook' raqamli mahsulot bo'lib, 'author', 'pageCount' va 'format' maydonlariga ega. Raqamli yetkazishni amalga oshiruvchi sinf tuzing.",
-      "en": "EBook extends DigitalProduct with author, pageCount, and format as drawn in solution."
+      "en": "EBook extends DigitalProduct with author, pageCount, and format as drawn in solution.",
+      "ru": "Электронная книга расширяет DigitalProduct, добавляя автора, количество страниц и формат, как показано в решении."
     },
     "steps": {
       "uz": [
@@ -8653,6 +10917,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Format: \" + eb.getFormat());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'EBook eb = new EBook(\"Java Guide\", 40000.0, 15.0, \"asaxiy.uz/java-guide\", \"Bloch\", 350, \"PDF\");         System.out.println(\"Kitob: \" + eb.getName() + \" | Muallif: \" + eb.getAuthor() + \" | Формат: \" + eb.getFormat());'"
       ]
     }
   },
@@ -8663,11 +10934,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "143. Click — SoftwareLicense (Litsenziya Muddati va Qurilmalar Soni)",
-      "en": "143. Click — SoftwareLicense Model in Week 5 Drawio Architecture"
+      "en": "143. Click — SoftwareLicense Model in Week 5 Drawio Architecture",
+      "ru": "143. Нажмите — модель SoftwareLicense на пятой неделе. Архитектура Drawio."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawIO yechimida 'SoftwareLicense extends DigitalProduct' bo'lib, 'licenseKey', 'durationMonths' va 'maxDevices' maydonlariga ega. Litsenziya ma'lumotlarini chop eting.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'",
-      "en": "📖 Real-World Scenario & Context\nSoftwareLicense extends DigitalProduct adding licenseKey, durationMonths, and maxDevices.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'"
+      "en": "📖 Real-World Scenario & Context\nSoftwareLicense extends DigitalProduct adding licenseKey, durationMonths, and maxDevices.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'",
+      "ru": "📖 Контекст и описание задачи\nSoftwareLicense расширяет DigitalProduct, добавляя LicenseKey, DurationMonths и maxDevices.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'"
     },
     "requirements": {
       "classes": [
@@ -8686,7 +10959,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Litsenziya: KEY-9944-AA | Muddat: 12 oy | Qurilmalar: 3"
@@ -8694,7 +10973,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Litsenziya: KEY-9944-AA | Muddat: 12 oy | Qurilmalar: 3",
     "story": {
       "uz": "DrawIO yechimida 'SoftwareLicense extends DigitalProduct' bo'lib, 'licenseKey', 'durationMonths' va 'maxDevices' maydonlariga ega. Litsenziya ma'lumotlarini chop eting.",
-      "en": "SoftwareLicense extends DigitalProduct adding licenseKey, durationMonths, and maxDevices."
+      "en": "SoftwareLicense extends DigitalProduct adding licenseKey, durationMonths, and maxDevices.",
+      "ru": "SoftwareLicense расширяет DigitalProduct, добавляя LicenseKey, DurationMonths и maxDevices."
     },
     "steps": {
       "uz": [
@@ -8710,6 +10990,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'SoftwareLicense lic = new SoftwareLicense(\"Antivirus\", 120000.0, 200.0, \"click.uz/license/sec\", \"KEY-9944-AA\", 12, 3);         System.out.println(lic.getLicenseDetails());'"
       ]
     }
   },
@@ -8720,11 +11007,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "144. Asaxiy — OrderItem Delegatsiyasi (product.getPriceWithTax())",
-      "en": "144. Asaxiy — OrderItem Price Delegation to Product in UML"
+      "en": "144. Asaxiy — OrderItem Price Delegation to Product in UML",
+      "ru": "144. Asaxy — Делегирование цены OrderItem продукту в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 4 va 5 andazasida: 'OrderItem' mahsulot narxini o'zi hisoblamaydi, balki o'zining 'product' ob'yektiga delegatsiya qiladi ('product.getPriceWithTax()'). Delegatsiyani dasturlang.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Product book = new Product(\"Adabiyot\", 50000.0);         OrderItem item = new OrderItem(book, 3);         System.out.println(\"Qator summasi: \" + item.getLineTotal());'",
-      "en": "📖 Real-World Scenario & Context\nOrderItem delegates price inquiry to its composed Product instance as modeled in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Product book = new Product(\"Adabiyot\", 50000.0);         OrderItem item = new OrderItem(book, 3);         System.out.println(\"Qator summasi: \" + item.getLineTotal());'"
+      "en": "📖 Real-World Scenario & Context\nOrderItem delegates price inquiry to its composed Product instance as modeled in UML.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Product book = new Product(\"Adabiyot\", 50000.0);         OrderItem item = new OrderItem(book, 3);         System.out.println(\"Qator summasi: \" + item.getLineTotal());'",
+      "ru": "📖 Контекст и описание задачи\nOrderItem делегирует запрос цены составному экземпляру Product, как это смоделировано в UML.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'Книга продуктов = новый продукт («Адабиет», 50000,0);         Элемент OrderItem = новый OrderItem (книга, 3);         System.out.println(\"Сумма суммирования: \" + item.getLineTotal());'"
     },
     "requirements": {
       "classes": [
@@ -8743,7 +11032,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Qator summasi: 168000.0"
@@ -8751,7 +11046,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Qator summasi: 168000.0",
     "story": {
       "uz": "Seminar 4 va 5 andazasida: 'OrderItem' mahsulot narxini o'zi hisoblamaydi, balki o'zining 'product' ob'yektiga delegatsiya qiladi ('product.getPriceWithTax()'). Delegatsiyani dasturlang.",
-      "en": "OrderItem delegates price inquiry to its composed Product instance as modeled in UML."
+      "en": "OrderItem delegates price inquiry to its composed Product instance as modeled in UML.",
+      "ru": "OrderItem делегирует запрос цены составному экземпляру Product, как это смоделировано в UML."
     },
     "steps": {
       "uz": [
@@ -8767,6 +11063,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Product book = new Product(\"Adabiyot\", 50000.0);         OrderItem item = new OrderItem(book, 3);         System.out.println(\"Qator summasi: \" + item.getLineTotal());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'Книга продуктов = новый продукт («Адабиет», 50000,0);         Элемент OrderItem = новый OrderItem (книга, 3);         System.out.println(\"Сумма суммирования: \" + item.getLineTotal());'"
       ]
     }
   },
@@ -8777,11 +11080,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "145. Safia — Order.place() Tranzaksiyasi va Balans Yangilanishi",
-      "en": "145. Safia — Order.place() Execution and Account Balance Mutation"
+      "en": "145. Safia — Order.place() Execution and Account Balance Mutation",
+      "ru": "145. Safia — выполнение Order.place() и изменение баланса аккаунта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio da 'Order.place(): void' mijoz balansidan jami summani ayirib konsolga chek chiqaradi. Ushbu biznes logikani to'liq amalga oshiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Customer c = new Customer(\"Kamola\", 400000.0, new ShippingAddress(\"Navoiy 1\", \"Tashkent\"));         Order ord = new Order(\"ORD-77\", c);         ord.addItem(new Product(\"Tort\", 150000.0), 1);         ord.place();         System.out.println(\"Qolgan balans: \" + c.getAccountBalance());'",
-      "en": "📖 Real-World Scenario & Context\nOrder.place() deducts grand total from customer's accountBalance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Kamola\", 400000.0, new ShippingAddress(\"Navoiy 1\", \"Tashkent\"));         Order ord = new Order(\"ORD-77\", c);         ord.addItem(new Product(\"Tort\", 150000.0), 1);         ord.place();         System.out.println(\"Qolgan balans: \" + c.getAccountBalance());'"
+      "en": "📖 Real-World Scenario & Context\nOrder.place() deducts grand total from customer's accountBalance.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Kamola\", 400000.0, new ShippingAddress(\"Navoiy 1\", \"Tashkent\"));         Order ord = new Order(\"ORD-77\", c);         ord.addItem(new Product(\"Tort\", 150000.0), 1);         ord.place();         System.out.println(\"Qolgan balans: \" + c.getAccountBalance());'",
+      "ru": "📖 Контекст и описание задачи\nOrder.place() вычитает общую сумму из баланса счета клиента.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Камола\", 400000.0, новый адрес доставки(\"Навои 1\", \"Ташкент\");         Заказ ord = новый Заказ(\"ОРД-77\", c);         ord.addItem(новый товар(\"Торт\", 150000.0), 1);         орд.место();         System.out.println(\"Балансы Qolgan: \" + c.getAccountBalance());'"
     },
     "requirements": {
       "classes": [
@@ -8800,7 +11105,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Qolgan balans: 232000.0"
@@ -8808,7 +11119,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Qolgan balans: 232000.0",
     "story": {
       "uz": "Drawio da 'Order.place(): void' mijoz balansidan jami summani ayirib konsolga chek chiqaradi. Ushbu biznes logikani to'liq amalga oshiring.",
-      "en": "Order.place() deducts grand total from customer's accountBalance."
+      "en": "Order.place() deducts grand total from customer's accountBalance.",
+      "ru": "Order.place() вычитает общую сумму из баланса счета клиента."
     },
     "steps": {
       "uz": [
@@ -8824,6 +11136,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Customer c = new Customer(\"Kamola\", 400000.0, new ShippingAddress(\"Navoiy 1\", \"Tashkent\"));         Order ord = new Order(\"ORD-77\", c);         ord.addItem(new Product(\"Tort\", 150000.0), 1);         ord.place();         System.out.println(\"Qolgan balans: \" + c.getAccountBalance());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Камола\", 400000.0, новый адрес доставки(\"Навои 1\", \"Ташкент\");         Заказ ord = новый Заказ(\"ОРД-77\", c);         ord.addItem(новый товар(\"Торт\", 150000.0), 1);         орд.место();         System.out.println(\"Балансы Qolgan: \" + c.getAccountBalance());'"
       ]
     }
   },
@@ -8834,11 +11153,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "146. Dodo Pizza — Order.printSummary() Kvitansiya Xulosasi",
-      "en": "146. Dodo Pizza — Order.printSummary() Formatted Receipt in UML"
+      "en": "146. Dodo Pizza — Order.printSummary() Formatted Receipt in UML",
+      "ru": "146. Додо Пицца — квитанция в формате Order.printSummary() в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio diagrammasida 'Order' klassi '+ printSummary(): void' metodiga ega bo'lib, buyurtma kodi, mijoz ismi, qatorlar va yakuniy summani chiroyli chiqaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Customer c = new Customer(\"Rustam\", 300000.0, new ShippingAddress(\"Bobur 4\", \"Tashkent\"));         Order ord = new Order(\"DODO-101\", c);         ord.addItem(new Product(\"Pitsa\", 70000.0), 2);         ord.printSummary();'",
-      "en": "📖 Real-World Scenario & Context\nImplement '+ printSummary(): void' printing formatted order invoice.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Rustam\", 300000.0, new ShippingAddress(\"Bobur 4\", \"Tashkent\"));         Order ord = new Order(\"DODO-101\", c);         ord.addItem(new Product(\"Pitsa\", 70000.0), 2);         ord.printSummary();'"
+      "en": "📖 Real-World Scenario & Context\nImplement '+ printSummary(): void' printing formatted order invoice.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Rustam\", 300000.0, new ShippingAddress(\"Bobur 4\", \"Tashkent\"));         Order ord = new Order(\"DODO-101\", c);         ord.addItem(new Product(\"Pitsa\", 70000.0), 2);         ord.printSummary();'",
+      "ru": "📖 Контекст и описание задачи\nРеализовать '+ printSummary(): void' для печати отформатированного счета-фактуры заказа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Рустам\", 300000.0, новый адрес доставки(\"Бобур 4\", \"Ташкент\");         Заказ ord = новый заказ(\"ДОДО-101\", c);         ord.addItem(новый товар(\"Пица\", 70000.0), 2);         ord.printSummary();'"
     },
     "requirements": {
       "classes": [
@@ -8857,7 +11178,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Order DODO-101 for Rustam | Total: 156800.0"
@@ -8865,7 +11192,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Order DODO-101 for Rustam | Total: 156800.0",
     "story": {
       "uz": "Drawio diagrammasida 'Order' klassi '+ printSummary(): void' metodiga ega bo'lib, buyurtma kodi, mijoz ismi, qatorlar va yakuniy summani chiroyli chiqaradi.",
-      "en": "Implement '+ printSummary(): void' printing formatted order invoice."
+      "en": "Implement '+ printSummary(): void' printing formatted order invoice.",
+      "ru": "Реализовать '+ printSummary(): void' для печати отформатированного счета-фактуры заказа."
     },
     "steps": {
       "uz": [
@@ -8881,6 +11209,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Customer c = new Customer(\"Rustam\", 300000.0, new ShippingAddress(\"Bobur 4\", \"Tashkent\"));         Order ord = new Order(\"DODO-101\", c);         ord.addItem(new Product(\"Pitsa\", 70000.0), 2);         ord.printSummary();'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Рустам\", 300000.0, новый адрес доставки(\"Бобур 4\", \"Ташкент\");         Заказ ord = новый заказ(\"ДОДО-101\", c);         ord.addItem(новый товар(\"Пица\", 70000.0), 2);         ord.printSummary();'"
       ]
     }
   },
@@ -8891,11 +11226,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "147. Texnomart — RunOrder Asosiy Kirish Nuqtasi (<u>main()</u>)",
-      "en": "147. Texnomart — RunOrder Entry Point Class from Drawio Model"
+      "en": "147. Texnomart — RunOrder Entry Point Class from Drawio Model",
+      "ru": "147. Texnomart — класс точки входа RunOrder из модели Drawio"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio diagrammasida ikkinchi kirish nuqtasi 'RunOrder' klassi bo'lib, unda '+ <u>main(args: String[]): void</u>' statik metodi ko'rsatilgan. To'liq buyurtma oqimini ishga tushiring.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'ShippingAddress addr = new ShippingAddress(\"Sayilgoh 5\", \"Tashkent\");         Customer cust = new Customer(\"Jamshid\", 1200000.0, addr);         Order ord = new Order(\"ORD-TEX\", cust);         ord.addItem(new Product(\"Changyutgich\", 400000.0), 1);         ord.place();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'",
-      "en": "📖 Real-World Scenario & Context\nRunOrder is specified in the drawio solution as the composition entry point.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress addr = new ShippingAddress(\"Sayilgoh 5\", \"Tashkent\");         Customer cust = new Customer(\"Jamshid\", 1200000.0, addr);         Order ord = new Order(\"ORD-TEX\", cust);         ord.addItem(new Product(\"Changyutgich\", 400000.0), 1);         ord.place();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'"
+      "en": "📖 Real-World Scenario & Context\nRunOrder is specified in the drawio solution as the composition entry point.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress addr = new ShippingAddress(\"Sayilgoh 5\", \"Tashkent\");         Customer cust = new Customer(\"Jamshid\", 1200000.0, addr);         Order ord = new Order(\"ORD-TEX\", cust);         ord.addItem(new Product(\"Changyutgich\", 400000.0), 1);         ord.place();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'",
+      "ru": "📖 Контекст и описание задачи\nRunOrder указан в решении drawio как точка входа композиции.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'ShippingAddress addr = new ShippingAddress(\"Сайилгох 5\", \"Ташкент\");         Клиент cust = новый Клиент(\"Джамшид\", 1200000.0, адрес);         Заказ ord = новый заказ(\"ORD-TEX\", cust);         ord.addItem(новый товар(\"Чангютгич\", 400000.0), 1);         орд.место();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'"
     },
     "requirements": {
       "classes": [
@@ -8914,7 +11251,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Buyurtma muvaffaqiyatli: ORD-TEX | Qoldiq: 752000.0"
@@ -8922,7 +11265,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Buyurtma muvaffaqiyatli: ORD-TEX | Qoldiq: 752000.0",
     "story": {
       "uz": "Drawio diagrammasida ikkinchi kirish nuqtasi 'RunOrder' klassi bo'lib, unda '+ <u>main(args: String[]): void</u>' statik metodi ko'rsatilgan. To'liq buyurtma oqimini ishga tushiring.",
-      "en": "RunOrder is specified in the drawio solution as the composition entry point."
+      "en": "RunOrder is specified in the drawio solution as the composition entry point.",
+      "ru": "RunOrder указан в решении drawio как точка входа композиции."
     },
     "steps": {
       "uz": [
@@ -8938,6 +11282,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'ShippingAddress addr = new ShippingAddress(\"Sayilgoh 5\", \"Tashkent\");         Customer cust = new Customer(\"Jamshid\", 1200000.0, addr);         Order ord = new Order(\"ORD-TEX\", cust);         ord.addItem(new Product(\"Changyutgich\", 400000.0), 1);         ord.place();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'ShippingAddress addr = new ShippingAddress(\"Сайилгох 5\", \"Ташкент\");         Клиент cust = новый Клиент(\"Джамшид\", 1200000.0, адрес);         Заказ ord = новый заказ(\"ORD-TEX\", cust);         ord.addItem(новый товар(\"Чангютгич\", 400000.0), 1);         орд.место();         System.out.println(\"Buyurtma muvaffaqiyatli: \" + ord.getOrderId() + \" | Qoldiq: \" + cust.getAccountBalance());'"
       ]
     }
   },
@@ -8948,11 +11299,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "148. UzAirways — Customer Manzil Yorliqlari To'plami (getAddressLabels())",
-      "en": "148. UzAirways — Customer getAddressLabels() Set Extraction in UML"
+      "en": "148. UzAirways — Customer getAddressLabels() Set Extraction in UML",
+      "ru": "148. UzAirways — Извлечение набора клиентов getAddressLabels() в UML"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio da 'Customer' klassi '+ getAddressLabels(): Set<String>' metodiga ega. Mijoz saqlagan barcha manzil teglari to'plamini qaytaruvchi metod yozing.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Customer c = new Customer(\"Dilshod\", 900000.0, new ShippingAddress(\"Aeroport\", \"Tashkent\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Chilonzor\", \"Tashkent\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Shota Rustaveli\", \"Tashkent\"));         System.out.println(\"Manzil teglari: \" + c.getAddressLabels());'",
-      "en": "📖 Real-World Scenario & Context\nCustomer provides '+ getAddressLabels(): Set<String>' returning set of keys.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Dilshod\", 900000.0, new ShippingAddress(\"Aeroport\", \"Tashkent\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Chilonzor\", \"Tashkent\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Shota Rustaveli\", \"Tashkent\"));         System.out.println(\"Manzil teglari: \" + c.getAddressLabels());'"
+      "en": "📖 Real-World Scenario & Context\nCustomer provides '+ getAddressLabels(): Set<String>' returning set of keys.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Dilshod\", 900000.0, new ShippingAddress(\"Aeroport\", \"Tashkent\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Chilonzor\", \"Tashkent\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Shota Rustaveli\", \"Tashkent\"));         System.out.println(\"Manzil teglari: \" + c.getAddressLabels());'",
+      "ru": "📖 Контекст и описание задачи\nКлиент предоставляет '+ getAddressLabels(): Set<String>', возвращающий набор ключей.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Дилшод\", 900000.0, новый адрес доставки(\"Аэропорт\", \"Ташкент\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Чиланзор\", \"Ташкент\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Шота Руставели\", \"Ташкент\");         System.out.println(\"Управление тегами: \" + c.getAddressLabels());'"
     },
     "requirements": {
       "classes": [
@@ -8971,7 +11324,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Manzil teglari: [uy, ish]"
@@ -8979,7 +11338,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Manzil teglari: [uy, ish]",
     "story": {
       "uz": "Drawio da 'Customer' klassi '+ getAddressLabels(): Set<String>' metodiga ega. Mijoz saqlagan barcha manzil teglari to'plamini qaytaruvchi metod yozing.",
-      "en": "Customer provides '+ getAddressLabels(): Set<String>' returning set of keys."
+      "en": "Customer provides '+ getAddressLabels(): Set<String>' returning set of keys.",
+      "ru": "Клиент предоставляет '+ getAddressLabels(): Set<String>', возвращающий набор ключей."
     },
     "steps": {
       "uz": [
@@ -8995,6 +11355,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Customer c = new Customer(\"Dilshod\", 900000.0, new ShippingAddress(\"Aeroport\", \"Tashkent\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Chilonzor\", \"Tashkent\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Shota Rustaveli\", \"Tashkent\"));         System.out.println(\"Manzil teglari: \" + c.getAddressLabels());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'Клиент c = новый клиент(\"Дилшод\", 900000.0, новый адрес доставки(\"Аэропорт\", \"Ташкент\"));         c.addDeliveryAddress(\"uy\", new ShippingAddress(\"Чиланзор\", \"Ташкент\"));         c.addDeliveryAddress(\"ish\", new ShippingAddress(\"Шота Руставели\", \"Ташкент\");         System.out.println(\"Управление тегами: \" + c.getAddressLabels());'"
       ]
     }
   },
@@ -9005,11 +11372,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "149. Kapitalbank — Customer useDeliveryAddress(label) Boshqaruvi",
-      "en": "149. Kapitalbank — Active Address Selection in Customer UML Model"
+      "en": "149. Kapitalbank — Active Address Selection in Customer UML Model",
+      "ru": "149. Капиталбанк — Активный выбор адреса в модели UML клиента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDrawio da 'Customer.useDeliveryAddress(label: String): boolean' saqlangan xaritadan teg bo'yicha manzilni tanlab joriy manzilga o'rnatadi. To'g'ri o'rnatilganini ko'rsating.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'Customer c = new Customer(\"Farhod\", 800000.0, new ShippingAddress(\"Boshlang'ich\", \"Tashkent\"));         c.addDeliveryAddress(\"filial\", new ShippingAddress(\"Registon 10\", \"Samarkand\"));         boolean changed = c.useDeliveryAddress(\"filial\");         System.out.println(\"Manzil almashtirildimi: \" + changed + \" | Yangi shahar: \" + c.getShippingAddress().getCity());'",
-      "en": "📖 Real-World Scenario & Context\nuseDeliveryAddress(label) switches shippingAddress to the saved destination.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Farhod\", 800000.0, new ShippingAddress(\"Boshlang'ich\", \"Tashkent\"));         c.addDeliveryAddress(\"filial\", new ShippingAddress(\"Registon 10\", \"Samarkand\"));         boolean changed = c.useDeliveryAddress(\"filial\");         System.out.println(\"Manzil almashtirildimi: \" + changed + \" | Yangi shahar: \" + c.getShippingAddress().getCity());'"
+      "en": "📖 Real-World Scenario & Context\nuseDeliveryAddress(label) switches shippingAddress to the saved destination.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'Customer c = new Customer(\"Farhod\", 800000.0, new ShippingAddress(\"Boshlang'ich\", \"Tashkent\"));         c.addDeliveryAddress(\"filial\", new ShippingAddress(\"Registon 10\", \"Samarkand\"));         boolean changed = c.useDeliveryAddress(\"filial\");         System.out.println(\"Manzil almashtirildimi: \" + changed + \" | Yangi shahar: \" + c.getShippingAddress().getCity());'",
+      "ru": "📖 Контекст и описание задачи\nuseDeliveryAddress(label) переключает ShippingAddress на сохраненный пункт назначения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатайте подтвержденный счет: 'Клиент c = новый клиент(\"Фарход\", 800000.0, новый адрес доставки(\"Бошлангич\", \"Ташкент\"));         c.addDeliveryAddress(\"филиал\", new ShippingAddress(\"Регистон 10\", \"Самарканд\"));         логическое значение изменено = c.useDeliveryAddress(\"филиал\");         System.out.println(\"Manzil almashtirildimi: \" + изменено + \" | Янги шахар: \" + c.getShippingAddress().getCity());'"
     },
     "requirements": {
       "classes": [
@@ -9028,7 +11397,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Manzil almashtirildimi: true | Yangi shahar: Samarkand"
@@ -9036,7 +11411,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Manzil almashtirildimi: true | Yangi shahar: Samarkand",
     "story": {
       "uz": "Drawio da 'Customer.useDeliveryAddress(label: String): boolean' saqlangan xaritadan teg bo'yicha manzilni tanlab joriy manzilga o'rnatadi. To'g'ri o'rnatilganini ko'rsating.",
-      "en": "useDeliveryAddress(label) switches shippingAddress to the saved destination."
+      "en": "useDeliveryAddress(label) switches shippingAddress to the saved destination.",
+      "ru": "useDeliveryAddress(label) переключает ShippingAddress на сохраненный пункт назначения."
     },
     "steps": {
       "uz": [
@@ -9052,6 +11428,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'Customer c = new Customer(\"Farhod\", 800000.0, new ShippingAddress(\"Boshlang'ich\", \"Tashkent\"));         c.addDeliveryAddress(\"filial\", new ShippingAddress(\"Registon 10\", \"Samarkand\"));         boolean changed = c.useDeliveryAddress(\"filial\");         System.out.println(\"Manzil almashtirildimi: \" + changed + \" | Yangi shahar: \" + c.getShippingAddress().getCity());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатайте подтвержденный счет: 'Клиент c = новый клиент(\"Фарход\", 800000.0, новый адрес доставки(\"Бошлангич\", \"Ташкент\"));         c.addDeliveryAddress(\"филиал\", new ShippingAddress(\"Регистон 10\", \"Самарканд\"));         логическое значение изменено = c.useDeliveryAddress(\"филиал\");         System.out.println(\"Manzil almashtirildimi: \" + изменено + \" | Янги шахар: \" + c.getShippingAddress().getCity());'"
       ]
     }
   },
@@ -9062,11 +11445,13 @@ window.OOP_CHALLENGES_W5 = [
     "sector": "136-150: OOP_Week5_UML_ClassDiagram_solution.drawio Modeli",
     "title": {
       "uz": "150. WIUT — Week 5 UML Class Diagram & CW2 Master Arxitekturasi",
-      "en": "150. WIUT — Week 5 UML Class Diagram & CW2 Master Culmination"
+      "en": "150. WIUT — Week 5 UML Class Diagram & CW2 Master Culmination",
+      "ru": "150. WIUT — Неделя 5. Диаграмма классов UML и мастер-класс CW2."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Week 5 dagi 'OOP_Week5_UML_ClassDiagram_solution.drawio' diagrammasining eng to'liq gultoji: Product, OrderItem, Customer, Order, ShippingAddress barcha munosabatlari va metodlari bilan bir tizimga keltiriladi. CW2 100 ballik arxitekturasi namoyon bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. UML Class diagrammasidagi 'Product' sinfini e'lon qiling ('getPriceWithTax()').\n2. Tegishli 'Customer' (name, balance, shippingAddress) va 'Order' (items, place()) sinflarini qo'shing.\n3. Seminar 4 va 5 andazasi bo'yicha tovarlar, qatorlar va yetkazish narxlarini hisoblang.\n4. 'Main' metodida buyurtmani rasmiylashtirib konsolga chek chiqaring.\n5. Natijani chop eting: 'ShippingAddress home = new ShippingAddress(\"12 Istiqbol St\", \"Tashkent\");         Customer student = new Customer(\"00012345 Aziz\", 1500000.0, home);         student.addDeliveryAddress(\"campus\", new ShippingAddress(\"WIUT Campus Library\", \"Tashkent\"));         student.useDeliveryAddress(\"campus\");         Order finalOrder = new Order(\"WIUT-CW2-GOLD\", student);         Product javaBook = new Product(\"Java Design Patterns\", 200000.0);         finalOrder.addItem(javaBook, 2);         finalOrder.place();         System.out.println(\"Yakuniy CW2 buyurtma: \" + finalOrder.getOrderId() + \" | Yetkazish joyi: \" + student.getShippingAddress().getStreet() + \" | Qoldiq: \" + student.getAccountBalance());'",
-      "en": "📖 Real-World Scenario & Context\nThe crowning milestone implementing the entire Week 5 UML Class Diagram drawio architecture.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"12 Istiqbol St\", \"Tashkent\");         Customer student = new Customer(\"00012345 Aziz\", 1500000.0, home);         student.addDeliveryAddress(\"campus\", new ShippingAddress(\"WIUT Campus Library\", \"Tashkent\"));         student.useDeliveryAddress(\"campus\");         Order finalOrder = new Order(\"WIUT-CW2-GOLD\", student);         Product javaBook = new Product(\"Java Design Patterns\", 200000.0);         finalOrder.addItem(javaBook, 2);         finalOrder.place();         System.out.println(\"Yakuniy CW2 buyurtma: \" + finalOrder.getOrderId() + \" | Yetkazish joyi: \" + student.getShippingAddress().getStreet() + \" | Qoldiq: \" + student.getAccountBalance());'"
+      "en": "📖 Real-World Scenario & Context\nThe crowning milestone implementing the entire Week 5 UML Class Diagram drawio architecture.\n\n📋 Required Implementation Steps (1 to 5)\n1. Implement 'Product' class specified in Week 5 drawio diagram.\n2. Add 'Customer' and 'Order' handling composed OrderItems.\n3. Calculate VAT and delivery charges matching Seminar 4/5.\n4. Execute order placement in 'main'.\n5. Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"12 Istiqbol St\", \"Tashkent\");         Customer student = new Customer(\"00012345 Aziz\", 1500000.0, home);         student.addDeliveryAddress(\"campus\", new ShippingAddress(\"WIUT Campus Library\", \"Tashkent\"));         student.useDeliveryAddress(\"campus\");         Order finalOrder = new Order(\"WIUT-CW2-GOLD\", student);         Product javaBook = new Product(\"Java Design Patterns\", 200000.0);         finalOrder.addItem(javaBook, 2);         finalOrder.place();         System.out.println(\"Yakuniy CW2 buyurtma: \" + finalOrder.getOrderId() + \" | Yetkazish joyi: \" + student.getShippingAddress().getStreet() + \" | Qoldiq: \" + student.getAccountBalance());'",
+      "ru": "📖 Контекст и описание задачи\nВенчающий этап реализации всей архитектуры Drawio UML-диаграммы классов пятой недели.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте класс «Продукт», указанный на диаграмме недели 5.\n2. Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.\n3. Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.\n4. Выполните размещение заказа в «главном».\n5. Распечатать подтвержденный счет: 'ShippingAddress home = new ShippingAddress(\"ул. Истикбол, 12\", \"Ташкент\");         Клиент-студент = новый клиент(\"00012345 Азиз\", 1500000.0, домашний);         Student.addDeliveryAddress(\"campus\", new ShippingAddress(\"Библиотека кампуса МВУТ\", \"Ташкент\");         Student.useDeliveryAddress(\"кампус\");         Заказ FinalOrder = новый заказ («WIUT-CW2-GOLD», студент);         Product javaBook = новый продукт(\"Шаблоны проектирования Java\", 200000.0);         FinalOrder.addItem(javaBook, 2);         FinalOrder.place();         System.out.println(\"Якуний CW2 buyurtma: \" + FinalOrder.getOrderId() + \" | Йетказиш радостьи: \" + Student.getShippingAddress().getStreet() + \" | Qoldiq: \" + Student.getAccountBalance());'"
     },
     "requirements": {
       "classes": [
@@ -9085,7 +11470,13 @@ window.OOP_CHALLENGES_W5 = [
         "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
       ],
       "pitfalls": "UML diagrammasidagi munosabat belgilarini chalkashtirish — masalan, Generalization o'rniga Dependency yoki Aggregation o'rniga Composition chizish qat'iy xato sanaladi.",
-      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!"
+      "cw2Tip": "Ushbu sinflar kodi sizning Coursework 2 da 100% natijaga erishishingiz uchun rasmiy kafolatdir!",
+      "theoryRu": "Решение Drawio UML Class Diagram для недели 5 инкапсулирует полную архитектуру предприятия Курсовой работы 2: иерархию продуктов, агрегацию клиентов, композицию OrderItem и автоматизированную проверку.",
+      "pitfallsRu": "UML-диаграммамасидаги муносабат бельгиларини чалкаштириш — масалан, Обобщение или зависимость, йоки Агрегация, состав, чизиш кат'ий хато саналади.",
+      "breakdownRu": [
+        "<code>OOP_Week5_UML_ClassDiagram_solution.drawio</code>: to'liq rasmiy yechim klasslari.",
+        "<code>Order.place()</code>: balansdan avtomatik to'lov yechilishi."
+      ]
     },
     "sampleData": [
       "Yakuniy CW2 buyurtma: WIUT-CW2-GOLD | Yetkazish joyi: WIUT Campus Library | Qoldiq: 1052000.0"
@@ -9093,7 +11484,8 @@ window.OOP_CHALLENGES_W5 = [
     "expectedOutput": "Yakuniy CW2 buyurtma: WIUT-CW2-GOLD | Yetkazish joyi: WIUT Campus Library | Qoldiq: 1052000.0",
     "story": {
       "uz": "WIUT Week 5 dagi 'OOP_Week5_UML_ClassDiagram_solution.drawio' diagrammasining eng to'liq gultoji: Product, OrderItem, Customer, Order, ShippingAddress barcha munosabatlari va metodlari bilan bir tizimga keltiriladi. CW2 100 ballik arxitekturasi namoyon bo'ladi.",
-      "en": "The crowning milestone implementing the entire Week 5 UML Class Diagram drawio architecture."
+      "en": "The crowning milestone implementing the entire Week 5 UML Class Diagram drawio architecture.",
+      "ru": "Венчающий этап реализации всей архитектуры Drawio UML-диаграммы классов пятой недели."
     },
     "steps": {
       "uz": [
@@ -9109,6 +11501,13 @@ window.OOP_CHALLENGES_W5 = [
         "Calculate VAT and delivery charges matching Seminar 4/5.",
         "Execute order placement in 'main'.",
         "Print verified invoice: 'ShippingAddress home = new ShippingAddress(\"12 Istiqbol St\", \"Tashkent\");         Customer student = new Customer(\"00012345 Aziz\", 1500000.0, home);         student.addDeliveryAddress(\"campus\", new ShippingAddress(\"WIUT Campus Library\", \"Tashkent\"));         student.useDeliveryAddress(\"campus\");         Order finalOrder = new Order(\"WIUT-CW2-GOLD\", student);         Product javaBook = new Product(\"Java Design Patterns\", 200000.0);         finalOrder.addItem(javaBook, 2);         finalOrder.place();         System.out.println(\"Yakuniy CW2 buyurtma: \" + finalOrder.getOrderId() + \" | Yetkazish joyi: \" + student.getShippingAddress().getStreet() + \" | Qoldiq: \" + student.getAccountBalance());'"
+      ],
+      "ru": [
+        "Реализуйте класс «Продукт», указанный на диаграмме недели 5.",
+        "Добавьте обработку «Клиент» и «Заказ», состоящую из элементов заказа.",
+        "Рассчитайте НДС и стоимость доставки в соответствии с семинаром 4/5.",
+        "Выполните размещение заказа в «главном».",
+        "Распечатать подтвержденный счет: 'ShippingAddress home = new ShippingAddress(\"ул. Истикбол, 12\", \"Ташкент\");         Клиент-студент = новый клиент(\"00012345 Азиз\", 1500000.0, домашний);         Student.addDeliveryAddress(\"campus\", new ShippingAddress(\"Библиотека кампуса МВУТ\", \"Ташкент\");         Student.useDeliveryAddress(\"кампус\");         Заказ FinalOrder = новый заказ («WIUT-CW2-GOLD», студент);         Product javaBook = новый продукт(\"Шаблоны проектирования Java\", 200000.0);         FinalOrder.addItem(javaBook, 2);         FinalOrder.place();         System.out.println(\"Якуний CW2 buyurtma: \" + FinalOrder.getOrderId() + \" | Йетказиш радостьи: \" + Student.getShippingAddress().getStreet() + \" | Qoldiq: \" + Student.getAccountBalance());'"
       ]
     }
   }

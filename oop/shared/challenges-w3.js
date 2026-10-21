@@ -1,8 +1,6 @@
 // WIUT OOP (5COSC018C) — WEEK 3 DATASET (150 PROGRESSIVE CHALLENGES)
-// 10 Progressive Tiers covering Inheritance, extends, super(...), Constructor Chaining,
-// Private Superclass Access, Method Overriding (@Override), super.method(), Multi-Level
-// Hierarchies, Dynamic Dispatch & Polymorphism, Collections, and CW2 Architecture.
-window.OOP_CHALLENGES_W3 = [
+// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
+(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W3 = [
   {
     "id": 1,
     "tier": 1,
@@ -10,15 +8,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "1. Uzum Market — Person va Customer Merosxo'rligi",
-      "en": "1. Uzum Market — Person and Customer Inheritance"
+      "en": "1. Uzum Market — Person and Customer Inheritance",
+      "ru": "1. Рынок Узум — наследование человека и клиента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nUzum Market elektron tijorat tizimida barcha foydalanuvchilar 'Person' (shaxs) hisoblanadi. Xarid qiluvchi mijoz esa shaxsning xususiy ko'rinishidir ('Customer is-a Person'). 'Customer' klassini 'Person' dan meros oling.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Person' ni e'lon qiling va unga 'private String fullName;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Customer' ni yarating va 'extends Person' orqali ota sinfdan meros oling.\n\n3. 'Customer' ga xususiy 'private String customerCode;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Customer obj = new Customer();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Customer c = new Customer(); c.setFullName(\"Ali Valiyev\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Kod: \" + c.getCustomerCode());'",
-      "en": "📖 Real-World Scenario & Context\nOn Uzum Market, shoppers represent specialized persons (Customer is-a Person). Derive Customer from Person using extends.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with 'private String fullName;' and public getter/setter.\n\n2. Create subclass 'Customer' extending 'Person' via 'extends Person'.\n\n3. Add field 'private String customerCode;' and getter/setter to 'Customer'.\n\n4. Instantiate 'Customer obj = new Customer();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Customer c = new Customer(); c.setFullName(\"Ali Valiyev\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Kod: \" + c.getCustomerCode());'"
+      "en": "📖 Real-World Scenario & Context\nOn Uzum Market, shoppers represent specialized persons (Customer is-a Person). Derive Customer from Person using extends.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with 'private String fullName;' and public getter/setter.\n\n2. Create subclass 'Customer' extending 'Person' via 'extends Person'.\n\n3. Add field 'private String customerCode;' and getter/setter to 'Customer'.\n\n4. Instantiate 'Customer obj = new Customer();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Customer c = new Customer(); c.setFullName(\"Ali Valiyev\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Kod: \" + c.getCustomerCode());'",
+      "ru": "📖 Контекст и описание задачи\nНа рынке Узум покупатели представляют собой специализированных лиц (Клиент-человек). Выведите Customer из Person, используя расширения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Человек» с «частной строкой полного имени»; и публичный геттер/сеттер.\n2. Создайте подкласс «Клиент», расширяющий «Человек» через «extends Person».\n3. Добавьте поле «частная строка customerCode;» и метод получения/установки для «Клиент».\n4. Создайте экземпляр «Customer obj = new Customer();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Customer c = new Customer(); c.setFullName(\"Али Валиев\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Код: \" + c.getCustomerCode());'"
     },
     "story": {
       "uz": "Uzum Market elektron tijorat tizimida barcha foydalanuvchilar 'Person' (shaxs) hisoblanadi. Xarid qiluvchi mijoz esa shaxsning xususiy ko'rinishidir ('Customer is-a Person'). 'Customer' klassini 'Person' dan meros oling.",
-      "en": "On Uzum Market, shoppers represent specialized persons (Customer is-a Person). Derive Customer from Person using extends."
+      "en": "On Uzum Market, shoppers represent specialized persons (Customer is-a Person). Derive Customer from Person using extends.",
+      "ru": "На рынке Узум покупатели представляют собой специализированных лиц (Клиент-человек). Выведите Customer из Person, используя расширения."
     },
     "steps": {
       "uz": [
@@ -34,6 +35,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String customerCode;' and getter/setter to 'Customer'.",
         "Instantiate 'Customer obj = new Customer();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Customer c = new Customer(); c.setFullName(\"Ali Valiyev\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Kod: \" + c.getCustomerCode());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Человек» с «частной строкой полного имени»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Клиент», расширяющий «Человек» через «extends Person».",
+        "Добавьте поле «частная строка customerCode;» и метод получения/установки для «Клиент».",
+        "Создайте экземпляр «Customer obj = new Customer();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Customer c = new Customer(); c.setFullName(\"Али Валиев\"); c.setCustomerCode(\"UZM-771\"); System.out.println(\"Mijoz: \" + c.getFullName() + \" | Код: \" + c.getCustomerCode());'"
       ]
     },
     "requirements": {
@@ -64,7 +72,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Person</code>: 'Person' ota klassining barcha ochiq metodlarini 'Customer' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "'extends' so'zidan keyin faqat bitta ota klass yozilishi mumkin; Java ko'p karrali merosxo'rlikni (multiple class inheritance) qo'llab-quvvatlamaydi.",
-      "cw2Tip": "CW2 Console Order Applicationda mijozlar va xodimlar umumiy User klassidan meros olishi toza arxitektura hisoblanadi."
+      "cw2Tip": "CW2 Console Order Applicationda mijozlar va xodimlar umumiy User klassidan meros olishi toza arxitektura hisoblanadi.",
+      "theoryRu": "Наследование моделирует отношение «is-a» с использованием «extends», позволяя подклассу наследовать доступные поля и методы из суперкласса.",
+      "pitfallsRu": "'расширяет' so'zidan keyin faqat bitta ota klass yozilishi mumkin; Java ko'p karrali merosxo'rlikni (множественное наследование классов) qo'llab-quvvatlamaydi.",
+      "breakdownRu": [
+        "<code>extends Person</code>: 'Person' ota klassining barcha ochiq metodlarini 'Customer' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -74,15 +87,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "2. Payme Wallet — Account va SavingsAccount Merosxo'rligi",
-      "en": "2. Payme Wallet — Account and SavingsAccount Hierarchy"
+      "en": "2. Payme Wallet — Account and SavingsAccount Hierarchy",
+      "ru": "2. Payme Wallet — иерархия счетов и сберегательных счетов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme ilovasida oddiy hisob ('Account') bazaviy balansga ega. Jamg'arma hisobi esa uning maxsus turi bo'lib ('SavingsAccount is-a Account'), unga omonat maqsadi qo'shiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni e'lon qiling va unga 'private double balance;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'SavingsAccount' ni yarating va 'extends Account' orqali ota sinfdan meros oling.\n\n3. 'SavingsAccount' ga xususiy 'private String targetGoal;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'SavingsAccount obj = new SavingsAccount();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Yangi Noutbuk\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" so'm | Maqsad: \" + sa.getTargetGoal());'",
-      "en": "📖 Real-World Scenario & Context\nIn Payme, savings accounts specialize base accounts by tracking a savings goal target string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with 'private double balance;' and public getter/setter.\n\n2. Create subclass 'SavingsAccount' extending 'Account' via 'extends Account'.\n\n3. Add field 'private String targetGoal;' and getter/setter to 'SavingsAccount'.\n\n4. Instantiate 'SavingsAccount obj = new SavingsAccount();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Yangi Noutbuk\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" so'm | Maqsad: \" + sa.getTargetGoal());'"
+      "en": "📖 Real-World Scenario & Context\nIn Payme, savings accounts specialize base accounts by tracking a savings goal target string.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with 'private double balance;' and public getter/setter.\n\n2. Create subclass 'SavingsAccount' extending 'Account' via 'extends Account'.\n\n3. Add field 'private String targetGoal;' and getter/setter to 'SavingsAccount'.\n\n4. Instantiate 'SavingsAccount obj = new SavingsAccount();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Yangi Noutbuk\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" so'm | Maqsad: \" + sa.getTargetGoal());'",
+      "ru": "📖 Контекст и описание задачи\nВ Payme сберегательные счета специализируются на базовых счетах, отслеживая целевую строку сбережений.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявить суперкласс «Учетная запись» с «частным двойным балансом»; и публичный геттер/сеттер.\n2. Создайте подкласс SavingsAccount, расширяющий «Счет» с помощью «расширяет учетную запись».\n3. Добавьте поле «частная строка targetGoal;» и метод получения/установки для SavingsAccount.\n4. Создать экземпляр 'SavingsAccount obj = new SavingsAccount();' в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Ноутбук Янги\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" так что я | Maqsad: \" + sa.getTargetGoal());'"
     },
     "story": {
       "uz": "Payme ilovasida oddiy hisob ('Account') bazaviy balansga ega. Jamg'arma hisobi esa uning maxsus turi bo'lib ('SavingsAccount is-a Account'), unga omonat maqsadi qo'shiladi.",
-      "en": "In Payme, savings accounts specialize base accounts by tracking a savings goal target string."
+      "en": "In Payme, savings accounts specialize base accounts by tracking a savings goal target string.",
+      "ru": "В Payme сберегательные счета специализируются на базовых счетах, отслеживая целевую строку сбережений."
     },
     "steps": {
       "uz": [
@@ -98,6 +114,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String targetGoal;' and getter/setter to 'SavingsAccount'.",
         "Instantiate 'SavingsAccount obj = new SavingsAccount();' in 'main'.",
         "Invoke inherited and specialized accessors: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Yangi Noutbuk\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" so'm | Maqsad: \" + sa.getTargetGoal());'"
+      ],
+      "ru": [
+        "Объявить суперкласс «Учетная запись» с «частным двойным балансом»; и публичный геттер/сеттер.",
+        "Создайте подкласс SavingsAccount, расширяющий «Счет» с помощью «расширяет учетную запись».",
+        "Добавьте поле «частная строка targetGoal;» и метод получения/установки для SavingsAccount.",
+        "Создать экземпляр 'SavingsAccount obj = new SavingsAccount();' в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'SavingsAccount sa = new SavingsAccount(); sa.setBalance(500000.0); sa.setTargetGoal(\"Ноутбук Янги\"); System.out.println(\"Jamg'arma: \" + sa.getBalance() + \" так что я | Maqsad: \" + sa.getTargetGoal());'"
       ]
     },
     "requirements": {
@@ -128,7 +151,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Account</code>: 'Account' ota klassining barcha ochiq metodlarini 'SavingsAccount' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Avlod klassda ota klassning 'balance' maydonini qayta e'lon qilmang, u meros qilib olinadi.",
-      "cw2Tip": "Moliyaviy modellarda turli hisob turlarini umumiy Account klassidan meros qilib tuzing."
+      "cw2Tip": "Moliyaviy modellarda turli hisob turlarini umumiy Account klassidan meros qilib tuzing.",
+      "theoryRu": "Подклассы наследуют все общедоступные методы суперкласса, устраняя избыточный код в вариантах специализированных учетных записей.",
+      "pitfallsRu": "Avlod classa ota classing 'balance' maydonini qayta e'lon qilmang, u meros qilib olinadi.",
+      "breakdownRu": [
+        "<code>extends Account</code>: 'Account' ota klassining barcha ochiq metodlarini 'SavingsAccount' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -138,15 +166,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "3. Yandex Go — Vehicle va TaxiCar Merosxo'rligi",
-      "en": "3. Yandex Go — Vehicle and TaxiCar Specialization"
+      "en": "3. Yandex Go — Vehicle and TaxiCar Specialization",
+      "ru": "3. Yandex Go — Специализация «Автомобиль и такси»"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex Go parkida transport vositasi ('Vehicle') davlat raqamiga ega. Yo'lovchi taksisi esa ('TaxiCar is-a Vehicle') taksi tarif toifasiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Vehicle' ni e'lon qiling va unga 'private String plateNumber;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'TaxiCar' ni yarating va 'extends Vehicle' orqali ota sinfdan meros oling.\n\n3. 'TaxiCar' ga xususiy 'private String tariffCategory;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'TaxiCar obj = new TaxiCar();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'TaxiCar taxi = new TaxiCar(); taxi.setPlateNumber(\"01A777AA\"); taxi.setTariffCategory(\"Komfort+\"); System.out.println(\"Taksi: \" + taxi.getPlateNumber() + \" | Tarif: \" + taxi.getTariffCategory());'",
-      "en": "📖 Real-World Scenario & Context\nVehicles track license plates while TaxiCars extend them with specialized tariff category attributes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Vehicle' with 'private String plateNumber;' and public getter/setter.\n\n2. Create subclass 'TaxiCar' extending 'Vehicle' via 'extends Vehicle'.\n\n3. Add field 'private String tariffCategory;' and getter/setter to 'TaxiCar'.\n\n4. Instantiate 'TaxiCar obj = new TaxiCar();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'TaxiCar taxi = new TaxiCar(); taxi.setPlateNumber(\"01A777AA\"); taxi.setTariffCategory(\"Komfort+\"); System.out.println(\"Taksi: \" + taxi.getPlateNumber() + \" | Tarif: \" + taxi.getTariffCategory());'"
+      "en": "📖 Real-World Scenario & Context\nVehicles track license plates while TaxiCars extend them with specialized tariff category attributes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Vehicle' with 'private String plateNumber;' and public getter/setter.\n\n2. Create subclass 'TaxiCar' extending 'Vehicle' via 'extends Vehicle'.\n\n3. Add field 'private String tariffCategory;' and getter/setter to 'TaxiCar'.\n\n4. Instantiate 'TaxiCar obj = new TaxiCar();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'TaxiCar taxi = new TaxiCar(); taxi.setPlateNumber(\"01A777AA\"); taxi.setTariffCategory(\"Komfort+\"); System.out.println(\"Taksi: \" + taxi.getPlateNumber() + \" | Tarif: \" + taxi.getTariffCategory());'",
+      "ru": "📖 Контекст и описание задачи\nТранспортные средства отслеживают номерные знаки, а TaxiCars дополняет их специальными атрибутами тарифных категорий.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Транспортное средство» с «частной строкой PlateNumber;» и публичный геттер/сеттер.\n2. Создайте подкласс «TaxiCar», расширяющий «Vehicle» через «extends Vehicle».\n3. Добавьте поле «частная строка тарифаКатегория»; и метод получения/установки для «TaxiCar».\n4. Создать экземпляр «TaxiCar obj = new TaxiCar();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'TaxiCar Taxi = new TaxiCar(); такси.setPlateNumber(\"01A777AA\"); такси.setTariffCategory(\"Комфорт+\"); System.out.println(\"Такси: \" + такси.getPlateNumber() + \" | Тариф: \" + такси.getTariffCategory());'"
     },
     "story": {
       "uz": "Yandex Go parkida transport vositasi ('Vehicle') davlat raqamiga ega. Yo'lovchi taksisi esa ('TaxiCar is-a Vehicle') taksi tarif toifasiga ega.",
-      "en": "Vehicles track license plates while TaxiCars extend them with specialized tariff category attributes."
+      "en": "Vehicles track license plates while TaxiCars extend them with specialized tariff category attributes.",
+      "ru": "Транспортные средства отслеживают номерные знаки, а TaxiCars дополняет их специальными атрибутами тарифных категорий."
     },
     "steps": {
       "uz": [
@@ -162,6 +193,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String tariffCategory;' and getter/setter to 'TaxiCar'.",
         "Instantiate 'TaxiCar obj = new TaxiCar();' in 'main'.",
         "Invoke inherited and specialized accessors: 'TaxiCar taxi = new TaxiCar(); taxi.setPlateNumber(\"01A777AA\"); taxi.setTariffCategory(\"Komfort+\"); System.out.println(\"Taksi: \" + taxi.getPlateNumber() + \" | Tarif: \" + taxi.getTariffCategory());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Транспортное средство» с «частной строкой PlateNumber;» и публичный геттер/сеттер.",
+        "Создайте подкласс «TaxiCar», расширяющий «Vehicle» через «extends Vehicle».",
+        "Добавьте поле «частная строка тарифаКатегория»; и метод получения/установки для «TaxiCar».",
+        "Создать экземпляр «TaxiCar obj = new TaxiCar();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'TaxiCar Taxi = new TaxiCar(); такси.setPlateNumber(\"01A777AA\"); такси.setTariffCategory(\"Комфорт+\"); System.out.println(\"Такси: \" + такси.getPlateNumber() + \" | Тариф: \" + такси.getTariffCategory());'"
       ]
     },
     "requirements": {
@@ -192,7 +230,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Vehicle</code>: 'Vehicle' ota klassining barcha ochiq metodlarini 'TaxiCar' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "TaxiCar klassi oldiga 'extends Vehicle' yozishni unutmang.",
-      "cw2Tip": "Transport vositalari modellarida merosxo'rlikdan foydalanish arxitekturani qulay qiladi."
+      "cw2Tip": "Transport vositalari modellarida merosxo'rlikdan foydalanish arxitekturani qulay qiladi.",
+      "theoryRu": "Обобщение объединяет общие атрибуты в суперкласс, тогда как специализация порождает дочерние классы с дополнениями предметной области.",
+      "pitfallsRu": "TaxiCar klassi oldiga «расширяет транспортное средство» yozishni unutmang.",
+      "breakdownRu": [
+        "<code>extends Vehicle</code>: 'Vehicle' ota klassining barcha ochiq metodlarini 'TaxiCar' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -202,15 +245,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "4. Korzinka Go — Employee va Cashier Merosxo'rligi",
-      "en": "4. Korzinka Go — Employee and Cashier Hierarchy"
+      "en": "4. Korzinka Go — Employee and Cashier Hierarchy",
+      "ru": "4. Korzinka Go — иерархия сотрудников и кассиров"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKorzinka supermarketida xodim ('Employee') ismga ega. Kassir esa ('Cashier is-a Employee') kassaning apparat raqamiga (registerNumber) ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Employee' ni e'lon qiling va unga 'private String employeeName;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Cashier' ni yarating va 'extends Employee' orqali ota sinfdan meros oling.\n\n3. 'Cashier' ga xususiy 'private int registerNumber;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Cashier obj = new Cashier();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Cashier c = new Cashier(); c.setEmployeeName(\"Gulnoza Salimova\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Kassa: \" + c.getRegisterNumber());'",
-      "en": "📖 Real-World Scenario & Context\nSupermarket employees track staff names; Cashiers specialize by adding cash register numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Employee' with 'private String employeeName;' and public getter/setter.\n\n2. Create subclass 'Cashier' extending 'Employee' via 'extends Employee'.\n\n3. Add field 'private int registerNumber;' and getter/setter to 'Cashier'.\n\n4. Instantiate 'Cashier obj = new Cashier();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Cashier c = new Cashier(); c.setEmployeeName(\"Gulnoza Salimova\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Kassa: \" + c.getRegisterNumber());'"
+      "en": "📖 Real-World Scenario & Context\nSupermarket employees track staff names; Cashiers specialize by adding cash register numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Employee' with 'private String employeeName;' and public getter/setter.\n\n2. Create subclass 'Cashier' extending 'Employee' via 'extends Employee'.\n\n3. Add field 'private int registerNumber;' and getter/setter to 'Cashier'.\n\n4. Instantiate 'Cashier obj = new Cashier();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Cashier c = new Cashier(); c.setEmployeeName(\"Gulnoza Salimova\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Kassa: \" + c.getRegisterNumber());'",
+      "ru": "📖 Контекст и описание задачи\nСотрудники супермаркетов отслеживают имена сотрудников; Кассиры специализируются на добавлении номеров кассовых аппаратов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Сотрудник» с «частной строкой имя сотрудника»; и публичный геттер/сеттер.\n2. Создайте подкласс «Кассир», расширяющий «Сотрудник» через «расширяет сотрудника».\n3. Добавьте поле «private int RegisterNumber;» и метод получения/установки для «Кассира».\n4. Создайте экземпляр «Кассир obj = новый кассир();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Cashier c = new Cashier(); c.setEmployeeName(\"Гульноза Салимова\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Касса: \" + c.getRegisterNumber());'"
     },
     "story": {
       "uz": "Korzinka supermarketida xodim ('Employee') ismga ega. Kassir esa ('Cashier is-a Employee') kassaning apparat raqamiga (registerNumber) ega.",
-      "en": "Supermarket employees track staff names; Cashiers specialize by adding cash register numbers."
+      "en": "Supermarket employees track staff names; Cashiers specialize by adding cash register numbers.",
+      "ru": "Сотрудники супермаркетов отслеживают имена сотрудников; Кассиры специализируются на добавлении номеров кассовых аппаратов."
     },
     "steps": {
       "uz": [
@@ -226,6 +272,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private int registerNumber;' and getter/setter to 'Cashier'.",
         "Instantiate 'Cashier obj = new Cashier();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Cashier c = new Cashier(); c.setEmployeeName(\"Gulnoza Salimova\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Kassa: \" + c.getRegisterNumber());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Сотрудник» с «частной строкой имя сотрудника»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Кассир», расширяющий «Сотрудник» через «расширяет сотрудника».",
+        "Добавьте поле «private int RegisterNumber;» и метод получения/установки для «Кассира».",
+        "Создайте экземпляр «Кассир obj = новый кассир();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Cashier c = new Cashier(); c.setEmployeeName(\"Гульноза Салимова\"); c.setRegisterNumber(5); System.out.println(\"Xodim: \" + c.getEmployeeName() + \" | Касса: \" + c.getRegisterNumber());'"
       ]
     },
     "requirements": {
@@ -256,7 +309,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Employee</code>: 'Employee' ota klassining barcha ochiq metodlarini 'Cashier' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Kassir klassi Employee klassidan 'extends' qilgach, uning getEmployeeName() metodini erkin chaqirishi mumkin.",
-      "cw2Tip": "Buyurtma tizimida xodimlar iyerarxiyasini Employee superklassi orqali quring."
+      "cw2Tip": "Buyurtma tizimida xodimlar iyerarxiyasini Employee superklassi orqali quring.",
+      "theoryRu": "Суперклассы централизуют общую идентичность, тогда как производные классы придают операционные особенности.",
+      "pitfallsRu": "Kassir klassi Класс сотрудников «расширяет» qilgach, используя метод getEmployeeName() erkin chaqirishi mumkin.",
+      "breakdownRu": [
+        "<code>extends Employee</code>: 'Employee' ota klassining barcha ochiq metodlarini 'Cashier' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -266,15 +324,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "5. Click Up — Payment va QrPayment Merosxo'rligi",
-      "en": "5. Click Up — Payment and QrPayment Subclassing"
+      "en": "5. Click Up — Payment and QrPayment Subclassing",
+      "ru": "5. Нажмите «Вверх» — «Платежи и подклассы QrPayment»."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick ilovasida to'lov ('Payment') to'lov summasiga ega. QR-kod orqali to'lov ('QrPayment is-a Payment') savdo nuqtasining skanerlangan QR kodiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Payment' ni e'lon qiling va unga 'private double amount;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'QrPayment' ni yarating va 'extends Payment' orqali ota sinfdan meros oling.\n\n3. 'QrPayment' ga xususiy 'private String qrPayload;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'QrPayment obj = new QrPayment();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" so'm | QR: \" + qr.getQrPayload());'",
-      "en": "📖 Real-World Scenario & Context\nPayments capture transaction sums; QrPayments specialize payments by embedding scanned merchant QR payload strings.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Payment' with 'private double amount;' and public getter/setter.\n\n2. Create subclass 'QrPayment' extending 'Payment' via 'extends Payment'.\n\n3. Add field 'private String qrPayload;' and getter/setter to 'QrPayment'.\n\n4. Instantiate 'QrPayment obj = new QrPayment();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" so'm | QR: \" + qr.getQrPayload());'"
+      "en": "📖 Real-World Scenario & Context\nPayments capture transaction sums; QrPayments specialize payments by embedding scanned merchant QR payload strings.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Payment' with 'private double amount;' and public getter/setter.\n\n2. Create subclass 'QrPayment' extending 'Payment' via 'extends Payment'.\n\n3. Add field 'private String qrPayload;' and getter/setter to 'QrPayment'.\n\n4. Instantiate 'QrPayment obj = new QrPayment();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" so'm | QR: \" + qr.getQrPayload());'",
+      "ru": "📖 Контекст и описание задачи\nПлатежи фиксируют суммы транзакций; QrPayments специализирует платежи путем внедрения отсканированных строк полезной нагрузки QR продавца.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявить суперкласс «Платеж» с «частной двойной суммой»; и публичный геттер/сеттер.\n2. Создайте подкласс «QrPayment», расширяющий «Payment» через «extends Payment».\n3. Добавьте поле «частная строка qrPayload;» и метод получения/установки для «QrPayment».\n4. Создать экземпляр 'QrPayment obj = new QrPayment();' в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" так что я | QR: \" + qr.getQrPayload());'"
     },
     "story": {
       "uz": "Click ilovasida to'lov ('Payment') to'lov summasiga ega. QR-kod orqali to'lov ('QrPayment is-a Payment') savdo nuqtasining skanerlangan QR kodiga ega.",
-      "en": "Payments capture transaction sums; QrPayments specialize payments by embedding scanned merchant QR payload strings."
+      "en": "Payments capture transaction sums; QrPayments specialize payments by embedding scanned merchant QR payload strings.",
+      "ru": "Платежи фиксируют суммы транзакций; QrPayments специализирует платежи путем внедрения отсканированных строк полезной нагрузки QR продавца."
     },
     "steps": {
       "uz": [
@@ -290,6 +351,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String qrPayload;' and getter/setter to 'QrPayment'.",
         "Instantiate 'QrPayment obj = new QrPayment();' in 'main'.",
         "Invoke inherited and specialized accessors: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" so'm | QR: \" + qr.getQrPayload());'"
+      ],
+      "ru": [
+        "Объявить суперкласс «Платеж» с «частной двойной суммой»; и публичный геттер/сеттер.",
+        "Создайте подкласс «QrPayment», расширяющий «Payment» через «extends Payment».",
+        "Добавьте поле «частная строка qrPayload;» и метод получения/установки для «QrPayment».",
+        "Создать экземпляр 'QrPayment obj = new QrPayment();' в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'QrPayment qr = new QrPayment(); qr.setAmount(45000.0); qr.setQrPayload(\"CLICK-QR-889\"); System.out.println(\"To'lov: \" + qr.getAmount() + \" так что я | QR: \" + qr.getQrPayload());'"
       ]
     },
     "requirements": {
@@ -320,7 +388,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Payment</code>: 'Payment' ota klassining barcha ochiq metodlarini 'QrPayment' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "To'lov summasi ota klassda bo'lgani uchun QrPayment ichida yana amount maydoni ochilmasligi shart.",
-      "cw2Tip": "CW2 to'lov tizimida har bir to'lov usulini tayanch Payment klassidan meros oling."
+      "cw2Tip": "CW2 to'lov tizimida har bir to'lov usulini tayanch Payment klassidan meros oling.",
+      "theoryRu": "Создание специализированных подклассов платежей гарантирует, что все транзакции по своей сути сохраняют значения денежных сумм.",
+      "pitfallsRu": "To'lov summasi ota klassda bo'lgani uchun QrPayment ichida yana sum maydoni ochilmasligi shart.",
+      "breakdownRu": [
+        "<code>extends Payment</code>: 'Payment' ota klassining barcha ochiq metodlarini 'QrPayment' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -330,15 +403,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "6. Asaxiy Books — Publication va PrintedBook (Lecture 3 Slide 13)",
-      "en": "6. Asaxiy Books — Publication and PrintedBook Hierarchy"
+      "en": "6. Asaxiy Books — Publication and PrintedBook Hierarchy",
+      "ru": "6. Asaxy Books — иерархия публикаций и печатных книг"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Lecture 3 13-slaydida ko'rsatilgan klassik misol: Nashr ('Publication') sarlavhaga ega. Bosma kitob esa ('PrintedBook is-a Publication') muqova turiga (hardcover/paperback) ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Publication' ni e'lon qiling va unga 'private String title;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'PrintedBook' ni yarating va 'extends Publication' orqali ota sinfdan meros oling.\n\n3. 'PrintedBook' ga xususiy 'private String coverType;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'PrintedBook obj = new PrintedBook();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Dunyoning Ishlari\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Lecture 3 Slide 13: Publication captures titles; PrintedBook derives from it and adds cover type.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Publication' with 'private String title;' and public getter/setter.\n\n2. Create subclass 'PrintedBook' extending 'Publication' via 'extends Publication'.\n\n3. Add field 'private String coverType;' and getter/setter to 'PrintedBook'.\n\n4. Instantiate 'PrintedBook obj = new PrintedBook();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Dunyoning Ishlari\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'"
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Lecture 3 Slide 13: Publication captures titles; PrintedBook derives from it and adds cover type.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Publication' with 'private String title;' and public getter/setter.\n\n2. Create subclass 'PrintedBook' extending 'Publication' via 'extends Publication'.\n\n3. Add field 'private String coverType;' and getter/setter to 'PrintedBook'.\n\n4. Instantiate 'PrintedBook obj = new PrintedBook();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Dunyoning Ishlari\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'",
+      "ru": "📖 Контекст и описание задачи\nВнедрение WIUT. Лекция 3. Слайд 13: Заголовки публикаций; PrintedBook является производным от него и добавляет тип обложки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Публикация» с «заголовком частной строки»; и публичный геттер/сеттер.\n2. Создайте подкласс «PrintedBook», расширяющий «Публикацию» через «расширяет публикацию».\n3. Добавьте поле «частная строка CoverType;» и метод получения/установки для PrintedBook.\n4. Создать экземпляр «PrintedBook obj = new PrintedBook();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Дуньонинг Ишлари\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'"
     },
     "story": {
       "uz": "WIUT Lecture 3 13-slaydida ko'rsatilgan klassik misol: Nashr ('Publication') sarlavhaga ega. Bosma kitob esa ('PrintedBook is-a Publication') muqova turiga (hardcover/paperback) ega.",
-      "en": "Implementing WIUT Lecture 3 Slide 13: Publication captures titles; PrintedBook derives from it and adds cover type."
+      "en": "Implementing WIUT Lecture 3 Slide 13: Publication captures titles; PrintedBook derives from it and adds cover type.",
+      "ru": "Внедрение WIUT. Лекция 3. Слайд 13: Заголовки публикаций; PrintedBook является производным от него и добавляет тип обложки."
     },
     "steps": {
       "uz": [
@@ -354,6 +430,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String coverType;' and getter/setter to 'PrintedBook'.",
         "Instantiate 'PrintedBook obj = new PrintedBook();' in 'main'.",
         "Invoke inherited and specialized accessors: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Dunyoning Ishlari\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Публикация» с «заголовком частной строки»; и публичный геттер/сеттер.",
+        "Создайте подкласс «PrintedBook», расширяющий «Публикацию» через «расширяет публикацию».",
+        "Добавьте поле «частная строка CoverType;» и метод получения/установки для PrintedBook.",
+        "Создать экземпляр «PrintedBook obj = new PrintedBook();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'PrintedBook pb = new PrintedBook(); pb.setTitle(\"Дуньонинг Ишлари\"); pb.setCoverType(\"Qattiq muqova\"); System.out.println(\"Kitob: \" + pb.getTitle() + \" | Muqova: \" + pb.getCoverType());'"
       ]
     },
     "requirements": {
@@ -384,7 +467,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Publication</code>: 'Publication' ota klassining barcha ochiq metodlarini 'PrintedBook' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "PrintedBook faqat Publication dan meros oladi ('extends Publication').",
-      "cw2Tip": "Katalog tizimlarida umumiy mahsulot xususiyatlarini tayanch klassda saqlang."
+      "cw2Tip": "Katalog tizimlarida umumiy mahsulot xususiyatlarini tayanch klassda saqlang.",
+      "theoryRu": "Лекция 3. Слайд 13. Общие атрибуты вынесены в суперкласс Publication, наследуемый производными книгами и журналами.",
+      "pitfallsRu": "PrintedBook faqat Publication dan meros oladi («расширяет публикацию»).",
+      "breakdownRu": [
+        "<code>extends Publication</code>: 'Publication' ota klassining barcha ochiq metodlarini 'PrintedBook' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -394,15 +482,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "7. Express24 — Order va FastFoodOrder Merosxo'rligi",
-      "en": "7. Express24 — Order and FastFoodOrder Hierarchy"
+      "en": "7. Express24 — Order and FastFoodOrder Hierarchy",
+      "ru": "7. Express24 — иерархия заказов и заказов FastFood"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazib berish xizmatida buyurtma ('Order') buyurtma ID raqamiga ega. Fast-fud buyurtmasi esa ('FastFoodOrder is-a Order') oshxona stansiyasi nomiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Order' ni e'lon qiling va unga 'private int orderId;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'FastFoodOrder' ni yarating va 'extends Order' orqali ota sinfdan meros oling.\n\n3. 'FastFoodOrder' ga xususiy 'private String stationName;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'FastFoodOrder obj = new FastFoodOrder();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Burger-Grill\"); System.out.println(\"Buyurtma: #\" + ffo.getOrderId() + \" | Stansiya: \" + ffo.getStationName());'",
-      "en": "📖 Real-World Scenario & Context\nOrders track tracking identifiers; FastFoodOrders specialize by attaching kitchen prep station codes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Order' with 'private int orderId;' and public getter/setter.\n\n2. Create subclass 'FastFoodOrder' extending 'Order' via 'extends Order'.\n\n3. Add field 'private String stationName;' and getter/setter to 'FastFoodOrder'.\n\n4. Instantiate 'FastFoodOrder obj = new FastFoodOrder();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Burger-Grill\"); System.out.println(\"Buyurtma: #\" + ffo.getOrderId() + \" | Stansiya: \" + ffo.getStationName());'"
+      "en": "📖 Real-World Scenario & Context\nOrders track tracking identifiers; FastFoodOrders specialize by attaching kitchen prep station codes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Order' with 'private int orderId;' and public getter/setter.\n\n2. Create subclass 'FastFoodOrder' extending 'Order' via 'extends Order'.\n\n3. Add field 'private String stationName;' and getter/setter to 'FastFoodOrder'.\n\n4. Instantiate 'FastFoodOrder obj = new FastFoodOrder();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Burger-Grill\"); System.out.println(\"Buyurtma: #\" + ffo.getOrderId() + \" | Stansiya: \" + ffo.getStationName());'",
+      "ru": "📖 Контекст и описание задачи\nЗаказы отслеживаются идентификаторами отслеживания; FastFoodOrders специализируются на прикреплении кодов кухонных станций приготовления.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Order с параметром Private int orderId; и публичный геттер/сеттер.\n2. Создайте подкласс «FastFoodOrder», расширяющий «Order» через «extends Order».\n3. Добавьте поле «частная строка StationName;» и метод получения/установки для FastFoodOrder.\n4. Создайте экземпляр «FastFoodOrder obj = new FastFoodOrder();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Бургер-Гриль\"); System.out.println(\"Купитьма: #\" + ffo.getOrderId() + \" | Стансия: \" + ffo.getStationName());'"
     },
     "story": {
       "uz": "Yetkazib berish xizmatida buyurtma ('Order') buyurtma ID raqamiga ega. Fast-fud buyurtmasi esa ('FastFoodOrder is-a Order') oshxona stansiyasi nomiga ega.",
-      "en": "Orders track tracking identifiers; FastFoodOrders specialize by attaching kitchen prep station codes."
+      "en": "Orders track tracking identifiers; FastFoodOrders specialize by attaching kitchen prep station codes.",
+      "ru": "Заказы отслеживаются идентификаторами отслеживания; FastFoodOrders специализируются на прикреплении кодов кухонных станций приготовления."
     },
     "steps": {
       "uz": [
@@ -418,6 +509,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String stationName;' and getter/setter to 'FastFoodOrder'.",
         "Instantiate 'FastFoodOrder obj = new FastFoodOrder();' in 'main'.",
         "Invoke inherited and specialized accessors: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Burger-Grill\"); System.out.println(\"Buyurtma: #\" + ffo.getOrderId() + \" | Stansiya: \" + ffo.getStationName());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Order с параметром Private int orderId; и публичный геттер/сеттер.",
+        "Создайте подкласс «FastFoodOrder», расширяющий «Order» через «extends Order».",
+        "Добавьте поле «частная строка StationName;» и метод получения/установки для FastFoodOrder.",
+        "Создайте экземпляр «FastFoodOrder obj = new FastFoodOrder();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'FastFoodOrder ffo = new FastFoodOrder(); ffo.setOrderId(1094); ffo.setStationName(\"Бургер-Гриль\"); System.out.println(\"Купитьма: #\" + ffo.getOrderId() + \" | Стансия: \" + ffo.getStationName());'"
       ]
     },
     "requirements": {
@@ -448,7 +546,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Order</code>: 'Order' ota klassining barcha ochiq metodlarini 'FastFoodOrder' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "orderId int bo'lgani uchun getOrderId() metodi int qaytarishi lozim.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma turlarini Order superklassidan ajrating."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma turlarini Order superklassidan ajrating.",
+      "theoryRu": "Наследование позволяет расширять базовые классы предметной области без изменения существующей родительской бизнес-логики.",
+      "pitfallsRu": "orderId int bo'lgani uchun getOrderId() методом int qaytarishi lozim.",
+      "breakdownRu": [
+        "<code>extends Order</code>: 'Order' ota klassining barcha ochiq metodlarini 'FastFoodOrder' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -458,15 +561,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "8. Beeline — Tariff va RoamingTariff Merosxo'rligi",
-      "en": "8. Beeline — Tariff and RoamingTariff Subclassing"
+      "en": "8. Beeline — Tariff and RoamingTariff Subclassing",
+      "ru": "8. Билайн — тарифы и подклассы роуминг-тарифов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBeeline uyali aloqa operatorida tarif ('Tariff') oylik to'lovga ega. Xalqaro rouming tarifi esa ('RoamingTariff is-a Tariff') mamlakat zonasiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Tariff' ni e'lon qiling va unga 'private double monthlyRate;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'RoamingTariff' ni yarating va 'extends Tariff' orqali ota sinfdan meros oling.\n\n3. 'RoamingTariff' ga xususiy 'private String countryZone;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'RoamingTariff obj = new RoamingTariff();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Yevropa Ittifoqi\"); System.out.println(\"Tarif: \" + rt.getMonthlyRate() + \" so'm | Zona: \" + rt.getCountryZone());'",
-      "en": "📖 Real-World Scenario & Context\nBase mobile tariffs track monthly rates; RoamingTariffs derive from Tariff to attach zone countries.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Tariff' with 'private double monthlyRate;' and public getter/setter.\n\n2. Create subclass 'RoamingTariff' extending 'Tariff' via 'extends Tariff'.\n\n3. Add field 'private String countryZone;' and getter/setter to 'RoamingTariff'.\n\n4. Instantiate 'RoamingTariff obj = new RoamingTariff();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Yevropa Ittifoqi\"); System.out.println(\"Tarif: \" + rt.getMonthlyRate() + \" so'm | Zona: \" + rt.getCountryZone());'"
+      "en": "📖 Real-World Scenario & Context\nBase mobile tariffs track monthly rates; RoamingTariffs derive from Tariff to attach zone countries.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Tariff' with 'private double monthlyRate;' and public getter/setter.\n\n2. Create subclass 'RoamingTariff' extending 'Tariff' via 'extends Tariff'.\n\n3. Add field 'private String countryZone;' and getter/setter to 'RoamingTariff'.\n\n4. Instantiate 'RoamingTariff obj = new RoamingTariff();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Yevropa Ittifoqi\"); System.out.println(\"Tarif: \" + rt.getMonthlyRate() + \" so'm | Zona: \" + rt.getCountryZone());'",
+      "ru": "📖 Контекст и описание задачи\nБазовые тарифы на мобильную связь учитывают ежемесячные тарифы; Тарифы роуминга являются производными от тарифов для присоединения стран зоны.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Тариф» с «частной двойной месячной ставкой»; и публичный геттер/сеттер.\n2. Создайте подкласс «RoamingTariff», расширяющий «Tariff» с помощью «extends Tariff».\n3. Добавьте поле «частная строка CountryZone»; и метод получения/установки для «RoamingTariff».\n4. Создайте экземпляр 'RoamingTariff obj = new RoamingTariff();' в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Европа Иттифоки\"); System.out.println(\"Тариф: \" + rt.getMonthlyRate() + \" так что я | Зона: \" + rt.getCountryZone());'"
     },
     "story": {
       "uz": "Beeline uyali aloqa operatorida tarif ('Tariff') oylik to'lovga ega. Xalqaro rouming tarifi esa ('RoamingTariff is-a Tariff') mamlakat zonasiga ega.",
-      "en": "Base mobile tariffs track monthly rates; RoamingTariffs derive from Tariff to attach zone countries."
+      "en": "Base mobile tariffs track monthly rates; RoamingTariffs derive from Tariff to attach zone countries.",
+      "ru": "Базовые тарифы на мобильную связь учитывают ежемесячные тарифы; Тарифы роуминга являются производными от тарифов для присоединения стран зоны."
     },
     "steps": {
       "uz": [
@@ -482,6 +588,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String countryZone;' and getter/setter to 'RoamingTariff'.",
         "Instantiate 'RoamingTariff obj = new RoamingTariff();' in 'main'.",
         "Invoke inherited and specialized accessors: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Yevropa Ittifoqi\"); System.out.println(\"Tarif: \" + rt.getMonthlyRate() + \" so'm | Zona: \" + rt.getCountryZone());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Тариф» с «частной двойной месячной ставкой»; и публичный геттер/сеттер.",
+        "Создайте подкласс «RoamingTariff», расширяющий «Tariff» с помощью «extends Tariff».",
+        "Добавьте поле «частная строка CountryZone»; и метод получения/установки для «RoamingTariff».",
+        "Создайте экземпляр 'RoamingTariff obj = new RoamingTariff();' в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'RoamingTariff rt = new RoamingTariff(); rt.setMonthlyRate(65000.0); rt.setCountryZone(\"Европа Иттифоки\"); System.out.println(\"Тариф: \" + rt.getMonthlyRate() + \" так что я | Зона: \" + rt.getCountryZone());'"
       ]
     },
     "requirements": {
@@ -512,7 +625,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Tariff</code>: 'Tariff' ota klassining barcha ochiq metodlarini 'RoamingTariff' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Merosxo'rlikda sinflar nomini to'g'ri bog'lang: 'class RoamingTariff extends Tariff'.",
-      "cw2Tip": "Xizmat paketlari va obunalarni modellashtirishda merosxo'rlikdan foydalaning."
+      "cw2Tip": "Xizmat paketlari va obunalarni modellashtirishda merosxo'rlikdan foydalaning.",
+      "theoryRu": "Подклассы фиксируют специализированные бизнес-правила, автоматически приобретая общие свойства тарифов.",
+      "pitfallsRu": "Merosxo'rlikda sinflar nomini to'g'ri bog'lang: 'класс RoamingTariff расширяет тариф'.",
+      "breakdownRu": [
+        "<code>extends Tariff</code>: 'Tariff' ota klassining barcha ochiq metodlarini 'RoamingTariff' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -522,15 +640,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "9. Texnomart — Device va Smartphone Merosxo'rligi",
-      "en": "9. Texnomart — Device and Smartphone Hierarchy"
+      "en": "9. Texnomart — Device and Smartphone Hierarchy",
+      "ru": "9. Texnomart — иерархия устройств и смартфонов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nElektronika do'konida qurilma ('Device') brend nomiga ega. Smartfon esa ('Smartphone is-a Device') operatsion tizim (osType) maydoniga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Device' ni e'lon qiling va unga 'private String brand;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Smartphone' ni yarating va 'extends Device' orqali ota sinfdan meros oling.\n\n3. 'Smartphone' ga xususiy 'private String osType;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Smartphone obj = new Smartphone();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'",
-      "en": "📖 Real-World Scenario & Context\nRetail devices manage brand identities; Smartphones extend devices by adding OS system descriptors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Device' with 'private String brand;' and public getter/setter.\n\n2. Create subclass 'Smartphone' extending 'Device' via 'extends Device'.\n\n3. Add field 'private String osType;' and getter/setter to 'Smartphone'.\n\n4. Instantiate 'Smartphone obj = new Smartphone();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'"
+      "en": "📖 Real-World Scenario & Context\nRetail devices manage brand identities; Smartphones extend devices by adding OS system descriptors.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Device' with 'private String brand;' and public getter/setter.\n\n2. Create subclass 'Smartphone' extending 'Device' via 'extends Device'.\n\n3. Add field 'private String osType;' and getter/setter to 'Smartphone'.\n\n4. Instantiate 'Smartphone obj = new Smartphone();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'",
+      "ru": "📖 Контекст и описание задачи\nУстройства розничной торговли управляют фирменным стилем; Смартфоны расширяют возможности устройств за счет добавления системных дескрипторов ОС.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявить суперкласс «Устройство» с «частным брендом String»; и публичный геттер/сеттер.\n2. Создайте подкласс «Смартфон», расширяющий «Устройство» через «расширяет устройство».\n3. Добавьте поле «частная строка osType;» и метод получения/установки на «Смартфон».\n4. Создать экземпляр «Смартфон obj = новый смартфон();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'"
     },
     "story": {
       "uz": "Elektronika do'konida qurilma ('Device') brend nomiga ega. Smartfon esa ('Smartphone is-a Device') operatsion tizim (osType) maydoniga ega.",
-      "en": "Retail devices manage brand identities; Smartphones extend devices by adding OS system descriptors."
+      "en": "Retail devices manage brand identities; Smartphones extend devices by adding OS system descriptors.",
+      "ru": "Устройства розничной торговли управляют фирменным стилем; Смартфоны расширяют возможности устройств за счет добавления системных дескрипторов ОС."
     },
     "steps": {
       "uz": [
@@ -546,6 +667,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String osType;' and getter/setter to 'Smartphone'.",
         "Instantiate 'Smartphone obj = new Smartphone();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'"
+      ],
+      "ru": [
+        "Объявить суперкласс «Устройство» с «частным брендом String»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Смартфон», расширяющий «Устройство» через «расширяет устройство».",
+        "Добавьте поле «частная строка osType;» и метод получения/установки на «Смартфон».",
+        "Создать экземпляр «Смартфон obj = новый смартфон();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Smartphone sp = new Smartphone(); sp.setBrand(\"Samsung\"); sp.setOsType(\"Android 15\"); System.out.println(\"Brend: \" + sp.getBrand() + \" | OT: \" + sp.getOsType());'"
       ]
     },
     "requirements": {
@@ -576,7 +704,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Device</code>: 'Device' ota klassining barcha ochiq metodlarini 'Smartphone' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Smartphone klassida getBrand() metodi yozilmaydi, u to'g'ridan-to'g'ri Device dan olinadi.",
-      "cw2Tip": "Tovar katalogida elektronika iyerarxiyasini yaratishda Device bazaviy klassidan foydalaning."
+      "cw2Tip": "Tovar katalogida elektronika iyerarxiyasini yaratishda Device bazaviy klassidan foydalaning.",
+      "theoryRu": "Каталогизация оборудования использует наследование для совместного использования идентичности бренда производителя в семействах продуктов.",
+      "pitfallsRu": "Смартфон класса getBrand() с помощью метода, который позволяет использовать устройство и использовать его.",
+      "breakdownRu": [
+        "<code>extends Device</code>: 'Device' ota klassining barcha ochiq metodlarini 'Smartphone' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -586,15 +719,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "10. Kapitalbank — BankCard va HumoCard Merosxo'rligi",
-      "en": "10. Kapitalbank — BankCard and HumoCard Subclassing"
+      "en": "10. Kapitalbank — BankCard and HumoCard Subclassing",
+      "ru": "10. Капиталбанк — подклассы BankCard и HumoCard"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPlastik karta ('BankCard') karta raqamiga ega. Humo milliy to'lov kartasi esa ('HumoCard is-a BankCard') kontaktsiz NFC to'lov imkoniyati belgisi ('nfcSupported') ga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BankCard' ni e'lon qiling va unga 'private String cardNumber;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'HumoCard' ni yarating va 'extends BankCard' orqali ota sinfdan meros oling.\n\n3. 'HumoCard' ga xususiy 'private boolean nfcSupported;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'HumoCard obj = new HumoCard();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(true); System.out.println(\"Karta: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'",
-      "en": "📖 Real-World Scenario & Context\nBank cards manage card numbers; Humo cards derive from them and track contactless NFC capabilities.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankCard' with 'private String cardNumber;' and public getter/setter.\n\n2. Create subclass 'HumoCard' extending 'BankCard' via 'extends BankCard'.\n\n3. Add field 'private boolean nfcSupported;' and getter/setter to 'HumoCard'.\n\n4. Instantiate 'HumoCard obj = new HumoCard();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(true); System.out.println(\"Karta: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'"
+      "en": "📖 Real-World Scenario & Context\nBank cards manage card numbers; Humo cards derive from them and track contactless NFC capabilities.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankCard' with 'private String cardNumber;' and public getter/setter.\n\n2. Create subclass 'HumoCard' extending 'BankCard' via 'extends BankCard'.\n\n3. Add field 'private boolean nfcSupported;' and getter/setter to 'HumoCard'.\n\n4. Instantiate 'HumoCard obj = new HumoCard();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(true); System.out.println(\"Karta: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'",
+      "ru": "📖 Контекст и описание задачи\nБанковские карты управляют номерами карт; Карты Humo созданы на их основе и отслеживают возможности бесконтактного NFC.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BankCard с частной строкой cardNumber; и публичный геттер/сеттер.\n2. Создайте подкласс «HumoCard», расширяющий «BankCard» через «extends BankCard».\n3. Добавьте поле «частное логическое значение nfcSupported;» и метод получения/установки для «HumoCard».\n4. Создайте экземпляр «HumoCard obj = new HumoCard();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(истина); System.out.println(\"Карта: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'"
     },
     "story": {
       "uz": "Plastik karta ('BankCard') karta raqamiga ega. Humo milliy to'lov kartasi esa ('HumoCard is-a BankCard') kontaktsiz NFC to'lov imkoniyati belgisi ('nfcSupported') ga ega.",
-      "en": "Bank cards manage card numbers; Humo cards derive from them and track contactless NFC capabilities."
+      "en": "Bank cards manage card numbers; Humo cards derive from them and track contactless NFC capabilities.",
+      "ru": "Банковские карты управляют номерами карт; Карты Humo созданы на их основе и отслеживают возможности бесконтактного NFC."
     },
     "steps": {
       "uz": [
@@ -610,6 +746,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private boolean nfcSupported;' and getter/setter to 'HumoCard'.",
         "Instantiate 'HumoCard obj = new HumoCard();' in 'main'.",
         "Invoke inherited and specialized accessors: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(true); System.out.println(\"Karta: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'"
+      ],
+      "ru": [
+        "Объявите суперкласс BankCard с частной строкой cardNumber; и публичный геттер/сеттер.",
+        "Создайте подкласс «HumoCard», расширяющий «BankCard» через «extends BankCard».",
+        "Добавьте поле «частное логическое значение nfcSupported;» и метод получения/установки для «HumoCard».",
+        "Создайте экземпляр «HumoCard obj = new HumoCard();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'HumoCard humo = new HumoCard(); humo.setCardNumber(\"9860123456789012\"); humo.setNfcSupported(истина); System.out.println(\"Карта: \" + humo.getCardNumber() + \" | NFC: \" + humo.isNfcSupported());'"
       ]
     },
     "requirements": {
@@ -640,7 +783,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends BankCard</code>: 'BankCard' ota klassining barcha ochiq metodlarini 'HumoCard' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "boolean getter 'isNfcSupported' bo'ladi, 'getNfcSupported' emas.",
-      "cw2Tip": "To'lov kartalari modellarida umumiy karta xususiyatlarini BankCard superklassiga joylashtiring."
+      "cw2Tip": "To'lov kartalari modellarida umumiy karta xususiyatlarini BankCard superklassiga joylashtiring.",
+      "theoryRu": "Унаследованные логические методы доступа следуют правилам именования JavaBeans с использованием префиксов «is...» в дочерних классах.",
+      "pitfallsRu": "логический метод получения 'isNfcSupported' bo'ladi, 'getNfcSupported' emas.",
+      "breakdownRu": [
+        "<code>extends BankCard</code>: 'BankCard' ota klassining barcha ochiq metodlarini 'HumoCard' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -650,15 +798,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "11. Medion Clinic — MedicalStaff va Nurse Merosxo'rligi",
-      "en": "11. Medion Clinic — MedicalStaff and Nurse Hierarchy"
+      "en": "11. Medion Clinic — MedicalStaff and Nurse Hierarchy",
+      "ru": "11. Клиника Медион — медицинский персонал и иерархия медсестер."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKlinikada tibbiy xodim ('MedicalStaff') xodimning familiyasiga ega. Hamshira esa ('Nurse is-a MedicalStaff') navbatchilik smenasi ('shiftType') maydoniga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MedicalStaff' ni e'lon qiling va unga 'private String lastName;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Nurse' ni yarating va 'extends MedicalStaff' orqali ota sinfdan meros oling.\n\n3. 'Nurse' ga xususiy 'private String shiftType;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Nurse obj = new Nurse();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Nurse nurse = new Nurse(); nurse.setLastName(\"Karimova\"); nurse.setShiftType(\"Tungi smena\"); System.out.println(\"Hamshira: \" + nurse.getLastName() + \" | Smena: \" + nurse.getShiftType());'",
-      "en": "📖 Real-World Scenario & Context\nClinical staff track surname identities; Nurses extend staff with assigned clinical shift types.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalStaff' with 'private String lastName;' and public getter/setter.\n\n2. Create subclass 'Nurse' extending 'MedicalStaff' via 'extends MedicalStaff'.\n\n3. Add field 'private String shiftType;' and getter/setter to 'Nurse'.\n\n4. Instantiate 'Nurse obj = new Nurse();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Nurse nurse = new Nurse(); nurse.setLastName(\"Karimova\"); nurse.setShiftType(\"Tungi smena\"); System.out.println(\"Hamshira: \" + nurse.getLastName() + \" | Smena: \" + nurse.getShiftType());'"
+      "en": "📖 Real-World Scenario & Context\nClinical staff track surname identities; Nurses extend staff with assigned clinical shift types.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalStaff' with 'private String lastName;' and public getter/setter.\n\n2. Create subclass 'Nurse' extending 'MedicalStaff' via 'extends MedicalStaff'.\n\n3. Add field 'private String shiftType;' and getter/setter to 'Nurse'.\n\n4. Instantiate 'Nurse obj = new Nurse();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Nurse nurse = new Nurse(); nurse.setLastName(\"Karimova\"); nurse.setShiftType(\"Tungi smena\"); System.out.println(\"Hamshira: \" + nurse.getLastName() + \" | Smena: \" + nurse.getShiftType());'",
+      "ru": "📖 Контекст и описание задачи\nКлинический персонал отслеживает фамилии; Медсестры расширяют штат за счет закрепленных за ними типов клинических смен.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «MedicalStaff» с «частной строкой LastName»; и публичный геттер/сеттер.\n2. Создайте подкласс «Медсестра», расширяющий «MedicalStaff» через «extends MedicalStaff».\n3. Добавьте поле «частная строка ShiftType;» и геттер/сеттер для «Медсестры».\n4. Создать экземпляр «Медсестра obj = новая медсестра();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Nurse Nurse = new Nurse(); Nurse.setLastName(\"Каримова\"); Nurse.setShiftType(\"Тунги смены\"); System.out.println(\"Хамшира: \" + Nurse.getLastName() + \" | Смена: \" + Nurse.getShiftType());'"
     },
     "story": {
       "uz": "Klinikada tibbiy xodim ('MedicalStaff') xodimning familiyasiga ega. Hamshira esa ('Nurse is-a MedicalStaff') navbatchilik smenasi ('shiftType') maydoniga ega.",
-      "en": "Clinical staff track surname identities; Nurses extend staff with assigned clinical shift types."
+      "en": "Clinical staff track surname identities; Nurses extend staff with assigned clinical shift types.",
+      "ru": "Клинический персонал отслеживает фамилии; Медсестры расширяют штат за счет закрепленных за ними типов клинических смен."
     },
     "steps": {
       "uz": [
@@ -674,6 +825,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String shiftType;' and getter/setter to 'Nurse'.",
         "Instantiate 'Nurse obj = new Nurse();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Nurse nurse = new Nurse(); nurse.setLastName(\"Karimova\"); nurse.setShiftType(\"Tungi smena\"); System.out.println(\"Hamshira: \" + nurse.getLastName() + \" | Smena: \" + nurse.getShiftType());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «MedicalStaff» с «частной строкой LastName»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Медсестра», расширяющий «MedicalStaff» через «extends MedicalStaff».",
+        "Добавьте поле «частная строка ShiftType;» и геттер/сеттер для «Медсестры».",
+        "Создать экземпляр «Медсестра obj = новая медсестра();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Nurse Nurse = new Nurse(); Nurse.setLastName(\"Каримова\"); Nurse.setShiftType(\"Тунги смены\"); System.out.println(\"Хамшира: \" + Nurse.getLastName() + \" | Смена: \" + Nurse.getShiftType());'"
       ]
     },
     "requirements": {
@@ -704,7 +862,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends MedicalStaff</code>: 'MedicalStaff' ota klassining barcha ochiq metodlarini 'Nurse' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "lastName ota klass maydoni bo'lib, setLastName orqali to'ldiriladi.",
-      "cw2Tip": "Xodimlar va xizmat ko'rsatuvchilar uchun MedicalStaff kabi ota klasslar tuzing."
+      "cw2Tip": "Xodimlar va xizmat ko'rsatuvchilar uchun MedicalStaff kabi ota klasslar tuzing.",
+      "theoryRu": "Иерархия больничного персонала четко разделяет общие штатные единицы на операционных медсестер и техников.",
+      "pitfallsRu": "LastName от класса maydoni bo'lib, setLastName orqali to'ldiriladi.",
+      "breakdownRu": [
+        "<code>extends MedicalStaff</code>: 'MedicalStaff' ota klassining barcha ochiq metodlarini 'Nurse' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -714,15 +877,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "12. Uzbekistan Airways — Flight va CharterFlight Merosxo'rligi",
-      "en": "12. Uzbekistan Airways — Flight and CharterFlight Subclassing"
+      "en": "12. Uzbekistan Airways — Flight and CharterFlight Subclassing",
+      "ru": "12. «Узбекистон хаво йуллари» — подклассы рейсов и чартерных рейсов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAviakompaniyada parvoz ('Flight') reys raqamiga ega. Charter reys esa ('CharterFlight is-a Flight') buyurtmachi tashkilot nomi ('charterOrg') maydoniga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Flight' ni e'lon qiling va unga 'private String flightNumber;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'CharterFlight' ni yarating va 'extends Flight' orqali ota sinfdan meros oling.\n\n3. 'CharterFlight' ga xususiy 'private String charterOrg;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'CharterFlight obj = new CharterFlight();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Olimpiya Qo'mitasi\"); System.out.println(\"Reys: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'",
-      "en": "📖 Real-World Scenario & Context\nAviation flights maintain flight numbers; Charter flights derive from Flight, recording contracting organizations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Flight' with 'private String flightNumber;' and public getter/setter.\n\n2. Create subclass 'CharterFlight' extending 'Flight' via 'extends Flight'.\n\n3. Add field 'private String charterOrg;' and getter/setter to 'CharterFlight'.\n\n4. Instantiate 'CharterFlight obj = new CharterFlight();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Olimpiya Qo'mitasi\"); System.out.println(\"Reys: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'"
+      "en": "📖 Real-World Scenario & Context\nAviation flights maintain flight numbers; Charter flights derive from Flight, recording contracting organizations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Flight' with 'private String flightNumber;' and public getter/setter.\n\n2. Create subclass 'CharterFlight' extending 'Flight' via 'extends Flight'.\n\n3. Add field 'private String charterOrg;' and getter/setter to 'CharterFlight'.\n\n4. Instantiate 'CharterFlight obj = new CharterFlight();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Olimpiya Qo'mitasi\"); System.out.println(\"Reys: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'",
+      "ru": "📖 Контекст и описание задачи\nАвиационные рейсы сохраняют номера рейсов; Чартерные рейсы происходят от Flight, записывая подрядные организации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс FlightNumber с частной строкой FlightNumber; и публичный геттер/сеттер.\n2. Создайте подкласс «CharterFlight», расширяющий «Flight» через «extends Flight».\n3. Добавьте поле «частная строка CharterOrg;» и метод получения/установки для «CharterFlight».\n4. Создать экземпляр 'CharterFlight obj = new CharterFlight();' в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Олимпия Кумитаси\"); System.out.println(\"Рейс: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'"
     },
     "story": {
       "uz": "Aviakompaniyada parvoz ('Flight') reys raqamiga ega. Charter reys esa ('CharterFlight is-a Flight') buyurtmachi tashkilot nomi ('charterOrg') maydoniga ega.",
-      "en": "Aviation flights maintain flight numbers; Charter flights derive from Flight, recording contracting organizations."
+      "en": "Aviation flights maintain flight numbers; Charter flights derive from Flight, recording contracting organizations.",
+      "ru": "Авиационные рейсы сохраняют номера рейсов; Чартерные рейсы происходят от Flight, записывая подрядные организации."
     },
     "steps": {
       "uz": [
@@ -738,6 +904,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String charterOrg;' and getter/setter to 'CharterFlight'.",
         "Instantiate 'CharterFlight obj = new CharterFlight();' in 'main'.",
         "Invoke inherited and specialized accessors: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Olimpiya Qo'mitasi\"); System.out.println(\"Reys: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'"
+      ],
+      "ru": [
+        "Объявите суперкласс FlightNumber с частной строкой FlightNumber; и публичный геттер/сеттер.",
+        "Создайте подкласс «CharterFlight», расширяющий «Flight» через «extends Flight».",
+        "Добавьте поле «частная строка CharterOrg;» и метод получения/установки для «CharterFlight».",
+        "Создать экземпляр 'CharterFlight obj = new CharterFlight();' в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'CharterFlight cf = new CharterFlight(); cf.setFlightNumber(\"HY-9901\"); cf.setCharterOrg(\"Олимпия Кумитаси\"); System.out.println(\"Рейс: \" + cf.getFlightNumber() + \" | Buyurtmachi: \" + cf.getCharterOrg());'"
       ]
     },
     "requirements": {
@@ -768,7 +941,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Flight</code>: 'Flight' ota klassining barcha ochiq metodlarini 'CharterFlight' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "CharterFlight klassi 'extends Flight' ekanligiga e'tibor qarating.",
-      "cw2Tip": "Logistika va reyslarni boshqarishda Flight superklassidan foydalaning."
+      "cw2Tip": "Logistika va reyslarni boshqarishda Flight superklassidan foydalaning.",
+      "theoryRu": "Потоки отправки регулярных и чартерных авиакомпаний четко разделяют идентификаторы рейсов через иерархию наследования.",
+      "pitfallsRu": "CharterFlight klassi «продлевает рейс» ekanligiga e'tibor qarating.",
+      "breakdownRu": [
+        "<code>extends Flight</code>: 'Flight' ota klassining barcha ochiq metodlarini 'CharterFlight' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -778,15 +956,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "13. WIUT Intranet — Person va Student (Seminar 3 Exercise 1)",
-      "en": "13. WIUT Intranet — Person and Student Exercise 1"
+      "en": "13. WIUT Intranet — Person and Student Exercise 1",
+      "ru": "13. Интранет МВУТ — Упражнение 1 для человека и студента"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 1 rasmiy topshirig'i: 'Person' sinfi ismga ('name') ega. 'Student' sinfi esa 'Person' dan meros oladi ('Student extends Person') va unga talaba ID raqami ('studentId') qo'shiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Person' ni e'lon qiling va unga 'private String name;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Student' ni yarating va 'extends Person' orqali ota sinfdan meros oling.\n\n3. 'Student' ga xususiy 'private String studentId;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Student obj = new Student();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Student st = new Student(); st.setName(\"Madina Karimova\"); st.setStudentId(\"00018899\"); System.out.println(\"Talaba: \" + st.getName() + \" | ID: \" + st.getStudentId());'",
-      "en": "📖 Real-World Scenario & Context\nDirect implementation of WIUT Seminar 3 Ex 1: Person encapsulates name; Student extends Person, adding studentId.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with 'private String name;' and public getter/setter.\n\n2. Create subclass 'Student' extending 'Person' via 'extends Person'.\n\n3. Add field 'private String studentId;' and getter/setter to 'Student'.\n\n4. Instantiate 'Student obj = new Student();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Student st = new Student(); st.setName(\"Madina Karimova\"); st.setStudentId(\"00018899\"); System.out.println(\"Talaba: \" + st.getName() + \" | ID: \" + st.getStudentId());'"
+      "en": "📖 Real-World Scenario & Context\nDirect implementation of WIUT Seminar 3 Ex 1: Person encapsulates name; Student extends Person, adding studentId.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with 'private String name;' and public getter/setter.\n\n2. Create subclass 'Student' extending 'Person' via 'extends Person'.\n\n3. Add field 'private String studentId;' and getter/setter to 'Student'.\n\n4. Instantiate 'Student obj = new Student();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Student st = new Student(); st.setName(\"Madina Karimova\"); st.setStudentId(\"00018899\"); System.out.println(\"Talaba: \" + st.getName() + \" | ID: \" + st.getStudentId());'",
+      "ru": "📖 Контекст и описание задачи\nПрямая реализация семинара WIUT 3 Пример 1: Человек инкапсулирует имя; Студент расширяет Person, добавляя StudentId.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявить суперкласс «Человек» с «частным строковым именем»; и публичный геттер/сеттер.\n2. Создайте подкласс «Студент», расширяющий «Человек» через «extends Person».\n3. Добавьте поле «частная строка StudentId;» и метод получения/установки для «Студента».\n4. Создать экземпляр «Student obj = new Student();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Student st = new Student(); st.setName(\"Мадина Каримова\"); st.setStudentId(\"00018899\"); System.out.println(\"Талаба: \" + st.getName() + \" | ID: \" + st.getStudentId());'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 1 rasmiy topshirig'i: 'Person' sinfi ismga ('name') ega. 'Student' sinfi esa 'Person' dan meros oladi ('Student extends Person') va unga talaba ID raqami ('studentId') qo'shiladi.",
-      "en": "Direct implementation of WIUT Seminar 3 Ex 1: Person encapsulates name; Student extends Person, adding studentId."
+      "en": "Direct implementation of WIUT Seminar 3 Ex 1: Person encapsulates name; Student extends Person, adding studentId.",
+      "ru": "Прямая реализация семинара WIUT 3 Пример 1: Человек инкапсулирует имя; Студент расширяет Person, добавляя StudentId."
     },
     "steps": {
       "uz": [
@@ -802,6 +983,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private String studentId;' and getter/setter to 'Student'.",
         "Instantiate 'Student obj = new Student();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Student st = new Student(); st.setName(\"Madina Karimova\"); st.setStudentId(\"00018899\"); System.out.println(\"Talaba: \" + st.getName() + \" | ID: \" + st.getStudentId());'"
+      ],
+      "ru": [
+        "Объявить суперкласс «Человек» с «частным строковым именем»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Студент», расширяющий «Человек» через «extends Person».",
+        "Добавьте поле «частная строка StudentId;» и метод получения/установки для «Студента».",
+        "Создать экземпляр «Student obj = new Student();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Student st = new Student(); st.setName(\"Мадина Каримова\"); st.setStudentId(\"00018899\"); System.out.println(\"Талаба: \" + st.getName() + \" | ID: \" + st.getStudentId());'"
       ]
     },
     "requirements": {
@@ -832,7 +1020,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Person</code>: 'Person' ota klassining barcha ochiq metodlarini 'Student' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Student sinfida qaytadan 'name' maydoni ochmang; u Person klassidan meros olinadi.",
-      "cw2Tip": "Universitet tizimlarini modellashtirishda Person superklassidan foydalanish asosiy talabdir."
+      "cw2Tip": "Universitet tizimlarini modellashtirishda Person superklassidan foydalanish asosiy talabdir.",
+      "theoryRu": "Семинар WIUT 3 Пример 1 устанавливает иерархию «Студент-Человек», показывая унаследованные мутаторы имен и средства доступа.",
+      "pitfallsRu": "Студентка Синфида Кайтадан «имя» Майдони Очманг; ты человек класса meros olinadi.",
+      "breakdownRu": [
+        "<code>extends Person</code>: 'Person' ota klassining barcha ochiq metodlarini 'Student' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -842,15 +1035,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "14. Dodo Pizza — FoodItem va PizzaItem Merosxo'rligi",
-      "en": "14. Dodo Pizza — FoodItem and PizzaItem Specialization"
+      "en": "14. Dodo Pizza — FoodItem and PizzaItem Specialization",
+      "ru": "14. Додо Пицца — FoodItem и специализация PizzaItem"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTaom ('FoodItem') taom nomiga ega. Pitsa esa ('PizzaItem is-a FoodItem') uning diametr o'lchamiga ('sizeCm') ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'FoodItem' ni e'lon qiling va unga 'private String itemName;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'PizzaItem' ni yarating va 'extends FoodItem' orqali ota sinfdan meros oling.\n\n3. 'PizzaItem' ga xususiy 'private int sizeCm;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'PizzaItem obj = new PizzaItem();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'PizzaItem pizza = new PizzaItem(); pizza.setItemName(\"Pepperoni\"); pizza.setSizeCm(35); System.out.println(\"Taom: \" + pizza.getItemName() + \" | O'lcham: \" + pizza.getSizeCm() + \" sm\");'",
-      "en": "📖 Real-World Scenario & Context\nFood menu items track names; PizzaItems derive from FoodItem by embedding diameter sizing in centimeters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FoodItem' with 'private String itemName;' and public getter/setter.\n\n2. Create subclass 'PizzaItem' extending 'FoodItem' via 'extends FoodItem'.\n\n3. Add field 'private int sizeCm;' and getter/setter to 'PizzaItem'.\n\n4. Instantiate 'PizzaItem obj = new PizzaItem();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'PizzaItem pizza = new PizzaItem(); pizza.setItemName(\"Pepperoni\"); pizza.setSizeCm(35); System.out.println(\"Taom: \" + pizza.getItemName() + \" | O'lcham: \" + pizza.getSizeCm() + \" sm\");'"
+      "en": "📖 Real-World Scenario & Context\nFood menu items track names; PizzaItems derive from FoodItem by embedding diameter sizing in centimeters.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FoodItem' with 'private String itemName;' and public getter/setter.\n\n2. Create subclass 'PizzaItem' extending 'FoodItem' via 'extends FoodItem'.\n\n3. Add field 'private int sizeCm;' and getter/setter to 'PizzaItem'.\n\n4. Instantiate 'PizzaItem obj = new PizzaItem();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'PizzaItem pizza = new PizzaItem(); pizza.setItemName(\"Pepperoni\"); pizza.setSizeCm(35); System.out.println(\"Taom: \" + pizza.getItemName() + \" | O'lcham: \" + pizza.getSizeCm() + \" sm\");'",
+      "ru": "📖 Контекст и описание задачи\nПункты меню еды отслеживают названия; PizzaItems являются производными от FoodItem путем внедрения размера диаметра в сантиметрах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «FoodItem» с «частной строкой itemName»; и публичный геттер/сеттер.\n2. Создайте подкласс «PizzaItem», расширяющий «FoodItem» через «extends FoodItem».\n3. Добавьте поле «private int sizeCm;» и метод получения/установки для «PizzaItem».\n4. Создать экземпляр 'PizzaItem obj = new PizzaItem();' в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'PizzaItem Pizza = new PizzaItem(); Pizza.setItemName(\"Пепперони\"); пицца.setSizeCm(35); System.out.println(\"Taom: \" + Pizza.getItemName() + \" | О'лчам: \" + Pizza.getSizeCm() + \" sm\");'"
     },
     "story": {
       "uz": "Taom ('FoodItem') taom nomiga ega. Pitsa esa ('PizzaItem is-a FoodItem') uning diametr o'lchamiga ('sizeCm') ega.",
-      "en": "Food menu items track names; PizzaItems derive from FoodItem by embedding diameter sizing in centimeters."
+      "en": "Food menu items track names; PizzaItems derive from FoodItem by embedding diameter sizing in centimeters.",
+      "ru": "Пункты меню еды отслеживают названия; PizzaItems являются производными от FoodItem путем внедрения размера диаметра в сантиметрах."
     },
     "steps": {
       "uz": [
@@ -866,6 +1062,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private int sizeCm;' and getter/setter to 'PizzaItem'.",
         "Instantiate 'PizzaItem obj = new PizzaItem();' in 'main'.",
         "Invoke inherited and specialized accessors: 'PizzaItem pizza = new PizzaItem(); pizza.setItemName(\"Pepperoni\"); pizza.setSizeCm(35); System.out.println(\"Taom: \" + pizza.getItemName() + \" | O'lcham: \" + pizza.getSizeCm() + \" sm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «FoodItem» с «частной строкой itemName»; и публичный геттер/сеттер.",
+        "Создайте подкласс «PizzaItem», расширяющий «FoodItem» через «extends FoodItem».",
+        "Добавьте поле «private int sizeCm;» и метод получения/установки для «PizzaItem».",
+        "Создать экземпляр 'PizzaItem obj = new PizzaItem();' в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'PizzaItem Pizza = new PizzaItem(); Pizza.setItemName(\"Пепперони\"); пицца.setSizeCm(35); System.out.println(\"Taom: \" + Pizza.getItemName() + \" | О'лчам: \" + Pizza.getSizeCm() + \" sm\");'"
       ]
     },
     "requirements": {
@@ -896,7 +1099,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends FoodItem</code>: 'FoodItem' ota klassining barcha ochiq metodlarini 'PizzaItem' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "Pitsa o'lchami int turida ekanligiga e'tibor qarating.",
-      "cw2Tip": "CW2 da tovar menyusini qurishda FoodItem superklassidan meros oling."
+      "cw2Tip": "CW2 da tovar menyusini qurishda FoodItem superklassidan meros oling.",
+      "theoryRu": "Критерии курсовой работы CW2 в значительной степени поощряют разбиение пунктов меню на общие суперклассы и подклассы предметной области.",
+      "pitfallsRu": "Pitsa o'lchami int turida ekanligiga e'tibor qarating.",
+      "breakdownRu": [
+        "<code>extends FoodItem</code>: 'FoodItem' ota klassining barcha ochiq metodlarini 'PizzaItem' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -906,15 +1114,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "1-15: extends va is-a Munosabati",
     "title": {
       "uz": "15. Safia Bakery — Pastry va Cake Merosxo'rligi",
-      "en": "15. Safia Bakery — Pastry and Cake Hierarchy"
+      "en": "15. Safia Bakery — Pastry and Cake Hierarchy",
+      "ru": "15. Пекарня Safia — иерархия выпечки и тортов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nQandolat mahsuloti ('Pastry') shirinlik nomiga ega. Maxsus buyurtma torti esa ('Cake is-a Pastry') uning qavatlar soniga ('tierCount') ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Pastry' ni e'lon qiling va unga 'private String pastryName;' maydoni hamda tegishli getter/setterni qo'shing.\n\n2. Avlod sinf 'Cake' ni yarating va 'extends Pastry' orqali ota sinfdan meros oling.\n\n3. 'Cake' ga xususiy 'private int tierCount;' maydonini va uning getter/setterini qo'shing.\n\n4. 'Main' klassi 'main' metodida 'Cake obj = new Cake();' ob'yektini yarating.\n\n5. Ota sinf va avlod sinf metodlarini chaqirib natijani konsolga chop eting: 'Cake cake = new Cake(); cake.setPastryName(\"Qizil Baxmal\"); cake.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'",
-      "en": "📖 Real-World Scenario & Context\nBakery pastries manage product titles; celebratory Cakes derive from Pastry, tracking layer tier counts.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pastry' with 'private String pastryName;' and public getter/setter.\n\n2. Create subclass 'Cake' extending 'Pastry' via 'extends Pastry'.\n\n3. Add field 'private int tierCount;' and getter/setter to 'Cake'.\n\n4. Instantiate 'Cake obj = new Cake();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Cake cake = new Cake(); cake.setPastryName(\"Qizil Baxmal\"); cake.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'"
+      "en": "📖 Real-World Scenario & Context\nBakery pastries manage product titles; celebratory Cakes derive from Pastry, tracking layer tier counts.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pastry' with 'private String pastryName;' and public getter/setter.\n\n2. Create subclass 'Cake' extending 'Pastry' via 'extends Pastry'.\n\n3. Add field 'private int tierCount;' and getter/setter to 'Cake'.\n\n4. Instantiate 'Cake obj = new Cake();' in 'main'.\n\n5. Invoke inherited and specialized accessors: 'Cake cake = new Cake(); cake.setPastryName(\"Qizil Baxmal\"); cake.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'",
+      "ru": "📖 Контекст и описание задачи\nХлебобулочные и кондитерские изделия управляют названиями продуктов; Праздничные торты происходят от кондитерских изделий, отслеживая количество слоев.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Patry» с «private String PastryName»; и публичный геттер/сеттер.\n2. Создайте подкласс «Cake», расширяющий «Patry» через «extends Pastry».\n3. Добавьте поле «private int tierCount;» и геттер/сеттер для «Cake».\n4. Создать экземпляр «Cake obj = new Cake();» в «главном».\n5. Вызов унаследованных и специализированных методов доступа: 'Cake cake = new Cake(); cake.setPastryName(\"Гызыл Бакшмал\"); торт.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'"
     },
     "story": {
       "uz": "Qandolat mahsuloti ('Pastry') shirinlik nomiga ega. Maxsus buyurtma torti esa ('Cake is-a Pastry') uning qavatlar soniga ('tierCount') ega.",
-      "en": "Bakery pastries manage product titles; celebratory Cakes derive from Pastry, tracking layer tier counts."
+      "en": "Bakery pastries manage product titles; celebratory Cakes derive from Pastry, tracking layer tier counts.",
+      "ru": "Хлебобулочные и кондитерские изделия управляют названиями продуктов; Праздничные торты происходят от кондитерских изделий, отслеживая количество слоев."
     },
     "steps": {
       "uz": [
@@ -930,6 +1141,13 @@ window.OOP_CHALLENGES_W3 = [
         "Add field 'private int tierCount;' and getter/setter to 'Cake'.",
         "Instantiate 'Cake obj = new Cake();' in 'main'.",
         "Invoke inherited and specialized accessors: 'Cake cake = new Cake(); cake.setPastryName(\"Qizil Baxmal\"); cake.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Patry» с «private String PastryName»; и публичный геттер/сеттер.",
+        "Создайте подкласс «Cake», расширяющий «Patry» через «extends Pastry».",
+        "Добавьте поле «private int tierCount;» и геттер/сеттер для «Cake».",
+        "Создать экземпляр «Cake obj = new Cake();» в «главном».",
+        "Вызов унаследованных и специализированных методов доступа: 'Cake cake = new Cake(); cake.setPastryName(\"Гызыл Бакшмал\"); торт.setTierCount(3); System.out.println(\"Tort: \" + cake.getPastryName() + \" | Qavatlar: \" + cake.getTierCount());'"
       ]
     },
     "requirements": {
@@ -960,7 +1178,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>extends Pastry</code>: 'Pastry' ota klassining barcha ochiq metodlarini 'Cake' ga meros qilib o'tkazadi."
       ],
       "pitfalls": "pastryName maydonini ota klassda private qilib, setter orqali to'ldiring.",
-      "cw2Tip": "CW2 da shirinlik va desertlarni Pastry tayanch klassi orqali ifodalang."
+      "cw2Tip": "CW2 da shirinlik va desertlarni Pastry tayanch klassi orqali ifodalang.",
+      "theoryRu": "Завершение уровня 1 укрепляет навыки учащихся в использовании ключевого слова «extends» и механики одиночного наследования в Java.",
+      "pitfallsRu": "PastryName maydonini ota klassda Private qilib, setter orqali to'ldiring.",
+      "breakdownRu": [
+        "<code>extends Pastry</code>: 'Pastry' ota klassining barcha ochiq metodlarini 'Cake' ga meros qilib o'tkazadi."
+      ]
     }
   },
   {
@@ -970,15 +1193,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "16. Uzum Market — PhysicalProduct va og'irlik (Seminar 3 Ex 2)",
-      "en": "16. Uzum Market — PhysicalProduct and Weight Attribute"
+      "en": "16. Uzum Market — PhysicalProduct and Weight Attribute",
+      "ru": "16. Рынок Узум — физический продукт и весовой атрибут."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 2: 'Product' sinfi private 'name' va 'price' maydonlariga ega. 'PhysicalProduct extends Product' esa private 'weightKg' (double) maydonini qo'shadi. Ota sinf maydonlari faqat ota sinf getter/setterlari orqali boshqariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'private String name;', 'private double price;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating va unga 'private double weightKg;' maydonini qo'shing.\n\n3. 'PhysicalProduct' ichida 'getWeightKg()' va 'setWeightKg(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'PhysicalProduct' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Noutbuk Sumkasi\"); pp.setPrice(240000.0); pp.setWeightKg(1.25); System.out.println(\"Mahsulot: \" + pp.getName() + \" | Narx: \" + pp.getPrice() + \" | Vazn: \" + pp.getWeightKg() + \" kg\");'",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 2: Product encapsulates name and price. PhysicalProduct extends Product with private weightKg.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'PhysicalProduct extends Product' with field 'private double weightKg;'.\n\n3. Implement 'getWeightKg()' and 'setWeightKg(...)' in 'PhysicalProduct'.\n\n4. In 'main', instantiate 'PhysicalProduct' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Noutbuk Sumkasi\"); pp.setPrice(240000.0); pp.setWeightKg(1.25); System.out.println(\"Mahsulot: \" + pp.getName() + \" | Narx: \" + pp.getPrice() + \" | Vazn: \" + pp.getWeightKg() + \" kg\");'"
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 2: Product encapsulates name and price. PhysicalProduct extends Product with private weightKg.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'PhysicalProduct extends Product' with field 'private double weightKg;'.\n\n3. Implement 'getWeightKg()' and 'setWeightKg(...)' in 'PhysicalProduct'.\n\n4. In 'main', instantiate 'PhysicalProduct' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Noutbuk Sumkasi\"); pp.setPrice(240000.0); pp.setWeightKg(1.25); System.out.println(\"Mahsulot: \" + pp.getName() + \" | Narx: \" + pp.getPrice() + \" | Vazn: \" + pp.getWeightKg() + \" kg\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализация семинара WIUT 3, пример 2: В продукте указано название и цена. PhysicalProduct расширяет Product с собственным весомKg.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с: «имя частной строки;», «частная двойная цена»; и аксессуары.\n2. Выведите «Физический продукт расширяет продукт» с полем «частный двойной вес, кг;».\n3. Реализуйте getWeightKg() и setWeightKg(...) в PhysicalProduct.\n4. В «main» создайте экземпляр «PhysicalProduct» и установите родительское состояние с помощью унаследованных установщиков.\n5. Состояние печати через методы доступа: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Ноутбук Сумкаси\"); pp.setPrice(240000.0); pp.setWeightKg(1,25); System.out.println(\"Махсулот: \" + pp.getName() + \" | Наркс: \" + pp.getPrice() + \" | Вазн: \" + pp.getWeightKg() + \" кг\");'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 2: 'Product' sinfi private 'name' va 'price' maydonlariga ega. 'PhysicalProduct extends Product' esa private 'weightKg' (double) maydonini qo'shadi. Ota sinf maydonlari faqat ota sinf getter/setterlari orqali boshqariladi.",
-      "en": "Implementing WIUT Seminar 3 Ex 2: Product encapsulates name and price. PhysicalProduct extends Product with private weightKg."
+      "en": "Implementing WIUT Seminar 3 Ex 2: Product encapsulates name and price. PhysicalProduct extends Product with private weightKg.",
+      "ru": "Реализация семинара WIUT 3, пример 2: В продукте указано название и цена. PhysicalProduct расширяет Product с собственным весомKg."
     },
     "steps": {
       "uz": [
@@ -994,6 +1220,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getWeightKg()' and 'setWeightKg(...)' in 'PhysicalProduct'.",
         "In 'main', instantiate 'PhysicalProduct' and set parent state via inherited setters.",
         "Print state via accessors: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Noutbuk Sumkasi\"); pp.setPrice(240000.0); pp.setWeightKg(1.25); System.out.println(\"Mahsulot: \" + pp.getName() + \" | Narx: \" + pp.getPrice() + \" | Vazn: \" + pp.getWeightKg() + \" kg\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с: «имя частной строки;», «частная двойная цена»; и аксессуары.",
+        "Выведите «Физический продукт расширяет продукт» с полем «частный двойной вес, кг;».",
+        "Реализуйте getWeightKg() и setWeightKg(...) в PhysicalProduct.",
+        "В «main» создайте экземпляр «PhysicalProduct» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Состояние печати через методы доступа: 'PhysicalProduct pp = new PhysicalProduct(); pp.setName(\"Ноутбук Сумкаси\"); pp.setPrice(240000.0); pp.setWeightKg(1,25); System.out.println(\"Махсулот: \" + pp.getName() + \" | Наркс: \" + pp.getPrice() + \" | Вазн: \" + pp.getWeightKg() + \" кг\");'"
       ]
     },
     "requirements": {
@@ -1025,7 +1258,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "PhysicalProduct ichida 'this.name = name;' deb yozish kompilyatsiya xatosi beradi, chunki 'name' ota klassda 'private'.",
-      "cw2Tip": "CW2 mezonlarida ota klass maydonlarining inkapsulyatsiyasini buzmaslik qat'iy tekshiriladi."
+      "cw2Tip": "CW2 mezonlarida ota klass maydonlarining inkapsulyatsiyasini buzmaslik qat'iy tekshiriladi.",
+      "theoryRu": "Лекция 3. Слайды 23–25. Подклассы не могут напрямую обращаться к частным полям суперкласса, полагаясь исключительно на унаследованные общедоступные геттеры и мутаторы.",
+      "pitfallsRu": "ФизическийПродукт ichida 'this.name = name;' деб йозиш компиляция хатоси беради, чунки «имя» от класса «частный».",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1035,15 +1273,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "17. Uzum Market — DigitalProduct va Fayl Hajmi (Seminar 3 Ex 2)",
-      "en": "17. Uzum Market — DigitalProduct and File Size Attribute"
+      "en": "17. Uzum Market — DigitalProduct and File Size Attribute",
+      "ru": "17. Uzum Market — атрибут цифрового продукта и размера файла."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 2 ikkinchi qismi: 'DigitalProduct extends Product' raqamli mahsuloti private 'fileSizeMb' (double) maydonini qo'shadi. Tovar nomi va narxi ota klass getteri orqali olinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'private String name;', 'private double price;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'DigitalProduct extends Product' ni yarating va unga 'private double fileSizeMb;' maydonini qo'shing.\n\n3. 'DigitalProduct' ichida 'getFileSizeMb()' va 'setFileSizeMb(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'DigitalProduct' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Dasturlash Qo'llanmasi\"); dp.setPrice(79000.0); dp.setFileSizeMb(45.5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 2 (Part 2): DigitalProduct extends Product, adding private fileSizeMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'DigitalProduct extends Product' with field 'private double fileSizeMb;'.\n\n3. Implement 'getFileSizeMb()' and 'setFileSizeMb(...)' in 'DigitalProduct'.\n\n4. In 'main', instantiate 'DigitalProduct' and set parent state via inherited setters.\n\n5. Print state via accessors: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Dasturlash Qo'llanmasi\"); dp.setPrice(79000.0); dp.setFileSizeMb(45.5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'"
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 2 (Part 2): DigitalProduct extends Product, adding private fileSizeMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'DigitalProduct extends Product' with field 'private double fileSizeMb;'.\n\n3. Implement 'getFileSizeMb()' and 'setFileSizeMb(...)' in 'DigitalProduct'.\n\n4. In 'main', instantiate 'DigitalProduct' and set parent state via inherited setters.\n\n5. Print state via accessors: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Dasturlash Qo'llanmasi\"); dp.setPrice(79000.0); dp.setFileSizeMb(45.5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'",
+      "ru": "📖 Контекст и описание задачи\nРеализация семинара WIUT 3, пример 2 (часть 2): DigitalProduct расширяет продукт, добавляя частный fileSizeMb.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с: «имя частной строки;», «частная двойная цена»; и аксессуары.\n2. Получите «DigitalProduct расширяет продукт» с полем «private double fileSizeMb;».\n3. Реализуйте getFileSizeMb() и setFileSizeMb(...) в DigitalProduct.\n4. В «main» создайте экземпляр «DigitalProduct» и установите родительское состояние с помощью унаследованных установщиков.\n5. Состояние печати через методы доступа: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Дастурлаш Кулланмаси\"); dp.setPrice(79000.0); dp.setFileSizeMb(45,5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 2 ikkinchi qismi: 'DigitalProduct extends Product' raqamli mahsuloti private 'fileSizeMb' (double) maydonini qo'shadi. Tovar nomi va narxi ota klass getteri orqali olinadi.",
-      "en": "Implementing WIUT Seminar 3 Ex 2 (Part 2): DigitalProduct extends Product, adding private fileSizeMb."
+      "en": "Implementing WIUT Seminar 3 Ex 2 (Part 2): DigitalProduct extends Product, adding private fileSizeMb.",
+      "ru": "Реализация семинара WIUT 3, пример 2 (часть 2): DigitalProduct расширяет продукт, добавляя частный fileSizeMb."
     },
     "steps": {
       "uz": [
@@ -1059,6 +1300,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getFileSizeMb()' and 'setFileSizeMb(...)' in 'DigitalProduct'.",
         "In 'main', instantiate 'DigitalProduct' and set parent state via inherited setters.",
         "Print state via accessors: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Dasturlash Qo'llanmasi\"); dp.setPrice(79000.0); dp.setFileSizeMb(45.5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с: «имя частной строки;», «частная двойная цена»; и аксессуары.",
+        "Получите «DigitalProduct расширяет продукт» с полем «private double fileSizeMb;».",
+        "Реализуйте getFileSizeMb() и setFileSizeMb(...) в DigitalProduct.",
+        "В «main» создайте экземпляр «DigitalProduct» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Состояние печати через методы доступа: 'DigitalProduct dp = new DigitalProduct(); dp.setName(\"Java Дастурлаш Кулланмаси\"); dp.setPrice(79000.0); dp.setFileSizeMb(45,5); System.out.println(\"E-Mahsulot: \" + dp.getName() + \" | Narx: \" + dp.getPrice() + \" | Hajm: \" + dp.getFileSizeMb() + \" MB\");'"
       ]
     },
     "requirements": {
@@ -1090,7 +1338,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "fileSizeMb double turida bo'lib, uning getteri getFileSizeMb() bo'ladi.",
-      "cw2Tip": "CW2 da raqamli va jismoniy xizmatlarni bitta umumiy klassdan tarmoqlang."
+      "cw2Tip": "CW2 da raqamli va jismoniy xizmatlarni bitta umumiy klassdan tarmoqlang.",
+      "theoryRu": "Ветвление PhysicalProduct и DigitalProduct из одного и того же суперкласса Product устанавливает полиморфную таксономию.",
+      "pitfallsRu": "fileSizeMb двойная библиотека библиотеки, позволяющая получить getFileSizeMb() bo'ladi.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1100,15 +1353,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "18. Payme — PremiumWallet va Kunlik Tranzaksiya Limiti",
-      "en": "18. Payme — PremiumWallet and Daily Limit Attribute"
+      "en": "18. Payme — PremiumWallet and Daily Limit Attribute",
+      "ru": "18. Payme — PremiumWallet и атрибут дневного лимита"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme hamyoni ('Wallet') o'z egasining telefon raqami va balansiga ega. 'PremiumWallet extends Wallet' esa o'zining private 'dailyLimit' (double) maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Wallet' ni e'lon qiling va unga 'private String phone;', 'private double balance;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'PremiumWallet extends Wallet' ni yarating va unga 'private double dailyLimit;' maydonini qo'shing.\n\n3. 'PremiumWallet' ichida 'getDailyLimit()' va 'setDailyLimit(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'PremiumWallet' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'",
-      "en": "📖 Real-World Scenario & Context\nPremium wallets extend base wallets by encapsulating a private daily transaction limit.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Wallet' with: 'private String phone;', 'private double balance;' and accessors.\n\n2. Derive 'PremiumWallet extends Wallet' with field 'private double dailyLimit;'.\n\n3. Implement 'getDailyLimit()' and 'setDailyLimit(...)' in 'PremiumWallet'.\n\n4. In 'main', instantiate 'PremiumWallet' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'"
+      "en": "📖 Real-World Scenario & Context\nPremium wallets extend base wallets by encapsulating a private daily transaction limit.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Wallet' with: 'private String phone;', 'private double balance;' and accessors.\n\n2. Derive 'PremiumWallet extends Wallet' with field 'private double dailyLimit;'.\n\n3. Implement 'getDailyLimit()' and 'setDailyLimit(...)' in 'PremiumWallet'.\n\n4. In 'main', instantiate 'PremiumWallet' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'",
+      "ru": "📖 Контекст и описание задачи\nПремиум-кошельки расширяют базовые кошельки, инкапсулируя частный дневной лимит транзакций.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Кошелек» с: «частный телефон String;», «частный двойной баланс»; и аксессуары.\n2. Получите «PremiumWallet расширяет кошелек» с полем «private double dailyLimit;».\n3. Реализуйте getDailyLimit() и setDailyLimit(...) в PremiumWallet.\n4. В «main» создайте экземпляр «PremiumWallet» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатать состояние через методы доступа: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'"
     },
     "story": {
       "uz": "Payme hamyoni ('Wallet') o'z egasining telefon raqami va balansiga ega. 'PremiumWallet extends Wallet' esa o'zining private 'dailyLimit' (double) maydonini qo'shadi.",
-      "en": "Premium wallets extend base wallets by encapsulating a private daily transaction limit."
+      "en": "Premium wallets extend base wallets by encapsulating a private daily transaction limit.",
+      "ru": "Премиум-кошельки расширяют базовые кошельки, инкапсулируя частный дневной лимит транзакций."
     },
     "steps": {
       "uz": [
@@ -1124,6 +1380,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getDailyLimit()' and 'setDailyLimit(...)' in 'PremiumWallet'.",
         "In 'main', instantiate 'PremiumWallet' and set parent state via inherited setters.",
         "Print state via accessors: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Кошелек» с: «частный телефон String;», «частный двойной баланс»; и аксессуары.",
+        "Получите «PremiumWallet расширяет кошелек» с полем «private double dailyLimit;».",
+        "Реализуйте getDailyLimit() и setDailyLimit(...) в PremiumWallet.",
+        "В «main» создайте экземпляр «PremiumWallet» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатать состояние через методы доступа: 'PremiumWallet pw = new PremiumWallet(); pw.setPhone(\"+998901234567\"); pw.setBalance(1500000.0); pw.setDailyLimit(50000000.0); System.out.println(\"Hamyon: \" + pw.getPhone() + \" | Balans: \" + pw.getBalance() + \" | Limit: \" + pw.getDailyLimit());'"
       ]
     },
     "requirements": {
@@ -1155,7 +1418,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "Har ikkala klass maydonlari 'private' bo'lishi va setter/getter orqali boshqarilishi shart.",
-      "cw2Tip": "Foydalanuvchi akkauntlari tabaqalanishida ushbu usuldan foydalaning."
+      "cw2Tip": "Foydalanuvchi akkauntlari tabaqalanishida ushbu usuldan foydalaning.",
+      "theoryRu": "Уровни Fintech инкапсулируют базовые балансы внутри суперклассов, накладывая премиальные операционные ограничения в производные модели.",
+      "pitfallsRu": "Har ikkala klass maydonlari 'private' bo'lishi va setter/getter orqali boshqarilishi shart.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1165,15 +1433,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "19. Yandex Go — DeliveryRide va Yetkazish Eslatmasi",
-      "en": "19. Yandex Go — DeliveryRide and Delivery Note Attribute"
+      "en": "19. Yandex Go — DeliveryRide and Delivery Note Attribute",
+      "ru": "19. Yandex Go — атрибут DeliveryRide и накладная"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex buyurtmasi ('RideOrder') buyurtmachi ismi va masofasiga ega. Yetkazib berish qatnovi ('DeliveryRide extends RideOrder') esa kuryer uchun private 'deliveryNote' (String) eslatmasini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'RideOrder' ni e'lon qiling va unga 'private String customerName;', 'private double distanceKm;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'DeliveryRide extends RideOrder' ni yarating va unga 'private String deliveryNote;' maydonini qo'shing.\n\n3. 'DeliveryRide' ichida 'getDeliveryNote()' va 'setDeliveryNote(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'DeliveryRide' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Jahongir\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Eshik yonida qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Masofa: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'",
-      "en": "📖 Real-World Scenario & Context\nDelivery rides extend rides, adding private delivery notes for dispatch couriers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'RideOrder' with: 'private String customerName;', 'private double distanceKm;' and accessors.\n\n2. Derive 'DeliveryRide extends RideOrder' with field 'private String deliveryNote;'.\n\n3. Implement 'getDeliveryNote()' and 'setDeliveryNote(...)' in 'DeliveryRide'.\n\n4. In 'main', instantiate 'DeliveryRide' and set parent state via inherited setters.\n\n5. Print state via accessors: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Jahongir\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Eshik yonida qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Masofa: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'"
+      "en": "📖 Real-World Scenario & Context\nDelivery rides extend rides, adding private delivery notes for dispatch couriers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'RideOrder' with: 'private String customerName;', 'private double distanceKm;' and accessors.\n\n2. Derive 'DeliveryRide extends RideOrder' with field 'private String deliveryNote;'.\n\n3. Implement 'getDeliveryNote()' and 'setDeliveryNote(...)' in 'DeliveryRide'.\n\n4. In 'main', instantiate 'DeliveryRide' and set parent state via inherited setters.\n\n5. Print state via accessors: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Jahongir\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Eshik yonida qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Masofa: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'",
+      "ru": "📖 Контекст и описание задачи\nПоездки на доставку расширяют количество поездок, добавляя частные накладные для курьеров-отправителей.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «RideOrder» с помощью: «private String customerName;», «private double distanceKm;» и аксессуары.\n2. Выведите «DeliveryRide расширяет RideOrder» с полем «private String DeliveryNote;».\n3. Реализуйте «getDeliveryNote()» и «setDeliveryNote(...)» в «DeliveryRide».\n4. В «main» создайте экземпляр «DeliveryRide» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Джахонгир\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Эшик йонида qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Масофа: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'"
     },
     "story": {
       "uz": "Yandex buyurtmasi ('RideOrder') buyurtmachi ismi va masofasiga ega. Yetkazib berish qatnovi ('DeliveryRide extends RideOrder') esa kuryer uchun private 'deliveryNote' (String) eslatmasini qo'shadi.",
-      "en": "Delivery rides extend rides, adding private delivery notes for dispatch couriers."
+      "en": "Delivery rides extend rides, adding private delivery notes for dispatch couriers.",
+      "ru": "Поездки на доставку расширяют количество поездок, добавляя частные накладные для курьеров-отправителей."
     },
     "steps": {
       "uz": [
@@ -1189,6 +1460,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getDeliveryNote()' and 'setDeliveryNote(...)' in 'DeliveryRide'.",
         "In 'main', instantiate 'DeliveryRide' and set parent state via inherited setters.",
         "Print state via accessors: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Jahongir\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Eshik yonida qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Masofa: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «RideOrder» с помощью: «private String customerName;», «private double distanceKm;» и аксессуары.",
+        "Выведите «DeliveryRide расширяет RideOrder» с полем «private String DeliveryNote;».",
+        "Реализуйте «getDeliveryNote()» и «setDeliveryNote(...)» в «DeliveryRide».",
+        "В «main» создайте экземпляр «DeliveryRide» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'DeliveryRide dr = new DeliveryRide(); dr.setCustomerName(\"Джахонгир\"); dr.setDistanceKm(8.5); dr.setDeliveryNote(\"Эшик йонида qoldiring\"); System.out.println(\"Mijoz: \" + dr.getCustomerName() + \" | Масофа: \" + dr.getDistanceKm() + \" km | Eslatma: \" + dr.getDeliveryNote());'"
       ]
     },
     "requirements": {
@@ -1220,7 +1498,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "Ota klass getterlari (getCustomerName, getDistanceKm) avlod obyektida to'liq ishlaydi.",
-      "cw2Tip": "Buyurtma turlariga qo'shimcha tafsilotlar kiritishda merosxo'rlikdan foydalaning."
+      "cw2Tip": "Buyurtma turlariga qo'shimcha tafsilotlar kiritishda merosxo'rlikdan foydalaning.",
+      "theoryRu": "Специализированные логистические рабочие процессы дополняют базовые поездки инструкциями по доставке для конкретных посылок.",
+      "pitfallsRu": "Другие классы получения (getCustomerName, getDistanceKm) позволяют объекту быть удалены.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1230,15 +1513,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "20. Korzinka Go — PerishableItem va Yaroqlilik Muddati",
-      "en": "20. Korzinka Go — PerishableItem and Shelf Life Days"
+      "en": "20. Korzinka Go — PerishableItem and Shelf Life Days",
+      "ru": "20. Корзинка Го — Скоропортящиеся товары и дни годности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSupermarket tovari ('MarketItem') tovar kodi va narxiga ega. Tez buziluvchi oziq-ovqat ('PerishableItem extends MarketItem') esa private 'expiryDays' (int) saqlanish muddati maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MarketItem' ni e'lon qiling va unga 'private String itemCode;', 'private double price;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'PerishableItem extends MarketItem' ni yarating va unga 'private int expiryDays;' maydonini qo'shing.\n\n3. 'PerishableItem' ichida 'getExpiryDays()' va 'setExpiryDays(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'PerishableItem' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"MILK-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'",
-      "en": "📖 Real-World Scenario & Context\nPerishable items specialize market items by tracking shelf-life expiration days.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MarketItem' with: 'private String itemCode;', 'private double price;' and accessors.\n\n2. Derive 'PerishableItem extends MarketItem' with field 'private int expiryDays;'.\n\n3. Implement 'getExpiryDays()' and 'setExpiryDays(...)' in 'PerishableItem'.\n\n4. In 'main', instantiate 'PerishableItem' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"MILK-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'"
+      "en": "📖 Real-World Scenario & Context\nPerishable items specialize market items by tracking shelf-life expiration days.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MarketItem' with: 'private String itemCode;', 'private double price;' and accessors.\n\n2. Derive 'PerishableItem extends MarketItem' with field 'private int expiryDays;'.\n\n3. Implement 'getExpiryDays()' and 'setExpiryDays(...)' in 'PerishableItem'.\n\n4. In 'main', instantiate 'PerishableItem' and set parent state via inherited setters.\n\n5. Print state via accessors: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"MILK-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'",
+      "ru": "📖 Контекст и описание задачи\nСкоропортящиеся товары специализируются на товарах на рынке, отслеживая дни истечения срока годности.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс MarketItem с: «private String itemCode;», «private doubleprice;» и аксессуары.\n2. Получите «PerishableItem расширяет MarketItem» с полем «private int expiryDays;».\n3. Реализуйте getExpiryDays() и setExpiryDays(...) в PerishableItem.\n4. В «main» создайте экземпляр «PerishableItem» и установите родительское состояние с помощью унаследованных установщиков.\n5. Состояние печати через методы доступа: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"МОЛОКО-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'"
     },
     "story": {
       "uz": "Supermarket tovari ('MarketItem') tovar kodi va narxiga ega. Tez buziluvchi oziq-ovqat ('PerishableItem extends MarketItem') esa private 'expiryDays' (int) saqlanish muddati maydonini qo'shadi.",
-      "en": "Perishable items specialize market items by tracking shelf-life expiration days."
+      "en": "Perishable items specialize market items by tracking shelf-life expiration days.",
+      "ru": "Скоропортящиеся товары специализируются на товарах на рынке, отслеживая дни истечения срока годности."
     },
     "steps": {
       "uz": [
@@ -1254,6 +1540,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getExpiryDays()' and 'setExpiryDays(...)' in 'PerishableItem'.",
         "In 'main', instantiate 'PerishableItem' and set parent state via inherited setters.",
         "Print state via accessors: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"MILK-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс MarketItem с: «private String itemCode;», «private doubleprice;» и аксессуары.",
+        "Получите «PerishableItem расширяет MarketItem» с полем «private int expiryDays;».",
+        "Реализуйте getExpiryDays() и setExpiryDays(...) в PerishableItem.",
+        "В «main» создайте экземпляр «PerishableItem» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Состояние печати через методы доступа: 'PerishableItem pi = new PerishableItem(); pi.setItemCode(\"МОЛОКО-001\"); pi.setPrice(11500.0); pi.setExpiryDays(5); System.out.println(\"Kod: \" + pi.getItemCode() + \" | Narx: \" + pi.getPrice() + \" | Muddati: \" + pi.getExpiryDays() + \" kun\");'"
       ]
     },
     "requirements": {
@@ -1285,7 +1578,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "expiryDays butun son (int) bo'lgani uchun unga int qiymat uzating.",
-      "cw2Tip": "Tez buziluvchi mahsulotlar uchun alohida merosxo'r klass yarating."
+      "cw2Tip": "Tez buziluvchi mahsulotlar uchun alohida merosxo'r klass yarating.",
+      "theoryRu": "Специализация скоропортящихся запасов изолирует логику истечения срока годности от галантерейных товаров длительного пользования.",
+      "pitfallsRu": "expiryDays Butun Son (int) bo'lgani uchun unga int qiymat uzating.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1295,15 +1593,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "21. Click Up — CashbackTransaction va Keshbek Foizi",
-      "en": "21. Click Up — CashbackTransaction and Percentage"
+      "en": "21. Click Up — CashbackTransaction and Percentage",
+      "ru": "21. Нажмите «Вверх» — CashbackTransaction и процент."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nClick tranzaksiyasi ('Transaction') ID raqami va to'lov summasiga ega. Keshbekli tranzaksiya ('CashbackTransaction extends Transaction') esa private 'cashbackPercent' (double) maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Transaction' ni e'lon qiling va unga 'private String txId;', 'private double amount;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'CashbackTransaction extends Transaction' ni yarating va unga 'private double cashbackPercent;' maydonini qo'shing.\n\n3. 'CashbackTransaction' ichida 'getCashbackPercent()' va 'setCashbackPercent(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'CashbackTransaction' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Summa: \" + ct.getAmount() + \" | Keshbek: \" + ct.getCashbackPercent() + \"%\");'",
-      "en": "📖 Real-World Scenario & Context\nCashback transactions extend base transactions by attaching reward percentage rates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Transaction' with: 'private String txId;', 'private double amount;' and accessors.\n\n2. Derive 'CashbackTransaction extends Transaction' with field 'private double cashbackPercent;'.\n\n3. Implement 'getCashbackPercent()' and 'setCashbackPercent(...)' in 'CashbackTransaction'.\n\n4. In 'main', instantiate 'CashbackTransaction' and set parent state via inherited setters.\n\n5. Print state via accessors: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Summa: \" + ct.getAmount() + \" | Keshbek: \" + ct.getCashbackPercent() + \"%\");'"
+      "en": "📖 Real-World Scenario & Context\nCashback transactions extend base transactions by attaching reward percentage rates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Transaction' with: 'private String txId;', 'private double amount;' and accessors.\n\n2. Derive 'CashbackTransaction extends Transaction' with field 'private double cashbackPercent;'.\n\n3. Implement 'getCashbackPercent()' and 'setCashbackPercent(...)' in 'CashbackTransaction'.\n\n4. In 'main', instantiate 'CashbackTransaction' and set parent state via inherited setters.\n\n5. Print state via accessors: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Summa: \" + ct.getAmount() + \" | Keshbek: \" + ct.getCashbackPercent() + \"%\");'",
+      "ru": "📖 Контекст и описание задачи\nТранзакции кэшбэка расширяют базовые транзакции, добавляя процентные ставки вознаграждения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Транзакция» с: «частной строкой txId;», «частной двойной суммой»; и аксессуары.\n2. Выведите «CashbackTransaction расширяет транзакцию» с полем «private double CashbackPercent;».\n3. Реализуйте getCashbackPercent() и setCashbackPercent(...) в CashbackTransaction.\n4. В «main» создайте экземпляр «CashbackTransaction» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Сумма: \" + ct.getAmount() + \" | Кешбек: \" + ct.getCashbackPercent() + \"%\");'"
     },
     "story": {
       "uz": "Click tranzaksiyasi ('Transaction') ID raqami va to'lov summasiga ega. Keshbekli tranzaksiya ('CashbackTransaction extends Transaction') esa private 'cashbackPercent' (double) maydonini qo'shadi.",
-      "en": "Cashback transactions extend base transactions by attaching reward percentage rates."
+      "en": "Cashback transactions extend base transactions by attaching reward percentage rates.",
+      "ru": "Транзакции кэшбэка расширяют базовые транзакции, добавляя процентные ставки вознаграждения."
     },
     "steps": {
       "uz": [
@@ -1319,6 +1620,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getCashbackPercent()' and 'setCashbackPercent(...)' in 'CashbackTransaction'.",
         "In 'main', instantiate 'CashbackTransaction' and set parent state via inherited setters.",
         "Print state via accessors: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Summa: \" + ct.getAmount() + \" | Keshbek: \" + ct.getCashbackPercent() + \"%\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Транзакция» с: «частной строкой txId;», «частной двойной суммой»; и аксессуары.",
+        "Выведите «CashbackTransaction расширяет транзакцию» с полем «private double CashbackPercent;».",
+        "Реализуйте getCashbackPercent() и setCashbackPercent(...) в CashbackTransaction.",
+        "В «main» создайте экземпляр «CashbackTransaction» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'CashbackTransaction ct = new CashbackTransaction(); ct.setTxId(\"TX-5541\"); ct.setAmount(200000.0); ct.setCashbackPercent(2.5); System.out.println(\"Tx: \" + ct.getTxId() + \" | Сумма: \" + ct.getAmount() + \" | Кешбек: \" + ct.getCashbackPercent() + \"%\");'"
       ]
     },
     "requirements": {
@@ -1350,7 +1658,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "Metodlar nomlari getter/setter konvensiyalariga to'liq mos bo'lishi shart.",
-      "cw2Tip": "Bonus va chegirma to'lovlarini alohida avlod klasslarida boshqaring."
+      "cw2Tip": "Bonus va chegirma to'lovlarini alohida avlod klasslarida boshqaring.",
+      "theoryRu": "Расширения вознаграждений отделяют рекламные функции от неизменяемых транзакций финансовой книги.",
+      "pitfallsRu": "Методические рекомендации по получению/установке конвенций, чтобы'liq mo'lishi shart.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1360,15 +1673,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "22. Asaxiy Books — AudioBook va Davomiyligi (Daqiqada)",
-      "en": "22. Asaxiy Books — AudioBook and Duration Attribute"
+      "en": "22. Asaxiy Books — AudioBook and Duration Attribute",
+      "ru": "22. Asaxy Books — аудиокнига и атрибут продолжительности"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAsaxiy elektron kutubxonasida kitob ('Book') nomi va muallifiga ega. Audio kitob esa ('AudioBook extends Book') private 'durationMinutes' (int) eshitish vaqti maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Book' ni e'lon qiling va unga 'private String title;', 'private String author;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'AudioBook extends Book' ni yarating va unga 'private int durationMinutes;' maydonini qo'shing.\n\n3. 'AudioBook' ichida 'getDurationMinutes()' va 'setDurationMinutes(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'AudioBook' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'AudioBook ab = new AudioBook(); ab.setTitle(\"O'tkan Kunlar\"); ab.setAuthor(\"Abdulla Qodiriy\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'",
-      "en": "📖 Real-World Scenario & Context\nAudiobooks extend printed books by encapsulating audio runtime duration in minutes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with: 'private String title;', 'private String author;' and accessors.\n\n2. Derive 'AudioBook extends Book' with field 'private int durationMinutes;'.\n\n3. Implement 'getDurationMinutes()' and 'setDurationMinutes(...)' in 'AudioBook'.\n\n4. In 'main', instantiate 'AudioBook' and set parent state via inherited setters.\n\n5. Print state via accessors: 'AudioBook ab = new AudioBook(); ab.setTitle(\"O'tkan Kunlar\"); ab.setAuthor(\"Abdulla Qodiriy\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'"
+      "en": "📖 Real-World Scenario & Context\nAudiobooks extend printed books by encapsulating audio runtime duration in minutes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with: 'private String title;', 'private String author;' and accessors.\n\n2. Derive 'AudioBook extends Book' with field 'private int durationMinutes;'.\n\n3. Implement 'getDurationMinutes()' and 'setDurationMinutes(...)' in 'AudioBook'.\n\n4. In 'main', instantiate 'AudioBook' and set parent state via inherited setters.\n\n5. Print state via accessors: 'AudioBook ab = new AudioBook(); ab.setTitle(\"O'tkan Kunlar\"); ab.setAuthor(\"Abdulla Qodiriy\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'",
+      "ru": "📖 Контекст и описание задачи\nАудиокниги расширяют возможности печатных книг, заключая в себе продолжительность аудиозаписи в минутах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Книга» с: «заголовком частной строки;», «автором частной строки»; и аксессуары.\n2. Получите «AudioBook расширяет книгу» с полем «private inturationMinutes;».\n3. Реализуйте getDurationMinutes() и setDurationMinutes(...) в AudioBook.\n4. В «main» создайте экземпляр «AudioBook» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатать состояние через методы доступа: 'AudioBook ab = new AudioBook(); ab.setTitle(\"Откан Кунлар\"); ab.setAuthor(\"Абдулла Кадирий\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'"
     },
     "story": {
       "uz": "Asaxiy elektron kutubxonasida kitob ('Book') nomi va muallifiga ega. Audio kitob esa ('AudioBook extends Book') private 'durationMinutes' (int) eshitish vaqti maydonini qo'shadi.",
-      "en": "Audiobooks extend printed books by encapsulating audio runtime duration in minutes."
+      "en": "Audiobooks extend printed books by encapsulating audio runtime duration in minutes.",
+      "ru": "Аудиокниги расширяют возможности печатных книг, заключая в себе продолжительность аудиозаписи в минутах."
     },
     "steps": {
       "uz": [
@@ -1384,6 +1700,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getDurationMinutes()' and 'setDurationMinutes(...)' in 'AudioBook'.",
         "In 'main', instantiate 'AudioBook' and set parent state via inherited setters.",
         "Print state via accessors: 'AudioBook ab = new AudioBook(); ab.setTitle(\"O'tkan Kunlar\"); ab.setAuthor(\"Abdulla Qodiriy\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Книга» с: «заголовком частной строки;», «автором частной строки»; и аксессуары.",
+        "Получите «AudioBook расширяет книгу» с полем «private inturationMinutes;».",
+        "Реализуйте getDurationMinutes() и setDurationMinutes(...) в AudioBook.",
+        "В «main» создайте экземпляр «AudioBook» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатать состояние через методы доступа: 'AudioBook ab = new AudioBook(); ab.setTitle(\"Откан Кунлар\"); ab.setAuthor(\"Абдулла Кадирий\"); ab.setDurationMinutes(680); System.out.println(\"Audio: \" + ab.getTitle() + \" (\" + ab.getAuthor() + \") | Davomiylik: \" + ab.getDurationMinutes() + \" daqiqa\");'"
       ]
     },
     "requirements": {
@@ -1415,7 +1738,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "durationMinutes int turida saqlanadi.",
-      "cw2Tip": "Katalog modellarida turli formatdagi tovarlarni bitta ota klassdan ajrating."
+      "cw2Tip": "Katalog modellarida turli formatdagi tovarlarni bitta ota klassdan ajrating.",
+      "theoryRu": "Общие библиографические метаданные остаются унифицированными в книге, в то время как атрибуты, специфичные для СМИ, разветвляются.",
+      "pitfallsRu": "ПродолжительностьМинут int turida saqlanadi.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1425,15 +1753,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "23. Express24 — FastDeliveryRestaurant va Yetkazish Vaqti",
-      "en": "23. Express24 — FastDeliveryRestaurant and Dispatch Time"
+      "en": "23. Express24 — FastDeliveryRestaurant and Dispatch Time",
+      "ru": "23. Express24 — быстрая доставкаРесторан и время доставки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nRestoran ('Restaurant') restoran nomi va oshxona toifasiga ega. Tezkor yetkazuvchi restoran ('FastDeliveryRestaurant extends Restaurant') esa private 'deliveryMinutes' (int) kafolatlangan yetkazish vaqtiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Restaurant' ni e'lon qiling va unga 'private String restaurantName;', 'private String cuisine;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'FastDeliveryRestaurant extends Restaurant' ni yarating va unga 'private int deliveryMinutes;' maydonini qo'shing.\n\n3. 'FastDeliveryRestaurant' ichida 'getDeliveryMinutes()' va 'setDeliveryMinutes(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'FastDeliveryRestaurant' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"EVOS Fast Food\"); fdr.setCuisine(\"Lavash & Burger\"); fdr.setDeliveryMinutes(25); System.out.println(\"Restoran: \" + fdr.getRestaurantName() + \" | Menyu: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'",
-      "en": "📖 Real-World Scenario & Context\nFast delivery restaurants extend restaurant models by providing guaranteed dispatch minute estimates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Restaurant' with: 'private String restaurantName;', 'private String cuisine;' and accessors.\n\n2. Derive 'FastDeliveryRestaurant extends Restaurant' with field 'private int deliveryMinutes;'.\n\n3. Implement 'getDeliveryMinutes()' and 'setDeliveryMinutes(...)' in 'FastDeliveryRestaurant'.\n\n4. In 'main', instantiate 'FastDeliveryRestaurant' and set parent state via inherited setters.\n\n5. Print state via accessors: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"EVOS Fast Food\"); fdr.setCuisine(\"Lavash & Burger\"); fdr.setDeliveryMinutes(25); System.out.println(\"Restoran: \" + fdr.getRestaurantName() + \" | Menyu: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'"
+      "en": "📖 Real-World Scenario & Context\nFast delivery restaurants extend restaurant models by providing guaranteed dispatch minute estimates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Restaurant' with: 'private String restaurantName;', 'private String cuisine;' and accessors.\n\n2. Derive 'FastDeliveryRestaurant extends Restaurant' with field 'private int deliveryMinutes;'.\n\n3. Implement 'getDeliveryMinutes()' and 'setDeliveryMinutes(...)' in 'FastDeliveryRestaurant'.\n\n4. In 'main', instantiate 'FastDeliveryRestaurant' and set parent state via inherited setters.\n\n5. Print state via accessors: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"EVOS Fast Food\"); fdr.setCuisine(\"Lavash & Burger\"); fdr.setDeliveryMinutes(25); System.out.println(\"Restoran: \" + fdr.getRestaurantName() + \" | Menyu: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'",
+      "ru": "📖 Контекст и описание задачи\nРестораны быстрой доставки расширяют модели ресторанов, предоставляя гарантированную оценку минут доставки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ресторан» с: «частное имя ресторана String;», «частная кухня String;» и аксессуары.\n2. Выведите «FastDeliveryRestaurant расширяет ресторан» с полем «private int DeliveryMinutes;».\n3. Реализуйте getDeliveryMinutes() и setDeliveryMinutes(...) в FastDeliveryRestaurant.\n4. В «main» создайте экземпляр «FastDeliveryRestaurant» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"Фаст-фуд EVOS\"); fdr.setCuisine(\"Лаваш и бургер\"); fdr.setDeliveryMinutes(25); System.out.println(\"Ресторан: \" + fdr.getRestaurantName() + \" | Меню: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'"
     },
     "story": {
       "uz": "Restoran ('Restaurant') restoran nomi va oshxona toifasiga ega. Tezkor yetkazuvchi restoran ('FastDeliveryRestaurant extends Restaurant') esa private 'deliveryMinutes' (int) kafolatlangan yetkazish vaqtiga ega.",
-      "en": "Fast delivery restaurants extend restaurant models by providing guaranteed dispatch minute estimates."
+      "en": "Fast delivery restaurants extend restaurant models by providing guaranteed dispatch minute estimates.",
+      "ru": "Рестораны быстрой доставки расширяют модели ресторанов, предоставляя гарантированную оценку минут доставки."
     },
     "steps": {
       "uz": [
@@ -1449,6 +1780,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getDeliveryMinutes()' and 'setDeliveryMinutes(...)' in 'FastDeliveryRestaurant'.",
         "In 'main', instantiate 'FastDeliveryRestaurant' and set parent state via inherited setters.",
         "Print state via accessors: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"EVOS Fast Food\"); fdr.setCuisine(\"Lavash & Burger\"); fdr.setDeliveryMinutes(25); System.out.println(\"Restoran: \" + fdr.getRestaurantName() + \" | Menyu: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ресторан» с: «частное имя ресторана String;», «частная кухня String;» и аксессуары.",
+        "Выведите «FastDeliveryRestaurant расширяет ресторан» с полем «private int DeliveryMinutes;».",
+        "Реализуйте getDeliveryMinutes() и setDeliveryMinutes(...) в FastDeliveryRestaurant.",
+        "В «main» создайте экземпляр «FastDeliveryRestaurant» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'FastDeliveryRestaurant fdr = new FastDeliveryRestaurant(); fdr.setRestaurantName(\"Фаст-фуд EVOS\"); fdr.setCuisine(\"Лаваш и бургер\"); fdr.setDeliveryMinutes(25); System.out.println(\"Ресторан: \" + fdr.getRestaurantName() + \" | Меню: \" + fdr.getCuisine() + \" | Vaqt: \" + fdr.getDeliveryMinutes() + \" daq\");'"
       ]
     },
     "requirements": {
@@ -1480,7 +1818,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "deliveryMinutes setterida manfiy son bo'lmasligiga e'tibor qarating.",
-      "cw2Tip": "Restoran va hamkorlarni toifalashda merosxo'rlikdan foydalaning."
+      "cw2Tip": "Restoran va hamkorlarni toifalashda merosxo'rlikdan foydalaning.",
+      "theoryRu": "Базовые ресторанные предприятия хранят информацию об основных поставщиках, а партнеры по быстрой доставке специализируются на соглашениях об уровне обслуживания.",
+      "pitfallsRu": "ДоставкаМинуты setterida manfiy son bo'lmasligiga e'tibor qarating.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1490,15 +1833,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "24. Beeline — ESimCard va Virtual QR Profil Kodi",
-      "en": "24. Beeline — ESimCard and Virtual QR Code"
+      "en": "24. Beeline — ESimCard and Virtual QR Code",
+      "ru": "24. Билайн — ESimCard и виртуальный QR-код"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSIM karta ('SimCard') telefon raqami va ICCID apparat seriyasiga ega. Virtual eSIM esa ('ESimCard extends SimCard') private 'qrProfileCode' (String) yuklab olish kodiga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'SimCard' ni e'lon qiling va unga 'private String phoneNumber;', 'private String iccid;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'ESimCard extends SimCard' ni yarating va unga 'private String qrProfileCode;' maydonini qo'shing.\n\n3. 'ESimCard' ichida 'getQrProfileCode()' va 'setQrProfileCode(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'ESimCard' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'",
-      "en": "📖 Real-World Scenario & Context\neSIM cards extend physical SIMs by encapsulating virtual activation QR profile codes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'SimCard' with: 'private String phoneNumber;', 'private String iccid;' and accessors.\n\n2. Derive 'ESimCard extends SimCard' with field 'private String qrProfileCode;'.\n\n3. Implement 'getQrProfileCode()' and 'setQrProfileCode(...)' in 'ESimCard'.\n\n4. In 'main', instantiate 'ESimCard' and set parent state via inherited setters.\n\n5. Print state via accessors: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'"
+      "en": "📖 Real-World Scenario & Context\neSIM cards extend physical SIMs by encapsulating virtual activation QR profile codes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'SimCard' with: 'private String phoneNumber;', 'private String iccid;' and accessors.\n\n2. Derive 'ESimCard extends SimCard' with field 'private String qrProfileCode;'.\n\n3. Implement 'getQrProfileCode()' and 'setQrProfileCode(...)' in 'ESimCard'.\n\n4. In 'main', instantiate 'ESimCard' and set parent state via inherited setters.\n\n5. Print state via accessors: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'",
+      "ru": "📖 Контекст и описание задачи\nКарты eSIM расширяют возможности физических SIM-карт, инкапсулируя QR-коды профиля виртуальной активации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «SimCard» с помощью: «частная строка phoneNumber;», «частная строка iccid;» и аксессуары.\n2. Выведите «ESimCard расширяет SimCard» с помощью поля «private String qrProfileCode;».\n3. Реализуйте getQrProfileCode() и setQrProfileCode(...) в ESimCard.\n4. В «main» создайте экземпляр «ESimCard» и установите родительское состояние с помощью унаследованных установщиков.\n5. Состояние печати через методы доступа: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'"
     },
     "story": {
       "uz": "SIM karta ('SimCard') telefon raqami va ICCID apparat seriyasiga ega. Virtual eSIM esa ('ESimCard extends SimCard') private 'qrProfileCode' (String) yuklab olish kodiga ega.",
-      "en": "eSIM cards extend physical SIMs by encapsulating virtual activation QR profile codes."
+      "en": "eSIM cards extend physical SIMs by encapsulating virtual activation QR profile codes.",
+      "ru": "Карты eSIM расширяют возможности физических SIM-карт, инкапсулируя QR-коды профиля виртуальной активации."
     },
     "steps": {
       "uz": [
@@ -1514,6 +1860,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getQrProfileCode()' and 'setQrProfileCode(...)' in 'ESimCard'.",
         "In 'main', instantiate 'ESimCard' and set parent state via inherited setters.",
         "Print state via accessors: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «SimCard» с помощью: «частная строка phoneNumber;», «частная строка iccid;» и аксессуары.",
+        "Выведите «ESimCard расширяет SimCard» с помощью поля «private String qrProfileCode;».",
+        "Реализуйте getQrProfileCode() и setQrProfileCode(...) в ESimCard.",
+        "В «main» создайте экземпляр «ESimCard» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Состояние печати через методы доступа: 'ESimCard esim = new ESimCard(); esim.setPhoneNumber(\"+998909988776\"); esim.setIccid(\"899981002233\"); esim.setQrProfileCode(\"LPA:1$beeline.uz$99A1\"); System.out.println(\"Raqam: \" + esim.getPhoneNumber() + \" | ICCID: \" + esim.getIccid() + \" | QR: \" + esim.getQrProfileCode());'"
       ]
     },
     "requirements": {
@@ -1545,7 +1898,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "qrProfileCode String turida e'lon qilinishi lozim.",
-      "cw2Tip": "Raqamli va jismoniy mahsulotlar o'rtasidagi farqlarni avlod sinflarda yoriting."
+      "cw2Tip": "Raqamli va jismoniy mahsulotlar o'rtasidagi farqlarni avlod sinflarda yoriting.",
+      "theoryRu": "Виртуальные технологии позволяют создавать подклассы устаревших моделей физического оборудования посредством специализации объектов.",
+      "pitfallsRu": "qrProfileCode Строка turida e'lon qilinishi lozim.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1555,15 +1913,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "25. Texnomart — WarrantyAppliance va Kafolat Muddati",
-      "en": "25. Texnomart — WarrantyAppliance and Warranty Months"
+      "en": "25. Texnomart — WarrantyAppliance and Warranty Months",
+      "ru": "25. Texnomart — Гарантия на устройство и гарантийные месяцы"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMaishiy texnika ('Appliance') tovar nomi va narxiga ega. Rasmiy kafolatli texnika ('WarrantyAppliance extends Appliance') esa private 'warrantyMonths' (int) kafolat oylari soniga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Appliance' ni e'lon qiling va unga 'private String itemName;', 'private double price;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'WarrantyAppliance extends Appliance' ni yarating va unga 'private int warrantyMonths;' maydonini qo'shing.\n\n3. 'WarrantyAppliance' ichida 'getWarrantyMonths()' va 'setWarrantyMonths(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'WarrantyAppliance' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Artel Kir Yuvish Mashinasi\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nWarranty appliances extend retail appliances by attaching official manufacturer warranty duration in months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Appliance' with: 'private String itemName;', 'private double price;' and accessors.\n\n2. Derive 'WarrantyAppliance extends Appliance' with field 'private int warrantyMonths;'.\n\n3. Implement 'getWarrantyMonths()' and 'setWarrantyMonths(...)' in 'WarrantyAppliance'.\n\n4. In 'main', instantiate 'WarrantyAppliance' and set parent state via inherited setters.\n\n5. Print state via accessors: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Artel Kir Yuvish Mashinasi\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nWarranty appliances extend retail appliances by attaching official manufacturer warranty duration in months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Appliance' with: 'private String itemName;', 'private double price;' and accessors.\n\n2. Derive 'WarrantyAppliance extends Appliance' with field 'private int warrantyMonths;'.\n\n3. Implement 'getWarrantyMonths()' and 'setWarrantyMonths(...)' in 'WarrantyAppliance'.\n\n4. In 'main', instantiate 'WarrantyAppliance' and set parent state via inherited setters.\n\n5. Print state via accessors: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Artel Kir Yuvish Mashinasi\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nГарантия на технику продлевает розничную технику, добавляя официальную гарантию производителя в месяцах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Устройство» с помощью: «частная строка itemName;», «частная двойная цена»; и аксессуары.\n2. Получите «WarrantyAppliance расширяет устройство» с полем «private int WarrantyMonths;».\n3. Реализуйте getWarrantyMonths() и setWarrantyMonths(...) в WarrantyAppliance.\n4. В «main» создайте экземпляр «WarrantyAppliance» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Артель Кир Ювиш Машинаси\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'"
     },
     "story": {
       "uz": "Maishiy texnika ('Appliance') tovar nomi va narxiga ega. Rasmiy kafolatli texnika ('WarrantyAppliance extends Appliance') esa private 'warrantyMonths' (int) kafolat oylari soniga ega.",
-      "en": "Warranty appliances extend retail appliances by attaching official manufacturer warranty duration in months."
+      "en": "Warranty appliances extend retail appliances by attaching official manufacturer warranty duration in months.",
+      "ru": "Гарантия на технику продлевает розничную технику, добавляя официальную гарантию производителя в месяцах."
     },
     "steps": {
       "uz": [
@@ -1579,6 +1940,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getWarrantyMonths()' and 'setWarrantyMonths(...)' in 'WarrantyAppliance'.",
         "In 'main', instantiate 'WarrantyAppliance' and set parent state via inherited setters.",
         "Print state via accessors: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Artel Kir Yuvish Mashinasi\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Устройство» с помощью: «частная строка itemName;», «частная двойная цена»; и аксессуары.",
+        "Получите «WarrantyAppliance расширяет устройство» с полем «private int WarrantyMonths;».",
+        "Реализуйте getWarrantyMonths() и setWarrantyMonths(...) в WarrantyAppliance.",
+        "В «main» создайте экземпляр «WarrantyAppliance» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'WarrantyAppliance wa = new WarrantyAppliance(); wa.setItemName(\"Артель Кир Ювиш Машинаси\"); wa.setPrice(3800000.0); wa.setWarrantyMonths(36); System.out.println(\"Texnika: \" + wa.getItemName() + \" | Narx: \" + wa.getPrice() + \" | Kafolat: \" + wa.getWarrantyMonths() + \" oy\");'"
       ]
     },
     "requirements": {
@@ -1610,7 +1978,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "warrantyMonths int turida bo'ladi.",
-      "cw2Tip": "CW2 da tovar kafolati va xizmat ko'rsatish muddatlarini avlod klass orqali ifodalang."
+      "cw2Tip": "CW2 da tovar kafolati va xizmat ko'rsatish muddatlarini avlod klass orqali ifodalang.",
+      "theoryRu": "Создание подклассов изолирует отслеживание гарантии, не загромождая расходные материалы, не подлежащие гарантии.",
+      "pitfallsRu": "ГарантияМесяцы int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1620,15 +1993,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "26. Kapitalbank — TermDeposit va Foiz Stavka Maydoni",
-      "en": "26. Kapitalbank — TermDeposit and Annual Interest Rate"
+      "en": "26. Kapitalbank — TermDeposit and Annual Interest Rate",
+      "ru": "26. Капиталбанк — Срок вклада и годовая процентная ставка"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBank omonati ('Deposit') hisob raqami va dastlabki depozit summasiga ega. Muddatli omonat ('TermDeposit extends Deposit') esa private 'interestRate' (double) yillik foiz stavkasi maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Deposit' ni e'lon qiling va unga 'private String accountIban;', 'private double depositAmount;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'TermDeposit extends Deposit' ni yarating va unga 'private double interestRate;' maydonini qo'shing.\n\n3. 'TermDeposit' ichida 'getInterestRate()' va 'setInterestRate(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'TermDeposit' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'",
-      "en": "📖 Real-World Scenario & Context\nTerm deposits extend base deposits by tracking annual interest rate yields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Deposit' with: 'private String accountIban;', 'private double depositAmount;' and accessors.\n\n2. Derive 'TermDeposit extends Deposit' with field 'private double interestRate;'.\n\n3. Implement 'getInterestRate()' and 'setInterestRate(...)' in 'TermDeposit'.\n\n4. In 'main', instantiate 'TermDeposit' and set parent state via inherited setters.\n\n5. Print state via accessors: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'"
+      "en": "📖 Real-World Scenario & Context\nTerm deposits extend base deposits by tracking annual interest rate yields.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Deposit' with: 'private String accountIban;', 'private double depositAmount;' and accessors.\n\n2. Derive 'TermDeposit extends Deposit' with field 'private double interestRate;'.\n\n3. Implement 'getInterestRate()' and 'setInterestRate(...)' in 'TermDeposit'.\n\n4. In 'main', instantiate 'TermDeposit' and set parent state via inherited setters.\n\n5. Print state via accessors: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'",
+      "ru": "📖 Контекст и описание задачи\nСрочные депозиты расширяют базовые депозиты, отслеживая годовую процентную доходность.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Депозит» с помощью: «частная строка accountIban;», «частный двойной депозитAmount;» и аксессуары.\n2. Выведите «TermDeposit расширяет депозит» с полем «частная двойная процентная ставка;».\n3. Реализуйте getInterestRate() и setInterestRate(...) в TermDeposit.\n4. В «main» создайте экземпляр «TermDeposit» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'"
     },
     "story": {
       "uz": "Bank omonati ('Deposit') hisob raqami va dastlabki depozit summasiga ega. Muddatli omonat ('TermDeposit extends Deposit') esa private 'interestRate' (double) yillik foiz stavkasi maydonini qo'shadi.",
-      "en": "Term deposits extend base deposits by tracking annual interest rate yields."
+      "en": "Term deposits extend base deposits by tracking annual interest rate yields.",
+      "ru": "Срочные депозиты расширяют базовые депозиты, отслеживая годовую процентную доходность."
     },
     "steps": {
       "uz": [
@@ -1644,6 +2020,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getInterestRate()' and 'setInterestRate(...)' in 'TermDeposit'.",
         "In 'main', instantiate 'TermDeposit' and set parent state via inherited setters.",
         "Print state via accessors: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Депозит» с помощью: «частная строка accountIban;», «частный двойной депозитAmount;» и аксессуары.",
+        "Выведите «TermDeposit расширяет депозит» с полем «частная двойная процентная ставка;».",
+        "Реализуйте getInterestRate() и setInterestRate(...) в TermDeposit.",
+        "В «main» создайте экземпляр «TermDeposit» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'TermDeposit td = new TermDeposit(); td.setAccountIban(\"UZ440010992211\"); td.setDepositAmount(10000000.0); td.setInterestRate(22.5); System.out.println(\"IBAN: \" + td.getAccountIban() + \" | Mablag': \" + td.getDepositAmount() + \" | Foiz: \" + td.getInterestRate() + \"%\");'"
       ]
     },
     "requirements": {
@@ -1675,7 +2058,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "interestRate double turida saqlanishi kerak.",
-      "cw2Tip": "Moliyaviy hisob-kitoblar arxitekturasida ota sinf ma'lumotlar yaxlitligini ta'minlaydi."
+      "cw2Tip": "Moliyaviy hisob-kitoblar arxitekturasida ota sinf ma'lumotlar yaxlitligini ta'minlaydi.",
+      "theoryRu": "Финансовые доходы прикрепляются к производным депозитным счетам, в то время как базовый основной баланс остается защищенным на родительском счете.",
+      "pitfallsRu": "процентная ставка двойная турида сакланиши керак.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1685,15 +2073,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "27. Akfa Medline — InPatient va Palata Raqami Maydoni",
-      "en": "27. Akfa Medline — InPatient and Ward Number Attribute"
+      "en": "27. Akfa Medline — InPatient and Ward Number Attribute",
+      "ru": "27. Akfa Medline — атрибут номера стационара и отделения"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKlinika bemori ('Patient') bemorning to'liq ismi va kasallik varaqasi raqamiga ega. Statsionar yotib davolanuvchi bemor ('InPatient extends Patient') esa private 'wardNumber' (int) palata raqamini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Patient' ni e'lon qiling va unga 'private String patientName;', 'private String chartNumber;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'InPatient extends Patient' ni yarating va unga 'private int wardNumber;' maydonini qo'shing.\n\n3. 'InPatient' ichida 'getWardNumber()' va 'setWardNumber(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'InPatient' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'InPatient ip = new InPatient(); ip.setPatientName(\"Davronbek Aliyev\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Karta: \" + ip.getChartNumber() + \" | Palata: #\" + ip.getWardNumber());'",
-      "en": "📖 Real-World Scenario & Context\nInpatients extend outpatients by encapsulating assigned hospital ward room numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Patient' with: 'private String patientName;', 'private String chartNumber;' and accessors.\n\n2. Derive 'InPatient extends Patient' with field 'private int wardNumber;'.\n\n3. Implement 'getWardNumber()' and 'setWardNumber(...)' in 'InPatient'.\n\n4. In 'main', instantiate 'InPatient' and set parent state via inherited setters.\n\n5. Print state via accessors: 'InPatient ip = new InPatient(); ip.setPatientName(\"Davronbek Aliyev\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Karta: \" + ip.getChartNumber() + \" | Palata: #\" + ip.getWardNumber());'"
+      "en": "📖 Real-World Scenario & Context\nInpatients extend outpatients by encapsulating assigned hospital ward room numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Patient' with: 'private String patientName;', 'private String chartNumber;' and accessors.\n\n2. Derive 'InPatient extends Patient' with field 'private int wardNumber;'.\n\n3. Implement 'getWardNumber()' and 'setWardNumber(...)' in 'InPatient'.\n\n4. In 'main', instantiate 'InPatient' and set parent state via inherited setters.\n\n5. Print state via accessors: 'InPatient ip = new InPatient(); ip.setPatientName(\"Davronbek Aliyev\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Karta: \" + ip.getChartNumber() + \" | Palata: #\" + ip.getWardNumber());'",
+      "ru": "📖 Контекст и описание задачи\nСтационарные пациенты расширяют возможности амбулаторных пациентов, инкапсулируя назначенные номера больничных палат.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Пациент» с помощью: «частная строка имя_пациента;», «частная строкаchartNumber;» и аксессуары.\n2. Выведите «InPatient расширяет Patient» с помощью поля «private int wardNumber;».\n3. Реализуйте getWardNumber() и setWardNumber(...) в InPatient.\n4. В «main» создайте экземпляр «InPatient» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатать состояние через методы доступа: 'InPatient ip = new InPatient(); ip.setPatientName(\"Давронбек Алиев\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Карта: \" + ip.getChartNumber() + \" | Палата: #\" + ip.getWardNumber());'"
     },
     "story": {
       "uz": "Klinika bemori ('Patient') bemorning to'liq ismi va kasallik varaqasi raqamiga ega. Statsionar yotib davolanuvchi bemor ('InPatient extends Patient') esa private 'wardNumber' (int) palata raqamini qo'shadi.",
-      "en": "Inpatients extend outpatients by encapsulating assigned hospital ward room numbers."
+      "en": "Inpatients extend outpatients by encapsulating assigned hospital ward room numbers.",
+      "ru": "Стационарные пациенты расширяют возможности амбулаторных пациентов, инкапсулируя назначенные номера больничных палат."
     },
     "steps": {
       "uz": [
@@ -1709,6 +2100,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getWardNumber()' and 'setWardNumber(...)' in 'InPatient'.",
         "In 'main', instantiate 'InPatient' and set parent state via inherited setters.",
         "Print state via accessors: 'InPatient ip = new InPatient(); ip.setPatientName(\"Davronbek Aliyev\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Karta: \" + ip.getChartNumber() + \" | Palata: #\" + ip.getWardNumber());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Пациент» с помощью: «частная строка имя_пациента;», «частная строкаchartNumber;» и аксессуары.",
+        "Выведите «InPatient расширяет Patient» с помощью поля «private int wardNumber;».",
+        "Реализуйте getWardNumber() и setWardNumber(...) в InPatient.",
+        "В «main» создайте экземпляр «InPatient» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатать состояние через методы доступа: 'InPatient ip = new InPatient(); ip.setPatientName(\"Давронбек Алиев\"); ip.setChartNumber(\"MED-9941\"); ip.setWardNumber(304); System.out.println(\"Bemor: \" + ip.getPatientName() + \" | Карта: \" + ip.getChartNumber() + \" | Палата: #\" + ip.getWardNumber());'"
       ]
     },
     "requirements": {
@@ -1740,7 +2138,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "wardNumber int turida bo'ladi.",
-      "cw2Tip": "Mijozlar toifalarini ajratishda ushbu merosxo'rlik andozasidan foydalaning."
+      "cw2Tip": "Mijozlar toifalarini ajratishda ushbu merosxo'rlik andozasidan foydalaning.",
+      "theoryRu": "Карты амбулаторных и жилых пациентов четко разделены по границам наследования.",
+      "pitfallsRu": "WarNumber int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1750,15 +2153,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "28. Uzbekistan Airways — BusinessPassenger va VIP Zal Karti",
-      "en": "28. Uzbekistan Airways — BusinessPassenger and VIP Lounge Pass"
+      "en": "28. Uzbekistan Airways — BusinessPassenger and VIP Lounge Pass",
+      "ru": "28. «Узбекистон хаво йуллари» — пропуск для бизнес-пассажиров и VIP-зала ожидания"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYo'lovchi ('Passenger') ism va pasport seriyasiga ega. Biznes-klass yo'lovchisi ('BusinessPassenger extends Passenger') esa private 'vipLoungePass' (String) kutish zali ruxsatnoma raqamini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Passenger' ni e'lon qiling va unga 'private String passengerName;', 'private String passportSeries;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'BusinessPassenger extends Passenger' ni yarating va unga 'private String vipLoungePass;' maydonini qo'shing.\n\n3. 'BusinessPassenger' ichida 'getVipLoungePass()' va 'setVipLoungePass(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'BusinessPassenger' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Shoxrux Mirzayev\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Yo'lovchi: \" + bp.getPassengerName() + \" | Pasport: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'",
-      "en": "📖 Real-World Scenario & Context\nBusiness passengers extend passenger profiles by holding VIP airport lounge access tokens.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Passenger' with: 'private String passengerName;', 'private String passportSeries;' and accessors.\n\n2. Derive 'BusinessPassenger extends Passenger' with field 'private String vipLoungePass;'.\n\n3. Implement 'getVipLoungePass()' and 'setVipLoungePass(...)' in 'BusinessPassenger'.\n\n4. In 'main', instantiate 'BusinessPassenger' and set parent state via inherited setters.\n\n5. Print state via accessors: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Shoxrux Mirzayev\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Yo'lovchi: \" + bp.getPassengerName() + \" | Pasport: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'"
+      "en": "📖 Real-World Scenario & Context\nBusiness passengers extend passenger profiles by holding VIP airport lounge access tokens.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Passenger' with: 'private String passengerName;', 'private String passportSeries;' and accessors.\n\n2. Derive 'BusinessPassenger extends Passenger' with field 'private String vipLoungePass;'.\n\n3. Implement 'getVipLoungePass()' and 'setVipLoungePass(...)' in 'BusinessPassenger'.\n\n4. In 'main', instantiate 'BusinessPassenger' and set parent state via inherited setters.\n\n5. Print state via accessors: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Shoxrux Mirzayev\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Yo'lovchi: \" + bp.getPassengerName() + \" | Pasport: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'",
+      "ru": "📖 Контекст и описание задачи\nБизнес-пассажиры расширяют профили пассажиров, имея жетоны доступа в VIP-залы аэропорта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Пассажир» с помощью: «частная строка имя пассажира;», «частная строка паспортсерия;» и аксессуары.\n2. Выведите «BusinessPassenger расширяет Passenger» с помощью поля «private String vipLoungePass;».\n3. Внедрите getVipLoungePass() и setVipLoungePass(...) в BusinessPassenger.\n4. В «main» создайте экземпляр «BusinessPassenger» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Шохрух Мирзаев\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Ёловчи: \" + bp.getPassengerName() + \" | Паспорт: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'"
     },
     "story": {
       "uz": "Yo'lovchi ('Passenger') ism va pasport seriyasiga ega. Biznes-klass yo'lovchisi ('BusinessPassenger extends Passenger') esa private 'vipLoungePass' (String) kutish zali ruxsatnoma raqamini qo'shadi.",
-      "en": "Business passengers extend passenger profiles by holding VIP airport lounge access tokens."
+      "en": "Business passengers extend passenger profiles by holding VIP airport lounge access tokens.",
+      "ru": "Бизнес-пассажиры расширяют профили пассажиров, имея жетоны доступа в VIP-залы аэропорта."
     },
     "steps": {
       "uz": [
@@ -1774,6 +2180,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getVipLoungePass()' and 'setVipLoungePass(...)' in 'BusinessPassenger'.",
         "In 'main', instantiate 'BusinessPassenger' and set parent state via inherited setters.",
         "Print state via accessors: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Shoxrux Mirzayev\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Yo'lovchi: \" + bp.getPassengerName() + \" | Pasport: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Пассажир» с помощью: «частная строка имя пассажира;», «частная строка паспортсерия;» и аксессуары.",
+        "Выведите «BusinessPassenger расширяет Passenger» с помощью поля «private String vipLoungePass;».",
+        "Внедрите getVipLoungePass() и setVipLoungePass(...) в BusinessPassenger.",
+        "В «main» создайте экземпляр «BusinessPassenger» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'BusinessPassenger bp = new BusinessPassenger(); bp.setPassengerName(\"Шохрух Мирзаев\"); bp.setPassportSeries(\"FA1234567\"); bp.setVipLoungePass(\"VIP-LOUNGE-99\"); System.out.println(\"Ёловчи: \" + bp.getPassengerName() + \" | Паспорт: \" + bp.getPassportSeries() + \" | VIP: \" + bp.getVipLoungePass());'"
       ]
     },
     "requirements": {
@@ -1805,7 +2218,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "Ota klass private maydonlariga faqat uning get/set metodlari bilan kiriladi.",
-      "cw2Tip": "VIP va oddiy mijozlarni merosxo'rlik bilan farqlang."
+      "cw2Tip": "VIP va oddiy mijozlarni merosxo'rlik bilan farqlang.",
+      "theoryRu": "Нормативное удостоверение личности для путешествий принадлежит родителю, а коммерческие привилегии распространяются на ребенка.",
+      "pitfallsRu": "Другой класс частного майдонларига может получить/установить методы, которые вы можете использовать.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1815,15 +2233,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "29. WIUT Registrar — ScholarshipStudent va Stipendiya Maydoni",
-      "en": "29. WIUT Registrar — ScholarshipStudent and Stipend Amount"
+      "en": "29. WIUT Registrar — ScholarshipStudent and Stipend Amount",
+      "ru": "29. Регистратор МВУТ — размер стипендии студента и стипендии."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT talabasi ('Student') talaba ID va GPA ko'rsatkichiga ega. Grant asosida o'quvchi talaba ('ScholarshipStudent extends Student') esa private 'stipendAmount' (double) oylik stipendiya maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Student' ni e'lon qiling va unga 'private String studentId;', 'private double gpa;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'ScholarshipStudent extends Student' ni yarating va unga 'private double stipendAmount;' maydonini qo'shing.\n\n3. 'ScholarshipStudent' ichida 'getStipendAmount()' va 'setStipendAmount(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'ScholarshipStudent' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Talaba ID: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Stipendiya: \" + ss.getStipendAmount() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nScholarship students extend students by encapsulating monthly stipend award sums.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Student' with: 'private String studentId;', 'private double gpa;' and accessors.\n\n2. Derive 'ScholarshipStudent extends Student' with field 'private double stipendAmount;'.\n\n3. Implement 'getStipendAmount()' and 'setStipendAmount(...)' in 'ScholarshipStudent'.\n\n4. In 'main', instantiate 'ScholarshipStudent' and set parent state via inherited setters.\n\n5. Print state via accessors: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Talaba ID: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Stipendiya: \" + ss.getStipendAmount() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nScholarship students extend students by encapsulating monthly stipend award sums.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Student' with: 'private String studentId;', 'private double gpa;' and accessors.\n\n2. Derive 'ScholarshipStudent extends Student' with field 'private double stipendAmount;'.\n\n3. Implement 'getStipendAmount()' and 'setStipendAmount(...)' in 'ScholarshipStudent'.\n\n4. In 'main', instantiate 'ScholarshipStudent' and set parent state via inherited setters.\n\n5. Print state via accessors: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Talaba ID: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Stipendiya: \" + ss.getStipendAmount() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nСтуденты, получающие стипендию, расширяют число студентов, инкапсулируя суммы ежемесячных стипендий.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Студент» с помощью: «частная строка StudentId;», «частный двойной средний балл;» и аксессуары.\n2. Выведите «СтипендияСтудент продлевает студенту» с полем «Частная двойная сумма стипендии;».\n3. Внедрите getStipendAmount() и setStipendAmount(...) в ScholarshipStudent.\n4. В «main» создайте экземпляр «ScholarshipStudent» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатать состояние через методы доступа: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Идентификатор Талаба: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Стипендия: \" + ss.getStipendAmount() + \" вот и я\");'"
     },
     "story": {
       "uz": "WIUT talabasi ('Student') talaba ID va GPA ko'rsatkichiga ega. Grant asosida o'quvchi talaba ('ScholarshipStudent extends Student') esa private 'stipendAmount' (double) oylik stipendiya maydonini qo'shadi.",
-      "en": "Scholarship students extend students by encapsulating monthly stipend award sums."
+      "en": "Scholarship students extend students by encapsulating monthly stipend award sums.",
+      "ru": "Студенты, получающие стипендию, расширяют число студентов, инкапсулируя суммы ежемесячных стипендий."
     },
     "steps": {
       "uz": [
@@ -1839,6 +2260,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getStipendAmount()' and 'setStipendAmount(...)' in 'ScholarshipStudent'.",
         "In 'main', instantiate 'ScholarshipStudent' and set parent state via inherited setters.",
         "Print state via accessors: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Talaba ID: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Stipendiya: \" + ss.getStipendAmount() + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Студент» с помощью: «частная строка StudentId;», «частный двойной средний балл;» и аксессуары.",
+        "Выведите «СтипендияСтудент продлевает студенту» с полем «Частная двойная сумма стипендии;».",
+        "Внедрите getStipendAmount() и setStipendAmount(...) в ScholarshipStudent.",
+        "В «main» создайте экземпляр «ScholarshipStudent» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатать состояние через методы доступа: 'ScholarshipStudent ss = new ScholarshipStudent(); ss.setStudentId(\"00019902\"); ss.setGpa(3.92); ss.setStipendAmount(1250000.0); System.out.println(\"Идентификатор Талаба: \" + ss.getStudentId() + \" | GPA: \" + ss.getGpa() + \" | Стипендия: \" + ss.getStipendAmount() + \" вот и я\");'"
       ]
     },
     "requirements": {
@@ -1870,7 +2298,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "stipendAmount double turida bo'ladi.",
-      "cw2Tip": "Maxsus maqomli foydalanuvchilar modelini avlod sinflar orqali yarating."
+      "cw2Tip": "Maxsus maqomli foydalanuvchilar modelini avlod sinflar orqali yarating.",
+      "theoryRu": "Институциональные стипендии предоставляются исключительно квалифицированным студентам-отличникам.",
+      "pitfallsRu": "Размер стипендии в два раза больше турида болади.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1880,15 +2313,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "16-30: Ota Sinfga Kirish va Inkapsulyatsiya",
     "title": {
       "uz": "30. Dodo Pizza — StuffedCrustPizza va Bort Pishlog'i Turi",
-      "en": "30. Dodo Pizza — StuffedCrustPizza and Cheese Crust Type"
+      "en": "30. Dodo Pizza — StuffedCrustPizza and Cheese Crust Type",
+      "ru": "30. Пицца «Додо» — пицца с начинкой и сырной корочкой."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n2-bosqichning yakuniy 30-masalasi: Pitsa ('Pizza') pitsa nomi va standart narxiga ega. Pishloqli bortli maxsus pitsa ('StuffedCrustPizza extends Pizza') esa private 'crustCheeseType' (String) pishloq turi maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Pizza' ni e'lon qiling va unga 'private String name;', 'private double price;' maydonlarini va getter/setterlarini yozing.\n\n2. Avlod sinf 'StuffedCrustPizza extends Pizza' ni yarating va unga 'private String crustCheeseType;' maydonini qo'shing.\n\n3. 'StuffedCrustPizza' ichida 'getCrustCheeseType()' va 'setCrustCheeseType(...)' metodlarini taqdim eting.\n\n4. 'Main' metodida 'StuffedCrustPizza' ob'yektini yaratib, ota sinf setterlari orqali qiymatlarni o'rnating.\n\n5. Natijani getterlar orqali konsolga chop eting: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Four Cheese Deluxe\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Cheddar & Mozzarella\"); System.out.println(\"Pitsa: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Bort pishlog'i: \" + scp.getCrustCheeseType());'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 2: StuffedCrustPizza extends Pizza by encapsulating custom crust cheese varieties.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pizza' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'StuffedCrustPizza extends Pizza' with field 'private String crustCheeseType;'.\n\n3. Implement 'getCrustCheeseType()' and 'setCrustCheeseType(...)' in 'StuffedCrustPizza'.\n\n4. In 'main', instantiate 'StuffedCrustPizza' and set parent state via inherited setters.\n\n5. Print state via accessors: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Four Cheese Deluxe\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Cheddar & Mozzarella\"); System.out.println(\"Pitsa: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Bort pishlog'i: \" + scp.getCrustCheeseType());'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 2: StuffedCrustPizza extends Pizza by encapsulating custom crust cheese varieties.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pizza' with: 'private String name;', 'private double price;' and accessors.\n\n2. Derive 'StuffedCrustPizza extends Pizza' with field 'private String crustCheeseType;'.\n\n3. Implement 'getCrustCheeseType()' and 'setCrustCheeseType(...)' in 'StuffedCrustPizza'.\n\n4. In 'main', instantiate 'StuffedCrustPizza' and set parent state via inherited setters.\n\n5. Print state via accessors: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Four Cheese Deluxe\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Cheddar & Mozzarella\"); System.out.println(\"Pitsa: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Bort pishlog'i: \" + scp.getCrustCheeseType());'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 2: StuffedCrustPizza расширяет возможности Pizza, инкапсулируя специальные сорта сыра с корочкой.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Пицца» с: «частное строковое имя;», «частная двойная цена»; и аксессуары.\n2. Выведите «StuffedCrustPizza расширяет Pizza» с полем «private String CrustCheeseType;».\n3. Реализуйте getCrustCheeseType() и setCrustCheeseType(...) в StuffedCrustPizza.\n4. В «main» создайте экземпляр «StuffedCrustPizza» и установите родительское состояние с помощью унаследованных установщиков.\n5. Распечатайте состояние через методы доступа: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Четыре сыра Делюкс\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Чеддер и Моцарелла\"); System.out.println(\"Пица: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Борт pishlog'и: \" + scp.getCrustCheeseType());'"
     },
     "story": {
       "uz": "2-bosqichning yakuniy 30-masalasi: Pitsa ('Pizza') pitsa nomi va standart narxiga ega. Pishloqli bortli maxsus pitsa ('StuffedCrustPizza extends Pizza') esa private 'crustCheeseType' (String) pishloq turi maydonini qo'shadi.",
-      "en": "Grand finale of Tier 2: StuffedCrustPizza extends Pizza by encapsulating custom crust cheese varieties."
+      "en": "Grand finale of Tier 2: StuffedCrustPizza extends Pizza by encapsulating custom crust cheese varieties.",
+      "ru": "Грандиозный финал уровня 2: StuffedCrustPizza расширяет возможности Pizza, инкапсулируя специальные сорта сыра с корочкой."
     },
     "steps": {
       "uz": [
@@ -1904,6 +2340,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement 'getCrustCheeseType()' and 'setCrustCheeseType(...)' in 'StuffedCrustPizza'.",
         "In 'main', instantiate 'StuffedCrustPizza' and set parent state via inherited setters.",
         "Print state via accessors: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Four Cheese Deluxe\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Cheddar & Mozzarella\"); System.out.println(\"Pitsa: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Bort pishlog'i: \" + scp.getCrustCheeseType());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Пицца» с: «частное строковое имя;», «частная двойная цена»; и аксессуары.",
+        "Выведите «StuffedCrustPizza расширяет Pizza» с полем «private String CrustCheeseType;».",
+        "Реализуйте getCrustCheeseType() и setCrustCheeseType(...) в StuffedCrustPizza.",
+        "В «main» создайте экземпляр «StuffedCrustPizza» и установите родительское состояние с помощью унаследованных установщиков.",
+        "Распечатайте состояние через методы доступа: 'StuffedCrustPizza scp = new StuffedCrustPizza(); scp.setName(\"Четыре сыра Делюкс\"); scp.setPrice(95000.0); scp.setCrustCheeseType(\"Чеддер и Моцарелла\"); System.out.println(\"Пица: \" + scp.getName() + \" | Narx: \" + scp.getPrice() + \" | Борт pishlog'и: \" + scp.getCrustCheeseType());'"
       ]
     },
     "requirements": {
@@ -1935,7 +2378,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
       ],
       "pitfalls": "crustCheeseType getter/setteri to'g'ri nomlanganligini tekshiring.",
-      "cw2Tip": "CW2 Console Order Applicationda maxsus tovar modifikatsiyalarini avlod klass orqali e'lon qiling."
+      "cw2Tip": "CW2 Console Order Applicationda maxsus tovar modifikatsiyalarini avlod klass orqali e'lon qiling.",
+      "theoryRu": "Гармонизация принципов родительской и дочерней инкапсуляции позволяет создавать модульные, удобные в обслуживании каталоги доменов.",
+      "pitfallsRu": "CrustCheeseType getter/setteri to'g'ri nomlanganligini tekshiring.",
+      "breakdownRu": [
+        "<code>Private Members</code>: Ota klassning private maydonlari avlod klassga to'g'ridan-to'g'ri ko'rinmaydi; ularga faqat ota klassning public getter/setterlari orqali kiriladi."
+      ]
     }
   },
   {
@@ -1945,15 +2393,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "31. Uzum Market — PhysicalProduct super(...) Konstruktori (Seminar 3 Ex 3)",
-      "en": "31. Uzum Market — PhysicalProduct super(...) Constructor"
+      "en": "31. Uzum Market — PhysicalProduct super(...) Constructor",
+      "ru": "31. Uzum Market — Конструктор PhysicalProduct super(...)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 3 rasmiy topshirig'i: 'Product' sinfi 'public Product(String name, double price)' konstruktoriga ega. 'PhysicalProduct extends Product' konstruktori ota klass maydonlarini 'super(name, price)' orqali initsializatsiya qilishi, so'ng o'zining 'weightKg' maydonini to'ldirishi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'public Product(String name, double price)' konstruktorini qo'shing.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating va unga 'private double weightKg;' maydonini qo'shing.\n\n3. 'PhysicalProduct' konstruktorining birinchi qatorida ota klass konstruktorini 'super(name, price);' orqali chaqiring va o'z maydonini to'ldiring ('this.weightKg = weightKg;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" so'm | \" + pp.getWeightKg() + \" kg\");'",
-      "en": "📖 Real-World Scenario & Context\nDirect implementation of WIUT Seminar 3 Ex 3: Product defines (name, price). PhysicalProduct invokes super(name, price) before initializing weightKg.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with constructor 'public Product(String name, double price)'.\n\n2. Derive 'PhysicalProduct extends Product' with 'private double weightKg;'.\n\n3. In 'PhysicalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.weightKg = weightKg;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" so'm | \" + pp.getWeightKg() + \" kg\");'"
+      "en": "📖 Real-World Scenario & Context\nDirect implementation of WIUT Seminar 3 Ex 3: Product defines (name, price). PhysicalProduct invokes super(name, price) before initializing weightKg.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with constructor 'public Product(String name, double price)'.\n\n2. Derive 'PhysicalProduct extends Product' with 'private double weightKg;'.\n\n3. In 'PhysicalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.weightKg = weightKg;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" so'm | \" + pp.getWeightKg() + \" kg\");'",
+      "ru": "📖 Контекст и описание задачи\nНепосредственное внедрение семинара WIUT 3 Пример 3: Продукт определяет (название, цена). PhysicalProduct вызывает super(name,price) перед инициализацией весаKg.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с конструктором «Общественный продукт (имя строки, двойная цена)».\n2. Выведите «Физический продукт расширяет продукт» с помощью «частного двойного веса кг;».\n3. В конструкторе «PhysicalProduct» вызовите «super(name, Price);» в качестве первой строки и примените «this.weightKg = WeightKg;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и распечатайте: «PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" я | \" + pp.getWeightKg() + \" кг\");'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 3 rasmiy topshirig'i: 'Product' sinfi 'public Product(String name, double price)' konstruktoriga ega. 'PhysicalProduct extends Product' konstruktori ota klass maydonlarini 'super(name, price)' orqali initsializatsiya qilishi, so'ng o'zining 'weightKg' maydonini to'ldirishi shart.",
-      "en": "Direct implementation of WIUT Seminar 3 Ex 3: Product defines (name, price). PhysicalProduct invokes super(name, price) before initializing weightKg."
+      "en": "Direct implementation of WIUT Seminar 3 Ex 3: Product defines (name, price). PhysicalProduct invokes super(name, price) before initializing weightKg.",
+      "ru": "Непосредственное внедрение семинара WIUT 3 Пример 3: Продукт определяет (название, цена). PhysicalProduct вызывает super(name,price) перед инициализацией весаKg."
     },
     "steps": {
       "uz": [
@@ -1969,6 +2420,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'PhysicalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.weightKg = weightKg;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" so'm | \" + pp.getWeightKg() + \" kg\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с конструктором «Общественный продукт (имя строки, двойная цена)».",
+        "Выведите «Физический продукт расширяет продукт» с помощью «частного двойного веса кг;».",
+        "В конструкторе «PhysicalProduct» вызовите «super(name, Price);» в качестве первой строки и примените «this.weightKg = WeightKg;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и распечатайте: «PhysicalProduct pp = new PhysicalProduct(\"Quloqchin\", 350000.0, 0.25); System.out.println(pp.getName() + \" | \" + pp.getPrice() + \" я | \" + pp.getWeightKg() + \" кг\");'"
       ]
     },
     "requirements": {
@@ -2005,7 +2463,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(name, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "'super(...)' chaqiruvi konstruktor tanasidagi ikkinchi yoki uchinchi qatorga qo'yilsa, Java kompilyatsiya bermaydi (Call to 'super()' must be first statement).",
-      "cw2Tip": "CW2 Console Order Applicationda har bir tovar subclassi o'z konstruktorida MenuItem superklassiga super(...) bilan murojaat qilishi shart."
+      "cw2Tip": "CW2 Console Order Applicationda har bir tovar subclassi o'z konstruktorida MenuItem superklassiga super(...) bilan murojaat qilishi shart.",
+      "theoryRu": "Лекция 3 Слайд 19: Конструкторы НЕ наследуются. Конструктор подкласса должен вызвать super(...) в качестве самого первого оператора для инициализации родительского состояния.",
+      "pitfallsRu": "'super(...)' chaqiruvi konstruktor tanasidagi ikkinchi yoki uchinchi qatorga qo'yilsa, Java-компиляция bermaydi (вызов 'super()' должен быть первым оператором).",
+      "breakdownRu": [
+        "<code>super(name, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2015,15 +2478,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "32. Uzum Market — DigitalProduct super(...) Konstruktori (Seminar 3 Ex 3)",
-      "en": "32. Uzum Market — DigitalProduct super(...) Constructor"
+      "en": "32. Uzum Market — DigitalProduct super(...) Constructor",
+      "ru": "32. Uzum Market — Супер(...) Конструктор DigitalProduct"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 3 Ex 3: 'DigitalProduct extends Product' konstruktori 'super(name, price)' orqali tovar nomi va narxini ota sinfga uzatadi, so'ngra 'this.fileSizeMb = fileSizeMb;' maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'public Product(String name, double price)' konstruktorini qo'shing.\n\n2. Avlod sinf 'DigitalProduct extends Product' ni yarating va unga 'private double fileSizeMb;' maydonini qo'shing.\n\n3. 'DigitalProduct' konstruktorining birinchi qatorida ota klass konstruktorini 'super(name, price);' orqali chaqiring va o'z maydonini to'ldiring ('this.fileSizeMb = fileSizeMb;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" so'm | \" + dp.getFileSizeMb() + \" MB\");'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 3 Part 2: DigitalProduct constructor passes (name, price) to super(name, price) and assigns fileSizeMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with constructor 'public Product(String name, double price)'.\n\n2. Derive 'DigitalProduct extends Product' with 'private double fileSizeMb;'.\n\n3. In 'DigitalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.fileSizeMb = fileSizeMb;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" so'm | \" + dp.getFileSizeMb() + \" MB\");'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 3 Part 2: DigitalProduct constructor passes (name, price) to super(name, price) and assigns fileSizeMb.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with constructor 'public Product(String name, double price)'.\n\n2. Derive 'DigitalProduct extends Product' with 'private double fileSizeMb;'.\n\n3. In 'DigitalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.fileSizeMb = fileSizeMb;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" so'm | \" + dp.getFileSizeMb() + \" MB\");'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 3, часть 2. Конструктор DigitalProduct передает (имя, цена) в super(name, цена) и присваивает fileSizeMb.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с конструктором «Общественный продукт (имя строки, двойная цена)».\n2. Выведите «DigitalProduct расширяет продукт» с помощью «private double fileSizeMb;».\n3. В конструкторе «DigitalProduct» вызовите «super(name, Price);» в качестве первой строки и примените «this.fileSizeMb = fileSizeMb;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и распечатайте: «DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" так я | \" + dp.getFileSizeMb() + \" MB\");'"
     },
     "story": {
       "uz": "Seminar 3 Ex 3: 'DigitalProduct extends Product' konstruktori 'super(name, price)' orqali tovar nomi va narxini ota sinfga uzatadi, so'ngra 'this.fileSizeMb = fileSizeMb;' maydonini o'rnatadi.",
-      "en": "Seminar 3 Ex 3 Part 2: DigitalProduct constructor passes (name, price) to super(name, price) and assigns fileSizeMb."
+      "en": "Seminar 3 Ex 3 Part 2: DigitalProduct constructor passes (name, price) to super(name, price) and assigns fileSizeMb.",
+      "ru": "Семинар 3 Пример 3, часть 2. Конструктор DigitalProduct передает (имя, цена) в super(name, цена) и присваивает fileSizeMb."
     },
     "steps": {
       "uz": [
@@ -2039,6 +2505,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'DigitalProduct' constructor, invoke 'super(name, price);' as first line and apply 'this.fileSizeMb = fileSizeMb;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" so'm | \" + dp.getFileSizeMb() + \" MB\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с конструктором «Общественный продукт (имя строки, двойная цена)».",
+        "Выведите «DigitalProduct расширяет продукт» с помощью «private double fileSizeMb;».",
+        "В конструкторе «DigitalProduct» вызовите «super(name, Price);» в качестве первой строки и примените «this.fileSizeMb = fileSizeMb;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и распечатайте: «DigitalProduct dp = new DigitalProduct(\"Photoshop Kursi\", 120000.0, 750.0); System.out.println(dp.getName() + \" | \" + dp.getPrice() + \" так я | \" + dp.getFileSizeMb() + \" MB\");'"
       ]
     },
     "requirements": {
@@ -2075,7 +2548,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(name, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "super(...) ga ota klass konstruktori talab qilgan barcha parametrlarni to'g'ri ketma-ketlikda uzating.",
-      "cw2Tip": "Raqamli buyurtmalar yaratishda super(...) chaqiruvidan to'g'ri foydalaning."
+      "cw2Tip": "Raqamli buyurtmalar yaratishda super(...) chaqiruvidan to'g'ri foydalaning.",
+      "theoryRu": "Поля суперкласса должны быть созданы до выполнения логики специализации подкласса, что обеспечивает целостность данных.",
+      "pitfallsRu": "супер(...) га ота класс конструкторов талаб килган барча параметры то'г'ри кетма-кетликда узатинг.",
+      "breakdownRu": [
+        "<code>super(name, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2085,15 +2563,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "33. Payme — CardAccount super(...) Konstruktori",
-      "en": "33. Payme — CardAccount super(...) Constructor"
+      "en": "33. Payme — CardAccount super(...) Constructor",
+      "ru": "33. Payme — CardAccount super(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPayme bank hisobi ('Account') raqam va balansga ega: 'public Account(String accNo, double balance)'. Karta hisobi ('CardAccount extends Account') esa 'super(accNo, balance)' orqali buni to'ldirib, o'zining 'cardPan' maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni e'lon qiling va unga 'public Account(String accNo, double balance)' konstruktorini qo'shing.\n\n2. Avlod sinf 'CardAccount extends Account' ni yarating va unga 'private String cardPan;' maydonini qo'shing.\n\n3. 'CardAccount' konstruktorining birinchi qatorida ota klass konstruktorini 'super(accNo, balance);' orqali chaqiring va o'z maydonini to'ldiring ('this.cardPan = cardPan;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" so'm | \" + ca.getCardPan());'",
-      "en": "📖 Real-World Scenario & Context\nCardAccount delegates account number and balance to Account via super(...) while capturing cardPan.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with constructor 'public Account(String accNo, double balance)'.\n\n2. Derive 'CardAccount extends Account' with 'private String cardPan;'.\n\n3. In 'CardAccount' constructor, invoke 'super(accNo, balance);' as first line and apply 'this.cardPan = cardPan;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" so'm | \" + ca.getCardPan());'"
+      "en": "📖 Real-World Scenario & Context\nCardAccount delegates account number and balance to Account via super(...) while capturing cardPan.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with constructor 'public Account(String accNo, double balance)'.\n\n2. Derive 'CardAccount extends Account' with 'private String cardPan;'.\n\n3. In 'CardAccount' constructor, invoke 'super(accNo, balance);' as first line and apply 'this.cardPan = cardPan;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" so'm | \" + ca.getCardPan());'",
+      "ru": "📖 Контекст и описание задачи\nCardAccount делегирует номер счета и баланс счету через super(...) при захвате cardPan.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Учетная запись» с конструктором «публичная учетная запись (String accNo, двойной баланс)».\n2. Получите «CardAccount расширяет учетную запись» с помощью «частной строки cardPan;».\n3. В конструкторе CardAccount вызовите super(accNo, Balance); в качестве первой строки и примените «this.cardPan = cardPan;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" так я | \" + ca.getCardPan());'"
     },
     "story": {
       "uz": "Payme bank hisobi ('Account') raqam va balansga ega: 'public Account(String accNo, double balance)'. Karta hisobi ('CardAccount extends Account') esa 'super(accNo, balance)' orqali buni to'ldirib, o'zining 'cardPan' maydonini o'rnatadi.",
-      "en": "CardAccount delegates account number and balance to Account via super(...) while capturing cardPan."
+      "en": "CardAccount delegates account number and balance to Account via super(...) while capturing cardPan.",
+      "ru": "CardAccount делегирует номер счета и баланс счету через super(...) при захвате cardPan."
     },
     "steps": {
       "uz": [
@@ -2109,6 +2590,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'CardAccount' constructor, invoke 'super(accNo, balance);' as first line and apply 'this.cardPan = cardPan;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" so'm | \" + ca.getCardPan());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Учетная запись» с конструктором «публичная учетная запись (String accNo, двойной баланс)».",
+        "Получите «CardAccount расширяет учетную запись» с помощью «частной строки cardPan;».",
+        "В конструкторе CardAccount вызовите super(accNo, Balance); в качестве первой строки и примените «this.cardPan = cardPan;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'CardAccount ca = new CardAccount(\"ACC-101\", 850000.0, \"8600-****-1122\"); System.out.println(ca.getAccNo() + \" | \" + ca.getBalance() + \" так я | \" + ca.getCardPan());'"
       ]
     },
     "requirements": {
@@ -2145,7 +2633,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(accNo, balance);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "cardPan maydonini 'this.cardPan = cardPan;' deb o'zlashtirishni unutmang.",
-      "cw2Tip": "Hisob modellari konstruktorlarini loyihalashda super(...) zanjiridan foydalaning."
+      "cw2Tip": "Hisob modellari konstruktorlarini loyihalashda super(...) zanjiridan foydalaning.",
+      "theoryRu": "В учетных записях Fintech используются конструкторы суперклассов для утверждения основополагающих инвариантов реестра.",
+      "pitfallsRu": "cardPan maydonini 'this.cardPan = cardPan;' деб озлаштиришни унутманг.",
+      "breakdownRu": [
+        "<code>super(accNo, balance);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2155,15 +2648,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "34. Yandex Go — ComfortRide super(...) Konstruktori",
-      "en": "34. Yandex Go — ComfortRide super(...) Constructor"
+      "en": "34. Yandex Go — ComfortRide super(...) Constructor",
+      "ru": "34. Яндекс Go — ComfortRide супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYandex qatnovi ('Ride') jo'nash va borish manzillarini 'public Ride(String pickup, String destination)' da qabul qiladi. 'ComfortRide extends Ride' unga 'comfortClass' (String) ni qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Ride' ni e'lon qiling va unga 'public Ride(String pickup, String destination)' konstruktorini qo'shing.\n\n2. Avlod sinf 'ComfortRide extends Ride' ni yarating va unga 'private String comfortClass;' maydonini qo'shing.\n\n3. 'ComfortRide' konstruktorining birinchi qatorida ota klass konstruktorini 'super(pickup, destination);' orqali chaqiring va o'z maydonini to'ldiring ('this.comfortClass = comfortClass;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'ComfortRide cr = new ComfortRide(\"Chilonzor\", \"Amir Temur\", \"Business\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'",
-      "en": "📖 Real-World Scenario & Context\nComfort rides extend base rides, passing pickup and destination to super(...) and recording comfort class.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Ride' with constructor 'public Ride(String pickup, String destination)'.\n\n2. Derive 'ComfortRide extends Ride' with 'private String comfortClass;'.\n\n3. In 'ComfortRide' constructor, invoke 'super(pickup, destination);' as first line and apply 'this.comfortClass = comfortClass;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'ComfortRide cr = new ComfortRide(\"Chilonzor\", \"Amir Temur\", \"Business\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'"
+      "en": "📖 Real-World Scenario & Context\nComfort rides extend base rides, passing pickup and destination to super(...) and recording comfort class.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Ride' with constructor 'public Ride(String pickup, String destination)'.\n\n2. Derive 'ComfortRide extends Ride' with 'private String comfortClass;'.\n\n3. In 'ComfortRide' constructor, invoke 'super(pickup, destination);' as first line and apply 'this.comfortClass = comfortClass;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'ComfortRide cr = new ComfortRide(\"Chilonzor\", \"Amir Temur\", \"Business\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'",
+      "ru": "📖 Контекст и описание задачи\nКомфортные поездки расширяют базовые поездки, проходящие посадку и пункт назначения до супер(...) и записывают класс комфорта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ride» с конструктором «public Ride(String Pickup, String Destination)».\n2. Выведите «ComfortRide расширяет Ride» с помощью «частной строки ComfortClass;».\n3. В конструкторе «ComfortRide» вызовите «super(pickup, Пункт назначения);» в качестве первой строки и примените «this.comfortClass = ComfortClass;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'ComfortRide cr = new ComfortRide(\"Чилонзор\", \"Амир Темур\", \"Бизнес\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'"
     },
     "story": {
       "uz": "Yandex qatnovi ('Ride') jo'nash va borish manzillarini 'public Ride(String pickup, String destination)' da qabul qiladi. 'ComfortRide extends Ride' unga 'comfortClass' (String) ni qo'shadi.",
-      "en": "Comfort rides extend base rides, passing pickup and destination to super(...) and recording comfort class."
+      "en": "Comfort rides extend base rides, passing pickup and destination to super(...) and recording comfort class.",
+      "ru": "Комфортные поездки расширяют базовые поездки, проходящие посадку и пункт назначения до супер(...) и записывают класс комфорта."
     },
     "steps": {
       "uz": [
@@ -2179,6 +2675,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'ComfortRide' constructor, invoke 'super(pickup, destination);' as first line and apply 'this.comfortClass = comfortClass;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'ComfortRide cr = new ComfortRide(\"Chilonzor\", \"Amir Temur\", \"Business\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ride» с конструктором «public Ride(String Pickup, String Destination)».",
+        "Выведите «ComfortRide расширяет Ride» с помощью «частной строки ComfortClass;».",
+        "В конструкторе «ComfortRide» вызовите «super(pickup, Пункт назначения);» в качестве первой строки и примените «this.comfortClass = ComfortClass;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'ComfortRide cr = new ComfortRide(\"Чилонзор\", \"Амир Темур\", \"Бизнес\"); System.out.println(cr.getPickup() + \" -> \" + cr.getDestination() + \" | Sinf: \" + cr.getComfortClass());'"
       ]
     },
     "requirements": {
@@ -2215,7 +2718,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(pickup, destination);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "pickup va destination String bo'lib, ota klass getPickup() va getDestination() getterlariga ega bo'lishi kerak.",
-      "cw2Tip": "Buyurtma manzillarini saqlovchi klasslarda parametrli konstruktordan foydalaning."
+      "cw2Tip": "Buyurtma manzillarini saqlovchi klasslarda parametrli konstruktordan foydalaning.",
+      "theoryRu": "Пространственные точки маршрута инициализируются с помощью super(...), а категории роскоши добавляются в подкласс.",
+      "pitfallsRu": "Pickup и Destination String bo'lib, класс getPickup() и getDestination() getterlariga ega bo'lishi kerak.",
+      "breakdownRu": [
+        "<code>super(pickup, destination);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2225,15 +2733,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "35. Korzinka Go — FreshProduce super(...) Konstruktori",
-      "en": "35. Korzinka Go — FreshProduce super(...) Constructor"
+      "en": "35. Korzinka Go — FreshProduce super(...) Constructor",
+      "ru": "35. Корзинка Go — FreshProduce супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar ('Item') shtrix-kod va narxga ega: 'public Item(String barcode, double price)'. Yangi hosil mevasi ('FreshProduce extends Item') 'super(barcode, price)' orqali buni to'ldirib, o'zining 'originCountry' maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Item' ni e'lon qiling va unga 'public Item(String barcode, double price)' konstruktorini qo'shing.\n\n2. Avlod sinf 'FreshProduce extends Item' ni yarating va unga 'private String originCountry;' maydonini qo'shing.\n\n3. 'FreshProduce' konstruktorining birinchi qatorida ota klass konstruktorini 'super(barcode, price);' orqali chaqiring va o'z maydonini to'ldiring ('this.originCountry = originCountry;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"O'zbekiston\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'",
-      "en": "📖 Real-World Scenario & Context\nFreshProduce forwards barcode and price to Item via super(...) while recording country of origin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Item' with constructor 'public Item(String barcode, double price)'.\n\n2. Derive 'FreshProduce extends Item' with 'private String originCountry;'.\n\n3. In 'FreshProduce' constructor, invoke 'super(barcode, price);' as first line and apply 'this.originCountry = originCountry;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"O'zbekiston\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'"
+      "en": "📖 Real-World Scenario & Context\nFreshProduce forwards barcode and price to Item via super(...) while recording country of origin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Item' with constructor 'public Item(String barcode, double price)'.\n\n2. Derive 'FreshProduce extends Item' with 'private String originCountry;'.\n\n3. In 'FreshProduce' constructor, invoke 'super(barcode, price);' as first line and apply 'this.originCountry = originCountry;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"O'zbekiston\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'",
+      "ru": "📖 Контекст и описание задачи\nFreshProduce пересылает штрих-код и цену на товар через super(...) при записи страны происхождения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Item» с конструктором «public Item (строковый штрих-код, двойная цена)».\n2. Получите «FreshProduce расширяет элемент» с помощью «private String originCountry;».\n3. В конструкторе FreshProduce вызовите супер(штрих-код, цена); в качестве первой строки и примените «this.originCountry = originCountry;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и распечатайте: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"Узбекистон\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'"
     },
     "story": {
       "uz": "Tovar ('Item') shtrix-kod va narxga ega: 'public Item(String barcode, double price)'. Yangi hosil mevasi ('FreshProduce extends Item') 'super(barcode, price)' orqali buni to'ldirib, o'zining 'originCountry' maydonini o'rnatadi.",
-      "en": "FreshProduce forwards barcode and price to Item via super(...) while recording country of origin."
+      "en": "FreshProduce forwards barcode and price to Item via super(...) while recording country of origin.",
+      "ru": "FreshProduce пересылает штрих-код и цену на товар через super(...) при записи страны происхождения."
     },
     "steps": {
       "uz": [
@@ -2249,6 +2760,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FreshProduce' constructor, invoke 'super(barcode, price);' as first line and apply 'this.originCountry = originCountry;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"O'zbekiston\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Item» с конструктором «public Item (строковый штрих-код, двойная цена)».",
+        "Получите «FreshProduce расширяет элемент» с помощью «private String originCountry;».",
+        "В конструкторе FreshProduce вызовите супер(штрих-код, цена); в качестве первой строки и примените «this.originCountry = originCountry;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и распечатайте: 'FreshProduce fp = new FreshProduce(\"47800112\", 18000.0, \"Узбекистон\"); System.out.println(fp.getBarcode() + \" | \" + fp.getPrice() + \" so'm | Yurt: \" + fp.getOriginCountry());'"
       ]
     },
     "requirements": {
@@ -2285,7 +2803,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(barcode, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "originCountry maydoni 'private' ekanligini tekshiring.",
-      "cw2Tip": "CW2 da tovar xususiyatlarini konstruktorda to'ldirish toza kod kafolatidir."
+      "cw2Tip": "CW2 da tovar xususiyatlarini konstruktorda to'ldirish toza kod kafolatidir.",
+      "theoryRu": "Сельскохозяйственные товары делегируют идентификаторы запасов супер(...) при локальной привязке географического происхождения.",
+      "pitfallsRu": "Страна происхождения майдони «частный» эканлигини текширинг.",
+      "breakdownRu": [
+        "<code>super(barcode, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2295,15 +2818,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "36. Click Up — TaxInvoice super(...) Konstruktori",
-      "en": "36. Click Up — TaxInvoice super(...) Constructor"
+      "en": "36. Click Up — TaxInvoice super(...) Constructor",
+      "ru": "36. Нажмите «Вверх» — конструктор TaxInvoice super(...)"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHisob-faktura ('Invoice') hisob raqami va summaga ega: 'public Invoice(String invoiceNo, double amount)'. QQS li soliq fakturasi ('TaxInvoice extends Invoice') 'super(invoiceNo, amount)' orqali to'ldirilib, 'vatRate' maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Invoice' ni e'lon qiling va unga 'public Invoice(String invoiceNo, double amount)' konstruktorini qo'shing.\n\n2. Avlod sinf 'TaxInvoice extends Invoice' ni yarating va unga 'private double vatRate;' maydonini qo'shing.\n\n3. 'TaxInvoice' konstruktorining birinchi qatorida ota klass konstruktorini 'super(invoiceNo, amount);' orqali chaqiring va o'z maydonini to'ldiring ('this.vatRate = vatRate;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Summa: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'",
-      "en": "📖 Real-World Scenario & Context\nTax invoices delegate number and amount to Invoice, capturing specific VAT percentage locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Invoice' with constructor 'public Invoice(String invoiceNo, double amount)'.\n\n2. Derive 'TaxInvoice extends Invoice' with 'private double vatRate;'.\n\n3. In 'TaxInvoice' constructor, invoke 'super(invoiceNo, amount);' as first line and apply 'this.vatRate = vatRate;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Summa: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'"
+      "en": "📖 Real-World Scenario & Context\nTax invoices delegate number and amount to Invoice, capturing specific VAT percentage locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Invoice' with constructor 'public Invoice(String invoiceNo, double amount)'.\n\n2. Derive 'TaxInvoice extends Invoice' with 'private double vatRate;'.\n\n3. In 'TaxInvoice' constructor, invoke 'super(invoiceNo, amount);' as first line and apply 'this.vatRate = vatRate;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Summa: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'",
+      "ru": "📖 Контекст и описание задачи\nНалоговые счета-фактуры делегируют номер и сумму счету-фактуре, фиксируя определенный процент НДС на местном уровне.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Счет-фактура» с конструктором «публичный счет-фактура (строка счета-фактурыНет, двойная сумма)».\n2. Выведите «TaxInvoice расширяет счет-фактуру» с помощью «private double vatRate;».\n3. В конструкторе TaxInvoice вызовите super(invoiceNo, sum); в качестве первой строки и примените «this.vatRate = vatRate;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и распечатайте: «TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Сумма: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'"
     },
     "story": {
       "uz": "Hisob-faktura ('Invoice') hisob raqami va summaga ega: 'public Invoice(String invoiceNo, double amount)'. QQS li soliq fakturasi ('TaxInvoice extends Invoice') 'super(invoiceNo, amount)' orqali to'ldirilib, 'vatRate' maydonini o'rnatadi.",
-      "en": "Tax invoices delegate number and amount to Invoice, capturing specific VAT percentage locally."
+      "en": "Tax invoices delegate number and amount to Invoice, capturing specific VAT percentage locally.",
+      "ru": "Налоговые счета-фактуры делегируют номер и сумму счету-фактуре, фиксируя определенный процент НДС на местном уровне."
     },
     "steps": {
       "uz": [
@@ -2319,6 +2845,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'TaxInvoice' constructor, invoke 'super(invoiceNo, amount);' as first line and apply 'this.vatRate = vatRate;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Summa: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Счет-фактура» с конструктором «публичный счет-фактура (строка счета-фактурыНет, двойная сумма)».",
+        "Выведите «TaxInvoice расширяет счет-фактуру» с помощью «private double vatRate;».",
+        "В конструкторе TaxInvoice вызовите super(invoiceNo, sum); в качестве первой строки и примените «this.vatRate = vatRate;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и распечатайте: «TaxInvoice ti = new TaxInvoice(\"INV-9901\", 500000.0, 12.0); System.out.println(ti.getInvoiceNo() + \" | Сумма: \" + ti.getAmount() + \" | QQS: \" + ti.getVatRate() + \"%\");'"
       ]
     },
     "requirements": {
@@ -2355,7 +2888,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(invoiceNo, amount);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "vatRate double turida bo'ladi.",
-      "cw2Tip": "Faktura va chek modellarida super(...) dan foydalaning."
+      "cw2Tip": "Faktura va chek modellarida super(...) dan foydalaning.",
+      "theoryRu": "Системы налогообложения инкапсулируют финансовые итоги в родительских моделях, параметризируя НДС в подклассах.",
+      "pitfallsRu": "ставка НДС — двойная турида болади.",
+      "breakdownRu": [
+        "<code>super(invoiceNo, amount);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2365,15 +2903,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "37. Asaxiy Books — EBook super(...) Konstruktori",
-      "en": "37. Asaxiy Books — EBook super(...) Constructor"
+      "en": "37. Asaxiy Books — EBook super(...) Constructor",
+      "ru": "37. Asaxy Books — Электронная книга супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitob ('Book') sarlavha va muallifga ega: 'public Book(String title, String author)'. Elektron kitob ('EBook extends Book') 'super(title, author)' orqali buni initsializatsiya qiladi va 'downloadFormat' (String, masalan 'EPUB') maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Book' ni e'lon qiling va unga 'public Book(String title, String author)' konstruktorini qo'shing.\n\n2. Avlod sinf 'EBook extends Book' ni yarating va unga 'private String downloadFormat;' maydonini qo'shing.\n\n3. 'EBook' konstruktorining birinchi qatorida ota klass konstruktorini 'super(title, author);' orqali chaqiring va o'z maydonini to'ldiring ('this.downloadFormat = downloadFormat;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Format: \" + eb.getDownloadFormat());'",
-      "en": "📖 Real-World Scenario & Context\nEBook forwards title and author to Book via super(...), while capturing digital file formats.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with constructor 'public Book(String title, String author)'.\n\n2. Derive 'EBook extends Book' with 'private String downloadFormat;'.\n\n3. In 'EBook' constructor, invoke 'super(title, author);' as first line and apply 'this.downloadFormat = downloadFormat;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Format: \" + eb.getDownloadFormat());'"
+      "en": "📖 Real-World Scenario & Context\nEBook forwards title and author to Book via super(...), while capturing digital file formats.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with constructor 'public Book(String title, String author)'.\n\n2. Derive 'EBook extends Book' with 'private String downloadFormat;'.\n\n3. In 'EBook' constructor, invoke 'super(title, author);' as first line and apply 'this.downloadFormat = downloadFormat;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Format: \" + eb.getDownloadFormat());'",
+      "ru": "📖 Контекст и описание задачи\nЭлектронная книга передает название и автора в книгу через super(...), сохраняя при этом цифровые форматы файлов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Книга» с конструктором «публичная книга (заголовок строки, автор строки)».\n2. Получите «Электронная книга расширяет книгу» с помощью «частной строки downloadFormat;».\n3. В конструкторе «Электронная книга» вызовите «super(title,author);» в качестве первой строки и примените «this.downloadFormat = downloadFormat;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и распечатайте: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Формат: \" + eb.getDownloadFormat());'"
     },
     "story": {
       "uz": "Kitob ('Book') sarlavha va muallifga ega: 'public Book(String title, String author)'. Elektron kitob ('EBook extends Book') 'super(title, author)' orqali buni initsializatsiya qiladi va 'downloadFormat' (String, masalan 'EPUB') maydonini o'rnatadi.",
-      "en": "EBook forwards title and author to Book via super(...), while capturing digital file formats."
+      "en": "EBook forwards title and author to Book via super(...), while capturing digital file formats.",
+      "ru": "Электронная книга передает название и автора в книгу через super(...), сохраняя при этом цифровые форматы файлов."
     },
     "steps": {
       "uz": [
@@ -2389,6 +2930,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'EBook' constructor, invoke 'super(title, author);' as first line and apply 'this.downloadFormat = downloadFormat;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Format: \" + eb.getDownloadFormat());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Книга» с конструктором «публичная книга (заголовок строки, автор строки)».",
+        "Получите «Электронная книга расширяет книгу» с помощью «частной строки downloadFormat;».",
+        "В конструкторе «Электронная книга» вызовите «super(title,author);» в качестве первой строки и примените «this.downloadFormat = downloadFormat;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и распечатайте: 'EBook eb = new EBook(\"Ufq\", \"Said Ahmad\", \"EPUB\"); System.out.println(eb.getTitle() + \" (\" + eb.getAuthor() + \") | Формат: \" + eb.getDownloadFormat());'"
       ]
     },
     "requirements": {
@@ -2425,7 +2973,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(title, author);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "Ota klass konstruktori chaqirilgandan so'ngгина 'this.downloadFormat' ga qiymat beriladi.",
-      "cw2Tip": "Katalog tizimlarida super(...) orqali kitob va tovarlarni yarating."
+      "cw2Tip": "Katalog tizimlarida super(...) orqali kitob va tovarlarni yarating.",
+      "theoryRu": "Основополагающий этап семинара 3 Пример 5: Электронная книга специализируется на книгах, соответствующих стандартам электронного кодирования.",
+      "pitfallsRu": "Другой класс конструкторов может быть использован в качестве «this.downloadFormat».",
+      "breakdownRu": [
+        "<code>super(title, author);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2435,15 +2988,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "38. Express24 — MotoCourier super(...) Konstruktori",
-      "en": "38. Express24 — MotoCourier super(...) Constructor"
+      "en": "38. Express24 — MotoCourier super(...) Constructor",
+      "ru": "38. Экспресс24 — МотоКурьер супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryer ('Courier') ism va telefon raqamiga ega: 'public Courier(String fullName, String phone)'. Mototsiklli kuryer ('MotoCourier extends Courier') esa 'super(fullName, phone)' chaqirib, 'bikePlate' (String) skuter davlat raqamini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Courier' ni e'lon qiling va unga 'public Courier(String fullName, String phone)' konstruktorini qo'shing.\n\n2. Avlod sinf 'MotoCourier extends Courier' ni yarating va unga 'private String bikePlate;' maydonini qo'shing.\n\n3. 'MotoCourier' konstruktorining birinchi qatorida ota klass konstruktorini 'super(fullName, phone);' orqali chaqiring va o'z maydonini to'ldiring ('this.bikePlate = bikePlate;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'MotoCourier mc = new MotoCourier(\"Jasur Temirov\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Tel: \" + mc.getPhone() + \" | Transport: \" + mc.getBikePlate());'",
-      "en": "📖 Real-World Scenario & Context\nMotoCouriers extend Couriers, delegating personal contact data to super(...) while binding bike registration numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Courier' with constructor 'public Courier(String fullName, String phone)'.\n\n2. Derive 'MotoCourier extends Courier' with 'private String bikePlate;'.\n\n3. In 'MotoCourier' constructor, invoke 'super(fullName, phone);' as first line and apply 'this.bikePlate = bikePlate;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'MotoCourier mc = new MotoCourier(\"Jasur Temirov\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Tel: \" + mc.getPhone() + \" | Transport: \" + mc.getBikePlate());'"
+      "en": "📖 Real-World Scenario & Context\nMotoCouriers extend Couriers, delegating personal contact data to super(...) while binding bike registration numbers.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Courier' with constructor 'public Courier(String fullName, String phone)'.\n\n2. Derive 'MotoCourier extends Courier' with 'private String bikePlate;'.\n\n3. In 'MotoCourier' constructor, invoke 'super(fullName, phone);' as first line and apply 'this.bikePlate = bikePlate;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'MotoCourier mc = new MotoCourier(\"Jasur Temirov\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Tel: \" + mc.getPhone() + \" | Transport: \" + mc.getBikePlate());'",
+      "ru": "📖 Контекст и описание задачи\nMotoCouriers расширяет возможности Couriers, делегируя личные контактные данные super(...) и привязывая при этом регистрационные номера велосипедов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Курьер» с конструктором «public Courier(String FullName, String Phone)».\n2. Получите «MotoCourier расширяет Courier» с помощью «private String BikePlate;».\n3. В конструкторе «MotoCourier» вызовите «super(fullName, phone);» в качестве первой строки и примените «this.bikePlate = BikePlate;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'MotoCourier mc = new MotoCourier(\"Джасур Темиров\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Тел.: \" + mc.getPhone() + \" | Транспорт: \" + mc.getBikePlate());'"
     },
     "story": {
       "uz": "Kuryer ('Courier') ism va telefon raqamiga ega: 'public Courier(String fullName, String phone)'. Mototsiklli kuryer ('MotoCourier extends Courier') esa 'super(fullName, phone)' chaqirib, 'bikePlate' (String) skuter davlat raqamini o'rnatadi.",
-      "en": "MotoCouriers extend Couriers, delegating personal contact data to super(...) while binding bike registration numbers."
+      "en": "MotoCouriers extend Couriers, delegating personal contact data to super(...) while binding bike registration numbers.",
+      "ru": "MotoCouriers расширяет возможности Couriers, делегируя личные контактные данные super(...) и привязывая при этом регистрационные номера велосипедов."
     },
     "steps": {
       "uz": [
@@ -2459,6 +3015,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'MotoCourier' constructor, invoke 'super(fullName, phone);' as first line and apply 'this.bikePlate = bikePlate;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'MotoCourier mc = new MotoCourier(\"Jasur Temirov\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Tel: \" + mc.getPhone() + \" | Transport: \" + mc.getBikePlate());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Курьер» с конструктором «public Courier(String FullName, String Phone)».",
+        "Получите «MotoCourier расширяет Courier» с помощью «private String BikePlate;».",
+        "В конструкторе «MotoCourier» вызовите «super(fullName, phone);» в качестве первой строки и примените «this.bikePlate = BikePlate;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'MotoCourier mc = new MotoCourier(\"Джасур Темиров\", \"+998901112233\", \"01-SK-77\"); System.out.println(mc.getFullName() + \" | Тел.: \" + mc.getPhone() + \" | Транспорт: \" + mc.getBikePlate());'"
       ]
     },
     "requirements": {
@@ -2495,7 +3058,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(fullName, phone);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "fullName va phone getterlarini ota klassda to'g'ri taqdim eting.",
-      "cw2Tip": "Yetkazib beruvchilar modelini tuzishda super(...) dan foydalaning."
+      "cw2Tip": "Yetkazib beruvchilar modelini tuzishda super(...) dan foydalaning.",
+      "theoryRu": "Кадровые записи изолируют человеческие личности в суперклассах, присоединяя оперативные флоты к дочерним классам.",
+      "pitfallsRu": "Полное имя и телефон getterlarini ота класса to'g'ri taqdim eting.",
+      "breakdownRu": [
+        "<code>super(fullName, phone);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2505,15 +3073,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "39. Beeline — CorporateSim super(...) Konstruktori",
-      "en": "39. Beeline — CorporateSim super(...) Constructor"
+      "en": "39. Beeline — CorporateSim super(...) Constructor",
+      "ru": "39. Билайн — КорпоративныйСим супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSIM karta ('SimProfile') telefon raqami va tarif nomiga ega. Korporativ SIM ('CorporateSim extends SimProfile') esa 'super(msisdn, tariff)' chaqirib, tashkilot INN kodi 'innCompany' (String) maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'SimProfile' ni e'lon qiling va unga 'public SimProfile(String msisdn, String tariff)' konstruktorini qo'shing.\n\n2. Avlod sinf 'CorporateSim extends SimProfile' ni yarating va unga 'private String innCompany;' maydonini qo'shing.\n\n3. 'CorporateSim' konstruktorining birinchi qatorida ota klass konstruktorini 'super(msisdn, tariff);' orqali chaqiring va o'z maydonini to'ldiring ('this.innCompany = innCompany;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'CorporateSim cs = new CorporateSim(\"+998901230000\", \"Business VIP\", \"301994821\"); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'",
-      "en": "📖 Real-World Scenario & Context\nCorporate SIMs delegate telecom profile metadata to super(...), storing company tax IDs locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'SimProfile' with constructor 'public SimProfile(String msisdn, String tariff)'.\n\n2. Derive 'CorporateSim extends SimProfile' with 'private String innCompany;'.\n\n3. In 'CorporateSim' constructor, invoke 'super(msisdn, tariff);' as first line and apply 'this.innCompany = innCompany;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'CorporateSim cs = new CorporateSim(\"+998901230000\", \"Business VIP\", \"301994821\"); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'"
+      "en": "📖 Real-World Scenario & Context\nCorporate SIMs delegate telecom profile metadata to super(...), storing company tax IDs locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'SimProfile' with constructor 'public SimProfile(String msisdn, String tariff)'.\n\n2. Derive 'CorporateSim extends SimProfile' with 'private String innCompany;'.\n\n3. In 'CorporateSim' constructor, invoke 'super(msisdn, tariff);' as first line and apply 'this.innCompany = innCompany;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'CorporateSim cs = new CorporateSim(\"+998901230000\", \"Business VIP\", \"301994821\"); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'",
+      "ru": "📖 Контекст и описание задачи\nКорпоративные SIM-карты делегируют метаданные телекоммуникационного профиля супер(...), сохраняя налоговые идентификаторы компании локально.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «SimProfile» с помощью конструктора «public SimProfile(String msisdn, String тариф)».\n2. Получите «CorporateSim расширяет SimProfile» с помощью «частной строки innCompany;».\n3. В конструкторе «CorporateSim» вызовите «super(msisdn, тариф);» в качестве первой строки и примените «this.innCompany = innCompany;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и напечатайте: «CorporateSim cs = new CorporateSim(»+998901230000», «Business VIP», «301994821»); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'"
     },
     "story": {
       "uz": "SIM karta ('SimProfile') telefon raqami va tarif nomiga ega. Korporativ SIM ('CorporateSim extends SimProfile') esa 'super(msisdn, tariff)' chaqirib, tashkilot INN kodi 'innCompany' (String) maydonini o'rnatadi.",
-      "en": "Corporate SIMs delegate telecom profile metadata to super(...), storing company tax IDs locally."
+      "en": "Corporate SIMs delegate telecom profile metadata to super(...), storing company tax IDs locally.",
+      "ru": "Корпоративные SIM-карты делегируют метаданные телекоммуникационного профиля супер(...), сохраняя налоговые идентификаторы компании локально."
     },
     "steps": {
       "uz": [
@@ -2529,6 +3100,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'CorporateSim' constructor, invoke 'super(msisdn, tariff);' as first line and apply 'this.innCompany = innCompany;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'CorporateSim cs = new CorporateSim(\"+998901230000\", \"Business VIP\", \"301994821\"); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «SimProfile» с помощью конструктора «public SimProfile(String msisdn, String тариф)».",
+        "Получите «CorporateSim расширяет SimProfile» с помощью «частной строки innCompany;».",
+        "В конструкторе «CorporateSim» вызовите «super(msisdn, тариф);» в качестве первой строки и примените «this.innCompany = innCompany;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и напечатайте: «CorporateSim cs = new CorporateSim(»+998901230000», «Business VIP», «301994821»); System.out.println(cs.getMsisdn() + \" | \" + cs.getTariff() + \" | INN: \" + cs.getInnCompany());'"
       ]
     },
     "requirements": {
@@ -2565,7 +3143,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(msisdn, tariff);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "innCompany String turida saqlanishi kerak (boshidagi nol raqamlari yo'qolmasligi uchun).",
-      "cw2Tip": "Korporativ mijozlar tizimini yaratishda ushbu andozadan foydalaning."
+      "cw2Tip": "Korporativ mijozlar tizimini yaratishda ushbu andozadan foydalaning.",
+      "theoryRu": "Корпоративные налоговые учетные данные дополняют стандартные профили подписчиков посредством чистого создания цепочек конструкторов.",
+      "pitfallsRu": "innCompany String turida saqlanishi kerak (бошидаги нол ракамлари йо'колмаслиги учун).",
+      "breakdownRu": [
+        "<code>super(msisdn, tariff);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2575,15 +3158,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "40. Texnomart — GamingLaptop super(...) Konstruktori",
-      "en": "40. Texnomart — GamingLaptop super(...) Constructor"
+      "en": "40. Texnomart — GamingLaptop super(...) Constructor",
+      "ru": "40. Texnomart — супер(...) конструктор GamingLaptop"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nNoutbuk ('Laptop') brend va tezkor xotira hajmiga ega: 'public Laptop(String brand, int ramGb)'. O'yin noutbuki ('GamingLaptop extends Laptop') 'super(brand, ramGb)' ni chaqirib, 'gpuModel' (String) videokarta modelini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Laptop' ni e'lon qiling va unga 'public Laptop(String brand, int ramGb)' konstruktorini qo'shing.\n\n2. Avlod sinf 'GamingLaptop extends Laptop' ni yarating va unga 'private String gpuModel;' maydonini qo'shing.\n\n3. 'GamingLaptop' konstruktorining birinchi qatorida ota klass konstruktorini 'super(brand, ramGb);' orqali chaqiring va o'z maydonini to'ldiring ('this.gpuModel = gpuModel;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Videokarta: \" + gl.getGpuModel());'",
-      "en": "📖 Real-World Scenario & Context\nGaming laptops forward brand and RAM to Laptop via super(...) while recording dedicated GPU models.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Laptop' with constructor 'public Laptop(String brand, int ramGb)'.\n\n2. Derive 'GamingLaptop extends Laptop' with 'private String gpuModel;'.\n\n3. In 'GamingLaptop' constructor, invoke 'super(brand, ramGb);' as first line and apply 'this.gpuModel = gpuModel;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Videokarta: \" + gl.getGpuModel());'"
+      "en": "📖 Real-World Scenario & Context\nGaming laptops forward brand and RAM to Laptop via super(...) while recording dedicated GPU models.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Laptop' with constructor 'public Laptop(String brand, int ramGb)'.\n\n2. Derive 'GamingLaptop extends Laptop' with 'private String gpuModel;'.\n\n3. In 'GamingLaptop' constructor, invoke 'super(brand, ramGb);' as first line and apply 'this.gpuModel = gpuModel;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Videokarta: \" + gl.getGpuModel());'",
+      "ru": "📖 Контекст и описание задачи\nИгровые ноутбуки пересылают бренд и оперативную память на ноутбук через super(...) при записи выделенных моделей графических процессоров.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ноутбук» с конструктором «Общественный ноутбук (String Brand, int ramGb)».\n2. Получите «GamingLaptop расширяет ноутбук» с помощью «частной строки gpuModel;».\n3. В конструкторе «GamingLaptop» вызовите «super(brand, ramGb);» в качестве первой строки и примените «this.gpuModel = gpuModel;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и напечатайте: «GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Видеокарта: \" + gl.getGpuModel());'"
     },
     "story": {
       "uz": "Noutbuk ('Laptop') brend va tezkor xotira hajmiga ega: 'public Laptop(String brand, int ramGb)'. O'yin noutbuki ('GamingLaptop extends Laptop') 'super(brand, ramGb)' ni chaqirib, 'gpuModel' (String) videokarta modelini o'rnatadi.",
-      "en": "Gaming laptops forward brand and RAM to Laptop via super(...) while recording dedicated GPU models."
+      "en": "Gaming laptops forward brand and RAM to Laptop via super(...) while recording dedicated GPU models.",
+      "ru": "Игровые ноутбуки пересылают бренд и оперативную память на ноутбук через super(...) при записи выделенных моделей графических процессоров."
     },
     "steps": {
       "uz": [
@@ -2599,6 +3185,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'GamingLaptop' constructor, invoke 'super(brand, ramGb);' as first line and apply 'this.gpuModel = gpuModel;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Videokarta: \" + gl.getGpuModel());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ноутбук» с конструктором «Общественный ноутбук (String Brand, int ramGb)».",
+        "Получите «GamingLaptop расширяет ноутбук» с помощью «частной строки gpuModel;».",
+        "В конструкторе «GamingLaptop» вызовите «super(brand, ramGb);» в качестве первой строки и примените «this.gpuModel = gpuModel;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и напечатайте: «GamingLaptop gl = new GamingLaptop(\"ASUS ROG\", 32, \"RTX 4080\"); System.out.println(gl.getBrand() + \" (\" + gl.getRamGb() + \" GB) | Видеокарта: \" + gl.getGpuModel());'"
       ]
     },
     "requirements": {
@@ -2635,7 +3228,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(brand, ramGb);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "ramGb int turida ekanligiga e'tibor bering.",
-      "cw2Tip": "Texnika katalogini modellashtirishda super(...) konstruktorlaridan foydalaning."
+      "cw2Tip": "Texnika katalogini modellashtirishda super(...) konstruktorlaridan foydalaning.",
+      "theoryRu": "В спецификациях оборудования базовые атрибуты памяти делегируются родительским классам, специализирующимся на графических подсистемах.",
+      "pitfallsRu": "ramGb int turida ekanligiga e'tibor bering.",
+      "breakdownRu": [
+        "<code>super(brand, ramGb);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2645,15 +3243,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "41. Kapitalbank — VipClient super(...) Konstruktori",
-      "en": "41. Kapitalbank — VipClient super(...) Constructor"
+      "en": "41. Kapitalbank — VipClient super(...) Constructor",
+      "ru": "41. Капиталбанк — VipClient super(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz ('Client') mijoz ID va ismga ega: 'public Client(String clientId, String fullName)'. VIP mijoz ('VipClient extends Client') esa 'super(clientId, fullName)' chaqirib, unga biriktirilgan shaxsiy menejer ismi 'privateBanker' (String) ni o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Client' ni e'lon qiling va unga 'public Client(String clientId, String fullName)' konstruktorini qo'shing.\n\n2. Avlod sinf 'VipClient extends Client' ni yarating va unga 'private String privateBanker;' maydonini qo'shing.\n\n3. 'VipClient' konstruktorining birinchi qatorida ota klass konstruktorini 'super(clientId, fullName);' orqali chaqiring va o'z maydonini to'ldiring ('this.privateBanker = privateBanker;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'VipClient vip = new VipClient(\"VIP-007\", \"Sanjar Qodirov\", \"Dilnoza Rahimova\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'",
-      "en": "📖 Real-World Scenario & Context\nVIP clients extend client records, initializing identity via super(...) and assigning a dedicated private banker.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Client' with constructor 'public Client(String clientId, String fullName)'.\n\n2. Derive 'VipClient extends Client' with 'private String privateBanker;'.\n\n3. In 'VipClient' constructor, invoke 'super(clientId, fullName);' as first line and apply 'this.privateBanker = privateBanker;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'VipClient vip = new VipClient(\"VIP-007\", \"Sanjar Qodirov\", \"Dilnoza Rahimova\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'"
+      "en": "📖 Real-World Scenario & Context\nVIP clients extend client records, initializing identity via super(...) and assigning a dedicated private banker.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Client' with constructor 'public Client(String clientId, String fullName)'.\n\n2. Derive 'VipClient extends Client' with 'private String privateBanker;'.\n\n3. In 'VipClient' constructor, invoke 'super(clientId, fullName);' as first line and apply 'this.privateBanker = privateBanker;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'VipClient vip = new VipClient(\"VIP-007\", \"Sanjar Qodirov\", \"Dilnoza Rahimova\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'",
+      "ru": "📖 Контекст и описание задачи\nVIP-клиенты расширяют записи клиентов, инициализируя личность через super(...) и назначая выделенного частного банкира.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Клиент» с помощью конструктора «public Client(String clientId, String FullName)».\n2. Получите «VipClient расширяет клиент» с помощью «частной строки PrivateBanker;».\n3. В конструкторе VipClient вызовите super(clientId, fullName); в качестве первой строки и примените «this.privateBanker = PrivateBanker;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'VipClient vip = new VipClient(\"VIP-007\", \"Санджар Кодиров\", \"Дилноза Рахимова\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'"
     },
     "story": {
       "uz": "Mijoz ('Client') mijoz ID va ismga ega: 'public Client(String clientId, String fullName)'. VIP mijoz ('VipClient extends Client') esa 'super(clientId, fullName)' chaqirib, unga biriktirilgan shaxsiy menejer ismi 'privateBanker' (String) ni o'rnatadi.",
-      "en": "VIP clients extend client records, initializing identity via super(...) and assigning a dedicated private banker."
+      "en": "VIP clients extend client records, initializing identity via super(...) and assigning a dedicated private banker.",
+      "ru": "VIP-клиенты расширяют записи клиентов, инициализируя личность через super(...) и назначая выделенного частного банкира."
     },
     "steps": {
       "uz": [
@@ -2669,6 +3270,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'VipClient' constructor, invoke 'super(clientId, fullName);' as first line and apply 'this.privateBanker = privateBanker;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'VipClient vip = new VipClient(\"VIP-007\", \"Sanjar Qodirov\", \"Dilnoza Rahimova\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Клиент» с помощью конструктора «public Client(String clientId, String FullName)».",
+        "Получите «VipClient расширяет клиент» с помощью «частной строки PrivateBanker;».",
+        "В конструкторе VipClient вызовите super(clientId, fullName); в качестве первой строки и примените «this.privateBanker = PrivateBanker;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'VipClient vip = new VipClient(\"VIP-007\", \"Санджар Кодиров\", \"Дилноза Рахимова\"); System.out.println(\"Mijoz: \" + vip.getFullName() + \" [\" + vip.getClientId() + \"] | Menejer: \" + vip.getPrivateBanker());'"
       ]
     },
     "requirements": {
@@ -2705,7 +3313,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(clientId, fullName);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "fullName va clientId ota klass maydonlari hisoblanadi.",
-      "cw2Tip": "Mijozlar toifalarini ajratishda VipClient modelidan foydalaning."
+      "cw2Tip": "Mijozlar toifalarini ajratishda VipClient modelidan foydalaning.",
+      "theoryRu": "Учетные записи исполнительного уровня привязывают сотрудников по связям с персональными службами к базовым моделям идентификации клиентов.",
+      "pitfallsRu": "полное имя и идентификатор клиента от класса майдонлари его собланади.",
+      "breakdownRu": [
+        "<code>super(clientId, fullName);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2715,15 +3328,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "42. Medion Clinic — Surgeon super(...) Konstruktori",
-      "en": "42. Medion Clinic — Surgeon super(...) Constructor"
+      "en": "42. Medion Clinic — Surgeon super(...) Constructor",
+      "ru": "42. Клиника Медион — Хирург супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nShifokor ('Doctor') ism va bo'lim nomiga ega: 'public Doctor(String name, String department)'. Jarroh ('Surgeon extends Doctor') esa 'super(name, department)' chaqirib, o'tkazgan operatsiyalari soni 'operationsCount' (int) maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Doctor' ni e'lon qiling va unga 'public Doctor(String name, String department)' konstruktorini qo'shing.\n\n2. Avlod sinf 'Surgeon extends Doctor' ni yarating va unga 'private int operationsCount;' maydonini qo'shing.\n\n3. 'Surgeon' konstruktorining birinchi qatorida ota klass konstruktorini 'super(name, department);' orqali chaqiring va o'z maydonini to'ldiring ('this.operationsCount = operationsCount;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'Surgeon s = new Surgeon(\"Dr. Rustamov\", \"Kardioxirurgiya\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Operatsiyalar: \" + s.getOperationsCount());'",
-      "en": "📖 Real-World Scenario & Context\nSurgeons extend doctors, passing name and department to super(...) while tracking total completed operations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Doctor' with constructor 'public Doctor(String name, String department)'.\n\n2. Derive 'Surgeon extends Doctor' with 'private int operationsCount;'.\n\n3. In 'Surgeon' constructor, invoke 'super(name, department);' as first line and apply 'this.operationsCount = operationsCount;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'Surgeon s = new Surgeon(\"Dr. Rustamov\", \"Kardioxirurgiya\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Operatsiyalar: \" + s.getOperationsCount());'"
+      "en": "📖 Real-World Scenario & Context\nSurgeons extend doctors, passing name and department to super(...) while tracking total completed operations.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Doctor' with constructor 'public Doctor(String name, String department)'.\n\n2. Derive 'Surgeon extends Doctor' with 'private int operationsCount;'.\n\n3. In 'Surgeon' constructor, invoke 'super(name, department);' as first line and apply 'this.operationsCount = operationsCount;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'Surgeon s = new Surgeon(\"Dr. Rustamov\", \"Kardioxirurgiya\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Operatsiyalar: \" + s.getOperationsCount());'",
+      "ru": "📖 Контекст и описание задачи\nХирурги расширяют список врачей, передавая имя и отделение super(...), отслеживая при этом общее количество выполненных операций.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Доктор» с конструктором «Общественный Доктор (имя строки, отдел строки)».\n2. Выведите «Хирург расширяет Доктора» с помощью «private int OperationsCount;».\n3. В конструкторе «Хирург» вызовите «super(имя, отдел);» в качестве первой строки и примените «this.operationsCount = OperationsCount;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'Surgeon s = new Surgeon(\"Доктор Рустамов\", \"Кардиоксирургия\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Операция: \" + s.getOperationsCount());'"
     },
     "story": {
       "uz": "Shifokor ('Doctor') ism va bo'lim nomiga ega: 'public Doctor(String name, String department)'. Jarroh ('Surgeon extends Doctor') esa 'super(name, department)' chaqirib, o'tkazgan operatsiyalari soni 'operationsCount' (int) maydonini o'rnatadi.",
-      "en": "Surgeons extend doctors, passing name and department to super(...) while tracking total completed operations."
+      "en": "Surgeons extend doctors, passing name and department to super(...) while tracking total completed operations.",
+      "ru": "Хирурги расширяют список врачей, передавая имя и отделение super(...), отслеживая при этом общее количество выполненных операций."
     },
     "steps": {
       "uz": [
@@ -2739,6 +3355,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'Surgeon' constructor, invoke 'super(name, department);' as first line and apply 'this.operationsCount = operationsCount;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'Surgeon s = new Surgeon(\"Dr. Rustamov\", \"Kardioxirurgiya\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Operatsiyalar: \" + s.getOperationsCount());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Доктор» с конструктором «Общественный Доктор (имя строки, отдел строки)».",
+        "Выведите «Хирург расширяет Доктора» с помощью «private int OperationsCount;».",
+        "В конструкторе «Хирург» вызовите «super(имя, отдел);» в качестве первой строки и примените «this.operationsCount = OperationsCount;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'Surgeon s = new Surgeon(\"Доктор Рустамов\", \"Кардиоксирургия\", 450); System.out.println(s.getName() + \" (\" + s.getDepartment() + \") | Операция: \" + s.getOperationsCount());'"
       ]
     },
     "requirements": {
@@ -2775,7 +3398,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(name, department);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "operationsCount int turida saqlanadi.",
-      "cw2Tip": "Xizmat ko'rsatuvchi xodimlar statistikasini avlod klass orqali yoriting."
+      "cw2Tip": "Xizmat ko'rsatuvchi xodimlar statistikasini avlod klass orqali yoriting.",
+      "theoryRu": "Хирургические специалисты наследуют принадлежность отделений больницы, одновременно увеличивая показатели хирургического объема.",
+      "pitfallsRu": "OperationsCount int turida saqlanadi.",
+      "breakdownRu": [
+        "<code>super(name, department);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2785,15 +3413,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "43. Uzbekistan Airways — FirstClassTicket super(...) Konstruktori",
-      "en": "43. Uzbekistan Airways — FirstClassTicket super(...) Constructor"
+      "en": "43. Uzbekistan Airways — FirstClassTicket super(...) Constructor",
+      "ru": "43. Узбекские авиалинии — FirstClassTicket super(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAviachipta ('Ticket') chipta raqami va narxga ega: 'public Ticket(String ticketNo, double price)'. Birinchi toifali chipta ('FirstClassTicket extends Ticket') esa 'super(ticketNo, price)' chaqirib, 'suiteNumber' (String) shaxsiy lyuks xona raqamini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Ticket' ni e'lon qiling va unga 'public Ticket(String ticketNo, double price)' konstruktorini qo'shing.\n\n2. Avlod sinf 'FirstClassTicket extends Ticket' ni yarating va unga 'private String suiteNumber;' maydonini qo'shing.\n\n3. 'FirstClassTicket' konstruktorining birinchi qatorida ota klass konstruktorini 'super(ticketNo, price);' orqali chaqiring va o'z maydonini to'ldiring ('this.suiteNumber = suiteNumber;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Chipta: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" so'm | Lyuks: \" + fct.getSuiteNumber());'",
-      "en": "📖 Real-World Scenario & Context\nFirst-class tickets extend tickets, passing number and price to super(...) and recording private cabin suite IDs.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Ticket' with constructor 'public Ticket(String ticketNo, double price)'.\n\n2. Derive 'FirstClassTicket extends Ticket' with 'private String suiteNumber;'.\n\n3. In 'FirstClassTicket' constructor, invoke 'super(ticketNo, price);' as first line and apply 'this.suiteNumber = suiteNumber;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Chipta: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" so'm | Lyuks: \" + fct.getSuiteNumber());'"
+      "en": "📖 Real-World Scenario & Context\nFirst-class tickets extend tickets, passing number and price to super(...) and recording private cabin suite IDs.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Ticket' with constructor 'public Ticket(String ticketNo, double price)'.\n\n2. Derive 'FirstClassTicket extends Ticket' with 'private String suiteNumber;'.\n\n3. In 'FirstClassTicket' constructor, invoke 'super(ticketNo, price);' as first line and apply 'this.suiteNumber = suiteNumber;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Chipta: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" so'm | Lyuks: \" + fct.getSuiteNumber());'",
+      "ru": "📖 Контекст и описание задачи\nБилеты первого класса расширяют билеты, проходной номер и цену до супер(...) и записывают идентификаторы частных кают.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Билет» с конструктором «Общественный билет (строка TicketNo, двойная цена)».\n2. Получите «FirstClassTicket расширяет билет» с помощью «private String suiteNumber;».\n3. В конструкторе FirstClassTicket вызовите super(ticketNo, Price); в качестве первой строки и примените «this.suiteNumber = suiteNumber;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в «main» и распечатайте: «FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Чипта: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" так я | Люкс: \" + fct.getSuiteNumber());'"
     },
     "story": {
       "uz": "Aviachipta ('Ticket') chipta raqami va narxga ega: 'public Ticket(String ticketNo, double price)'. Birinchi toifali chipta ('FirstClassTicket extends Ticket') esa 'super(ticketNo, price)' chaqirib, 'suiteNumber' (String) shaxsiy lyuks xona raqamini o'rnatadi.",
-      "en": "First-class tickets extend tickets, passing number and price to super(...) and recording private cabin suite IDs."
+      "en": "First-class tickets extend tickets, passing number and price to super(...) and recording private cabin suite IDs.",
+      "ru": "Билеты первого класса расширяют билеты, проходной номер и цену до супер(...) и записывают идентификаторы частных кают."
     },
     "steps": {
       "uz": [
@@ -2809,6 +3440,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FirstClassTicket' constructor, invoke 'super(ticketNo, price);' as first line and apply 'this.suiteNumber = suiteNumber;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Chipta: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" so'm | Lyuks: \" + fct.getSuiteNumber());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Билет» с конструктором «Общественный билет (строка TicketNo, двойная цена)».",
+        "Получите «FirstClassTicket расширяет билет» с помощью «private String suiteNumber;».",
+        "В конструкторе FirstClassTicket вызовите super(ticketNo, Price); в качестве первой строки и примените «this.suiteNumber = suiteNumber;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в «main» и распечатайте: «FirstClassTicket fct = new FirstClassTicket(\"HY-TK-991\", 12500000.0, \"Suite-1A\"); System.out.println(\"Чипта: \" + fct.getTicketNo() + \" | Narx: \" + fct.getPrice() + \" так я | Люкс: \" + fct.getSuiteNumber());'"
       ]
     },
     "requirements": {
@@ -2845,7 +3483,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(ticketNo, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "price double turida bo'lishi shart.",
-      "cw2Tip": "CW2 buyurtma chiptalari va kvitansiyalarida ushbu andozani qo'llang."
+      "cw2Tip": "CW2 buyurtma chiptalari va kvitansiyalarida ushbu andozani qo'llang.",
+      "theoryRu": "Суммы тарифов и ссылки на бронирование объединяются в Ticket, оставляя номера люксов для подклассов класса люкс.",
+      "pitfallsRu": "цена двойного турида болиши шарта.",
+      "breakdownRu": [
+        "<code>super(ticketNo, price);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2855,15 +3498,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "44. WIUT Registry — Student super(...) Konstruktori (Seminar 3 Ex 3)",
-      "en": "44. WIUT Registry — Student super(...) Constructor"
+      "en": "44. WIUT Registry — Student super(...) Constructor",
+      "ru": "44. Реестр МВУТ — Студенческий супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 3 asosi: 'Person' sinfi 'public Person(String name)' konstruktoriga ega. 'Student extends Person' konstruktori esa talaba ismini 'super(name)' orqali Person ga uzatadi va 'studentId' (String) maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Person' ni e'lon qiling va unga 'public Person(String name)' konstruktorini qo'shing.\n\n2. Avlod sinf 'Student extends Person' ni yarating va unga 'private String studentId;' maydonini qo'shing.\n\n3. 'Student' konstruktorining birinchi qatorida ota klass konstruktorini 'super(name);' orqali chaqiring va o'z maydonini to'ldiring ('this.studentId = studentId;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Talaba: \" + s.getName() + \" | ID: \" + s.getStudentId());'",
-      "en": "📖 Real-World Scenario & Context\nWIUT Seminar 3 Ex 3 canonical pattern: Person defines (name). Student constructor delegates name to super(name) and sets studentId.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with constructor 'public Person(String name)'.\n\n2. Derive 'Student extends Person' with 'private String studentId;'.\n\n3. In 'Student' constructor, invoke 'super(name);' as first line and apply 'this.studentId = studentId;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Talaba: \" + s.getName() + \" | ID: \" + s.getStudentId());'"
+      "en": "📖 Real-World Scenario & Context\nWIUT Seminar 3 Ex 3 canonical pattern: Person defines (name). Student constructor delegates name to super(name) and sets studentId.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Person' with constructor 'public Person(String name)'.\n\n2. Derive 'Student extends Person' with 'private String studentId;'.\n\n3. In 'Student' constructor, invoke 'super(name);' as first line and apply 'this.studentId = studentId;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Talaba: \" + s.getName() + \" | ID: \" + s.getStudentId());'",
+      "ru": "📖 Контекст и описание задачи\nWIUT Seminar 3 Пример 3 канонический шаблон: Человек определяет (имя). Конструктор студента делегирует имя super(name) и устанавливает StudentId.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Человек» с конструктором «публичный человек (имя строки)».\n2. Получите «Студент расширяет личность» с помощью «частной строки StudentId;».\n3. В конструкторе «Студент» вызовите «super(name);» в качестве первой строки и примените «this.studentId = StudentId;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Талаба: \" + s.getName() + \" | ID: \" + s.getStudentId());'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 3 asosi: 'Person' sinfi 'public Person(String name)' konstruktoriga ega. 'Student extends Person' konstruktori esa talaba ismini 'super(name)' orqali Person ga uzatadi va 'studentId' (String) maydonini o'rnatadi.",
-      "en": "WIUT Seminar 3 Ex 3 canonical pattern: Person defines (name). Student constructor delegates name to super(name) and sets studentId."
+      "en": "WIUT Seminar 3 Ex 3 canonical pattern: Person defines (name). Student constructor delegates name to super(name) and sets studentId.",
+      "ru": "WIUT Seminar 3 Пример 3 канонический шаблон: Человек определяет (имя). Конструктор студента делегирует имя super(name) и устанавливает StudentId."
     },
     "steps": {
       "uz": [
@@ -2879,6 +3525,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'Student' constructor, invoke 'super(name);' as first line and apply 'this.studentId = studentId;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Talaba: \" + s.getName() + \" | ID: \" + s.getStudentId());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Человек» с конструктором «публичный человек (имя строки)».",
+        "Получите «Студент расширяет личность» с помощью «частной строки StudentId;».",
+        "В конструкторе «Студент» вызовите «super(name);» в качестве первой строки и примените «this.studentId = StudentId;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'Student s = new Student(\"Jasur Mahmudov\", \"00014522\"); System.out.println(\"Талаба: \" + s.getName() + \" | ID: \" + s.getStudentId());'"
       ]
     },
     "requirements": {
@@ -2914,7 +3567,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(name);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "super(name) birinchi qatorda bo'lishi shart.",
-      "cw2Tip": "Universitet talabalar tizimida super(name) orqali shaxs ma'lumotlarini to'ldiring."
+      "cw2Tip": "Universitet talabalar tizimida super(name) orqali shaxs ma'lumotlarini to'ldiring.",
+      "theoryRu": "Человеческая логика именования полностью принадлежит Person; Студент конструирует личность, вызывая super(name).",
+      "pitfallsRu": "супер(имя) биринчи каторда бо'лиши шарт.",
+      "breakdownRu": [
+        "<code>super(name);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2924,15 +3582,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "31-45: super(...) Chaqiruvi",
     "title": {
       "uz": "45. Dodo Pizza — ComboMeal super(...) Konstruktori",
-      "en": "45. Dodo Pizza — ComboMeal super(...) Constructor"
+      "en": "45. Dodo Pizza — ComboMeal super(...) Constructor",
+      "ru": "45. Додо Пицца — ComboMeal супер(...) Конструктор"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n3-bosqich yakuni: Taom ('Food') taom nomi va narxiga ega: 'public Food(String foodName, double basePrice)'. Kombo taom ('ComboMeal extends Food') 'super(foodName, basePrice)' chaqirib, unga qo'shilgan ichimlik 'drinkIncluded' (String) maydonini o'rnatadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Food' ni e'lon qiling va unga 'public Food(String foodName, double basePrice)' konstruktorini qo'shing.\n\n2. Avlod sinf 'ComboMeal extends Food' ni yarating va unga 'private String drinkIncluded;' maydonini qo'shing.\n\n3. 'ComboMeal' konstruktorining birinchi qatorida ota klass konstruktorini 'super(foodName, basePrice);' orqali chaqiring va o'z maydonini to'ldiring ('this.drinkIncluded = drinkIncluded;').\n\n4. Maydonlar uchun getter metodlarini taqdim eting.\n\n5. 'Main' metodida parametrli konstruktor orqali ob'yekt yarating va chop eting: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" so'm | Ichimlik: \" + cm.getDrinkIncluded());'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 3: ComboMeal forwards foodName and basePrice to Food via super(...), setting drinkIncluded locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Food' with constructor 'public Food(String foodName, double basePrice)'.\n\n2. Derive 'ComboMeal extends Food' with 'private String drinkIncluded;'.\n\n3. In 'ComboMeal' constructor, invoke 'super(foodName, basePrice);' as first line and apply 'this.drinkIncluded = drinkIncluded;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" so'm | Ichimlik: \" + cm.getDrinkIncluded());'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 3: ComboMeal forwards foodName and basePrice to Food via super(...), setting drinkIncluded locally.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Food' with constructor 'public Food(String foodName, double basePrice)'.\n\n2. Derive 'ComboMeal extends Food' with 'private String drinkIncluded;'.\n\n3. In 'ComboMeal' constructor, invoke 'super(foodName, basePrice);' as first line and apply 'this.drinkIncluded = drinkIncluded;'.\n\n4. Implement accessors for all fields.\n\n5. Instantiate in 'main' and print: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" so'm | Ichimlik: \" + cm.getDrinkIncluded());'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 3: ComboMeal пересылает foodName и basePrice в Food через super(...), устанавливая DrinkIncluded локально.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Food» с конструктором «public Food(String foodName, double basePrice)».\n2. Получите «ComboMeal расширяет еду» с помощью «частная строка DrinkIncluded»;.\n3. В конструкторе ComboMeal вызовите super(foodName, basePrice); в качестве первой строки и примените «this.drinkIncluded = DrinkIncluded;».\n4. Реализуйте средства доступа для всех полей.\n5. Создайте экземпляр в 'main' и напечатайте: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" так что я | Ичимлик: \" + cm.getDrinkIncluded());'"
     },
     "story": {
       "uz": "3-bosqich yakuni: Taom ('Food') taom nomi va narxiga ega: 'public Food(String foodName, double basePrice)'. Kombo taom ('ComboMeal extends Food') 'super(foodName, basePrice)' chaqirib, unga qo'shilgan ichimlik 'drinkIncluded' (String) maydonini o'rnatadi.",
-      "en": "Grand finale of Tier 3: ComboMeal forwards foodName and basePrice to Food via super(...), setting drinkIncluded locally."
+      "en": "Grand finale of Tier 3: ComboMeal forwards foodName and basePrice to Food via super(...), setting drinkIncluded locally.",
+      "ru": "Грандиозный финал уровня 3: ComboMeal пересылает foodName и basePrice в Food через super(...), устанавливая DrinkIncluded локально."
     },
     "steps": {
       "uz": [
@@ -2948,6 +3609,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'ComboMeal' constructor, invoke 'super(foodName, basePrice);' as first line and apply 'this.drinkIncluded = drinkIncluded;'.",
         "Implement accessors for all fields.",
         "Instantiate in 'main' and print: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" so'm | Ichimlik: \" + cm.getDrinkIncluded());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Food» с конструктором «public Food(String foodName, double basePrice)».",
+        "Получите «ComboMeal расширяет еду» с помощью «частная строка DrinkIncluded»;.",
+        "В конструкторе ComboMeal вызовите super(foodName, basePrice); в качестве первой строки и примените «this.drinkIncluded = DrinkIncluded;».",
+        "Реализуйте средства доступа для всех полей.",
+        "Создайте экземпляр в 'main' и напечатайте: 'ComboMeal cm = new ComboMeal(\"Pepperoni Kombo\", 65000.0, \"Coca-Cola 0.5L\"); System.out.println(cm.getFoodName() + \" | Narx: \" + cm.getBasePrice() + \" так что я | Ичимлик: \" + cm.getDrinkIncluded());'"
       ]
     },
     "requirements": {
@@ -2984,7 +3652,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super(foodName, basePrice);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
       ],
       "pitfalls": "basePrice double turida ekanligiga e'tibor bering.",
-      "cw2Tip": "CW2 Console Order Applicationda kombo tovarlarni shu tarzda loyihalashtiring."
+      "cw2Tip": "CW2 Console Order Applicationda kombo tovarlarni shu tarzda loyihalashtiring.",
+      "theoryRu": "В составных комбинациях меню повторно используются основные цены на продукты питания при настройке дополнительных элементов.",
+      "pitfallsRu": "базовая цена двойная турида ekanligiga e'tibor bering.",
+      "breakdownRu": [
+        "<code>super(foodName, basePrice);</code>: Ota sinf konstruktorini birinchi qatorda chaqirib, meros olingan holatni initsializatsiya qiladi."
+      ]
     }
   },
   {
@@ -2994,15 +3667,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "46. WIUT Workshop — VisitingPractitioner Konstruktor Zanjiri",
-      "en": "46. WIUT Workshop — VisitingPractitioner Constructor Chaining"
+      "en": "46. WIUT Workshop — VisitingPractitioner Constructor Chaining",
+      "ru": "46. Семинар МВУТ — Посещение практиком-конструктором"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: 'AcademicStaff' (name, department) ga ega. 'VisitingPractitioner' ikkita konstruktorga ega: to'liq 'public VisitingPractitioner(String name, String dept, int hours)' va haftalik 10 soat default dars bilan zanjirlovchi 'public VisitingPractitioner(String name, String dept)' {'this(name, dept, 10);'}.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'AcademicStaff' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'VisitingPractitioner extends AcademicStaff' ni yarating va unga 'private int hoursPerWeek;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public VisitingPractitioner(String name, String department, int hoursPerWeek) { super(name, department); this.hoursPerWeek = hoursPerWeek; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public VisitingPractitioner(String name, String department) { this(name, department, 10); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Valeriya Tsoy\", \"Computing\"); VisitingPractitioner vp2 = new VisitingPractitioner(\"Hamid Reza\", \"Computing\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Week 3 Workshop implementation: VisitingPractitioner overloads constructors, chaining default 10 weekly hours via this(name, dept, 10).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with its parameterized constructor.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff' with 'private int hoursPerWeek;'.\n\n3. Implement master constructor delegating to super(...): 'public VisitingPractitioner(String name, String department, int hoursPerWeek) { super(name, department); this.hoursPerWeek = hoursPerWeek; }'.\n\n4. Implement overload chaining default value via this(...): 'public VisitingPractitioner(String name, String department) { this(name, department, 10); }'.\n\n5. Instantiate via both constructors and print: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Valeriya Tsoy\", \"Computing\"); VisitingPractitioner vp2 = new VisitingPractitioner(\"Hamid Reza\", \"Computing\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Week 3 Workshop implementation: VisitingPractitioner overloads constructors, chaining default 10 weekly hours via this(name, dept, 10).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with its parameterized constructor.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff' with 'private int hoursPerWeek;'.\n\n3. Implement master constructor delegating to super(...): 'public VisitingPractitioner(String name, String department, int hoursPerWeek) { super(name, department); this.hoursPerWeek = hoursPerWeek; }'.\n\n4. Implement overload chaining default value via this(...): 'public VisitingPractitioner(String name, String department) { this(name, department, 10); }'.\n\n5. Instantiate via both constructors and print: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Valeriya Tsoy\", \"Computing\"); VisitingPractitioner vp2 = new VisitingPractitioner(\"Hamid Reza\", \"Computing\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'",
+      "ru": "📖 Контекст и описание задачи\nПрямая реализация семинара WIUT недели 3: VisitingPractitioner перегружает конструкторы, объединяя по умолчанию 10 часов в неделю с помощью this(name, dept, 10).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «AcademicStaff» с его параметризованным конструктором.\n2. Выведите «Посещающий практикующий расширяет академический персонал» с помощью «частного целого числа часов в неделю;».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public VisitingPractitioner(String name, String Department, inthoursPerWeek) { super(name, Department); this.hoursPerWeek = часы за неделю; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public VisitingPractitioner (имя строки, отдел строки) { this (имя, отдел, 10); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Валерия Цой\", \"Вычисления\"); VisitingPractitioner vp2 = новый VisitingPractitioner(\"Хамид Реза\", \"Вычисления\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'"
     },
     "story": {
       "uz": "WIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: 'AcademicStaff' (name, department) ga ega. 'VisitingPractitioner' ikkita konstruktorga ega: to'liq 'public VisitingPractitioner(String name, String dept, int hours)' va haftalik 10 soat default dars bilan zanjirlovchi 'public VisitingPractitioner(String name, String dept)' {'this(name, dept, 10);'}.",
-      "en": "Direct WIUT Week 3 Workshop implementation: VisitingPractitioner overloads constructors, chaining default 10 weekly hours via this(name, dept, 10)."
+      "en": "Direct WIUT Week 3 Workshop implementation: VisitingPractitioner overloads constructors, chaining default 10 weekly hours via this(name, dept, 10).",
+      "ru": "Прямая реализация семинара WIUT недели 3: VisitingPractitioner перегружает конструкторы, объединяя по умолчанию 10 часов в неделю с помощью this(name, dept, 10)."
     },
     "steps": {
       "uz": [
@@ -3018,6 +3694,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public VisitingPractitioner(String name, String department, int hoursPerWeek) { super(name, department); this.hoursPerWeek = hoursPerWeek; }'.",
         "Implement overload chaining default value via this(...): 'public VisitingPractitioner(String name, String department) { this(name, department, 10); }'.",
         "Instantiate via both constructors and print: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Valeriya Tsoy\", \"Computing\"); VisitingPractitioner vp2 = new VisitingPractitioner(\"Hamid Reza\", \"Computing\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «AcademicStaff» с его параметризованным конструктором.",
+        "Выведите «Посещающий практикующий расширяет академический персонал» с помощью «частного целого числа часов в неделю;».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public VisitingPractitioner(String name, String Department, inthoursPerWeek) { super(name, Department); this.hoursPerWeek = часы за неделю; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public VisitingPractitioner (имя строки, отдел строки) { this (имя, отдел, 10); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'VisitingPractitioner vp1 = new VisitingPractitioner(\"Валерия Цой\", \"Вычисления\"); VisitingPractitioner vp2 = новый VisitingPractitioner(\"Хамид Реза\", \"Вычисления\", 20); System.out.println(vp1.getName() + \" (\" + vp1.getHoursPerWeek() + \" soat) | \" + vp2.getName() + \" (\" + vp2.getHoursPerWeek() + \" soat)\");'"
       ]
     },
     "requirements": {
@@ -3056,7 +3739,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "Bir vaqtning o'zida ham 'super(...)' ham 'this(...)' ni bitta konstruktor ichida chaqirib bo'lmaydi (faqat bittasi birinchi qatorda bo'lishi mumkin).",
-      "cw2Tip": "CW2 baholash mezonida turli parametrli konstruktorlarni zanjirlash (constructor chaining) toza arxitektura uchun qo'shimcha ball beradi."
+      "cw2Tip": "CW2 baholash mezonida turli parametrli konstruktorlarni zanjirlash (constructor chaining) toza arxitektura uchun qo'shimcha ball beradi.",
+      "theoryRu": "Архитектурный шаблон WIUT Workshop: главный конструктор подкласса вызывает super(...), а для удобства перегружает делегат через this(...).",
+      "pitfallsRu": "Bir vaqtning o'zida ham 'super(...)' ham 'this(...)' ni bitta konstruktor ichida chaqirib bo'lmaydi (faqat bittasi birinchi qatorda bo'lishi mumkin).",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3066,15 +3755,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "47. Uzum Market — PhysicalProduct Standart Og'irlik Zanjiri",
-      "en": "47. Uzum Market — PhysicalProduct Default Weight Chaining"
+      "en": "47. Uzum Market — PhysicalProduct Default Weight Chaining",
+      "ru": "47. Uzum Market — весовая цепочка по умолчанию для PhysicalProduct"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar og'irligi ko'rsatilmasa sukut bo'yicha 1.0 kg deb olinadi. 'PhysicalProduct(String name, double price)' konstruktori 'this(name, price, 1.0);' orqali to'liq 'PhysicalProduct(name, price, weightKg)' ga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating va unga 'private double weightKg;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public PhysicalProduct(String name, double price, double weightKg) { super(name, price); this.weightKg = weightKg; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public PhysicalProduct(String name, double price) { this(name, price, 1.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); PhysicalProduct p2 = new PhysicalProduct(\"Choynak\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" kg] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" kg]\");'",
-      "en": "📖 Real-World Scenario & Context\nIf package weight is omitted, default to 1.0 kg via this(name, price, 1.0) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with its parameterized constructor.\n\n2. Derive 'PhysicalProduct extends Product' with 'private double weightKg;'.\n\n3. Implement master constructor delegating to super(...): 'public PhysicalProduct(String name, double price, double weightKg) { super(name, price); this.weightKg = weightKg; }'.\n\n4. Implement overload chaining default value via this(...): 'public PhysicalProduct(String name, double price) { this(name, price, 1.0); }'.\n\n5. Instantiate via both constructors and print: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); PhysicalProduct p2 = new PhysicalProduct(\"Choynak\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" kg] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" kg]\");'"
+      "en": "📖 Real-World Scenario & Context\nIf package weight is omitted, default to 1.0 kg via this(name, price, 1.0) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with its parameterized constructor.\n\n2. Derive 'PhysicalProduct extends Product' with 'private double weightKg;'.\n\n3. Implement master constructor delegating to super(...): 'public PhysicalProduct(String name, double price, double weightKg) { super(name, price); this.weightKg = weightKg; }'.\n\n4. Implement overload chaining default value via this(...): 'public PhysicalProduct(String name, double price) { this(name, price, 1.0); }'.\n\n5. Instantiate via both constructors and print: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); PhysicalProduct p2 = new PhysicalProduct(\"Choynak\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" kg] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" kg]\");'",
+      "ru": "📖 Контекст и описание задачи\nЕсли вес упаковки опущен, по умолчанию он равен 1,0 кг с помощью этой цепочки (имя, цена, 1,0).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с его параметризованным конструктором.\n2. Выведите «Физический продукт расширяет продукт» с помощью «частного двойного веса кг;».\n3. Реализуйте главный конструктор, делегирующий полномочия super(...): 'public PhysicalProduct(String name, double Price, Double WeightKg) { super(name, Price); this.weightKg = весКг; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public PhysicalProduct(String name, double Price) { this(name, Price, 1.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); ФизическийПродукт p2 = новый ФизическийПродукт(\"Чойнак\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" кг] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" кг]\");'"
     },
     "story": {
       "uz": "Tovar og'irligi ko'rsatilmasa sukut bo'yicha 1.0 kg deb olinadi. 'PhysicalProduct(String name, double price)' konstruktori 'this(name, price, 1.0);' orqali to'liq 'PhysicalProduct(name, price, weightKg)' ga murojaat qilsin.",
-      "en": "If package weight is omitted, default to 1.0 kg via this(name, price, 1.0) chaining."
+      "en": "If package weight is omitted, default to 1.0 kg via this(name, price, 1.0) chaining.",
+      "ru": "Если вес упаковки опущен, по умолчанию он равен 1,0 кг с помощью этой цепочки (имя, цена, 1,0)."
     },
     "steps": {
       "uz": [
@@ -3090,6 +3782,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public PhysicalProduct(String name, double price, double weightKg) { super(name, price); this.weightKg = weightKg; }'.",
         "Implement overload chaining default value via this(...): 'public PhysicalProduct(String name, double price) { this(name, price, 1.0); }'.",
         "Instantiate via both constructors and print: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); PhysicalProduct p2 = new PhysicalProduct(\"Choynak\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" kg] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" kg]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с его параметризованным конструктором.",
+        "Выведите «Физический продукт расширяет продукт» с помощью «частного двойного веса кг;».",
+        "Реализуйте главный конструктор, делегирующий полномочия super(...): 'public PhysicalProduct(String name, double Price, Double WeightKg) { super(name, Price); this.weightKg = весКг; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public PhysicalProduct(String name, double Price) { this(name, Price, 1.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PhysicalProduct p1 = new PhysicalProduct(\"Kitob\", 60000.0); ФизическийПродукт p2 = новый ФизическийПродукт(\"Чойнак\", 120000.0, 2.5); System.out.println(p1.getName() + \" [\" + p1.getWeightKg() + \" кг] | \" + p2.getName() + \" [\" + p2.getWeightKg() + \" кг]\");'"
       ]
     },
     "requirements": {
@@ -3128,7 +3827,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "'this(name, price, 1.0);' birinchi qatorda bo'lishi shart.",
-      "cw2Tip": "Mahsulotlar katalogida default qiymatli konstruktorlar tuzing."
+      "cw2Tip": "Mahsulotlar katalogida default qiymatli konstruktorlar tuzing.",
+      "theoryRu": "Перегрузки удобных конструкторов предоставляют разумные значения по умолчанию, сохраняя при этом инициализацию ядра СУХОЙ.",
+      "pitfallsRu": "'это(имя, цена, 1.0);' биринчи qatorda bo'lishi шарт.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3138,15 +3843,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "48. Payme — SavingsAccount Standart Foiz Zanjiri",
-      "en": "48. Payme — SavingsAccount Default Interest Chaining"
+      "en": "48. Payme — SavingsAccount Default Interest Chaining",
+      "ru": "48. Payme — цепочка процентов по умолчанию для SavingsAccount"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nJamg'arma hisobida yillik foiz ko'rsatilmasa standart 18.0% qilib olinadi. 'SavingsAccount(accNo, balance)' konstruktori 'this(accNo, balance, 18.0);' orqali asosiy konstruktorga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'SavingsAccount extends Account' ni yarating va unga 'private double interestRate;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public SavingsAccount(String accNo, double balance, double interestRate) { super(accNo, balance); this.interestRate = interestRate; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public SavingsAccount(String accNo, double balance) { this(accNo, balance, 18.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = new SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'",
-      "en": "📖 Real-World Scenario & Context\nSavings accounts default to 18.0% interest rate unless custom yield is provided.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with its parameterized constructor.\n\n2. Derive 'SavingsAccount extends Account' with 'private double interestRate;'.\n\n3. Implement master constructor delegating to super(...): 'public SavingsAccount(String accNo, double balance, double interestRate) { super(accNo, balance); this.interestRate = interestRate; }'.\n\n4. Implement overload chaining default value via this(...): 'public SavingsAccount(String accNo, double balance) { this(accNo, balance, 18.0); }'.\n\n5. Instantiate via both constructors and print: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = new SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'"
+      "en": "📖 Real-World Scenario & Context\nSavings accounts default to 18.0% interest rate unless custom yield is provided.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with its parameterized constructor.\n\n2. Derive 'SavingsAccount extends Account' with 'private double interestRate;'.\n\n3. Implement master constructor delegating to super(...): 'public SavingsAccount(String accNo, double balance, double interestRate) { super(accNo, balance); this.interestRate = interestRate; }'.\n\n4. Implement overload chaining default value via this(...): 'public SavingsAccount(String accNo, double balance) { this(accNo, balance, 18.0); }'.\n\n5. Instantiate via both constructors and print: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = new SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'",
+      "ru": "📖 Контекст и описание задачи\nПроцентная ставка по сберегательным счетам по умолчанию составляет 18,0%, если не указана индивидуальная доходность.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Account с его параметризованным конструктором.\n2. Выведите «Сберегательный счет расширяет счет» с помощью «частной двойной процентной ставки».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public SavingsAccount(String accNo, двойной баланс, двойной процентная ставка) { super(accNo, баланс); this.interestRate = процентная ставка; }'.\n4. Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public SavingsAccount(String accNo, двойной баланс) { this(accNo, Balance, 18.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = новый SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'"
     },
     "story": {
       "uz": "Jamg'arma hisobida yillik foiz ko'rsatilmasa standart 18.0% qilib olinadi. 'SavingsAccount(accNo, balance)' konstruktori 'this(accNo, balance, 18.0);' orqali asosiy konstruktorga murojaat qilsin.",
-      "en": "Savings accounts default to 18.0% interest rate unless custom yield is provided."
+      "en": "Savings accounts default to 18.0% interest rate unless custom yield is provided.",
+      "ru": "Процентная ставка по сберегательным счетам по умолчанию составляет 18,0%, если не указана индивидуальная доходность."
     },
     "steps": {
       "uz": [
@@ -3162,6 +3870,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public SavingsAccount(String accNo, double balance, double interestRate) { super(accNo, balance); this.interestRate = interestRate; }'.",
         "Implement overload chaining default value via this(...): 'public SavingsAccount(String accNo, double balance) { this(accNo, balance, 18.0); }'.",
         "Instantiate via both constructors and print: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = new SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс Account с его параметризованным конструктором.",
+        "Выведите «Сберегательный счет расширяет счет» с помощью «частной двойной процентной ставки».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public SavingsAccount(String accNo, двойной баланс, двойной процентная ставка) { super(accNo, баланс); this.interestRate = процентная ставка; }'.",
+        "Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public SavingsAccount(String accNo, двойной баланс) { this(accNo, Balance, 18.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'SavingsAccount sa1 = new SavingsAccount(\"SAV-01\", 1000000.0); SavingsAccount sa2 = новый SavingsAccount(\"SAV-02\", 5000000.0, 22.0); System.out.println(sa1.getAccNo() + \" (\" + sa1.getInterestRate() + \"%) | \" + sa2.getAccNo() + \" (\" + sa2.getInterestRate() + \"%)\");'"
       ]
     },
     "requirements": {
@@ -3200,7 +3915,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "sa1.getInterestRate() 18.0 qaytarishini tekshiring.",
-      "cw2Tip": "Hisoblar tizimida default stavkalar berishda zanjirlashdan foydalaning."
+      "cw2Tip": "Hisoblar tizimida default stavkalar berishda zanjirlashdan foydalaning.",
+      "theoryRu": "Один главный конструктор выполняет super(...), а вторичные перегрузки передаются в него через this(...).",
+      "pitfallsRu": "sa1.getInterestRate() 18.0 qaytarishini tekshiring.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3210,15 +3931,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "49. Yandex Go — TaxiDriver Standart Reyting Zanjiri",
-      "en": "49. Yandex Go — TaxiDriver Default Rating Chaining"
+      "en": "49. Yandex Go — TaxiDriver Default Rating Chaining",
+      "ru": "49. Yandex Go — цепочка рейтингов по умолчанию для TaxiDriver"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYangi haydovchi qo'shilganda boshlang'ich reyting ko'rsatilmasa sukut bo'yicha 5.0 deb belgilanadi. 'TaxiDriver(driverName, carModel)' konstruktori 'this(driverName, carModel, 5.0);' orqali zanjirlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Driver' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'TaxiDriver extends Driver' ni yarating va unga 'private double rating;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public TaxiDriver(String driverName, String carModel, double rating) { super(driverName, carModel); this.rating = rating; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = new TaxiDriver(\"Anvar\", \"Lacetti\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'",
-      "en": "📖 Real-World Scenario & Context\nNew drivers default to 5.0 rating on onboarding, chained via this(name, model, 5.0).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Driver' with its parameterized constructor.\n\n2. Derive 'TaxiDriver extends Driver' with 'private double rating;'.\n\n3. Implement master constructor delegating to super(...): 'public TaxiDriver(String driverName, String carModel, double rating) { super(driverName, carModel); this.rating = rating; }'.\n\n4. Implement overload chaining default value via this(...): 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'.\n\n5. Instantiate via both constructors and print: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = new TaxiDriver(\"Anvar\", \"Lacetti\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'"
+      "en": "📖 Real-World Scenario & Context\nNew drivers default to 5.0 rating on onboarding, chained via this(name, model, 5.0).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Driver' with its parameterized constructor.\n\n2. Derive 'TaxiDriver extends Driver' with 'private double rating;'.\n\n3. Implement master constructor delegating to super(...): 'public TaxiDriver(String driverName, String carModel, double rating) { super(driverName, carModel); this.rating = rating; }'.\n\n4. Implement overload chaining default value via this(...): 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'.\n\n5. Instantiate via both constructors and print: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = new TaxiDriver(\"Anvar\", \"Lacetti\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'",
+      "ru": "📖 Контекст и описание задачи\nНовые драйверы по умолчанию имеют рейтинг 5.0 при подключении, связанный с помощью этого (имя, модель, 5.0).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Driver с его параметризованным конструктором.\n2. Выведите «TaxiDriver расширяет Driver» с «частным двойным рейтингом».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public TaxiDriver(String driverName, String carModel, двойной рейтинг) { super(driverName, carModel); this.rating = рейтинг; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = новый TaxiDriver(\"Анвар\", \"Лачетти\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'"
     },
     "story": {
       "uz": "Yangi haydovchi qo'shilganda boshlang'ich reyting ko'rsatilmasa sukut bo'yicha 5.0 deb belgilanadi. 'TaxiDriver(driverName, carModel)' konstruktori 'this(driverName, carModel, 5.0);' orqali zanjirlansin.",
-      "en": "New drivers default to 5.0 rating on onboarding, chained via this(name, model, 5.0)."
+      "en": "New drivers default to 5.0 rating on onboarding, chained via this(name, model, 5.0).",
+      "ru": "Новые драйверы по умолчанию имеют рейтинг 5.0 при подключении, связанный с помощью этого (имя, модель, 5.0)."
     },
     "steps": {
       "uz": [
@@ -3234,6 +3958,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public TaxiDriver(String driverName, String carModel, double rating) { super(driverName, carModel); this.rating = rating; }'.",
         "Implement overload chaining default value via this(...): 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'.",
         "Instantiate via both constructors and print: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = new TaxiDriver(\"Anvar\", \"Lacetti\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс Driver с его параметризованным конструктором.",
+        "Выведите «TaxiDriver расширяет Driver» с «частным двойным рейтингом».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public TaxiDriver(String driverName, String carModel, двойной рейтинг) { super(driverName, carModel); this.rating = рейтинг; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public TaxiDriver(String driverName, String carModel) { this(driverName, carModel, 5.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'TaxiDriver td1 = new TaxiDriver(\"Sardor\", \"Cobalt\"); TaxiDriver td2 = новый TaxiDriver(\"Анвар\", \"Лачетти\", 4.85); System.out.println(td1.getDriverName() + \" [\" + td1.getRating() + \"] | \" + td2.getDriverName() + \" [\" + td2.getRating() + \"]\");'"
       ]
     },
     "requirements": {
@@ -3272,7 +4003,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "rating double turida bo'ladi.",
-      "cw2Tip": "Foydalanuvchi modellarida default qiymatlarni zanjirli konstruktorda ta'minlang."
+      "cw2Tip": "Foydalanuvchi modellarida default qiymatlarni zanjirli konstruktorda ta'minlang.",
+      "theoryRu": "Рейтинги производительности по умолчанию для поступающих в автопарк удобно обрабатываются с помощью делегирования конструктора.",
+      "pitfallsRu": "рейтинг двойной турида болади.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3282,15 +4019,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "50. Korzinka Go — DiscountItem Standart Chegirma Zanjiri",
-      "en": "50. Korzinka Go — DiscountItem Default Discount Chaining"
+      "en": "50. Korzinka Go — DiscountItem Default Discount Chaining",
+      "ru": "50. Korzinka Go — цепочка скидок по умолчанию DiscountItem"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nChegirmali tovar uchun chegirma foizi berilmasa standart 5.0% deb olinadi. 'DiscountItem(itemName, price)' konstruktori 'this(itemName, price, 5.0);' orqali to'liq konstruktorga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'RetailItem' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'DiscountItem extends RetailItem' ni yarating va unga 'private double discountPercent;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public DiscountItem(String itemName, double price, double discountPercent) { super(itemName, price); this.discountPercent = discountPercent; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public DiscountItem(String itemName, double price) { this(itemName, price, 5.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = new DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'",
-      "en": "📖 Real-World Scenario & Context\nDiscounted items default to 5.0% promotional discount rate via this(...) delegation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'RetailItem' with its parameterized constructor.\n\n2. Derive 'DiscountItem extends RetailItem' with 'private double discountPercent;'.\n\n3. Implement master constructor delegating to super(...): 'public DiscountItem(String itemName, double price, double discountPercent) { super(itemName, price); this.discountPercent = discountPercent; }'.\n\n4. Implement overload chaining default value via this(...): 'public DiscountItem(String itemName, double price) { this(itemName, price, 5.0); }'.\n\n5. Instantiate via both constructors and print: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = new DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'"
+      "en": "📖 Real-World Scenario & Context\nDiscounted items default to 5.0% promotional discount rate via this(...) delegation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'RetailItem' with its parameterized constructor.\n\n2. Derive 'DiscountItem extends RetailItem' with 'private double discountPercent;'.\n\n3. Implement master constructor delegating to super(...): 'public DiscountItem(String itemName, double price, double discountPercent) { super(itemName, price); this.discountPercent = discountPercent; }'.\n\n4. Implement overload chaining default value via this(...): 'public DiscountItem(String itemName, double price) { this(itemName, price, 5.0); }'.\n\n5. Instantiate via both constructors and print: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = new DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'",
+      "ru": "📖 Контекст и описание задачи\nДля товаров со скидкой по умолчанию применяется ставка рекламной скидки 5,0% посредством этого(...) делегирования.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс RetailItem с его параметризованным конструктором.\n2. Выведите «DiscountItem расширяет RetailItem» с помощью «private double DiscountPercent;».\n3. Реализуйте главный конструктор, делегирующий полномочия super(...): 'public DiscountItem(String itemName, double Price, Double DiscountPercent) { super(itemName, Price); this.discountPercent = DiscountPercent; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public DiscountItem (String itemName, двойная цена) { this (itemName, цена, 5.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = новый DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'"
     },
     "story": {
       "uz": "Chegirmali tovar uchun chegirma foizi berilmasa standart 5.0% deb olinadi. 'DiscountItem(itemName, price)' konstruktori 'this(itemName, price, 5.0);' orqali to'liq konstruktorga murojaat qilsin.",
-      "en": "Discounted items default to 5.0% promotional discount rate via this(...) delegation."
+      "en": "Discounted items default to 5.0% promotional discount rate via this(...) delegation.",
+      "ru": "Для товаров со скидкой по умолчанию применяется ставка рекламной скидки 5,0% посредством этого(...) делегирования."
     },
     "steps": {
       "uz": [
@@ -3306,6 +4046,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public DiscountItem(String itemName, double price, double discountPercent) { super(itemName, price); this.discountPercent = discountPercent; }'.",
         "Implement overload chaining default value via this(...): 'public DiscountItem(String itemName, double price) { this(itemName, price, 5.0); }'.",
         "Instantiate via both constructors and print: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = new DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс RetailItem с его параметризованным конструктором.",
+        "Выведите «DiscountItem расширяет RetailItem» с помощью «private double DiscountPercent;».",
+        "Реализуйте главный конструктор, делегирующий полномочия super(...): 'public DiscountItem(String itemName, double Price, Double DiscountPercent) { super(itemName, Price); this.discountPercent = DiscountPercent; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public DiscountItem (String itemName, двойная цена) { this (itemName, цена, 5.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'DiscountItem di1 = new DiscountItem(\"Shokolad\", 20000.0); DiscountItem di2 = новый DiscountItem(\"Qahva\", 50000.0, 15.0); System.out.println(di1.getItemName() + \" [\" + di1.getDiscountPercent() + \"%] | \" + di2.getItemName() + \" [\" + di2.getDiscountPercent() + \"%]\");'"
       ]
     },
     "requirements": {
@@ -3344,7 +4091,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "discountPercent double turida bo'ladi.",
-      "cw2Tip": "CW2 Console Order Applicationda tovar aksiyalarini DiscountItem orqali ifodalang."
+      "cw2Tip": "CW2 Console Order Applicationda tovar aksiyalarini DiscountItem orqali ifodalang.",
+      "theoryRu": "Цепочка конструкторов гармонизирует розничные рекламные цены по умолчанию с явными кампаниями по скидкам.",
+      "pitfallsRu": "Скидка: Процент двойной туриды болади.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3354,15 +4107,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "51. Click Up — MerchantPayment Standart Komissiya Zanjiri",
-      "en": "51. Click Up — MerchantPayment Default Fee Chaining"
+      "en": "51. Click Up — MerchantPayment Default Fee Chaining",
+      "ru": "51. Нажмите «Вверх» — цепочка комиссий по умолчанию MerchantPayment."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSavdo to'lovida komissiya foizi ko'rsatilmasa standart 1.5% olinadi. 'MerchantPayment(merchantName, amount)' konstruktori 'this(merchantName, amount, 1.5);' orqali asosiy konstruktorga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BasePayment' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'MerchantPayment extends BasePayment' ni yarating va unga 'private double feePercent;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public MerchantPayment(String merchantName, double amount, double feePercent) { super(merchantName, amount); this.feePercent = feePercent; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public MerchantPayment(String merchantName, double amount) { this(merchantName, amount, 1.5); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'MerchantPayment mp1 = new MerchantPayment(\"Korzinka\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Aviakassa\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'",
-      "en": "📖 Real-World Scenario & Context\nMerchant transactions default to 1.5% processing fee via this(merchant, amount, 1.5).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BasePayment' with its parameterized constructor.\n\n2. Derive 'MerchantPayment extends BasePayment' with 'private double feePercent;'.\n\n3. Implement master constructor delegating to super(...): 'public MerchantPayment(String merchantName, double amount, double feePercent) { super(merchantName, amount); this.feePercent = feePercent; }'.\n\n4. Implement overload chaining default value via this(...): 'public MerchantPayment(String merchantName, double amount) { this(merchantName, amount, 1.5); }'.\n\n5. Instantiate via both constructors and print: 'MerchantPayment mp1 = new MerchantPayment(\"Korzinka\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Aviakassa\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'"
+      "en": "📖 Real-World Scenario & Context\nMerchant transactions default to 1.5% processing fee via this(merchant, amount, 1.5).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BasePayment' with its parameterized constructor.\n\n2. Derive 'MerchantPayment extends BasePayment' with 'private double feePercent;'.\n\n3. Implement master constructor delegating to super(...): 'public MerchantPayment(String merchantName, double amount, double feePercent) { super(merchantName, amount); this.feePercent = feePercent; }'.\n\n4. Implement overload chaining default value via this(...): 'public MerchantPayment(String merchantName, double amount) { this(merchantName, amount, 1.5); }'.\n\n5. Instantiate via both constructors and print: 'MerchantPayment mp1 = new MerchantPayment(\"Korzinka\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Aviakassa\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'",
+      "ru": "📖 Контекст и описание задачи\nКомиссия за обработку торговых транзакций по умолчанию составляет 1,5 % через это (продавец, сумма, 1,5).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BasePayment с его параметризованным конструктором.\n2. Выведите «MerchantPayment расширяет BasePayment» с помощью «частной двойной комиссии».\n3. Реализуйте главный конструктор, делегирующий полномочия super(...): 'public MerchantPayment(String MerchantName, double sum, doublefeePercent) { super(merchantName, sum); this.feePercent = FeePercent; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public MerchantPayment(String MerchantName, double sum) { this(merchantName, sum, 1.5); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'MerchantPayment mp1 = new MerchantPayment(\"Корзинка\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Авиакасса\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'"
     },
     "story": {
       "uz": "Savdo to'lovida komissiya foizi ko'rsatilmasa standart 1.5% olinadi. 'MerchantPayment(merchantName, amount)' konstruktori 'this(merchantName, amount, 1.5);' orqali asosiy konstruktorga murojaat qilsin.",
-      "en": "Merchant transactions default to 1.5% processing fee via this(merchant, amount, 1.5)."
+      "en": "Merchant transactions default to 1.5% processing fee via this(merchant, amount, 1.5).",
+      "ru": "Комиссия за обработку торговых транзакций по умолчанию составляет 1,5 % через это (продавец, сумма, 1,5)."
     },
     "steps": {
       "uz": [
@@ -3378,6 +4134,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public MerchantPayment(String merchantName, double amount, double feePercent) { super(merchantName, amount); this.feePercent = feePercent; }'.",
         "Implement overload chaining default value via this(...): 'public MerchantPayment(String merchantName, double amount) { this(merchantName, amount, 1.5); }'.",
         "Instantiate via both constructors and print: 'MerchantPayment mp1 = new MerchantPayment(\"Korzinka\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Aviakassa\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс BasePayment с его параметризованным конструктором.",
+        "Выведите «MerchantPayment расширяет BasePayment» с помощью «частной двойной комиссии».",
+        "Реализуйте главный конструктор, делегирующий полномочия super(...): 'public MerchantPayment(String MerchantName, double sum, doublefeePercent) { super(merchantName, sum); this.feePercent = FeePercent; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public MerchantPayment(String MerchantName, double sum) { this(merchantName, sum, 1.5); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'MerchantPayment mp1 = new MerchantPayment(\"Корзинка\", 100000.0); MerchantPayment mp2 = new MerchantPayment(\"Авиакасса\", 800000.0, 0.8); System.out.println(mp1.getMerchantName() + \" [\" + mp1.getFeePercent() + \"%] | \" + mp2.getMerchantName() + \" [\" + mp2.getFeePercent() + \"%]\");'"
       ]
     },
     "requirements": {
@@ -3416,7 +4179,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "Asosiy konstruktor 'super(merchantName, amount);' chaqirishi lozim.",
-      "cw2Tip": "To'lov turlarida komissiya zanjirlarini qo'llang."
+      "cw2Tip": "To'lov turlarida komissiya zanjirlarini qo'llang.",
+      "theoryRu": "Графики финансовых комиссий позволяют легко учитывать стандартизированные базовые комиссии и согласованные уровни торговцев.",
+      "pitfallsRu": "Асосий конструктор 'super(merchantName, sum);' чакириши лозим.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3426,15 +4195,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "52. Asaxiy Books — PaperbackBook Standart Sahifa Zanjiri",
-      "en": "52. Asaxiy Books — PaperbackBook Default Page Chaining"
+      "en": "52. Asaxiy Books — PaperbackBook Default Page Chaining",
+      "ru": "52. Asaxy Books — Цепочка страниц по умолчанию в книге в мягкой обложке"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYumshoq muqovali kitobda sahifalar soni ko'rsatilmasa default 200 deb hisoblanadi. 'PaperbackBook(title, author)' konstruktori 'this(title, author, 200);' orqali zanjirlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BookCatalog' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'PaperbackBook extends BookCatalog' ni yarating va unga 'private int pages;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public PaperbackBook(String title, String author, int pages) { super(title, author); this.pages = pages; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public PaperbackBook(String title, String author) { this(title, author, 200); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Sariq Dev\", \"Xudoyberdi To'xtaboyev\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'",
-      "en": "📖 Real-World Scenario & Context\nPaperback books default to 200 standard pages unless explicitly specified.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BookCatalog' with its parameterized constructor.\n\n2. Derive 'PaperbackBook extends BookCatalog' with 'private int pages;'.\n\n3. Implement master constructor delegating to super(...): 'public PaperbackBook(String title, String author, int pages) { super(title, author); this.pages = pages; }'.\n\n4. Implement overload chaining default value via this(...): 'public PaperbackBook(String title, String author) { this(title, author, 200); }'.\n\n5. Instantiate via both constructors and print: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Sariq Dev\", \"Xudoyberdi To'xtaboyev\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'"
+      "en": "📖 Real-World Scenario & Context\nPaperback books default to 200 standard pages unless explicitly specified.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BookCatalog' with its parameterized constructor.\n\n2. Derive 'PaperbackBook extends BookCatalog' with 'private int pages;'.\n\n3. Implement master constructor delegating to super(...): 'public PaperbackBook(String title, String author, int pages) { super(title, author); this.pages = pages; }'.\n\n4. Implement overload chaining default value via this(...): 'public PaperbackBook(String title, String author) { this(title, author, 200); }'.\n\n5. Instantiate via both constructors and print: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Sariq Dev\", \"Xudoyberdi To'xtaboyev\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'",
+      "ru": "📖 Контекст и описание задачи\nКниги в мягкой обложке по умолчанию содержат 200 стандартных страниц, если не указано иное.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BookCatalog с его параметризованным конструктором.\n2. Выведите «PaperbackBook расширяет BookCatalog» с помощью «частных целых страниц».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public PaperbackBook(String title, Stringauthor, intpages) { super(title,author); this.pages = страницы; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public PaperbackBook(String title, Stringauthor) { this(title,author,200); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Сарик Дев\", \"Худойберди Тохтабоев\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'"
     },
     "story": {
       "uz": "Yumshoq muqovali kitobda sahifalar soni ko'rsatilmasa default 200 deb hisoblanadi. 'PaperbackBook(title, author)' konstruktori 'this(title, author, 200);' orqali zanjirlansin.",
-      "en": "Paperback books default to 200 standard pages unless explicitly specified."
+      "en": "Paperback books default to 200 standard pages unless explicitly specified.",
+      "ru": "Книги в мягкой обложке по умолчанию содержат 200 стандартных страниц, если не указано иное."
     },
     "steps": {
       "uz": [
@@ -3450,6 +4222,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public PaperbackBook(String title, String author, int pages) { super(title, author); this.pages = pages; }'.",
         "Implement overload chaining default value via this(...): 'public PaperbackBook(String title, String author) { this(title, author, 200); }'.",
         "Instantiate via both constructors and print: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Sariq Dev\", \"Xudoyberdi To'xtaboyev\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс BookCatalog с его параметризованным конструктором.",
+        "Выведите «PaperbackBook расширяет BookCatalog» с помощью «частных целых страниц».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public PaperbackBook(String title, Stringauthor, intpages) { super(title,author); this.pages = страницы; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public PaperbackBook(String title, Stringauthor) { this(title,author,200); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PaperbackBook pb1 = new PaperbackBook(\"Hikoyalar\", \"Abdulla Qahhor\"); PaperbackBook pb2 = new PaperbackBook(\"Сарик Дев\", \"Худойберди Тохтабоев\", 320); System.out.println(pb1.getTitle() + \" (\" + pb1.getPages() + \" bet) | \" + pb2.getTitle() + \" (\" + pb2.getPages() + \" bet)\");'"
       ]
     },
     "requirements": {
@@ -3488,7 +4267,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "pages butun son (int) bo'lishi kerak.",
-      "cw2Tip": "Kitoblar katalogi klasslarida zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "Kitoblar katalogi klasslarida zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Записи каталога сокращают количество шаблонов, делегируя стандартные размеры тиража посредством цепочки конструкторов.",
+      "pitfallsRu": "страницы бутун сын (инт) бо'лиши керак.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3498,15 +4283,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "53. Express24 — DeliveryOrder Standart Muhimlik Zanjiri",
-      "en": "53. Express24 — DeliveryOrder Default Priority Chaining"
+      "en": "53. Express24 — DeliveryOrder Default Priority Chaining",
+      "ru": "53. Express24 — Цепочка приоритетов доставки по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtmada yetkazish muhimligi ko'rsatilmasa sukut bo'yicha 'Standart' deb belgilanadi. 'DeliveryOrder(orderId, address)' konstruktori 'this(orderId, address, \"Standart\");' orqali asosiy konstruktorga murojaat qilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BaseOrder' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'DeliveryOrder extends BaseOrder' ni yarating va unga 'private String priority;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public DeliveryOrder(int orderId, String address, String priority) { super(orderId, address); this.priority = priority; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public DeliveryOrder(int orderId, String address) { this(orderId, address, \"Standart\"); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Chilonzor 5\"); DeliveryOrder do2 = new DeliveryOrder(102, \"Yunusobod 12\", \"Tezkor\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'",
-      "en": "📖 Real-World Scenario & Context\nDelivery orders default to 'Standart' dispatch priority unless flagged otherwise.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BaseOrder' with its parameterized constructor.\n\n2. Derive 'DeliveryOrder extends BaseOrder' with 'private String priority;'.\n\n3. Implement master constructor delegating to super(...): 'public DeliveryOrder(int orderId, String address, String priority) { super(orderId, address); this.priority = priority; }'.\n\n4. Implement overload chaining default value via this(...): 'public DeliveryOrder(int orderId, String address) { this(orderId, address, \"Standart\"); }'.\n\n5. Instantiate via both constructors and print: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Chilonzor 5\"); DeliveryOrder do2 = new DeliveryOrder(102, \"Yunusobod 12\", \"Tezkor\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'"
+      "en": "📖 Real-World Scenario & Context\nDelivery orders default to 'Standart' dispatch priority unless flagged otherwise.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BaseOrder' with its parameterized constructor.\n\n2. Derive 'DeliveryOrder extends BaseOrder' with 'private String priority;'.\n\n3. Implement master constructor delegating to super(...): 'public DeliveryOrder(int orderId, String address, String priority) { super(orderId, address); this.priority = priority; }'.\n\n4. Implement overload chaining default value via this(...): 'public DeliveryOrder(int orderId, String address) { this(orderId, address, \"Standart\"); }'.\n\n5. Instantiate via both constructors and print: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Chilonzor 5\"); DeliveryOrder do2 = new DeliveryOrder(102, \"Yunusobod 12\", \"Tezkor\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'",
+      "ru": "📖 Контекст и описание задачи\nЗаказы на доставку по умолчанию имеют приоритет отправки «Стандартный», если не указано иное.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BaseOrder с его параметризованным конструктором.\n2. Выведите «DeliveryOrder расширяет BaseOrder» с «приоритетом частной строки».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public DeliveryOrder(int orderId, String Address, String Priority) { super(orderId, Address); this.priority = приоритет; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public DeliveryOrder(int orderId, String Address) { this(orderId, Address, \"Standart\"); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Чилонзор 5\"); DeliveryOrder do2 = новый DeliveryOrder(102, \"Юнусобод 12\", \"Тезкор\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'"
     },
     "story": {
       "uz": "Buyurtmada yetkazish muhimligi ko'rsatilmasa sukut bo'yicha 'Standart' deb belgilanadi. 'DeliveryOrder(orderId, address)' konstruktori 'this(orderId, address, \"Standart\");' orqali asosiy konstruktorga murojaat qilsin.",
-      "en": "Delivery orders default to 'Standart' dispatch priority unless flagged otherwise."
+      "en": "Delivery orders default to 'Standart' dispatch priority unless flagged otherwise.",
+      "ru": "Заказы на доставку по умолчанию имеют приоритет отправки «Стандартный», если не указано иное."
     },
     "steps": {
       "uz": [
@@ -3522,6 +4310,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public DeliveryOrder(int orderId, String address, String priority) { super(orderId, address); this.priority = priority; }'.",
         "Implement overload chaining default value via this(...): 'public DeliveryOrder(int orderId, String address) { this(orderId, address, \"Standart\"); }'.",
         "Instantiate via both constructors and print: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Chilonzor 5\"); DeliveryOrder do2 = new DeliveryOrder(102, \"Yunusobod 12\", \"Tezkor\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс BaseOrder с его параметризованным конструктором.",
+        "Выведите «DeliveryOrder расширяет BaseOrder» с «приоритетом частной строки».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public DeliveryOrder(int orderId, String Address, String Priority) { super(orderId, Address); this.priority = приоритет; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через this(...): 'public DeliveryOrder(int orderId, String Address) { this(orderId, Address, \"Standart\"); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'DeliveryOrder do1 = new DeliveryOrder(101, \"Чилонзор 5\"); DeliveryOrder do2 = новый DeliveryOrder(102, \"Юнусобод 12\", \"Тезкор\"); System.out.println(\"#\" + do1.getOrderId() + \" [\" + do1.getPriority() + \"] | #\" + do2.getOrderId() + \" [\" + do2.getPriority() + \"]\");'"
       ]
     },
     "requirements": {
@@ -3560,7 +4355,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "orderId int bo'lgani uchun konsolga chiqarayotganda to'g'ri o'qing.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma yaratish konstruktorlarini shunday zanjirlang."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma yaratish konstruktorlarini shunday zanjirlang.",
+      "theoryRu": "Уровни срочности отправки легко настраиваются посредством параметризации многоуровневого конструктора.",
+      "pitfallsRu": "OrderId int bo'lgani uchun konsolga chikarayotganda to'g'ri o'qing.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3570,15 +4371,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "54. Beeline — PostpaidPlan Standart Kredit Limiti",
-      "en": "54. Beeline — PostpaidPlan Default Credit Limit"
+      "en": "54. Beeline — PostpaidPlan Default Credit Limit",
+      "ru": "54. Билайн — дефолтный кредитный лимит PostpaidPlan"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKeyin to'lovli tarifda kredit limiti ko'rsatilmasa 100000.0 so'm deb olinadi. 'PostpaidPlan(planName, monthlyCost)' konstruktori 'this(planName, monthlyCost, 100000.0);' orqali asosiy konstruktorga yo'naltirilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'TelecomPlan' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'PostpaidPlan extends TelecomPlan' ni yarating va unga 'private double creditLimit;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public PostpaidPlan(String planName, double monthlyCost, double creditLimit) { super(planName, monthlyCost); this.creditLimit = creditLimit; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public PostpaidPlan(String planName, double monthlyCost) { this(planName, monthlyCost, 100000.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Postpaid Biznes\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'",
-      "en": "📖 Real-World Scenario & Context\nPostpaid telecom plans default to 100,000 UZS credit allowance via this(...) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TelecomPlan' with its parameterized constructor.\n\n2. Derive 'PostpaidPlan extends TelecomPlan' with 'private double creditLimit;'.\n\n3. Implement master constructor delegating to super(...): 'public PostpaidPlan(String planName, double monthlyCost, double creditLimit) { super(planName, monthlyCost); this.creditLimit = creditLimit; }'.\n\n4. Implement overload chaining default value via this(...): 'public PostpaidPlan(String planName, double monthlyCost) { this(planName, monthlyCost, 100000.0); }'.\n\n5. Instantiate via both constructors and print: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Postpaid Biznes\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'"
+      "en": "📖 Real-World Scenario & Context\nPostpaid telecom plans default to 100,000 UZS credit allowance via this(...) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TelecomPlan' with its parameterized constructor.\n\n2. Derive 'PostpaidPlan extends TelecomPlan' with 'private double creditLimit;'.\n\n3. Implement master constructor delegating to super(...): 'public PostpaidPlan(String planName, double monthlyCost, double creditLimit) { super(planName, monthlyCost); this.creditLimit = creditLimit; }'.\n\n4. Implement overload chaining default value via this(...): 'public PostpaidPlan(String planName, double monthlyCost) { this(planName, monthlyCost, 100000.0); }'.\n\n5. Instantiate via both constructors and print: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Postpaid Biznes\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'",
+      "ru": "📖 Контекст и описание задачи\nПостоплатная связь планирует по умолчанию предоставить кредит в размере 100 000 сум через эту (...) цепочку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс TelecomPlan с его параметризованным конструктором.\n2. Выведите «PostpaidPlan расширяет TelecomPlan» с помощью «частного двойного кредитного лимита».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public PostpaidPlan(String planName, doublemonthCost, doublecreditLimit) { super(planName,monthCost); this.creditLimit = CreditLimit; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public PostpaidPlan(String planName, doublemonthCost) { this(planName,monthCost, 100000.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Постоплатный бизнес\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'"
     },
     "story": {
       "uz": "Keyin to'lovli tarifda kredit limiti ko'rsatilmasa 100000.0 so'm deb olinadi. 'PostpaidPlan(planName, monthlyCost)' konstruktori 'this(planName, monthlyCost, 100000.0);' orqali asosiy konstruktorga yo'naltirilsin.",
-      "en": "Postpaid telecom plans default to 100,000 UZS credit allowance via this(...) chaining."
+      "en": "Postpaid telecom plans default to 100,000 UZS credit allowance via this(...) chaining.",
+      "ru": "Постоплатная связь планирует по умолчанию предоставить кредит в размере 100 000 сум через эту (...) цепочку."
     },
     "steps": {
       "uz": [
@@ -3594,6 +4398,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public PostpaidPlan(String planName, double monthlyCost, double creditLimit) { super(planName, monthlyCost); this.creditLimit = creditLimit; }'.",
         "Implement overload chaining default value via this(...): 'public PostpaidPlan(String planName, double monthlyCost) { this(planName, monthlyCost, 100000.0); }'.",
         "Instantiate via both constructors and print: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Postpaid Biznes\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс TelecomPlan с его параметризованным конструктором.",
+        "Выведите «PostpaidPlan расширяет TelecomPlan» с помощью «частного двойного кредитного лимита».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public PostpaidPlan(String planName, doublemonthCost, doublecreditLimit) { super(planName,monthCost); this.creditLimit = CreditLimit; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public PostpaidPlan(String planName, doublemonthCost) { this(planName,monthCost, 100000.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'PostpaidPlan pp1 = new PostpaidPlan(\"Postpaid Oddiy\", 45000.0); PostpaidPlan pp2 = new PostpaidPlan(\"Постоплатный бизнес\", 120000.0, 500000.0); System.out.println(pp1.getPlanName() + \" [\" + pp1.getCreditLimit() + \"] | \" + pp2.getPlanName() + \" [\" + pp2.getCreditLimit() + \"]\");'"
       ]
     },
     "requirements": {
@@ -3632,7 +4443,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "creditLimit double turida bo'ladi.",
-      "cw2Tip": "Abonent tariflari modelini yaratishda constructor chaining dan foydalaning."
+      "cw2Tip": "Abonent tariflari modelini yaratishda constructor chaining dan foydalaning.",
+      "theoryRu": "Неисполнение обязательств по выставлению счетов в сфере телекоммуникаций защищает абонентов, допуская при этом расширение кредитной линии.",
+      "pitfallsRu": "CreditLimit двойная турида болади.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3642,15 +4459,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "55. Texnomart — SmartTv Standart Aniqlik (Resolution) Zanjiri",
-      "en": "55. Texnomart — SmartTv Default Resolution Chaining"
+      "en": "55. Texnomart — SmartTv Default Resolution Chaining",
+      "ru": "55. Texnomart — цепочка разрешений SmartTv по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSmart televizorning ekran aniqligi berilmasa standart '4K UHD' deb olinadi. 'SmartTv(brand, diagonalInch)' konstruktori 'this(brand, diagonalInch, \"4K UHD\");' orqali asosiy konstruktorga yo'naltirilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Television' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'SmartTv extends Television' ni yarating va unga 'private String resolution;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public SmartTv(String brand, int diagonalInch, String resolution) { super(brand, diagonalInch); this.resolution = resolution; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public SmartTv(String brand, int diagonalInch) { this(brand, diagonalInch, \"4K UHD\"); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = new SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'",
-      "en": "📖 Real-World Scenario & Context\nSmart TVs default to '4K UHD' display resolution unless alternate panels are designated.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Television' with its parameterized constructor.\n\n2. Derive 'SmartTv extends Television' with 'private String resolution;'.\n\n3. Implement master constructor delegating to super(...): 'public SmartTv(String brand, int diagonalInch, String resolution) { super(brand, diagonalInch); this.resolution = resolution; }'.\n\n4. Implement overload chaining default value via this(...): 'public SmartTv(String brand, int diagonalInch) { this(brand, diagonalInch, \"4K UHD\"); }'.\n\n5. Instantiate via both constructors and print: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = new SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'"
+      "en": "📖 Real-World Scenario & Context\nSmart TVs default to '4K UHD' display resolution unless alternate panels are designated.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Television' with its parameterized constructor.\n\n2. Derive 'SmartTv extends Television' with 'private String resolution;'.\n\n3. Implement master constructor delegating to super(...): 'public SmartTv(String brand, int diagonalInch, String resolution) { super(brand, diagonalInch); this.resolution = resolution; }'.\n\n4. Implement overload chaining default value via this(...): 'public SmartTv(String brand, int diagonalInch) { this(brand, diagonalInch, \"4K UHD\"); }'.\n\n5. Instantiate via both constructors and print: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = new SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'",
+      "ru": "📖 Контекст и описание задачи\nВ телевизорах Smart TV по умолчанию используется разрешение экрана «4K UHD», если не указаны альтернативные панели.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Телевидение» с его параметризованным конструктором.\n2. Выведите «SmartTv расширяет телевидение» с помощью «разрешения частной строки».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public SmartTv(String Brand, int DiagonalInch, String Разрешение) { super(brand, DiagonalInch); это.разрешение = разрешение; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public SmartTv(String Brand, int DiagnosticInch) { this(brand, DiagonalInch, \"4K UHD\"); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = новый SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'"
     },
     "story": {
       "uz": "Smart televizorning ekran aniqligi berilmasa standart '4K UHD' deb olinadi. 'SmartTv(brand, diagonalInch)' konstruktori 'this(brand, diagonalInch, \"4K UHD\");' orqali asosiy konstruktorga yo'naltirilsin.",
-      "en": "Smart TVs default to '4K UHD' display resolution unless alternate panels are designated."
+      "en": "Smart TVs default to '4K UHD' display resolution unless alternate panels are designated.",
+      "ru": "В телевизорах Smart TV по умолчанию используется разрешение экрана «4K UHD», если не указаны альтернативные панели."
     },
     "steps": {
       "uz": [
@@ -3666,6 +4486,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public SmartTv(String brand, int diagonalInch, String resolution) { super(brand, diagonalInch); this.resolution = resolution; }'.",
         "Implement overload chaining default value via this(...): 'public SmartTv(String brand, int diagonalInch) { this(brand, diagonalInch, \"4K UHD\"); }'.",
         "Instantiate via both constructors and print: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = new SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Телевидение» с его параметризованным конструктором.",
+        "Выведите «SmartTv расширяет телевидение» с помощью «разрешения частной строки».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public SmartTv(String Brand, int DiagonalInch, String Разрешение) { super(brand, DiagonalInch); это.разрешение = разрешение; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public SmartTv(String Brand, int DiagnosticInch) { this(brand, DiagonalInch, \"4K UHD\"); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'SmartTv tv1 = new SmartTv(\"Samsung\", 55); SmartTv tv2 = новый SmartTv(\"LG\", 75, \"8K OLED\"); System.out.println(tv1.getBrand() + \" \" + tv1.getDiagonalInch() + \"\\\" [\" + tv1.getResolution() + \"] | \" + tv2.getBrand() + \" \" + tv2.getDiagonalInch() + \"\\\" [\" + tv2.getResolution() + \"]\");'"
       ]
     },
     "requirements": {
@@ -3704,7 +4531,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "diagonalInch int turida bo'ladi.",
-      "cw2Tip": "CW2 da tovar xususiyatlarini standart qiymatlar bilan zanjirlang."
+      "cw2Tip": "CW2 da tovar xususiyatlarini standart qiymatlar bilan zanjirlang.",
+      "theoryRu": "Стандартные настройки аппаратного обеспечения на рынке отражают спрос большинства потребителей, но при этом учитывают основные исключения.",
+      "pitfallsRu": "диагональный дюйм int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3714,15 +4547,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "56. Kapitalbank — CreditCard Standart Imtiyozli Davr Zanjiri",
-      "en": "56. Kapitalbank — CreditCard Default Grace Period Chaining"
+      "en": "56. Kapitalbank — CreditCard Default Grace Period Chaining",
+      "ru": "56. Капиталбанк — Цепочка льготного периода по умолчанию для кредитных карт"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKredit kartasida foizsiz imtiyozli davr (grace period) ko'rsatilmasa 50 kun deb belgilanadi. 'CreditCard(cardNo, limit)' konstruktori 'this(cardNo, limit, 50);' orqali zanjirlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BankCardModel' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'CreditCard extends BankCardModel' ni yarating va unga 'private int gracePeriodDays;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public CreditCard(String cardNo, double limit, int gracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = gracePeriodDays; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public CreditCard(String cardNo, double limit) { this(cardNo, limit, 50); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = new CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'",
-      "en": "📖 Real-World Scenario & Context\nCredit cards default to a 50-day interest-free grace window via this(cardNo, limit, 50).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankCardModel' with its parameterized constructor.\n\n2. Derive 'CreditCard extends BankCardModel' with 'private int gracePeriodDays;'.\n\n3. Implement master constructor delegating to super(...): 'public CreditCard(String cardNo, double limit, int gracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = gracePeriodDays; }'.\n\n4. Implement overload chaining default value via this(...): 'public CreditCard(String cardNo, double limit) { this(cardNo, limit, 50); }'.\n\n5. Instantiate via both constructors and print: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = new CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'"
+      "en": "📖 Real-World Scenario & Context\nCredit cards default to a 50-day interest-free grace window via this(cardNo, limit, 50).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankCardModel' with its parameterized constructor.\n\n2. Derive 'CreditCard extends BankCardModel' with 'private int gracePeriodDays;'.\n\n3. Implement master constructor delegating to super(...): 'public CreditCard(String cardNo, double limit, int gracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = gracePeriodDays; }'.\n\n4. Implement overload chaining default value via this(...): 'public CreditCard(String cardNo, double limit) { this(cardNo, limit, 50); }'.\n\n5. Instantiate via both constructors and print: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = new CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'",
+      "ru": "📖 Контекст и описание задачи\nПо умолчанию для кредитных карт предоставляется 50-дневное беспроцентное льготное окно через this(cardNo, limit, 50).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BankCardModel с его параметризованным конструктором.\n2. Выведите «CreditCard расширяет BankCardModel» с помощью «private int GracePeriodDays;».\n3. Реализуйте главный конструктор, делегирующий полномочия super(...): 'public CreditCard(String cardNo, double limit, int GracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = GracePeriodDays; }'.\n4. Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public CreditCard(String cardNo, двойной лимит) { this(cardNo, limit, 50); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = новая CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'"
     },
     "story": {
       "uz": "Kredit kartasida foizsiz imtiyozli davr (grace period) ko'rsatilmasa 50 kun deb belgilanadi. 'CreditCard(cardNo, limit)' konstruktori 'this(cardNo, limit, 50);' orqali zanjirlansin.",
-      "en": "Credit cards default to a 50-day interest-free grace window via this(cardNo, limit, 50)."
+      "en": "Credit cards default to a 50-day interest-free grace window via this(cardNo, limit, 50).",
+      "ru": "По умолчанию для кредитных карт предоставляется 50-дневное беспроцентное льготное окно через this(cardNo, limit, 50)."
     },
     "steps": {
       "uz": [
@@ -3738,6 +4574,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public CreditCard(String cardNo, double limit, int gracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = gracePeriodDays; }'.",
         "Implement overload chaining default value via this(...): 'public CreditCard(String cardNo, double limit) { this(cardNo, limit, 50); }'.",
         "Instantiate via both constructors and print: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = new CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс BankCardModel с его параметризованным конструктором.",
+        "Выведите «CreditCard расширяет BankCardModel» с помощью «private int GracePeriodDays;».",
+        "Реализуйте главный конструктор, делегирующий полномочия super(...): 'public CreditCard(String cardNo, double limit, int GracePeriodDays) { super(cardNo, limit); this.gracePeriodDays = GracePeriodDays; }'.",
+        "Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public CreditCard(String cardNo, двойной лимит) { this(cardNo, limit, 50); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'CreditCard cc1 = new CreditCard(\"4000-1111\", 15000000.0); CreditCard cc2 = новая CreditCard(\"4000-2222\", 30000000.0, 60); System.out.println(cc1.getCardNo() + \" [\" + cc1.getGracePeriodDays() + \" kun] | \" + cc2.getCardNo() + \" [\" + cc2.getGracePeriodDays() + \" kun]\");'"
       ]
     },
     "requirements": {
@@ -3776,7 +4619,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "gracePeriodDays int turida saqlanadi.",
-      "cw2Tip": "To'lov kartalarida zanjirli konstruktorlardan foydalaning."
+      "cw2Tip": "To'lov kartalarida zanjirli konstruktorlardan foydalaning.",
+      "theoryRu": "Соглашения о выпуске карт безопасно включают законодательные условия рекламных акций в делегирование конструкторов.",
+      "pitfallsRu": "GracePeriodDays int Turida Saqlanadi.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3786,15 +4635,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "57. Akfa Medline — HealthPackage Standart Amal Qilish Zanjiri",
-      "en": "57. Akfa Medline — HealthPackage Default Validity Chaining"
+      "en": "57. Akfa Medline — HealthPackage Default Validity Chaining",
+      "ru": "57. Akfa Medline — Цепочка действия HealthPackage по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTibbiy chek-up paketining amal qilish muddati ko'rsatilmasa 30 kun deb belgilanadi. 'HealthPackage(packageName, price)' konstruktori 'this(packageName, price, 30);' orqali zanjirlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MedicalService' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'HealthPackage extends MedicalService' ni yarating va unga 'private int validDays;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public HealthPackage(String packageName, double price, int validDays) { super(packageName, price); this.validDays = validDays; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public HealthPackage(String packageName, double price) { this(packageName, price, 30); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = new HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'",
-      "en": "📖 Real-World Scenario & Context\nPreventative medical checkup packages default to 30 days validity via constructor delegation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalService' with its parameterized constructor.\n\n2. Derive 'HealthPackage extends MedicalService' with 'private int validDays;'.\n\n3. Implement master constructor delegating to super(...): 'public HealthPackage(String packageName, double price, int validDays) { super(packageName, price); this.validDays = validDays; }'.\n\n4. Implement overload chaining default value via this(...): 'public HealthPackage(String packageName, double price) { this(packageName, price, 30); }'.\n\n5. Instantiate via both constructors and print: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = new HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'"
+      "en": "📖 Real-World Scenario & Context\nPreventative medical checkup packages default to 30 days validity via constructor delegation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalService' with its parameterized constructor.\n\n2. Derive 'HealthPackage extends MedicalService' with 'private int validDays;'.\n\n3. Implement master constructor delegating to super(...): 'public HealthPackage(String packageName, double price, int validDays) { super(packageName, price); this.validDays = validDays; }'.\n\n4. Implement overload chaining default value via this(...): 'public HealthPackage(String packageName, double price) { this(packageName, price, 30); }'.\n\n5. Instantiate via both constructors and print: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = new HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'",
+      "ru": "📖 Контекст и описание задачи\nСрок действия пакетов профилактических медицинских осмотров по умолчанию составляет 30 дней посредством делегирования конструктору.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс MedicalService с его параметризованным конструктором.\n2. Получите «HealthPackage расширяет MedicalService» с помощью «private int validDays;».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public HealthPackage(String packageName, double цена, int validDays) { super(packageName, цена); this.validDays = validDays; }'.\n4. Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public HealthPackage (String packageName, двойная цена) { this (packageName, цена, 30); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = новый HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'"
     },
     "story": {
       "uz": "Tibbiy chek-up paketining amal qilish muddati ko'rsatilmasa 30 kun deb belgilanadi. 'HealthPackage(packageName, price)' konstruktori 'this(packageName, price, 30);' orqali zanjirlansin.",
-      "en": "Preventative medical checkup packages default to 30 days validity via constructor delegation."
+      "en": "Preventative medical checkup packages default to 30 days validity via constructor delegation.",
+      "ru": "Срок действия пакетов профилактических медицинских осмотров по умолчанию составляет 30 дней посредством делегирования конструктору."
     },
     "steps": {
       "uz": [
@@ -3810,6 +4662,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public HealthPackage(String packageName, double price, int validDays) { super(packageName, price); this.validDays = validDays; }'.",
         "Implement overload chaining default value via this(...): 'public HealthPackage(String packageName, double price) { this(packageName, price, 30); }'.",
         "Instantiate via both constructors and print: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = new HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс MedicalService с его параметризованным конструктором.",
+        "Получите «HealthPackage расширяет MedicalService» с помощью «private int validDays;».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public HealthPackage(String packageName, double цена, int validDays) { super(packageName, цена); this.validDays = validDays; }'.",
+        "Реализуйте значение по умолчанию для цепочки перегрузок через это (...): 'public HealthPackage (String packageName, двойная цена) { this (packageName, цена, 30); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'HealthPackage hp1 = new HealthPackage(\"Check-Up Basic\", 450000.0); HealthPackage hp2 = новый HealthPackage(\"Check-Up Premium\", 1200000.0, 90); System.out.println(hp1.getPackageName() + \" [\" + hp1.getValidDays() + \" kun] | \" + hp2.getPackageName() + \" [\" + hp2.getValidDays() + \" kun]\");'"
       ]
     },
     "requirements": {
@@ -3848,7 +4707,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "validDays int turida bo'ladi.",
-      "cw2Tip": "Xizmat ko'rsatish paketlarini modellashtirishda ushbu usuldan foydalaning."
+      "cw2Tip": "Xizmat ko'rsatish paketlarini modellashtirishda ushbu usuldan foydalaning.",
+      "theoryRu": "Пакеты клинической диагностики четко обеспечивают соблюдение сроков действия с помощью связанных конструкторов.",
+      "pitfallsRu": "validDays int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3858,15 +4723,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "58. Uzbekistan Airways — BaggageFare Standart Bagaj Vazni",
-      "en": "58. Uzbekistan Airways — BaggageFare Default Weight Chaining"
+      "en": "58. Uzbekistan Airways — BaggageFare Default Weight Chaining",
+      "ru": "58. «Узбекистон хаво йуллари» — группировка веса по умолчанию для багажных тарифов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAviaqatnov bagaj tarifida ruxsat etilgan vazn berilmasa standart 23.0 kg deb belgilanadi. 'BaggageFare(fareCode, farePrice)' konstruktori 'this(fareCode, farePrice, 23.0);' orqali asosiy konstruktorga yo'naltirilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'FlightFare' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'BaggageFare extends FlightFare' ni yarating va unga 'private double maxWeightKg;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public BaggageFare(String fareCode, double farePrice, double maxWeightKg) { super(fareCode, farePrice); this.maxWeightKg = maxWeightKg; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public BaggageFare(String fareCode, double farePrice) { this(fareCode, farePrice, 23.0); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ECO-PLUS\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" kg] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" kg]\");'",
-      "en": "📖 Real-World Scenario & Context\nAirline baggage tariffs default to 23.0 kg standard weight allowance via this(...) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FlightFare' with its parameterized constructor.\n\n2. Derive 'BaggageFare extends FlightFare' with 'private double maxWeightKg;'.\n\n3. Implement master constructor delegating to super(...): 'public BaggageFare(String fareCode, double farePrice, double maxWeightKg) { super(fareCode, farePrice); this.maxWeightKg = maxWeightKg; }'.\n\n4. Implement overload chaining default value via this(...): 'public BaggageFare(String fareCode, double farePrice) { this(fareCode, farePrice, 23.0); }'.\n\n5. Instantiate via both constructors and print: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ECO-PLUS\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" kg] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" kg]\");'"
+      "en": "📖 Real-World Scenario & Context\nAirline baggage tariffs default to 23.0 kg standard weight allowance via this(...) chaining.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FlightFare' with its parameterized constructor.\n\n2. Derive 'BaggageFare extends FlightFare' with 'private double maxWeightKg;'.\n\n3. Implement master constructor delegating to super(...): 'public BaggageFare(String fareCode, double farePrice, double maxWeightKg) { super(fareCode, farePrice); this.maxWeightKg = maxWeightKg; }'.\n\n4. Implement overload chaining default value via this(...): 'public BaggageFare(String fareCode, double farePrice) { this(fareCode, farePrice, 23.0); }'.\n\n5. Instantiate via both constructors and print: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ECO-PLUS\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" kg] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" kg]\");'",
+      "ru": "📖 Контекст и описание задачи\nВ тарифах авиакомпаний стандартный вес багажа по умолчанию составляет 23,0 кг посредством этой(...) цепочки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс FlightFare с его параметризованным конструктором.\n2. Выведите «BaggageFare расширяет FlightFare» с помощью «private double maxWeightKg;».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public BaggageFare(String FareCode, Double FarePrice, Double MaxWeightKg) { super(fareCode, FarePrice); this.maxWeightKg = maxWeightKg; }'.\n4. Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public BaggageFare(String FareCode, Double FarePrice) { this(fareCode, FarePrice, 23.0); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ЭКО-ПЛЮС\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" кг] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" кг]\");'"
     },
     "story": {
       "uz": "Aviaqatnov bagaj tarifida ruxsat etilgan vazn berilmasa standart 23.0 kg deb belgilanadi. 'BaggageFare(fareCode, farePrice)' konstruktori 'this(fareCode, farePrice, 23.0);' orqali asosiy konstruktorga yo'naltirilsin.",
-      "en": "Airline baggage tariffs default to 23.0 kg standard weight allowance via this(...) chaining."
+      "en": "Airline baggage tariffs default to 23.0 kg standard weight allowance via this(...) chaining.",
+      "ru": "В тарифах авиакомпаний стандартный вес багажа по умолчанию составляет 23,0 кг посредством этой(...) цепочки."
     },
     "steps": {
       "uz": [
@@ -3882,6 +4750,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public BaggageFare(String fareCode, double farePrice, double maxWeightKg) { super(fareCode, farePrice); this.maxWeightKg = maxWeightKg; }'.",
         "Implement overload chaining default value via this(...): 'public BaggageFare(String fareCode, double farePrice) { this(fareCode, farePrice, 23.0); }'.",
         "Instantiate via both constructors and print: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ECO-PLUS\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" kg] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" kg]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс FlightFare с его параметризованным конструктором.",
+        "Выведите «BaggageFare расширяет FlightFare» с помощью «private double maxWeightKg;».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public BaggageFare(String FareCode, Double FarePrice, Double MaxWeightKg) { super(fareCode, FarePrice); this.maxWeightKg = maxWeightKg; }'.",
+        "Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public BaggageFare(String FareCode, Double FarePrice) { this(fareCode, FarePrice, 23.0); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'BaggageFare bf1 = new BaggageFare(\"ECO-STD\", 850000.0); BaggageFare bf2 = new BaggageFare(\"ЭКО-ПЛЮС\", 1100000.0, 32.0); System.out.println(bf1.getFareCode() + \" [\" + bf1.getMaxWeightKg() + \" кг] | \" + bf2.getFareCode() + \" [\" + bf2.getMaxWeightKg() + \" кг]\");'"
       ]
     },
     "requirements": {
@@ -3920,7 +4795,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "maxWeightKg double turida bo'ladi.",
-      "cw2Tip": "Logistika va tarif tizimlarida default ko'rsatkichlarni konstruktorda bering."
+      "cw2Tip": "Logistika va tarif tizimlarida default ko'rsatkichlarni konstruktorda bering.",
+      "theoryRu": "Стандарты продажи авиабилетов IATA предусматривают базовую норму провоза багажа в 23 кг, что, естественно, соответствует настройкам по умолчанию конструктора.",
+      "pitfallsRu": "maxWeightKg двойная турида болади.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -3930,15 +4811,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "59. WIUT Library — LibraryBorrower Standart Kitoblar Limiti",
-      "en": "59. WIUT Library — LibraryBorrower Default Book Limit"
+      "en": "59. WIUT Library — LibraryBorrower Default Book Limit",
+      "ru": "59. Библиотека WIUT — лимит книг по умолчанию для библиотеки-заемщика"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT kutubxonasida kitob oluvchi a'zo uchun maksimal olinadigan kitoblar soni ko'rsatilmasa 5 ta deb olinadi. 'LibraryBorrower(memberId, name)' konstruktori 'this(memberId, name, 5);' orqali zanjirlansin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LibraryMember' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'LibraryBorrower extends LibraryMember' ni yarating va unga 'private int maxBooks;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public LibraryBorrower(String memberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public LibraryBorrower(String memberId, String name) { this(memberId, name, 5); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = new LibraryBorrower(\"LIB-102\", \"Kamola\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'",
-      "en": "📖 Real-World Scenario & Context\nLibrary borrowers default to a maximum borrow allowance of 5 books via this(id, name, 5).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LibraryMember' with its parameterized constructor.\n\n2. Derive 'LibraryBorrower extends LibraryMember' with 'private int maxBooks;'.\n\n3. Implement master constructor delegating to super(...): 'public LibraryBorrower(String memberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'.\n\n4. Implement overload chaining default value via this(...): 'public LibraryBorrower(String memberId, String name) { this(memberId, name, 5); }'.\n\n5. Instantiate via both constructors and print: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = new LibraryBorrower(\"LIB-102\", \"Kamola\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'"
+      "en": "📖 Real-World Scenario & Context\nLibrary borrowers default to a maximum borrow allowance of 5 books via this(id, name, 5).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LibraryMember' with its parameterized constructor.\n\n2. Derive 'LibraryBorrower extends LibraryMember' with 'private int maxBooks;'.\n\n3. Implement master constructor delegating to super(...): 'public LibraryBorrower(String memberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'.\n\n4. Implement overload chaining default value via this(...): 'public LibraryBorrower(String memberId, String name) { this(memberId, name, 5); }'.\n\n5. Instantiate via both constructors and print: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = new LibraryBorrower(\"LIB-102\", \"Kamola\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'",
+      "ru": "📖 Контекст и описание задачи\nЗаемщики библиотеки по умолчанию получают максимальную сумму, равную 5 книгам, через this(id, name, 5).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «LibraryMember» с его параметризованным конструктором.\n2. Выведите «LibraryBorrower расширяет LibraryMember» с помощью «private int maxBooks;».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public LibraryBorrower(StringmemberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'.\n4. Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public LibraryBorrower(StringmemberId, String name) { this(memberId, name, 5); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = новый LibraryBorrower(\"LIB-102\", \"Камола\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'"
     },
     "story": {
       "uz": "WIUT kutubxonasida kitob oluvchi a'zo uchun maksimal olinadigan kitoblar soni ko'rsatilmasa 5 ta deb olinadi. 'LibraryBorrower(memberId, name)' konstruktori 'this(memberId, name, 5);' orqali zanjirlansin.",
-      "en": "Library borrowers default to a maximum borrow allowance of 5 books via this(id, name, 5)."
+      "en": "Library borrowers default to a maximum borrow allowance of 5 books via this(id, name, 5).",
+      "ru": "Заемщики библиотеки по умолчанию получают максимальную сумму, равную 5 книгам, через this(id, name, 5)."
     },
     "steps": {
       "uz": [
@@ -3954,6 +4838,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public LibraryBorrower(String memberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'.",
         "Implement overload chaining default value via this(...): 'public LibraryBorrower(String memberId, String name) { this(memberId, name, 5); }'.",
         "Instantiate via both constructors and print: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = new LibraryBorrower(\"LIB-102\", \"Kamola\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «LibraryMember» с его параметризованным конструктором.",
+        "Выведите «LibraryBorrower расширяет LibraryMember» с помощью «private int maxBooks;».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public LibraryBorrower(StringmemberId, String name, int maxBooks) { super(memberId, name); this.maxBooks = maxBooks; }'.",
+        "Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public LibraryBorrower(StringmemberId, String name) { this(memberId, name, 5); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'LibraryBorrower lb1 = new LibraryBorrower(\"LIB-101\", \"Nodirbek\"); LibraryBorrower lb2 = новый LibraryBorrower(\"LIB-102\", \"Камола\", 10); System.out.println(lb1.getName() + \" [\" + lb1.getMaxBooks() + \" ta] | \" + lb2.getName() + \" [\" + lb2.getMaxBooks() + \" ta]\");'"
       ]
     },
     "requirements": {
@@ -3992,7 +4883,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "maxBooks int turida bo'ladi.",
-      "cw2Tip": "Foydalanuvchi huquqlari va limitlarini boshqarishda ushbu andozadan foydalaning."
+      "cw2Tip": "Foydalanuvchi huquqlari va limitlarini boshqarishda ushbu andozadan foydalaning.",
+      "theoryRu": "Институциональные квоты на ресурсы устанавливают ограничения по умолчанию для обычных членов, одновременно соблюдая привилегии исследовательского уровня.",
+      "pitfallsRu": "maxBooks int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -4002,15 +4899,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "46-60: Konstruktor Overloading va Zanjirlash",
     "title": {
       "uz": "60. Dodo Pizza — CustomPizza Standart Diametr Zanjiri",
-      "en": "60. Dodo Pizza — CustomPizza Default Diameter Chaining"
+      "en": "60. Dodo Pizza — CustomPizza Default Diameter Chaining",
+      "ru": "60. Dodo Pizza — цепочка диаметров CustomPizza по умолчанию"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n4-bosqich yakuni: Pitsaning diametri ko'rsatilmasa standart 30 sm deb hisoblanadi. 'CustomPizza(pizzaName, basePrice)' konstruktori 'this(pizzaName, basePrice, 30);' orqali asosiy konstruktorga yo'naltirilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MenuItemBase' ni parametrli konstruktori bilan e'lon qiling.\n\n2. Avlod sinf 'CustomPizza extends MenuItemBase' ni yarating va unga 'private int diameterCm;' maydonini qo'shing.\n\n3. To'liq parametrli asosiy konstruktorda 'super(...)' orqali ota sinfni to'ldiring: 'public CustomPizza(String pizzaName, double basePrice, int diameterCm) { super(pizzaName, basePrice); this.diameterCm = diameterCm; }'\n\n4. Ikkinchi konstruktorda esa 'this(...)' orqali default qiymat berib asosiy konstruktorga zanjirlang: 'public CustomPizza(String pizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'\n\n5. 'Main' metodida ikkala konstruktor orqali ob'yektlar yaratib konsolga chop eting: 'CustomPizza cp1 = new CustomPizza(\"Margarita\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Go'shtli Miks\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 4: Custom pizzas default to 30cm standard diameter via this(name, price, 30).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MenuItemBase' with its parameterized constructor.\n\n2. Derive 'CustomPizza extends MenuItemBase' with 'private int diameterCm;'.\n\n3. Implement master constructor delegating to super(...): 'public CustomPizza(String pizzaName, double basePrice, int diameterCm) { super(pizzaName, basePrice); this.diameterCm = diameterCm; }'.\n\n4. Implement overload chaining default value via this(...): 'public CustomPizza(String pizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'.\n\n5. Instantiate via both constructors and print: 'CustomPizza cp1 = new CustomPizza(\"Margarita\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Go'shtli Miks\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 4: Custom pizzas default to 30cm standard diameter via this(name, price, 30).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MenuItemBase' with its parameterized constructor.\n\n2. Derive 'CustomPizza extends MenuItemBase' with 'private int diameterCm;'.\n\n3. Implement master constructor delegating to super(...): 'public CustomPizza(String pizzaName, double basePrice, int diameterCm) { super(pizzaName, basePrice); this.diameterCm = diameterCm; }'.\n\n4. Implement overload chaining default value via this(...): 'public CustomPizza(String pizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'.\n\n5. Instantiate via both constructors and print: 'CustomPizza cp1 = new CustomPizza(\"Margarita\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Go'shtli Miks\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 4: стандартный диаметр нестандартной пиццы по умолчанию составляет 30 см с помощью этого (название, цена, 30).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс MenuItemBase с его параметризованным конструктором.\n2. Выведите «CustomPizza расширяет MenuItemBase» с помощью «private int DiameterCm;».\n3. Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public CustomPizza(String PizzaName, double basePrice, int диаметрCm) { super(pizzaName, basePrice); this.diameterCm = диаметрCm; }'.\n4. Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public CustomPizza(String PizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'.\n5. Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'CustomPizza cp1 = new CustomPizza(\"Маргарита\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Гоштли Микс\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'"
     },
     "story": {
       "uz": "4-bosqich yakuni: Pitsaning diametri ko'rsatilmasa standart 30 sm deb hisoblanadi. 'CustomPizza(pizzaName, basePrice)' konstruktori 'this(pizzaName, basePrice, 30);' orqali asosiy konstruktorga yo'naltirilsin.",
-      "en": "Grand finale of Tier 4: Custom pizzas default to 30cm standard diameter via this(name, price, 30)."
+      "en": "Grand finale of Tier 4: Custom pizzas default to 30cm standard diameter via this(name, price, 30).",
+      "ru": "Грандиозный финал уровня 4: стандартный диаметр нестандартной пиццы по умолчанию составляет 30 см с помощью этого (название, цена, 30)."
     },
     "steps": {
       "uz": [
@@ -4026,6 +4926,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement master constructor delegating to super(...): 'public CustomPizza(String pizzaName, double basePrice, int diameterCm) { super(pizzaName, basePrice); this.diameterCm = diameterCm; }'.",
         "Implement overload chaining default value via this(...): 'public CustomPizza(String pizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'.",
         "Instantiate via both constructors and print: 'CustomPizza cp1 = new CustomPizza(\"Margarita\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Go'shtli Miks\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс MenuItemBase с его параметризованным конструктором.",
+        "Выведите «CustomPizza расширяет MenuItemBase» с помощью «private int DiameterCm;».",
+        "Реализуйте главный конструктор, делегирующий полномочия супер(...): 'public CustomPizza(String PizzaName, double basePrice, int диаметрCm) { super(pizzaName, basePrice); this.diameterCm = диаметрCm; }'.",
+        "Реализовать значение по умолчанию для цепочки перегрузок через this(...): 'public CustomPizza(String PizzaName, double basePrice) { this(pizzaName, basePrice, 30); }'.",
+        "Создайте экземпляр с помощью обоих конструкторов и распечатайте: 'CustomPizza cp1 = new CustomPizza(\"Маргарита\", 55000.0); CustomPizza cp2 = new CustomPizza(\"Гоштли Микс\", 85000.0, 35); System.out.println(cp1.getPizzaName() + \" [\" + cp1.getDiameterCm() + \" sm] | \" + cp2.getPizzaName() + \" [\" + cp2.getDiameterCm() + \" sm]\");'"
       ]
     },
     "requirements": {
@@ -4064,7 +4971,13 @@ window.OOP_CHALLENGES_W3 = [
         "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
       ],
       "pitfalls": "diameterCm int turida saqlanishi kerak.",
-      "cw2Tip": "CW2 Console Order Applicationda barcha taom variantlari uchun shunday qulay zanjirli konstruktorlar taqdim eting."
+      "cw2Tip": "CW2 Console Order Applicationda barcha taom variantlari uchun shunday qulay zanjirli konstruktorlar taqdim eting.",
+      "theoryRu": "Завершение уровня 4 дает учащимся полную свободу в координации инициализации родительского объекта super(...) с делегированием перегрузки.",
+      "pitfallsRu": "Диаметр см int turida saqlanishi kerak.",
+      "breakdownRu": [
+        "<code>super(...)</code>: Ota klass konstruktorini chaqiradi.",
+        "<code>this(...)</code>: Bir xil sinfdagi to'liq konstruktorga default qiymat uzatib zanjirlaydi."
+      ]
     }
   },
   {
@@ -4074,15 +4987,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "61. WIUT Workshop — VisitingPractitioner doPA() Metodini Overriding Qilish",
-      "en": "61. WIUT Workshop — VisitingPractitioner doPA() Method Overriding"
+      "en": "61. WIUT Workshop — VisitingPractitioner doPA() Method Overriding",
+      "ru": "61. Семинар МВУТ — переопределение метода doPA() для приглашенного практикующего"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: 'AcademicStaff' sinfida 'public void doPA(String teacherName)' metodi mavjud (to'liq shtatdagi o'qituvchilar attestatsiyadan o'tadi). 'VisitingPractitioner' (soatbay o'qituvchi) esa buni qayta aniqlaydi (@Override): 'VPs don't do PA. Teacher name is: ' + teacherName.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'AcademicStaff' ni e'lon qiling va unga 'public void doPA(String teacherName)' metodini yozing.\n\n2. Avlod sinf 'VisitingPractitioner extends AcademicStaff' ni yarating.\n\n3. 'VisitingPractitioner' ichida '@Override' annotatsiyasidan foydalanib 'doPA(String teacherName)' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'AcademicStaff staff = new AcademicStaff(); VisitingPractitioner vp = new VisitingPractitioner(); staff.doPA(\"Hamid Reza\"); vp.doPA(\"Valeriya Tsoy\");'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Week 3 Workshop code: AcademicStaff defines doPA(). VisitingPractitioner overrides it with customized output: VPs don't do PA.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with 'public void doPA(String teacherName)'.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff'.\n\n3. In 'VisitingPractitioner', override 'doPA(String teacherName)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'AcademicStaff staff = new AcademicStaff(); VisitingPractitioner vp = new VisitingPractitioner(); staff.doPA(\"Hamid Reza\"); vp.doPA(\"Valeriya Tsoy\");'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Week 3 Workshop code: AcademicStaff defines doPA(). VisitingPractitioner overrides it with customized output: VPs don't do PA.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with 'public void doPA(String teacherName)'.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff'.\n\n3. In 'VisitingPractitioner', override 'doPA(String teacherName)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'AcademicStaff staff = new AcademicStaff(); VisitingPractitioner vp = new VisitingPractitioner(); staff.doPA(\"Hamid Reza\"); vp.doPA(\"Valeriya Tsoy\");'",
+      "ru": "📖 Контекст и описание задачи\nКод семинара Direct WIUT 3-й недели: AcademicStaff определяет doPA(). VisitingPractitioner переопределяет это с помощью настраиваемого вывода: вице-президенты не выполняют PA.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «AcademicStaff» с «public void doPA(String TeacherName)».\n2. Выведите «Посещающий практикующий расширяет академический штат».\n3. В «VisitingPractitioner» переопределите «doPA(String TeacherName)», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте различные выходные данные: 'AcademicStaff Staff = new AcademicStaff(); Посещающий практик vp = новый Посещающий практик (); Staff.doPA(\"Хамид Реза\"); vp.doPA(\"Валерия Цой\");'"
     },
     "story": {
       "uz": "WIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: 'AcademicStaff' sinfida 'public void doPA(String teacherName)' metodi mavjud (to'liq shtatdagi o'qituvchilar attestatsiyadan o'tadi). 'VisitingPractitioner' (soatbay o'qituvchi) esa buni qayta aniqlaydi (@Override): 'VPs don't do PA. Teacher name is: ' + teacherName.",
-      "en": "Direct WIUT Week 3 Workshop code: AcademicStaff defines doPA(). VisitingPractitioner overrides it with customized output: VPs don't do PA."
+      "en": "Direct WIUT Week 3 Workshop code: AcademicStaff defines doPA(). VisitingPractitioner overrides it with customized output: VPs don't do PA.",
+      "ru": "Код семинара Direct WIUT 3-й недели: AcademicStaff определяет doPA(). VisitingPractitioner переопределяет это с помощью настраиваемого вывода: вице-президенты не выполняют PA."
     },
     "steps": {
       "uz": [
@@ -4098,6 +5014,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'VisitingPractitioner', override 'doPA(String teacherName)' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'AcademicStaff staff = new AcademicStaff(); VisitingPractitioner vp = new VisitingPractitioner(); staff.doPA(\"Hamid Reza\"); vp.doPA(\"Valeriya Tsoy\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «AcademicStaff» с «public void doPA(String TeacherName)».",
+        "Выведите «Посещающий практикующий расширяет академический штат».",
+        "В «VisitingPractitioner» переопределите «doPA(String TeacherName)», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте различные выходные данные: 'AcademicStaff Staff = new AcademicStaff(); Посещающий практик vp = новый Посещающий практик (); Staff.doPA(\"Хамид Реза\"); vp.doPA(\"Валерия Цой\");'"
       ]
     },
     "requirements": {
@@ -4128,7 +5051,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "Metod nomini yoki parametrlarini o'zgartirib qo'ysangiz, bu Overriding emas, balki Overloading bo'lib qoladi. '@Override' annotatsiyasi xatolikni darhol aniqlab beradi.",
-      "cw2Tip": "CW2 Console Order Applicationda turli tovarlar o'z narxini hisoblash yoki chek chiqarish metodlarini @Override orqali xususiylashtiradi."
+      "cw2Tip": "CW2 Console Order Applicationda turli tovarlar o'z narxini hisoblash yoki chek chiqarish metodlarini @Override orqali xususiylashtiradi.",
+      "theoryRu": "Лекция 3. Слайды 30–31: Переопределение метода переопределяет метод суперкласса в подклассе с идентичной сигнатурой. Аннотация @Override указывает компилятору проверить полиморфизм.",
+      "pitfallsRu": "Метод nomini yoki parametrlarini o'zgartirib qo'ysangiz, bu Overriding emas, balki Перегрузка bo'lib qoladi. '@Override' аннотации xatolikni darhol aniqlab beradi.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4138,15 +5066,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "62. Uzum Market — PhysicalProduct displayInfo() Overriding (Seminar 3 Ex 4)",
-      "en": "62. Uzum Market — PhysicalProduct displayInfo() Overriding"
+      "en": "62. Uzum Market — PhysicalProduct displayInfo() Overriding",
+      "ru": "62. Рынок Узум — переопределение PhysicalProduct displayInfo()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 4: 'Product' sinfida 'public void displayInfo()' metodi mavjud ('Mahsulot: ' + name). 'PhysicalProduct' sinfida uni @Override qilib, jismoniy tovar ekanligini chop eting: 'Jismoniy tovar: ' + getName() + ' | Og'irligi: ' + weightKg + ' kg'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'public void displayInfo()' metodini yozing.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating.\n\n3. 'PhysicalProduct' ichida '@Override' annotatsiyasidan foydalanib 'displayInfo()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'Product p = new Product(\"Smartfon\"); PhysicalProduct pp = new PhysicalProduct(\"Muzlatgich\", 65.0); p.displayInfo(); pp.displayInfo();'",
-      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 4: Product defines displayInfo(). PhysicalProduct overrides it, displaying physical cargo weight specifics.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with 'public void displayInfo()'.\n\n2. Derive 'PhysicalProduct extends Product'.\n\n3. In 'PhysicalProduct', override 'displayInfo()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Smartfon\"); PhysicalProduct pp = new PhysicalProduct(\"Muzlatgich\", 65.0); p.displayInfo(); pp.displayInfo();'"
+      "en": "📖 Real-World Scenario & Context\nImplementing WIUT Seminar 3 Ex 4: Product defines displayInfo(). PhysicalProduct overrides it, displaying physical cargo weight specifics.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with 'public void displayInfo()'.\n\n2. Derive 'PhysicalProduct extends Product'.\n\n3. In 'PhysicalProduct', override 'displayInfo()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Smartfon\"); PhysicalProduct pp = new PhysicalProduct(\"Muzlatgich\", 65.0); p.displayInfo(); pp.displayInfo();'",
+      "ru": "📖 Контекст и описание задачи\nРеализация семинара WIUT 3 Пример 4: Продукт определяет displayInfo(). PhysicalProduct переопределяет его, отображая характеристики физического веса груза.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с помощью «public void displayInfo()».\n2. Выведите «Физический продукт расширяет продукт».\n3. В «PhysicalProduct» переопределите «displayInfo()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'Product p = new Product(\"Smartfon\"); ФизическийПродукт пп = новый ФизическийПродукт(\"Музлатгич\", 65.0); p.displayInfo(); pp.displayInfo();'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 4: 'Product' sinfida 'public void displayInfo()' metodi mavjud ('Mahsulot: ' + name). 'PhysicalProduct' sinfida uni @Override qilib, jismoniy tovar ekanligini chop eting: 'Jismoniy tovar: ' + getName() + ' | Og'irligi: ' + weightKg + ' kg'.",
-      "en": "Implementing WIUT Seminar 3 Ex 4: Product defines displayInfo(). PhysicalProduct overrides it, displaying physical cargo weight specifics."
+      "en": "Implementing WIUT Seminar 3 Ex 4: Product defines displayInfo(). PhysicalProduct overrides it, displaying physical cargo weight specifics.",
+      "ru": "Реализация семинара WIUT 3 Пример 4: Продукт определяет displayInfo(). PhysicalProduct переопределяет его, отображая характеристики физического веса груза."
     },
     "steps": {
       "uz": [
@@ -4162,6 +5093,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'PhysicalProduct', override 'displayInfo()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Smartfon\"); PhysicalProduct pp = new PhysicalProduct(\"Muzlatgich\", 65.0); p.displayInfo(); pp.displayInfo();'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с помощью «public void displayInfo()».",
+        "Выведите «Физический продукт расширяет продукт».",
+        "В «PhysicalProduct» переопределите «displayInfo()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'Product p = new Product(\"Smartfon\"); ФизическийПродукт пп = новый ФизическийПродукт(\"Музлатгич\", 65.0); p.displayInfo(); pp.displayInfo();'"
       ]
     },
     "requirements": {
@@ -4192,7 +5130,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "Ota klass private maydoni 'name' ga avlod klassdan getName() orqali murojaat qiling.",
-      "cw2Tip": "CW2 da har bir tovar o'z ma'lumotlarini displayInfo() orqali konsolga chiqarishi talab etiladi."
+      "cw2Tip": "CW2 da har bir tovar o'z ma'lumotlarini displayInfo() orqali konsolga chiqarishi talab etiladi.",
+      "theoryRu": "Семинар 3 Пример 4 демонстрирует адаптированное полиморфное журналирование производных физических товаров.",
+      "pitfallsRu": "Другой класс приватного майдони 'имя' дает доступ к классу getName() или муроджаат qiling.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4202,15 +5145,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "63. Uzum Market — DigitalProduct displayInfo() Overriding (Seminar 3 Ex 4)",
-      "en": "63. Uzum Market — DigitalProduct displayInfo() Overriding"
+      "en": "63. Uzum Market — DigitalProduct displayInfo() Overriding",
+      "ru": "63. Рынок Узум — переопределение DigitalProduct displayInfo()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 3 Ex 4: 'DigitalProduct' sinfida ham 'displayInfo()' metodini @Override qiling: 'Raqamli tovar: ' + getName() + ' | Fayl: ' + fileSizeMb + ' MB'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'public void displayInfo()' metodini yozing.\n\n2. Avlod sinf 'DigitalProduct extends Product' ni yarating.\n\n3. 'DigitalProduct' ichida '@Override' annotatsiyasidan foydalanib 'displayInfo()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 4 Part 2: DigitalProduct overrides displayInfo(), outputting download megabyte footprint.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with 'public void displayInfo()'.\n\n2. Derive 'DigitalProduct extends Product'.\n\n3. In 'DigitalProduct', override 'displayInfo()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 4 Part 2: DigitalProduct overrides displayInfo(), outputting download megabyte footprint.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with 'public void displayInfo()'.\n\n2. Derive 'DigitalProduct extends Product'.\n\n3. In 'DigitalProduct', override 'displayInfo()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 4, часть 2. DigitalProduct переопределяет displayInfo(), выводя объем загрузки в мегабайтах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Продукт» с помощью «public void displayInfo()».\n2. Выведите «Цифровой продукт расширяет продукт».\n3. В «DigitalProduct» переопределите «displayInfo()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'"
     },
     "story": {
       "uz": "Seminar 3 Ex 4: 'DigitalProduct' sinfida ham 'displayInfo()' metodini @Override qiling: 'Raqamli tovar: ' + getName() + ' | Fayl: ' + fileSizeMb + ' MB'.",
-      "en": "Seminar 3 Ex 4 Part 2: DigitalProduct overrides displayInfo(), outputting download megabyte footprint."
+      "en": "Seminar 3 Ex 4 Part 2: DigitalProduct overrides displayInfo(), outputting download megabyte footprint.",
+      "ru": "Семинар 3 Пример 4, часть 2. DigitalProduct переопределяет displayInfo(), выводя объем загрузки в мегабайтах."
     },
     "steps": {
       "uz": [
@@ -4226,6 +5172,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'DigitalProduct', override 'displayInfo()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Продукт» с помощью «public void displayInfo()».",
+        "Выведите «Цифровой продукт расширяет продукт».",
+        "В «DigitalProduct» переопределите «displayInfo()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'Product p = new Product(\"Antivirus\"); DigitalProduct dp = new DigitalProduct(\"Kiberxavfsizlik Video Kurs\", 1500.0); p.displayInfo(); dp.displayInfo();'"
       ]
     },
     "requirements": {
@@ -4256,7 +5209,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "Metod oldiga '@Override' annotatsiyasini yozishni unutmang.",
-      "cw2Tip": "CW2 da raqamli xizmatlar va tovarlarni alohida formatda chop eting."
+      "cw2Tip": "CW2 da raqamli xizmatlar va tovarlarni alohida formatda chop eting.",
+      "theoryRu": "Контракт идентичного метода демонстрирует различное поведение между братьями и сестрами, демонстрируя основной динамический полиморфизм.",
+      "pitfallsRu": "Старый метод '@Override' аннотацияsini yozishni unutmang.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4266,15 +5224,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "64. Payme — CryptoAccount Komissiya Hisoblash Overriding",
-      "en": "64. Payme — CryptoAccount Fee Calculation Overriding"
+      "en": "64. Payme — CryptoAccount Fee Calculation Overriding",
+      "ru": "64. Payme — переопределение расчета комиссии криптоаккаунта"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nStandart hisobda ('Account') pul o'tkazish komissiyasi 1.0% ('amount * 0.01'). Kripto hamyonda esa ('CryptoAccount extends Account') blokcheyn gaz to'lovi uchun komissiya 2.5% ('amount * 0.025') qilib @Override qilinsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni e'lon qiling va unga 'public double calculateFee(double amount)' metodini yozing.\n\n2. Avlod sinf 'CryptoAccount extends Account' ni yarating.\n\n3. 'CryptoAccount' ichida '@Override' annotatsiyasidan foydalanib 'calculateFee(double amount)' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'Account acc = new Account(); CryptoAccount crypto = new CryptoAccount(); System.out.println(\"Oddiy komissiya: \" + acc.calculateFee(100000.0) + \" | Kripto komissiya: \" + crypto.calculateFee(100000.0));'",
-      "en": "📖 Real-World Scenario & Context\nBase accounts charge 1% transaction fee; Crypto accounts override calculateFee to charge 2.5% blockchain gas fee.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with 'public double calculateFee(double amount)'.\n\n2. Derive 'CryptoAccount extends Account'.\n\n3. In 'CryptoAccount', override 'calculateFee(double amount)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Account acc = new Account(); CryptoAccount crypto = new CryptoAccount(); System.out.println(\"Oddiy komissiya: \" + acc.calculateFee(100000.0) + \" | Kripto komissiya: \" + crypto.calculateFee(100000.0));'"
+      "en": "📖 Real-World Scenario & Context\nBase accounts charge 1% transaction fee; Crypto accounts override calculateFee to charge 2.5% blockchain gas fee.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with 'public double calculateFee(double amount)'.\n\n2. Derive 'CryptoAccount extends Account'.\n\n3. In 'CryptoAccount', override 'calculateFee(double amount)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Account acc = new Account(); CryptoAccount crypto = new CryptoAccount(); System.out.println(\"Oddiy komissiya: \" + acc.calculateFee(100000.0) + \" | Kripto komissiya: \" + crypto.calculateFee(100000.0));'",
+      "ru": "📖 Контекст и описание задачи\nБазовые счета взимают комиссию за транзакцию в размере 1%; Крипто-аккаунты отменяют CalculFee и взимают комиссию за газ блокчейна в размере 2,5%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Счет» с «public double CalcFee (двойная сумма)».\n2. Выведите «CryptoAccount расширяет учетную запись».\n3. В «CryptoAccount» переопределите «calculateFee(двойная сумма)», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'Account acc = new Account(); CryptoAccount crypto = новый CryptoAccount(); System.out.println(\"Необычная комиссия: \" + acc.calculateFee(100000.0) + \" | Крипто комиссия: \" + crypto.calculateFee(100000.0));'"
     },
     "story": {
       "uz": "Standart hisobda ('Account') pul o'tkazish komissiyasi 1.0% ('amount * 0.01'). Kripto hamyonda esa ('CryptoAccount extends Account') blokcheyn gaz to'lovi uchun komissiya 2.5% ('amount * 0.025') qilib @Override qilinsin.",
-      "en": "Base accounts charge 1% transaction fee; Crypto accounts override calculateFee to charge 2.5% blockchain gas fee."
+      "en": "Base accounts charge 1% transaction fee; Crypto accounts override calculateFee to charge 2.5% blockchain gas fee.",
+      "ru": "Базовые счета взимают комиссию за транзакцию в размере 1%; Крипто-аккаунты отменяют CalculFee и взимают комиссию за газ блокчейна в размере 2,5%."
     },
     "steps": {
       "uz": [
@@ -4290,6 +5251,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'CryptoAccount', override 'calculateFee(double amount)' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'Account acc = new Account(); CryptoAccount crypto = new CryptoAccount(); System.out.println(\"Oddiy komissiya: \" + acc.calculateFee(100000.0) + \" | Kripto komissiya: \" + crypto.calculateFee(100000.0));'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Счет» с «public double CalcFee (двойная сумма)».",
+        "Выведите «CryptoAccount расширяет учетную запись».",
+        "В «CryptoAccount» переопределите «calculateFee(двойная сумма)», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'Account acc = new Account(); CryptoAccount crypto = новый CryptoAccount(); System.out.println(\"Необычная комиссия: \" + acc.calculateFee(100000.0) + \" | Крипто комиссия: \" + crypto.calculateFee(100000.0));'"
       ]
     },
     "requirements": {
@@ -4320,7 +5288,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "Metod qaytarish turi har ikkala klassda bir xil 'double' bo'lishi shart.",
-      "cw2Tip": "To'lov turlarida komissiyani hisoblash metodlarini @Override qiling."
+      "cw2Tip": "To'lov turlarida komissiyani hisoblash metodlarini @Override qiling.",
+      "theoryRu": "Алгоритмы расчета комиссий полностью переопределяют базовые расчеты, не изменяя при этом основную логику родительского учета.",
+      "pitfallsRu": "Метод qaytarish turi har ikkala klassda bir xil 'двойной' bo'lishi shart.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4330,15 +5303,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "65. Yandex Go — ExpressDeliveryOrder Yetkazish Vaqti (getETA)",
-      "en": "65. Yandex Go — ExpressDeliveryOrder ETA Overriding"
+      "en": "65. Yandex Go — ExpressDeliveryOrder ETA Overriding",
+      "ru": "65. Yandex Go — переопределение ETA ExpressDeliveryOrder"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy taksi qatnovi ('TaxiOrder') taxminiy vaqtni ('getETA()') '15 daqiqa' deb qaytaradi. Kuryerlik tezkor yetkazish buyurtmasi ('ExpressDeliveryOrder extends TaxiOrder') esa buni @Override qilib '5 daqiqa (Tezkor kuryer)' qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'TaxiOrder' ni e'lon qiling va unga 'public String getETA()' metodini yozing.\n\n2. Avlod sinf 'ExpressDeliveryOrder extends TaxiOrder' ni yarating.\n\n3. 'ExpressDeliveryOrder' ichida '@Override' annotatsiyasidan foydalanib 'getETA()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = new ExpressDeliveryOrder(); System.out.println(\"Taksi: \" + t.getETA() + \" | Kuryer: \" + e.getETA());'",
-      "en": "📖 Real-World Scenario & Context\nStandard taxi trips return 15 mins ETA; Express deliveries override getETA to return 5 mins dispatch times.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with 'public String getETA()'.\n\n2. Derive 'ExpressDeliveryOrder extends TaxiOrder'.\n\n3. In 'ExpressDeliveryOrder', override 'getETA()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = new ExpressDeliveryOrder(); System.out.println(\"Taksi: \" + t.getETA() + \" | Kuryer: \" + e.getETA());'"
+      "en": "📖 Real-World Scenario & Context\nStandard taxi trips return 15 mins ETA; Express deliveries override getETA to return 5 mins dispatch times.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with 'public String getETA()'.\n\n2. Derive 'ExpressDeliveryOrder extends TaxiOrder'.\n\n3. In 'ExpressDeliveryOrder', override 'getETA()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = new ExpressDeliveryOrder(); System.out.println(\"Taksi: \" + t.getETA() + \" | Kuryer: \" + e.getETA());'",
+      "ru": "📖 Контекст и описание задачи\nСтандартные поездки на такси возвращаются за 15 минут до прибытия; Экспресс-доставки переопределяют getETA и возвращают время доставки в течение 5 минут.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс TaxiOrder с помощью общедоступной строки getETA().\n2. Выведите «ExpressDeliveryOrder расширяет TaxiOrder».\n3. В «ExpressDeliveryOrder» переопределите «getETA()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = новый ExpressDeliveryOrder(); System.out.println(\"Такси: \" + t.getETA() + \" | Курьер: \" + e.getETA());'"
     },
     "story": {
       "uz": "Oddiy taksi qatnovi ('TaxiOrder') taxminiy vaqtni ('getETA()') '15 daqiqa' deb qaytaradi. Kuryerlik tezkor yetkazish buyurtmasi ('ExpressDeliveryOrder extends TaxiOrder') esa buni @Override qilib '5 daqiqa (Tezkor kuryer)' qaytarsin.",
-      "en": "Standard taxi trips return 15 mins ETA; Express deliveries override getETA to return 5 mins dispatch times."
+      "en": "Standard taxi trips return 15 mins ETA; Express deliveries override getETA to return 5 mins dispatch times.",
+      "ru": "Стандартные поездки на такси возвращаются за 15 минут до прибытия; Экспресс-доставки переопределяют getETA и возвращают время доставки в течение 5 минут."
     },
     "steps": {
       "uz": [
@@ -4354,6 +5330,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'ExpressDeliveryOrder', override 'getETA()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = new ExpressDeliveryOrder(); System.out.println(\"Taksi: \" + t.getETA() + \" | Kuryer: \" + e.getETA());'"
+      ],
+      "ru": [
+        "Объявите суперкласс TaxiOrder с помощью общедоступной строки getETA().",
+        "Выведите «ExpressDeliveryOrder расширяет TaxiOrder».",
+        "В «ExpressDeliveryOrder» переопределите «getETA()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'TaxiOrder t = new TaxiOrder(); ExpressDeliveryOrder e = новый ExpressDeliveryOrder(); System.out.println(\"Такси: \" + t.getETA() + \" | Курьер: \" + e.getETA());'"
       ]
     },
     "requirements": {
@@ -4384,7 +5367,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "Ikkala klassda ham getETA() String qaytarishi shart.",
-      "cw2Tip": "Yetkazib berish xizmatlarini modellashtirishda ushbu usuldan foydalaning."
+      "cw2Tip": "Yetkazib berish xizmatlarini modellashtirishda ushbu usuldan foydalaning.",
+      "theoryRu": "Соглашения об уровне обслуживания специализируются на разных уровнях транспортировки посредством явного переопределения средств доступа к строкам.",
+      "pitfallsRu": "Ikkala klassda ham getETA() Строка qaytarishi shart.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4394,15 +5382,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "66. Korzinka Go — VipClubCard Chegirma Hisoblash Overriding",
-      "en": "66. Korzinka Go — VipClubCard Discount Overriding"
+      "en": "66. Korzinka Go — VipClubCard Discount Overriding",
+      "ru": "66. Korzinka Go — переопределение скидки VipClubCard"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy sodiqlik kartasi ('LoyaltyCard') xarid summasidan 2.0% chegirma ('bill * 0.02') beradi. VIP klub kartasi ('VipClubCard extends LoyaltyCard') esa buni @Override qilib 10.0% chegirma ('bill * 0.10') hisoblasin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LoyaltyCard' ni e'lon qiling va unga 'public double calculateDiscount(double bill)' metodini yozing.\n\n2. Avlod sinf 'VipClubCard extends LoyaltyCard' ni yarating.\n\n3. 'VipClubCard' ichida '@Override' annotatsiyasidan foydalanib 'calculateDiscount(double bill)' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = new VipClubCard(); System.out.println(\"Oddiy chegirma: \" + lc.calculateDiscount(500000.0) + \" | VIP chegirma: \" + vc.calculateDiscount(500000.0));'",
-      "en": "📖 Real-World Scenario & Context\nLoyalty cards grant 2% discounts; VIP club cards override calculateDiscount to award 10% rebates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LoyaltyCard' with 'public double calculateDiscount(double bill)'.\n\n2. Derive 'VipClubCard extends LoyaltyCard'.\n\n3. In 'VipClubCard', override 'calculateDiscount(double bill)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = new VipClubCard(); System.out.println(\"Oddiy chegirma: \" + lc.calculateDiscount(500000.0) + \" | VIP chegirma: \" + vc.calculateDiscount(500000.0));'"
+      "en": "📖 Real-World Scenario & Context\nLoyalty cards grant 2% discounts; VIP club cards override calculateDiscount to award 10% rebates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LoyaltyCard' with 'public double calculateDiscount(double bill)'.\n\n2. Derive 'VipClubCard extends LoyaltyCard'.\n\n3. In 'VipClubCard', override 'calculateDiscount(double bill)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = new VipClubCard(); System.out.println(\"Oddiy chegirma: \" + lc.calculateDiscount(500000.0) + \" | VIP chegirma: \" + vc.calculateDiscount(500000.0));'",
+      "ru": "📖 Контекст и описание задачи\nКарты лояльности дают скидку 2%; Карты VIP-клуба имеют приоритет над расчетом скидки и дают скидку 10 %.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «LoyaltyCard» с «public double CalcultDiscount (двойной счет)».\n2. Выведите «VipClubCard расширяет LoyaltyCard».\n3. В «VipClubCard» переопределите «calculateDiscount(double bill)» с помощью «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = новая VipClubCard(); System.out.println(\"Оддий чегирма: \" + lc.calculateDiscount(500000.0) + \" | VIP чегирма: \" + vc.calculateDiscount(500000.0));'"
     },
     "story": {
       "uz": "Oddiy sodiqlik kartasi ('LoyaltyCard') xarid summasidan 2.0% chegirma ('bill * 0.02') beradi. VIP klub kartasi ('VipClubCard extends LoyaltyCard') esa buni @Override qilib 10.0% chegirma ('bill * 0.10') hisoblasin.",
-      "en": "Loyalty cards grant 2% discounts; VIP club cards override calculateDiscount to award 10% rebates."
+      "en": "Loyalty cards grant 2% discounts; VIP club cards override calculateDiscount to award 10% rebates.",
+      "ru": "Карты лояльности дают скидку 2%; Карты VIP-клуба имеют приоритет над расчетом скидки и дают скидку 10 %."
     },
     "steps": {
       "uz": [
@@ -4418,6 +5409,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'VipClubCard', override 'calculateDiscount(double bill)' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = new VipClubCard(); System.out.println(\"Oddiy chegirma: \" + lc.calculateDiscount(500000.0) + \" | VIP chegirma: \" + vc.calculateDiscount(500000.0));'"
+      ],
+      "ru": [
+        "Объявите суперкласс «LoyaltyCard» с «public double CalcultDiscount (двойной счет)».",
+        "Выведите «VipClubCard расширяет LoyaltyCard».",
+        "В «VipClubCard» переопределите «calculateDiscount(double bill)» с помощью «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'LoyaltyCard lc = new LoyaltyCard(); VipClubCard vc = новая VipClubCard(); System.out.println(\"Оддий чегирма: \" + lc.calculateDiscount(500000.0) + \" | VIP чегирма: \" + vc.calculateDiscount(500000.0));'"
       ]
     },
     "requirements": {
@@ -4448,7 +5446,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "10% chegirma 0.10 ga ko'paytiriladi.",
-      "cw2Tip": "CW2 Console Order Applicationda VIP mijozlarga chegirmalarni @Override orqali taqdim eting."
+      "cw2Tip": "CW2 Console Order Applicationda VIP mijozlarga chegirmalarni @Override orqali taqdim eting.",
+      "theoryRu": "Программы вознаграждений естественным образом переопределяют расчеты стимулов для подклассов уровней лояльности.",
+      "pitfallsRu": "10% чегирма 0,10 га копайтирилади.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4458,15 +5461,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "67. Click Up — FiscalReceipt generateHeader() Overriding",
-      "en": "67. Click Up — FiscalReceipt generateHeader() Overriding"
+      "en": "67. Click Up — FiscalReceipt generateHeader() Overriding",
+      "ru": "67. Нажмите «Вверх» — переопределение FiscalReceiptgenerateHeader()."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy kvitansiya ('Receipt') sarlavhada 'Oddiy to'lov cheki' matnini qaytaradi. Soliq fiskal kvitansiyasi ('FiscalReceipt extends Receipt') esa buni @Override qilib '[SOLIQ QO'MITASI FISKAL CHEKI]' matnini qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Receipt' ni e'lon qiling va unga 'public String generateHeader()' metodini yozing.\n\n2. Avlod sinf 'FiscalReceipt extends Receipt' ni yarating.\n\n3. 'FiscalReceipt' ichida '@Override' annotatsiyasidan foydalanib 'generateHeader()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'Receipt r = new Receipt(); FiscalReceipt fr = new FiscalReceipt(); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'",
-      "en": "📖 Real-World Scenario & Context\nStandard receipts generate informal headers; FiscalReceipts override generateHeader to emit regulatory stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with 'public String generateHeader()'.\n\n2. Derive 'FiscalReceipt extends Receipt'.\n\n3. In 'FiscalReceipt', override 'generateHeader()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Receipt r = new Receipt(); FiscalReceipt fr = new FiscalReceipt(); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'"
+      "en": "📖 Real-World Scenario & Context\nStandard receipts generate informal headers; FiscalReceipts override generateHeader to emit regulatory stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with 'public String generateHeader()'.\n\n2. Derive 'FiscalReceipt extends Receipt'.\n\n3. In 'FiscalReceipt', override 'generateHeader()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Receipt r = new Receipt(); FiscalReceipt fr = new FiscalReceipt(); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'",
+      "ru": "📖 Контекст и описание задачи\nСтандартные квитанции генерируют неформальные заголовки; FiscalReceipts переопределяетgenerateHeader для выпуска регулятивных штампов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Квитанция» с помощью «public StringgenerateHeader()».\n2. Выведите «FiscalReceipt расширяет квитанцию».\n3. В «FiscalReceipt» переопределите «generateHeader()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'Receipt r = new Receipt(); Фискальная квитанция фр = новая фискальная квитанция (); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'"
     },
     "story": {
       "uz": "Oddiy kvitansiya ('Receipt') sarlavhada 'Oddiy to'lov cheki' matnini qaytaradi. Soliq fiskal kvitansiyasi ('FiscalReceipt extends Receipt') esa buni @Override qilib '[SOLIQ QO'MITASI FISKAL CHEKI]' matnini qaytarsin.",
-      "en": "Standard receipts generate informal headers; FiscalReceipts override generateHeader to emit regulatory stamps."
+      "en": "Standard receipts generate informal headers; FiscalReceipts override generateHeader to emit regulatory stamps.",
+      "ru": "Стандартные квитанции генерируют неформальные заголовки; FiscalReceipts переопределяетgenerateHeader для выпуска регулятивных штампов."
     },
     "steps": {
       "uz": [
@@ -4482,6 +5488,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FiscalReceipt', override 'generateHeader()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'Receipt r = new Receipt(); FiscalReceipt fr = new FiscalReceipt(); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Квитанция» с помощью «public StringgenerateHeader()».",
+        "Выведите «FiscalReceipt расширяет квитанцию».",
+        "В «FiscalReceipt» переопределите «generateHeader()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'Receipt r = new Receipt(); Фискальная квитанция фр = новая фискальная квитанция (); System.out.println(r.generateHeader() + \" vs \" + fr.generateHeader());'"
       ]
     },
     "requirements": {
@@ -4512,7 +5525,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "generateHeader() metodi String qiymat qaytarishi lozim.",
-      "cw2Tip": "Chek va hisobotlarni shakllantirishda method overriding dan foydalaning."
+      "cw2Tip": "Chek va hisobotlarni shakllantirishda method overriding dan foydalaning.",
+      "theoryRu": "Форматы нормативной отчетности переопределяют общие заголовки шаблонов в контекстах отправки.",
+      "pitfallsRu": "Метод генерацииHeader() String qiymat qaytarishi lozim.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4522,15 +5540,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "68. Asaxiy Books — AudioBookItem getFormatLabel() Overriding",
-      "en": "68. Asaxiy Books — AudioBookItem getFormatLabel() Overriding"
+      "en": "68. Asaxiy Books — AudioBookItem getFormatLabel() Overriding",
+      "ru": "68. Asaxy Books — переопределение AudioBookItem getFormatLabel()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar ('CatalogItem') format yorlig'ini ('getFormatLabel()') 'Jismoniy kitob' deb qaytaradi. Audio kitob ('AudioBookItem extends CatalogItem') esa buni @Override qilib 'Raqamli Audio (MP3 320kbps)' qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CatalogItem' ni e'lon qiling va unga 'public String getFormatLabel()' metodini yozing.\n\n2. Avlod sinf 'AudioBookItem extends CatalogItem' ni yarating.\n\n3. 'AudioBookItem' ichida '@Override' annotatsiyasidan foydalanib 'getFormatLabel()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = new AudioBookItem(); System.out.println(\"Format 1: \" + item.getFormatLabel() + \" | Format 2: \" + audio.getFormatLabel());'",
-      "en": "📖 Real-World Scenario & Context\nCatalog items default format labels to 'Jismoniy kitob'; Audiobooks override to 'Raqamli Audio (MP3 320kbps)'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with 'public String getFormatLabel()'.\n\n2. Derive 'AudioBookItem extends CatalogItem'.\n\n3. In 'AudioBookItem', override 'getFormatLabel()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = new AudioBookItem(); System.out.println(\"Format 1: \" + item.getFormatLabel() + \" | Format 2: \" + audio.getFormatLabel());'"
+      "en": "📖 Real-World Scenario & Context\nCatalog items default format labels to 'Jismoniy kitob'; Audiobooks override to 'Raqamli Audio (MP3 320kbps)'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with 'public String getFormatLabel()'.\n\n2. Derive 'AudioBookItem extends CatalogItem'.\n\n3. In 'AudioBookItem', override 'getFormatLabel()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = new AudioBookItem(); System.out.println(\"Format 1: \" + item.getFormatLabel() + \" | Format 2: \" + audio.getFormatLabel());'",
+      "ru": "📖 Контекст и описание задачи\nМетки формата элементов каталога по умолчанию — «Jismoniy kitob»; Аудиокниги заменяют «Raqamli Audio (MP3 320kbps)».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «CatalogItem» с помощью «public String getFormatLabel()».\n2. Выведите «AudioBookItem расширяет CatalogItem».\n3. В AudioBookItem переопределите getFormatLabel() с помощью @Override.\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте различные выходные данные: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = новый AudioBookItem(); System.out.println(\"Формат 1: \" + item.getFormatLabel() + \" | Формат 2: \" + audio.getFormatLabel());'"
     },
     "story": {
       "uz": "Tovar ('CatalogItem') format yorlig'ini ('getFormatLabel()') 'Jismoniy kitob' deb qaytaradi. Audio kitob ('AudioBookItem extends CatalogItem') esa buni @Override qilib 'Raqamli Audio (MP3 320kbps)' qaytarsin.",
-      "en": "Catalog items default format labels to 'Jismoniy kitob'; Audiobooks override to 'Raqamli Audio (MP3 320kbps)'."
+      "en": "Catalog items default format labels to 'Jismoniy kitob'; Audiobooks override to 'Raqamli Audio (MP3 320kbps)'.",
+      "ru": "Метки формата элементов каталога по умолчанию — «Jismoniy kitob»; Аудиокниги заменяют «Raqamli Audio (MP3 320kbps)»."
     },
     "steps": {
       "uz": [
@@ -4546,6 +5567,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'AudioBookItem', override 'getFormatLabel()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = new AudioBookItem(); System.out.println(\"Format 1: \" + item.getFormatLabel() + \" | Format 2: \" + audio.getFormatLabel());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «CatalogItem» с помощью «public String getFormatLabel()».",
+        "Выведите «AudioBookItem расширяет CatalogItem».",
+        "В AudioBookItem переопределите getFormatLabel() с помощью @Override.",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте различные выходные данные: 'CatalogItem item = new CatalogItem(); AudioBookItem audio = новый AudioBookItem(); System.out.println(\"Формат 1: \" + item.getFormatLabel() + \" | Формат 2: \" + audio.getFormatLabel());'"
       ]
     },
     "requirements": {
@@ -4576,7 +5604,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "AudioBookItem klassida @Override annotatsiyasini qoldirmang.",
-      "cw2Tip": "Katalog tizimlarida tovar formatlarini yoritishda ushbu andozadan foydalaning."
+      "cw2Tip": "Katalog tizimlarida tovar formatlarini yoritishda ushbu andozadan foydalaning.",
+      "theoryRu": "Дескрипторы медиаформатов легко адаптируются к производным каталогам аудиовизуальных библиотек.",
+      "pitfallsRu": "AudioBookItem класс @Override annotatsiyasini qoldirmang.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4586,15 +5619,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "69. Express24 — DroneTransport deliver() Overriding",
-      "en": "69. Express24 — DroneTransport deliver() Overriding"
+      "en": "69. Express24 — DroneTransport deliver() Overriding",
+      "ru": "69. Express24 — переопределение метода доставки DroneTransport()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryer transporti ('CourierTransport') yetkazish metodida ('deliver()') 'Avtomobilda yetkazilmoqda' xabarini qaytaradi. Dron transporti ('DroneTransport extends CourierTransport') esa buni @Override qilib 'Havodan dron orqali tezkor uchmoqda' matnini qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CourierTransport' ni e'lon qiling va unga 'public String deliver()' metodini yozing.\n\n2. Avlod sinf 'DroneTransport extends CourierTransport' ni yarating.\n\n3. 'DroneTransport' ichida '@Override' annotatsiyasidan foydalanib 'deliver()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = new DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'",
-      "en": "📖 Real-World Scenario & Context\nGround couriers report road transit; Drone fleets override deliver() to signal autonomous airborne dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with 'public String deliver()'.\n\n2. Derive 'DroneTransport extends CourierTransport'.\n\n3. In 'DroneTransport', override 'deliver()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = new DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'"
+      "en": "📖 Real-World Scenario & Context\nGround couriers report road transit; Drone fleets override deliver() to signal autonomous airborne dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with 'public String deliver()'.\n\n2. Derive 'DroneTransport extends CourierTransport'.\n\n3. In 'DroneTransport', override 'deliver()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = new DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'",
+      "ru": "📖 Контекст и описание задачи\nНаземные курьеры сообщают о транзитных перевозках; Флоты дронов переопределяют метод Deliver(), чтобы сигнализировать об автономной отправке по воздуху.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс CourierTransport с помощью public String Deliver().\n2. Выведите «DroneTransport расширяет CourierTransport».\n3. В «DroneTransport» переопределите «deliver()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте различные выходные данные: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = новый DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'"
     },
     "story": {
       "uz": "Kuryer transporti ('CourierTransport') yetkazish metodida ('deliver()') 'Avtomobilda yetkazilmoqda' xabarini qaytaradi. Dron transporti ('DroneTransport extends CourierTransport') esa buni @Override qilib 'Havodan dron orqali tezkor uchmoqda' matnini qaytarsin.",
-      "en": "Ground couriers report road transit; Drone fleets override deliver() to signal autonomous airborne dispatch."
+      "en": "Ground couriers report road transit; Drone fleets override deliver() to signal autonomous airborne dispatch.",
+      "ru": "Наземные курьеры сообщают о транзитных перевозках; Флоты дронов переопределяют метод Deliver(), чтобы сигнализировать об автономной отправке по воздуху."
     },
     "steps": {
       "uz": [
@@ -4610,6 +5646,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'DroneTransport', override 'deliver()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = new DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'"
+      ],
+      "ru": [
+        "Объявите суперкласс CourierTransport с помощью public String Deliver().",
+        "Выведите «DroneTransport расширяет CourierTransport».",
+        "В «DroneTransport» переопределите «deliver()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте различные выходные данные: 'CourierTransport ct = new CourierTransport(); DroneTransport dt = новый DroneTransport(); System.out.println(ct.deliver() + \" -> \" + dt.deliver());'"
       ]
     },
     "requirements": {
@@ -4640,7 +5683,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "deliver() metodi String qaytarishi shart.",
-      "cw2Tip": "Transport va logistika modellarida ushbu usulni qo'llang."
+      "cw2Tip": "Transport va logistika modellarida ushbu usulni qo'llang.",
+      "theoryRu": "Логистические транспортные средства специализируют оперативные диспетчерские сообщения посредством явного переопределения.",
+      "pitfallsRu": "метод доставки() String qaytarishi shart.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4650,15 +5698,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "70. Beeline — FreeNightPlan Daqiqalik Tarif Overriding",
-      "en": "70. Beeline — FreeNightPlan Rate Overriding"
+      "en": "70. Beeline — FreeNightPlan Rate Overriding",
+      "ru": "70. Билайн — переопределение тарифа FreeNightPlan"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy tarif ('CallingPlan') istalgan soatda daqiqasiga 100.0 so'm hisoblaydi ('calculateRate(int hour)'). Tungi bepul tarif ('FreeNightPlan extends CallingPlan') esa tungi soatlarda (hour >= 0 && hour < 6) 0.0 so'm, kunduzi esa 150.0 so'm qilib @Override qilinsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CallingPlan' ni e'lon qiling va unga 'public double calculateRate(int hour)' metodini yozing.\n\n2. Avlod sinf 'FreeNightPlan extends CallingPlan' ni yarating.\n\n3. 'FreeNightPlan' ichida '@Override' annotatsiyasidan foydalanib 'calculateRate(int hour)' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = new FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'",
-      "en": "📖 Real-World Scenario & Context\nCalling plans charge 100 UZS flat rates; FreeNightPlans override calculateRate to charge 0 UZS at night and 150 UZS daytime.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with 'public double calculateRate(int hour)'.\n\n2. Derive 'FreeNightPlan extends CallingPlan'.\n\n3. In 'FreeNightPlan', override 'calculateRate(int hour)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = new FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'"
+      "en": "📖 Real-World Scenario & Context\nCalling plans charge 100 UZS flat rates; FreeNightPlans override calculateRate to charge 0 UZS at night and 150 UZS daytime.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with 'public double calculateRate(int hour)'.\n\n2. Derive 'FreeNightPlan extends CallingPlan'.\n\n3. In 'FreeNightPlan', override 'calculateRate(int hour)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = new FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'",
+      "ru": "📖 Контекст и описание задачи\nПланы звонков взимают фиксированную плату в размере 100 сумов; FreeNightPlans переопределяет метод расчета тарифа и взимает 0 сум ночью и 150 сум днем.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «CallingPlan» с «public double CalculateRate(inthour)».\n2. Выведите «FreeNightPlan расширяет CallingPlan».\n3. В «FreeNightPlan» переопределите «calculateRate(inthour)» с помощью «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = новый FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'"
     },
     "story": {
       "uz": "Oddiy tarif ('CallingPlan') istalgan soatda daqiqasiga 100.0 so'm hisoblaydi ('calculateRate(int hour)'). Tungi bepul tarif ('FreeNightPlan extends CallingPlan') esa tungi soatlarda (hour >= 0 && hour < 6) 0.0 so'm, kunduzi esa 150.0 so'm qilib @Override qilinsin.",
-      "en": "Calling plans charge 100 UZS flat rates; FreeNightPlans override calculateRate to charge 0 UZS at night and 150 UZS daytime."
+      "en": "Calling plans charge 100 UZS flat rates; FreeNightPlans override calculateRate to charge 0 UZS at night and 150 UZS daytime.",
+      "ru": "Планы звонков взимают фиксированную плату в размере 100 сумов; FreeNightPlans переопределяет метод расчета тарифа и взимает 0 сум ночью и 150 сум днем."
     },
     "steps": {
       "uz": [
@@ -4674,6 +5725,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FreeNightPlan', override 'calculateRate(int hour)' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = new FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'"
+      ],
+      "ru": [
+        "Объявите суперкласс «CallingPlan» с «public double CalculateRate(inthour)».",
+        "Выведите «FreeNightPlan расширяет CallingPlan».",
+        "В «FreeNightPlan» переопределите «calculateRate(inthour)» с помощью «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'CallingPlan cp = new CallingPlan(); FreeNightPlan fnp = новый FreeNightPlan(); System.out.println(\"Kunduz: \" + cp.calculateRate(14) + \" vs \" + fnp.calculateRate(14) + \" | Tun (03:00): \" + fnp.calculateRate(3));'"
       ]
     },
     "requirements": {
@@ -4704,7 +5762,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "hour parametri int, natija double bo'lishi lozim.",
-      "cw2Tip": "Dinamik narxlash va chegirmalarni avlod klass metodida bajaring."
+      "cw2Tip": "Dinamik narxlash va chegirmalarni avlod klass metodida bajaring.",
+      "theoryRu": "Разница в оплате по времени суток плавно адаптируется внутри производных механизмов ценообразования в сфере телекоммуникаций.",
+      "pitfallsRu": "параметр часа int, natija double bo'lishi lozim.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4714,15 +5777,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "71. Texnomart — SolarAppliance getEnergyRating() Overriding",
-      "en": "71. Texnomart — SolarAppliance getEnergyRating() Overriding"
+      "en": "71. Texnomart — SolarAppliance getEnergyRating() Overriding",
+      "ru": "71. Texnomart — переопределение SolarAppliance getEnergyRating()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMaishiy texnika ('ApplianceItem') energiya sinfini ('getEnergyRating()') 'A' deb qaytaradi. Quyosh batareyali texnika ('SolarAppliance extends ApplianceItem') esa buni @Override qilib 'A+++ (Yashil Energiya)' qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'ApplianceItem' ni e'lon qiling va unga 'public String getEnergyRating()' metodini yozing.\n\n2. Avlod sinf 'SolarAppliance extends ApplianceItem' ni yarating.\n\n3. 'SolarAppliance' ichida '@Override' annotatsiyasidan foydalanib 'getEnergyRating()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = new SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'",
-      "en": "📖 Real-World Scenario & Context\nAppliances default to energy class 'A'; Solar appliances override getEnergyRating to return 'A+++ (Yashil Energiya)'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with 'public String getEnergyRating()'.\n\n2. Derive 'SolarAppliance extends ApplianceItem'.\n\n3. In 'SolarAppliance', override 'getEnergyRating()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = new SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'"
+      "en": "📖 Real-World Scenario & Context\nAppliances default to energy class 'A'; Solar appliances override getEnergyRating to return 'A+++ (Yashil Energiya)'.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with 'public String getEnergyRating()'.\n\n2. Derive 'SolarAppliance extends ApplianceItem'.\n\n3. In 'SolarAppliance', override 'getEnergyRating()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = new SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'",
+      "ru": "📖 Контекст и описание задачи\nПо умолчанию устройства относятся к классу энергопотребления «А»; Солнечные приборы переопределяют getEnergyRating и возвращают «A+++ (Яшиль Энергия)».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс ApplianceItem с помощью public String getEnergyRating().\n2. Выведите «SolarAppliance расширяет ApplianceItem».\n3. В «SolarAppliance» переопределите «getEnergyRating()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте различные выходные данные: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = новый SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'"
     },
     "story": {
       "uz": "Maishiy texnika ('ApplianceItem') energiya sinfini ('getEnergyRating()') 'A' deb qaytaradi. Quyosh batareyali texnika ('SolarAppliance extends ApplianceItem') esa buni @Override qilib 'A+++ (Yashil Energiya)' qaytarsin.",
-      "en": "Appliances default to energy class 'A'; Solar appliances override getEnergyRating to return 'A+++ (Yashil Energiya)'."
+      "en": "Appliances default to energy class 'A'; Solar appliances override getEnergyRating to return 'A+++ (Yashil Energiya)'.",
+      "ru": "По умолчанию устройства относятся к классу энергопотребления «А»; Солнечные приборы переопределяют getEnergyRating и возвращают «A+++ (Яшиль Энергия)»."
     },
     "steps": {
       "uz": [
@@ -4738,6 +5804,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'SolarAppliance', override 'getEnergyRating()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = new SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'"
+      ],
+      "ru": [
+        "Объявите суперкласс ApplianceItem с помощью public String getEnergyRating().",
+        "Выведите «SolarAppliance расширяет ApplianceItem».",
+        "В «SolarAppliance» переопределите «getEnergyRating()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте различные выходные данные: 'ApplianceItem ai = new ApplianceItem(); SolarAppliance sa = новый SolarAppliance(); System.out.println(\"Standart: \" + ai.getEnergyRating() + \" | Quyoshli: \" + sa.getEnergyRating());'"
       ]
     },
     "requirements": {
@@ -4768,7 +5841,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "getEnergyRating() String qaytarishini tekshiring.",
-      "cw2Tip": "Mahsulotlarning energiya samaradorligini modellashtirishda overriding dan foydalaning."
+      "cw2Tip": "Mahsulotlarning energiya samaradorligini modellashtirishda overriding dan foydalaning.",
+      "theoryRu": "«Зеленые» технологии полностью игнорируют стандартные показатели энергопотребления благодаря классовой специализации.",
+      "pitfallsRu": "getEnergyRating() Строка qaytarishini tekshiring.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4778,15 +5856,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "72. Kapitalbank — GracePeriodLoan isPaymentDue() Overriding",
-      "en": "72. Kapitalbank — GracePeriodLoan isPaymentDue() Overriding"
+      "en": "72. Kapitalbank — GracePeriodLoan isPaymentDue() Overriding",
+      "ru": "72. Капиталбанк — Переопределение GracePeriodLoan isPaymentDue()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy kreditda ('Loan') oyning 1-kunidanoq to'lov kutiladi ('isPaymentDue(int month)' doimo true). Imtiyozli kreditda esa ('GracePeriodLoan extends Loan') dastlabki 3 oyda (month <= 3) to'lov kutilmaydi (false), keyin esa kutiladi (true).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Loan' ni e'lon qiling va unga 'public boolean isPaymentDue(int month)' metodini yozing.\n\n2. Avlod sinf 'GracePeriodLoan extends Loan' ni yarating.\n\n3. 'GracePeriodLoan' ichida '@Override' annotatsiyasidan foydalanib 'isPaymentDue(int month)' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'Loan l = new Loan(); GracePeriodLoan gpl = new GracePeriodLoan(); System.out.println(\"1-oy: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-oy: \" + gpl.isPaymentDue(5));'",
-      "en": "📖 Real-World Scenario & Context\nStandard loans mandate payments immediately; Grace period loans override isPaymentDue to return false during the first 3 months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with 'public boolean isPaymentDue(int month)'.\n\n2. Derive 'GracePeriodLoan extends Loan'.\n\n3. In 'GracePeriodLoan', override 'isPaymentDue(int month)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Loan l = new Loan(); GracePeriodLoan gpl = new GracePeriodLoan(); System.out.println(\"1-oy: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-oy: \" + gpl.isPaymentDue(5));'"
+      "en": "📖 Real-World Scenario & Context\nStandard loans mandate payments immediately; Grace period loans override isPaymentDue to return false during the first 3 months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with 'public boolean isPaymentDue(int month)'.\n\n2. Derive 'GracePeriodLoan extends Loan'.\n\n3. In 'GracePeriodLoan', override 'isPaymentDue(int month)' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'Loan l = new Loan(); GracePeriodLoan gpl = new GracePeriodLoan(); System.out.println(\"1-oy: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-oy: \" + gpl.isPaymentDue(5));'",
+      "ru": "📖 Контекст и описание задачи\nСтандартные кредиты требуют немедленных выплат; Кредиты льготного периода переопределяют isPaymentDue, возвращая false в течение первых 3 месяцев.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ссуда» с «публичным логическим значением isPaymentDue(intmonth)».\n2. Выведите «GracePeriodLoan продлевает ссуду».\n3. В GracePeriodLoan переопределите isPaymentDue(intmonth) с помощью @Override.\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'Loan l = new Loan(); GracePeriodLoan gpl = новый GracePeriodLoan(); System.out.println(\"1-ой: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-ой: \" + gpl.isPaymentDue(5));'"
     },
     "story": {
       "uz": "Oddiy kreditda ('Loan') oyning 1-kunidanoq to'lov kutiladi ('isPaymentDue(int month)' doimo true). Imtiyozli kreditda esa ('GracePeriodLoan extends Loan') dastlabki 3 oyda (month <= 3) to'lov kutilmaydi (false), keyin esa kutiladi (true).",
-      "en": "Standard loans mandate payments immediately; Grace period loans override isPaymentDue to return false during the first 3 months."
+      "en": "Standard loans mandate payments immediately; Grace period loans override isPaymentDue to return false during the first 3 months.",
+      "ru": "Стандартные кредиты требуют немедленных выплат; Кредиты льготного периода переопределяют isPaymentDue, возвращая false в течение первых 3 месяцев."
     },
     "steps": {
       "uz": [
@@ -4802,6 +5883,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'GracePeriodLoan', override 'isPaymentDue(int month)' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'Loan l = new Loan(); GracePeriodLoan gpl = new GracePeriodLoan(); System.out.println(\"1-oy: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-oy: \" + gpl.isPaymentDue(5));'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ссуда» с «публичным логическим значением isPaymentDue(intmonth)».",
+        "Выведите «GracePeriodLoan продлевает ссуду».",
+        "В GracePeriodLoan переопределите isPaymentDue(intmonth) с помощью @Override.",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'Loan l = new Loan(); GracePeriodLoan gpl = новый GracePeriodLoan(); System.out.println(\"1-ой: \" + l.isPaymentDue(1) + \" vs \" + gpl.isPaymentDue(1) + \" | 5-ой: \" + gpl.isPaymentDue(5));'"
       ]
     },
     "requirements": {
@@ -4832,7 +5920,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "month <= 3 da false qaytarishi kerak (month > 3 sharti).",
-      "cw2Tip": "Moliyaviy shartlarni tekshirishda boolean metodlarni overriding qiling."
+      "cw2Tip": "Moliyaviy shartlarni tekshirishda boolean metodlarni overriding qiling.",
+      "theoryRu": "Моратории на андеррайтинг кредитов прозрачно сопоставляются с переопределенными логическими предикатами расписания.",
+      "pitfallsRu": "месяц <= 3 да ложный кайтариши керак (месяц > 3 шарти).",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4842,15 +5935,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "73. Medion Clinic — UrgentLabTest getProcessingHours() Overriding",
-      "en": "73. Medion Clinic — UrgentLabTest getProcessingHours() Overriding"
+      "en": "73. Medion Clinic — UrgentLabTest getProcessingHours() Overriding",
+      "ru": "73. Клиника Медион — UrgentLabTest переопределение getProcessingHours()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLaboratoriya tahlili ('LabTest') natija chiqish vaqtini ('getProcessingHours()') 24 soat deb qaytaradi. Tezkor CITO tahlili ('UrgentLabTest extends LabTest') esa buni @Override qilib 2 soat deb qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LabTest' ni e'lon qiling va unga 'public int getProcessingHours()' metodini yozing.\n\n2. Avlod sinf 'UrgentLabTest extends LabTest' ni yarating.\n\n3. 'UrgentLabTest' ichida '@Override' annotatsiyasidan foydalanib 'getProcessingHours()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'LabTest lt = new LabTest(); UrgentLabTest ult = new UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'",
-      "en": "📖 Real-World Scenario & Context\nStandard lab tests take 24 hours; Urgent CITO lab tests override getProcessingHours to return 2 hours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with 'public int getProcessingHours()'.\n\n2. Derive 'UrgentLabTest extends LabTest'.\n\n3. In 'UrgentLabTest', override 'getProcessingHours()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'LabTest lt = new LabTest(); UrgentLabTest ult = new UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'"
+      "en": "📖 Real-World Scenario & Context\nStandard lab tests take 24 hours; Urgent CITO lab tests override getProcessingHours to return 2 hours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with 'public int getProcessingHours()'.\n\n2. Derive 'UrgentLabTest extends LabTest'.\n\n3. In 'UrgentLabTest', override 'getProcessingHours()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'LabTest lt = new LabTest(); UrgentLabTest ult = new UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'",
+      "ru": "📖 Контекст и описание задачи\nСтандартные лабораторные анализы занимают 24 часа; Срочные лабораторные тесты CITO переопределяют getProcessingHours и возвращают 2 часа.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс LabTest с помощью public int getProcessingHours().\n2. Выведите «UrgentLabTest расширяет LabTest».\n3. В «UrgentLabTest» переопределите «getProcessingHours()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'LabTest lt = new LabTest(); UrgentLabTest ult = новый UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'"
     },
     "story": {
       "uz": "Laboratoriya tahlili ('LabTest') natija chiqish vaqtini ('getProcessingHours()') 24 soat deb qaytaradi. Tezkor CITO tahlili ('UrgentLabTest extends LabTest') esa buni @Override qilib 2 soat deb qaytarsin.",
-      "en": "Standard lab tests take 24 hours; Urgent CITO lab tests override getProcessingHours to return 2 hours."
+      "en": "Standard lab tests take 24 hours; Urgent CITO lab tests override getProcessingHours to return 2 hours.",
+      "ru": "Стандартные лабораторные анализы занимают 24 часа; Срочные лабораторные тесты CITO переопределяют getProcessingHours и возвращают 2 часа."
     },
     "steps": {
       "uz": [
@@ -4866,6 +5962,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'UrgentLabTest', override 'getProcessingHours()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'LabTest lt = new LabTest(); UrgentLabTest ult = new UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс LabTest с помощью public int getProcessingHours().",
+        "Выведите «UrgentLabTest расширяет LabTest».",
+        "В «UrgentLabTest» переопределите «getProcessingHours()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'LabTest lt = new LabTest(); UrgentLabTest ult = новый UrgentLabTest(); System.out.println(\"Standart tahlil: \" + lt.getProcessingHours() + \" soat | CITO tahlil: \" + ult.getProcessingHours() + \" soat\");'"
       ]
     },
     "requirements": {
@@ -4896,7 +5999,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "getProcessingHours int turida bo'ladi.",
-      "cw2Tip": "Xizmat ko'rsatish muddatlarini avlod klass orqali moslashtiring."
+      "cw2Tip": "Xizmat ko'rsatish muddatlarini avlod klass orqali moslashtiring.",
+      "theoryRu": "Время оказания диагностических услуг различается в зависимости от подкласса неотложной клинической помощи из-за переопределения.",
+      "pitfallsRu": "getProcessingHours int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4906,15 +6014,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "74. Uzbekistan Airways — FastTrackBoardingPass getBoardingZone() Overriding",
-      "en": "74. Uzbekistan Airways — FastTrackBoardingPass getBoardingZone() Overriding"
+      "en": "74. Uzbekistan Airways — FastTrackBoardingPass getBoardingZone() Overriding",
+      "ru": "74. Узбекские авиалинии — FastTrackBoardingPass getBoardingZone() Переопределение"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy parvoz talonida ('BoardingPass') chiqish zonasi ('getBoardingZone()') 'Zone-4 (Umumiy navbat)' qaytariladi. Fast-track yo'lovchisida esa ('FastTrackBoardingPass extends BoardingPass') buni @Override qilib 'Zone-1 (Ustuvor Fast-Track)' qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BoardingPass' ni e'lon qiling va unga 'public String getBoardingZone()' metodini yozing.\n\n2. Avlod sinf 'FastTrackBoardingPass extends BoardingPass' ni yarating.\n\n3. 'FastTrackBoardingPass' ichida '@Override' annotatsiyasidan foydalanib 'getBoardingZone()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = new FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'",
-      "en": "📖 Real-World Scenario & Context\nGeneral boarding passes assign passengers to Zone-4; Fast-track passes override to Zone-1 priority lanes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with 'public String getBoardingZone()'.\n\n2. Derive 'FastTrackBoardingPass extends BoardingPass'.\n\n3. In 'FastTrackBoardingPass', override 'getBoardingZone()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = new FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'"
+      "en": "📖 Real-World Scenario & Context\nGeneral boarding passes assign passengers to Zone-4; Fast-track passes override to Zone-1 priority lanes.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with 'public String getBoardingZone()'.\n\n2. Derive 'FastTrackBoardingPass extends BoardingPass'.\n\n3. In 'FastTrackBoardingPass', override 'getBoardingZone()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = new FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'",
+      "ru": "📖 Контекст и описание задачи\nОбщие посадочные талоны направляют пассажиров в Зону-4; Ускоренный проезд имеет приоритет перед приоритетными полосами движения в Зоне 1.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BoardingPass с помощью public String getBoardingZone().\n2. Выведите «FastTrackBoardingPass расширяет BoardingPass».\n3. В FastTrackBoardingPass переопределите getBoardingZone() с помощью @Override.\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = новый FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'"
     },
     "story": {
       "uz": "Oddiy parvoz talonida ('BoardingPass') chiqish zonasi ('getBoardingZone()') 'Zone-4 (Umumiy navbat)' qaytariladi. Fast-track yo'lovchisida esa ('FastTrackBoardingPass extends BoardingPass') buni @Override qilib 'Zone-1 (Ustuvor Fast-Track)' qaytarsin.",
-      "en": "General boarding passes assign passengers to Zone-4; Fast-track passes override to Zone-1 priority lanes."
+      "en": "General boarding passes assign passengers to Zone-4; Fast-track passes override to Zone-1 priority lanes.",
+      "ru": "Общие посадочные талоны направляют пассажиров в Зону-4; Ускоренный проезд имеет приоритет перед приоритетными полосами движения в Зоне 1."
     },
     "steps": {
       "uz": [
@@ -4930,6 +6041,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FastTrackBoardingPass', override 'getBoardingZone()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = new FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'"
+      ],
+      "ru": [
+        "Объявите суперкласс BoardingPass с помощью public String getBoardingZone().",
+        "Выведите «FastTrackBoardingPass расширяет BoardingPass».",
+        "В FastTrackBoardingPass переопределите getBoardingZone() с помощью @Override.",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'BoardingPass bp = new BoardingPass(); FastTrackBoardingPass fbp = новый FastTrackBoardingPass(); System.out.println(bp.getBoardingZone() + \" vs \" + fbp.getBoardingZone());'"
       ]
     },
     "requirements": {
@@ -4960,7 +6078,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "getBoardingZone String qaytaradi.",
-      "cw2Tip": "Xizmat ko'rsatish zonalarini modellashtirishda ushbu usuldan foydalaning."
+      "cw2Tip": "Xizmat ko'rsatish zonalarini modellashtirishda ushbu usuldan foydalaning.",
+      "theoryRu": "Приоритетные зоны выхода на посадку в аэропорту плавно различаются с помощью переопределения метода.",
+      "pitfallsRu": "getBoardingZone Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -4970,15 +6093,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "61-75: Metodlarni Overriding Qilish",
     "title": {
       "uz": "75. Dodo Pizza — GlutenFreePizza getDoughType() Overriding",
-      "en": "75. Dodo Pizza — GlutenFreePizza getDoughType() Overriding"
+      "en": "75. Dodo Pizza — GlutenFreePizza getDoughType() Overriding",
+      "ru": "75. Додо Пицца — GlutenFreePizza Переопределение getDoughType()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n5-bosqich yakuni: Pitsada ('PizzaItem') xamir turi ('getDoughType()') 'An'anaviy bug'doy xamiri' deb olinadi. Glyutensiz parhez pitsasida ('GlutenFreePizza extends PizzaItem') esa buni @Override qilib 'Maxsus guruch va makkajo'xori xamiri (Glyutensiz)' deb qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'PizzaItem' ni e'lon qiling va unga 'public String getDoughType()' metodini yozing.\n\n2. Avlod sinf 'GlutenFreePizza extends PizzaItem' ni yarating.\n\n3. 'GlutenFreePizza' ichida '@Override' annotatsiyasidan foydalanib 'getDoughType()' metodini qayta aniqlang (Overriding).\n\n4. 'Main' metodida ota sinf va avlod sinf ob'yektlarini yarating.\n\n5. Ikkala ob'yekt orqali metodni chaqirib, har xil natija chiqqanini tekshiring: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = new GlutenFreePizza(); System.out.println(\"Oddiy xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 5: Pizza items default to traditional wheat dough; Gluten-free items override to specialty rice & corn dough.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with 'public String getDoughType()'.\n\n2. Derive 'GlutenFreePizza extends PizzaItem'.\n\n3. In 'GlutenFreePizza', override 'getDoughType()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = new GlutenFreePizza(); System.out.println(\"Oddiy xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 5: Pizza items default to traditional wheat dough; Gluten-free items override to specialty rice & corn dough.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with 'public String getDoughType()'.\n\n2. Derive 'GlutenFreePizza extends PizzaItem'.\n\n3. In 'GlutenFreePizza', override 'getDoughType()' using '@Override'.\n\n4. Instantiate both superclass and subclass objects in 'main'.\n\n5. Invoke method on both and verify diverse outputs: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = new GlutenFreePizza(); System.out.println(\"Oddiy xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 5: пицца по умолчанию готовится из традиционного пшеничного теста; Продукты без глютена имеют приоритет перед фирменным рисовым и кукурузным тестом.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PizzaItem с помощью public String getDoughType().\n2. Выведите «GlutenFreePizza расширяет PizzaItem».\n3. В «GlutenFreePizza» переопределите «getDoughType()», используя «@Override».\n4. Создайте экземпляры объектов суперкласса и подкласса в «main».\n5. Вызовите метод для обоих и проверьте разные выходные данные: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = новая GlutenFreePizza(); System.out.println(\"Оддий xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'"
     },
     "story": {
       "uz": "5-bosqich yakuni: Pitsada ('PizzaItem') xamir turi ('getDoughType()') 'An'anaviy bug'doy xamiri' deb olinadi. Glyutensiz parhez pitsasida ('GlutenFreePizza extends PizzaItem') esa buni @Override qilib 'Maxsus guruch va makkajo'xori xamiri (Glyutensiz)' deb qaytarsin.",
-      "en": "Grand finale of Tier 5: Pizza items default to traditional wheat dough; Gluten-free items override to specialty rice & corn dough."
+      "en": "Grand finale of Tier 5: Pizza items default to traditional wheat dough; Gluten-free items override to specialty rice & corn dough.",
+      "ru": "Грандиозный финал уровня 5: пицца по умолчанию готовится из традиционного пшеничного теста; Продукты без глютена имеют приоритет перед фирменным рисовым и кукурузным тестом."
     },
     "steps": {
       "uz": [
@@ -4994,6 +6120,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'GlutenFreePizza', override 'getDoughType()' using '@Override'.",
         "Instantiate both superclass and subclass objects in 'main'.",
         "Invoke method on both and verify diverse outputs: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = new GlutenFreePizza(); System.out.println(\"Oddiy xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'"
+      ],
+      "ru": [
+        "Объявите суперкласс PizzaItem с помощью public String getDoughType().",
+        "Выведите «GlutenFreePizza расширяет PizzaItem».",
+        "В «GlutenFreePizza» переопределите «getDoughType()», используя «@Override».",
+        "Создайте экземпляры объектов суперкласса и подкласса в «main».",
+        "Вызовите метод для обоих и проверьте разные выходные данные: 'PizzaItem pi = new PizzaItem(); GlutenFreePizza gfp = новая GlutenFreePizza(); System.out.println(\"Оддий xamir: \" + pi.getDoughType() + \" | Parhez xamir: \" + gfp.getDoughType());'"
       ]
     },
     "requirements": {
@@ -5024,7 +6157,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
       ],
       "pitfalls": "GlutenFreePizza klassida @Override annotatsiyasini ishlating.",
-      "cw2Tip": "CW2 Console Order Applicationda taom ingredientlarini moslashtirishda overriding dan foydalaning."
+      "cw2Tip": "CW2 Console Order Applicationda taom ingredientlarini moslashtirishda overriding dan foydalaning.",
+      "theoryRu": "Протоколы кулинарных аллергенов основаны на приоритете метода для защиты целостности рациона потребителей.",
+      "pitfallsRu": "GlutenFreePizza klassida @Override annotatsiyasini ishlating.",
+      "breakdownRu": [
+        "<code>@Override</code>: Kompilyatorga ushbu metod ota sinfdagi metodni qayta aniqlayotganini bildiradi va imlo xatolaridan himoyalaydi."
+      ]
     }
   },
   {
@@ -5034,15 +6172,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "76. Uzum Market — PhysicalProduct super.getDetails() Chaqiruvi",
-      "en": "76. Uzum Market — PhysicalProduct super.getDetails() Invocation"
+      "en": "76. Uzum Market — PhysicalProduct super.getDetails() Invocation",
+      "ru": "76. Рынок Узум — вызов PhysicalProduct super.getDetails()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar ('Product') 'getDetails()' metodida 'Nomi: ' + name qaytaradi. 'PhysicalProduct extends Product' esa buni qayta aniqlab, ota sinf kodini qayta yozmasdan 'super.getDetails()' ni chaqirsin va unga ' | Vazn: ' + weightKg + ' kg' qo'shimchasini ulab qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'getDetails()' metodini yozing.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating.\n\n3. 'PhysicalProduct' ichida 'getDetails()' metodini @Override qiling va uning ichida 'super.getDetails()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'PhysicalProduct' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'",
-      "en": "📖 Real-World Scenario & Context\nPhysicalProduct overrides getDetails(), invoking super.getDetails() and appending package weight specifics.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'getDetails()'.\n\n2. Derive 'PhysicalProduct extends Product'.\n\n3. In 'PhysicalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.\n\n4. Instantiate 'PhysicalProduct' in 'main'.\n\n5. Invoke method and print enriched output: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'"
+      "en": "📖 Real-World Scenario & Context\nPhysicalProduct overrides getDetails(), invoking super.getDetails() and appending package weight specifics.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'getDetails()'.\n\n2. Derive 'PhysicalProduct extends Product'.\n\n3. In 'PhysicalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.\n\n4. Instantiate 'PhysicalProduct' in 'main'.\n\n5. Invoke method and print enriched output: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'",
+      "ru": "📖 Контекст и описание задачи\nPhysicalProduct переопределяет getDetails(), вызывая super.getDetails() и добавляя сведения о весе пакета.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с помощью метода getDetails().\n2. Выведите «Физический продукт расширяет продукт».\n3. В «PhysicalProduct» переопределите «getDetails()», вызвав «super.getDetails()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «PhysicalProduct» в «main».\n5. Вызов метода и вывод расширенного вывода: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'"
     },
     "story": {
       "uz": "Tovar ('Product') 'getDetails()' metodida 'Nomi: ' + name qaytaradi. 'PhysicalProduct extends Product' esa buni qayta aniqlab, ota sinf kodini qayta yozmasdan 'super.getDetails()' ni chaqirsin va unga ' | Vazn: ' + weightKg + ' kg' qo'shimchasini ulab qaytarsin.",
-      "en": "PhysicalProduct overrides getDetails(), invoking super.getDetails() and appending package weight specifics."
+      "en": "PhysicalProduct overrides getDetails(), invoking super.getDetails() and appending package weight specifics.",
+      "ru": "PhysicalProduct переопределяет getDetails(), вызывая super.getDetails() и добавляя сведения о весе пакета."
     },
     "steps": {
       "uz": [
@@ -5058,6 +6199,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'PhysicalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.",
         "Instantiate 'PhysicalProduct' in 'main'.",
         "Invoke method and print enriched output: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с помощью метода getDetails().",
+        "Выведите «Физический продукт расширяет продукт».",
+        "В «PhysicalProduct» переопределите «getDetails()», вызвав «super.getDetails()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «PhysicalProduct» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'PhysicalProduct pp = new PhysicalProduct(\"Smartfon\", 0.5); System.out.println(pp.getDetails());'"
       ]
     },
     "requirements": {
@@ -5089,7 +6237,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getDetails()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "Avlod sinf ichida 'getDetails()' deb chaqirib qo'ymang (bu cheksiz rekursiyaga olib keladi!). Albatta 'super.getDetails()' deb yozish shart.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma va tovar tafsilotlarini chiqarishda super.getDetails() dan foydalaning."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma va tovar tafsilotlarini chiqarishda super.getDetails() dan foydalaning.",
+      "theoryRu": "Вызов super.method() обогащает функциональность суперкласса, а не отбрасывает ее, что является прекрасным примером расширения поведения.",
+      "pitfallsRu": "Avlod sinf ichida 'getDetails()' deb chaqirib qo'ymang (bu cheksiz rekursiyaga olib keladi!). Альбатта 'super.getDetails()' требует шарта.",
+      "breakdownRu": [
+        "<code>super.getDetails()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5099,15 +6252,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "77. Uzum Market — DigitalProduct super.getDetails() Chaqiruvi",
-      "en": "77. Uzum Market — DigitalProduct super.getDetails() Invocation"
+      "en": "77. Uzum Market — DigitalProduct super.getDetails() Invocation",
+      "ru": "77. Рынок Узум — вызов DigitalProduct super.getDetails()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'DigitalProduct extends Product' ham 'getDetails()' metodida 'super.getDetails()' natijasiga ' | Fayl: ' + fileSizeMb + ' MB' qo'shimchasini ulab qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'getDetails()' metodini yozing.\n\n2. Avlod sinf 'DigitalProduct extends Product' ni yarating.\n\n3. 'DigitalProduct' ichida 'getDetails()' metodini @Override qiling va uning ichida 'super.getDetails()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'DigitalProduct' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'",
-      "en": "📖 Real-World Scenario & Context\nDigitalProduct overrides getDetails(), invoking super.getDetails() and appending file size information.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'getDetails()'.\n\n2. Derive 'DigitalProduct extends Product'.\n\n3. In 'DigitalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.\n\n4. Instantiate 'DigitalProduct' in 'main'.\n\n5. Invoke method and print enriched output: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'"
+      "en": "📖 Real-World Scenario & Context\nDigitalProduct overrides getDetails(), invoking super.getDetails() and appending file size information.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'getDetails()'.\n\n2. Derive 'DigitalProduct extends Product'.\n\n3. In 'DigitalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.\n\n4. Instantiate 'DigitalProduct' in 'main'.\n\n5. Invoke method and print enriched output: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'",
+      "ru": "📖 Контекст и описание задачи\nDigitalProduct переопределяет getDetails(), вызывая super.getDetails() и добавляя информацию о размере файла.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с помощью метода getDetails().\n2. Выведите «Цифровой продукт расширяет продукт».\n3. В «DigitalProduct» переопределите «getDetails()», вызвав «super.getDetails()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «DigitalProduct» в «main».\n5. Вызов метода и вывод расширенного вывода: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'"
     },
     "story": {
       "uz": "'DigitalProduct extends Product' ham 'getDetails()' metodida 'super.getDetails()' natijasiga ' | Fayl: ' + fileSizeMb + ' MB' qo'shimchasini ulab qaytarsin.",
-      "en": "DigitalProduct overrides getDetails(), invoking super.getDetails() and appending file size information."
+      "en": "DigitalProduct overrides getDetails(), invoking super.getDetails() and appending file size information.",
+      "ru": "DigitalProduct переопределяет getDetails(), вызывая super.getDetails() и добавляя информацию о размере файла."
     },
     "steps": {
       "uz": [
@@ -5123,6 +6279,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'DigitalProduct', override 'getDetails()', calling 'super.getDetails()' to enrich parent results.",
         "Instantiate 'DigitalProduct' in 'main'.",
         "Invoke method and print enriched output: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с помощью метода getDetails().",
+        "Выведите «Цифровой продукт расширяет продукт».",
+        "В «DigitalProduct» переопределите «getDetails()», вызвав «super.getDetails()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «DigitalProduct» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'DigitalProduct dp = new DigitalProduct(\"Python Video Kurs\", 850.0); System.out.println(dp.getDetails());'"
       ]
     },
     "requirements": {
@@ -5154,7 +6317,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getDetails()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getDetails() chaqiruvidan keyin qo'shimcha matn ulanadi.",
-      "cw2Tip": "Raqamli tovar ma'lumotlarini chop etishda super.getDetails() dan foydalaning."
+      "cw2Tip": "Raqamli tovar ma'lumotlarini chop etishda super.getDetails() dan foydalaning.",
+      "theoryRu": "Оба родственных подкласса основаны на super.getDetails(), сохраняя общее форматирование идентификаторов во всех вариантах.",
+      "pitfallsRu": "super.getDetails() позволяет ввести ключ qo'shimcha matn ulanadi.",
+      "breakdownRu": [
+        "<code>super.getDetails()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5164,15 +6332,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "78. Payme — AuditedTransaction super.getSummary() Chaqiruvi",
-      "en": "78. Payme — AuditedTransaction super.getSummary() Invocation"
+      "en": "78. Payme — AuditedTransaction super.getSummary() Invocation",
+      "ru": "78. Payme — вызов AuditedTransaction super.getSummary()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTranzaksiya ('Transaction') 'getSummary()' metodida 'TX-101: 500000.0 so'm' qaytaradi. Audit qilingan tranzaksiya ('AuditedTransaction extends Transaction') esa 'super.getSummary() + \" [Auditor tomonidan tasdiqlangan]\"' ko'rinishida kengaytirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Transaction' ni e'lon qiling va unga 'getSummary()' metodini yozing.\n\n2. Avlod sinf 'AuditedTransaction extends Transaction' ni yarating.\n\n3. 'AuditedTransaction' ichida 'getSummary()' metodini @Override qiling va uning ichida 'super.getSummary()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'AuditedTransaction' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'",
-      "en": "📖 Real-World Scenario & Context\nAudited transactions extend transaction summaries by appending regulatory compliance audit verification stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Transaction' with method 'getSummary()'.\n\n2. Derive 'AuditedTransaction extends Transaction'.\n\n3. In 'AuditedTransaction', override 'getSummary()', calling 'super.getSummary()' to enrich parent results.\n\n4. Instantiate 'AuditedTransaction' in 'main'.\n\n5. Invoke method and print enriched output: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'"
+      "en": "📖 Real-World Scenario & Context\nAudited transactions extend transaction summaries by appending regulatory compliance audit verification stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Transaction' with method 'getSummary()'.\n\n2. Derive 'AuditedTransaction extends Transaction'.\n\n3. In 'AuditedTransaction', override 'getSummary()', calling 'super.getSummary()' to enrich parent results.\n\n4. Instantiate 'AuditedTransaction' in 'main'.\n\n5. Invoke method and print enriched output: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'",
+      "ru": "📖 Контекст и описание задачи\nПроверенные транзакции дополняют сводные данные транзакций, добавляя отметки о проверке соответствия нормативным требованиям.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Transaction с помощью метода getSummary().\n2. Выведите «AuditedTransaction расширяет транзакцию».\n3. В AuditedTransaction переопределите getSummary(), вызвав super.getSummary() для обогащения родительских результатов.\n4. Создайте экземпляр «AuditedTransaction» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'"
     },
     "story": {
       "uz": "Tranzaksiya ('Transaction') 'getSummary()' metodida 'TX-101: 500000.0 so'm' qaytaradi. Audit qilingan tranzaksiya ('AuditedTransaction extends Transaction') esa 'super.getSummary() + \" [Auditor tomonidan tasdiqlangan]\"' ko'rinishida kengaytirsin.",
-      "en": "Audited transactions extend transaction summaries by appending regulatory compliance audit verification stamps."
+      "en": "Audited transactions extend transaction summaries by appending regulatory compliance audit verification stamps.",
+      "ru": "Проверенные транзакции дополняют сводные данные транзакций, добавляя отметки о проверке соответствия нормативным требованиям."
     },
     "steps": {
       "uz": [
@@ -5188,6 +6359,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'AuditedTransaction', override 'getSummary()', calling 'super.getSummary()' to enrich parent results.",
         "Instantiate 'AuditedTransaction' in 'main'.",
         "Invoke method and print enriched output: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'"
+      ],
+      "ru": [
+        "Объявите суперкласс Transaction с помощью метода getSummary().",
+        "Выведите «AuditedTransaction расширяет транзакцию».",
+        "В AuditedTransaction переопределите getSummary(), вызвав super.getSummary() для обогащения родительских результатов.",
+        "Создайте экземпляр «AuditedTransaction» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'AuditedTransaction at = new AuditedTransaction(\"8841\", 500000.0); System.out.println(at.getSummary());'"
       ]
     },
     "requirements": {
@@ -5219,7 +6397,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getSummary()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getSummary() ota klass natijasini qaytaradi.",
-      "cw2Tip": "To'lovlar tarixini chop etishda super.getSummary() dan foydalaning."
+      "cw2Tip": "To'lovlar tarixini chop etishda super.getSummary() dan foydalaning.",
+      "theoryRu": "Журналы соответствия нормативным требованиям дополняют сводные данные основных бухгалтерских транзакций посредством супервызовов.",
+      "pitfallsRu": "super.getSummary() от класса natijasini qaytaradi.",
+      "breakdownRu": [
+        "<code>super.getSummary()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5229,15 +6412,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "79. Yandex Go — ChildSeatRide super.calculateFare() Qo'shimcha Narx",
-      "en": "79. Yandex Go — ChildSeatRide super.calculateFare() Surcharge"
+      "en": "79. Yandex Go — ChildSeatRide super.calculateFare() Surcharge",
+      "ru": "79. Yandex Go — ChildSeatRide super.calculateFare() Доплата"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOddiy taksi qatnovi ('TaxiRide') masofa bo'yicha narxni 'calculateFare()' da hisoblaydi ('distanceKm * 3000.0'). Bolalar o'rindiqli qatnov ('ChildSeatRide extends TaxiRide') esa bazaviy narxga 15000.0 so'm qo'shimcha to'lov ulasin: 'return super.calculateFare() + 15000.0;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'TaxiRide' ni e'lon qiling va unga 'calculateFare()' metodini yozing.\n\n2. Avlod sinf 'ChildSeatRide extends TaxiRide' ni yarating.\n\n3. 'ChildSeatRide' ichida 'calculateFare()' metodini @Override qiling va uning ichida 'super.calculateFare()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'ChildSeatRide' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = new ChildSeatRide(10.0); System.out.println(\"Oddiy yo'l: \" + tr.calculateFare() + \" so'm | Bolalar o'rindig'i bilan: \" + csr.calculateFare() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nChild seat rides override calculateFare, invoking super.calculateFare() and adding 15,000 UZS booster surcharge.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiRide' with method 'calculateFare()'.\n\n2. Derive 'ChildSeatRide extends TaxiRide'.\n\n3. In 'ChildSeatRide', override 'calculateFare()', calling 'super.calculateFare()' to enrich parent results.\n\n4. Instantiate 'ChildSeatRide' in 'main'.\n\n5. Invoke method and print enriched output: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = new ChildSeatRide(10.0); System.out.println(\"Oddiy yo'l: \" + tr.calculateFare() + \" so'm | Bolalar o'rindig'i bilan: \" + csr.calculateFare() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nChild seat rides override calculateFare, invoking super.calculateFare() and adding 15,000 UZS booster surcharge.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiRide' with method 'calculateFare()'.\n\n2. Derive 'ChildSeatRide extends TaxiRide'.\n\n3. In 'ChildSeatRide', override 'calculateFare()', calling 'super.calculateFare()' to enrich parent results.\n\n4. Instantiate 'ChildSeatRide' in 'main'.\n\n5. Invoke method and print enriched output: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = new ChildSeatRide(10.0); System.out.println(\"Oddiy yo'l: \" + tr.calculateFare() + \" so'm | Bolalar o'rindig'i bilan: \" + csr.calculateFare() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nПоездки с детским креслом переопределяют метод расчетаFare, вызывая super.calculateFare() и добавляя дополнительную плату в размере 15 000 сум.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс TaxiRide с помощью метода CalculateFare().\n2. Выведите «ChildSeatRide расширяет TaxiRide».\n3. В «ChildSeatRide» переопределите «calculateFare()», вызвав «super.calculateFare()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «ChildSeatRide» в «main».\n5. Вызов метода и вывод расширенного вывода: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = новый ChildSeatRide (10.0); System.out.println(\"Одди йо'л: \" + tr.calculateFare() + \" так | Болалар о'риндиг'и билан: \" + csr.calculateFare() + \" так\");'"
     },
     "story": {
       "uz": "Oddiy taksi qatnovi ('TaxiRide') masofa bo'yicha narxni 'calculateFare()' da hisoblaydi ('distanceKm * 3000.0'). Bolalar o'rindiqli qatnov ('ChildSeatRide extends TaxiRide') esa bazaviy narxga 15000.0 so'm qo'shimcha to'lov ulasin: 'return super.calculateFare() + 15000.0;'.",
-      "en": "Child seat rides override calculateFare, invoking super.calculateFare() and adding 15,000 UZS booster surcharge."
+      "en": "Child seat rides override calculateFare, invoking super.calculateFare() and adding 15,000 UZS booster surcharge.",
+      "ru": "Поездки с детским креслом переопределяют метод расчетаFare, вызывая super.calculateFare() и добавляя дополнительную плату в размере 15 000 сум."
     },
     "steps": {
       "uz": [
@@ -5253,6 +6439,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'ChildSeatRide', override 'calculateFare()', calling 'super.calculateFare()' to enrich parent results.",
         "Instantiate 'ChildSeatRide' in 'main'.",
         "Invoke method and print enriched output: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = new ChildSeatRide(10.0); System.out.println(\"Oddiy yo'l: \" + tr.calculateFare() + \" so'm | Bolalar o'rindig'i bilan: \" + csr.calculateFare() + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс TaxiRide с помощью метода CalculateFare().",
+        "Выведите «ChildSeatRide расширяет TaxiRide».",
+        "В «ChildSeatRide» переопределите «calculateFare()», вызвав «super.calculateFare()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «ChildSeatRide» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'TaxiRide tr = new TaxiRide(10.0); ChildSeatRide csr = новый ChildSeatRide (10.0); System.out.println(\"Одди йо'л: \" + tr.calculateFare() + \" так | Болалар о'риндиг'и билан: \" + csr.calculateFare() + \" так\");'"
       ]
     },
     "requirements": {
@@ -5284,7 +6477,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.calculateFare()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.calculateFare() ga 15000.0 qo'shiladi.",
-      "cw2Tip": "CW2 da qo'shimcha to'lovli buyurtmalarni super.calculateTotal() orqali hisoblang."
+      "cw2Tip": "CW2 da qo'shimcha to'lovli buyurtmalarni super.calculateTotal() orqali hisoblang.",
+      "theoryRu": "Дополнительные сборы оцениваются аккуратно путем делегирования базовых тарифов за пробег в super.calculateFare() и добавления дополнительных сборов.",
+      "pitfallsRu": "super.calculateFare() дает 15000,0 кашилади.",
+      "breakdownRu": [
+        "<code>super.calculateFare()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5294,15 +6492,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "80. Korzinka Go — Manager super.getSalary() va Bonus",
-      "en": "80. Korzinka Go — Manager super.getSalary() and Bonus"
+      "en": "80. Korzinka Go — Manager super.getSalary() and Bonus",
+      "ru": "80. Корзинка Го — Менеджер super.getSalary() и Бонусов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXodim ('Employee') bazaviy maoshni 'getSalary()' orqali qaytaradi. Do'kon menejeri ('Manager extends Employee') esa bazaviy maoshga bonus qo'shib qaytarsin: 'return super.getSalary() + this.bonus;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Employee' ni e'lon qiling va unga 'getSalary()' metodini yozing.\n\n2. Avlod sinf 'Manager extends Employee' ni yarating.\n\n3. 'Manager' ichida 'getSalary()' metodini @Override qiling va uning ichida 'super.getSalary()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'Manager' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Menejer yakuniy maoshi: \" + mgr.getSalary() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nManagers override getSalary, calling super.getSalary() and adding performance bonuses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Employee' with method 'getSalary()'.\n\n2. Derive 'Manager extends Employee'.\n\n3. In 'Manager', override 'getSalary()', calling 'super.getSalary()' to enrich parent results.\n\n4. Instantiate 'Manager' in 'main'.\n\n5. Invoke method and print enriched output: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Menejer yakuniy maoshi: \" + mgr.getSalary() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nManagers override getSalary, calling super.getSalary() and adding performance bonuses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Employee' with method 'getSalary()'.\n\n2. Derive 'Manager extends Employee'.\n\n3. In 'Manager', override 'getSalary()', calling 'super.getSalary()' to enrich parent results.\n\n4. Instantiate 'Manager' in 'main'.\n\n5. Invoke method and print enriched output: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Menejer yakuniy maoshi: \" + mgr.getSalary() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nМенеджеры переопределяют getSalary, вызывая super.getSalary() и добавляя бонусы за производительность.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Сотрудник» с помощью метода getSalary().\n2. Выведите «Менеджер расширяет сотрудника».\n3. В «Менеджере» переопределите «getSalary()», вызвав «super.getSalary()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «Менеджера» в «главном».\n5. Вызовите метод и распечатайте расширенный вывод: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Менеджер якуний маоши: \" + mgr.getSalary() + \" так я\");'"
     },
     "story": {
       "uz": "Xodim ('Employee') bazaviy maoshni 'getSalary()' orqali qaytaradi. Do'kon menejeri ('Manager extends Employee') esa bazaviy maoshga bonus qo'shib qaytarsin: 'return super.getSalary() + this.bonus;'.",
-      "en": "Managers override getSalary, calling super.getSalary() and adding performance bonuses."
+      "en": "Managers override getSalary, calling super.getSalary() and adding performance bonuses.",
+      "ru": "Менеджеры переопределяют getSalary, вызывая super.getSalary() и добавляя бонусы за производительность."
     },
     "steps": {
       "uz": [
@@ -5318,6 +6519,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'Manager', override 'getSalary()', calling 'super.getSalary()' to enrich parent results.",
         "Instantiate 'Manager' in 'main'.",
         "Invoke method and print enriched output: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Menejer yakuniy maoshi: \" + mgr.getSalary() + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Сотрудник» с помощью метода getSalary().",
+        "Выведите «Менеджер расширяет сотрудника».",
+        "В «Менеджере» переопределите «getSalary()», вызвав «super.getSalary()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «Менеджера» в «главном».",
+        "Вызовите метод и распечатайте расширенный вывод: 'Manager mgr = new Manager(4000000.0, 1500000.0); System.out.println(\"Менеджер якуний маоши: \" + mgr.getSalary() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -5349,7 +6557,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getSalary()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "baseSalary ota klassda bo'lgani sababli, unga super.getSalary() orqali kiriladi.",
-      "cw2Tip": "Xodimlar va lavozimlar modelida super.getSalary() dan foydalaning."
+      "cw2Tip": "Xodimlar va lavozimlar modelida super.getSalary() dan foydalaning.",
+      "theoryRu": "Модели вознаграждения сохраняют логику базовой оплаты в суперклассах, распределяя стимулы за производительность менеджеров посредством супервызовов.",
+      "pitfallsRu": "baseSalary для каждого класса, который можно использовать super.getSalary() или вручную.",
+      "breakdownRu": [
+        "<code>super.getSalary()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5359,15 +6572,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "81. Click Up — StampedInvoice super.printReceipt() Muhr Ulanishi",
-      "en": "81. Click Up — StampedInvoice super.printReceipt() Seal"
+      "en": "81. Click Up — StampedInvoice super.printReceipt() Seal",
+      "ru": "81. Нажмите «Вверх» — печать StampedInvoice super.printReceipt()."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHisob faktura ('Invoice') chekni 'printReceipt()' orqali 'Hisob #901: To'landi' deb qaytaradi. Rasmiy muhrli faktura ('StampedInvoice extends Invoice') esa 'return super.printReceipt() + \" [DAVLAT GERBI MUHRI BOSILGAN]\";' deb kengaytirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Invoice' ni e'lon qiling va unga 'printReceipt()' metodini yozing.\n\n2. Avlod sinf 'StampedInvoice extends Invoice' ni yarating.\n\n3. 'StampedInvoice' ichida 'printReceipt()' metodini @Override qiling va uning ichida 'super.printReceipt()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'StampedInvoice' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'",
-      "en": "📖 Real-World Scenario & Context\nStamped invoices append legal verification seals to super.printReceipt() output.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Invoice' with method 'printReceipt()'.\n\n2. Derive 'StampedInvoice extends Invoice'.\n\n3. In 'StampedInvoice', override 'printReceipt()', calling 'super.printReceipt()' to enrich parent results.\n\n4. Instantiate 'StampedInvoice' in 'main'.\n\n5. Invoke method and print enriched output: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'"
+      "en": "📖 Real-World Scenario & Context\nStamped invoices append legal verification seals to super.printReceipt() output.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Invoice' with method 'printReceipt()'.\n\n2. Derive 'StampedInvoice extends Invoice'.\n\n3. In 'StampedInvoice', override 'printReceipt()', calling 'super.printReceipt()' to enrich parent results.\n\n4. Instantiate 'StampedInvoice' in 'main'.\n\n5. Invoke method and print enriched output: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'",
+      "ru": "📖 Контекст и описание задачи\nШтампованные счета-фактуры добавляют печати юридической проверки к выводу super.printReceipt().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Счет» с помощью метода printReceipt().\n2. Выведите «StampedInvoice расширяет счет».\n3. В «StampedInvoice» переопределите «printReceipt()», вызвав «super.printReceipt()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «StampedInvoice» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'"
     },
     "story": {
       "uz": "Hisob faktura ('Invoice') chekni 'printReceipt()' orqali 'Hisob #901: To'landi' deb qaytaradi. Rasmiy muhrli faktura ('StampedInvoice extends Invoice') esa 'return super.printReceipt() + \" [DAVLAT GERBI MUHRI BOSILGAN]\";' deb kengaytirsin.",
-      "en": "Stamped invoices append legal verification seals to super.printReceipt() output."
+      "en": "Stamped invoices append legal verification seals to super.printReceipt() output.",
+      "ru": "Штампованные счета-фактуры добавляют печати юридической проверки к выводу super.printReceipt()."
     },
     "steps": {
       "uz": [
@@ -5383,6 +6599,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'StampedInvoice', override 'printReceipt()', calling 'super.printReceipt()' to enrich parent results.",
         "Instantiate 'StampedInvoice' in 'main'.",
         "Invoke method and print enriched output: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Счет» с помощью метода printReceipt().",
+        "Выведите «StampedInvoice расширяет счет».",
+        "В «StampedInvoice» переопределите «printReceipt()», вызвав «super.printReceipt()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «StampedInvoice» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'StampedInvoice si = new StampedInvoice(901); System.out.println(si.printReceipt());'"
       ]
     },
     "requirements": {
@@ -5414,7 +6637,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.printReceipt()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.printReceipt() chaqiruvini to'g'ri yozing.",
-      "cw2Tip": "Chek chop etishda super metod chaqiruvini qo'llang."
+      "cw2Tip": "Chek chop etishda super metod chaqiruvini qo'llang.",
+      "theoryRu": "Квитанции официальных нормативных счетов объединяют официальные штампы со стандартными подтверждениями оплаты.",
+      "pitfallsRu": "super.printReceipt() чакирувини для йозинга.",
+      "breakdownRu": [
+        "<code>super.printReceipt()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5424,15 +6652,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "82. Asaxiy Books — AnnotatedBook super.getDescription() Izohlar",
-      "en": "82. Asaxiy Books — AnnotatedBook super.getDescription() Annotations"
+      "en": "82. Asaxiy Books — AnnotatedBook super.getDescription() Annotations",
+      "ru": "82. Книги Асаксии — AnnotatedBook super.getDescription() Аннотации"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKitob ('Book') tavsifni 'getDescription()' orqali 'Kitob: ' + title deb qaytaradi. Akademik izohli nashr ('AnnotatedBook extends Book') esa 'super.getDescription() + \" (Akademik izohlar va lug'at bilan)\"' qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Book' ni e'lon qiling va unga 'getDescription()' metodini yozing.\n\n2. Avlod sinf 'AnnotatedBook extends Book' ni yarating.\n\n3. 'AnnotatedBook' ichida 'getDescription()' metodini @Override qiling va uning ichida 'super.getDescription()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'AnnotatedBook' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'",
-      "en": "📖 Real-World Scenario & Context\nAnnotated books extend baseline book descriptions with scholarly commentary notes via super.getDescription().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with method 'getDescription()'.\n\n2. Derive 'AnnotatedBook extends Book'.\n\n3. In 'AnnotatedBook', override 'getDescription()', calling 'super.getDescription()' to enrich parent results.\n\n4. Instantiate 'AnnotatedBook' in 'main'.\n\n5. Invoke method and print enriched output: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'"
+      "en": "📖 Real-World Scenario & Context\nAnnotated books extend baseline book descriptions with scholarly commentary notes via super.getDescription().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Book' with method 'getDescription()'.\n\n2. Derive 'AnnotatedBook extends Book'.\n\n3. In 'AnnotatedBook', override 'getDescription()', calling 'super.getDescription()' to enrich parent results.\n\n4. Instantiate 'AnnotatedBook' in 'main'.\n\n5. Invoke method and print enriched output: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'",
+      "ru": "📖 Контекст и описание задачи\nКниги с аннотациями дополняют базовые описания книг научными комментариями с помощью super.getDescription().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Книга» с помощью метода getDescription().\n2. Выведите «AnnotatedBook расширяет книгу».\n3. В «AnnotatedBook» переопределите «getDescription()», вызвав «super.getDescription()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «AnnotatedBook» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'"
     },
     "story": {
       "uz": "Kitob ('Book') tavsifni 'getDescription()' orqali 'Kitob: ' + title deb qaytaradi. Akademik izohli nashr ('AnnotatedBook extends Book') esa 'super.getDescription() + \" (Akademik izohlar va lug'at bilan)\"' qaytarsin.",
-      "en": "Annotated books extend baseline book descriptions with scholarly commentary notes via super.getDescription()."
+      "en": "Annotated books extend baseline book descriptions with scholarly commentary notes via super.getDescription().",
+      "ru": "Книги с аннотациями дополняют базовые описания книг научными комментариями с помощью super.getDescription()."
     },
     "steps": {
       "uz": [
@@ -5448,6 +6679,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'AnnotatedBook', override 'getDescription()', calling 'super.getDescription()' to enrich parent results.",
         "Instantiate 'AnnotatedBook' in 'main'.",
         "Invoke method and print enriched output: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Книга» с помощью метода getDescription().",
+        "Выведите «AnnotatedBook расширяет книгу».",
+        "В «AnnotatedBook» переопределите «getDescription()», вызвав «super.getDescription()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «AnnotatedBook» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'AnnotatedBook ab = new AnnotatedBook(\"Boburnoma\"); System.out.println(ab.getDescription());'"
       ]
     },
     "requirements": {
@@ -5479,7 +6717,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getDescription()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getDescription() ni chaqiring.",
-      "cw2Tip": "Tovar tavsiflarini shakllantirishda ushbu usuldan foydalaning."
+      "cw2Tip": "Tovar tavsiflarini shakllantirishda ushbu usuldan foydalaning.",
+      "theoryRu": "Каталоги научных публикаций дополняют основные библиографические названия за счет делегирования родительских описаний.",
+      "pitfallsRu": "super.getDescription() не используется.",
+      "breakdownRu": [
+        "<code>super.getDescription()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5489,15 +6732,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "83. Express24 — NightDelivery super.calculateDeliveryFee() Tungi Tarif",
-      "en": "83. Express24 — NightDelivery super.calculateDeliveryFee() Night Fee"
+      "en": "83. Express24 — NightDelivery super.calculateDeliveryFee() Night Fee",
+      "ru": "83. Express24 — NightDelivery super.calculateDeliveryFee() Ночная плата"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazib berish ('FoodDelivery') bazaviy xizmat narxini 12000.0 so'm deb hisoblaydi ('calculateDeliveryFee()'). Tungi yetkazish ('NightDelivery extends FoodDelivery') esa 'super.calculateDeliveryFee() + 8000.0' tungi ustamani qo'shib qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'FoodDelivery' ni e'lon qiling va unga 'calculateDeliveryFee()' metodini yozing.\n\n2. Avlod sinf 'NightDelivery extends FoodDelivery' ni yarating.\n\n3. 'NightDelivery' ichida 'calculateDeliveryFee()' metodini @Override qiling va uning ichida 'super.calculateDeliveryFee()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'NightDelivery' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi yetkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nNight deliveries append an 8,000 UZS night tariff atop super.calculateDeliveryFee().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FoodDelivery' with method 'calculateDeliveryFee()'.\n\n2. Derive 'NightDelivery extends FoodDelivery'.\n\n3. In 'NightDelivery', override 'calculateDeliveryFee()', calling 'super.calculateDeliveryFee()' to enrich parent results.\n\n4. Instantiate 'NightDelivery' in 'main'.\n\n5. Invoke method and print enriched output: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi yetkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nNight deliveries append an 8,000 UZS night tariff atop super.calculateDeliveryFee().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FoodDelivery' with method 'calculateDeliveryFee()'.\n\n2. Derive 'NightDelivery extends FoodDelivery'.\n\n3. In 'NightDelivery', override 'calculateDeliveryFee()', calling 'super.calculateDeliveryFee()' to enrich parent results.\n\n4. Instantiate 'NightDelivery' in 'main'.\n\n5. Invoke method and print enriched output: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi yetkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nНочные доставки добавляют ночной тариф в размере 8 000 сум к super.calculateDeliveryFee().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс FoodDelivery с помощью метода CalculateDeliveryFee().\n2. Выведите «NightDelivery расширяет FoodDelivery».\n3. В «NightDelivery» переопределите «calculateDeliveryFee()», вызвав «super.calculateDeliveryFee()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «NightDelivery» в «main».\n5. Вызов метода и вывод расширенного вывода: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi youkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'"
     },
     "story": {
       "uz": "Yetkazib berish ('FoodDelivery') bazaviy xizmat narxini 12000.0 so'm deb hisoblaydi ('calculateDeliveryFee()'). Tungi yetkazish ('NightDelivery extends FoodDelivery') esa 'super.calculateDeliveryFee() + 8000.0' tungi ustamani qo'shib qaytarsin.",
-      "en": "Night deliveries append an 8,000 UZS night tariff atop super.calculateDeliveryFee()."
+      "en": "Night deliveries append an 8,000 UZS night tariff atop super.calculateDeliveryFee().",
+      "ru": "Ночные доставки добавляют ночной тариф в размере 8 000 сум к super.calculateDeliveryFee()."
     },
     "steps": {
       "uz": [
@@ -5513,6 +6759,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'NightDelivery', override 'calculateDeliveryFee()', calling 'super.calculateDeliveryFee()' to enrich parent results.",
         "Instantiate 'NightDelivery' in 'main'.",
         "Invoke method and print enriched output: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi yetkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс FoodDelivery с помощью метода CalculateDeliveryFee().",
+        "Выведите «NightDelivery расширяет FoodDelivery».",
+        "В «NightDelivery» переопределите «calculateDeliveryFee()», вызвав «super.calculateDeliveryFee()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «NightDelivery» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'NightDelivery nd = new NightDelivery(); System.out.println(\"Tungi youkazish narxi: \" + nd.calculateDeliveryFee() + \" so'm\");'"
       ]
     },
     "requirements": {
@@ -5544,7 +6797,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.calculateDeliveryFee()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "Natija 20000.0 bo'lishi kerak.",
-      "cw2Tip": "CW2 Console Order Applicationda yetkazish narxlarini hisoblashda super chaqiruvidan foydalaning."
+      "cw2Tip": "CW2 Console Order Applicationda yetkazish narxlarini hisoblashda super chaqiruvidan foydalaning.",
+      "theoryRu": "Создание подклассов в сочетании с супервызовами защищает бизнес-правила: обновление базовой доставки автоматически обновляет ночные тарифы.",
+      "pitfallsRu": "Натия 20000,0 болиши керак.",
+      "breakdownRu": [
+        "<code>super.calculateDeliveryFee()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5554,15 +6812,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "84. Beeline — TurboTraffic super.getSpeedLimit() Tezlik Kuchaytirish",
-      "en": "84. Beeline — TurboTraffic super.getSpeedLimit() Speed Boost"
+      "en": "84. Beeline — TurboTraffic super.getSpeedLimit() Speed Boost",
+      "ru": "84. Билайн — TurboTraffic super.getSpeedLimit() Повышение скорости"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nInternet tarifi ('InternetTraffic') tezlik chegarasini ('getSpeedLimit()') '10 Mbps' deb qaytaradi. Turbo rejimli tarif ('TurboTraffic extends InternetTraffic') esa 'super.getSpeedLimit() + \" + 50 Mbps Turbo Boost\"' qo'shib qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'InternetTraffic' ni e'lon qiling va unga 'getSpeedLimit()' metodini yozing.\n\n2. Avlod sinf 'TurboTraffic extends InternetTraffic' ni yarating.\n\n3. 'TurboTraffic' ichida 'getSpeedLimit()' metodini @Override qiling va uning ichida 'super.getSpeedLimit()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'TurboTraffic' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Tezlik: \" + tt.getSpeedLimit());'",
-      "en": "📖 Real-World Scenario & Context\nTurbo internet packages append 50 Mbps speed boost indicators to super.getSpeedLimit().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'InternetTraffic' with method 'getSpeedLimit()'.\n\n2. Derive 'TurboTraffic extends InternetTraffic'.\n\n3. In 'TurboTraffic', override 'getSpeedLimit()', calling 'super.getSpeedLimit()' to enrich parent results.\n\n4. Instantiate 'TurboTraffic' in 'main'.\n\n5. Invoke method and print enriched output: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Tezlik: \" + tt.getSpeedLimit());'"
+      "en": "📖 Real-World Scenario & Context\nTurbo internet packages append 50 Mbps speed boost indicators to super.getSpeedLimit().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'InternetTraffic' with method 'getSpeedLimit()'.\n\n2. Derive 'TurboTraffic extends InternetTraffic'.\n\n3. In 'TurboTraffic', override 'getSpeedLimit()', calling 'super.getSpeedLimit()' to enrich parent results.\n\n4. Instantiate 'TurboTraffic' in 'main'.\n\n5. Invoke method and print enriched output: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Tezlik: \" + tt.getSpeedLimit());'",
+      "ru": "📖 Контекст и описание задачи\nПакеты турбо-интернета добавляют индикаторы повышения скорости на 50 Мбит/с в super.getSpeedLimit().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс InternetTraffic с помощью метода getSpeedLimit().\n2. Выведите «TurboTraffic расширяет InternetTraffic».\n3. В «TurboTraffic» переопределите «getSpeedLimit()», вызвав «super.getSpeedLimit()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «TurboTraffic» в «main».\n5. Вызов метода и вывод расширенного вывода: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Тезлик: \" + tt.getSpeedLimit());'"
     },
     "story": {
       "uz": "Internet tarifi ('InternetTraffic') tezlik chegarasini ('getSpeedLimit()') '10 Mbps' deb qaytaradi. Turbo rejimli tarif ('TurboTraffic extends InternetTraffic') esa 'super.getSpeedLimit() + \" + 50 Mbps Turbo Boost\"' qo'shib qaytarsin.",
-      "en": "Turbo internet packages append 50 Mbps speed boost indicators to super.getSpeedLimit()."
+      "en": "Turbo internet packages append 50 Mbps speed boost indicators to super.getSpeedLimit().",
+      "ru": "Пакеты турбо-интернета добавляют индикаторы повышения скорости на 50 Мбит/с в super.getSpeedLimit()."
     },
     "steps": {
       "uz": [
@@ -5578,6 +6839,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'TurboTraffic', override 'getSpeedLimit()', calling 'super.getSpeedLimit()' to enrich parent results.",
         "Instantiate 'TurboTraffic' in 'main'.",
         "Invoke method and print enriched output: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Tezlik: \" + tt.getSpeedLimit());'"
+      ],
+      "ru": [
+        "Объявите суперкласс InternetTraffic с помощью метода getSpeedLimit().",
+        "Выведите «TurboTraffic расширяет InternetTraffic».",
+        "В «TurboTraffic» переопределите «getSpeedLimit()», вызвав «super.getSpeedLimit()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «TurboTraffic» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'TurboTraffic tt = new TurboTraffic(); System.out.println(\"Тезлик: \" + tt.getSpeedLimit());'"
       ]
     },
     "requirements": {
@@ -5609,7 +6877,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getSpeedLimit()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getSpeedLimit() String qaytaradi.",
-      "cw2Tip": "Abonent xizmatlarida tezlik va paketlarni modellashtirishda foydalaning."
+      "cw2Tip": "Abonent xizmatlarida tezlik va paketlarni modellashtirishda foydalaning.",
+      "theoryRu": "Ускорители широкополосных сетей добавляют показатели турбоускорения к базовой пропускной способности суперкласса.",
+      "pitfallsRu": "super.getSpeedLimit() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>super.getSpeedLimit()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5619,15 +6892,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "85. Texnomart — ExtendedWarranty super.getWarrantyMonths() Qo'shimcha Kafolat",
-      "en": "85. Texnomart — ExtendedWarranty super.getWarrantyMonths() Extension"
+      "en": "85. Texnomart — ExtendedWarranty super.getWarrantyMonths() Extension",
+      "ru": "85. Texnomart — Расширение ExtendedWarranty super.getWarrantyMonths()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nStandart kafolat ('ProductWarranty') 12 oyni qaytaradi ('getWarrantyMonths()'). Kengaytirilgan kafolat ('ExtendedWarranty extends ProductWarranty') esa do'kon tomonidan berilgan qo'shimcha 24 oyni ulasin: 'return super.getWarrantyMonths() + 24;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'ProductWarranty' ni e'lon qiling va unga 'getWarrantyMonths()' metodini yozing.\n\n2. Avlod sinf 'ExtendedWarranty extends ProductWarranty' ni yarating.\n\n3. 'ExtendedWarranty' ichida 'getWarrantyMonths()' metodini @Override qiling va uning ichida 'super.getWarrantyMonths()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'ExtendedWarranty' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Jami kafolat: \" + ew.getWarrantyMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nExtended warranty packages add 24 months to standard 12-month manufacturer coverage via super.getWarrantyMonths().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ProductWarranty' with method 'getWarrantyMonths()'.\n\n2. Derive 'ExtendedWarranty extends ProductWarranty'.\n\n3. In 'ExtendedWarranty', override 'getWarrantyMonths()', calling 'super.getWarrantyMonths()' to enrich parent results.\n\n4. Instantiate 'ExtendedWarranty' in 'main'.\n\n5. Invoke method and print enriched output: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Jami kafolat: \" + ew.getWarrantyMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nExtended warranty packages add 24 months to standard 12-month manufacturer coverage via super.getWarrantyMonths().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ProductWarranty' with method 'getWarrantyMonths()'.\n\n2. Derive 'ExtendedWarranty extends ProductWarranty'.\n\n3. In 'ExtendedWarranty', override 'getWarrantyMonths()', calling 'super.getWarrantyMonths()' to enrich parent results.\n\n4. Instantiate 'ExtendedWarranty' in 'main'.\n\n5. Invoke method and print enriched output: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Jami kafolat: \" + ew.getWarrantyMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nПакеты расширенной гарантии добавляют 24 месяца к стандартному 12-месячному покрытию производителя через super.getWarrantyMonths().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс ProductWarranty с помощью метода getWarrantyMonths().\n2. Выведите «ExtendedWarranty расширяет ProductWarranty».\n3. В «ExtendedWarranty» переопределите «getWarrantyMonths()», вызвав «super.getWarrantyMonths()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «ExtendedWarranty» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Джами кафолат: \" + ew.getWarrantyMonths() + \" ой\");'"
     },
     "story": {
       "uz": "Standart kafolat ('ProductWarranty') 12 oyni qaytaradi ('getWarrantyMonths()'). Kengaytirilgan kafolat ('ExtendedWarranty extends ProductWarranty') esa do'kon tomonidan berilgan qo'shimcha 24 oyni ulasin: 'return super.getWarrantyMonths() + 24;'.",
-      "en": "Extended warranty packages add 24 months to standard 12-month manufacturer coverage via super.getWarrantyMonths()."
+      "en": "Extended warranty packages add 24 months to standard 12-month manufacturer coverage via super.getWarrantyMonths().",
+      "ru": "Пакеты расширенной гарантии добавляют 24 месяца к стандартному 12-месячному покрытию производителя через super.getWarrantyMonths()."
     },
     "steps": {
       "uz": [
@@ -5643,6 +6919,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'ExtendedWarranty', override 'getWarrantyMonths()', calling 'super.getWarrantyMonths()' to enrich parent results.",
         "Instantiate 'ExtendedWarranty' in 'main'.",
         "Invoke method and print enriched output: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Jami kafolat: \" + ew.getWarrantyMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс ProductWarranty с помощью метода getWarrantyMonths().",
+        "Выведите «ExtendedWarranty расширяет ProductWarranty».",
+        "В «ExtendedWarranty» переопределите «getWarrantyMonths()», вызвав «super.getWarrantyMonths()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «ExtendedWarranty» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'ExtendedWarranty ew = new ExtendedWarranty(); System.out.println(\"Джами кафолат: \" + ew.getWarrantyMonths() + \" ой\");'"
       ]
     },
     "requirements": {
@@ -5674,7 +6957,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getWarrantyMonths()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "Natija 36 bo'ladi (12 + 24).",
-      "cw2Tip": "Tovar kafolat muddatlarini hisoblashda super chaqiruvlaridan foydalaning."
+      "cw2Tip": "Tovar kafolat muddatlarini hisoblashda super chaqiruvlaridan foydalaning.",
+      "theoryRu": "Расширенная гарантия надежно объединяет стандартные и дополнительные сроки действия благодаря суперделегированию.",
+      "pitfallsRu": "Натия 36 болади (12 + 24).",
+      "breakdownRu": [
+        "<code>super.getWarrantyMonths()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5684,15 +6972,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "86. Kapitalbank — BonusDeposit super.calculateYearlyReturn() Mukofot Jamg'armasi",
-      "en": "86. Kapitalbank — BonusDeposit super.calculateYearlyReturn() Bonus Yield"
+      "en": "86. Kapitalbank — BonusDeposit super.calculateYearlyReturn() Bonus Yield",
+      "ru": "86. Капиталбанк — BonusDeposit super.calculateYearlyReturn() Бонусная доходность"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nOmonat ('BankDeposit') yillik daromadni 'calculateYearlyReturn()' da 2000000.0 so'm deb hisoblaydi. Mukofotli omonat ('BonusDeposit extends BankDeposit') esa bank aksiyasi bo'yicha 300000.0 so'm mukofot qo'shib qaytarsin: 'return super.calculateYearlyReturn() + 300000.0;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BankDeposit' ni e'lon qiling va unga 'calculateYearlyReturn()' metodini yozing.\n\n2. Avlod sinf 'BonusDeposit extends BankDeposit' ni yarating.\n\n3. 'BonusDeposit' ichida 'calculateYearlyReturn()' metodini @Override qiling va uning ichida 'super.calculateYearlyReturn()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'BonusDeposit' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Jami daromad: \" + bd.calculateYearlyReturn() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nBonus deposits append a 300,000 UZS promotional yield to super.calculateYearlyReturn().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankDeposit' with method 'calculateYearlyReturn()'.\n\n2. Derive 'BonusDeposit extends BankDeposit'.\n\n3. In 'BonusDeposit', override 'calculateYearlyReturn()', calling 'super.calculateYearlyReturn()' to enrich parent results.\n\n4. Instantiate 'BonusDeposit' in 'main'.\n\n5. Invoke method and print enriched output: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Jami daromad: \" + bd.calculateYearlyReturn() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nBonus deposits append a 300,000 UZS promotional yield to super.calculateYearlyReturn().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BankDeposit' with method 'calculateYearlyReturn()'.\n\n2. Derive 'BonusDeposit extends BankDeposit'.\n\n3. In 'BonusDeposit', override 'calculateYearlyReturn()', calling 'super.calculateYearlyReturn()' to enrich parent results.\n\n4. Instantiate 'BonusDeposit' in 'main'.\n\n5. Invoke method and print enriched output: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Jami daromad: \" + bd.calculateYearlyReturn() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nБонусные депозиты добавляют к super.calculateYearlyReturn() акционный доход в размере 300 000 сум.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BankDeposit с помощью метода CalculateYearlyReturn().\n2. Выведите «BonusDeposit расширяет BankDeposit».\n3. В «BonusDeposit» переопределите «calculateYearlyReturn()», вызвав «super.calculateYearlyReturn()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «BonusDeposit» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Джами даромад: \" + bd.calculateYearlyReturn() + \" так я\");'"
     },
     "story": {
       "uz": "Omonat ('BankDeposit') yillik daromadni 'calculateYearlyReturn()' da 2000000.0 so'm deb hisoblaydi. Mukofotli omonat ('BonusDeposit extends BankDeposit') esa bank aksiyasi bo'yicha 300000.0 so'm mukofot qo'shib qaytarsin: 'return super.calculateYearlyReturn() + 300000.0;'.",
-      "en": "Bonus deposits append a 300,000 UZS promotional yield to super.calculateYearlyReturn()."
+      "en": "Bonus deposits append a 300,000 UZS promotional yield to super.calculateYearlyReturn().",
+      "ru": "Бонусные депозиты добавляют к super.calculateYearlyReturn() акционный доход в размере 300 000 сум."
     },
     "steps": {
       "uz": [
@@ -5708,6 +6999,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'BonusDeposit', override 'calculateYearlyReturn()', calling 'super.calculateYearlyReturn()' to enrich parent results.",
         "Instantiate 'BonusDeposit' in 'main'.",
         "Invoke method and print enriched output: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Jami daromad: \" + bd.calculateYearlyReturn() + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс BankDeposit с помощью метода CalculateYearlyReturn().",
+        "Выведите «BonusDeposit расширяет BankDeposit».",
+        "В «BonusDeposit» переопределите «calculateYearlyReturn()», вызвав «super.calculateYearlyReturn()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «BonusDeposit» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'BonusDeposit bd = new BonusDeposit(); System.out.println(\"Джами даромад: \" + bd.calculateYearlyReturn() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -5739,7 +7037,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.calculateYearlyReturn()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "double qiymatlar to'g'ri qo'shilishini tekshiring.",
-      "cw2Tip": "Omonat va hisob-kitob modellarida ushbu usulni qo'llang."
+      "cw2Tip": "Omonat va hisob-kitob modellarida ushbu usulni qo'llang.",
+      "theoryRu": "Рекламные стимулы лояльности детерминированно основаны на суперклассных калькуляторах процентной доходности.",
+      "pitfallsRu": "двойной кийматлар то'гри ко'шилишини текширинг.",
+      "breakdownRu": [
+        "<code>super.calculateYearlyReturn()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5749,15 +7052,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "87. Akfa Medline — SpecialistReport super.getDiagnosis() Qo'shimcha Xulosa",
-      "en": "87. Akfa Medline — SpecialistReport super.getDiagnosis() Consultation"
+      "en": "87. Akfa Medline — SpecialistReport super.getDiagnosis() Consultation",
+      "ru": "87. Akfa Medline — Консультация SpecialistReport super.getDiagnosis()"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTibbiy hisobot ('MedicalReport') tashxisni 'getDiagnosis()' orqali 'Umumiy tekshiruv: Sog'lom' deb qaytaradi. Mutaxassis xulosasi ('SpecialistReport extends MedicalReport') esa 'super.getDiagnosis() + \" | Kardiolog: Yurak ritmi me'yorda\"' ulab qaytarsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MedicalReport' ni e'lon qiling va unga 'getDiagnosis()' metodini yozing.\n\n2. Avlod sinf 'SpecialistReport extends MedicalReport' ni yarating.\n\n3. 'SpecialistReport' ichida 'getDiagnosis()' metodini @Override qiling va uning ichida 'super.getDiagnosis()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'SpecialistReport' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'",
-      "en": "📖 Real-World Scenario & Context\nSpecialist reports concatenate specialist evaluations onto base medical consultation diagnoses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalReport' with method 'getDiagnosis()'.\n\n2. Derive 'SpecialistReport extends MedicalReport'.\n\n3. In 'SpecialistReport', override 'getDiagnosis()', calling 'super.getDiagnosis()' to enrich parent results.\n\n4. Instantiate 'SpecialistReport' in 'main'.\n\n5. Invoke method and print enriched output: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'"
+      "en": "📖 Real-World Scenario & Context\nSpecialist reports concatenate specialist evaluations onto base medical consultation diagnoses.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MedicalReport' with method 'getDiagnosis()'.\n\n2. Derive 'SpecialistReport extends MedicalReport'.\n\n3. In 'SpecialistReport', override 'getDiagnosis()', calling 'super.getDiagnosis()' to enrich parent results.\n\n4. Instantiate 'SpecialistReport' in 'main'.\n\n5. Invoke method and print enriched output: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'",
+      "ru": "📖 Контекст и описание задачи\nОтчеты специалистов объединяют оценки специалистов с базовыми диагнозами медицинских консультаций.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс MedicalReport с помощью метода getDiagnosis().\n2. Выведите «SpecialistReport расширяет MedicalReport».\n3. В «SpecialistReport» переопределите «getDiagnosis()», вызвав «super.getDiagnosis()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «SpecialistReport» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'"
     },
     "story": {
       "uz": "Tibbiy hisobot ('MedicalReport') tashxisni 'getDiagnosis()' orqali 'Umumiy tekshiruv: Sog'lom' deb qaytaradi. Mutaxassis xulosasi ('SpecialistReport extends MedicalReport') esa 'super.getDiagnosis() + \" | Kardiolog: Yurak ritmi me'yorda\"' ulab qaytarsin.",
-      "en": "Specialist reports concatenate specialist evaluations onto base medical consultation diagnoses."
+      "en": "Specialist reports concatenate specialist evaluations onto base medical consultation diagnoses.",
+      "ru": "Отчеты специалистов объединяют оценки специалистов с базовыми диагнозами медицинских консультаций."
     },
     "steps": {
       "uz": [
@@ -5773,6 +7079,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'SpecialistReport', override 'getDiagnosis()', calling 'super.getDiagnosis()' to enrich parent results.",
         "Instantiate 'SpecialistReport' in 'main'.",
         "Invoke method and print enriched output: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'"
+      ],
+      "ru": [
+        "Объявите суперкласс MedicalReport с помощью метода getDiagnosis().",
+        "Выведите «SpecialistReport расширяет MedicalReport».",
+        "В «SpecialistReport» переопределите «getDiagnosis()», вызвав «super.getDiagnosis()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «SpecialistReport» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'SpecialistReport sr = new SpecialistReport(); System.out.println(sr.getDiagnosis());'"
       ]
     },
     "requirements": {
@@ -5804,7 +7117,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getDiagnosis()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getDiagnosis() chaqiruvini aniq yozing.",
-      "cw2Tip": "Tibbiy tizimlar va xizmat hisobotlarida ushbu usuldan foydalaning."
+      "cw2Tip": "Tibbiy tizimlar va xizmat hisobotlarida ushbu usuldan foydalaning.",
+      "theoryRu": "Диагностические карты пациентов сохраняют исходные данные врачей общей практики, одновременно накладывая оценки специалистов-кардиологов.",
+      "pitfallsRu": "super.getDiagnosis() чакирувини аник йозинг.",
+      "breakdownRu": [
+        "<code>super.getDiagnosis()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5814,15 +7132,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "88. Uzbekistan Airways — FlexTicket super.getConditions() Moslashuvchan Chipta",
-      "en": "88. Uzbekistan Airways — FlexTicket super.getConditions() Flexibility"
+      "en": "88. Uzbekistan Airways — FlexTicket super.getConditions() Flexibility",
+      "ru": "88. «Узбекские авиалинии» — FlexTicket super.getConditions() Гибкость"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nAviachipta ('FlightTicket') qoidalarni ('getConditions()') 'Qaytarib berilmaydi' deb qaytaradi. Moslashuvchan chipta ('FlexTicket extends FlightTicket') esa 'super.getConditions() + \" | Parvoz sanasini bepul o'zgartirish mumkin\"' ko'rinishida kengaytirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'FlightTicket' ni e'lon qiling va unga 'getConditions()' metodini yozing.\n\n2. Avlod sinf 'FlexTicket extends FlightTicket' ni yarating.\n\n3. 'FlexTicket' ichida 'getConditions()' metodini @Override qiling va uning ichida 'super.getConditions()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'FlexTicket' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Chipta sharti: \" + ft.getConditions());'",
-      "en": "📖 Real-World Scenario & Context\nFlex tickets augment standard ticket conditions with free date-change privileges via super.getConditions().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FlightTicket' with method 'getConditions()'.\n\n2. Derive 'FlexTicket extends FlightTicket'.\n\n3. In 'FlexTicket', override 'getConditions()', calling 'super.getConditions()' to enrich parent results.\n\n4. Instantiate 'FlexTicket' in 'main'.\n\n5. Invoke method and print enriched output: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Chipta sharti: \" + ft.getConditions());'"
+      "en": "📖 Real-World Scenario & Context\nFlex tickets augment standard ticket conditions with free date-change privileges via super.getConditions().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'FlightTicket' with method 'getConditions()'.\n\n2. Derive 'FlexTicket extends FlightTicket'.\n\n3. In 'FlexTicket', override 'getConditions()', calling 'super.getConditions()' to enrich parent results.\n\n4. Instantiate 'FlexTicket' in 'main'.\n\n5. Invoke method and print enriched output: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Chipta sharti: \" + ft.getConditions());'",
+      "ru": "📖 Контекст и описание задачи\nГибкие билеты дополняют стандартные условия билетов бесплатными правами на изменение даты через super.getConditions().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс FlightTicket с помощью метода getConditions().\n2. Выведите «FlexTicket расширяет FlightTicket».\n3. В «FlexTicket» переопределите «getConditions()», вызвав «super.getConditions()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «FlexTicket» в «main».\n5. Вызовите метод и распечатайте расширенный вывод: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Чипта шарти: \" + ft.getConditions());'"
     },
     "story": {
       "uz": "Aviachipta ('FlightTicket') qoidalarni ('getConditions()') 'Qaytarib berilmaydi' deb qaytaradi. Moslashuvchan chipta ('FlexTicket extends FlightTicket') esa 'super.getConditions() + \" | Parvoz sanasini bepul o'zgartirish mumkin\"' ko'rinishida kengaytirsin.",
-      "en": "Flex tickets augment standard ticket conditions with free date-change privileges via super.getConditions()."
+      "en": "Flex tickets augment standard ticket conditions with free date-change privileges via super.getConditions().",
+      "ru": "Гибкие билеты дополняют стандартные условия билетов бесплатными правами на изменение даты через super.getConditions()."
     },
     "steps": {
       "uz": [
@@ -5838,6 +7159,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'FlexTicket', override 'getConditions()', calling 'super.getConditions()' to enrich parent results.",
         "Instantiate 'FlexTicket' in 'main'.",
         "Invoke method and print enriched output: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Chipta sharti: \" + ft.getConditions());'"
+      ],
+      "ru": [
+        "Объявите суперкласс FlightTicket с помощью метода getConditions().",
+        "Выведите «FlexTicket расширяет FlightTicket».",
+        "В «FlexTicket» переопределите «getConditions()», вызвав «super.getConditions()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «FlexTicket» в «main».",
+        "Вызовите метод и распечатайте расширенный вывод: 'FlexTicket ft = new FlexTicket(); System.out.println(\"Чипта шарти: \" + ft.getConditions());'"
       ]
     },
     "requirements": {
@@ -5869,7 +7197,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getConditions()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getConditions() String qaytaradi.",
-      "cw2Tip": "Chipta va buyurtma shartlarini yoritishda ushbu andozadan foydalaning."
+      "cw2Tip": "Chipta va buyurtma shartlarini yoritishda ushbu andozadan foydalaning.",
+      "theoryRu": "Правила гибкости классов авиационных тарифов четко сочетаются с базовым текстом невозвратного контракта.",
+      "pitfallsRu": "super.getConditions() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>super.getConditions()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5879,15 +7212,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "89. WIUT Registrar — HonorsGrade super.getTranscript() Dean's List",
-      "en": "89. WIUT Registrar — HonorsGrade super.getTranscript() Dean's List"
+      "en": "89. WIUT Registrar — HonorsGrade super.getTranscript() Dean's List",
+      "ru": "89. Регистратор WIUT — HonorsGrade super.getTranscript() Список декана"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBaholar varaqasi ('GradeRecord') 'getTranscript()' metodida 'GPA: 3.9' qaytaradi. A'lochi talaba varaqasi ('HonorsGrade extends GradeRecord') esa 'super.getTranscript() + \" [DEAN'S LIST HONORS]\"' faxriy yorlig'ini ulasin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'GradeRecord' ni e'lon qiling va unga 'getTranscript()' metodini yozing.\n\n2. Avlod sinf 'HonorsGrade extends GradeRecord' ni yarating.\n\n3. 'HonorsGrade' ichida 'getTranscript()' metodini @Override qiling va uning ichida 'super.getTranscript()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'HonorsGrade' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'",
-      "en": "📖 Real-World Scenario & Context\nHonors grade transcripts append Dean's List commendations to super.getTranscript() records.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'GradeRecord' with method 'getTranscript()'.\n\n2. Derive 'HonorsGrade extends GradeRecord'.\n\n3. In 'HonorsGrade', override 'getTranscript()', calling 'super.getTranscript()' to enrich parent results.\n\n4. Instantiate 'HonorsGrade' in 'main'.\n\n5. Invoke method and print enriched output: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'"
+      "en": "📖 Real-World Scenario & Context\nHonors grade transcripts append Dean's List commendations to super.getTranscript() records.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'GradeRecord' with method 'getTranscript()'.\n\n2. Derive 'HonorsGrade extends GradeRecord'.\n\n3. In 'HonorsGrade', override 'getTranscript()', calling 'super.getTranscript()' to enrich parent results.\n\n4. Instantiate 'HonorsGrade' in 'main'.\n\n5. Invoke method and print enriched output: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'",
+      "ru": "📖 Контекст и описание задачи\nТранскрипты оценок с отличием добавляют похвалы из списка декана к записям super.getTranscript().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс GradeRecord с помощью метода getTranscript().\n2. Выведите «HonorsGrade расширяет GradeRecord».\n3. В «HonorsGrade» переопределите «getTranscript()», вызвав «super.getTranscript()», чтобы обогатить родительские результаты.\n4. Создайте экземпляр «HonorsGrade» в «main».\n5. Вызов метода и вывод расширенного вывода: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'"
     },
     "story": {
       "uz": "Baholar varaqasi ('GradeRecord') 'getTranscript()' metodida 'GPA: 3.9' qaytaradi. A'lochi talaba varaqasi ('HonorsGrade extends GradeRecord') esa 'super.getTranscript() + \" [DEAN'S LIST HONORS]\"' faxriy yorlig'ini ulasin.",
-      "en": "Honors grade transcripts append Dean's List commendations to super.getTranscript() records."
+      "en": "Honors grade transcripts append Dean's List commendations to super.getTranscript() records.",
+      "ru": "Транскрипты оценок с отличием добавляют похвалы из списка декана к записям super.getTranscript()."
     },
     "steps": {
       "uz": [
@@ -5903,6 +7239,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'HonorsGrade', override 'getTranscript()', calling 'super.getTranscript()' to enrich parent results.",
         "Instantiate 'HonorsGrade' in 'main'.",
         "Invoke method and print enriched output: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'"
+      ],
+      "ru": [
+        "Объявите суперкласс GradeRecord с помощью метода getTranscript().",
+        "Выведите «HonorsGrade расширяет GradeRecord».",
+        "В «HonorsGrade» переопределите «getTranscript()», вызвав «super.getTranscript()», чтобы обогатить родительские результаты.",
+        "Создайте экземпляр «HonorsGrade» в «main».",
+        "Вызов метода и вывод расширенного вывода: 'HonorsGrade hg = new HonorsGrade(3.9); System.out.println(hg.getTranscript());'"
       ]
     },
     "requirements": {
@@ -5934,7 +7277,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getTranscript()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "gpa double turida bo'ladi.",
-      "cw2Tip": "Talabalar natijalarini modellashtirishda super.getTranscript() dan foydalaning."
+      "cw2Tip": "Talabalar natijalarini modellashtirishda super.getTranscript() dan foydalaning.",
+      "theoryRu": "В сводках институциональных академических регистраторов отметки с отличием аккуратно добавляются к стандартным транскриптам оценок.",
+      "pitfallsRu": "gpa двойная турида болади.",
+      "breakdownRu": [
+        "<code>super.getTranscript()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -5944,15 +7292,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "76-90: super.method() Mantiqiy Zanjiri",
     "title": {
       "uz": "90. Dodo Pizza — CheeseBurstItem super.getIngredients() Maxsus Pishloq",
-      "en": "90. Dodo Pizza — CheeseBurstItem super.getIngredients() Extra Cheese"
+      "en": "90. Dodo Pizza — CheeseBurstItem super.getIngredients() Extra Cheese",
+      "ru": "90. Додо Пицца — CheeseBurstItem super.getIngredients() Дополнительный сыр"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n6-bosqich yakuni: Pitsa ('PizzaProduct') ingredientlar ro'yxatida 'Sous, Motsarella, Go'sht' qaytaradi. Pishloq portlashi pitsasi ('CheeseBurstItem extends PizzaProduct') esa 'super.getIngredients() + \" + Maxsus Suyuq Cheddar Qatlami\"' ko'rinishida kengaytirsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'PizzaProduct' ni e'lon qiling va unga 'getIngredients()' metodini yozing.\n\n2. Avlod sinf 'CheeseBurstItem extends PizzaProduct' ni yarating.\n\n3. 'CheeseBurstItem' ichida 'getIngredients()' metodini @Override qiling va uning ichida 'super.getIngredients()' chaqiruvidan foydalanib ota sinf natijasini kengaytiring.\n\n4. 'Main' metodida 'CheeseBurstItem' ob'yektini yarating.\n\n5. Metodni chaqirib, kengaytirilgan natijani konsolga chop eting: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Tarkibi: \" + cbi.getIngredients());'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 6: Cheese burst items extend base pizza ingredients, appending molten cheddar fillings via super.getIngredients().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaProduct' with method 'getIngredients()'.\n\n2. Derive 'CheeseBurstItem extends PizzaProduct'.\n\n3. In 'CheeseBurstItem', override 'getIngredients()', calling 'super.getIngredients()' to enrich parent results.\n\n4. Instantiate 'CheeseBurstItem' in 'main'.\n\n5. Invoke method and print enriched output: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Tarkibi: \" + cbi.getIngredients());'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 6: Cheese burst items extend base pizza ingredients, appending molten cheddar fillings via super.getIngredients().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaProduct' with method 'getIngredients()'.\n\n2. Derive 'CheeseBurstItem extends PizzaProduct'.\n\n3. In 'CheeseBurstItem', override 'getIngredients()', calling 'super.getIngredients()' to enrich parent results.\n\n4. Instantiate 'CheeseBurstItem' in 'main'.\n\n5. Invoke method and print enriched output: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Tarkibi: \" + cbi.getIngredients());'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 6: сырные взрывные предметы расширяют базовые ингредиенты пиццы, добавляя начинки из расплавленного чеддера с помощью super.getIngredients().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PizzaProduct с помощью метода getIngredients().\n2. Выведите «CheeseBurstItem расширяет PizzaProduct».\n3. В CheeseBurstItem переопределите getIngredients(), вызвав super.getIngredients() для обогащения родительских результатов.\n4. Создайте экземпляр CheeseBurstItem в main.\n5. Вызов метода и вывод расширенного вывода: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Таркиби: \" + cbi.getIngredients());'"
     },
     "story": {
       "uz": "6-bosqich yakuni: Pitsa ('PizzaProduct') ingredientlar ro'yxatida 'Sous, Motsarella, Go'sht' qaytaradi. Pishloq portlashi pitsasi ('CheeseBurstItem extends PizzaProduct') esa 'super.getIngredients() + \" + Maxsus Suyuq Cheddar Qatlami\"' ko'rinishida kengaytirsin.",
-      "en": "Grand finale of Tier 6: Cheese burst items extend base pizza ingredients, appending molten cheddar fillings via super.getIngredients()."
+      "en": "Grand finale of Tier 6: Cheese burst items extend base pizza ingredients, appending molten cheddar fillings via super.getIngredients().",
+      "ru": "Грандиозный финал уровня 6: сырные взрывные предметы расширяют базовые ингредиенты пиццы, добавляя начинки из расплавленного чеддера с помощью super.getIngredients()."
     },
     "steps": {
       "uz": [
@@ -5968,6 +7319,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'CheeseBurstItem', override 'getIngredients()', calling 'super.getIngredients()' to enrich parent results.",
         "Instantiate 'CheeseBurstItem' in 'main'.",
         "Invoke method and print enriched output: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Tarkibi: \" + cbi.getIngredients());'"
+      ],
+      "ru": [
+        "Объявите суперкласс PizzaProduct с помощью метода getIngredients().",
+        "Выведите «CheeseBurstItem расширяет PizzaProduct».",
+        "В CheeseBurstItem переопределите getIngredients(), вызвав super.getIngredients() для обогащения родительских результатов.",
+        "Создайте экземпляр CheeseBurstItem в main.",
+        "Вызов метода и вывод расширенного вывода: 'CheeseBurstItem cbi = new CheeseBurstItem(); System.out.println(\"Таркиби: \" + cbi.getIngredients());'"
       ]
     },
     "requirements": {
@@ -5999,7 +7357,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>super.getIngredients()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
       ],
       "pitfalls": "super.getIngredients() metodini to'g'ri chaqiring.",
-      "cw2Tip": "CW2 Console Order Applicationda taom tarkibini ko'rsatishda ushbu yondashuvdan foydalaning."
+      "cw2Tip": "CW2 Console Order Applicationda taom tarkibini ko'rsatishda ushbu yondashuvdan foydalaning.",
+      "theoryRu": "Завершение уровня 6 подтверждает мастерство учащегося в сочетании переопределения метода с бесшовным поведенческим расширением super.method().",
+      "pitfallsRu": "Метод super.getIngredients() позволяет выполнить действие.",
+      "breakdownRu": [
+        "<code>super.getIngredients()</code>: Ota klassdagi asl metodni chaqirib, uning natijasiga yangi qiymatlarni qo'shadi."
+      ]
     }
   },
   {
@@ -6009,15 +7372,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "91. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> EBook Iyerarxiyasi",
-      "en": "91. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> EBook Hierarchy"
+      "en": "91. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> EBook Hierarchy",
+      "ru": "91. Семинар WIUT 3 Пример 5 — Продукт -> Цифровой продукт -> Иерархия электронных книг."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 5 rasmiy vazifasi: 3 pog'onali merosxo'rlik. 'Product' (name, price) -> 'DigitalProduct extends Product' (fileSizeMb) -> 'EBook extends DigitalProduct' (author, pageCount). Har bir bo'g'in o'zidan oldingisini 'super(...)' orqali to'ldiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Product' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'DigitalProduct extends Product' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'EBook extends DigitalProduct' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Seminar 3 Ex 5 implementation: Product -> DigitalProduct -> EBook 3-tier hierarchy, passing parameters up the chain via super(...).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DigitalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'EBook extends DigitalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Seminar 3 Ex 5 implementation: Product -> DigitalProduct -> EBook 3-tier hierarchy, passing parameters up the chain via super(...).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DigitalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'EBook extends DigitalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'",
+      "ru": "📖 Контекст и описание задачи\nРеализация Direct WIUT Seminar 3 Ex 5: Продукт -> Цифровой продукт -> Электронная книга Трехуровневая иерархия, передача параметров вверх по цепочке через super(...).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «DigitalProduct расширяет продукт», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «EBook расширяет DigitalProduct», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа к печати на всех трех уровнях: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 5 rasmiy vazifasi: 3 pog'onali merosxo'rlik. 'Product' (name, price) -> 'DigitalProduct extends Product' (fileSizeMb) -> 'EBook extends DigitalProduct' (author, pageCount). Har bir bo'g'in o'zidan oldingisini 'super(...)' orqali to'ldiradi.",
-      "en": "Direct WIUT Seminar 3 Ex 5 implementation: Product -> DigitalProduct -> EBook 3-tier hierarchy, passing parameters up the chain via super(...)."
+      "en": "Direct WIUT Seminar 3 Ex 5 implementation: Product -> DigitalProduct -> EBook 3-tier hierarchy, passing parameters up the chain via super(...).",
+      "ru": "Реализация Direct WIUT Seminar 3 Ex 5: Продукт -> Цифровой продукт -> Электронная книга Трехуровневая иерархия, передача параметров вверх по цепочке через super(...)."
     },
     "steps": {
       "uz": [
@@ -6033,6 +7399,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'EBook extends DigitalProduct' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «DigitalProduct расширяет продукт», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «EBook расширяет DigitalProduct», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа к печати на всех трех уровнях: 'EBook eb = new EBook(\"Clean Code\", 85000.0, 12.5, \"Robert Martin\", 464); System.out.println(eb.getName() + \" | Narx: \" + eb.getPrice() + \" so'm | Hajm: \" + eb.getFileSizeMb() + \" MB | Muallif: \" + eb.getAuthor() + \" | Betlar: \" + eb.getPageCount());'"
       ]
     },
     "requirements": {
@@ -6066,7 +7439,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'EBook' -> 'DigitalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "EBook konstruktorida 'super(name, price, fileSizeMb);' chaqirilishi shart, to'g'ridan-to'g'ri Product ga sakrab o'tib bo'lmaydi.",
-      "cw2Tip": "CW2 Console Order Applicationda tovarlar katalogini bunday ko'p pog'onali modellar bilan boyitish yuqori baholanadi."
+      "cw2Tip": "CW2 Console Order Applicationda tovarlar katalogini bunday ko'p pog'onali modellar bilan boyitish yuqori baholanadi.",
+      "theoryRu": "Семинар WIUT 3 Пример 5: Многоуровневое наследование образует линейную цепочку (Продукт -> Цифровой продукт -> Электронная книга), транзитивно приобретающую состояние и методы предка.",
+      "pitfallsRu": "Электронная книга конструктора 'super(имя, цена, fileSizeMb);' чакирилиши шарт, то'гридан-то'гри Продукт га сакраб оттиб болмайди.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'EBook' -> 'DigitalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6076,15 +7454,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "92. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> SoftwareLicense Iyerarxiyasi",
-      "en": "92. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> SoftwareLicense"
+      "en": "92. WIUT Seminar 3 Ex 5 — Product -> DigitalProduct -> SoftwareLicense",
+      "ru": "92. Семинар WIUT 3 Пример 5 — Продукт -> Цифровой продукт -> Лицензия на программное обеспечение."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 3 Ex 5 ikkinchi filiali: 'Product' -> 'DigitalProduct' -> 'SoftwareLicense extends DigitalProduct'. Dastur litsenziyasi private 'licenseKey' (String) va 'durationMonths' (int) maydonlariga ega.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Product' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'DigitalProduct extends Product' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'SoftwareLicense extends DigitalProduct' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 second branch: SoftwareLicense derives from DigitalProduct, adding licenseKey and durationMonths.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DigitalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'SoftwareLicense extends DigitalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 second branch: SoftwareLicense derives from DigitalProduct, adding licenseKey and durationMonths.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DigitalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'SoftwareLicense extends DigitalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 5, вторая ветвь: SoftwareLicense является производным от DigitalProduct, добавляя лицензионный ключ и длительность месяцев.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «DigitalProduct расширяет продукт», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «SoftwareLicense расширяет DigitalProduct», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'"
     },
     "story": {
       "uz": "Seminar 3 Ex 5 ikkinchi filiali: 'Product' -> 'DigitalProduct' -> 'SoftwareLicense extends DigitalProduct'. Dastur litsenziyasi private 'licenseKey' (String) va 'durationMonths' (int) maydonlariga ega.",
-      "en": "Seminar 3 Ex 5 second branch: SoftwareLicense derives from DigitalProduct, adding licenseKey and durationMonths."
+      "en": "Seminar 3 Ex 5 second branch: SoftwareLicense derives from DigitalProduct, adding licenseKey and durationMonths.",
+      "ru": "Семинар 3 Пример 5, вторая ветвь: SoftwareLicense является производным от DigitalProduct, добавляя лицензионный ключ и длительность месяцев."
     },
     "steps": {
       "uz": [
@@ -6100,6 +7481,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'SoftwareLicense extends DigitalProduct' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «DigitalProduct расширяет продукт», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «SoftwareLicense расширяет DigitalProduct», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'SoftwareLicense sl = new SoftwareLicense(\"IntelliJ IDEA Ultimate\", 590000.0, 850.0, \"KEY-9941-X\", 12); System.out.println(sl.getName() + \" | Kalit: \" + sl.getLicenseKey() + \" | Muddat: \" + sl.getDurationMonths() + \" oy\");'"
       ]
     },
     "requirements": {
@@ -6133,7 +7521,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'SoftwareLicense' -> 'DigitalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "durationMonths int turida bo'ladi.",
-      "cw2Tip": "Raqamli dasturiy ta'minot litsenziyalarini shunday loyihalash lozim."
+      "cw2Tip": "Raqamli dasturiy ta'minot litsenziyalarini shunday loyihalash lozim.",
+      "theoryRu": "Ветвление нескольких специализированных листьев из DigitalProduct создает чистые, масштабируемые деревья таксономии.",
+      "pitfallsRu": "ПродолжительностьМесяцы int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'SoftwareLicense' -> 'DigitalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6143,15 +7536,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "93. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> ElectronicDevice",
-      "en": "93. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> ElectronicDevice"
+      "en": "93. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> ElectronicDevice",
+      "ru": "93. Семинар WIUT 3 Пример 5 — Продукт -> Физический продукт -> Электронное устройство."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 3 Ex 5 uchinchi filiali: 'Product' -> 'PhysicalProduct extends Product' (weightKg) -> 'ElectronicDevice extends PhysicalProduct' (brand, warrantyMonths).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Product' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'PhysicalProduct extends Product' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'ElectronicDevice extends PhysicalProduct' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'ElectronicDevice ed = new ElectronicDevice(\"Televizor 55\", 4500000.0, 14.5, \"Artel\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" kg | Kafolat: \" + ed.getWarrantyMonths() + \" oy\");'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 third branch: ElectronicDevice specializes PhysicalProduct by adding brand and warranty months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'PhysicalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'ElectronicDevice extends PhysicalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ElectronicDevice ed = new ElectronicDevice(\"Televizor 55\", 4500000.0, 14.5, \"Artel\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" kg | Kafolat: \" + ed.getWarrantyMonths() + \" oy\");'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 third branch: ElectronicDevice specializes PhysicalProduct by adding brand and warranty months.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'PhysicalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'ElectronicDevice extends PhysicalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ElectronicDevice ed = new ElectronicDevice(\"Televizor 55\", 4500000.0, 14.5, \"Artel\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" kg | Kafolat: \" + ed.getWarrantyMonths() + \" oy\");'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 5, третья ветвь: ElectronicDevice специализируется на PhysicalProduct, добавляя бренд и месяцы гарантии.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «Физический продукт расширяет продукт», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «ElectronicDevice расширяет PhysicalProduct», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Вывод средств доступа на всех трех уровнях: 'ElectronicDevice ed = new ElectronicDevice(\"Телевизор 55\", 4500000.0, 14.5, \"Артель\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" кг | Кафолат: \" + ed.getWarrantyMonths() + \" ой\");'"
     },
     "story": {
       "uz": "Seminar 3 Ex 5 uchinchi filiali: 'Product' -> 'PhysicalProduct extends Product' (weightKg) -> 'ElectronicDevice extends PhysicalProduct' (brand, warrantyMonths).",
-      "en": "Seminar 3 Ex 5 third branch: ElectronicDevice specializes PhysicalProduct by adding brand and warranty months."
+      "en": "Seminar 3 Ex 5 third branch: ElectronicDevice specializes PhysicalProduct by adding brand and warranty months.",
+      "ru": "Семинар 3 Пример 5, третья ветвь: ElectronicDevice специализируется на PhysicalProduct, добавляя бренд и месяцы гарантии."
     },
     "steps": {
       "uz": [
@@ -6167,6 +7563,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'ElectronicDevice extends PhysicalProduct' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'ElectronicDevice ed = new ElectronicDevice(\"Televizor 55\", 4500000.0, 14.5, \"Artel\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" kg | Kafolat: \" + ed.getWarrantyMonths() + \" oy\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «Физический продукт расширяет продукт», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «ElectronicDevice расширяет PhysicalProduct», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Вывод средств доступа на всех трех уровнях: 'ElectronicDevice ed = new ElectronicDevice(\"Телевизор 55\", 4500000.0, 14.5, \"Артель\", 36); System.out.println(ed.getName() + \" (\" + ed.getBrand() + \") | Og'irlik: \" + ed.getWeightKg() + \" кг | Кафолат: \" + ed.getWarrantyMonths() + \" ой\");'"
       ]
     },
     "requirements": {
@@ -6200,7 +7603,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'ElectronicDevice' -> 'PhysicalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "ElectronicDevice konstruktorida 'super(name, price, weightKg);' chaqirilishi kerak.",
-      "cw2Tip": "Elektronika tovarlarini modellashtirishda ElectronicDevice modelidan foydalaning."
+      "cw2Tip": "Elektronika tovarlarini modellashtirishda ElectronicDevice modelidan foydalaning.",
+      "theoryRu": "Физические товары длительного пользования накапливают семантику веса на уровне 2, а многоуровневая гарантия производителя — на уровне 3.",
+      "pitfallsRu": "Конструктор ElectronicDevice 'super(имя, цена, вес, кг);' чакирилиши керак.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'ElectronicDevice' -> 'PhysicalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6210,15 +7618,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "94. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> Clothing",
-      "en": "94. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> Clothing"
+      "en": "94. WIUT Seminar 3 Ex 5 — Product -> PhysicalProduct -> Clothing",
+      "ru": "94. Семинар WIUT 3 Пример 5 — Продукт -> Физический продукт -> Одежда."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSeminar 3 Ex 5 to'rtinchi filiali: 'Product' -> 'PhysicalProduct' -> 'Clothing extends PhysicalProduct' (size, material). Kiyim-kechak jismoniy tovar sifatida o'lcham va mato turiga ega bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Product' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'PhysicalProduct extends Product' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'Clothing extends PhysicalProduct' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" so'm | O'lcham: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 fourth branch: Clothing specializes PhysicalProduct, tracking garment size and fabric material.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'PhysicalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'Clothing extends PhysicalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" so'm | O'lcham: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 5 fourth branch: Clothing specializes PhysicalProduct, tracking garment size and fabric material.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'PhysicalProduct extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'Clothing extends PhysicalProduct' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" so'm | O'lcham: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 5, четвертое отделение: Одежда специализируется на физических продуктах, отслеживая размер одежды и материал ткани.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «Физический продукт расширяет продукт», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «Одежда расширяет физический продукт», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати для всех трех уровней: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" так что | О'лчам: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'"
     },
     "story": {
       "uz": "Seminar 3 Ex 5 to'rtinchi filiali: 'Product' -> 'PhysicalProduct' -> 'Clothing extends PhysicalProduct' (size, material). Kiyim-kechak jismoniy tovar sifatida o'lcham va mato turiga ega bo'ladi.",
-      "en": "Seminar 3 Ex 5 fourth branch: Clothing specializes PhysicalProduct, tracking garment size and fabric material."
+      "en": "Seminar 3 Ex 5 fourth branch: Clothing specializes PhysicalProduct, tracking garment size and fabric material.",
+      "ru": "Семинар 3 Пример 5, четвертое отделение: Одежда специализируется на физических продуктах, отслеживая размер одежды и материал ткани."
     },
     "steps": {
       "uz": [
@@ -6234,6 +7645,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'Clothing extends PhysicalProduct' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" so'm | O'lcham: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «Физический продукт расширяет продукт», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «Одежда расширяет физический продукт», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати для всех трех уровней: 'Clothing cl = new Clothing(\"Paxtali Futbolka\", 89000.0, 0.2, \"L\", \"100% Paxta\"); System.out.println(cl.getName() + \" | Narx: \" + cl.getPrice() + \" так что | О'лчам: \" + cl.getSize() + \" | Mato: \" + cl.getMaterial());'"
       ]
     },
     "requirements": {
@@ -6267,7 +7685,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'Clothing' -> 'PhysicalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "size va material String turida bo'ladi.",
-      "cw2Tip": "CW2 Console Order Applicationda tovar toifalarini shunday tarmoqlangan iyerarxiya bilan quring."
+      "cw2Tip": "CW2 Console Order Applicationda tovar toifalarini shunday tarmoqlangan iyerarxiya bilan quring.",
+      "theoryRu": "Завершение всех 4 разделов семинара 3 Ex 5 демонстрирует полное архитектурное мастерство моделирования корпоративных продуктов.",
+      "pitfallsRu": "размер va материал Струна turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'Clothing' -> 'PhysicalProduct' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6277,15 +7700,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "95. WIUT Lecture 3 Slide 26-29 — Plant -> Fruit -> Apple Iyerarxiyasi",
-      "en": "95. WIUT Lecture 3 Slide 26-29 — Plant -> Fruit -> Apple"
+      "en": "95. WIUT Lecture 3 Slide 26-29 — Plant -> Fruit -> Apple",
+      "ru": "95. Лекция WIUT 3 Слайд 26-29 — Растение -> Фрукт -> Яблоко"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Lecture 3 26-29-slaydlari rasmiy kodi: 'Plant' (type) -> 'Fruit extends Plant' (color) -> 'Apple extends Fruit' (variety, masalan 'Oq olma' / 'Golden'). Har bir pog'ona super(...) orqali bog'lanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Plant' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'Fruit extends Plant' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'Apple extends Fruit' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"O'simlik: \" + apple.getType() + \" | Rangi: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Lecture 3 Slides 26-29 implementation: Plant (type) -> Fruit (color) -> Apple (variety).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Plant' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Fruit extends Plant' delegating to super(...).\n\n3. Create Level 3 leaf class 'Apple extends Fruit' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"O'simlik: \" + apple.getType() + \" | Rangi: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Lecture 3 Slides 26-29 implementation: Plant (type) -> Fruit (color) -> Apple (variety).\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Plant' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Fruit extends Plant' delegating to super(...).\n\n3. Create Level 3 leaf class 'Apple extends Fruit' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"O'simlik: \" + apple.getType() + \" | Rangi: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'",
+      "ru": "📖 Контекст и описание задачи\nПрямая лекция МВУТ 3 Слайды 26-29 реализация: Растение (вид) -> Плод (цвет) -> Яблоко (сорт).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Plant» с полями, конструктором и средствами доступа.\n2. Создайте промежуточный класс уровня 2 «Фрукт расширяет растение», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «Apple расширяет Fruit», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Вывод средств доступа на всех трех уровнях: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"Осимлик: \" + apple.getType() + \" | Ранги: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'"
     },
     "story": {
       "uz": "WIUT Lecture 3 26-29-slaydlari rasmiy kodi: 'Plant' (type) -> 'Fruit extends Plant' (color) -> 'Apple extends Fruit' (variety, masalan 'Oq olma' / 'Golden'). Har bir pog'ona super(...) orqali bog'lanadi.",
-      "en": "Direct WIUT Lecture 3 Slides 26-29 implementation: Plant (type) -> Fruit (color) -> Apple (variety)."
+      "en": "Direct WIUT Lecture 3 Slides 26-29 implementation: Plant (type) -> Fruit (color) -> Apple (variety).",
+      "ru": "Прямая лекция МВУТ 3 Слайды 26-29 реализация: Растение (вид) -> Плод (цвет) -> Яблоко (сорт)."
     },
     "steps": {
       "uz": [
@@ -6301,6 +7727,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'Apple extends Fruit' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"O'simlik: \" + apple.getType() + \" | Rangi: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Plant» с полями, конструктором и средствами доступа.",
+        "Создайте промежуточный класс уровня 2 «Фрукт расширяет растение», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «Apple расширяет Fruit», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Вывод средств доступа на всех трех уровнях: 'Apple apple = new Apple(\"Daraxtsimon\", \"Qizil\", \"Qizil Olma\"); System.out.println(\"Осимлик: \" + apple.getType() + \" | Ранги: \" + apple.getColor() + \" | Nav: \" + apple.getVariety());'"
       ]
     },
     "requirements": {
@@ -6334,7 +7767,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'Apple' -> 'Fruit' -> 'Plant' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "Apple o'z konstruktorida super(type, color) ni chaqirishi lozim.",
-      "cw2Tip": "Biologik va tabiiy modellarni loyihalashda ota-bobo zanjiridan to'g'ri foydalaning."
+      "cw2Tip": "Biologik va tabiiy modellarni loyihalashda ota-bobo zanjiridan to'g'ri foydalaning.",
+      "theoryRu": "Лекция 3. Слайды 26–29. Apple транзитивно обращается к полям Plant на двух уровнях наследования.",
+      "pitfallsRu": "Apple o'z конструктора супер(тип, цвет) и чакириши лозим.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'Apple' -> 'Fruit' -> 'Plant' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6344,15 +7782,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "96. Payme — Account -> CardAccount -> VirtualHumoAccount",
-      "en": "96. Payme — Account -> CardAccount -> VirtualHumoAccount"
+      "en": "96. Payme — Account -> CardAccount -> VirtualHumoAccount",
+      "ru": "96. Payme — Аккаунт -> Карточная учетная запись -> VirtualHumoAccount"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHisob ('Account': accNo, balance) -> Karta hisobi ('CardAccount': cardPan) -> Virtual Humo kartasi ('VirtualHumoAccount': tokenSecret).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Account' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'CardAccount extends Account' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'VirtualHumoAccount extends CardAccount' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'",
-      "en": "📖 Real-World Scenario & Context\n3-tier banking hierarchy: Account -> CardAccount -> VirtualHumoAccount with security tokens.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Account' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CardAccount extends Account' delegating to super(...).\n\n3. Create Level 3 leaf class 'VirtualHumoAccount extends CardAccount' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'"
+      "en": "📖 Real-World Scenario & Context\n3-tier banking hierarchy: Account -> CardAccount -> VirtualHumoAccount with security tokens.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Account' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CardAccount extends Account' delegating to super(...).\n\n3. Create Level 3 leaf class 'VirtualHumoAccount extends CardAccount' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'",
+      "ru": "📖 Контекст и описание задачи\nТрехуровневая банковская иерархия: Счет -> Счет карты -> VirtualHumoAccount с токенами безопасности.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Учетная запись» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «CardAccount расширяет учетную запись», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «VirtualHumoAccount расширяет CardAccount», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'"
     },
     "story": {
       "uz": "Hisob ('Account': accNo, balance) -> Karta hisobi ('CardAccount': cardPan) -> Virtual Humo kartasi ('VirtualHumoAccount': tokenSecret).",
-      "en": "3-tier banking hierarchy: Account -> CardAccount -> VirtualHumoAccount with security tokens."
+      "en": "3-tier banking hierarchy: Account -> CardAccount -> VirtualHumoAccount with security tokens.",
+      "ru": "Трехуровневая банковская иерархия: Счет -> Счет карты -> VirtualHumoAccount с токенами безопасности."
     },
     "steps": {
       "uz": [
@@ -6368,6 +7809,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'VirtualHumoAccount extends CardAccount' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Учетная запись» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «CardAccount расширяет учетную запись», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «VirtualHumoAccount расширяет CardAccount», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'VirtualHumoAccount vh = new VirtualHumoAccount(\"ACC-881\", 3200000.0, \"9860-****-5544\", \"TKN-XYZ-99\"); System.out.println(vh.getAccNo() + \" | Balans: \" + vh.getBalance() + \" so'm | Token: \" + vh.getTokenSecret());'"
       ]
     },
     "requirements": {
@@ -6401,7 +7849,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'VirtualHumoAccount' -> 'CardAccount' -> 'Account' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "TokenSecret maydoni private bo'ladi.",
-      "cw2Tip": "Moliyaviy tizimlar xavfsizligida 3 pog'onali modellardan foydalaning."
+      "cw2Tip": "Moliyaviy tizimlar xavfsizligida 3 pog'onali modellardan foydalaning.",
+      "theoryRu": "Токенизированные карты четко основаны на карточных счетах и основных регистрах на трех отдельных уровнях.",
+      "pitfallsRu": "TokenSecret может быть частным болади.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'VirtualHumoAccount' -> 'CardAccount' -> 'Account' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6411,15 +7864,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "97. Yandex Go — Vehicle -> Car -> ElectricTaxi",
-      "en": "97. Yandex Go — Vehicle -> Car -> ElectricTaxi"
+      "en": "97. Yandex Go — Vehicle -> Car -> ElectricTaxi",
+      "ru": "97. Яндекс Go — Транспорт -> Автомобиль -> ЭлектроТакси"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTransport ('Vehicle': plate) -> Yengil avtomobil ('Car': passengerSeats) -> Elektromobil taksi ('ElectricTaxi': batteryKwh).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Vehicle' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'Car extends Vehicle' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'ElectricTaxi extends Car' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Taksi: \" + et.getPlate() + \" | O'rindiqlar: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" kWh\");'",
-      "en": "📖 Real-World Scenario & Context\nFleet hierarchy: Vehicle -> Car -> ElectricTaxi tracking battery capacity in kWh.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Vehicle' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Car extends Vehicle' delegating to super(...).\n\n3. Create Level 3 leaf class 'ElectricTaxi extends Car' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Taksi: \" + et.getPlate() + \" | O'rindiqlar: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" kWh\");'"
+      "en": "📖 Real-World Scenario & Context\nFleet hierarchy: Vehicle -> Car -> ElectricTaxi tracking battery capacity in kWh.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Vehicle' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Car extends Vehicle' delegating to super(...).\n\n3. Create Level 3 leaf class 'ElectricTaxi extends Car' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Taksi: \" + et.getPlate() + \" | O'rindiqlar: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" kWh\");'",
+      "ru": "📖 Контекст и описание задачи\nИерархия автопарка: Транспортное средство -> Автомобиль -> Электротакси, отслеживание емкости аккумулятора в кВтч.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Транспортное средство» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «Автомобиль расширяет транспортное средство», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «ElectricTaxi расширяет автомобиль», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Такси: \" + et.getPlate() + \" | Открыть: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" кВтч\");'"
     },
     "story": {
       "uz": "Transport ('Vehicle': plate) -> Yengil avtomobil ('Car': passengerSeats) -> Elektromobil taksi ('ElectricTaxi': batteryKwh).",
-      "en": "Fleet hierarchy: Vehicle -> Car -> ElectricTaxi tracking battery capacity in kWh."
+      "en": "Fleet hierarchy: Vehicle -> Car -> ElectricTaxi tracking battery capacity in kWh.",
+      "ru": "Иерархия автопарка: Транспортное средство -> Автомобиль -> Электротакси, отслеживание емкости аккумулятора в кВтч."
     },
     "steps": {
       "uz": [
@@ -6435,6 +7891,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'ElectricTaxi extends Car' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Taksi: \" + et.getPlate() + \" | O'rindiqlar: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" kWh\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Транспортное средство» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «Автомобиль расширяет транспортное средство», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «ElectricTaxi расширяет автомобиль», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'ElectricTaxi et = new ElectricTaxi(\"01B888BB\", 4, 60.5); System.out.println(\"Такси: \" + et.getPlate() + \" | Открыть: \" + et.getPassengerSeats() + \" | Batareya: \" + et.getBatteryKwh() + \" кВтч\");'"
       ]
     },
     "requirements": {
@@ -6468,7 +7931,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'ElectricTaxi' -> 'Car' -> 'Vehicle' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "batteryKwh double turida bo'ladi.",
-      "cw2Tip": "Transport modellarida ko'p pog'onali merosxo'rlikdan foydalaning."
+      "cw2Tip": "Transport modellarida ko'p pog'onali merosxo'rlikdan foydalaning.",
+      "theoryRu": "Электрические такси унаследовали право дорожного движения от автомобиля и пассажировместимость от автомобиля.",
+      "pitfallsRu": "аккумуляторКвт двойная турида болади.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'ElectricTaxi' -> 'Car' -> 'Vehicle' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6478,15 +7946,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "98. Korzinka Go — MarketItem -> FoodItem -> OrganicBakery",
-      "en": "98. Korzinka Go — MarketItem -> FoodItem -> OrganicBakery"
+      "en": "98. Korzinka Go — MarketItem -> FoodItem -> OrganicBakery",
+      "ru": "98. Корзинка Go — MarketItem -> FoodItem -> OrganicBakery"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTovar ('MarketItem': barcode, price) -> Oziq-ovqat ('FoodItem': calories) -> Organik non mahsuloti ('OrganicBakery': bioCertId).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'MarketItem' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'FoodItem extends MarketItem' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'OrganicBakery extends FoodItem' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Kaloriya: \" + ob.getCalories() + \" | Sertifikat: \" + ob.getBioCertId());'",
-      "en": "📖 Real-World Scenario & Context\nGrocery hierarchy: MarketItem -> FoodItem -> OrganicBakery carrying bio-certificates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'MarketItem' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'FoodItem extends MarketItem' delegating to super(...).\n\n3. Create Level 3 leaf class 'OrganicBakery extends FoodItem' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Kaloriya: \" + ob.getCalories() + \" | Sertifikat: \" + ob.getBioCertId());'"
+      "en": "📖 Real-World Scenario & Context\nGrocery hierarchy: MarketItem -> FoodItem -> OrganicBakery carrying bio-certificates.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'MarketItem' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'FoodItem extends MarketItem' delegating to super(...).\n\n3. Create Level 3 leaf class 'OrganicBakery extends FoodItem' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Kaloriya: \" + ob.getCalories() + \" | Sertifikat: \" + ob.getBioCertId());'",
+      "ru": "📖 Контекст и описание задачи\nИерархия продуктовых магазинов: MarketItem -> FoodItem -> OrganicBakery, имеющая биосертификаты.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 MarketItem с полями, конструктором и методами доступа.\n2. Создайте промежуточный класс уровня 2 «FoodItem расширяет MarketItem», делегируя его супер(...).\n3. Создайте листовой класс 3-го уровня «OrganicBakery расширяет FoodItem», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Выведите методы доступа на всех трех уровнях: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Калория: \" + ob.getCalories() + \" | Сертификат: \" + ob.getBioCertId());'"
     },
     "story": {
       "uz": "Tovar ('MarketItem': barcode, price) -> Oziq-ovqat ('FoodItem': calories) -> Organik non mahsuloti ('OrganicBakery': bioCertId).",
-      "en": "Grocery hierarchy: MarketItem -> FoodItem -> OrganicBakery carrying bio-certificates."
+      "en": "Grocery hierarchy: MarketItem -> FoodItem -> OrganicBakery carrying bio-certificates.",
+      "ru": "Иерархия продуктовых магазинов: MarketItem -> FoodItem -> OrganicBakery, имеющая биосертификаты."
     },
     "steps": {
       "uz": [
@@ -6502,6 +7973,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'OrganicBakery extends FoodItem' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Kaloriya: \" + ob.getCalories() + \" | Sertifikat: \" + ob.getBioCertId());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 MarketItem с полями, конструктором и методами доступа.",
+        "Создайте промежуточный класс уровня 2 «FoodItem расширяет MarketItem», делегируя его супер(...).",
+        "Создайте листовой класс 3-го уровня «OrganicBakery расширяет FoodItem», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Выведите методы доступа на всех трех уровнях: 'OrganicBakery ob = new OrganicBakery(\"4780091\", 16000.0, 240, \"BIO-UZ-101\"); System.out.println(\"Shtrix-kod: \" + ob.getBarcode() + \" | Narx: \" + ob.getPrice() + \" | Калория: \" + ob.getCalories() + \" | Сертификат: \" + ob.getBioCertId());'"
       ]
     },
     "requirements": {
@@ -6535,7 +8013,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'OrganicBakery' -> 'FoodItem' -> 'MarketItem' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "bioCertId String turida bo'ladi.",
-      "cw2Tip": "Mahsulot sertifikatlarini avlod klasslarda saqlang."
+      "cw2Tip": "Mahsulot sertifikatlarini avlod klasslarda saqlang.",
+      "theoryRu": "Атрибуты биосертификации легко прикрепляются к листовому уровню таксономии продуктовых магазинов.",
+      "pitfallsRu": "bioCertId String turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'OrganicBakery' -> 'FoodItem' -> 'MarketItem' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6545,15 +8028,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "99. Click Up — Document -> Invoice -> ExportInvoice",
-      "en": "99. Click Up — Document -> Invoice -> ExportInvoice"
+      "en": "99. Click Up — Document -> Invoice -> ExportInvoice",
+      "ru": "99. Нажмите Вверх — Документ -> Счет -> ЭкспортСчета."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nHujjat ('Document': docId) -> To'lov fakturasi ('Invoice': totalSum) -> Eksport hisob-fakturasi ('ExportInvoice': customsDeclarationNumber).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Document' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'Invoice extends Document' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'ExportInvoice extends Invoice' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Summa: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'",
-      "en": "📖 Real-World Scenario & Context\nDocument lifecycle: Document -> Invoice -> ExportInvoice tracking customs declaration stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Document' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Invoice extends Document' delegating to super(...).\n\n3. Create Level 3 leaf class 'ExportInvoice extends Invoice' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Summa: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'"
+      "en": "📖 Real-World Scenario & Context\nDocument lifecycle: Document -> Invoice -> ExportInvoice tracking customs declaration stamps.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Document' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Invoice extends Document' delegating to super(...).\n\n3. Create Level 3 leaf class 'ExportInvoice extends Invoice' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Summa: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'",
+      "ru": "📖 Контекст и описание задачи\nЖизненный цикл документа: Документ -> Счет -> Экспортная накладная с отслеживанием штампов таможенной декларации.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Документ» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «Счет-фактура расширяет документ», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «ExportInvoice расширяет Invoice», соединяя его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Сумма: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'"
     },
     "story": {
       "uz": "Hujjat ('Document': docId) -> To'lov fakturasi ('Invoice': totalSum) -> Eksport hisob-fakturasi ('ExportInvoice': customsDeclarationNumber).",
-      "en": "Document lifecycle: Document -> Invoice -> ExportInvoice tracking customs declaration stamps."
+      "en": "Document lifecycle: Document -> Invoice -> ExportInvoice tracking customs declaration stamps.",
+      "ru": "Жизненный цикл документа: Документ -> Счет -> Экспортная накладная с отслеживанием штампов таможенной декларации."
     },
     "steps": {
       "uz": [
@@ -6569,6 +8055,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'ExportInvoice extends Invoice' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Summa: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Документ» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «Счет-фактура расширяет документ», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «ExportInvoice расширяет Invoice», соединяя его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'ExportInvoice ei = new ExportInvoice(\"DOC-991\", 150000000.0, \"CUSTOMS-UZ-7788\"); System.out.println(\"Hujjat: \" + ei.getDocId() + \" | Сумма: \" + ei.getTotalSum() + \" | Bojxona: \" + ei.getCustomsDeclarationNumber());'"
       ]
     },
     "requirements": {
@@ -6602,7 +8095,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'ExportInvoice' -> 'Invoice' -> 'Document' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "customsDeclarationNumber String turida e'lon qilinadi.",
-      "cw2Tip": "Hisob-kitob hujjatlarini modellashtirishda Document superklassidan foydalaning."
+      "cw2Tip": "Hisob-kitob hujjatlarini modellashtirishda Document superklassidan foydalaning.",
+      "theoryRu": "Трансграничные экспортные счета-фактуры включают стандартные бухгалтерские документы трех уровней.",
+      "pitfallsRu": "Таможенная декларацияНомер Строка turida e'lon qilinadi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'ExportInvoice' -> 'Invoice' -> 'Document' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6612,15 +8110,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "100. Asaxiy Books — Publication -> Book -> AudioBookTrack",
-      "en": "100. Asaxiy Books — Publication -> Book -> AudioBookTrack"
+      "en": "100. Asaxiy Books — Publication -> Book -> AudioBookTrack",
+      "ru": "100. Asaxy Books — Публикация -> Книга -> AudioBookTrack"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nNashr ('Publication': title) -> Kitob ('Book': author) -> Audio kitob treki ('AudioBookTrack': narratorName).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Publication' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'Book extends Publication' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'AudioBookTrack extends Book' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'AudioBookTrack abt = new AudioBookTrack(\"Yulduzli Tunlar\", \"Pirimqul Qodirov\", \"Afzal Rafiqov\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'",
-      "en": "📖 Real-World Scenario & Context\nBibliographic chain: Publication -> Book -> AudioBookTrack capturing voice narrator names.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Publication' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Book extends Publication' delegating to super(...).\n\n3. Create Level 3 leaf class 'AudioBookTrack extends Book' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'AudioBookTrack abt = new AudioBookTrack(\"Yulduzli Tunlar\", \"Pirimqul Qodirov\", \"Afzal Rafiqov\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'"
+      "en": "📖 Real-World Scenario & Context\nBibliographic chain: Publication -> Book -> AudioBookTrack capturing voice narrator names.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Publication' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'Book extends Publication' delegating to super(...).\n\n3. Create Level 3 leaf class 'AudioBookTrack extends Book' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'AudioBookTrack abt = new AudioBookTrack(\"Yulduzli Tunlar\", \"Pirimqul Qodirov\", \"Afzal Rafiqov\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'",
+      "ru": "📖 Контекст и описание задачи\nБиблиографическая цепочка: Публикация -> Книга -> AudioBookTrack, фиксирующая имена голосовых рассказчиков.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Публикация» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «Книга расширяет публикацию», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «AudioBookTrack расширяет книгу», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'AudioBookTrack abt = new AudioBookTrack(\"Юлдузли Тунлар\", \"Пиримкул Кадиров\", \"Афзал Рафиков\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'"
     },
     "story": {
       "uz": "Nashr ('Publication': title) -> Kitob ('Book': author) -> Audio kitob treki ('AudioBookTrack': narratorName).",
-      "en": "Bibliographic chain: Publication -> Book -> AudioBookTrack capturing voice narrator names."
+      "en": "Bibliographic chain: Publication -> Book -> AudioBookTrack capturing voice narrator names.",
+      "ru": "Библиографическая цепочка: Публикация -> Книга -> AudioBookTrack, фиксирующая имена голосовых рассказчиков."
     },
     "steps": {
       "uz": [
@@ -6636,6 +8137,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'AudioBookTrack extends Book' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'AudioBookTrack abt = new AudioBookTrack(\"Yulduzli Tunlar\", \"Pirimqul Qodirov\", \"Afzal Rafiqov\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Публикация» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «Книга расширяет публикацию», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «AudioBookTrack расширяет книгу», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'AudioBookTrack abt = new AudioBookTrack(\"Юлдузли Тунлар\", \"Пиримкул Кадиров\", \"Афзал Рафиков\"); System.out.println(abt.getTitle() + \" (\" + abt.getAuthor() + \") | O'qidi: \" + abt.getNarratorName());'"
       ]
     },
     "requirements": {
@@ -6669,7 +8177,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'AudioBookTrack' -> 'Book' -> 'Publication' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "narratorName String turida bo'ladi.",
-      "cw2Tip": "Katalog tizimlarida AudioBookTrack modelini shunday tuzing."
+      "cw2Tip": "Katalog tizimlarida AudioBookTrack modelini shunday tuzing.",
+      "theoryRu": "Аудиоспектакли четко отделяют актеров озвучивания от основного литературного авторства.",
+      "pitfallsRu": "имя рассказчика Строка turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'AudioBookTrack' -> 'Book' -> 'Publication' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6679,15 +8192,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "101. Express24 — Order -> FoodOrder -> ExpressPizzaDelivery",
-      "en": "101. Express24 — Order -> FoodOrder -> ExpressPizzaDelivery"
+      "en": "101. Express24 — Order -> FoodOrder -> ExpressPizzaDelivery",
+      "ru": "101. Express24 — Заказ -> Заказ еды -> ЭкспрессДоставкаПиццы."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBuyurtma ('Order': orderId) -> Taom buyurtmasi ('FoodOrder': restaurantName) -> Tezkor pitsa jo'natmasi ('ExpressPizzaDelivery': thermalBoxTemperature).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Order' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'FoodOrder extends Order' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'ExpressPizzaDelivery extends FoodOrder' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Dodo Pizza\", 65); System.out.println(\"Buyurtma #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Termoboks harorati: \" + epd.getThermalBoxTemperature() + \"°C\");'",
-      "en": "📖 Real-World Scenario & Context\nDispatch chain: Order -> FoodOrder -> ExpressPizzaDelivery tracking thermal box temperature.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Order' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'FoodOrder extends Order' delegating to super(...).\n\n3. Create Level 3 leaf class 'ExpressPizzaDelivery extends FoodOrder' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Dodo Pizza\", 65); System.out.println(\"Buyurtma #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Termoboks harorati: \" + epd.getThermalBoxTemperature() + \"°C\");'"
+      "en": "📖 Real-World Scenario & Context\nDispatch chain: Order -> FoodOrder -> ExpressPizzaDelivery tracking thermal box temperature.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Order' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'FoodOrder extends Order' delegating to super(...).\n\n3. Create Level 3 leaf class 'ExpressPizzaDelivery extends FoodOrder' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Dodo Pizza\", 65); System.out.println(\"Buyurtma #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Termoboks harorati: \" + epd.getThermalBoxTemperature() + \"°C\");'",
+      "ru": "📖 Контекст и описание задачи\nЦепочка отправки: Заказ -> Заказ еды -> ЭкспрессПиццаДоставка отслеживание температуры термобокса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Порядок» с полями, конструктором и методами доступа.\n2. Создайте промежуточный класс уровня 2 «FoodOrder расширяет порядок», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «ExpressPizzaDelivery расширяет FoodOrder», соединяясь в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Додо Пицца\", 65); System.out.println(\"Купить #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Термобоксы хорошие: \" + epd.getThermalBoxTemperature() + \"°C\");'"
     },
     "story": {
       "uz": "Buyurtma ('Order': orderId) -> Taom buyurtmasi ('FoodOrder': restaurantName) -> Tezkor pitsa jo'natmasi ('ExpressPizzaDelivery': thermalBoxTemperature).",
-      "en": "Dispatch chain: Order -> FoodOrder -> ExpressPizzaDelivery tracking thermal box temperature."
+      "en": "Dispatch chain: Order -> FoodOrder -> ExpressPizzaDelivery tracking thermal box temperature.",
+      "ru": "Цепочка отправки: Заказ -> Заказ еды -> ЭкспрессПиццаДоставка отслеживание температуры термобокса."
     },
     "steps": {
       "uz": [
@@ -6703,6 +8219,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'ExpressPizzaDelivery extends FoodOrder' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Dodo Pizza\", 65); System.out.println(\"Buyurtma #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Termoboks harorati: \" + epd.getThermalBoxTemperature() + \"°C\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Порядок» с полями, конструктором и методами доступа.",
+        "Создайте промежуточный класс уровня 2 «FoodOrder расширяет порядок», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «ExpressPizzaDelivery расширяет FoodOrder», соединяясь в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'ExpressPizzaDelivery epd = new ExpressPizzaDelivery(409, \"Додо Пицца\", 65); System.out.println(\"Купить #\" + epd.getOrderId() + \" (\" + epd.getRestaurantName() + \") | Термобоксы хорошие: \" + epd.getThermalBoxTemperature() + \"°C\");'"
       ]
     },
     "requirements": {
@@ -6736,7 +8259,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'ExpressPizzaDelivery' -> 'FoodOrder' -> 'Order' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "thermalBoxTemperature int turida saqlanadi.",
-      "cw2Tip": "Buyurtmalarni modellashtirishda ExpressPizzaDelivery modelidan foydalaning."
+      "cw2Tip": "Buyurtmalarni modellashtirishda ExpressPizzaDelivery modelidan foydalaning.",
+      "theoryRu": "Курьерская логистика горячей еды включает тепловую телеметрию в стандартные модели доставки еды из ресторанов.",
+      "pitfallsRu": "ThermalBoxTemperature int turida saqlanadi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'ExpressPizzaDelivery' -> 'FoodOrder' -> 'Order' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6746,15 +8274,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "102. Beeline — ServicePlan -> DataPlan -> UnlimitedNightData",
-      "en": "102. Beeline — ServicePlan -> DataPlan -> UnlimitedNightData"
+      "en": "102. Beeline — ServicePlan -> DataPlan -> UnlimitedNightData",
+      "ru": "102. Билайн — ServicePlan -> DataPlan -> UnlimitedNightData"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXizmat rejasi ('ServicePlan': planName) -> Internet tarifi ('DataPlan': gbQuota) -> Cheksiz tungi internet ('UnlimitedNightData': throttleSpeedMbps).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'ServicePlan' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'DataPlan extends ServicePlan' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'UnlimitedNightData extends DataPlan' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Cheklovdan keyingi tezlik: \" + und.getThrottleSpeedMbps() + \" Mbps\");'",
-      "en": "📖 Real-World Scenario & Context\nTelecom tiering: ServicePlan -> DataPlan -> UnlimitedNightData with throttle speed limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'ServicePlan' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DataPlan extends ServicePlan' delegating to super(...).\n\n3. Create Level 3 leaf class 'UnlimitedNightData extends DataPlan' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Cheklovdan keyingi tezlik: \" + und.getThrottleSpeedMbps() + \" Mbps\");'"
+      "en": "📖 Real-World Scenario & Context\nTelecom tiering: ServicePlan -> DataPlan -> UnlimitedNightData with throttle speed limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'ServicePlan' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'DataPlan extends ServicePlan' delegating to super(...).\n\n3. Create Level 3 leaf class 'UnlimitedNightData extends DataPlan' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Cheklovdan keyingi tezlik: \" + und.getThrottleSpeedMbps() + \" Mbps\");'",
+      "ru": "📖 Контекст и описание задачи\nУровни телекоммуникаций: ServicePlan -> DataPlan -> UnlimitedNightData с ограничением скорости.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «ServicePlan» с полями, конструктором и средствами доступа.\n2. Создайте промежуточный класс уровня 2 «DataPlan расширяет ServicePlan», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «UnlimitedNightData расширяет DataPlan», соединяясь в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Проверка ключей: \" + und.getThrottleSpeedMbps() + \" Мбит/с\");'"
     },
     "story": {
       "uz": "Xizmat rejasi ('ServicePlan': planName) -> Internet tarifi ('DataPlan': gbQuota) -> Cheksiz tungi internet ('UnlimitedNightData': throttleSpeedMbps).",
-      "en": "Telecom tiering: ServicePlan -> DataPlan -> UnlimitedNightData with throttle speed limits."
+      "en": "Telecom tiering: ServicePlan -> DataPlan -> UnlimitedNightData with throttle speed limits.",
+      "ru": "Уровни телекоммуникаций: ServicePlan -> DataPlan -> UnlimitedNightData с ограничением скорости."
     },
     "steps": {
       "uz": [
@@ -6770,6 +8301,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'UnlimitedNightData extends DataPlan' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Cheklovdan keyingi tezlik: \" + und.getThrottleSpeedMbps() + \" Mbps\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «ServicePlan» с полями, конструктором и средствами доступа.",
+        "Создайте промежуточный класс уровня 2 «DataPlan расширяет ServicePlan», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «UnlimitedNightData расширяет DataPlan», соединяясь в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'UnlimitedNightData und = new UnlimitedNightData(\"Tun Cheksiz\", 50, 5); System.out.println(und.getPlanName() + \" (\" + und.getGbQuota() + \" GB) | Проверка ключей: \" + und.getThrottleSpeedMbps() + \" Мбит/с\");'"
       ]
     },
     "requirements": {
@@ -6803,7 +8341,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'UnlimitedNightData' -> 'DataPlan' -> 'ServicePlan' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "throttleSpeedMbps int turida bo'ladi.",
-      "cw2Tip": "Abonent xizmatlarini modellashtirishda ushbu iyerarxiyadan foydalaning."
+      "cw2Tip": "Abonent xizmatlarini modellashtirishda ushbu iyerarxiyadan foydalaning.",
+      "theoryRu": "Правила регулирования сети политики добросовестного использования прикрепляются к специализированному листу деревьев тарифов на передачу данных.",
+      "pitfallsRu": "throttleSpeedMbps int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'UnlimitedNightData' -> 'DataPlan' -> 'ServicePlan' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6813,15 +8356,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "103. Texnomart — Product -> HomeAppliance -> SmartRefrigerator",
-      "en": "103. Texnomart — Product -> HomeAppliance -> SmartRefrigerator"
+      "en": "103. Texnomart — Product -> HomeAppliance -> SmartRefrigerator",
+      "ru": "103. Texnomart — Товар -> Бытовая техника -> Умный Холодильник"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMahsulot ('Product': sku, price) -> Maishiy texnika ('HomeAppliance': wattage) -> Aqlli muzlatgich ('SmartRefrigerator': appSupported).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Product' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'HomeAppliance extends Product' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'SmartRefrigerator extends HomeAppliance' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'SmartRefrigerator sr = new SmartRefrigerator(\"FRIDGE-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'",
-      "en": "📖 Real-World Scenario & Context\nSmart home taxonomy: Product -> HomeAppliance -> SmartRefrigerator tracking mobile app support.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'HomeAppliance extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'SmartRefrigerator extends HomeAppliance' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'SmartRefrigerator sr = new SmartRefrigerator(\"FRIDGE-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'"
+      "en": "📖 Real-World Scenario & Context\nSmart home taxonomy: Product -> HomeAppliance -> SmartRefrigerator tracking mobile app support.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Product' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'HomeAppliance extends Product' delegating to super(...).\n\n3. Create Level 3 leaf class 'SmartRefrigerator extends HomeAppliance' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'SmartRefrigerator sr = new SmartRefrigerator(\"FRIDGE-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'",
+      "ru": "📖 Контекст и описание задачи\nТаксономия умного дома: Продукт -> Бытовая техника -> Поддержка мобильного приложения для отслеживания Smart Холодильник.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.\n2. Создайте средний класс уровня 2 «HomeAppliance расширяет продукт», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «Smartхолодильник расширяет HomeAppliance», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Вывод средств доступа на всех трех уровнях: 'Smartхолодильник sr = новый Smartхолодильник(\"ХОЛОДИЛЬНИК-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'"
     },
     "story": {
       "uz": "Mahsulot ('Product': sku, price) -> Maishiy texnika ('HomeAppliance': wattage) -> Aqlli muzlatgich ('SmartRefrigerator': appSupported).",
-      "en": "Smart home taxonomy: Product -> HomeAppliance -> SmartRefrigerator tracking mobile app support."
+      "en": "Smart home taxonomy: Product -> HomeAppliance -> SmartRefrigerator tracking mobile app support.",
+      "ru": "Таксономия умного дома: Продукт -> Бытовая техника -> Поддержка мобильного приложения для отслеживания Smart Холодильник."
     },
     "steps": {
       "uz": [
@@ -6837,6 +8383,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'SmartRefrigerator extends HomeAppliance' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'SmartRefrigerator sr = new SmartRefrigerator(\"FRIDGE-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Продукт» с полями, конструктором и средствами доступа.",
+        "Создайте средний класс уровня 2 «HomeAppliance расширяет продукт», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «Smartхолодильник расширяет HomeAppliance», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Вывод средств доступа на всех трех уровнях: 'Smartхолодильник sr = новый Smartхолодильник(\"ХОЛОДИЛЬНИК-LG-99\", 12000000.0, 350, true); System.out.println(sr.getSku() + \" | Narx: \" + sr.getPrice() + \" | Quvvat: \" + sr.getWattage() + \"W | App: \" + sr.isAppSupported());'"
       ]
     },
     "requirements": {
@@ -6870,7 +8423,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'SmartRefrigerator' -> 'HomeAppliance' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "boolean getter isAppSupported() deb nomlanadi.",
-      "cw2Tip": "CW2 tovar katalogida aqlli qurilmalarni shunday loyihalashtiring."
+      "cw2Tip": "CW2 tovar katalogida aqlli qurilmalarni shunday loyihalashtiring.",
+      "theoryRu": "Модели интеллектуальных устройств накапливают характеристики электрической мощности и розничные SKU посредством многоуровневого наследования.",
+      "pitfallsRu": "логический метод получения isAppSupported() deb nomlanadi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'SmartRefrigerator' -> 'HomeAppliance' -> 'Product' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6880,15 +8438,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "104. Kapitalbank — Client -> CorporateClient -> EnterpriseVip",
-      "en": "104. Kapitalbank — Client -> CorporateClient -> EnterpriseVip"
+      "en": "104. Kapitalbank — Client -> CorporateClient -> EnterpriseVip",
+      "ru": "104. Капиталбанк — Клиент -> КорпоративныйКлиент -> EnterpriseVip"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijoz ('Client': clientId) -> Korporativ mijoz ('CorporateClient': companyName) -> Yirik korxona VIP mijozi ('EnterpriseVip': creditLineLimit).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Client' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'CorporateClient extends Client' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'EnterpriseVip extends CorporateClient' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Kompaniya: \" + ev.getCompanyName() + \" | Kredit liniyasi: \" + ev.getCreditLineLimit() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nCorporate banking: Client -> CorporateClient -> EnterpriseVip with approved credit line limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Client' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CorporateClient extends Client' delegating to super(...).\n\n3. Create Level 3 leaf class 'EnterpriseVip extends CorporateClient' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Kompaniya: \" + ev.getCompanyName() + \" | Kredit liniyasi: \" + ev.getCreditLineLimit() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nCorporate banking: Client -> CorporateClient -> EnterpriseVip with approved credit line limits.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Client' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CorporateClient extends Client' delegating to super(...).\n\n3. Create Level 3 leaf class 'EnterpriseVip extends CorporateClient' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Kompaniya: \" + ev.getCompanyName() + \" | Kredit liniyasi: \" + ev.getCreditLineLimit() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nКорпоративные банковские операции: Клиент -> Корпоративный Клиент -> EnterpriseVip с утвержденными лимитами кредитной линии.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Клиент» с полями, конструктором и средствами доступа.\n2. Создайте промежуточный класс уровня 2 «Корпоративный клиент расширяет клиент», делегируя его супер(...).\n3. Создайте листовой класс уровня 3 «EnterpriseVip расширяет CorporateClient», соединяя его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Средства доступа печати на всех трех уровнях: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Компания: \" + ev.getCompanyName() + \" | Кредитная линияси: \" + ev.getCreditLineLimit() + \" так я\");'"
     },
     "story": {
       "uz": "Mijoz ('Client': clientId) -> Korporativ mijoz ('CorporateClient': companyName) -> Yirik korxona VIP mijozi ('EnterpriseVip': creditLineLimit).",
-      "en": "Corporate banking: Client -> CorporateClient -> EnterpriseVip with approved credit line limits."
+      "en": "Corporate banking: Client -> CorporateClient -> EnterpriseVip with approved credit line limits.",
+      "ru": "Корпоративные банковские операции: Клиент -> Корпоративный Клиент -> EnterpriseVip с утвержденными лимитами кредитной линии."
     },
     "steps": {
       "uz": [
@@ -6904,6 +8465,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'EnterpriseVip extends CorporateClient' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Kompaniya: \" + ev.getCompanyName() + \" | Kredit liniyasi: \" + ev.getCreditLineLimit() + \" so'm\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Клиент» с полями, конструктором и средствами доступа.",
+        "Создайте промежуточный класс уровня 2 «Корпоративный клиент расширяет клиент», делегируя его супер(...).",
+        "Создайте листовой класс уровня 3 «EnterpriseVip расширяет CorporateClient», соединяя его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Средства доступа печати на всех трех уровнях: 'EnterpriseVip ev = new EnterpriseVip(\"CL-7001\", \"Uzum Holding\", 5000000000.0); System.out.println(ev.getClientId() + \" | Компания: \" + ev.getCompanyName() + \" | Кредитная линияси: \" + ev.getCreditLineLimit() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -6937,7 +8505,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'EnterpriseVip' -> 'CorporateClient' -> 'Client' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "creditLineLimit double turida bo'ladi.",
-      "cw2Tip": "Mijozlar tizimida EnterpriseVip modelidan foydalaning."
+      "cw2Tip": "Mijozlar tizimida EnterpriseVip modelidan foydalaning.",
+      "theoryRu": "Институциональное банковское обслуживание клиентов моделирует корпоративные кредитные линии на уровне предприятия.",
+      "pitfallsRu": "CreditLineLimit двойная турида болади.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'EnterpriseVip' -> 'CorporateClient' -> 'Client' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -6947,15 +8520,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "91-105: 3 Pog'onali Iyerarxiyalar",
     "title": {
       "uz": "105. Uzbekistan Airways — Person -> CrewMember -> CaptainPilot",
-      "en": "105. Uzbekistan Airways — Person -> CrewMember -> CaptainPilot"
+      "en": "105. Uzbekistan Airways — Person -> CrewMember -> CaptainPilot",
+      "ru": "105. Узбекские авиалинии — Человек -> Член экипажа -> Капитан Пилот."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n7-bosqich yakuni: Shaxs ('Person': name) -> Ekipaj a'zosi ('CrewMember': badgeId) -> Havo kemasi komandiri ('CaptainPilot': flightHours).\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. 1-darajali ota sinf 'Person' ni maydonlari, konstruktori va getterlari bilan yarating.\n\n2. 2-darajali oraliq sinf 'CrewMember extends Person' ni 'super(...)' konstruktori bilan tuzing.\n\n3. 3-darajali yakuniy sinf 'CaptainPilot extends CrewMember' ni 'super(...)' zanjiri bilan to'ldiring.\n\n4. 'Main' metodida 3-darajali ob'yektni yarating.\n\n5. Barcha 3 pog'onadagi getterlarni chaqirib konsolga chop eting: 'CaptainPilot cp = new CaptainPilot(\"Sherzod Umarov\", \"CREW-4410\", 12500); System.out.println(\"Kapitan: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 7: Aviation crew chain: Person -> CrewMember -> CaptainPilot tracking flight hours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Person' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CrewMember extends Person' delegating to super(...).\n\n3. Create Level 3 leaf class 'CaptainPilot extends CrewMember' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'CaptainPilot cp = new CaptainPilot(\"Sherzod Umarov\", \"CREW-4410\", 12500); System.out.println(\"Kapitan: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 7: Aviation crew chain: Person -> CrewMember -> CaptainPilot tracking flight hours.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Create Level 1 root superclass 'Person' with fields, constructor, and accessors.\n\n2. Create Level 2 mid class 'CrewMember extends Person' delegating to super(...).\n\n3. Create Level 3 leaf class 'CaptainPilot extends CrewMember' chaining up via super(...).\n\n4. Instantiate Level 3 leaf object in 'main'.\n\n5. Print accessors across all 3 tiers: 'CaptainPilot cp = new CaptainPilot(\"Sherzod Umarov\", \"CREW-4410\", 12500); System.out.println(\"Kapitan: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 7: Цепочка авиационного экипажа: Человек -> Член экипажа -> Капитан-пилот, отслеживающая часы полета.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте корневой суперкласс уровня 1 «Человек» с полями, конструктором и средствами доступа.\n2. Создайте промежуточный класс уровня 2 «CrewMember расширяет Person», делегируя полномочия super(...).\n3. Создайте листовой класс уровня 3 «CaptainPilot расширяет CrewMember», соединив его в цепочку через super(...).\n4. Создайте экземпляр листового объекта уровня 3 в «main».\n5. Выведите методы доступа для всех трех уровней: 'CaptainPilot cp = new CaptainPilot(\"Шерзод Умаров\", \"CREW-4410\", 12500); System.out.println(\"Капитан: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'"
     },
     "story": {
       "uz": "7-bosqich yakuni: Shaxs ('Person': name) -> Ekipaj a'zosi ('CrewMember': badgeId) -> Havo kemasi komandiri ('CaptainPilot': flightHours).",
-      "en": "Grand finale of Tier 7: Aviation crew chain: Person -> CrewMember -> CaptainPilot tracking flight hours."
+      "en": "Grand finale of Tier 7: Aviation crew chain: Person -> CrewMember -> CaptainPilot tracking flight hours.",
+      "ru": "Грандиозный финал уровня 7: Цепочка авиационного экипажа: Человек -> Член экипажа -> Капитан-пилот, отслеживающая часы полета."
     },
     "steps": {
       "uz": [
@@ -6971,6 +8547,13 @@ window.OOP_CHALLENGES_W3 = [
         "Create Level 3 leaf class 'CaptainPilot extends CrewMember' chaining up via super(...).",
         "Instantiate Level 3 leaf object in 'main'.",
         "Print accessors across all 3 tiers: 'CaptainPilot cp = new CaptainPilot(\"Sherzod Umarov\", \"CREW-4410\", 12500); System.out.println(\"Kapitan: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'"
+      ],
+      "ru": [
+        "Создайте корневой суперкласс уровня 1 «Человек» с полями, конструктором и средствами доступа.",
+        "Создайте промежуточный класс уровня 2 «CrewMember расширяет Person», делегируя полномочия super(...).",
+        "Создайте листовой класс уровня 3 «CaptainPilot расширяет CrewMember», соединив его в цепочку через super(...).",
+        "Создайте экземпляр листового объекта уровня 3 в «main».",
+        "Выведите методы доступа для всех трех уровней: 'CaptainPilot cp = new CaptainPilot(\"Шерзод Умаров\", \"CREW-4410\", 12500); System.out.println(\"Капитан: \" + cp.getName() + \" [\" + cp.getBadgeId() + \"] | Parvoz soatlari: \" + cp.getFlightHours() + \" soat\");'"
       ]
     },
     "requirements": {
@@ -7004,7 +8587,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Multi-level Hierarchy</code>: 'CaptainPilot' -> 'CrewMember' -> 'Person' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
       ],
       "pitfalls": "flightHours int turida bo'ladi.",
-      "cw2Tip": "Ekipaj va foydalanuvchilar arxitekturasida ushbu andozadan foydalaning."
+      "cw2Tip": "Ekipaj va foydalanuvchilar arxitekturasida ushbu andozadan foydalaning.",
+      "theoryRu": "Завершение уровня 7 обеспечивает полную архитектурную компетентность в построении многоуровневых деревьев наследования.",
+      "pitfallsRu": "Часы полета int turida bo'ladi.",
+      "breakdownRu": [
+        "<code>Multi-level Hierarchy</code>: 'CaptainPilot' -> 'CrewMember' -> 'Person' chiziqli zanjiri barcha xususiyatlarni uzluksiz o'zlashtiradi."
+      ]
     }
   },
   {
@@ -7014,15 +8602,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "106. WIUT Workshop — AcademicStaff staff = new VisitingPractitioner() Polimorfizmi",
-      "en": "106. WIUT Workshop — Dynamic Dispatch with AcademicStaff Reference"
+      "en": "106. WIUT Workshop — Dynamic Dispatch with AcademicStaff Reference",
+      "ru": "106. Семинар МВУТ — Динамическая рассылка со справкой для академического персонала"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: Ota sinf havolasi orqali avlod sinf ob'yektini yaratish (Upcasting): 'AcademicStaff staff = new VisitingPractitioner();'. 'staff.doPA(\"Valeriya Tsoy\")' chaqirilganda ota sinf emas, balki VisitingPractitioner dagi qayta aniqlangan metod ishga tushadi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'AcademicStaff' ni e'lon qiling va unga 'doPA(String teacherName)' metodini qo'shing.\n\n2. Avlod sinf 'VisitingPractitioner extends AcademicStaff' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'AcademicStaff obj = new VisitingPractitioner(...);'\n\n4. Polimorfik havola orqali 'obj.doPA(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'AcademicStaff staff = new VisitingPractitioner(); staff.doPA(\"Valeriya Tsoy\");'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Workshop pattern: AcademicStaff staff = new VisitingPractitioner(); Demonstrating runtime dynamic dispatch on doPA().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with method 'doPA(String teacherName)'.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff', overriding 'doPA(String teacherName)'.\n\n3. In 'main', perform upcasting: 'AcademicStaff obj = new VisitingPractitioner(...);'.\n\n4. Invoke 'obj.doPA(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'AcademicStaff staff = new VisitingPractitioner(); staff.doPA(\"Valeriya Tsoy\");'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Workshop pattern: AcademicStaff staff = new VisitingPractitioner(); Demonstrating runtime dynamic dispatch on doPA().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with method 'doPA(String teacherName)'.\n\n2. Derive 'VisitingPractitioner extends AcademicStaff', overriding 'doPA(String teacherName)'.\n\n3. In 'main', perform upcasting: 'AcademicStaff obj = new VisitingPractitioner(...);'.\n\n4. Invoke 'obj.doPA(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'AcademicStaff staff = new VisitingPractitioner(); staff.doPA(\"Valeriya Tsoy\");'",
+      "ru": "📖 Контекст и описание задачи\nШаблон прямого семинара МВУТ: Персонал AcademicStaff = новый VisitingPractitioner(); Демонстрация динамической диспетчеризации во время выполнения doPA().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «AcademicStaff» с помощью метода «doPA(String TeacherName)».\n2. Выведите «VisitingPractitioner расширяет AcademicStaff», переопределив «doPA(String TeacherName)».\n3. В «main» выполните преобразование: «AcademicStaff obj = new VisitingPractitioner(...);».\n4. Вызовите obj.doPA(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'AcademicStaff Staff = new VisitingPractitioner(); Staff.doPA(\"Валерия Цой\");'"
     },
     "story": {
       "uz": "WIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) rasmiy kodi: Ota sinf havolasi orqali avlod sinf ob'yektini yaratish (Upcasting): 'AcademicStaff staff = new VisitingPractitioner();'. 'staff.doPA(\"Valeriya Tsoy\")' chaqirilganda ota sinf emas, balki VisitingPractitioner dagi qayta aniqlangan metod ishga tushadi!",
-      "en": "Direct WIUT Workshop pattern: AcademicStaff staff = new VisitingPractitioner(); Demonstrating runtime dynamic dispatch on doPA()."
+      "en": "Direct WIUT Workshop pattern: AcademicStaff staff = new VisitingPractitioner(); Demonstrating runtime dynamic dispatch on doPA().",
+      "ru": "Шаблон прямого семинара МВУТ: Персонал AcademicStaff = новый VisitingPractitioner(); Демонстрация динамической диспетчеризации во время выполнения doPA()."
     },
     "steps": {
       "uz": [
@@ -7038,6 +8629,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'AcademicStaff obj = new VisitingPractitioner(...);'.",
         "Invoke 'obj.doPA(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'AcademicStaff staff = new VisitingPractitioner(); staff.doPA(\"Valeriya Tsoy\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «AcademicStaff» с помощью метода «doPA(String TeacherName)».",
+        "Выведите «VisitingPractitioner расширяет AcademicStaff», переопределив «doPA(String TeacherName)».",
+        "В «main» выполните преобразование: «AcademicStaff obj = new VisitingPractitioner(...);».",
+        "Вызовите obj.doPA(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'AcademicStaff Staff = new VisitingPractitioner(); Staff.doPA(\"Валерия Цой\");'"
       ]
     },
     "requirements": {
@@ -7068,7 +8666,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'VisitingPractitioner' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "AcademicStaff ota sinf bo'lsa ham, new VisitingPractitioner() yaratilgani uchun aynan avlod sinf kodi ishlaydi.",
-      "cw2Tip": "CW2 Console Order Applicationda barcha tovarlar va buyurtmalar umumiy superklass havolasi orqali polimorfik boshqariladi."
+      "cw2Tip": "CW2 Console Order Applicationda barcha tovarlar va buyurtmalar umumiy superklass havolasi orqali polimorfik boshqariladi.",
+      "theoryRu": "Лекция 3. Слайд 31. Динамическая диспетчеризация методов определяет, какой переопределенный метод следует выполнить, на основе типа объекта времени выполнения, а не ссылочного типа.",
+      "pitfallsRu": "Академический персонал ота синф бо'лса ветчина, новый посещающий практик () яратилгани учун айнан авлод синф коди ишлади.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'VisitingPractitioner' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7078,15 +8681,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "107. Uzum Market — Product p = new PhysicalProduct() Polimorfizmi (Seminar 3 Ex 6)",
-      "en": "107. Uzum Market — Product Reference to PhysicalProduct"
+      "en": "107. Uzum Market — Product Reference to PhysicalProduct",
+      "ru": "107. Рынок Узум — ссылка на физический продукт"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 6: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5);'. 'p.displayInfo()' chaqirilganda Product emas, PhysicalProduct dagi metod dinamik chaqiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'displayInfo()' metodini qo'shing.\n\n2. Avlod sinf 'PhysicalProduct extends Product' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'Product obj = new PhysicalProduct(...);'\n\n4. Polimorfik havola orqali 'obj.displayInfo(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'",
-      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 6: Product p = new PhysicalProduct(...); demonstrating dynamic dispatch invoking PhysicalProduct.displayInfo().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive 'PhysicalProduct extends Product', overriding 'displayInfo()'.\n\n3. In 'main', perform upcasting: 'Product obj = new PhysicalProduct(...);'.\n\n4. Invoke 'obj.displayInfo(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'"
+      "en": "📖 Real-World Scenario & Context\nSeminar 3 Ex 6: Product p = new PhysicalProduct(...); demonstrating dynamic dispatch invoking PhysicalProduct.displayInfo().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive 'PhysicalProduct extends Product', overriding 'displayInfo()'.\n\n3. In 'main', perform upcasting: 'Product obj = new PhysicalProduct(...);'.\n\n4. Invoke 'obj.displayInfo(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'",
+      "ru": "📖 Контекст и описание задачи\nСеминар 3 Пример 6: Продукт p = новый физический продукт(...); демонстрация динамической отправки с вызовом PhysicalProduct.displayInfo().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с помощью метода displayInfo().\n2. Выведите «PhysicalProduct расширяет продукт», переопределив «displayInfo()».\n3. В «main» выполните преобразование: «Product obj = new PhysicalProduct(...);».\n4. Вызовите obj.displayInfo(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 6: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5);'. 'p.displayInfo()' chaqirilganda Product emas, PhysicalProduct dagi metod dinamik chaqiriladi.",
-      "en": "Seminar 3 Ex 6: Product p = new PhysicalProduct(...); demonstrating dynamic dispatch invoking PhysicalProduct.displayInfo()."
+      "en": "Seminar 3 Ex 6: Product p = new PhysicalProduct(...); demonstrating dynamic dispatch invoking PhysicalProduct.displayInfo().",
+      "ru": "Семинар 3 Пример 6: Продукт p = новый физический продукт(...); демонстрация динамической отправки с вызовом PhysicalProduct.displayInfo()."
     },
     "steps": {
       "uz": [
@@ -7102,6 +8708,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'Product obj = new PhysicalProduct(...);'.",
         "Invoke 'obj.displayInfo(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с помощью метода displayInfo().",
+        "Выведите «PhysicalProduct расширяет продукт», переопределив «displayInfo()».",
+        "В «main» выполните преобразование: «Product obj = new PhysicalProduct(...);».",
+        "Вызовите obj.displayInfo(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'Product p = new PhysicalProduct(\"Smartfon\", 0.5); p.displayInfo();'"
       ]
     },
     "requirements": {
@@ -7132,7 +8745,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'PhysicalProduct' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "Ota klass havolasiga avlod sinf ob'yektini tenglashtirish (Product p = new PhysicalProduct) to'liq xavfsizdir (Implicit Upcasting).",
-      "cw2Tip": "CW2 da tovarlar ro'yxatida barcha tovarlarni MenuItem superklass havolasida saqlang."
+      "cw2Tip": "CW2 da tovarlar ro'yxatida barcha tovarlarni MenuItem superklass havolasida saqlang.",
+      "theoryRu": "Семинар 3 Пример 6: При преобразовании с повышением специализированные элементы обрабатываются единообразно, сохраняя при этом динамическое поведение во время выполнения.",
+      "pitfallsRu": "Ota class havolasiga avlod sinf ob'yektini tenglashtirish (Продукт p = новый физический продукт) to'liq xavfsizdir (Неявное преобразование типа Upcast).",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'PhysicalProduct' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7142,15 +8760,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "108. Uzum Market — Product p = new DigitalProduct() Polimorfizmi",
-      "en": "108. Uzum Market — Product Reference to DigitalProduct"
+      "en": "108. Uzum Market — Product Reference to DigitalProduct",
+      "ru": "108. Uzum Market — ссылка на DigitalProduct"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0);'. 'p.displayInfo()' chaqirilganda DigitalProduct dagi realizatsiya ishga tushadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni e'lon qiling va unga 'displayInfo()' metodini qo'shing.\n\n2. Avlod sinf 'DigitalProduct extends Product' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'Product obj = new DigitalProduct(...);'\n\n4. Polimorfik havola orqali 'obj.displayInfo(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'",
-      "en": "📖 Real-World Scenario & Context\nProduct p = new DigitalProduct(...); verifying runtime execution of DigitalProduct.displayInfo().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive 'DigitalProduct extends Product', overriding 'displayInfo()'.\n\n3. In 'main', perform upcasting: 'Product obj = new DigitalProduct(...);'.\n\n4. Invoke 'obj.displayInfo(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'"
+      "en": "📖 Real-World Scenario & Context\nProduct p = new DigitalProduct(...); verifying runtime execution of DigitalProduct.displayInfo().\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive 'DigitalProduct extends Product', overriding 'displayInfo()'.\n\n3. In 'main', perform upcasting: 'Product obj = new DigitalProduct(...);'.\n\n4. Invoke 'obj.displayInfo(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'",
+      "ru": "📖 Контекст и описание задачи\nПродукт p = новый цифровой продукт(...); проверка выполнения DigitalProduct.displayInfo() во время выполнения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с помощью метода displayInfo().\n2. Выведите «DigitalProduct расширяет продукт», переопределив «displayInfo()».\n3. В «main» выполните преобразование: «Product obj = new DigitalProduct(...);».\n4. Вызовите obj.displayInfo(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'"
     },
     "story": {
       "uz": "'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0);'. 'p.displayInfo()' chaqirilganda DigitalProduct dagi realizatsiya ishga tushadi.",
-      "en": "Product p = new DigitalProduct(...); verifying runtime execution of DigitalProduct.displayInfo()."
+      "en": "Product p = new DigitalProduct(...); verifying runtime execution of DigitalProduct.displayInfo().",
+      "ru": "Продукт p = новый цифровой продукт(...); проверка выполнения DigitalProduct.displayInfo() во время выполнения."
     },
     "steps": {
       "uz": [
@@ -7166,6 +8787,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'Product obj = new DigitalProduct(...);'.",
         "Invoke 'obj.displayInfo(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с помощью метода displayInfo().",
+        "Выведите «DigitalProduct расширяет продукт», переопределив «displayInfo()».",
+        "В «main» выполните преобразование: «Product obj = new DigitalProduct(...);».",
+        "Вызовите obj.displayInfo(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'Product p = new DigitalProduct(\"Kiberxavfsizlik\", 450.0); p.displayInfo();'"
       ]
     },
     "requirements": {
@@ -7196,7 +8824,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'DigitalProduct' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "displayInfo() har ikkala klassda bir xil sarlavhaga ega bo'lishi lozim.",
-      "cw2Tip": "Raqamli tovarlarni polimorfik boshqaring."
+      "cw2Tip": "Raqamli tovarlarni polimorfik boshqaring.",
+      "theoryRu": "Полиморфизм инкапсулирует разнообразие в единый интерфейс суперкласса, выполняя специализированную логику по требованию.",
+      "pitfallsRu": "displayInfo() не является классом бир xil sarlavhaga ega bo'lishi lozim.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'DigitalProduct' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7206,15 +8839,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "109. Payme — Account acc = new CryptoAccount() Polimorfik Komissiya",
-      "en": "109. Payme — Account Reference with CryptoAccount Dispatch"
+      "en": "109. Payme — Account Reference with CryptoAccount Dispatch",
+      "ru": "109. Payme — ссылка на аккаунт с отправкой CryptoAccount"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'Account acc = new CryptoAccount();'. 'acc.calculateFee(100000.0)' chaqirilganda polimorfizm tufayli CryptoAccount dagi 2.5% komissiya (2500.0) hisoblanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni e'lon qiling va unga 'calculateFee(double amount)' metodini qo'shing.\n\n2. Avlod sinf 'CryptoAccount extends Account' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'Account obj = new CryptoAccount(...);'\n\n4. Polimorfik havola orqali 'obj.calculateFee(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'Account acc = new CryptoAccount(); System.out.println(\"Polimorfik komissiya: \" + acc.calculateFee(100000.0) + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nAccount acc = new CryptoAccount(); invokes CryptoAccount's 2.5% fee calculation via runtime polymorphism.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with method 'calculateFee(double amount)'.\n\n2. Derive 'CryptoAccount extends Account', overriding 'calculateFee(double amount)'.\n\n3. In 'main', perform upcasting: 'Account obj = new CryptoAccount(...);'.\n\n4. Invoke 'obj.calculateFee(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Account acc = new CryptoAccount(); System.out.println(\"Polimorfik komissiya: \" + acc.calculateFee(100000.0) + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nAccount acc = new CryptoAccount(); invokes CryptoAccount's 2.5% fee calculation via runtime polymorphism.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with method 'calculateFee(double amount)'.\n\n2. Derive 'CryptoAccount extends Account', overriding 'calculateFee(double amount)'.\n\n3. In 'main', perform upcasting: 'Account obj = new CryptoAccount(...);'.\n\n4. Invoke 'obj.calculateFee(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Account acc = new CryptoAccount(); System.out.println(\"Polimorfik komissiya: \" + acc.calculateFee(100000.0) + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nАккаунт аккаунта = новый CryptoAccount(); вызывает расчет комиссии CryptoAccount в размере 2,5% посредством полиморфизма во время выполнения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Счет» с помощью метода «calculateFee(двойная сумма)».\n2. Произведите «CryptoAccount расширяет учетную запись», переопределив «calculateFee(двойная сумма)».\n3. В «main» выполните преобразование: «Account obj = new CryptoAccount(...);».\n4. Вызовите obj.calculateFee(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'Account acc = new CryptoAccount(); System.out.println(\"Полиморфик комиссии: \" + acc.calculateFee(100000.0) + \" так я\");'"
     },
     "story": {
       "uz": "'Account acc = new CryptoAccount();'. 'acc.calculateFee(100000.0)' chaqirilganda polimorfizm tufayli CryptoAccount dagi 2.5% komissiya (2500.0) hisoblanadi.",
-      "en": "Account acc = new CryptoAccount(); invokes CryptoAccount's 2.5% fee calculation via runtime polymorphism."
+      "en": "Account acc = new CryptoAccount(); invokes CryptoAccount's 2.5% fee calculation via runtime polymorphism.",
+      "ru": "Аккаунт аккаунта = новый CryptoAccount(); вызывает расчет комиссии CryptoAccount в размере 2,5% посредством полиморфизма во время выполнения."
     },
     "steps": {
       "uz": [
@@ -7230,6 +8866,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'Account obj = new CryptoAccount(...);'.",
         "Invoke 'obj.calculateFee(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'Account acc = new CryptoAccount(); System.out.println(\"Polimorfik komissiya: \" + acc.calculateFee(100000.0) + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Счет» с помощью метода «calculateFee(двойная сумма)».",
+        "Произведите «CryptoAccount расширяет учетную запись», переопределив «calculateFee(двойная сумма)».",
+        "В «main» выполните преобразование: «Account obj = new CryptoAccount(...);».",
+        "Вызовите obj.calculateFee(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'Account acc = new CryptoAccount(); System.out.println(\"Полиморфик комиссии: \" + acc.calculateFee(100000.0) + \" так я\");'"
       ]
     },
     "requirements": {
@@ -7260,7 +8903,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'CryptoAccount' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "acc.calculateFee(100000.0) 2500.0 qaytaradi.",
-      "cw2Tip": "To'lovlar va komissiyalarda if-else o'rniga polimorfizmdan foydalanish yuqori baholanadi."
+      "cw2Tip": "To'lovlar va komissiyalarda if-else o'rniga polimorfizmdan foydalanish yuqori baholanadi.",
+      "theoryRu": "Полиморфизм полностью устраняет хрупкие цепочки «если-иначе», динамически распределяя логику конкретной учетной записи.",
+      "pitfallsRu": "acc.calculateFee(100000.0) 2500,0 кайтаради.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'CryptoAccount' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7270,15 +8918,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "110. Yandex Go — TaxiOrder order = new ExpressDeliveryOrder()",
-      "en": "110. Yandex Go — TaxiOrder Reference to ExpressDeliveryOrder"
+      "en": "110. Yandex Go — TaxiOrder Reference to ExpressDeliveryOrder",
+      "ru": "110. Yandex Go — TaxiOrder Ссылка на ExpressDeliveryOrder"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'TaxiOrder order = new ExpressDeliveryOrder();'. 'order.getETA()' chaqirilganda tezkor yetkazish vaqti qaytadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'TaxiOrder' ni e'lon qiling va unga 'getETA()' metodini qo'shing.\n\n2. Avlod sinf 'ExpressDeliveryOrder extends TaxiOrder' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'TaxiOrder obj = new ExpressDeliveryOrder(...);'\n\n4. Polimorfik havola orqali 'obj.getETA(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Buyurtma vaqti: \" + order.getETA());'",
-      "en": "📖 Real-World Scenario & Context\nTaxiOrder order = new ExpressDeliveryOrder(); yields express courier delivery ETA via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with method 'getETA()'.\n\n2. Derive 'ExpressDeliveryOrder extends TaxiOrder', overriding 'getETA()'.\n\n3. In 'main', perform upcasting: 'TaxiOrder obj = new ExpressDeliveryOrder(...);'.\n\n4. Invoke 'obj.getETA(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Buyurtma vaqti: \" + order.getETA());'"
+      "en": "📖 Real-World Scenario & Context\nTaxiOrder order = new ExpressDeliveryOrder(); yields express courier delivery ETA via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with method 'getETA()'.\n\n2. Derive 'ExpressDeliveryOrder extends TaxiOrder', overriding 'getETA()'.\n\n3. In 'main', perform upcasting: 'TaxiOrder obj = new ExpressDeliveryOrder(...);'.\n\n4. Invoke 'obj.getETA(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Buyurtma vaqti: \" + order.getETA());'",
+      "ru": "📖 Контекст и описание задачи\nЗаказ TaxiOrder = новый ExpressDeliveryOrder(); обеспечивает экспресс-курьерскую доставку ETA посредством динамической отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс TaxiOrder с помощью метода getETA().\n2. Выведите «ExpressDeliveryOrder расширяет TaxiOrder», переопределив «getETA()».\n3. В «main» выполните преобразование: «TaxiOrder obj = new ExpressDeliveryOrder(...);».\n4. Вызовите obj.getETA(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Купите данные: \" + order.getETA());'"
     },
     "story": {
       "uz": "'TaxiOrder order = new ExpressDeliveryOrder();'. 'order.getETA()' chaqirilganda tezkor yetkazish vaqti qaytadi.",
-      "en": "TaxiOrder order = new ExpressDeliveryOrder(); yields express courier delivery ETA via dynamic dispatch."
+      "en": "TaxiOrder order = new ExpressDeliveryOrder(); yields express courier delivery ETA via dynamic dispatch.",
+      "ru": "Заказ TaxiOrder = новый ExpressDeliveryOrder(); обеспечивает экспресс-курьерскую доставку ETA посредством динамической отправки."
     },
     "steps": {
       "uz": [
@@ -7294,6 +8945,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'TaxiOrder obj = new ExpressDeliveryOrder(...);'.",
         "Invoke 'obj.getETA(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Buyurtma vaqti: \" + order.getETA());'"
+      ],
+      "ru": [
+        "Объявите суперкласс TaxiOrder с помощью метода getETA().",
+        "Выведите «ExpressDeliveryOrder расширяет TaxiOrder», переопределив «getETA()».",
+        "В «main» выполните преобразование: «TaxiOrder obj = new ExpressDeliveryOrder(...);».",
+        "Вызовите obj.getETA(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'TaxiOrder order = new ExpressDeliveryOrder(); System.out.println(\"Купите данные: \" + order.getETA());'"
       ]
     },
     "requirements": {
@@ -7324,7 +8982,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'ExpressDeliveryOrder' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "order.getETA() chaqiruvida avlod sinf kodi ishlaydi.",
-      "cw2Tip": "Yetkazib berish xizmatlarini polimorfizm bilan modellashtiring."
+      "cw2Tip": "Yetkazib berish xizmatlarini polimorfizm bilan modellashtiring.",
+      "theoryRu": "Механизмы отправки заказов единообразно управляют разнородными бронированиями посредством родительских ссылок.",
+      "pitfallsRu": "order.getETA() позволяет получить код ишлайди.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'ExpressDeliveryOrder' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7334,15 +8997,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "111. Korzinka Go — LoyaltyCard card = new VipClubCard()",
-      "en": "111. Korzinka Go — LoyaltyCard Reference to VipClubCard"
+      "en": "111. Korzinka Go — LoyaltyCard Reference to VipClubCard",
+      "ru": "111. Корзинка Го — Карта Лояльности Отсылка к VipClubCard"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'LoyaltyCard card = new VipClubCard();'. 'card.calculateDiscount(200000.0)' chaqirilganda VIP 10% chegirma (20000.0) hisoblanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LoyaltyCard' ni e'lon qiling va unga 'calculateDiscount(double bill)' metodini qo'shing.\n\n2. Avlod sinf 'VipClubCard extends LoyaltyCard' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'LoyaltyCard obj = new VipClubCard(...);'\n\n4. Polimorfik havola orqali 'obj.calculateDiscount(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Chegirma: \" + card.calculateDiscount(200000.0) + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nLoyaltyCard card = new VipClubCard(); dynamically executes VIP 10% rebate computation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LoyaltyCard' with method 'calculateDiscount(double bill)'.\n\n2. Derive 'VipClubCard extends LoyaltyCard', overriding 'calculateDiscount(double bill)'.\n\n3. In 'main', perform upcasting: 'LoyaltyCard obj = new VipClubCard(...);'.\n\n4. Invoke 'obj.calculateDiscount(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Chegirma: \" + card.calculateDiscount(200000.0) + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nLoyaltyCard card = new VipClubCard(); dynamically executes VIP 10% rebate computation.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LoyaltyCard' with method 'calculateDiscount(double bill)'.\n\n2. Derive 'VipClubCard extends LoyaltyCard', overriding 'calculateDiscount(double bill)'.\n\n3. In 'main', perform upcasting: 'LoyaltyCard obj = new VipClubCard(...);'.\n\n4. Invoke 'obj.calculateDiscount(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Chegirma: \" + card.calculateDiscount(200000.0) + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nКарта LoyaltyCard = новая VipClubCard(); динамически выполняет расчет скидки VIP 10%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «LoyaltyCard» с методом «calculateDiscount(двойной счет)».\n2. Выведите «VipClubCard расширяет LoyaltyCard», переопределив «calculateDiscount(двойной счет)».\n3. В «main» выполните преобразование: «LoyaltyCard obj = new VipClubCard(...);».\n4. Вызовите obj.calculateDiscount(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Чегирма: \" + card.calculateDiscount(200000.0) + \" я такой\");'"
     },
     "story": {
       "uz": "'LoyaltyCard card = new VipClubCard();'. 'card.calculateDiscount(200000.0)' chaqirilganda VIP 10% chegirma (20000.0) hisoblanadi.",
-      "en": "LoyaltyCard card = new VipClubCard(); dynamically executes VIP 10% rebate computation."
+      "en": "LoyaltyCard card = new VipClubCard(); dynamically executes VIP 10% rebate computation.",
+      "ru": "Карта LoyaltyCard = новая VipClubCard(); динамически выполняет расчет скидки VIP 10%."
     },
     "steps": {
       "uz": [
@@ -7358,6 +9024,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'LoyaltyCard obj = new VipClubCard(...);'.",
         "Invoke 'obj.calculateDiscount(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Chegirma: \" + card.calculateDiscount(200000.0) + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «LoyaltyCard» с методом «calculateDiscount(двойной счет)».",
+        "Выведите «VipClubCard расширяет LoyaltyCard», переопределив «calculateDiscount(двойной счет)».",
+        "В «main» выполните преобразование: «LoyaltyCard obj = new VipClubCard(...);».",
+        "Вызовите obj.calculateDiscount(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'LoyaltyCard card = new VipClubCard(); System.out.println(\"Чегирма: \" + card.calculateDiscount(200000.0) + \" я такой\");'"
       ]
     },
     "requirements": {
@@ -7388,7 +9061,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'VipClubCard' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "Natija 20000.0 bo'ladi.",
-      "cw2Tip": "CW2 Console Order Applicationda mijozlar chegirmasini polimorfik hisoblang."
+      "cw2Tip": "CW2 Console Order Applicationda mijozlar chegirmasini polimorfik hisoblang.",
+      "theoryRu": "В кассах в точках продаж не требуется проверять тип карты; Динамическая отправка автоматически применяет VIP-скидки.",
+      "pitfallsRu": "Натия 20000,0 болади.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'VipClubCard' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7398,15 +9076,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "112. Click Up — Receipt r = new FiscalReceipt()",
-      "en": "112. Click Up — Receipt Reference to FiscalReceipt"
+      "en": "112. Click Up — Receipt Reference to FiscalReceipt",
+      "ru": "112. Нажмите «Вверх» — ссылка на квитанцию FiscalReceipt."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'Receipt r = new FiscalReceipt();'. 'r.generateHeader()' chaqirilganda fiskal chek sarlavhasi chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Receipt' ni e'lon qiling va unga 'generateHeader()' metodini qo'shing.\n\n2. Avlod sinf 'FiscalReceipt extends Receipt' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'Receipt obj = new FiscalReceipt(...);'\n\n4. Polimorfik havola orqali 'obj.generateHeader(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'Receipt r = new FiscalReceipt(); System.out.println(\"Sarlavha: \" + r.generateHeader());'",
-      "en": "📖 Real-World Scenario & Context\nReceipt r = new FiscalReceipt(); emits official fiscal header via dynamic method resolution.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with method 'generateHeader()'.\n\n2. Derive 'FiscalReceipt extends Receipt', overriding 'generateHeader()'.\n\n3. In 'main', perform upcasting: 'Receipt obj = new FiscalReceipt(...);'.\n\n4. Invoke 'obj.generateHeader(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Receipt r = new FiscalReceipt(); System.out.println(\"Sarlavha: \" + r.generateHeader());'"
+      "en": "📖 Real-World Scenario & Context\nReceipt r = new FiscalReceipt(); emits official fiscal header via dynamic method resolution.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with method 'generateHeader()'.\n\n2. Derive 'FiscalReceipt extends Receipt', overriding 'generateHeader()'.\n\n3. In 'main', perform upcasting: 'Receipt obj = new FiscalReceipt(...);'.\n\n4. Invoke 'obj.generateHeader(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Receipt r = new FiscalReceipt(); System.out.println(\"Sarlavha: \" + r.generateHeader());'",
+      "ru": "📖 Контекст и описание задачи\nКвитанция r = новая финансовая квитанция (); выдает официальный финансовый заголовок посредством разрешения динамического метода.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Receipt» с помощью методаgenerateHeader().\n2. Выведите «FiscalReceipt расширяет квитанцию», переопределив «generateHeader()».\n3. В «main» выполните повышающее преобразование: «Receipt obj = new FiscalReceipt(...);».\n4. Вызовите obj.generateHeader(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'Receipt r = new FiscalReceipt(); System.out.println(\"Сарлава: \" + r.generateHeader());'"
     },
     "story": {
       "uz": "'Receipt r = new FiscalReceipt();'. 'r.generateHeader()' chaqirilganda fiskal chek sarlavhasi chop etiladi.",
-      "en": "Receipt r = new FiscalReceipt(); emits official fiscal header via dynamic method resolution."
+      "en": "Receipt r = new FiscalReceipt(); emits official fiscal header via dynamic method resolution.",
+      "ru": "Квитанция r = новая финансовая квитанция (); выдает официальный финансовый заголовок посредством разрешения динамического метода."
     },
     "steps": {
       "uz": [
@@ -7422,6 +9103,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'Receipt obj = new FiscalReceipt(...);'.",
         "Invoke 'obj.generateHeader(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'Receipt r = new FiscalReceipt(); System.out.println(\"Sarlavha: \" + r.generateHeader());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Receipt» с помощью методаgenerateHeader().",
+        "Выведите «FiscalReceipt расширяет квитанцию», переопределив «generateHeader()».",
+        "В «main» выполните повышающее преобразование: «Receipt obj = new FiscalReceipt(...);».",
+        "Вызовите obj.generateHeader(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'Receipt r = new FiscalReceipt(); System.out.println(\"Сарлава: \" + r.generateHeader());'"
       ]
     },
     "requirements": {
@@ -7452,7 +9140,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FiscalReceipt' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "r.generateHeader() [FISKAL CHEK] qaytaradi.",
-      "cw2Tip": "Chek chop etishda polimorfik chaqiruvlardan foydalaning."
+      "cw2Tip": "Chek chop etishda polimorfik chaqiruvlardan foydalaning.",
+      "theoryRu": "Службы печати квитанций вызываютgenerateHeader для ссылок на квитанции, выполняя специализированный вывод.",
+      "pitfallsRu": "r.generateHeader() [ФИСКАЛЬНЫЙ ЧЕК] qaytaradi.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FiscalReceipt' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7462,15 +9155,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "113. Asaxiy Books — CatalogItem item = new AudioBookItem()",
-      "en": "113. Asaxiy Books — CatalogItem Reference to AudioBookItem"
+      "en": "113. Asaxiy Books — CatalogItem Reference to AudioBookItem",
+      "ru": "113. Asaxy Books — Ссылка CatalogItem на AudioBookItem"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'CatalogItem item = new AudioBookItem();'. 'item.getFormatLabel()' chaqirilganda audio format yorlig'i olinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CatalogItem' ni e'lon qiling va unga 'getFormatLabel()' metodini qo'shing.\n\n2. Avlod sinf 'AudioBookItem extends CatalogItem' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'CatalogItem obj = new AudioBookItem(...);'\n\n4. Polimorfik havola orqali 'obj.getFormatLabel(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Tovar formati: \" + item.getFormatLabel());'",
-      "en": "📖 Real-World Scenario & Context\nCatalogItem item = new AudioBookItem(); resolves audio format label via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with method 'getFormatLabel()'.\n\n2. Derive 'AudioBookItem extends CatalogItem', overriding 'getFormatLabel()'.\n\n3. In 'main', perform upcasting: 'CatalogItem obj = new AudioBookItem(...);'.\n\n4. Invoke 'obj.getFormatLabel(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Tovar formati: \" + item.getFormatLabel());'"
+      "en": "📖 Real-World Scenario & Context\nCatalogItem item = new AudioBookItem(); resolves audio format label via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with method 'getFormatLabel()'.\n\n2. Derive 'AudioBookItem extends CatalogItem', overriding 'getFormatLabel()'.\n\n3. In 'main', perform upcasting: 'CatalogItem obj = new AudioBookItem(...);'.\n\n4. Invoke 'obj.getFormatLabel(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Tovar formati: \" + item.getFormatLabel());'",
+      "ru": "📖 Контекст и описание задачи\nЭлемент CatalogItem = новый AudioBookItem(); разрешает метку аудиоформата посредством динамической отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс CatalogItem с помощью метода getFormatLabel().\n2. Выведите «AudioBookItem расширяет CatalogItem», переопределив «getFormatLabel()».\n3. В «main» выполните повышающее преобразование: «CatalogItem obj = new AudioBookItem(...);».\n4. Вызовите obj.getFormatLabel(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Форматирование товаров: \" + item.getFormatLabel());'"
     },
     "story": {
       "uz": "'CatalogItem item = new AudioBookItem();'. 'item.getFormatLabel()' chaqirilganda audio format yorlig'i olinadi.",
-      "en": "CatalogItem item = new AudioBookItem(); resolves audio format label via dynamic dispatch."
+      "en": "CatalogItem item = new AudioBookItem(); resolves audio format label via dynamic dispatch.",
+      "ru": "Элемент CatalogItem = новый AudioBookItem(); разрешает метку аудиоформата посредством динамической отправки."
     },
     "steps": {
       "uz": [
@@ -7486,6 +9182,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'CatalogItem obj = new AudioBookItem(...);'.",
         "Invoke 'obj.getFormatLabel(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Tovar formati: \" + item.getFormatLabel());'"
+      ],
+      "ru": [
+        "Объявите суперкласс CatalogItem с помощью метода getFormatLabel().",
+        "Выведите «AudioBookItem расширяет CatalogItem», переопределив «getFormatLabel()».",
+        "В «main» выполните повышающее преобразование: «CatalogItem obj = new AudioBookItem(...);».",
+        "Вызовите obj.getFormatLabel(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'CatalogItem item = new AudioBookItem(); System.out.println(\"Форматирование товаров: \" + item.getFormatLabel());'"
       ]
     },
     "requirements": {
@@ -7516,7 +9219,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'AudioBookItem' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "item.getFormatLabel() chaqiruvini tekshiring.",
-      "cw2Tip": "Katalog tizimlarida polimorfizmdan keng foydalaning."
+      "cw2Tip": "Katalog tizimlarida polimorfizmdan keng foydalaning.",
+      "theoryRu": "Индексаторы поиска по каталогу рассматривают элементы как CatalogItem, получая специализированные метки посредством полиморфизма.",
+      "pitfallsRu": "item.getFormatLabel() чакирувини текширинг.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'AudioBookItem' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7526,15 +9234,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "114. Express24 — CourierTransport transport = new DroneTransport()",
-      "en": "114. Express24 — CourierTransport Reference to DroneTransport"
+      "en": "114. Express24 — CourierTransport Reference to DroneTransport",
+      "ru": "114. Express24 — ссылка CourierTransport на DroneTransport"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'CourierTransport transport = new DroneTransport();'. 'transport.deliver()' chaqirilganda dron vositasi xabari olinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CourierTransport' ni e'lon qiling va unga 'deliver()' metodini qo'shing.\n\n2. Avlod sinf 'DroneTransport extends CourierTransport' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'CourierTransport obj = new DroneTransport(...);'\n\n4. Polimorfik havola orqali 'obj.deliver(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'CourierTransport transport = new DroneTransport(); System.out.println(\"Yetkazish: \" + transport.deliver());'",
-      "en": "📖 Real-World Scenario & Context\nCourierTransport transport = new DroneTransport(); resolves drone delivery message dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with method 'deliver()'.\n\n2. Derive 'DroneTransport extends CourierTransport', overriding 'deliver()'.\n\n3. In 'main', perform upcasting: 'CourierTransport obj = new DroneTransport(...);'.\n\n4. Invoke 'obj.deliver(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CourierTransport transport = new DroneTransport(); System.out.println(\"Yetkazish: \" + transport.deliver());'"
+      "en": "📖 Real-World Scenario & Context\nCourierTransport transport = new DroneTransport(); resolves drone delivery message dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with method 'deliver()'.\n\n2. Derive 'DroneTransport extends CourierTransport', overriding 'deliver()'.\n\n3. In 'main', perform upcasting: 'CourierTransport obj = new DroneTransport(...);'.\n\n4. Invoke 'obj.deliver(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CourierTransport transport = new DroneTransport(); System.out.println(\"Yetkazish: \" + transport.deliver());'",
+      "ru": "📖 Контекст и описание задачи\nCourierTransport транспорт = новый DroneTransport(); динамически разрешает сообщение о доставке дронами.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «CourierTransport» с помощью метода «deliver()».\n2. Выведите «DroneTransport расширяет CourierTransport», переопределив «deliver()».\n3. В «main» выполните преобразование: «CourierTransport obj = new DroneTransport(...);».\n4. Вызовите obj.deliver(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'CourierTransport Transport = new DroneTransport(); System.out.println(\"Етказиш: \" + Transport.deliver());'"
     },
     "story": {
       "uz": "'CourierTransport transport = new DroneTransport();'. 'transport.deliver()' chaqirilganda dron vositasi xabari olinadi.",
-      "en": "CourierTransport transport = new DroneTransport(); resolves drone delivery message dynamically."
+      "en": "CourierTransport transport = new DroneTransport(); resolves drone delivery message dynamically.",
+      "ru": "CourierTransport транспорт = новый DroneTransport(); динамически разрешает сообщение о доставке дронами."
     },
     "steps": {
       "uz": [
@@ -7550,6 +9261,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'CourierTransport obj = new DroneTransport(...);'.",
         "Invoke 'obj.deliver(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'CourierTransport transport = new DroneTransport(); System.out.println(\"Yetkazish: \" + transport.deliver());'"
+      ],
+      "ru": [
+        "Объявите суперкласс «CourierTransport» с помощью метода «deliver()».",
+        "Выведите «DroneTransport расширяет CourierTransport», переопределив «deliver()».",
+        "В «main» выполните преобразование: «CourierTransport obj = new DroneTransport(...);».",
+        "Вызовите obj.deliver(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'CourierTransport Transport = new DroneTransport(); System.out.println(\"Етказиш: \" + Transport.deliver());'"
       ]
     },
     "requirements": {
@@ -7580,7 +9298,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'DroneTransport' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "deliver() String qaytaradi.",
-      "cw2Tip": "Logistika modellarida polimorfik metodlardan foydalaning."
+      "cw2Tip": "Logistika modellarida polimorfik metodlardan foydalaning.",
+      "theoryRu": "Системы маршрутизации флота равномерно распределяют вызовы Deliver() по наземным и воздушным средствам.",
+      "pitfallsRu": "доставить() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'DroneTransport' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7590,15 +9313,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "115. Beeline — CallingPlan plan = new FreeNightPlan()",
-      "en": "115. Beeline — CallingPlan Reference to FreeNightPlan"
+      "en": "115. Beeline — CallingPlan Reference to FreeNightPlan",
+      "ru": "115. Билайн — CallingPlan Ссылка на FreeNightPlan"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'CallingPlan plan = new FreeNightPlan();'. 'plan.calculateRate(2)' (tungi 02:00) chaqirilganda tungi bepul tarif (0.0) hisoblanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CallingPlan' ni e'lon qiling va unga 'calculateRate(int hour)' metodini qo'shing.\n\n2. Avlod sinf 'FreeNightPlan extends CallingPlan' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'CallingPlan obj = new FreeNightPlan(...);'\n\n4. Polimorfik havola orqali 'obj.calculateRate(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nCallingPlan plan = new FreeNightPlan(); computes 0.0 night rate dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with method 'calculateRate(int hour)'.\n\n2. Derive 'FreeNightPlan extends CallingPlan', overriding 'calculateRate(int hour)'.\n\n3. In 'main', perform upcasting: 'CallingPlan obj = new FreeNightPlan(...);'.\n\n4. Invoke 'obj.calculateRate(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nCallingPlan plan = new FreeNightPlan(); computes 0.0 night rate dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with method 'calculateRate(int hour)'.\n\n2. Derive 'FreeNightPlan extends CallingPlan', overriding 'calculateRate(int hour)'.\n\n3. In 'main', perform upcasting: 'CallingPlan obj = new FreeNightPlan(...);'.\n\n4. Invoke 'obj.calculateRate(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nПлан CallingPlan = новый FreeNightPlan(); динамически вычисляет ночную ставку 0,0.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «CallingPlan» с помощью метода «calculateRate(inthour)».\n2. Выведите «FreeNightPlan расширяет CallingPlan», переопределив «calculateRate(inthour)».\n3. В «main» выполните повышающее преобразование: «CallingPlan obj = new FreeNightPlan(...);».\n4. Вызовите obj.calculateRate(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" так я\");'"
     },
     "story": {
       "uz": "'CallingPlan plan = new FreeNightPlan();'. 'plan.calculateRate(2)' (tungi 02:00) chaqirilganda tungi bepul tarif (0.0) hisoblanadi.",
-      "en": "CallingPlan plan = new FreeNightPlan(); computes 0.0 night rate dynamically."
+      "en": "CallingPlan plan = new FreeNightPlan(); computes 0.0 night rate dynamically.",
+      "ru": "План CallingPlan = новый FreeNightPlan(); динамически вычисляет ночную ставку 0,0."
     },
     "steps": {
       "uz": [
@@ -7614,6 +9340,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'CallingPlan obj = new FreeNightPlan(...);'.",
         "Invoke 'obj.calculateRate(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс «CallingPlan» с помощью метода «calculateRate(inthour)».",
+        "Выведите «FreeNightPlan расширяет CallingPlan», переопределив «calculateRate(inthour)».",
+        "В «main» выполните повышающее преобразование: «CallingPlan obj = new FreeNightPlan(...);».",
+        "Вызовите obj.calculateRate(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'CallingPlan plan = new FreeNightPlan(); System.out.println(\"Tungi narx: \" + plan.calculateRate(2) + \" так я\");'"
       ]
     },
     "requirements": {
@@ -7644,7 +9377,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FreeNightPlan' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "Natija 0.0 bo'ladi.",
-      "cw2Tip": "Tariflar tizimida polimorfizmdan foydalaning."
+      "cw2Tip": "Tariflar tizimida polimorfizmdan foydalaning.",
+      "theoryRu": "Системы выставления счетов в сфере телекоммуникаций динамически оценивают поминутные тарифы с помощью ссылок на полиморфные планы.",
+      "pitfallsRu": "Натия 0,0 болади.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FreeNightPlan' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7654,15 +9392,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "116. Texnomart — ApplianceItem app = new SolarAppliance()",
-      "en": "116. Texnomart — ApplianceItem Reference to SolarAppliance"
+      "en": "116. Texnomart — ApplianceItem Reference to SolarAppliance",
+      "ru": "116. Texnomart — Ссылка ApplianceItem на SolarAppliance"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'ApplianceItem app = new SolarAppliance();'. 'app.getEnergyRating()' chaqirilganda yashil energiya sinfi qaytariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'ApplianceItem' ni e'lon qiling va unga 'getEnergyRating()' metodini qo'shing.\n\n2. Avlod sinf 'SolarAppliance extends ApplianceItem' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'ApplianceItem obj = new SolarAppliance(...);'\n\n4. Polimorfik havola orqali 'obj.getEnergyRating(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Energiya toifasi: \" + app.getEnergyRating());'",
-      "en": "📖 Real-World Scenario & Context\nApplianceItem app = new SolarAppliance(); resolves eco-rating via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with method 'getEnergyRating()'.\n\n2. Derive 'SolarAppliance extends ApplianceItem', overriding 'getEnergyRating()'.\n\n3. In 'main', perform upcasting: 'ApplianceItem obj = new SolarAppliance(...);'.\n\n4. Invoke 'obj.getEnergyRating(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Energiya toifasi: \" + app.getEnergyRating());'"
+      "en": "📖 Real-World Scenario & Context\nApplianceItem app = new SolarAppliance(); resolves eco-rating via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with method 'getEnergyRating()'.\n\n2. Derive 'SolarAppliance extends ApplianceItem', overriding 'getEnergyRating()'.\n\n3. In 'main', perform upcasting: 'ApplianceItem obj = new SolarAppliance(...);'.\n\n4. Invoke 'obj.getEnergyRating(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Energiya toifasi: \" + app.getEnergyRating());'",
+      "ru": "📖 Контекст и описание задачи\nПриложение ApplianceItem = новое SolarAppliance(); решает экологический рейтинг посредством динамической отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс ApplianceItem с помощью метода getEnergyRating().\n2. Выведите «SolarAppliance расширяет ApplianceItem», переопределив «getEnergyRating()».\n3. В «main» выполните преобразование: «ApplianceItem obj = new SolarAppliance(...);».\n4. Вызовите obj.getEnergyRating(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Энергия энергии: \" + app.getEnergyRating());'"
     },
     "story": {
       "uz": "'ApplianceItem app = new SolarAppliance();'. 'app.getEnergyRating()' chaqirilganda yashil energiya sinfi qaytariladi.",
-      "en": "ApplianceItem app = new SolarAppliance(); resolves eco-rating via dynamic dispatch."
+      "en": "ApplianceItem app = new SolarAppliance(); resolves eco-rating via dynamic dispatch.",
+      "ru": "Приложение ApplianceItem = новое SolarAppliance(); решает экологический рейтинг посредством динамической отправки."
     },
     "steps": {
       "uz": [
@@ -7678,6 +9419,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'ApplianceItem obj = new SolarAppliance(...);'.",
         "Invoke 'obj.getEnergyRating(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Energiya toifasi: \" + app.getEnergyRating());'"
+      ],
+      "ru": [
+        "Объявите суперкласс ApplianceItem с помощью метода getEnergyRating().",
+        "Выведите «SolarAppliance расширяет ApplianceItem», переопределив «getEnergyRating()».",
+        "В «main» выполните преобразование: «ApplianceItem obj = new SolarAppliance(...);».",
+        "Вызовите obj.getEnergyRating(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'ApplianceItem app = new SolarAppliance(); System.out.println(\"Энергия энергии: \" + app.getEnergyRating());'"
       ]
     },
     "requirements": {
@@ -7708,7 +9456,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'SolarAppliance' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "app.getEnergyRating() chaqirilishini tekshiring.",
-      "cw2Tip": "Tovar parametrlarini ko'rsatishda polimorfik metodlardan foydalaning."
+      "cw2Tip": "Tovar parametrlarini ko'rsatishda polimorfik metodlardan foydalaning.",
+      "theoryRu": "Механизмы витрин розничных полок полиморфно запрашивают рейтинги энергопотребления для разрозненных приборов.",
+      "pitfallsRu": "app.getEnergyRating() используется для получения инструкций.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'SolarAppliance' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7718,15 +9471,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "117. Kapitalbank — Loan loan = new GracePeriodLoan()",
-      "en": "117. Kapitalbank — Loan Reference to GracePeriodLoan"
+      "en": "117. Kapitalbank — Loan Reference to GracePeriodLoan",
+      "ru": "117. Капиталбанк — Ссылка на кредит GracePeriodLoan"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'Loan loan = new GracePeriodLoan();'. 'loan.isPaymentDue(2)' chaqirilganda imtiyozli davr tufayli 'false' qaytariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Loan' ni e'lon qiling va unga 'isPaymentDue(int month)' metodini qo'shing.\n\n2. Avlod sinf 'GracePeriodLoan extends Loan' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'Loan obj = new GracePeriodLoan(...);'\n\n4. Polimorfik havola orqali 'obj.isPaymentDue(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'Loan loan = new GracePeriodLoan(); System.out.println(\"2-oyda to'lov: \" + loan.isPaymentDue(2));'",
-      "en": "📖 Real-World Scenario & Context\nLoan loan = new GracePeriodLoan(); invokes grace period exemption check via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with method 'isPaymentDue(int month)'.\n\n2. Derive 'GracePeriodLoan extends Loan', overriding 'isPaymentDue(int month)'.\n\n3. In 'main', perform upcasting: 'Loan obj = new GracePeriodLoan(...);'.\n\n4. Invoke 'obj.isPaymentDue(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Loan loan = new GracePeriodLoan(); System.out.println(\"2-oyda to'lov: \" + loan.isPaymentDue(2));'"
+      "en": "📖 Real-World Scenario & Context\nLoan loan = new GracePeriodLoan(); invokes grace period exemption check via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with method 'isPaymentDue(int month)'.\n\n2. Derive 'GracePeriodLoan extends Loan', overriding 'isPaymentDue(int month)'.\n\n3. In 'main', perform upcasting: 'Loan obj = new GracePeriodLoan(...);'.\n\n4. Invoke 'obj.isPaymentDue(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'Loan loan = new GracePeriodLoan(); System.out.println(\"2-oyda to'lov: \" + loan.isPaymentDue(2));'",
+      "ru": "📖 Контекст и описание задачи\nКредитный кредит = новый GracePeriodLoan(); вызывает проверку освобождения от льготного периода посредством динамической отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Ссуда» с помощью метода «isPaymentDue(intmonth)».\n2. Выведите «GracePeriodLoan Extends Loan», переопределив «isPaymentDue(intmonth)».\n3. В «main» выполните повышающее преобразование: «Loan obj = new GracePeriodLoan(...);».\n4. Вызовите obj.isPaymentDue(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'Loan Loan = new GracePeriodLoan(); System.out.println(\"2-ойда to'lov: \" + кредит.isPaymentDue(2));'"
     },
     "story": {
       "uz": "'Loan loan = new GracePeriodLoan();'. 'loan.isPaymentDue(2)' chaqirilganda imtiyozli davr tufayli 'false' qaytariladi.",
-      "en": "Loan loan = new GracePeriodLoan(); invokes grace period exemption check via dynamic dispatch."
+      "en": "Loan loan = new GracePeriodLoan(); invokes grace period exemption check via dynamic dispatch.",
+      "ru": "Кредитный кредит = новый GracePeriodLoan(); вызывает проверку освобождения от льготного периода посредством динамической отправки."
     },
     "steps": {
       "uz": [
@@ -7742,6 +9498,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'Loan obj = new GracePeriodLoan(...);'.",
         "Invoke 'obj.isPaymentDue(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'Loan loan = new GracePeriodLoan(); System.out.println(\"2-oyda to'lov: \" + loan.isPaymentDue(2));'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Ссуда» с помощью метода «isPaymentDue(intmonth)».",
+        "Выведите «GracePeriodLoan Extends Loan», переопределив «isPaymentDue(intmonth)».",
+        "В «main» выполните повышающее преобразование: «Loan obj = new GracePeriodLoan(...);».",
+        "Вызовите obj.isPaymentDue(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'Loan Loan = new GracePeriodLoan(); System.out.println(\"2-ойда to'lov: \" + кредит.isPaymentDue(2));'"
       ]
     },
     "requirements": {
@@ -7772,7 +9535,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'GracePeriodLoan' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "loan.isPaymentDue(2) false bo'lishi kerak.",
-      "cw2Tip": "Kredit va qarz hisoblarida polimorfizmdan foydalaning."
+      "cw2Tip": "Kredit va qarz hisoblarida polimorfizmdan foydalaning.",
+      "theoryRu": "Автоматизированные программы кредитного аудита полиморфно оценивают платежи, не проверяя подтипы кредитов.",
+      "pitfallsRu": "кредит.isPaymentDue(2) false bo'lishi kerak.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'GracePeriodLoan' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7782,15 +9550,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "118. Medion Clinic — LabTest test = new UrgentLabTest()",
-      "en": "118. Medion Clinic — LabTest Reference to UrgentLabTest"
+      "en": "118. Medion Clinic — LabTest Reference to UrgentLabTest",
+      "ru": "118. Клиника Медион — Ссылка LabTest на UrgentLabTest"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'LabTest test = new UrgentLabTest();'. 'test.getProcessingHours()' chaqirilganda tezkor 2 soatlik muddat olinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LabTest' ni e'lon qiling va unga 'getProcessingHours()' metodini qo'shing.\n\n2. Avlod sinf 'UrgentLabTest extends LabTest' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'LabTest obj = new UrgentLabTest(...);'\n\n4. Polimorfik havola orqali 'obj.getProcessingHours(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'",
-      "en": "📖 Real-World Scenario & Context\nLabTest test = new UrgentLabTest(); evaluates 2-hour processing window via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with method 'getProcessingHours()'.\n\n2. Derive 'UrgentLabTest extends LabTest', overriding 'getProcessingHours()'.\n\n3. In 'main', perform upcasting: 'LabTest obj = new UrgentLabTest(...);'.\n\n4. Invoke 'obj.getProcessingHours(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'"
+      "en": "📖 Real-World Scenario & Context\nLabTest test = new UrgentLabTest(); evaluates 2-hour processing window via dynamic dispatch.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with method 'getProcessingHours()'.\n\n2. Derive 'UrgentLabTest extends LabTest', overriding 'getProcessingHours()'.\n\n3. In 'main', perform upcasting: 'LabTest obj = new UrgentLabTest(...);'.\n\n4. Invoke 'obj.getProcessingHours(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'",
+      "ru": "📖 Контекст и описание задачи\nТест LabTest = новый UrgentLabTest(); оценивает 2-часовое окно обработки посредством динамической отправки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс LabTest с помощью метода getProcessingHours().\n2. Выведите «UrgentLabTest расширяет LabTest», переопределив «getProcessingHours()».\n3. В «main» выполните преобразование: «LabTest obj = new UrgentLabTest(...);».\n4. Вызовите obj.getProcessingHours(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'"
     },
     "story": {
       "uz": "'LabTest test = new UrgentLabTest();'. 'test.getProcessingHours()' chaqirilganda tezkor 2 soatlik muddat olinadi.",
-      "en": "LabTest test = new UrgentLabTest(); evaluates 2-hour processing window via dynamic dispatch."
+      "en": "LabTest test = new UrgentLabTest(); evaluates 2-hour processing window via dynamic dispatch.",
+      "ru": "Тест LabTest = новый UrgentLabTest(); оценивает 2-часовое окно обработки посредством динамической отправки."
     },
     "steps": {
       "uz": [
@@ -7806,6 +9577,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'LabTest obj = new UrgentLabTest(...);'.",
         "Invoke 'obj.getProcessingHours(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс LabTest с помощью метода getProcessingHours().",
+        "Выведите «UrgentLabTest расширяет LabTest», переопределив «getProcessingHours()».",
+        "В «main» выполните преобразование: «LabTest obj = new UrgentLabTest(...);».",
+        "Вызовите obj.getProcessingHours(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'LabTest test = new UrgentLabTest(); System.out.println(\"Tahlil vaqti: \" + test.getProcessingHours() + \" soat\");'"
       ]
     },
     "requirements": {
@@ -7836,7 +9614,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'UrgentLabTest' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "test.getProcessingHours() 2 qaytaradi.",
-      "cw2Tip": "Tibbiy tahlillarni boshqarishda polimorfizmdan foydalaning."
+      "cw2Tip": "Tibbiy tahlillarni boshqarishda polimorfizmdan foydalaning.",
+      "theoryRu": "Очереди лабораторных работ полиморфно запрашивают информацию о ходе обработки, чтобы расставить приоритеты для критически важных образцов.",
+      "pitfallsRu": "test.getProcessingHours() 2 qaytaradi.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'UrgentLabTest' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7846,15 +9629,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "119. Uzbekistan Airways — BoardingPass pass = new FastTrackBoardingPass()",
-      "en": "119. Uzbekistan Airways — BoardingPass Reference to FastTrack"
+      "en": "119. Uzbekistan Airways — BoardingPass Reference to FastTrack",
+      "ru": "119. «Узбекистон хаво йуллари» — ссылка на посадочный талон на FastTrack"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n'BoardingPass pass = new FastTrackBoardingPass();'. 'pass.getBoardingZone()' chaqirilganda ustuvor zona olinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BoardingPass' ni e'lon qiling va unga 'getBoardingZone()' metodini qo'shing.\n\n2. Avlod sinf 'FastTrackBoardingPass extends BoardingPass' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'BoardingPass obj = new FastTrackBoardingPass(...);'\n\n4. Polimorfik havola orqali 'obj.getBoardingZone(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Chiqish zonasi: \" + pass.getBoardingZone());'",
-      "en": "📖 Real-World Scenario & Context\nBoardingPass pass = new FastTrackBoardingPass(); dynamically resolves priority zone.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with method 'getBoardingZone()'.\n\n2. Derive 'FastTrackBoardingPass extends BoardingPass', overriding 'getBoardingZone()'.\n\n3. In 'main', perform upcasting: 'BoardingPass obj = new FastTrackBoardingPass(...);'.\n\n4. Invoke 'obj.getBoardingZone(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Chiqish zonasi: \" + pass.getBoardingZone());'"
+      "en": "📖 Real-World Scenario & Context\nBoardingPass pass = new FastTrackBoardingPass(); dynamically resolves priority zone.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with method 'getBoardingZone()'.\n\n2. Derive 'FastTrackBoardingPass extends BoardingPass', overriding 'getBoardingZone()'.\n\n3. In 'main', perform upcasting: 'BoardingPass obj = new FastTrackBoardingPass(...);'.\n\n4. Invoke 'obj.getBoardingZone(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Chiqish zonasi: \" + pass.getBoardingZone());'",
+      "ru": "📖 Контекст и описание задачи\nПропуск BoardingPass = новый FastTrackBoardingPass(); динамически разрешает приоритетную зону.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BoardingPass с помощью метода getBoardingZone().\n2. Выведите «FastTrackBoardingPass расширяет BoardingPass», переопределив «getBoardingZone()».\n3. В «main» выполните повышающее преобразование: «BoardingPass obj = new FastTrackBoardingPass(...);».\n4. Вызовите obj.getBoardingZone(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Чики зоны: \" + pass.getBoardingZone());'"
     },
     "story": {
       "uz": "'BoardingPass pass = new FastTrackBoardingPass();'. 'pass.getBoardingZone()' chaqirilganda ustuvor zona olinadi.",
-      "en": "BoardingPass pass = new FastTrackBoardingPass(); dynamically resolves priority zone."
+      "en": "BoardingPass pass = new FastTrackBoardingPass(); dynamically resolves priority zone.",
+      "ru": "Пропуск BoardingPass = новый FastTrackBoardingPass(); динамически разрешает приоритетную зону."
     },
     "steps": {
       "uz": [
@@ -7870,6 +9656,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'BoardingPass obj = new FastTrackBoardingPass(...);'.",
         "Invoke 'obj.getBoardingZone(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Chiqish zonasi: \" + pass.getBoardingZone());'"
+      ],
+      "ru": [
+        "Объявите суперкласс BoardingPass с помощью метода getBoardingZone().",
+        "Выведите «FastTrackBoardingPass расширяет BoardingPass», переопределив «getBoardingZone()».",
+        "В «main» выполните повышающее преобразование: «BoardingPass obj = new FastTrackBoardingPass(...);».",
+        "Вызовите obj.getBoardingZone(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'BoardingPass pass = new FastTrackBoardingPass(); System.out.println(\"Чики зоны: \" + pass.getBoardingZone());'"
       ]
     },
     "requirements": {
@@ -7900,7 +9693,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FastTrackBoardingPass' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "pass.getBoardingZone() Zone-1 qaytarishi kerak.",
-      "cw2Tip": "Parvoz tizimlarida polimorfizmdan foydalaning."
+      "cw2Tip": "Parvoz tizimlarida polimorfizmdan foydalaning.",
+      "theoryRu": "Автоматические выходы на посадку полиморфно опрашивают зоны, чтобы обеспечить соблюдение приоритетов посадки.",
+      "pitfallsRu": "pass.getBoardingZone() Зона-1 qaytarishi kerak.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'FastTrackBoardingPass' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7910,15 +9708,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "106-120: Ota Sinf Havolasi va Polimorfizm",
     "title": {
       "uz": "120. Dodo Pizza — PizzaItem pizza = new GlutenFreePizza()",
-      "en": "120. Dodo Pizza — PizzaItem Reference to GlutenFreePizza"
+      "en": "120. Dodo Pizza — PizzaItem Reference to GlutenFreePizza",
+      "ru": "120. Додо Пицца — ссылка PizzaItem на GlutenFreePizza"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n8-bosqich yakuni: 'PizzaItem pizza = new GlutenFreePizza();'. 'pizza.getDoughType()' chaqirilganda polimorfizm sababli glyutensiz parhez xamiri xabari qaytadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'PizzaItem' ni e'lon qiling va unga 'getDoughType()' metodini qo'shing.\n\n2. Avlod sinf 'GlutenFreePizza extends PizzaItem' ni yarating va metodni '@Override' qilib o'ziga xos mantiq bilan yozing.\n\n3. 'Main' metodida ota sinf havolasiga avlod sinf ob'yektini biriktiring (Upcasting): 'PizzaItem obj = new GlutenFreePizza(...);'\n\n4. Polimorfik havola orqali 'obj.getDoughType(...)' metodini chaqiring.\n\n5. Natijani konsolga chop eting va Runtime da aynan avlod sinf kodi ishlaganini isbotlang: 'PizzaItem pizza = new GlutenFreePizza(); System.out.println(\"Xamir turi: \" + pizza.getDoughType());'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 8: PizzaItem pizza = new GlutenFreePizza(); evaluates gluten-free dough dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with method 'getDoughType()'.\n\n2. Derive 'GlutenFreePizza extends PizzaItem', overriding 'getDoughType()'.\n\n3. In 'main', perform upcasting: 'PizzaItem obj = new GlutenFreePizza(...);'.\n\n4. Invoke 'obj.getDoughType(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'PizzaItem pizza = new GlutenFreePizza(); System.out.println(\"Xamir turi: \" + pizza.getDoughType());'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 8: PizzaItem pizza = new GlutenFreePizza(); evaluates gluten-free dough dynamically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with method 'getDoughType()'.\n\n2. Derive 'GlutenFreePizza extends PizzaItem', overriding 'getDoughType()'.\n\n3. In 'main', perform upcasting: 'PizzaItem obj = new GlutenFreePizza(...);'.\n\n4. Invoke 'obj.getDoughType(...)' through polymorphic reference.\n\n5. Print result to confirm dynamic dispatch: 'PizzaItem pizza = new GlutenFreePizza(); System.out.println(\"Xamir turi: \" + pizza.getDoughType());'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 8: PizzaItem Pizza = new GlutenFreePizza(); динамически оценивает безглютеновое тесто.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PizzaItem с помощью метода getDoughType().\n2. Произведите «GlutenFreePizza расширяет PizzaItem», переопределив «getDoughType()».\n3. В «main» выполните преобразование: «PizzaItem obj = new GlutenFreePizza(...);».\n4. Вызовите obj.getDoughType(...) через полиморфную ссылку.\n5. Распечатайте результат для подтверждения динамической отправки: 'PizzaItem Pizza = new GlutenFreePizza(); System.out.println(\"Ксамир тури: \" + Pizza.getDoughType());'"
     },
     "story": {
       "uz": "8-bosqich yakuni: 'PizzaItem pizza = new GlutenFreePizza();'. 'pizza.getDoughType()' chaqirilganda polimorfizm sababli glyutensiz parhez xamiri xabari qaytadi.",
-      "en": "Grand finale of Tier 8: PizzaItem pizza = new GlutenFreePizza(); evaluates gluten-free dough dynamically."
+      "en": "Grand finale of Tier 8: PizzaItem pizza = new GlutenFreePizza(); evaluates gluten-free dough dynamically.",
+      "ru": "Грандиозный финал уровня 8: PizzaItem Pizza = new GlutenFreePizza(); динамически оценивает безглютеновое тесто."
     },
     "steps": {
       "uz": [
@@ -7934,6 +9735,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', perform upcasting: 'PizzaItem obj = new GlutenFreePizza(...);'.",
         "Invoke 'obj.getDoughType(...)' through polymorphic reference.",
         "Print result to confirm dynamic dispatch: 'PizzaItem pizza = new GlutenFreePizza(); System.out.println(\"Xamir turi: \" + pizza.getDoughType());'"
+      ],
+      "ru": [
+        "Объявите суперкласс PizzaItem с помощью метода getDoughType().",
+        "Произведите «GlutenFreePizza расширяет PizzaItem», переопределив «getDoughType()».",
+        "В «main» выполните преобразование: «PizzaItem obj = new GlutenFreePizza(...);».",
+        "Вызовите obj.getDoughType(...) через полиморфную ссылку.",
+        "Распечатайте результат для подтверждения динамической отправки: 'PizzaItem Pizza = new GlutenFreePizza(); System.out.println(\"Ксамир тури: \" + Pizza.getDoughType());'"
       ]
     },
     "requirements": {
@@ -7964,7 +9772,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'GlutenFreePizza' ob'yektining metodini ishga tushiradi."
       ],
       "pitfalls": "pizza.getDoughType() chaqirilishini tekshiring.",
-      "cw2Tip": "CW2 Console Order Applicationda taomlar buyurtmasini MenuItem havolasi orqali polimorfik boshqaring."
+      "cw2Tip": "CW2 Console Order Applicationda taomlar buyurtmasini MenuItem havolasi orqali polimorfik boshqaring.",
+      "theoryRu": "Завершение уровня 8 закрепляет основополагающий принцип ООП: ссылочный тип определяет, какие методы могут быть вызваны, а тип времени выполнения объекта определяет, КАКАЯ реализация выполняется.",
+      "pitfallsRu": "Pizza.getDoughType() чакирилишини текширинг.",
+      "breakdownRu": [
+        "<code>Upcasting & Dynamic Dispatch</code>: Ota sinf havolasi orqali chaqirilgan metod, xotiradagi haqiqiy 'GlutenFreePizza' ob'yektining metodini ishga tushiradi."
+      ]
     }
   },
   {
@@ -7974,15 +9787,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "121. WIUT Workshop — ArrayList<AcademicStaff> To'plami (Workshop Asosiy Kodi)",
-      "en": "121. WIUT Workshop — ArrayList<AcademicStaff> Collection"
+      "en": "121. WIUT Workshop — ArrayList<AcademicStaff> Collection",
+      "ru": "121. Семинар МВУТ — Коллекция ArrayList<AcademicStaff>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) 'Main.java' rasmiy kodi: 'ArrayList<AcademicStaff> staff = new ArrayList<>();' ro'yxati ochiladi. Unga to'liq shtatdagi o'qituvchi ('AcademicStaff') va soatbay o'qituvchi ('VisitingPractitioner') qo'shiladi va 'doPA()' metodi barcha xodimlar uchun for siklida polimorfik ishga tushiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'AcademicStaff' ni va uning 'doPA()' metodini e'lon qiling.\n\n2. Avlod sinflar ('VisitingPractitioner') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<AcademicStaff> staff = new java.util.ArrayList<>(); staff.add(new AcademicStaff(\"Hamid Reza\")); staff.add(new VisitingPractitioner(\"Valeriya Tsoy\")); for (AcademicStaff s : staff) {     s.doPA(); }'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Workshop Main.java implementation: ArrayList<AcademicStaff> holds both AcademicStaff and VisitingPractitioner, iterating doPA() polymorphically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with method 'doPA()'.\n\n2. Derive subclasses overriding 'doPA()'.\n\n3. In 'main', initialize 'java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<AcademicStaff> staff = new java.util.ArrayList<>(); staff.add(new AcademicStaff(\"Hamid Reza\")); staff.add(new VisitingPractitioner(\"Valeriya Tsoy\")); for (AcademicStaff s : staff) {     s.doPA(); }'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Workshop Main.java implementation: ArrayList<AcademicStaff> holds both AcademicStaff and VisitingPractitioner, iterating doPA() polymorphically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'AcademicStaff' with method 'doPA()'.\n\n2. Derive subclasses overriding 'doPA()'.\n\n3. In 'main', initialize 'java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<AcademicStaff> staff = new java.util.ArrayList<>(); staff.add(new AcademicStaff(\"Hamid Reza\")); staff.add(new VisitingPractitioner(\"Valeriya Tsoy\")); for (AcademicStaff s : staff) {     s.doPA(); }'",
+      "ru": "📖 Контекст и описание задачи\nРеализация Direct WIUT Workshop Main.java: ArrayList<AcademicStaff> содержит как AcademicStaff, так и VisitingPractitioner, полиморфно повторяя doPA().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «AcademicStaff» с помощью метода «doPA()».\n2. Производные подклассы, переопределяющие doPA().\n3. В «main» инициализируйте «java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for каждого, выполняющим полиморфный метод: 'java.util.ArrayList<AcademicStaff> Staff = new java.util.ArrayList<>(); Staff.add(new AcademicStaff(\"Хамид Реза\")); Staff.add(new Приезжий Практик(\"Валерия Цой\")); for (AcademicStaff s: Staff) { s.doPA(); }'"
     },
     "story": {
       "uz": "WIUT Week 3 Workshop (WeekThreeLecTwoWorkshop.zip) 'Main.java' rasmiy kodi: 'ArrayList<AcademicStaff> staff = new ArrayList<>();' ro'yxati ochiladi. Unga to'liq shtatdagi o'qituvchi ('AcademicStaff') va soatbay o'qituvchi ('VisitingPractitioner') qo'shiladi va 'doPA()' metodi barcha xodimlar uchun for siklida polimorfik ishga tushiriladi.",
-      "en": "Direct WIUT Workshop Main.java implementation: ArrayList<AcademicStaff> holds both AcademicStaff and VisitingPractitioner, iterating doPA() polymorphically."
+      "en": "Direct WIUT Workshop Main.java implementation: ArrayList<AcademicStaff> holds both AcademicStaff and VisitingPractitioner, iterating doPA() polymorphically.",
+      "ru": "Реализация Direct WIUT Workshop Main.java: ArrayList<AcademicStaff> содержит как AcademicStaff, так и VisitingPractitioner, полиморфно повторяя doPA()."
     },
     "steps": {
       "uz": [
@@ -7998,6 +9814,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<AcademicStaff> staff = new java.util.ArrayList<>(); staff.add(new AcademicStaff(\"Hamid Reza\")); staff.add(new VisitingPractitioner(\"Valeriya Tsoy\")); for (AcademicStaff s : staff) {     s.doPA(); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс «AcademicStaff» с помощью метода «doPA()».",
+        "Производные подклассы, переопределяющие doPA().",
+        "В «main» инициализируйте «java.util.ArrayList<AcademicStaff> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for каждого, выполняющим полиморфный метод: 'java.util.ArrayList<AcademicStaff> Staff = new java.util.ArrayList<>(); Staff.add(new AcademicStaff(\"Хамид Реза\")); Staff.add(new Приезжий Практик(\"Валерия Цой\")); for (AcademicStaff s: Staff) { s.doPA(); }'"
       ]
     },
     "requirements": {
@@ -8028,7 +9851,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<AcademicStaff></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "java.util.ArrayList dan foydalanish yoki to'liq paket nomini yozish lozim.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma savatchasidagi barcha tovarlar ArrayList<MenuItem> to'plamida saqlanadi."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma savatchasidagi barcha tovarlar ArrayList<MenuItem> to'plamida saqlanadi.",
+      "theoryRu": "Гетерогенные коллекции хранят различные экземпляры подклассов под общим типом суперкласса, динамически вызывая переопределенные методы в однородных циклах.",
+      "pitfallsRu": "java.util.ArrayList и foydalanish yoki to'liq package nomini yozish lozim.",
+      "breakdownRu": [
+        "<code>ArrayList<AcademicStaff></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8038,15 +9866,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "122. Uzum Market — ArrayList<Product> Mahsulotlar Katalogi (Seminar 3 Ex 6)",
-      "en": "122. Uzum Market — ArrayList<Product> Catalog Collection"
+      "en": "122. Uzum Market — ArrayList<Product> Catalog Collection",
+      "ru": "122. Рынок Узум — Коллекция каталогов ArrayList<Product>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Seminar 3 Exercise 6 rasmiy vazifasi: 'ArrayList<Product> catalog = new ArrayList<>();' ro'yxatiga 'PhysicalProduct' va 'DigitalProduct' ob'yektlari qo'shiladi va 'displayInfo()' metodi for-each siklida chaqiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Product' ni va uning 'displayInfo()' metodini e'lon qiling.\n\n2. Avlod sinflar ('PhysicalProduct' va 'DigitalProduct') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<Product> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<Product> catalog = new java.util.ArrayList<>(); catalog.add(new PhysicalProduct(\"Krossovka\")); catalog.add(new DigitalProduct(\"E-Kitob\")); for (Product p : catalog) {     p.displayInfo(); }'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT Seminar 3 Ex 6: ArrayList<Product> populates physical and digital products, printing displayInfo() via for-each iteration.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive subclasses overriding 'displayInfo()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Product> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Product> catalog = new java.util.ArrayList<>(); catalog.add(new PhysicalProduct(\"Krossovka\")); catalog.add(new DigitalProduct(\"E-Kitob\")); for (Product p : catalog) {     p.displayInfo(); }'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT Seminar 3 Ex 6: ArrayList<Product> populates physical and digital products, printing displayInfo() via for-each iteration.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Product' with method 'displayInfo()'.\n\n2. Derive subclasses overriding 'displayInfo()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Product> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Product> catalog = new java.util.ArrayList<>(); catalog.add(new PhysicalProduct(\"Krossovka\")); catalog.add(new DigitalProduct(\"E-Kitob\")); for (Product p : catalog) {     p.displayInfo(); }'",
+      "ru": "📖 Контекст и описание задачи\nСеминар Direct WIUT 3 Пример 6: ArrayList<Product> заполняет физические и цифровые продукты, выводя displayInfo() через for-каждую итерацию.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Product с помощью метода displayInfo().\n2. Производные подклассы, переопределяющие 'displayInfo()'.\n3. В «main» инициализируйте «java.util.ArrayList<Product> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Product> Catalog = new java.util.ArrayList<>(); каталог.add(новый ФизическийПродукт(\"Кроссовка\")); каталог.add(новый DigitalProduct(\"E-Kitob\")); for (Продукт p: каталог) { p.displayInfo(); }'"
     },
     "story": {
       "uz": "WIUT Seminar 3 Exercise 6 rasmiy vazifasi: 'ArrayList<Product> catalog = new ArrayList<>();' ro'yxatiga 'PhysicalProduct' va 'DigitalProduct' ob'yektlari qo'shiladi va 'displayInfo()' metodi for-each siklida chaqiriladi.",
-      "en": "Direct WIUT Seminar 3 Ex 6: ArrayList<Product> populates physical and digital products, printing displayInfo() via for-each iteration."
+      "en": "Direct WIUT Seminar 3 Ex 6: ArrayList<Product> populates physical and digital products, printing displayInfo() via for-each iteration.",
+      "ru": "Семинар Direct WIUT 3 Пример 6: ArrayList<Product> заполняет физические и цифровые продукты, выводя displayInfo() через for-каждую итерацию."
     },
     "steps": {
       "uz": [
@@ -8062,6 +9893,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<Product> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Product> catalog = new java.util.ArrayList<>(); catalog.add(new PhysicalProduct(\"Krossovka\")); catalog.add(new DigitalProduct(\"E-Kitob\")); for (Product p : catalog) {     p.displayInfo(); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс Product с помощью метода displayInfo().",
+        "Производные подклассы, переопределяющие 'displayInfo()'.",
+        "В «main» инициализируйте «java.util.ArrayList<Product> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Product> Catalog = new java.util.ArrayList<>(); каталог.add(новый ФизическийПродукт(\"Кроссовка\")); каталог.add(новый DigitalProduct(\"E-Kitob\")); for (Продукт p: каталог) { p.displayInfo(); }'"
       ]
     },
     "requirements": {
@@ -8093,7 +9931,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<Product></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "catalog.add() orqali istalgan Product avlodi qo'shilishi mumkin.",
-      "cw2Tip": "CW2 da tovarlar katalogini boshqarishda ushbu kod andozasidan foydalaniladi."
+      "cw2Tip": "CW2 da tovarlar katalogini boshqarishda ushbu kod andozasidan foydalaniladi.",
+      "theoryRu": "Семинар 3 Пример 6 подтверждает, что полиморфизм во время выполнения безупречно работает за пределами границ коллекции, не требуя явного приведения типов.",
+      "pitfallsRu": "Catalog.add() orqali istalgan Продукт avlodi qo'shilishi mumkin.",
+      "breakdownRu": [
+        "<code>ArrayList<Product></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8103,15 +9946,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "123. Payme — ArrayList<Account> va Umumiy Balans Hisoblash",
-      "en": "123. Payme — ArrayList<Account> Aggregate Balance"
+      "en": "123. Payme — ArrayList<Account> Aggregate Balance",
+      "ru": "123. Payme — ArrayList<Account> Совокупный баланс"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nMijozning barcha hisoblari 'ArrayList<Account>' to'plamida saqlanadi. 'CardAccount' va 'CryptoAccount' hisoblari qo'shilib, for siklida jami balans hisoblab topilsin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Account' ni va uning 'getBalance()' metodini e'lon qiling.\n\n2. Avlod sinflar ('CardAccount' va 'CryptoAccount') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<Account> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<Account> accounts = new java.util.ArrayList<>(); accounts.add(new CardAccount(1500000.0)); accounts.add(new CryptoAccount(3500000.0)); double total = 0.0; for (Account a : accounts) {     total += a.getBalance(); } System.out.println(\"Jami mablag': \" + total + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nPayme aggregates diverse account subtypes inside ArrayList<Account>, summing up total portfolio wealth.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with method 'getBalance()'.\n\n2. Derive subclasses overriding 'getBalance()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Account> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Account> accounts = new java.util.ArrayList<>(); accounts.add(new CardAccount(1500000.0)); accounts.add(new CryptoAccount(3500000.0)); double total = 0.0; for (Account a : accounts) {     total += a.getBalance(); } System.out.println(\"Jami mablag': \" + total + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nPayme aggregates diverse account subtypes inside ArrayList<Account>, summing up total portfolio wealth.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Account' with method 'getBalance()'.\n\n2. Derive subclasses overriding 'getBalance()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Account> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Account> accounts = new java.util.ArrayList<>(); accounts.add(new CardAccount(1500000.0)); accounts.add(new CryptoAccount(3500000.0)); double total = 0.0; for (Account a : accounts) {     total += a.getBalance(); } System.out.println(\"Jami mablag': \" + total + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nPayme объединяет различные подтипы счетов внутри ArrayList<Account>, суммируя общее состояние портфеля.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Account с помощью метода getBalance().\n2. Производные подклассы, переопределяющие getBalance().\n3. В «main» инициализируйте «java.util.ArrayList<Account> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Account>accounts = new java.util.ArrayList<>(); accounts.add(новый CardAccount(1500000.0)); account.add(новый CryptoAccount(3500000.0)); двойной итог = 0,0; for (Account a: account) { total += a.getBalance(); } System.out.println(\"Джами маблаг': \" + всего + \" так я\");'"
     },
     "story": {
       "uz": "Mijozning barcha hisoblari 'ArrayList<Account>' to'plamida saqlanadi. 'CardAccount' va 'CryptoAccount' hisoblari qo'shilib, for siklida jami balans hisoblab topilsin.",
-      "en": "Payme aggregates diverse account subtypes inside ArrayList<Account>, summing up total portfolio wealth."
+      "en": "Payme aggregates diverse account subtypes inside ArrayList<Account>, summing up total portfolio wealth.",
+      "ru": "Payme объединяет различные подтипы счетов внутри ArrayList<Account>, суммируя общее состояние портфеля."
     },
     "steps": {
       "uz": [
@@ -8127,6 +9973,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<Account> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Account> accounts = new java.util.ArrayList<>(); accounts.add(new CardAccount(1500000.0)); accounts.add(new CryptoAccount(3500000.0)); double total = 0.0; for (Account a : accounts) {     total += a.getBalance(); } System.out.println(\"Jami mablag': \" + total + \" so'm\");'"
+      ],
+      "ru": [
+        "Объявите суперкласс Account с помощью метода getBalance().",
+        "Производные подклассы, переопределяющие getBalance().",
+        "В «main» инициализируйте «java.util.ArrayList<Account> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Account>accounts = new java.util.ArrayList<>(); accounts.add(новый CardAccount(1500000.0)); account.add(новый CryptoAccount(3500000.0)); двойной итог = 0,0; for (Account a: account) { total += a.getBalance(); } System.out.println(\"Джами маблаг': \" + всего + \" так я\");'"
       ]
     },
     "requirements": {
@@ -8158,7 +10011,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<Account></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "total boshida 0.0 bo'lishi va har bir hisob balansi qo'shilishi kerak.",
-      "cw2Tip": "Savatcha jami summasini hisoblashda for (MenuItem item : items) siklidan foydalaning."
+      "cw2Tip": "Savatcha jami summasini hisoblashda for (MenuItem item : items) siklidan foydalaning.",
+      "theoryRu": "Равномерное агрегирование остатков портфеля демонстрирует удобство архитектуры полиморфных коллекций.",
+      "pitfallsRu": "всего бошида 0,0 бо'лиши ва хар бир хисоб баланси ко'шилиши керак.",
+      "breakdownRu": [
+        "<code>ArrayList<Account></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8168,15 +10026,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "124. Yandex Go — ArrayList<TaxiOrder> Buyurtmalar Qatori",
-      "en": "124. Yandex Go — ArrayList<TaxiOrder> Dispatch Queue"
+      "en": "124. Yandex Go — ArrayList<TaxiOrder> Dispatch Queue",
+      "ru": "124. Яндекс Go — ArrayList<TaxiOrder> Очередь отправки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDispetcherlik tizimi 'ArrayList<TaxiOrder>' ro'yxatida 'StandardRide' va 'ExpressDeliveryOrder' larni qabul qiladi va har birining 'getETA()' vaqtini chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'TaxiOrder' ni va uning 'getETA()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardRide' va 'ExpressDeliveryOrder') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<TaxiOrder> orders = new java.util.ArrayList<>(); orders.add(new StandardRide()); orders.add(new ExpressDeliveryOrder()); for (TaxiOrder ord : orders) {     System.out.println(\"Navbatdagi: \" + ord.getETA()); }'",
-      "en": "📖 Real-World Scenario & Context\nTaxi dispatch queues manage mixed ride and parcel delivery orders inside ArrayList<TaxiOrder>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with method 'getETA()'.\n\n2. Derive subclasses overriding 'getETA()'.\n\n3. In 'main', initialize 'java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<TaxiOrder> orders = new java.util.ArrayList<>(); orders.add(new StandardRide()); orders.add(new ExpressDeliveryOrder()); for (TaxiOrder ord : orders) {     System.out.println(\"Navbatdagi: \" + ord.getETA()); }'"
+      "en": "📖 Real-World Scenario & Context\nTaxi dispatch queues manage mixed ride and parcel delivery orders inside ArrayList<TaxiOrder>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'TaxiOrder' with method 'getETA()'.\n\n2. Derive subclasses overriding 'getETA()'.\n\n3. In 'main', initialize 'java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<TaxiOrder> orders = new java.util.ArrayList<>(); orders.add(new StandardRide()); orders.add(new ExpressDeliveryOrder()); for (TaxiOrder ord : orders) {     System.out.println(\"Navbatdagi: \" + ord.getETA()); }'",
+      "ru": "📖 Контекст и описание задачи\nОчереди отправки такси управляют смешанными заказами на поездки и доставку посылок внутри ArrayList<TaxiOrder>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс TaxiOrder с помощью метода getETA().\n2. Производные подклассы, переопределяющие getETA().\n3. В «main» инициализируйте «java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<TaxiOrder>orders = new java.util.ArrayList<>(); orders.add(новый StandardRide()); orders.add(новый ExpressDeliveryOrder()); for (TaxiOrder ord :orders) { System.out.println(\"Navbatdagi: \" + ord.getETA()); }'"
     },
     "story": {
       "uz": "Dispetcherlik tizimi 'ArrayList<TaxiOrder>' ro'yxatida 'StandardRide' va 'ExpressDeliveryOrder' larni qabul qiladi va har birining 'getETA()' vaqtini chop etadi.",
-      "en": "Taxi dispatch queues manage mixed ride and parcel delivery orders inside ArrayList<TaxiOrder>."
+      "en": "Taxi dispatch queues manage mixed ride and parcel delivery orders inside ArrayList<TaxiOrder>.",
+      "ru": "Очереди отправки такси управляют смешанными заказами на поездки и доставку посылок внутри ArrayList<TaxiOrder>."
     },
     "steps": {
       "uz": [
@@ -8192,6 +10053,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<TaxiOrder> orders = new java.util.ArrayList<>(); orders.add(new StandardRide()); orders.add(new ExpressDeliveryOrder()); for (TaxiOrder ord : orders) {     System.out.println(\"Navbatdagi: \" + ord.getETA()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс TaxiOrder с помощью метода getETA().",
+        "Производные подклассы, переопределяющие getETA().",
+        "В «main» инициализируйте «java.util.ArrayList<TaxiOrder> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<TaxiOrder>orders = new java.util.ArrayList<>(); orders.add(новый StandardRide()); orders.add(новый ExpressDeliveryOrder()); for (TaxiOrder ord :orders) { System.out.println(\"Navbatdagi: \" + ord.getETA()); }'"
       ]
     },
     "requirements": {
@@ -8223,7 +10091,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<TaxiOrder></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "for siklida ota sinf turi TaxiOrder ishlatiladi.",
-      "cw2Tip": "Buyurtmalar navbatini to'plamlar orqali ifodalang."
+      "cw2Tip": "Buyurtmalar navbatini to'plamlar orqali ifodalang.",
+      "theoryRu": "Очереди отправки флота плавно перебирают полиморфные заказы.",
+      "pitfallsRu": "для сиклида ота синф тури ТаксиЗаказ ишлатилади.",
+      "breakdownRu": [
+        "<code>ArrayList<TaxiOrder></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8233,15 +10106,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "125. Korzinka Go — ArrayList<MarketItem> Xarid Savati",
-      "en": "125. Korzinka Go — ArrayList<MarketItem> Shopping Basket"
+      "en": "125. Korzinka Go — ArrayList<MarketItem> Shopping Basket",
+      "ru": "125. Корзинка Go — ArrayList<MarketItem> Корзина покупок"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nXaridor savatiga 'FreshProduce' va 'DiscountItem' tovarlari 'ArrayList<MarketItem>' sifatida solinadi va chek uchun 'getLabel()' polimorfik chiqariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'MarketItem' ni va uning 'getLabel()' metodini e'lon qiling.\n\n2. Avlod sinflar ('FreshProduce' va 'DiscountItem') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<MarketItem> basket = new java.util.ArrayList<>(); basket.add(new FreshProduce()); basket.add(new DiscountItem()); for (MarketItem item : basket) {     System.out.println(item.getLabel()); }'",
-      "en": "📖 Real-World Scenario & Context\nSupermarket baskets pool fresh produce and discounted goods in ArrayList<MarketItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MarketItem' with method 'getLabel()'.\n\n2. Derive subclasses overriding 'getLabel()'.\n\n3. In 'main', initialize 'java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<MarketItem> basket = new java.util.ArrayList<>(); basket.add(new FreshProduce()); basket.add(new DiscountItem()); for (MarketItem item : basket) {     System.out.println(item.getLabel()); }'"
+      "en": "📖 Real-World Scenario & Context\nSupermarket baskets pool fresh produce and discounted goods in ArrayList<MarketItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'MarketItem' with method 'getLabel()'.\n\n2. Derive subclasses overriding 'getLabel()'.\n\n3. In 'main', initialize 'java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<MarketItem> basket = new java.util.ArrayList<>(); basket.add(new FreshProduce()); basket.add(new DiscountItem()); for (MarketItem item : basket) {     System.out.println(item.getLabel()); }'",
+      "ru": "📖 Контекст и описание задачи\nКорзины супермаркетов объединяют свежие продукты и товары со скидкой в ArrayList<MarketItem>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс MarketItem с помощью метода getLabel().\n2. Создание подклассов, переопределяющих getLabel().\n3. В «main» инициализируйте «java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<MarketItem> корзина = new java.util.ArrayList<>(); корзина.add(новый FreshProduce()); корзина.add(новый DiscountItem()); for (пункт MarketItem: корзина) { System.out.println(item.getLabel()); }'"
     },
     "story": {
       "uz": "Xaridor savatiga 'FreshProduce' va 'DiscountItem' tovarlari 'ArrayList<MarketItem>' sifatida solinadi va chek uchun 'getLabel()' polimorfik chiqariladi.",
-      "en": "Supermarket baskets pool fresh produce and discounted goods in ArrayList<MarketItem>."
+      "en": "Supermarket baskets pool fresh produce and discounted goods in ArrayList<MarketItem>.",
+      "ru": "Корзины супермаркетов объединяют свежие продукты и товары со скидкой в ArrayList<MarketItem>."
     },
     "steps": {
       "uz": [
@@ -8257,6 +10133,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<MarketItem> basket = new java.util.ArrayList<>(); basket.add(new FreshProduce()); basket.add(new DiscountItem()); for (MarketItem item : basket) {     System.out.println(item.getLabel()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс MarketItem с помощью метода getLabel().",
+        "Создание подклассов, переопределяющих getLabel().",
+        "В «main» инициализируйте «java.util.ArrayList<MarketItem> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<MarketItem> корзина = new java.util.ArrayList<>(); корзина.add(новый FreshProduce()); корзина.add(новый DiscountItem()); for (пункт MarketItem: корзина) { System.out.println(item.getLabel()); }'"
       ]
     },
     "requirements": {
@@ -8288,7 +10171,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<MarketItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "item.getLabel() har bir tovar o'z yorlig'ini chiqaradi.",
-      "cw2Tip": "CW2 Console Order Application savatchasi aynan shunday ishlaydi."
+      "cw2Tip": "CW2 Console Order Application savatchasi aynan shunday ishlaydi.",
+      "theoryRu": "Корзины для касс в точках продаж объединяют разнообразные продуктовые линейки в единые повторяющиеся контейнеры.",
+      "pitfallsRu": "item.getLabel() предназначен для товаров, которые вы можете использовать.",
+      "breakdownRu": [
+        "<code>ArrayList<MarketItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8298,15 +10186,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "126. Click Up — ArrayList<Receipt> Kvitansiyalar Tarixi",
-      "en": "126. Click Up — ArrayList<Receipt> Receipt History"
+      "en": "126. Click Up — ArrayList<Receipt> Receipt History",
+      "ru": "126. Нажмите «Вверх» — ArrayList<Receipt> История квитанций."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTo'lovlar tarixida 'StandardReceipt' va 'FiscalReceipt' cheklari 'ArrayList<Receipt>' da saqlanadi va 'printReceipt()' orqali chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Receipt' ni va uning 'printReceipt()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardReceipt' va 'FiscalReceipt') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<Receipt> history = new java.util.ArrayList<>(); history.add(new StandardReceipt()); history.add(new FiscalReceipt()); for (Receipt r : history) {     System.out.println(r.printReceipt()); }'",
-      "en": "📖 Real-World Scenario & Context\nPayment history archives store varied receipts inside ArrayList<Receipt>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with method 'printReceipt()'.\n\n2. Derive subclasses overriding 'printReceipt()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Receipt> history = new java.util.ArrayList<>(); history.add(new StandardReceipt()); history.add(new FiscalReceipt()); for (Receipt r : history) {     System.out.println(r.printReceipt()); }'"
+      "en": "📖 Real-World Scenario & Context\nPayment history archives store varied receipts inside ArrayList<Receipt>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Receipt' with method 'printReceipt()'.\n\n2. Derive subclasses overriding 'printReceipt()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Receipt> history = new java.util.ArrayList<>(); history.add(new StandardReceipt()); history.add(new FiscalReceipt()); for (Receipt r : history) {     System.out.println(r.printReceipt()); }'",
+      "ru": "📖 Контекст и описание задачи\nАрхивы истории платежей хранят различные квитанции внутри ArrayList<Receipt>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «Receipt» с помощью метода «printReceipt()».\n2. Производные подклассы, переопределяющие printReceipt().\n3. В «main» инициализируйте «java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Receipt> History = new java.util.ArrayList<>(); History.add(новый StandardReceipt()); History.add(новый FiscalReceipt()); for (Квитанция r: история) { System.out.println(r.printReceipt()); }'"
     },
     "story": {
       "uz": "To'lovlar tarixida 'StandardReceipt' va 'FiscalReceipt' cheklari 'ArrayList<Receipt>' da saqlanadi va 'printReceipt()' orqali chop etiladi.",
-      "en": "Payment history archives store varied receipts inside ArrayList<Receipt>."
+      "en": "Payment history archives store varied receipts inside ArrayList<Receipt>.",
+      "ru": "Архивы истории платежей хранят различные квитанции внутри ArrayList<Receipt>."
     },
     "steps": {
       "uz": [
@@ -8322,6 +10213,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Receipt> history = new java.util.ArrayList<>(); history.add(new StandardReceipt()); history.add(new FiscalReceipt()); for (Receipt r : history) {     System.out.println(r.printReceipt()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс «Receipt» с помощью метода «printReceipt()».",
+        "Производные подклассы, переопределяющие printReceipt().",
+        "В «main» инициализируйте «java.util.ArrayList<Receipt> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Receipt> History = new java.util.ArrayList<>(); History.add(новый StandardReceipt()); History.add(новый FiscalReceipt()); for (Квитанция r: история) { System.out.println(r.printReceipt()); }'"
       ]
     },
     "requirements": {
@@ -8353,7 +10251,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<Receipt></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "r.printReceipt() String qaytaradi.",
-      "cw2Tip": "Cheklar tarixini chiqarishda ushbu andozani qo'llang."
+      "cw2Tip": "Cheklar tarixini chiqarishda ushbu andozani qo'llang.",
+      "theoryRu": "Архивные реестры платежей единообразно обрабатывают различные форматы квитанций.",
+      "pitfallsRu": "r.printReceipt() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>ArrayList<Receipt></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8363,15 +10266,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "127. Asaxiy Books — ArrayList<CatalogItem> Kutubxona Ro'yxati",
-      "en": "127. Asaxiy Books — ArrayList<CatalogItem> Library Shelf"
+      "en": "127. Asaxiy Books — ArrayList<CatalogItem> Library Shelf",
+      "ru": "127. Asaxy Books — Библиотечная полка ArrayList<CatalogItem>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKatalog javonida bosma kitob ('PrintedBook') va audio kitob ('AudioBook') 'ArrayList<CatalogItem>' da saqlanadi va 'getItemType()' chaqiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CatalogItem' ni va uning 'getItemType()' metodini e'lon qiling.\n\n2. Avlod sinflar ('PrintedBook' va 'AudioBook') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<CatalogItem> shelf = new java.util.ArrayList<>(); shelf.add(new PrintedBook()); shelf.add(new AudioBook()); for (CatalogItem ci : shelf) {     System.out.println(ci.getItemType()); }'",
-      "en": "📖 Real-World Scenario & Context\nLibrary catalogs store mixed printed books and audiobooks in ArrayList<CatalogItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with method 'getItemType()'.\n\n2. Derive subclasses overriding 'getItemType()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CatalogItem> shelf = new java.util.ArrayList<>(); shelf.add(new PrintedBook()); shelf.add(new AudioBook()); for (CatalogItem ci : shelf) {     System.out.println(ci.getItemType()); }'"
+      "en": "📖 Real-World Scenario & Context\nLibrary catalogs store mixed printed books and audiobooks in ArrayList<CatalogItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CatalogItem' with method 'getItemType()'.\n\n2. Derive subclasses overriding 'getItemType()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CatalogItem> shelf = new java.util.ArrayList<>(); shelf.add(new PrintedBook()); shelf.add(new AudioBook()); for (CatalogItem ci : shelf) {     System.out.println(ci.getItemType()); }'",
+      "ru": "📖 Контекст и описание задачи\nВ каталогах библиотеки хранятся смешанные печатные книги и аудиокниги в ArrayList<CatalogItem>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс CatalogItem с помощью метода getItemType().\n2. Производные подклассы, переопределяющие getItemType().\n3. В «main» инициализируйте «java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for каждого, выполняя полиморфный метод: 'java.util.ArrayList<CatalogItem> полка = new java.util.ArrayList<>(); полка.add(новая печатная книга()); полка.add(новая аудиокнига()); for (CatalogItem ci: полка) { System.out.println(ci.getItemType()); }'"
     },
     "story": {
       "uz": "Katalog javonida bosma kitob ('PrintedBook') va audio kitob ('AudioBook') 'ArrayList<CatalogItem>' da saqlanadi va 'getItemType()' chaqiriladi.",
-      "en": "Library catalogs store mixed printed books and audiobooks in ArrayList<CatalogItem>."
+      "en": "Library catalogs store mixed printed books and audiobooks in ArrayList<CatalogItem>.",
+      "ru": "В каталогах библиотеки хранятся смешанные печатные книги и аудиокниги в ArrayList<CatalogItem>."
     },
     "steps": {
       "uz": [
@@ -8387,6 +10293,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CatalogItem> shelf = new java.util.ArrayList<>(); shelf.add(new PrintedBook()); shelf.add(new AudioBook()); for (CatalogItem ci : shelf) {     System.out.println(ci.getItemType()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс CatalogItem с помощью метода getItemType().",
+        "Производные подклассы, переопределяющие getItemType().",
+        "В «main» инициализируйте «java.util.ArrayList<CatalogItem> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for каждого, выполняя полиморфный метод: 'java.util.ArrayList<CatalogItem> полка = new java.util.ArrayList<>(); полка.add(новая печатная книга()); полка.add(новая аудиокнига()); for (CatalogItem ci: полка) { System.out.println(ci.getItemType()); }'"
       ]
     },
     "requirements": {
@@ -8418,7 +10331,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<CatalogItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "ci.getItemType() chaqirilishini tekshiring.",
-      "cw2Tip": "Mahsulotlar katalogida ushbu andozadan foydalaning."
+      "cw2Tip": "Mahsulotlar katalogida ushbu andozadan foydalaning.",
+      "theoryRu": "Разнородные медиаресурсы управляют различными физическими и аудиоформатами посредством базовых ссылок.",
+      "pitfallsRu": "ci.getItemType() чакирилишини текширинг.",
+      "breakdownRu": [
+        "<code>ArrayList<CatalogItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8428,15 +10346,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "128. Express24 — ArrayList<CourierTransport> Park Boshqaruvi",
-      "en": "128. Express24 — ArrayList<CourierTransport> Fleet Management"
+      "en": "128. Express24 — ArrayList<CourierTransport> Fleet Management",
+      "ru": "128. Express24 — ArrayList<CourierTransport> Управление автопарком"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKuryerlar parki 'MotoCourier' va 'DroneTransport' vositalarini 'ArrayList<CourierTransport>' to'plamida saqlaydi va 'deliver()' chaqiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CourierTransport' ni va uning 'deliver()' metodini e'lon qiling.\n\n2. Avlod sinflar ('MotoCourier' va 'DroneTransport') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<CourierTransport> fleet = new java.util.ArrayList<>(); fleet.add(new MotoCourier()); fleet.add(new DroneTransport()); for (CourierTransport ct : fleet) {     System.out.println(ct.deliver()); }'",
-      "en": "📖 Real-World Scenario & Context\nCourier fleets manage ground scooters and autonomous drones in ArrayList<CourierTransport>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with method 'deliver()'.\n\n2. Derive subclasses overriding 'deliver()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CourierTransport> fleet = new java.util.ArrayList<>(); fleet.add(new MotoCourier()); fleet.add(new DroneTransport()); for (CourierTransport ct : fleet) {     System.out.println(ct.deliver()); }'"
+      "en": "📖 Real-World Scenario & Context\nCourier fleets manage ground scooters and autonomous drones in ArrayList<CourierTransport>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CourierTransport' with method 'deliver()'.\n\n2. Derive subclasses overriding 'deliver()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CourierTransport> fleet = new java.util.ArrayList<>(); fleet.add(new MotoCourier()); fleet.add(new DroneTransport()); for (CourierTransport ct : fleet) {     System.out.println(ct.deliver()); }'",
+      "ru": "📖 Контекст и описание задачи\nКурьерские автопарки управляют наземными скутерами и автономными дронами в ArrayList<CourierTransport>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс «CourierTransport» с помощью метода «deliver()».\n2. Производные подклассы, переопределяющие 'deliver()'.\n3. В «main» инициализируйте «java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<CourierTransport> флот = новый java.util.ArrayList<>(); флот.add(новый МотоКурьер()); флот.add(новый DroneTransport()); for (CourierTransport ct: флот) { System.out.println(ct.deliver()); }'"
     },
     "story": {
       "uz": "Kuryerlar parki 'MotoCourier' va 'DroneTransport' vositalarini 'ArrayList<CourierTransport>' to'plamida saqlaydi va 'deliver()' chaqiradi.",
-      "en": "Courier fleets manage ground scooters and autonomous drones in ArrayList<CourierTransport>."
+      "en": "Courier fleets manage ground scooters and autonomous drones in ArrayList<CourierTransport>.",
+      "ru": "Курьерские автопарки управляют наземными скутерами и автономными дронами в ArrayList<CourierTransport>."
     },
     "steps": {
       "uz": [
@@ -8452,6 +10373,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CourierTransport> fleet = new java.util.ArrayList<>(); fleet.add(new MotoCourier()); fleet.add(new DroneTransport()); for (CourierTransport ct : fleet) {     System.out.println(ct.deliver()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс «CourierTransport» с помощью метода «deliver()».",
+        "Производные подклассы, переопределяющие 'deliver()'.",
+        "В «main» инициализируйте «java.util.ArrayList<CourierTransport> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<CourierTransport> флот = новый java.util.ArrayList<>(); флот.add(новый МотоКурьер()); флот.add(новый DroneTransport()); for (CourierTransport ct: флот) { System.out.println(ct.deliver()); }'"
       ]
     },
     "requirements": {
@@ -8483,7 +10411,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<CourierTransport></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "ct.deliver() String qaytaradi.",
-      "cw2Tip": "Yetkazib beruvchilar tizimida polimorfik to'plamlardan foydalaning."
+      "cw2Tip": "Yetkazib beruvchilar tizimida polimorfik to'plamlardan foydalaning.",
+      "theoryRu": "Диспетчерские системы телеметрии парка равномерно перемещаются по различным типам транспортных средств.",
+      "pitfallsRu": "ct.deliver() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>ArrayList<CourierTransport></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8493,15 +10426,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "129. Beeline — ArrayList<CallingPlan> Tariflar Menyu",
-      "en": "129. Beeline — ArrayList<CallingPlan> Tariff Menu"
+      "en": "129. Beeline — ArrayList<CallingPlan> Tariff Menu",
+      "ru": "129. Билайн — Меню тарифов ArrayList<CallingPlan>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTariflar ro'yxatida 'StandardPlan' va 'FreeNightPlan' 'ArrayList<CallingPlan>' da saqlanadi va 'getPlanTitle()' chaqiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'CallingPlan' ni va uning 'getPlanTitle()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardPlan' va 'FreeNightPlan') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<CallingPlan> plans = new java.util.ArrayList<>(); plans.add(new StandardPlan()); plans.add(new FreeNightPlan()); for (CallingPlan cp : plans) {     System.out.println(cp.getPlanTitle()); }'",
-      "en": "📖 Real-World Scenario & Context\nTelecom tariff menus store mixed billing plans inside ArrayList<CallingPlan>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with method 'getPlanTitle()'.\n\n2. Derive subclasses overriding 'getPlanTitle()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CallingPlan> plans = new java.util.ArrayList<>(); plans.add(new StandardPlan()); plans.add(new FreeNightPlan()); for (CallingPlan cp : plans) {     System.out.println(cp.getPlanTitle()); }'"
+      "en": "📖 Real-World Scenario & Context\nTelecom tariff menus store mixed billing plans inside ArrayList<CallingPlan>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'CallingPlan' with method 'getPlanTitle()'.\n\n2. Derive subclasses overriding 'getPlanTitle()'.\n\n3. In 'main', initialize 'java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CallingPlan> plans = new java.util.ArrayList<>(); plans.add(new StandardPlan()); plans.add(new FreeNightPlan()); for (CallingPlan cp : plans) {     System.out.println(cp.getPlanTitle()); }'",
+      "ru": "📖 Контекст и описание задачи\nМеню тарифов телекоммуникаций хранят смешанные тарифные планы внутри ArrayList<CallingPlan>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс CallingPlan с помощью метода getPlanTitle().\n2. Производные подклассы, переопределяющие getPlanTitle().\n3. В «main» инициализируйте «java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<CallingPlan> plan = new java.util.ArrayList<>(); plan.add(новый StandardPlan()); plans.add(новый FreeNightPlan()); for (CallingPlan cp: планы) { System.out.println(cp.getPlanTitle()); }'"
     },
     "story": {
       "uz": "Tariflar ro'yxatida 'StandardPlan' va 'FreeNightPlan' 'ArrayList<CallingPlan>' da saqlanadi va 'getPlanTitle()' chaqiriladi.",
-      "en": "Telecom tariff menus store mixed billing plans inside ArrayList<CallingPlan>."
+      "en": "Telecom tariff menus store mixed billing plans inside ArrayList<CallingPlan>.",
+      "ru": "Меню тарифов телекоммуникаций хранят смешанные тарифные планы внутри ArrayList<CallingPlan>."
     },
     "steps": {
       "uz": [
@@ -8517,6 +10453,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<CallingPlan> plans = new java.util.ArrayList<>(); plans.add(new StandardPlan()); plans.add(new FreeNightPlan()); for (CallingPlan cp : plans) {     System.out.println(cp.getPlanTitle()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс CallingPlan с помощью метода getPlanTitle().",
+        "Производные подклассы, переопределяющие getPlanTitle().",
+        "В «main» инициализируйте «java.util.ArrayList<CallingPlan> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<CallingPlan> plan = new java.util.ArrayList<>(); plan.add(новый StandardPlan()); plans.add(новый FreeNightPlan()); for (CallingPlan cp: планы) { System.out.println(cp.getPlanTitle()); }'"
       ]
     },
     "requirements": {
@@ -8548,7 +10491,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<CallingPlan></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "getPlanTitle() metodi String qaytarishi kerak.",
-      "cw2Tip": "Xizmat turlarini ko'rsatishda ushbu usuldan foydalaning."
+      "cw2Tip": "Xizmat turlarini ko'rsatishda ushbu usuldan foydalaning.",
+      "theoryRu": "Порталы самообслуживания абонентов беспрепятственно перебирают разнообразные подклассы тарифных планов.",
+      "pitfallsRu": "getPlanTitle() метод String qaytarishi kerak.",
+      "breakdownRu": [
+        "<code>ArrayList<CallingPlan></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8558,15 +10506,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "130. Texnomart — ArrayList<ApplianceItem> Ko'rgazma Vitrinasi",
-      "en": "130. Texnomart — ArrayList<ApplianceItem> Showroom"
+      "en": "130. Texnomart — ArrayList<ApplianceItem> Showroom",
+      "ru": "130. Texnomart — Выставочный зал ArrayList<ApplianceItem>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nDo'kon vitrinasida 'StandardAppliance' va 'SolarAppliance' 'ArrayList<ApplianceItem>' da saqlanadi va 'getEnergyRating()' chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'ApplianceItem' ni va uning 'getEnergyRating()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardAppliance' va 'SolarAppliance') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(new StandardAppliance()); showroom.add(new SolarAppliance()); for (ApplianceItem ai : showroom) {     System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'",
-      "en": "📖 Real-World Scenario & Context\nShowroom inventories display mixed home appliances in ArrayList<ApplianceItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with method 'getEnergyRating()'.\n\n2. Derive subclasses overriding 'getEnergyRating()'.\n\n3. In 'main', initialize 'java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(new StandardAppliance()); showroom.add(new SolarAppliance()); for (ApplianceItem ai : showroom) {     System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'"
+      "en": "📖 Real-World Scenario & Context\nShowroom inventories display mixed home appliances in ArrayList<ApplianceItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'ApplianceItem' with method 'getEnergyRating()'.\n\n2. Derive subclasses overriding 'getEnergyRating()'.\n\n3. In 'main', initialize 'java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(new StandardAppliance()); showroom.add(new SolarAppliance()); for (ApplianceItem ai : showroom) {     System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'",
+      "ru": "📖 Контекст и описание задачи\nВ инвентаре выставочного зала отображается смешанная бытовая техника в ArrayList<ApplianceItem>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс ApplianceItem с помощью метода getEnergyRating().\n2. Произведите подклассы, переопределяющие getEnergyRating().\n3. В «main» инициализируйте «java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(новый StandardAppliance()); showroom.add(новое SolarAppliance()); for (ApplianceItem ai : showroom) { System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'"
     },
     "story": {
       "uz": "Do'kon vitrinasida 'StandardAppliance' va 'SolarAppliance' 'ArrayList<ApplianceItem>' da saqlanadi va 'getEnergyRating()' chop etiladi.",
-      "en": "Showroom inventories display mixed home appliances in ArrayList<ApplianceItem>."
+      "en": "Showroom inventories display mixed home appliances in ArrayList<ApplianceItem>.",
+      "ru": "В инвентаре выставочного зала отображается смешанная бытовая техника в ArrayList<ApplianceItem>."
     },
     "steps": {
       "uz": [
@@ -8582,6 +10533,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(new StandardAppliance()); showroom.add(new SolarAppliance()); for (ApplianceItem ai : showroom) {     System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс ApplianceItem с помощью метода getEnergyRating().",
+        "Произведите подклассы, переопределяющие getEnergyRating().",
+        "В «main» инициализируйте «java.util.ArrayList<ApplianceItem> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<ApplianceItem> showroom = new java.util.ArrayList<>(); showroom.add(новый StandardAppliance()); showroom.add(новое SolarAppliance()); for (ApplianceItem ai : showroom) { System.out.println(\"Sinf: \" + ai.getEnergyRating()); }'"
       ]
     },
     "requirements": {
@@ -8613,7 +10571,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<ApplianceItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "ai.getEnergyRating() String qaytaradi.",
-      "cw2Tip": "Tovar ko'rgazmasi modellarida to'plamlardan foydalaning."
+      "cw2Tip": "Tovar ko'rgazmasi modellarida to'plamlardan foydalaning.",
+      "theoryRu": "Каталог розничных выставочных залов полиморфно отображает запросы по классам энергопотребления для различных приборов.",
+      "pitfallsRu": "ai.getEnergyRating() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>ArrayList<ApplianceItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8623,15 +10586,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "131. Kapitalbank — ArrayList<Loan> Kredit Portfeli",
-      "en": "131. Kapitalbank — ArrayList<Loan> Credit Portfolio"
+      "en": "131. Kapitalbank — ArrayList<Loan> Credit Portfolio",
+      "ru": "131. Капиталбанк — ArrayList<Кредит> Кредитный портфель"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKredit portfelida 'StandardLoan' va 'GracePeriodLoan' 'ArrayList<Loan>' da saqlanadi va har birining 'getLoanStatus()' xabari chiqariladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Loan' ni va uning 'getLoanStatus()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardLoan' va 'GracePeriodLoan') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<Loan> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<Loan> portfolio = new java.util.ArrayList<>(); portfolio.add(new StandardLoan()); portfolio.add(new GracePeriodLoan()); for (Loan l : portfolio) {     System.out.println(l.getLoanStatus()); }'",
-      "en": "📖 Real-World Scenario & Context\nBank credit portfolios audit standard and grace-period loans inside ArrayList<Loan>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with method 'getLoanStatus()'.\n\n2. Derive subclasses overriding 'getLoanStatus()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Loan> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Loan> portfolio = new java.util.ArrayList<>(); portfolio.add(new StandardLoan()); portfolio.add(new GracePeriodLoan()); for (Loan l : portfolio) {     System.out.println(l.getLoanStatus()); }'"
+      "en": "📖 Real-World Scenario & Context\nBank credit portfolios audit standard and grace-period loans inside ArrayList<Loan>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Loan' with method 'getLoanStatus()'.\n\n2. Derive subclasses overriding 'getLoanStatus()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Loan> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Loan> portfolio = new java.util.ArrayList<>(); portfolio.add(new StandardLoan()); portfolio.add(new GracePeriodLoan()); for (Loan l : portfolio) {     System.out.println(l.getLoanStatus()); }'",
+      "ru": "📖 Контекст и описание задачи\nБанковские кредитные портфели проверяют стандартные и льготные кредиты внутри ArrayList<Loan>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Loan с помощью метода getLoanStatus().\n2. Производные подклассы, переопределяющие getLoanStatus().\n3. В «main» инициализируйте «java.util.ArrayList<Loan> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Loan> портфолио = new java.util.ArrayList<>(); портфолио.add(новый StandardLoan()); портфолио.add(новый GracePeriodLoan()); for (Ссуда ​​l: портфель) { System.out.println(l.getLoanStatus()); }'"
     },
     "story": {
       "uz": "Kredit portfelida 'StandardLoan' va 'GracePeriodLoan' 'ArrayList<Loan>' da saqlanadi va har birining 'getLoanStatus()' xabari chiqariladi.",
-      "en": "Bank credit portfolios audit standard and grace-period loans inside ArrayList<Loan>."
+      "en": "Bank credit portfolios audit standard and grace-period loans inside ArrayList<Loan>.",
+      "ru": "Банковские кредитные портфели проверяют стандартные и льготные кредиты внутри ArrayList<Loan>."
     },
     "steps": {
       "uz": [
@@ -8647,6 +10613,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<Loan> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Loan> portfolio = new java.util.ArrayList<>(); portfolio.add(new StandardLoan()); portfolio.add(new GracePeriodLoan()); for (Loan l : portfolio) {     System.out.println(l.getLoanStatus()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс Loan с помощью метода getLoanStatus().",
+        "Производные подклассы, переопределяющие getLoanStatus().",
+        "В «main» инициализируйте «java.util.ArrayList<Loan> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Loan> портфолио = new java.util.ArrayList<>(); портфолио.add(новый StandardLoan()); портфолио.add(новый GracePeriodLoan()); for (Ссуда ​​l: портфель) { System.out.println(l.getLoanStatus()); }'"
       ]
     },
     "requirements": {
@@ -8678,7 +10651,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<Loan></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "l.getLoanStatus() String qaytaradi.",
-      "cw2Tip": "Bank hisoblari va portfellarini to'plamlar bilan quring."
+      "cw2Tip": "Bank hisoblari va portfellarini to'plamlar bilan quring.",
+      "theoryRu": "Задания по андеррайтинговому аудиту равномерно повторяются среди различных кредитных продуктов.",
+      "pitfallsRu": "l.getLoanStatus() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>ArrayList<Loan></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8688,15 +10666,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "132. Medion Clinic — ArrayList<LabTest> Laboratoriya Buyurtmalari",
-      "en": "132. Medion Clinic — ArrayList<LabTest> Worklist"
+      "en": "132. Medion Clinic — ArrayList<LabTest> Worklist",
+      "ru": "132. Клиника Медион — Рабочий список ArrayList<LabTest>"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nLaboratoriya ish ro'yxatida 'StandardLabTest' va 'UrgentLabTest' 'ArrayList<LabTest>' da saqlanadi va 'getPriorityTag()' chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'LabTest' ni va uning 'getPriorityTag()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardLabTest' va 'UrgentLabTest') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(new StandardLabTest()); worklist.add(new UrgentLabTest()); for (LabTest lt : worklist) {     System.out.println(lt.getPriorityTag()); }'",
-      "en": "📖 Real-World Scenario & Context\nClinical specimen worklists manage standard and urgent tests inside ArrayList<LabTest>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with method 'getPriorityTag()'.\n\n2. Derive subclasses overriding 'getPriorityTag()'.\n\n3. In 'main', initialize 'java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(new StandardLabTest()); worklist.add(new UrgentLabTest()); for (LabTest lt : worklist) {     System.out.println(lt.getPriorityTag()); }'"
+      "en": "📖 Real-World Scenario & Context\nClinical specimen worklists manage standard and urgent tests inside ArrayList<LabTest>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'LabTest' with method 'getPriorityTag()'.\n\n2. Derive subclasses overriding 'getPriorityTag()'.\n\n3. In 'main', initialize 'java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(new StandardLabTest()); worklist.add(new UrgentLabTest()); for (LabTest lt : worklist) {     System.out.println(lt.getPriorityTag()); }'",
+      "ru": "📖 Контекст и описание задачи\nРабочие списки клинических образцов управляют стандартными и срочными тестами внутри ArrayList<LabTest>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс LabTest с помощью метода getPriorityTag().\n2. Создание подклассов, переопределяющих getPriorityTag().\n3. В «main» инициализируйте «java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(новый StandardLabTest()); worklist.add(новый UrgentLabTest()); for (LabTest lt: рабочий список) { System.out.println(lt.getPriorityTag()); }'"
     },
     "story": {
       "uz": "Laboratoriya ish ro'yxatida 'StandardLabTest' va 'UrgentLabTest' 'ArrayList<LabTest>' da saqlanadi va 'getPriorityTag()' chop etiladi.",
-      "en": "Clinical specimen worklists manage standard and urgent tests inside ArrayList<LabTest>."
+      "en": "Clinical specimen worklists manage standard and urgent tests inside ArrayList<LabTest>.",
+      "ru": "Рабочие списки клинических образцов управляют стандартными и срочными тестами внутри ArrayList<LabTest>."
     },
     "steps": {
       "uz": [
@@ -8712,6 +10693,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(new StandardLabTest()); worklist.add(new UrgentLabTest()); for (LabTest lt : worklist) {     System.out.println(lt.getPriorityTag()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс LabTest с помощью метода getPriorityTag().",
+        "Создание подклассов, переопределяющих getPriorityTag().",
+        "В «main» инициализируйте «java.util.ArrayList<LabTest> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<LabTest> worklist = new java.util.ArrayList<>(); worklist.add(новый StandardLabTest()); worklist.add(новый UrgentLabTest()); for (LabTest lt: рабочий список) { System.out.println(lt.getPriorityTag()); }'"
       ]
     },
     "requirements": {
@@ -8743,7 +10731,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<LabTest></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "lt.getPriorityTag() String qaytaradi.",
-      "cw2Tip": "Xizmatlar navbatini to'plamlar bilan boshqaring."
+      "cw2Tip": "Xizmatlar navbatini to'plamlar bilan boshqaring.",
+      "theoryRu": "Очереди образцов отдают приоритет срочным образцам, сохраняя при этом единообразные интерфейсы обработки.",
+      "pitfallsRu": "lt.getPriorityTag() Строка qaytaradi.",
+      "breakdownRu": [
+        "<code>ArrayList<LabTest></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8753,15 +10746,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "133. Uzbekistan Airways — ArrayList<BoardingPass> Yo'lovchilar Ro'yxati",
-      "en": "133. Uzbekistan Airways — ArrayList<BoardingPass> Passenger Manifest"
+      "en": "133. Uzbekistan Airways — ArrayList<BoardingPass> Passenger Manifest",
+      "ru": "133. «Узбекистон хаво йуллари» — ArrayList<BoardingPass> Пассажирская манифест"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nParvoz bortida 'StandardPass' va 'FastTrackPass' 'ArrayList<BoardingPass>' da saqlanadi va 'getBoardingType()' chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'BoardingPass' ni va uning 'getBoardingType()' metodini e'lon qiling.\n\n2. Avlod sinflar ('StandardPass' va 'FastTrackPass') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<BoardingPass> manifest = new java.util.ArrayList<>(); manifest.add(new StandardPass()); manifest.add(new FastTrackPass()); for (BoardingPass bp : manifest) {     System.out.println(bp.getBoardingType()); }'",
-      "en": "📖 Real-World Scenario & Context\nFlight manifests store standard and fast-track boarding passes inside ArrayList<BoardingPass>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with method 'getBoardingType()'.\n\n2. Derive subclasses overriding 'getBoardingType()'.\n\n3. In 'main', initialize 'java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<BoardingPass> manifest = new java.util.ArrayList<>(); manifest.add(new StandardPass()); manifest.add(new FastTrackPass()); for (BoardingPass bp : manifest) {     System.out.println(bp.getBoardingType()); }'"
+      "en": "📖 Real-World Scenario & Context\nFlight manifests store standard and fast-track boarding passes inside ArrayList<BoardingPass>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'BoardingPass' with method 'getBoardingType()'.\n\n2. Derive subclasses overriding 'getBoardingType()'.\n\n3. In 'main', initialize 'java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<BoardingPass> manifest = new java.util.ArrayList<>(); manifest.add(new StandardPass()); manifest.add(new FastTrackPass()); for (BoardingPass bp : manifest) {     System.out.println(bp.getBoardingType()); }'",
+      "ru": "📖 Контекст и описание задачи\nВ манифестах рейсов хранятся стандартные и ускоренные посадочные талоны внутри ArrayList<BoardingPass>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс BoardingPass с помощью метода getBoardingType().\n2. Производные подклассы, переопределяющие getBoardingType().\n3. В «main» инициализируйте «java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for для каждого выполнения полиморфного метода: 'java.util.ArrayList<BoardingPass> манифест = new java.util.ArrayList<>(); манифест.add(новый StandardPass()); манифест.add(новый FastTrackPass()); for (BoardingPass bp: манифест) { System.out.println(bp.getBoardingType()); }'"
     },
     "story": {
       "uz": "Parvoz bortida 'StandardPass' va 'FastTrackPass' 'ArrayList<BoardingPass>' da saqlanadi va 'getBoardingType()' chop etiladi.",
-      "en": "Flight manifests store standard and fast-track boarding passes inside ArrayList<BoardingPass>."
+      "en": "Flight manifests store standard and fast-track boarding passes inside ArrayList<BoardingPass>.",
+      "ru": "В манифестах рейсов хранятся стандартные и ускоренные посадочные талоны внутри ArrayList<BoardingPass>."
     },
     "steps": {
       "uz": [
@@ -8777,6 +10773,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<BoardingPass> manifest = new java.util.ArrayList<>(); manifest.add(new StandardPass()); manifest.add(new FastTrackPass()); for (BoardingPass bp : manifest) {     System.out.println(bp.getBoardingType()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс BoardingPass с помощью метода getBoardingType().",
+        "Производные подклассы, переопределяющие getBoardingType().",
+        "В «main» инициализируйте «java.util.ArrayList<BoardingPass> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for для каждого выполнения полиморфного метода: 'java.util.ArrayList<BoardingPass> манифест = new java.util.ArrayList<>(); манифест.add(новый StandardPass()); манифест.add(новый FastTrackPass()); for (BoardingPass bp: манифест) { System.out.println(bp.getBoardingType()); }'"
       ]
     },
     "requirements": {
@@ -8808,7 +10811,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<BoardingPass></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "bp.getBoardingType() chaqirilishini tekshiring.",
-      "cw2Tip": "Yo'lovchilar manifestini to'plamlar orqali ifodalang."
+      "cw2Tip": "Yo'lovchilar manifestini to'plamlar orqali ifodalang.",
+      "theoryRu": "Рейсовые манифесты равномерно чередуются между пассажирскими классами с помощью полиморфных посадочных талонов.",
+      "pitfallsRu": "bp.getBoardingType() чакирилишини текширинг.",
+      "breakdownRu": [
+        "<code>ArrayList<BoardingPass></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8818,15 +10826,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "134. Dodo Pizza — ArrayList<PizzaItem> Oshxona Navbati",
-      "en": "134. Dodo Pizza — ArrayList<PizzaItem> Kitchen Queue"
+      "en": "134. Dodo Pizza — ArrayList<PizzaItem> Kitchen Queue",
+      "ru": "134. Додо Пицца — ArrayList<PizzaItem> Очередь на кухне"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nPitsaxona buyurtmalar taxtasida 'WheatPizza' va 'GlutenFreePizza' 'ArrayList<PizzaItem>' da saqlanadi va 'getBakeInstructions()' chaqiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'PizzaItem' ni va uning 'getBakeInstructions()' metodini e'lon qiling.\n\n2. Avlod sinflar ('WheatPizza' va 'GlutenFreePizza') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<PizzaItem> kitchenQueue = new java.util.ArrayList<>(); kitchenQueue.add(new WheatPizza()); kitchenQueue.add(new GlutenFreePizza()); for (PizzaItem pi : kitchenQueue) {     System.out.println(pi.getBakeInstructions()); }'",
-      "en": "📖 Real-World Scenario & Context\nPizza kitchen queues manage standard wheat and gluten-free crusts inside ArrayList<PizzaItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with method 'getBakeInstructions()'.\n\n2. Derive subclasses overriding 'getBakeInstructions()'.\n\n3. In 'main', initialize 'java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<PizzaItem> kitchenQueue = new java.util.ArrayList<>(); kitchenQueue.add(new WheatPizza()); kitchenQueue.add(new GlutenFreePizza()); for (PizzaItem pi : kitchenQueue) {     System.out.println(pi.getBakeInstructions()); }'"
+      "en": "📖 Real-World Scenario & Context\nPizza kitchen queues manage standard wheat and gluten-free crusts inside ArrayList<PizzaItem>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'PizzaItem' with method 'getBakeInstructions()'.\n\n2. Derive subclasses overriding 'getBakeInstructions()'.\n\n3. In 'main', initialize 'java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<PizzaItem> kitchenQueue = new java.util.ArrayList<>(); kitchenQueue.add(new WheatPizza()); kitchenQueue.add(new GlutenFreePizza()); for (PizzaItem pi : kitchenQueue) {     System.out.println(pi.getBakeInstructions()); }'",
+      "ru": "📖 Контекст и описание задачи\nОчереди на кухне для пиццы управляют стандартными пшеничными и безглютеновыми корками внутри ArrayList<PizzaItem>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс PizzaItem с помощью метода getBakeInstructions().\n2. Производные подклассы, переопределяющие getBakeInstructions().\n3. В «main» инициализируйте «java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for каждого, выполняющим полиморфный метод: 'java.util.ArrayList<PizzaItem> KitchenQueue = new java.util.ArrayList<>(); KitchenQueue.add(новая пшеничная пицца()); KitchenQueue.add(новая GlutenFreePizza()); for (PizzaItem pi: KitchenQueue) { System.out.println(pi.getBakeInstructions()); }'"
     },
     "story": {
       "uz": "Pitsaxona buyurtmalar taxtasida 'WheatPizza' va 'GlutenFreePizza' 'ArrayList<PizzaItem>' da saqlanadi va 'getBakeInstructions()' chaqiriladi.",
-      "en": "Pizza kitchen queues manage standard wheat and gluten-free crusts inside ArrayList<PizzaItem>."
+      "en": "Pizza kitchen queues manage standard wheat and gluten-free crusts inside ArrayList<PizzaItem>.",
+      "ru": "Очереди на кухне для пиццы управляют стандартными пшеничными и безглютеновыми корками внутри ArrayList<PizzaItem>."
     },
     "steps": {
       "uz": [
@@ -8842,6 +10853,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<PizzaItem> kitchenQueue = new java.util.ArrayList<>(); kitchenQueue.add(new WheatPizza()); kitchenQueue.add(new GlutenFreePizza()); for (PizzaItem pi : kitchenQueue) {     System.out.println(pi.getBakeInstructions()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс PizzaItem с помощью метода getBakeInstructions().",
+        "Производные подклассы, переопределяющие getBakeInstructions().",
+        "В «main» инициализируйте «java.util.ArrayList<PizzaItem> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for каждого, выполняющим полиморфный метод: 'java.util.ArrayList<PizzaItem> KitchenQueue = new java.util.ArrayList<>(); KitchenQueue.add(новая пшеничная пицца()); KitchenQueue.add(новая GlutenFreePizza()); for (PizzaItem pi: KitchenQueue) { System.out.println(pi.getBakeInstructions()); }'"
       ]
     },
     "requirements": {
@@ -8873,7 +10891,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<PizzaItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "pi.getBakeInstructions() chaqiruvini tekshiring.",
-      "cw2Tip": "CW2 Console Order Application oshxona navbatida ushbu usuldan foydalaning."
+      "cw2Tip": "CW2 Console Order Application oshxona navbatida ushbu usuldan foydalaning.",
+      "theoryRu": "Кухонные системы отображения инструктируют поваров полиморфно, не проверяя базовые рецепты вручную.",
+      "pitfallsRu": "pi.getBakeInstructions() чакирувини текширинг.",
+      "breakdownRu": [
+        "<code>ArrayList<PizzaItem></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8883,15 +10906,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "121-135: Polimorfik Kolleksiyalar",
     "title": {
       "uz": "135. Safia Bakery — ArrayList<Pastry> Shirinliklar To'plami",
-      "en": "135. Safia Bakery — ArrayList<Pastry> Confectionery Showcase"
+      "en": "135. Safia Bakery — ArrayList<Pastry> Confectionery Showcase",
+      "ru": "135. Safia Bakery — ArrayList<Pastry> Витрина кондитерских изделий"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\n9-bosqich yakuni: Qandolatchilik vitrinasida 'Croissant' va 'CustomCake' 'ArrayList<Pastry>' da saqlanadi va 'getDisplayTag()' chop etiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf 'Pastry' ni va uning 'getDisplayTag()' metodini e'lon qiling.\n\n2. Avlod sinflar ('Croissant' va 'CustomCake') ni yarating va metodni @Override qiling.\n\n3. 'Main' metodida 'java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();' to'plamini oching.\n\n4. To'plamga turli xil avlod ob'yektlarini qo'shing (.add).\n\n5. For-each sikli yordamida polimorfik metodni barcha elementlar uchun chaqiring: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(new Croissant()); showcase.add(new CustomCake()); for (Pastry p : showcase) {     System.out.println(p.getDisplayTag()); }'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 9: Bakery showcase manages croissants and layered cakes in ArrayList<Pastry>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pastry' with method 'getDisplayTag()'.\n\n2. Derive subclasses overriding 'getDisplayTag()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(new Croissant()); showcase.add(new CustomCake()); for (Pastry p : showcase) {     System.out.println(p.getDisplayTag()); }'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Tier 9: Bakery showcase manages croissants and layered cakes in ArrayList<Pastry>.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Declare superclass 'Pastry' with method 'getDisplayTag()'.\n\n2. Derive subclasses overriding 'getDisplayTag()'.\n\n3. In 'main', initialize 'java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();'.\n\n4. Add varied subclass instances into the collection.\n\n5. Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(new Croissant()); showcase.add(new CustomCake()); for (Pastry p : showcase) {     System.out.println(p.getDisplayTag()); }'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал уровня 9: витрина пекарни управляет круассанами и слоеными пирожными в ArrayList<Pastry>.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите суперкласс Pastry с помощью метода getDisplayTag().\n2. Производные подклассы, переопределяющие getDisplayTag().\n3. В «main» инициализируйте «java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();».\n4. Добавляйте в коллекцию различные экземпляры подклассов.\n5. Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(новый круассан()); showcase.add(новый CustomCake()); for (Pastry p: showcase) { System.out.println(p.getDisplayTag()); }'"
     },
     "story": {
       "uz": "9-bosqich yakuni: Qandolatchilik vitrinasida 'Croissant' va 'CustomCake' 'ArrayList<Pastry>' da saqlanadi va 'getDisplayTag()' chop etiladi.",
-      "en": "Grand finale of Tier 9: Bakery showcase manages croissants and layered cakes in ArrayList<Pastry>."
+      "en": "Grand finale of Tier 9: Bakery showcase manages croissants and layered cakes in ArrayList<Pastry>.",
+      "ru": "Грандиозный финал уровня 9: витрина пекарни управляет круассанами и слоеными пирожными в ArrayList<Pastry>."
     },
     "steps": {
       "uz": [
@@ -8907,6 +10933,13 @@ window.OOP_CHALLENGES_W3 = [
         "In 'main', initialize 'java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();'.",
         "Add varied subclass instances into the collection.",
         "Iterate with for-each loop executing polymorphic method: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(new Croissant()); showcase.add(new CustomCake()); for (Pastry p : showcase) {     System.out.println(p.getDisplayTag()); }'"
+      ],
+      "ru": [
+        "Объявите суперкласс Pastry с помощью метода getDisplayTag().",
+        "Производные подклассы, переопределяющие getDisplayTag().",
+        "В «main» инициализируйте «java.util.ArrayList<Pastry> list = new java.util.ArrayList<>();».",
+        "Добавляйте в коллекцию различные экземпляры подклассов.",
+        "Выполните итерацию с циклом for-each, выполняющим полиморфный метод: 'java.util.ArrayList<Pastry> showcase = new java.util.ArrayList<>(); showcase.add(новый круассан()); showcase.add(новый CustomCake()); for (Pastry p: showcase) { System.out.println(p.getDisplayTag()); }'"
       ]
     },
     "requirements": {
@@ -8938,7 +10971,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>ArrayList<Pastry></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
       ],
       "pitfalls": "showcase ro'yxatida for-each sikli orqali Pastry o'zgaruvchisidan foydalaning.",
-      "cw2Tip": "CW2 Console Order Applicationda buyurtma savatchasi aynan shunday to'plam bilan quriladi."
+      "cw2Tip": "CW2 Console Order Applicationda buyurtma savatchasi aynan shunday to'plam bilan quriladi.",
+      "theoryRu": "Завершение уровня 9 дает учащимся полный навык полиморфного управления гетерогенными коллекциями на Java.",
+      "pitfallsRu": "витрина ro'yxatida для каждого сикли оркали Выпечка o'zgaruvchisidan foydalaning.",
+      "breakdownRu": [
+        "<code>ArrayList<Pastry></code>: Ota sinf to'plamida har qanday avlod sinf ob'yektlarini saqlash va bitta siklda polimorfik boshqarish imkonini beradi."
+      ]
     }
   },
   {
@@ -8948,15 +10986,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "136. CW2 Arxitekturasi — MenuItem -> (FoodItem, DrinkItem) va OrderBasket",
-      "en": "136. CW2 Architecture — MenuItem Hierarchy inside OrderBasket"
+      "en": "136. CW2 Architecture — MenuItem Hierarchy inside OrderBasket",
+      "ru": "136. Архитектура CW2 — иерархия элементов меню внутри OrderBasket"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT Coursework 2 (Console Order Application) markaziy talabi: 'MenuItem' (name, price) superklassidan 'FoodItem' (cookingMins) va 'DrinkItem' (isCold) meros oladi. 'OrderBasket' esa o'z ichida 'ArrayList<MenuItem>' saqlaydi va 'calculateTotal()' orqali jami buyurtma summasini hisoblab beradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'OrderBasket basket = new OrderBasket(); basket.addItem(new FoodItem(\"Lavash\", 32000.0, 10)); basket.addItem(new DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Buyurtma jami: \" + basket.calculateTotal() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nDirect WIUT CW2 assessment specification: MenuItem -> FoodItem & DrinkItem, managed by OrderBasket calculating total price polymorphically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'OrderBasket basket = new OrderBasket(); basket.addItem(new FoodItem(\"Lavash\", 32000.0, 10)); basket.addItem(new DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Buyurtma jami: \" + basket.calculateTotal() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nDirect WIUT CW2 assessment specification: MenuItem -> FoodItem & DrinkItem, managed by OrderBasket calculating total price polymorphically.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'OrderBasket basket = new OrderBasket(); basket.addItem(new FoodItem(\"Lavash\", 32000.0, 10)); basket.addItem(new DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Buyurtma jami: \" + basket.calculateTotal() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nСпецификация прямой оценки WIUT CW2: MenuItem -> FoodItem & DrinkItem, управляемая OrderBasket, полиморфно рассчитывающая общую цену.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'OrderBasket корзина = новый OrderBasket(); корзина.addItem(new FoodItem(\"Лаваш\", 32000.0, 10)); корзина.addItem(новый DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Куплю джами: \" + корзина.calculateTotal() + \" так я\");'"
     },
     "story": {
       "uz": "WIUT Coursework 2 (Console Order Application) markaziy talabi: 'MenuItem' (name, price) superklassidan 'FoodItem' (cookingMins) va 'DrinkItem' (isCold) meros oladi. 'OrderBasket' esa o'z ichida 'ArrayList<MenuItem>' saqlaydi va 'calculateTotal()' orqali jami buyurtma summasini hisoblab beradi.",
-      "en": "Direct WIUT CW2 assessment specification: MenuItem -> FoodItem & DrinkItem, managed by OrderBasket calculating total price polymorphically."
+      "en": "Direct WIUT CW2 assessment specification: MenuItem -> FoodItem & DrinkItem, managed by OrderBasket calculating total price polymorphically.",
+      "ru": "Спецификация прямой оценки WIUT CW2: MenuItem -> FoodItem & DrinkItem, управляемая OrderBasket, полиморфно рассчитывающая общую цену."
     },
     "steps": {
       "uz": [
@@ -8972,6 +11013,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'OrderBasket basket = new OrderBasket(); basket.addItem(new FoodItem(\"Lavash\", 32000.0, 10)); basket.addItem(new DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Buyurtma jami: \" + basket.calculateTotal() + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'OrderBasket корзина = новый OrderBasket(); корзина.addItem(new FoodItem(\"Лаваш\", 32000.0, 10)); корзина.addItem(новый DrinkItem(\"Moxito\", 18000.0, true)); System.out.println(\"Куплю джами: \" + корзина.calculateTotal() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -9000,7 +11048,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "OrderBasket ichida FoodItem va DrinkItem uchun alohida ro'yxat ochmang; yagona ArrayList<MenuItem> ro'yxati kifoya.",
-      "cw2Tip": "CW2 baholash mezonida ushbu arxitektura to'liq 50 ballik talabning eng asosiy poydevoridir."
+      "cw2Tip": "CW2 baholash mezonida ushbu arxitektura to'liq 50 ballik talabning eng asosiy poydevoridir.",
+      "theoryRu": "Это определяет основную архитектуру WIUT CW2: наследование (MenuItem -> Еда/Напиток), композиция (OrderBasket -> Items) и объединенный полиморфизм.",
+      "pitfallsRu": "OrderBasket ichida FoodItem va DrinkItem uchun alohida ro'yxat ochmang; yagona ArrayList<MenuItem> ro'yxati kifoya.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9010,15 +11063,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "137. CW2 — PaymentMethod -> (CardPayment, CashPayment) va CheckoutService",
-      "en": "137. CW2 — PaymentMethod Hierarchy and CheckoutService"
+      "en": "137. CW2 — PaymentMethod Hierarchy and CheckoutService",
+      "ru": "137. CW2 — Иерархия методов оплаты и служба оформления заказа"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nCW2 to'lov moduli: 'PaymentMethod' (amount) ota klassidan 'CardPayment' (cardNumber) va 'CashPayment' (tenderedCash) meros oladi. 'CheckoutService' polimorfik 'process(PaymentMethod pm)' orqali to'lovni tasdiqlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'",
-      "en": "📖 Real-World Scenario & Context\nCW2 payment engine: PaymentMethod -> CardPayment & CashPayment, processed polymorphically by CheckoutService.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'"
+      "en": "📖 Real-World Scenario & Context\nCW2 payment engine: PaymentMethod -> CardPayment & CashPayment, processed polymorphically by CheckoutService.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'",
+      "ru": "📖 Контекст и описание задачи\nПлатежный механизм CW2: PaymentMethod -> CardPayment и CashPayment, полиморфно обрабатываемый CheckoutService.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'"
     },
     "story": {
       "uz": "CW2 to'lov moduli: 'PaymentMethod' (amount) ota klassidan 'CardPayment' (cardNumber) va 'CashPayment' (tenderedCash) meros oladi. 'CheckoutService' polimorfik 'process(PaymentMethod pm)' orqali to'lovni tasdiqlaydi.",
-      "en": "CW2 payment engine: PaymentMethod -> CardPayment & CashPayment, processed polymorphically by CheckoutService."
+      "en": "CW2 payment engine: PaymentMethod -> CardPayment & CashPayment, processed polymorphically by CheckoutService.",
+      "ru": "Платежный механизм CW2: PaymentMethod -> CardPayment и CashPayment, полиморфно обрабатываемый CheckoutService."
     },
     "steps": {
       "uz": [
@@ -9034,6 +11090,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'CheckoutService cs = new CheckoutService(); cs.process(new CardPayment(75000.0, \"8600-****-9901\")); cs.process(new CashPayment(25000.0));'"
       ]
     },
     "requirements": {
@@ -9062,7 +11125,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "pm.getReceiptText() chaqirilishini tekshiring.",
-      "cw2Tip": "CW2 da to'lov tizimini aynan shunday loyihalashtirish 1-darajali talabdir."
+      "cw2Tip": "CW2 da to'lov tizimini aynan shunday loyihalashtirish 1-darajali talabdir.",
+      "theoryRu": "Принцип открытости/закрытости: добавление новых поставщиков платежей не требует никаких изменений в CheckoutService благодаря полиморфизму.",
+      "pitfallsRu": "pm.getReceiptText() чакирилишини текширинг.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9072,15 +11140,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "138. CW2 — DeliveryVehicle -> (Bicycle, SedanCar) va FleetManager",
-      "en": "138. CW2 — DeliveryVehicle Hierarchy and FleetManager"
+      "en": "138. CW2 — DeliveryVehicle Hierarchy and FleetManager",
+      "ru": "138. CW2 — Иерархия транспортных средств доставки и FleetManager"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazish parki: 'DeliveryVehicle' (vehicleId) -> 'Bicycle' (hasHelmet) va 'SedanCar' (trunkCapacityLiters). 'FleetManager' parkdagi barcha transport vositalarini hisobga oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'FleetManager fm = new FleetManager(); fm.addVehicle(new Bicycle(\"BIKE-01\")); fm.addVehicle(new SedanCar(\"01A101AA\")); fm.printFleet();'",
-      "en": "📖 Real-World Scenario & Context\nFleet logistics hierarchy: DeliveryVehicle -> Bicycle & SedanCar, managed by FleetManager.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'FleetManager fm = new FleetManager(); fm.addVehicle(new Bicycle(\"BIKE-01\")); fm.addVehicle(new SedanCar(\"01A101AA\")); fm.printFleet();'"
+      "en": "📖 Real-World Scenario & Context\nFleet logistics hierarchy: DeliveryVehicle -> Bicycle & SedanCar, managed by FleetManager.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'FleetManager fm = new FleetManager(); fm.addVehicle(new Bicycle(\"BIKE-01\")); fm.addVehicle(new SedanCar(\"01A101AA\")); fm.printFleet();'",
+      "ru": "📖 Контекст и описание задачи\nИерархия логистики автопарка: DeliveryVehicle -> Bicycle & SedanCar, управляемая FleetManager.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'FleetManager fm = new FleetManager(); fm.addVehicle(новый велосипед(\"ВЕЛОСИПЕД-01\")); fm.addVehicle(новый SedanCar(\"01A101AA\")); fm.printFleet();'"
     },
     "story": {
       "uz": "Yetkazish parki: 'DeliveryVehicle' (vehicleId) -> 'Bicycle' (hasHelmet) va 'SedanCar' (trunkCapacityLiters). 'FleetManager' parkdagi barcha transport vositalarini hisobga oladi.",
-      "en": "Fleet logistics hierarchy: DeliveryVehicle -> Bicycle & SedanCar, managed by FleetManager."
+      "en": "Fleet logistics hierarchy: DeliveryVehicle -> Bicycle & SedanCar, managed by FleetManager.",
+      "ru": "Иерархия логистики автопарка: DeliveryVehicle -> Bicycle & SedanCar, управляемая FleetManager."
     },
     "steps": {
       "uz": [
@@ -9096,6 +11167,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'FleetManager fm = new FleetManager(); fm.addVehicle(new Bicycle(\"BIKE-01\")); fm.addVehicle(new SedanCar(\"01A101AA\")); fm.printFleet();'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'FleetManager fm = new FleetManager(); fm.addVehicle(новый велосипед(\"ВЕЛОСИПЕД-01\")); fm.addVehicle(новый SedanCar(\"01A101AA\")); fm.printFleet();'"
       ]
     },
     "requirements": {
@@ -9124,7 +11202,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "fm.printFleet() for-each orqali har bir mashinaning getFleetType() sini chaqiradi.",
-      "cw2Tip": "Kuryerlik va logistika topshiriqlarida ushbu andozadan foydalaning."
+      "cw2Tip": "Kuryerlik va logistika topshiriqlarida ushbu andozadan foydalaning.",
+      "theoryRu": "FleetManager использует полиморфную типизацию транспортных средств, чтобы отделить отслеживание от механики транспорта.",
+      "pitfallsRu": "fm.printFleet() для каждой машины, работающей с getFleetType(), без использования.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9134,15 +11217,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "139. CW2 — DiscountRule -> (PercentageDiscount, FixedDiscount) va CashRegister",
-      "en": "139. CW2 — DiscountRule Hierarchy and CashRegister"
+      "en": "139. CW2 — DiscountRule Hierarchy and CashRegister",
+      "ru": "139. CW2 — Иерархия правил скидок и кассовый регистр."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nChegirmalar dvigateli: 'DiscountRule' superklassidan 'PercentageDiscount' (foizli) va 'FixedDiscount' (qat'iy summasi bor) meros oladi. 'CashRegister' polimorfik 'applyDiscount(rule, total)' chaqiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'CashRegister cr = new CashRegister(); double p1 = cr.calculateNetTotal(new PercentageDiscount(10.0), 100000.0); double p2 = cr.calculateNetTotal(new FixedDiscount(20000.0), 100000.0); System.out.println(\"Foizli: \" + p1 + \" | Qat'iy: \" + p2);'",
-      "en": "📖 Real-World Scenario & Context\nPromotional discount rules (Percentage vs Fixed) executed polymorphically by CashRegister.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'CashRegister cr = new CashRegister(); double p1 = cr.calculateNetTotal(new PercentageDiscount(10.0), 100000.0); double p2 = cr.calculateNetTotal(new FixedDiscount(20000.0), 100000.0); System.out.println(\"Foizli: \" + p1 + \" | Qat'iy: \" + p2);'"
+      "en": "📖 Real-World Scenario & Context\nPromotional discount rules (Percentage vs Fixed) executed polymorphically by CashRegister.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'CashRegister cr = new CashRegister(); double p1 = cr.calculateNetTotal(new PercentageDiscount(10.0), 100000.0); double p2 = cr.calculateNetTotal(new FixedDiscount(20000.0), 100000.0); System.out.println(\"Foizli: \" + p1 + \" | Qat'iy: \" + p2);'",
+      "ru": "📖 Контекст и описание задачи\nПравила рекламных скидок (процентные или фиксированные), полиморфно выполняемые CashRegister.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'CashRegister cr = new CashRegister(); двойной p1 = cr.calculateNetTotal(новый PercentageDiscount(10.0), 100000.0); двойной p2 = cr.calculateNetTotal (новый фиксированный дисконт (20000.0), 100000.0); System.out.println(\"Фоизли: \" + p1 + \" | Катий: \" + p2);'"
     },
     "story": {
       "uz": "Chegirmalar dvigateli: 'DiscountRule' superklassidan 'PercentageDiscount' (foizli) va 'FixedDiscount' (qat'iy summasi bor) meros oladi. 'CashRegister' polimorfik 'applyDiscount(rule, total)' chaqiradi.",
-      "en": "Promotional discount rules (Percentage vs Fixed) executed polymorphically by CashRegister."
+      "en": "Promotional discount rules (Percentage vs Fixed) executed polymorphically by CashRegister.",
+      "ru": "Правила рекламных скидок (процентные или фиксированные), полиморфно выполняемые CashRegister."
     },
     "steps": {
       "uz": [
@@ -9158,6 +11244,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'CashRegister cr = new CashRegister(); double p1 = cr.calculateNetTotal(new PercentageDiscount(10.0), 100000.0); double p2 = cr.calculateNetTotal(new FixedDiscount(20000.0), 100000.0); System.out.println(\"Foizli: \" + p1 + \" | Qat'iy: \" + p2);'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'CashRegister cr = new CashRegister(); двойной p1 = cr.calculateNetTotal(новый PercentageDiscount(10.0), 100000.0); двойной p2 = cr.calculateNetTotal (новый фиксированный дисконт (20000.0), 100000.0); System.out.println(\"Фоизли: \" + p1 + \" | Катий: \" + p2);'"
       ]
     },
     "requirements": {
@@ -9186,7 +11279,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "Har ikkala chegirma ham apply metodida hisoblab qaytarishi lozim.",
-      "cw2Tip": "CW2 da turli kupon va aksiyalarni DiscountRule orqali bajaring."
+      "cw2Tip": "CW2 da turli kupon va aksiyalarni DiscountRule orqali bajaring.",
+      "theoryRu": "Шаблон проектирования стратегии, реализованный посредством наследования, позволяет использовать взаимозаменяемые алгоритмы правил скидок.",
+      "pitfallsRu": "Хар иккала чегирма ветчина применяет метод хисоблаб гайтариши лозим.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9196,15 +11294,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "140. CW2 — NotificationChannel -> (SmsChannel, TelegramChannel) va AlertService",
-      "en": "140. CW2 — NotificationChannel Hierarchy and AlertService"
+      "en": "140. CW2 — NotificationChannel Hierarchy and AlertService",
+      "ru": "140. CW2 — Иерархия каналов уведомлений и служба оповещений"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBildirishnomalar xizmati: 'NotificationChannel' superklassidan 'SmsChannel' va 'TelegramChannel' meros oladi. 'AlertService' polimorfik kanal orqali mijozga xabar yuboradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'",
-      "en": "📖 Real-World Scenario & Context\nNotification dispatchers specialize SmsChannel and TelegramChannel under AlertService.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'"
+      "en": "📖 Real-World Scenario & Context\nNotification dispatchers specialize SmsChannel and TelegramChannel under AlertService.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'",
+      "ru": "📖 Контекст и описание задачи\nДиспетчеры уведомлений специализируются на SmsChannel и TelegramChannel в рамках AlertService.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'"
     },
     "story": {
       "uz": "Bildirishnomalar xizmati: 'NotificationChannel' superklassidan 'SmsChannel' va 'TelegramChannel' meros oladi. 'AlertService' polimorfik kanal orqali mijozga xabar yuboradi.",
-      "en": "Notification dispatchers specialize SmsChannel and TelegramChannel under AlertService."
+      "en": "Notification dispatchers specialize SmsChannel and TelegramChannel under AlertService.",
+      "ru": "Диспетчеры уведомлений специализируются на SmsChannel и TelegramChannel в рамках AlertService."
     },
     "steps": {
       "uz": [
@@ -9220,6 +11321,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'AlertService service = new AlertService(); service.notifyUser(new SmsChannel(), \"Kodingiz: 7788\"); service.notifyUser(new TelegramChannel(), \"To'lov muvaffaqiyatli o'tdi!\");'"
       ]
     },
     "requirements": {
@@ -9248,7 +11356,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "channel.send(msg) polimorfik chaqiriladi.",
-      "cw2Tip": "Mijozlarga xabarnoma yuborishda NotificationChannel dan foydalaning."
+      "cw2Tip": "Mijozlarga xabarnoma yuborishda NotificationChannel dan foydalaning.",
+      "theoryRu": "Разделение поставщиков услуг связи с помощью полиморфизма обеспечивает плавное расширение до шлюзов Push и Email.",
+      "pitfallsRu": "Channel.send(msg) полиморфик чакирилади.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9258,15 +11371,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "141. CW2 — LibraryItem -> (BookItem, MagazineItem) va BorrowRecord",
-      "en": "141. CW2 — LibraryItem Hierarchy and BorrowRecord"
+      "en": "141. CW2 — LibraryItem Hierarchy and BorrowRecord",
+      "ru": "141. CW2 — Иерархия элементов библиотеки и запись одолжения"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nKutubxona iyerarxiyasi: 'LibraryItem' (title, fee) -> 'BookItem' va 'MagazineItem'. 'BorrowRecord' talabaga berilgan nashrni saqlaydi va jarimani hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = new BorrowRecord(new MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'",
-      "en": "📖 Real-World Scenario & Context\nLibrary holdings: LibraryItem -> BookItem & MagazineItem, bound into BorrowRecord.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = new BorrowRecord(new MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'"
+      "en": "📖 Real-World Scenario & Context\nLibrary holdings: LibraryItem -> BookItem & MagazineItem, bound into BorrowRecord.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = new BorrowRecord(new MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'",
+      "ru": "📖 Контекст и описание задачи\nФонды библиотеки: LibraryItem -> BookItem и MagazineItem, привязанные к BorrowRecord.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = новая BorrowRecord(новый MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'"
     },
     "story": {
       "uz": "Kutubxona iyerarxiyasi: 'LibraryItem' (title, fee) -> 'BookItem' va 'MagazineItem'. 'BorrowRecord' talabaga berilgan nashrni saqlaydi va jarimani hisoblaydi.",
-      "en": "Library holdings: LibraryItem -> BookItem & MagazineItem, bound into BorrowRecord."
+      "en": "Library holdings: LibraryItem -> BookItem & MagazineItem, bound into BorrowRecord.",
+      "ru": "Фонды библиотеки: LibraryItem -> BookItem и MagazineItem, привязанные к BorrowRecord."
     },
     "steps": {
       "uz": [
@@ -9282,6 +11398,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = new BorrowRecord(new MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'BorrowRecord br1 = new BorrowRecord(new BookItem(\"Algoritmlar\"), 5); BorrowRecord br2 = новая BorrowRecord(новый MagazineItem(\"Forbes\"), 3); System.out.println(br1.getSummary() + \" | \" + br2.getSummary());'"
       ]
     },
     "requirements": {
@@ -9310,7 +11433,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "dailyFee double turida bo'ladi.",
-      "cw2Tip": "Ijara va buyurtma tizimlarini shu andozada quring."
+      "cw2Tip": "Ijara va buyurtma tizimlarini shu andozada quring.",
+      "theoryRu": "Композиция и наследование плавно взаимодействуют: BorrowRecord составляет полиморфный LibraryItem.",
+      "pitfallsRu": "Ежедневная плата двойная турида болади.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9320,15 +11448,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "142. CW2 — TariffOption -> (EconomyOption, SpeedOption) va DispatchOrder",
-      "en": "142. CW2 — TariffOption Hierarchy and DispatchOrder"
+      "en": "142. CW2 — TariffOption Hierarchy and DispatchOrder",
+      "ru": "142. CW2 — Иерархия тарифных опций и порядок отправки"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazish varianti: 'TariffOption' -> 'EconomyOption' (10000 so'm) va 'SpeedOption' (25000 so'm). 'DispatchOrder' buyurtmaga biriktirilgan variant narxini hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomyOption()); DispatchOrder ord2 = new DispatchOrder(\"ORD-2\", new SpeedOption()); System.out.println(\"Eko: \" + ord1.getTotalCost(50000.0) + \" so'm | Tezkor: \" + ord2.getTotalCost(50000.0) + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nLogistics dispatch tariffs specialize Economy and Speed options under DispatchOrder.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomyOption()); DispatchOrder ord2 = new DispatchOrder(\"ORD-2\", new SpeedOption()); System.out.println(\"Eko: \" + ord1.getTotalCost(50000.0) + \" so'm | Tezkor: \" + ord2.getTotalCost(50000.0) + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nLogistics dispatch tariffs specialize Economy and Speed options under DispatchOrder.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomyOption()); DispatchOrder ord2 = new DispatchOrder(\"ORD-2\", new SpeedOption()); System.out.println(\"Eko: \" + ord1.getTotalCost(50000.0) + \" so'm | Tezkor: \" + ord2.getTotalCost(50000.0) + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nТарифы на логистическую отправку включают опции «Экономия» и «Скорость» в разделе DispatchOrder.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomicOption()); DispatchOrder ord2 = новый DispatchOrder(\"ORD-2\", новый SpeedOption()); System.out.println(\"Эко: \" + ord1.getTotalCost(50000.0) + \" вот | Tezkor: \" + ord2.getTotalCost(50000.0) + \" вот я\");'"
     },
     "story": {
       "uz": "Yetkazish varianti: 'TariffOption' -> 'EconomyOption' (10000 so'm) va 'SpeedOption' (25000 so'm). 'DispatchOrder' buyurtmaga biriktirilgan variant narxini hisoblaydi.",
-      "en": "Logistics dispatch tariffs specialize Economy and Speed options under DispatchOrder."
+      "en": "Logistics dispatch tariffs specialize Economy and Speed options under DispatchOrder.",
+      "ru": "Тарифы на логистическую отправку включают опции «Экономия» и «Скорость» в разделе DispatchOrder."
     },
     "steps": {
       "uz": [
@@ -9344,6 +11475,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomyOption()); DispatchOrder ord2 = new DispatchOrder(\"ORD-2\", new SpeedOption()); System.out.println(\"Eko: \" + ord1.getTotalCost(50000.0) + \" so'm | Tezkor: \" + ord2.getTotalCost(50000.0) + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'DispatchOrder ord1 = new DispatchOrder(\"ORD-1\", new EconomicOption()); DispatchOrder ord2 = новый DispatchOrder(\"ORD-2\", новый SpeedOption()); System.out.println(\"Эко: \" + ord1.getTotalCost(50000.0) + \" вот | Tezkor: \" + ord2.getTotalCost(50000.0) + \" вот я\");'"
       ]
     },
     "requirements": {
@@ -9372,7 +11510,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "ord.getTotalCost() hisob-kitobini tekshiring.",
-      "cw2Tip": "CW2 Console Order Applicationda yetkazish xarajatlarini polimorfik tariflar bilan hisoblang."
+      "cw2Tip": "CW2 Console Order Applicationda yetkazish xarajatlarini polimorfik tariflar bilan hisoblang.",
+      "theoryRu": "При расчете стоимости доставки используются полиморфные тарифы без жесткого кодирования в заказе.",
+      "pitfallsRu": "ord.getTotalCost() его текширинг.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9382,15 +11525,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "143. CW2 — PackageAddon -> (InternetAddon, VoiceAddon) va SubscriptionProfile",
-      "en": "143. CW2 — PackageAddon Hierarchy and SubscriptionProfile"
+      "en": "143. CW2 — PackageAddon Hierarchy and SubscriptionProfile",
+      "ru": "143. CW2 — Иерархия PackageAddon и профиль подписки."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nQo'shimcha xizmatlar: 'PackageAddon' (name, cost) -> 'InternetAddon' va 'VoiceAddon'. 'SubscriptionProfile' obunachi qo'shgan barcha xizmatlar narxini jamlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(new InternetAddon(10)); sp.addAddon(new VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nTelecom addon packages specialize Internet and Voice bundles inside SubscriptionProfile.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(new InternetAddon(10)); sp.addAddon(new VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nTelecom addon packages specialize Internet and Voice bundles inside SubscriptionProfile.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(new InternetAddon(10)); sp.addAddon(new VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nПакеты дополнений для телекоммуникаций специализируются на пакетах Интернета и голосовой связи внутри SubscriptionProfile.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(новый InternetAddon(10)); sp.addAddon(новый VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'"
     },
     "story": {
       "uz": "Qo'shimcha xizmatlar: 'PackageAddon' (name, cost) -> 'InternetAddon' va 'VoiceAddon'. 'SubscriptionProfile' obunachi qo'shgan barcha xizmatlar narxini jamlaydi.",
-      "en": "Telecom addon packages specialize Internet and Voice bundles inside SubscriptionProfile."
+      "en": "Telecom addon packages specialize Internet and Voice bundles inside SubscriptionProfile.",
+      "ru": "Пакеты дополнений для телекоммуникаций специализируются на пакетах Интернета и голосовой связи внутри SubscriptionProfile."
     },
     "steps": {
       "uz": [
@@ -9406,6 +11552,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(new InternetAddon(10)); sp.addAddon(new VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'SubscriptionProfile sp = new SubscriptionProfile(); sp.addAddon(новый InternetAddon(10)); sp.addAddon(новый VoiceAddon(500)); System.out.println(\"Xizmatlar summasi: \" + sp.getAddonTotal() + \" so'm\");'"
       ]
     },
     "requirements": {
@@ -9434,7 +11587,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "sp.getAddonTotal() 45000.0 bo'ladi.",
-      "cw2Tip": "CW2 da tovarlarga qo'shimcha sous yoki desertlar qo'shishda shu andozadan foydalaning."
+      "cw2Tip": "CW2 da tovarlarga qo'shimcha sous yoki desertlar qo'shishda shu andozadan foydalaning.",
+      "theoryRu": "Дополнительные услуги безопасно агрегируются внутри полиморфных профилей абонентской корзины.",
+      "pitfallsRu": "sp.getAddonTotal() 45000,0 болади.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9444,15 +11602,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "144. CW2 — ElectronicGood -> (ComputerGood, PhoneGood) va WarrantyRegistry",
-      "en": "144. CW2 — ElectronicGood Hierarchy and WarrantyRegistry"
+      "en": "144. CW2 — ElectronicGood Hierarchy and WarrantyRegistry",
+      "ru": "144. CW2 — Иерархия электронных товаров и гарантийный реестр."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nElektron tovarlar: 'ElectronicGood' (serialNumber) -> 'ComputerGood' va 'PhoneGood'. 'WarrantyRegistry' ro'yxatga olingan tovarlarni hisobga oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'",
-      "en": "📖 Real-World Scenario & Context\nConsumer electronics serialize ComputerGood and PhoneGood under WarrantyRegistry.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'"
+      "en": "📖 Real-World Scenario & Context\nConsumer electronics serialize ComputerGood and PhoneGood under WarrantyRegistry.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'",
+      "ru": "📖 Контекст и описание задачи\nБытовая электроника сериализует ComputerGood и PhoneGood в гарантийном реестре.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'"
     },
     "story": {
       "uz": "Elektron tovarlar: 'ElectronicGood' (serialNumber) -> 'ComputerGood' va 'PhoneGood'. 'WarrantyRegistry' ro'yxatga olingan tovarlarni hisobga oladi.",
-      "en": "Consumer electronics serialize ComputerGood and PhoneGood under WarrantyRegistry."
+      "en": "Consumer electronics serialize ComputerGood and PhoneGood under WarrantyRegistry.",
+      "ru": "Бытовая электроника сериализует ComputerGood и PhoneGood в гарантийном реестре."
     },
     "steps": {
       "uz": [
@@ -9468,6 +11629,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'WarrantyRegistry wr = new WarrantyRegistry(); wr.register(new ComputerGood(\"SN-MAC-01\")); wr.register(new PhoneGood(\"SN-IPH-02\")); wr.printRegistry();'"
       ]
     },
     "requirements": {
@@ -9496,7 +11664,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "wr.printRegistry() har ikkala tovar toifasini chop etadi.",
-      "cw2Tip": "Mahsulotlar reyestri va ro'yxatlarini boshqarishda qo'llang."
+      "cw2Tip": "Mahsulotlar reyestri va ro'yxatlarini boshqarishda qo'llang.",
+      "theoryRu": "Реестры гарантийного аудита управляют разнородной электроникой по единым базовым ссылкам.",
+      "pitfallsRu": "wr.printRegistry() не позволяет сделать товар на месте.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9506,15 +11679,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "145. CW2 — BankingProduct -> (DepositProduct, CreditProduct) va ClientPortfolio",
-      "en": "145. CW2 — BankingProduct Hierarchy and ClientPortfolio"
+      "en": "145. CW2 — BankingProduct Hierarchy and ClientPortfolio",
+      "ru": "145. CW2 — Иерархия банковских продуктов и клиентский портфель."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nBank mahsulotlari: 'BankingProduct' (name, principal) -> 'DepositProduct' (omonat) va 'CreditProduct' (qarz). 'ClientPortfolio' mijozning sof aktivlarini hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Muddatli Omonat\", 20000000.0)); cp.addProduct(new CreditProduct(\"Avtokredit\", 8000000.0)); System.out.println(\"Mijoz sof balansi: \" + cp.calculateNetWorth() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nBank product catalog: BankingProduct -> DepositProduct & CreditProduct, aggregated in ClientPortfolio.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Muddatli Omonat\", 20000000.0)); cp.addProduct(new CreditProduct(\"Avtokredit\", 8000000.0)); System.out.println(\"Mijoz sof balansi: \" + cp.calculateNetWorth() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nBank product catalog: BankingProduct -> DepositProduct & CreditProduct, aggregated in ClientPortfolio.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Muddatli Omonat\", 20000000.0)); cp.addProduct(new CreditProduct(\"Avtokredit\", 8000000.0)); System.out.println(\"Mijoz sof balansi: \" + cp.calculateNetWorth() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nКаталог банковских продуктов: БанковскийПродукт -> ДепозитныйПродукт и КредитныйПродукт, агрегированный в КлиентПортфель.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Муддатли Омонат\", 20000000.0)); cp.addProduct(new CreditProduct(\"Автокредит\", 8000000.0)); System.out.println(\"Мой баланс: \" + cp.calculateNetWorth() + \" так я\");'"
     },
     "story": {
       "uz": "Bank mahsulotlari: 'BankingProduct' (name, principal) -> 'DepositProduct' (omonat) va 'CreditProduct' (qarz). 'ClientPortfolio' mijozning sof aktivlarini hisoblaydi.",
-      "en": "Bank product catalog: BankingProduct -> DepositProduct & CreditProduct, aggregated in ClientPortfolio."
+      "en": "Bank product catalog: BankingProduct -> DepositProduct & CreditProduct, aggregated in ClientPortfolio.",
+      "ru": "Каталог банковских продуктов: БанковскийПродукт -> ДепозитныйПродукт и КредитныйПродукт, агрегированный в КлиентПортфель."
     },
     "steps": {
       "uz": [
@@ -9530,6 +11706,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Muddatli Omonat\", 20000000.0)); cp.addProduct(new CreditProduct(\"Avtokredit\", 8000000.0)); System.out.println(\"Mijoz sof balansi: \" + cp.calculateNetWorth() + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'ClientPortfolio cp = new ClientPortfolio(); cp.addProduct(new DepositProduct(\"Муддатли Омонат\", 20000000.0)); cp.addProduct(new CreditProduct(\"Автокредит\", 8000000.0)); System.out.println(\"Мой баланс: \" + cp.calculateNetWorth() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -9558,7 +11741,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "DepositProduct qo'shiladi, CreditProduct esa ayiriladi.",
-      "cw2Tip": "CW2 da tovar toifalari bo'yicha maxsus chegirmalar berishda instanceof dan foydalanishingiz mumkin."
+      "cw2Tip": "CW2 da tovar toifalari bo'yicha maxsus chegirmalar berishda instanceof dan foydalanishingiz mumkin.",
+      "theoryRu": "Оператор экземпляра безопасно проверяет конкретные типы подклассов во время сверки чистой стоимости портфеля.",
+      "pitfallsRu": "Депозитный продукт доступен, Кредитный продукт — это удобно.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9568,15 +11756,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "146. CW2 — MedicalProcedure -> (Consultation, SurgicalProcedure) va PatientBill",
-      "en": "146. CW2 — MedicalProcedure Hierarchy and PatientBill"
+      "en": "146. CW2 — MedicalProcedure Hierarchy and PatientBill",
+      "ru": "146. CW2 — Иерархия медицинских процедур и счет пациента."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nTibbiy muolajalar: 'MedicalProcedure' (procedureName, basePrice) -> 'Consultation' va 'SurgicalProcedure'. 'PatientBill' bemorga ko'rsatilgan barcha tibbiy xizmatlar chekini hisoblaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Dr. Aliyev\")); bill.addProcedure(new SurgicalProcedure(\"Laparoskopiya\")); System.out.println(\"Hisob jami: \" + bill.getTotal() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nClinical billing specializes Consultation and SurgicalProcedure under PatientBill.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Dr. Aliyev\")); bill.addProcedure(new SurgicalProcedure(\"Laparoskopiya\")); System.out.println(\"Hisob jami: \" + bill.getTotal() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nClinical billing specializes Consultation and SurgicalProcedure under PatientBill.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Dr. Aliyev\")); bill.addProcedure(new SurgicalProcedure(\"Laparoskopiya\")); System.out.println(\"Hisob jami: \" + bill.getTotal() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nКлинический биллинг специализируется на консультациях и хирургических процедурах в рамках PatientBill.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Доктор Алиев\")); bill.addProcedure(new SurgicalProcedure(\"Лапароскопия\")); System.out.println(\"Хисоб Джами: \" + bill.getTotal() + \" вот и я\");'"
     },
     "story": {
       "uz": "Tibbiy muolajalar: 'MedicalProcedure' (procedureName, basePrice) -> 'Consultation' va 'SurgicalProcedure'. 'PatientBill' bemorga ko'rsatilgan barcha tibbiy xizmatlar chekini hisoblaydi.",
-      "en": "Clinical billing specializes Consultation and SurgicalProcedure under PatientBill."
+      "en": "Clinical billing specializes Consultation and SurgicalProcedure under PatientBill.",
+      "ru": "Клинический биллинг специализируется на консультациях и хирургических процедурах в рамках PatientBill."
     },
     "steps": {
       "uz": [
@@ -9592,6 +11783,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Dr. Aliyev\")); bill.addProcedure(new SurgicalProcedure(\"Laparoskopiya\")); System.out.println(\"Hisob jami: \" + bill.getTotal() + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'PatientBill bill = new PatientBill(); bill.addProcedure(new Consultation(\"Доктор Алиев\")); bill.addProcedure(new SurgicalProcedure(\"Лапароскопия\")); System.out.println(\"Хисоб Джами: \" + bill.getTotal() + \" вот и я\");'"
       ]
     },
     "requirements": {
@@ -9620,7 +11818,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "bill.getTotal() 2650000.0 bo'ladi.",
-      "cw2Tip": "Xizmatlar to'plamini hisoblashda ushbu andozani qo'llang."
+      "cw2Tip": "Xizmatlar to'plamini hisoblashda ushbu andozani qo'llang.",
+      "theoryRu": "Выставление счетов клиническим пациентам объединяет диагностические консультации и операции в единую сводку счетов.",
+      "pitfallsRu": "bill.getTotal() 2650000,0 болади.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9630,15 +11833,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "147. CW2 — FlightSeat -> (EconomySeat, BusinessSeat) va AircraftCabin",
-      "en": "147. CW2 — FlightSeat Hierarchy and AircraftCabin"
+      "en": "147. CW2 — FlightSeat Hierarchy and AircraftCabin",
+      "ru": "147. CW2 — Иерархия посадочных мест и кабина самолета."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nSamolyot o'rindiqlari: 'FlightSeat' (seatNo) -> 'EconomySeat' (extraLegroom) va 'BusinessSeat' (flatBed). 'AircraftCabin' salondagi barcha o'rindiqlarni ro'yxatga oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'AircraftCabin cabin = new AircraftCabin(); cabin.addSeat(new BusinessSeat(\"1A\")); cabin.addSeat(new EconomySeat(\"15C\")); cabin.printManifest();'",
-      "en": "📖 Real-World Scenario & Context\nAircraft seating maps EconomySeat and BusinessSeat inside AircraftCabin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'AircraftCabin cabin = new AircraftCabin(); cabin.addSeat(new BusinessSeat(\"1A\")); cabin.addSeat(new EconomySeat(\"15C\")); cabin.printManifest();'"
+      "en": "📖 Real-World Scenario & Context\nAircraft seating maps EconomySeat and BusinessSeat inside AircraftCabin.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'AircraftCabin cabin = new AircraftCabin(); cabin.addSeat(new BusinessSeat(\"1A\")); cabin.addSeat(new EconomySeat(\"15C\")); cabin.printManifest();'",
+      "ru": "📖 Контекст и описание задачи\nКарты мест в самолетах EconomicSeat и BusinessSeat внутри AircraftCabin.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'Кабина AircraftCabin = new AircraftCabin(); cab.addSeat(new BusinessSeat(\"1A\")); cab.addSeat(new EconomicSeat(\"15C\")); cab.printManifest();'"
     },
     "story": {
       "uz": "Samolyot o'rindiqlari: 'FlightSeat' (seatNo) -> 'EconomySeat' (extraLegroom) va 'BusinessSeat' (flatBed). 'AircraftCabin' salondagi barcha o'rindiqlarni ro'yxatga oladi.",
-      "en": "Aircraft seating maps EconomySeat and BusinessSeat inside AircraftCabin."
+      "en": "Aircraft seating maps EconomySeat and BusinessSeat inside AircraftCabin.",
+      "ru": "Карты мест в самолетах EconomicSeat и BusinessSeat внутри AircraftCabin."
     },
     "steps": {
       "uz": [
@@ -9654,6 +11860,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'AircraftCabin cabin = new AircraftCabin(); cabin.addSeat(new BusinessSeat(\"1A\")); cabin.addSeat(new EconomySeat(\"15C\")); cabin.printManifest();'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'Кабина AircraftCabin = new AircraftCabin(); cab.addSeat(new BusinessSeat(\"1A\")); cab.addSeat(new EconomicSeat(\"15C\")); cab.printManifest();'"
       ]
     },
     "requirements": {
@@ -9682,7 +11895,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "cabin.printManifest() barcha o'rindiqlarni chop etadi.",
-      "cw2Tip": "Bronlash tizimlarida o'rindiqlar iyerarxiyasini yarating."
+      "cw2Tip": "Bronlash tizimlarida o'rindiqlar iyerarxiyasini yarating.",
+      "theoryRu": "Инвентаризация салона единообразно отображает резервирование мест в физической геометрии бизнеса и экономики.",
+      "pitfallsRu": "Cabin.printManifest() позволяет выбрать этапы.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9692,15 +11910,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "148. CW2 — DeliveryTask -> (StandardTask, FragileTask) va RoutePlanner",
-      "en": "148. CW2 — DeliveryTask Hierarchy and RoutePlanner"
+      "en": "148. CW2 — DeliveryTask Hierarchy and RoutePlanner",
+      "ru": "148. CW2 — Иерархия задач доставки и планировщик маршрутов."
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nYetkazish topshiriqlari: 'DeliveryTask' (destAddress) -> 'StandardTask' va 'FragileTask' (ehtiyotkorlik talab etiladigan). 'RoutePlanner' marshrutdagi topshiriqlarni rejalashtiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Chilonzor 3\")); rp.addTask(new FragileTask(\"Yunusobod 11\")); rp.executeAll();'",
-      "en": "📖 Real-World Scenario & Context\nLogistics tasks specialize StandardTask and FragileTask under RoutePlanner.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Chilonzor 3\")); rp.addTask(new FragileTask(\"Yunusobod 11\")); rp.executeAll();'"
+      "en": "📖 Real-World Scenario & Context\nLogistics tasks specialize StandardTask and FragileTask under RoutePlanner.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Chilonzor 3\")); rp.addTask(new FragileTask(\"Yunusobod 11\")); rp.executeAll();'",
+      "ru": "📖 Контекст и описание задачи\nЛогистические задачи специализируются на StandardTask и FragileTask в RoutePlanner.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Чилонзор 3\")); rp.addTask(new FragileTask(\"Юнусобод 11\")); rp.executeAll();'"
     },
     "story": {
       "uz": "Yetkazish topshiriqlari: 'DeliveryTask' (destAddress) -> 'StandardTask' va 'FragileTask' (ehtiyotkorlik talab etiladigan). 'RoutePlanner' marshrutdagi topshiriqlarni rejalashtiradi.",
-      "en": "Logistics tasks specialize StandardTask and FragileTask under RoutePlanner."
+      "en": "Logistics tasks specialize StandardTask and FragileTask under RoutePlanner.",
+      "ru": "Логистические задачи специализируются на StandardTask и FragileTask в RoutePlanner."
     },
     "steps": {
       "uz": [
@@ -9716,6 +11937,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Chilonzor 3\")); rp.addTask(new FragileTask(\"Yunusobod 11\")); rp.executeAll();'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'RoutePlanner rp = new RoutePlanner(); rp.addTask(new StandardTask(\"Чилонзор 3\")); rp.addTask(new FragileTask(\"Юнусобод 11\")); rp.executeAll();'"
       ]
     },
     "requirements": {
@@ -9744,7 +11972,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "rp.executeAll() ikkala topshiriqni ham chiqaradi.",
-      "cw2Tip": "Buyurtmalar dispetcherligida ushbu andozadan foydalaning."
+      "cw2Tip": "Buyurtmalar dispetcherligida ushbu andozadan foydalaning.",
+      "theoryRu": "Инструкции по обращению с хрупкими грузами полностью игнорируют стандартные процедуры доставки в системах маршрутной диспетчеризации.",
+      "pitfallsRu": "rp.executeAll() иккала топширикни хам чикаради.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9754,15 +11987,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "149. CW2 — AcademicModule -> (CoreModule, ElectiveModule) va StudentEnrolment",
-      "en": "149. CW2 — AcademicModule Hierarchy and StudentEnrolment"
+      "en": "149. CW2 — AcademicModule Hierarchy and StudentEnrolment",
+      "ru": "149. CW2 — Иерархия академических модулей и набор студентов"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWIUT o'quv modullari: 'AcademicModule' (moduleCode, credits) -> 'CoreModule' (majburiy) va 'ElectiveModule' (tanlov moduli). 'StudentEnrolment' talaba tanlagan barcha modullar kreditini jamlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Jami olingan kreditlar: \" + se.getTotalCredits());'",
-      "en": "📖 Real-World Scenario & Context\nWIUT module enrollment: AcademicModule -> CoreModule & ElectiveModule, tracked by StudentEnrolment.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Jami olingan kreditlar: \" + se.getTotalCredits());'"
+      "en": "📖 Real-World Scenario & Context\nWIUT module enrollment: AcademicModule -> CoreModule & ElectiveModule, tracked by StudentEnrolment.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Jami olingan kreditlar: \" + se.getTotalCredits());'",
+      "ru": "📖 Контекст и описание задачи\nРегистрация модулей WIUT: AcademicModule -> CoreModule и ElectiveModule, отслеживается StudentEnrolment.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Джами использует кредит: \" + se.getTotalCredits());'"
     },
     "story": {
       "uz": "WIUT o'quv modullari: 'AcademicModule' (moduleCode, credits) -> 'CoreModule' (majburiy) va 'ElectiveModule' (tanlov moduli). 'StudentEnrolment' talaba tanlagan barcha modullar kreditini jamlaydi.",
-      "en": "WIUT module enrollment: AcademicModule -> CoreModule & ElectiveModule, tracked by StudentEnrolment."
+      "en": "WIUT module enrollment: AcademicModule -> CoreModule & ElectiveModule, tracked by StudentEnrolment.",
+      "ru": "Регистрация модулей WIUT: AcademicModule -> CoreModule и ElectiveModule, отслеживается StudentEnrolment."
     },
     "steps": {
       "uz": [
@@ -9778,6 +12014,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Jami olingan kreditlar: \" + se.getTotalCredits());'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'StudentEnrolment se = new StudentEnrolment(); se.enroll(new CoreModule(\"5COSC018C-OOP\")); se.enroll(new CoreModule(\"5BUIS009C-DS\")); se.enroll(new ElectiveModule(\"5COSC041C-OS\")); System.out.println(\"Джами использует кредит: \" + se.getTotalCredits());'"
       ]
     },
     "requirements": {
@@ -9806,7 +12049,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "se.getTotalCredits() 60 (20+20+20) bo'ladi.",
-      "cw2Tip": "Universitet tizimlarini modellashtirishda AcademicModule modelidan foydalaning."
+      "cw2Tip": "Universitet tizimlarini modellashtirishda AcademicModule modelidan foydalaning.",
+      "theoryRu": "Институциональные учебные программы объединяют основные и факультативные кредиты в рамках общих абстракций академических модулей.",
+      "pitfallsRu": "se.getTotalCredits() 60 (20+20+20) болади.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   },
   {
@@ -9816,15 +12064,18 @@ window.OOP_CHALLENGES_W3 = [
     "sector": "136-150: CW2 Arxitekturasi",
     "title": {
       "uz": "150. CW2 Yakuniy Cho'qqi — OrderPizza -> (ClassicPizza, GourmetPizza) va KitchenOrderQueue",
-      "en": "150. CW2 Grand Finale — OrderPizza Hierarchy and KitchenOrderQueue"
+      "en": "150. CW2 Grand Finale — OrderPizza Hierarchy and KitchenOrderQueue",
+      "ru": "150. Грандиозный финал CW2 — иерархия OrderPizza и KitchenOrderQueue"
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik & Kontekst\nWeek 3 ning yakuniy 150-bosh qotirmasi: Pitsa buyurtmasi 'OrderPizza' (pizzaName, price) -> 'ClassicPizza' va o'zining maxsus pishloq qatlamiga ega 'GourmetPizza extends OrderPizza' (specialCheese). 'KitchenOrderQueue' oshxona navbati savatdagi jami summani hisoblaydi va barcha pitsalar tafsilotini polimorfik chop etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar (1 dan 5 gacha)\n1. Ota sinf va unga bog'liq avlod sinflarni to'liq merosxo'rlik qoidalari bilan yarating.\n\n2. Boshqaruvchi kompozitsiya sinfini yarating va unga 'ArrayList<...>' to'plamini joylashtiring.\n\n3. Domen operatsiyalarini ifodalovchi metodlarni toza mantiq bilan yozing.\n\n4. 'Main' metodida tizim ob'yektlarini yarating va tovarlarni/operatsiyalarni bajaring.\n\n5. Polimorfik natijalarni konsolga chiqaring: 'KitchenOrderQueue kitchen = new KitchenOrderQueue(); kitchen.addPizza(new ClassicPizza(\"Margarita\", 55000.0)); kitchen.addPizza(new GourmetPizza(\"Trufel va Pishloq\", 95000.0, \"Dorblyu\")); kitchen.printAllTickets(); System.out.println(\"Oshxona jami: \" + kitchen.calculateQueueTotal() + \" so'm\");'",
-      "en": "📖 Real-World Scenario & Context\nGrand finale of Week 3: OrderPizza -> ClassicPizza & GourmetPizza, processed by KitchenOrderQueue to calculate total price and print itemized order receipts.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'KitchenOrderQueue kitchen = new KitchenOrderQueue(); kitchen.addPizza(new ClassicPizza(\"Margarita\", 55000.0)); kitchen.addPizza(new GourmetPizza(\"Trufel va Pishloq\", 95000.0, \"Dorblyu\")); kitchen.printAllTickets(); System.out.println(\"Oshxona jami: \" + kitchen.calculateQueueTotal() + \" so'm\");'"
+      "en": "📖 Real-World Scenario & Context\nGrand finale of Week 3: OrderPizza -> ClassicPizza & GourmetPizza, processed by KitchenOrderQueue to calculate total price and print itemized order receipts.\n\n📋 Actionable Implementation Steps (1 to 5)\n1. Implement superclass and specialized subclasses using inheritance and overrides.\n\n2. Create domain manager class embedding 'ArrayList<...>' collection composition.\n\n3. Implement domain calculation and dispatch methods.\n\n4. Instantiate enterprise entities in 'main'.\n\n5. Print polymorphic results: 'KitchenOrderQueue kitchen = new KitchenOrderQueue(); kitchen.addPizza(new ClassicPizza(\"Margarita\", 55000.0)); kitchen.addPizza(new GourmetPizza(\"Trufel va Pishloq\", 95000.0, \"Dorblyu\")); kitchen.printAllTickets(); System.out.println(\"Oshxona jami: \" + kitchen.calculateQueueTotal() + \" so'm\");'",
+      "ru": "📖 Контекст и описание задачи\nГрандиозный финал третьей недели: OrderPizza -> ClassicPizza & GourmetPizza, обработка KitchenOrderQueue для расчета общей стоимости и печати детализированных квитанций о заказе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.\n2. Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.\n3. Реализуйте методы расчета и отправки домена.\n4. Создайте экземпляры корпоративных объектов в «main».\n5. Выведите полиморфные результаты: 'KitchenOrderQueue Kitchen = new KitchenOrderQueue(); Kitchen.addPizza(new ClassicPizza(\"Маргарита\", 55000.0)); Kitchen.addPizza(new GourmetPizza(\"Труфель ва Пишлок\", 95000.0, \"Дорблю\"); Kitchen.printAllTickets(); System.out.println(\"Ошсона Джами: \" + Kitchen.calculateQueueTotal() + \" так я\");'"
     },
     "story": {
       "uz": "Week 3 ning yakuniy 150-bosh qotirmasi: Pitsa buyurtmasi 'OrderPizza' (pizzaName, price) -> 'ClassicPizza' va o'zining maxsus pishloq qatlamiga ega 'GourmetPizza extends OrderPizza' (specialCheese). 'KitchenOrderQueue' oshxona navbati savatdagi jami summani hisoblaydi va barcha pitsalar tafsilotini polimorfik chop etadi.",
-      "en": "Grand finale of Week 3: OrderPizza -> ClassicPizza & GourmetPizza, processed by KitchenOrderQueue to calculate total price and print itemized order receipts."
+      "en": "Grand finale of Week 3: OrderPizza -> ClassicPizza & GourmetPizza, processed by KitchenOrderQueue to calculate total price and print itemized order receipts.",
+      "ru": "Грандиозный финал третьей недели: OrderPizza -> ClassicPizza & GourmetPizza, обработка KitchenOrderQueue для расчета общей стоимости и печати детализированных квитанций о заказе."
     },
     "steps": {
       "uz": [
@@ -9840,6 +12091,13 @@ window.OOP_CHALLENGES_W3 = [
         "Implement domain calculation and dispatch methods.",
         "Instantiate enterprise entities in 'main'.",
         "Print polymorphic results: 'KitchenOrderQueue kitchen = new KitchenOrderQueue(); kitchen.addPizza(new ClassicPizza(\"Margarita\", 55000.0)); kitchen.addPizza(new GourmetPizza(\"Trufel va Pishloq\", 95000.0, \"Dorblyu\")); kitchen.printAllTickets(); System.out.println(\"Oshxona jami: \" + kitchen.calculateQueueTotal() + \" so'm\");'"
+      ],
+      "ru": [
+        "Реализуйте суперкласс и специализированные подклассы, используя наследование и переопределения.",
+        "Создайте класс менеджера домена, встраивающий композицию коллекции ArrayList<...>.",
+        "Реализуйте методы расчета и отправки домена.",
+        "Создайте экземпляры корпоративных объектов в «main».",
+        "Выведите полиморфные результаты: 'KitchenOrderQueue Kitchen = new KitchenOrderQueue(); Kitchen.addPizza(new ClassicPizza(\"Маргарита\", 55000.0)); Kitchen.addPizza(new GourmetPizza(\"Труфель ва Пишлок\", 95000.0, \"Дорблю\"); Kitchen.printAllTickets(); System.out.println(\"Ошсона Джами: \" + Kitchen.calculateQueueTotal() + \" так я\");'"
       ]
     },
     "requirements": {
@@ -9868,7 +12126,12 @@ window.OOP_CHALLENGES_W3 = [
         "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
       ],
       "pitfalls": "GourmetPizza o'zining getKitchenTicket() metodida super.getKitchenTicket() ni chaqirishi lozim.",
-      "cw2Tip": "CW2 Console Order Applicationda barcha mahsulotlar menyusi va buyurtma savati aynan shunday mukammal tuziladi."
+      "cw2Tip": "CW2 Console Order Applicationda barcha mahsulotlar menyusi va buyurtma savati aynan shunday mukammal tuziladi.",
+      "theoryRu": "Испытание 150 крон. Мастерство третьей недели: наследование, super(), переопределение, super.method(), коллекции и динамический полиморфизм, объединенные в корпоративную очередь заказов.",
+      "pitfallsRu": "GourmetPizza предлагает метод getKitchenTicket() super.getKitchenTicket() и не работает.",
+      "breakdownRu": [
+        "<code>CW2 Capstone Architecture</code>: Merosxo'rlik, kompozitsiya va polimorfizmning yagona ishlab chiqarish tizimida mukammal birlashuvi."
+      ]
     }
   }
 ];

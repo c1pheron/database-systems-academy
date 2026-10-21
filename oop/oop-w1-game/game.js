@@ -99,7 +99,7 @@
     const elPoints = document.getElementById("hudRatingPoints");
     if (elPoints) {
       const isEn = currentLang === "en";
-      elPoints.textContent = solvedQuestions.size * 50 + (isEn ? " Pts" : " Ball");
+      elPoints.textContent = solvedQuestions.size * 50 + (isRu ? " Очков" : (isEn ? " Pts" : " Ball"));
     }
   }
 
@@ -115,8 +115,9 @@
     const elToggleHint = document.getElementById("solutionToggleHint");
 
     const isEn = currentLang === "en";
-    if (elBadge) elBadge.textContent = isEn ? ("Module 1 • Challenge " + ch.id) : ("1-Modul • " + ch.id + "-Topshiriq");
-    if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (ch.title?.uz || "");
+    const isRu = currentLang === "ru";
+    if (elBadge) elBadge.textContent = isRu ? ("Модуль 1 • Задание " + ch.id) : (isEn ? ("Module 1 • Challenge " + ch.id) : ("1-Modul • " + ch.id + "-Topshiriq"));
+    if (elTitle) elTitle.textContent = (ch.title && ch.title[currentLang]) ? ch.title[currentLang] : (isRu ? (ch.title?.ru || ch.title?.en || ch.title?.uz) : (isEn ? (ch.title?.en || ch.title?.uz) : (ch.title?.uz || "")));
     if (elScenario) {
       if (typeof window.formatChallengeScenarioHTML === "function") {
         elScenario.innerHTML = window.formatChallengeScenarioHTML(ch, currentLang);
@@ -130,7 +131,7 @@
     const elSampleDataList = document.getElementById("sampleDataList");
     const elSampleDataTitle = document.getElementById("sampleDataTitle");
     if (elSampleDataTitle) {
-      elSampleDataTitle.textContent = isEn ? "📥 Sample Input Values (Test Data):" : "📥 Namunaviy Qiymatlar (Test Ma'lumotlari):";
+      elSampleDataTitle.textContent = isRu ? "📥 Пример входных данных (Тестовые значения):" : (isEn ? "📥 Sample Input Values (Test Data):" : "📥 Namunaviy Qiymatlar (Test Ma'lumotlari):");
     }
 
     if (ch.sampleData && ch.sampleData.length > 0) {
@@ -148,9 +149,7 @@
     const elMethodTitle = document.getElementById("methodSpecsTitle");
 
     if (elMethodTitle) {
-      elMethodTitle.textContent = isEn
-        ? "🛠 Required Method Specifications & Examples:"
-        : "🛠 Talab qilingan Metodlar va Namunaviy Ishlatilishi:";
+      elMethodTitle.textContent = isRu ? "🛠 Спецификация требуемых методов и примеры:" : (isEn ? "🛠 Required Method Specifications & Examples:" : "🛠 Talab qilingan Metodlar va Namunaviy Ishlatilishi:");
     }
 
     const methodDetails = (ch.requirements && ch.requirements.methodDetails) || ch.methodDetails;
@@ -189,7 +188,7 @@
     const elExpContent = document.getElementById("expectedOutputContent");
     const elExpTitle = document.getElementById("expectedOutputTitle");
     if (elExpTitle) {
-      elExpTitle.textContent = isEn ? "💻 Expected Console Output (Terminal):" : "💻 Kutilayotgan Konsol Natijasi (Terminal Output):";
+      elExpTitle.textContent = isRu ? "💻 Ожидаемый вывод в консоли (Терминал):" : (isEn ? "💻 Expected Console Output (Terminal):" : "💻 Kutilayotgan Konsol Natijasi (Terminal Output):");
     }
 
     if (ch.expectedOutput) {
@@ -204,7 +203,7 @@
       window.SolutionRenderer.render(ch, "solutionContentCard", currentLang);
     }
     if (elSolutionCard) elSolutionCard.style.display = "none";
-    if (elToggleHint) elToggleHint.textContent = isEn ? "[View ▾]" : "[Ko'rish ▾]";
+    if (elToggleHint) elToggleHint.textContent = isRu ? "[Смотреть ▾]" : (isEn ? "[View ▾]" : "[Ko'rish ▾]");
 
     // Update requirements list
     const reqList = document.getElementById("taskReqList");

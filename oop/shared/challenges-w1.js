@@ -1,11 +1,6 @@
-// ====================================================================
-// WIUT DATABASE & OOP ACADEMY — OBJECT-ORIENTED PROGRAMMING (5COSC018C)
-// WEEK 1: JAVA FUNDAMENTALS, CLASSES, OBJECTS & OOP FOUNDATIONS
-// 50 AUTHENTIC HIGH-YIELD PROGRESSIVE CHALLENGES (STAGES 1 - 5)
-// With Real-World Scenarios & Numbered Step-by-Step Action Tasks
-// ====================================================================
-
-window.OOP_CHALLENGES_W1 = [
+// WIUT OOP (5COSC018C) — WEEK 1 DATASET (50 PROGRESSIVE CHALLENGES)
+// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
+(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W1 = [
   {
     "id": 1,
     "tier": 1,
@@ -13,11 +8,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "1. Uzum Market — 'Product' Klassi va Birlamchi Maydonlar",
-      "en": "1. Uzum Market — 'Product' Class & Primitive Fields"
+      "en": "1. Uzum Market — 'Product' Class & Primitive Fields",
+      "ru": "1. Рынок Узум — класс «Продукт» и примитивные поля"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nUzum Market elektron tijorat platformasida har bir mahsulotni katalogga joylashtirish va tizimda saqlash uchun shablon (klass) talab qilinadi. Mahsulotning nomi, sotuv narxi va omborda mavjudligi xususiyatlarini ifodalovchi model yarating.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Product nomli klass e'lon qiling.\n2. Klass ichiga quyidagi 3 ta maydonni qo'shing: String title; (mahsulot nomi), double price; (narxi) va boolean inStock; (omborda bor-yo'qligi).\n3. Main klassining main metodida Product p = new Product(); ob'yektini yarating.\n4. Ob'yekt maydonlariga qiymat yuklang: p.title = \"Smartfon Redmi Note 13\";, p.price = 2450000.0;, p.inStock = true;.\n5. Natijani ekranga chop eting: System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);",
-      "en": "[Real-World Story & Context]\nOn the Uzum Market e-commerce platform, a blueprint (class) is required to catalog and store listed items. Model a product with its title, retail price, and warehouse stock availability.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare a class named Product.\n2. Add three fields: String title;, double price;, and boolean inStock;.\n3. In the main method of class Main, instantiate an object: Product p = new Product();.\n4. Assign values: p.title = \"Smartfon Redmi Note 13\";, p.price = 2450000.0;, p.inStock = true;.\n5. Print the product details: System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);"
+      "en": "[Real-World Story & Context]\nOn the Uzum Market e-commerce platform, a blueprint (class) is required to catalog and store listed items. Model a product with its title, retail price, and warehouse stock availability.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare a class named Product.\n2. Add three fields: String title;, double price;, and boolean inStock;.\n3. In the main method of class Main, instantiate an object: Product p = new Product();.\n4. Assign values: p.title = \"Smartfon Redmi Note 13\";, p.price = 2450000.0;, p.inStock = true;.\n5. Print the product details: System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);",
+      "ru": "📖 Контекст и описание задачи\nНа платформе электронной коммерции Uzum Market для каталогизации и хранения перечисленных товаров требуется план (класс). Смоделируйте продукт, указав его название, розничную цену и наличие на складе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс с именем <code>Product</code>.\n2. Добавьте три поля: <code>String title;</code>, <code>double price;</code> и <code>boolean inStock;</code>.\n3. В методе <code>main</code> класса <code>Main</code> создайте экземпляр объекта: <code>Product p = new Product();</code>.\n4. Присвойте значения: <code>p.title = \"Smartfon Redmi Note 13\";</code>, <code>p.price = 2450000.0;</code>, <code>p.inStock = true;</code>.\n5. Распечатайте подробную информацию о продукте: <code>System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);</code>"
     },
     "requirements": {
       "classes": [
@@ -51,7 +48,14 @@ window.OOP_CHALLENGES_W1 = [
         "<code>Product p = new Product();</code>: Heap xotirada yangi nusxa (instance) yaratish."
       ],
       "pitfalls": "Maydon nomlarida harflar katta-kichikligiga (case-sensitive) qat'iy rioya qiling: 'instock' emas, 'inStock'.",
-      "cw2Tip": "CW2 Console Order Application doirasida har bir tovar aynan shunday xususiyatlarga ega bo'ladi."
+      "cw2Tip": "CW2 Console Order Application doirasida har bir tovar aynan shunday xususiyatlarga ega bo'ladi.",
+      "theoryRu": "В Java экземпляр объекта создается в куче на основе схемы класса. Ключевое слово new выделяет память и инициализирует поля значениями по умолчанию.",
+      "pitfallsRu": "В именах полей строго учитывайте регистр: «inStock», а не «instock».",
+      "breakdownRu": [
+        "<code>class Product</code>: Шаблон модели продукта.",
+        "<code>String title; double price; boolean inStock;</code>: 3 разных типа полей, определяющих состояние объекта.",
+        "<code>Product p = new Product();</code>: Создайте новую копию (экземпляр) в памяти кучи."
+      ]
     },
     "sampleData": [
       "title: \"Smartfon Redmi Note 13\"",
@@ -61,7 +65,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Mahsulot: Smartfon Redmi Note 13 | Narxi: 2450000.0 so'm | Mavjud: true",
     "story": {
       "uz": "Uzum Market elektron tijorat platformasida har bir mahsulotni katalogga joylashtirish va tizimda saqlash uchun shablon (klass) talab qilinadi. Mahsulotning nomi, sotuv narxi va omborda mavjudligi xususiyatlarini ifodalovchi model yarating.",
-      "en": "On the Uzum Market e-commerce platform, a blueprint (class) is required to catalog and store listed items. Model a product with its title, retail price, and warehouse stock availability."
+      "en": "On the Uzum Market e-commerce platform, a blueprint (class) is required to catalog and store listed items. Model a product with its title, retail price, and warehouse stock availability.",
+      "ru": "На платформе электронной коммерции Uzum Market для каталогизации и хранения перечисленных товаров требуется план (класс). Смоделируйте продукт, указав его название, розничную цену и наличие на складе."
     },
     "steps": {
       "uz": [
@@ -77,6 +82,13 @@ window.OOP_CHALLENGES_W1 = [
         "In the <code>main</code> method of class <code>Main</code>, instantiate an object: <code>Product p = new Product();</code>.",
         "Assign values: <code>p.title = \"Smartfon Redmi Note 13\";</code>, <code>p.price = 2450000.0;</code>, <code>p.inStock = true;</code>.",
         "Print the product details: <code>System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);</code>"
+      ],
+      "ru": [
+        "Объявите класс с именем <code>Product</code>.",
+        "Добавьте три поля: <code>String title;</code>, <code>double price;</code> и <code>boolean inStock;</code>.",
+        "В методе <code>main</code> класса <code>Main</code> создайте экземпляр объекта: <code>Product p = new Product();</code>.",
+        "Присвойте значения: <code>p.title = \"Smartfon Redmi Note 13\";</code>, <code>p.price = 2450000.0;</code>, <code>p.inStock = true;</code>.",
+        "Распечатайте подробную информацию о продукте: <code>System.out.println(\"Mahsulot: \" + p.title + \" | Narxi: \" + p.price + \" so'm | Mavjud: \" + p.inStock);</code>"
       ]
     }
   },
@@ -87,11 +99,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "2. WIUT Portal — 'Student' Klassi va Heap Xotiradagi Alohida Obyektlar",
-      "en": "2. WIUT Portal — 'Student' Class & Multiple Heap Instances"
+      "en": "2. WIUT Portal — 'Student' Class & Multiple Heap Instances",
+      "ru": "2. Портал WIUT — класс «Студент» и несколько экземпляров кучи"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nWIUT talabalar portalida har bir talabaning shaxsiy akademik profili saqlanadi. Dasturda xotiraning Heap qismida ikki xil talaba uchun alohida ob'yektlar ajratilib, ularning GPA ko'rsatkichlari solishtirilishi kerak.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Student klassini yarating va unga String fullName;, int idNumber;, double gpa; maydonlarini qo'shing.\n2. Main metodida ikkita alohida ob'yekt yarating: Student s1 = new Student(); va Student s2 = new Student();.\n3. s1 maydonlariga qiymat bering: fullName = \"Jasur Aliyev\", idNumber = 1001, gpa = 3.8.\n4. s2 maydonlariga qiymat bering: fullName = \"Madina Karimova\", idNumber = 1002, gpa = 3.95.\n5. if (s1.gpa > s2.gpa) sharti orqali solishtiring va GPA si yuqori bo'lgan talabani chop eting: System.out.println(\"Yuqori GPA: \" + s2.fullName + \" (\" + s2.gpa + \")\");",
-      "en": "[Real-World Story & Context]\nThe WIUT Student Portal manages independent academic records. Instantiate two distinct student records on the Heap and compare their GPAs to find the higher-performing student.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Student with fields String fullName;, int idNumber;, and double gpa;.\n2. In main, instantiate two objects: Student s1 = new Student(); and Student s2 = new Student();.\n3. Assign values to s1: fullName = \"Jasur Aliyev\", idNumber = 1001, gpa = 3.8.\n4. Assign values to s2: fullName = \"Madina Karimova\", idNumber = 1002, gpa = 3.95.\n5. Compare GPAs and print the higher student: System.out.println(\"Yuqori GPA: \" + s2.fullName + \" (\" + s2.gpa + \")\");"
+      "en": "[Real-World Story & Context]\nThe WIUT Student Portal manages independent academic records. Instantiate two distinct student records on the Heap and compare their GPAs to find the higher-performing student.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Student with fields String fullName;, int idNumber;, and double gpa;.\n2. In main, instantiate two objects: Student s1 = new Student(); and Student s2 = new Student();.\n3. Assign values to s1: fullName = \"Jasur Aliyev\", idNumber = 1001, gpa = 3.8.\n4. Assign values to s2: fullName = \"Madina Karimova\", idNumber = 1002, gpa = 3.95.\n5. Compare GPAs and print the higher student: System.out.println(\"Yuqori GPA: \" + s2.fullName + \" (\" + s2.gpa + \")\");",
+      "ru": "📖 Контекст и описание задачи\nСтуденческий портал МВУТ ведет независимые академические записи. Создайте экземпляры двух разных записей учащихся в куче и сравните их средний балл, чтобы найти ученика с более высокой успеваемостью.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Student</code> с полями <code>String fullName;</code>, <code>int idNumber;</code> и <code>double gpa;</code>.\n2. В <code>main</code> создайте экземпляры двух объектов: <code>Student s1 = new Student();</code> и <code>Student s2 = new Student();</code>.\n3. Присвойте значения <code>s1</code>: <code>fullName = \"Jasur Aliyev\"</code>, <code>idNumber = 1001</code>, <code>String fullName;</code>0.\n4. Присвойте значения <code>String fullName;</code>1: <code>String fullName;</code>2, <code>String fullName;</code>3, <code>String fullName;</code>4.\n5. Сравните средний балл и распечатайте имя старшекурсника: <code>String fullName;</code>5."
     },
     "requirements": {
       "classes": [
@@ -125,7 +139,14 @@ window.OOP_CHALLENGES_W1 = [
         "Maydonlarga nuqta (<code>.</code>) operatori orqali kirib, solishtirish shartlari bajariladi."
       ],
       "pitfalls": "Obyekt yaratmasdan (ya'ni `Student s1;` deb qoldirib) uning maydoniga murojaat qilish NullPointerException keltirib chiqaradi.",
-      "cw2Tip": "Guruh loyihangizda bir nechta mijoz yoki tovarlarni massiv yoki ro'yxatda saqlash uchun ushbu poydevor zarur."
+      "cw2Tip": "Guruh loyihangizda bir nechta mijoz yoki tovarlarni massiv yoki ro'yxatda saqlash uchun ushbu poydevor zarur.",
+      "theoryRu": "«s1» и «s2» — это ссылочные переменные в стеке, указывающие на два отдельных распределения памяти в куче.",
+      "pitfallsRu": "Объект yaratmasdan (ya'ni <code>String fullName;</code>6 deb qoldirib) может привести к исчезновению NullPointerException и другим ошибкам.",
+      "breakdownRu": [
+        "Класс <code>Student</code> действует как шаблон.",
+        "Каждый из названных <code>new Student()</code> создает отдельную копию.",
+        "Доступ к полям осуществляется через оператор точки (<code>.</code>), и условия сравнения выполняются."
+      ]
     },
     "sampleData": [
       "1-talaba -> fullName: \"Jasur Aliyev\", idNumber: 1001, gpa: 3.8",
@@ -134,7 +155,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Yuqori GPA: Madina Karimova (3.95)",
     "story": {
       "uz": "WIUT talabalar portalida har bir talabaning shaxsiy akademik profili saqlanadi. Dasturda xotiraning Heap qismida ikki xil talaba uchun alohida ob'yektlar ajratilib, ularning GPA ko'rsatkichlari solishtirilishi kerak.",
-      "en": "The WIUT Student Portal manages independent academic records. Instantiate two distinct student records on the Heap and compare their GPAs to find the higher-performing student."
+      "en": "The WIUT Student Portal manages independent academic records. Instantiate two distinct student records on the Heap and compare their GPAs to find the higher-performing student.",
+      "ru": "Студенческий портал МВУТ ведет независимые академические записи. Создайте экземпляры двух разных записей учащихся в куче и сравните их средний балл, чтобы найти ученика с более высокой успеваемостью."
     },
     "steps": {
       "uz": [
@@ -150,6 +172,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values to <code>s1</code>: <code>fullName = \"Jasur Aliyev\"</code>, <code>idNumber = 1001</code>, <code>gpa = 3.8</code>.",
         "Assign values to <code>s2</code>: <code>fullName = \"Madina Karimova\"</code>, <code>idNumber = 1002</code>, <code>gpa = 3.95</code>.",
         "Compare GPAs and print the higher student: <code>System.out.println(\"Yuqori GPA: \" + s2.fullName + \" (\" + s2.gpa + \")\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>Student</code> с полями <code>String fullName;</code>, <code>int idNumber;</code> и <code>double gpa;</code>.",
+        "В <code>main</code> создайте экземпляры двух объектов: <code>Student s1 = new Student();</code> и <code>Student s2 = new Student();</code>.",
+        "Присвойте значения <code>s1</code>: <code>fullName = \"Jasur Aliyev\"</code>, <code>idNumber = 1001</code>, <code>String fullName;</code>0.",
+        "Присвойте значения <code>String fullName;</code>1: <code>String fullName;</code>2, <code>String fullName;</code>3, <code>String fullName;</code>4.",
+        "Сравните средний балл и распечатайте имя старшекурсника: <code>String fullName;</code>5."
       ]
     }
   },
@@ -160,11 +189,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "3. Yandex Go — 'TaxiTrip' va Maydonlar Asosida Hisob-Kitob",
-      "en": "3. Yandex Go — 'TaxiTrip' & State-Driven Calculations"
+      "en": "3. Yandex Go — 'TaxiTrip' & State-Driven Calculations",
+      "ru": "3. Yandex Go — «TaxiTrip» и расчеты на основе состояния"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nYandex Go taksi agregatori servisida yo'lovchi safarni yakunlaganda haydovchining ismi, bosib o'tilgan masofa va har bir kilometr narxi asosida yakuniy safar haqi hisoblanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. TaxiTrip klassini tuzing: String driverName;, double distanceKm;, double ratePerKm; maydonlarini e'lon qiling.\n2. Main metodida TaxiTrip trip = new TaxiTrip(); ob'yektini yarating.\n3. Maydonlariga qiymat yuklang: trip.driverName = \"Davron Ahmedov\";, trip.distanceKm = 12.5;, trip.ratePerKm = 3200.0;.\n4. Jami yo'l haqini hisoblang: double totalFare = trip.distanceKm * trip.ratePerKm;.\n5. Safar ma'lumotlarini chop eting: System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");",
-      "en": "[Real-World Story & Context]\nIn Yandex Go taxi service, when a ride finishes, the total trip fare is computed using driver name, distance traveled, and rate per kilometer.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class TaxiTrip with fields String driverName;, double distanceKm;, and double ratePerKm;.\n2. In main, instantiate: TaxiTrip trip = new TaxiTrip();.\n3. Assign field values: trip.driverName = \"Davron Ahmedov\";, trip.distanceKm = 12.5;, trip.ratePerKm = 3200.0;.\n4. Calculate the total fare: double totalFare = trip.distanceKm * trip.ratePerKm;.\n5. Print ride receipt: System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");"
+      "en": "[Real-World Story & Context]\nIn Yandex Go taxi service, when a ride finishes, the total trip fare is computed using driver name, distance traveled, and rate per kilometer.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class TaxiTrip with fields String driverName;, double distanceKm;, and double ratePerKm;.\n2. In main, instantiate: TaxiTrip trip = new TaxiTrip();.\n3. Assign field values: trip.driverName = \"Davron Ahmedov\";, trip.distanceKm = 12.5;, trip.ratePerKm = 3200.0;.\n4. Calculate the total fare: double totalFare = trip.distanceKm * trip.ratePerKm;.\n5. Print ride receipt: System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");",
+      "ru": "📖 Контекст и описание задачи\nВ сервисе такси Яндекс Go по окончании поездки общая стоимость поездки рассчитывается с учетом имени водителя, пройденного расстояния и тарифа за километр.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>TaxiTrip</code> с полями <code>String driverName;</code>, <code>double distanceKm;</code> и <code>double ratePerKm;</code>.\n2. В <code>main</code> создайте экземпляр: <code>TaxiTrip trip = new TaxiTrip();</code>.\n3. Присвойте значения полям: <code>trip.driverName = \"Davron Ahmedov\";</code>, <code>trip.distanceKm = 12.5;</code>, <code>trip.ratePerKm = 3200.0;</code>.\n4. Рассчитаем общую стоимость проезда: <code>double totalFare = trip.distanceKm * trip.ratePerKm;</code>.\n5. Распечатать квитанцию ​​о поездке: <code>System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");</code>"
     },
     "requirements": {
       "classes": [
@@ -197,7 +228,13 @@ window.OOP_CHALLENGES_W1 = [
         "Hisoblangan qiymat yangi mahalliy o'zgaruvchida saqlanadi."
       ],
       "pitfalls": "Butun sonlar bilan ishlashda int bo'linishi (integer division) natijani yaxlitlab xato berishi mumkin, shuning uchun narx va masofalarda doim double ishlatiladi.",
-      "cw2Tip": "Savdo kvitansiyalarini hisoblashda ushbu arifmetika qoidalari qo'llaniladi."
+      "cw2Tip": "Savdo kvitansiyalarini hisoblashda ushbu arifmetika qoidalari qo'llaniladi.",
+      "theoryRu": "Поля содержат внутреннее состояние экземпляра. Main может получить доступ к этим состояниям для выполнения арифметических вычислений.",
+      "pitfallsRu": "При работе с целыми числами деление int (целочисленное деление) может давать ошибку округления, поэтому для цен и расстояний всегда используется double.",
+      "breakdownRu": [
+        "Поля объявлены правильно: двойное расстояние и скорость дают ясность.",
+        "Hisoblangan qiymat yangi mahalliy o'zgaruvchida saqlanadi."
+      ]
     },
     "sampleData": [
       "driverName: \"Otabek\"",
@@ -207,7 +244,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Haydovchi: Otabek | Jami yo'l haqi: 43750.0 so'm",
     "story": {
       "uz": "Yandex Go taksi agregatori servisida yo'lovchi safarni yakunlaganda haydovchining ismi, bosib o'tilgan masofa va har bir kilometr narxi asosida yakuniy safar haqi hisoblanadi.",
-      "en": "In Yandex Go taxi service, when a ride finishes, the total trip fare is computed using driver name, distance traveled, and rate per kilometer."
+      "en": "In Yandex Go taxi service, when a ride finishes, the total trip fare is computed using driver name, distance traveled, and rate per kilometer.",
+      "ru": "В сервисе такси Яндекс Go по окончании поездки общая стоимость поездки рассчитывается с учетом имени водителя, пройденного расстояния и тарифа за километр."
     },
     "steps": {
       "uz": [
@@ -223,6 +261,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign field values: <code>trip.driverName = \"Davron Ahmedov\";</code>, <code>trip.distanceKm = 12.5;</code>, <code>trip.ratePerKm = 3200.0;</code>.",
         "Calculate the total fare: <code>double totalFare = trip.distanceKm * trip.ratePerKm;</code>.",
         "Print ride receipt: <code>System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>TaxiTrip</code> с полями <code>String driverName;</code>, <code>double distanceKm;</code> и <code>double ratePerKm;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>TaxiTrip trip = new TaxiTrip();</code>.",
+        "Присвойте значения полям: <code>trip.driverName = \"Davron Ahmedov\";</code>, <code>trip.distanceKm = 12.5;</code>, <code>trip.ratePerKm = 3200.0;</code>.",
+        "Рассчитаем общую стоимость проезда: <code>double totalFare = trip.distanceKm * trip.ratePerKm;</code>.",
+        "Распечатать квитанцию ​​о поездке: <code>System.out.println(\"Haydovchi: \" + trip.driverName + \" | Masofa: \" + trip.distanceKm + \" km | Jami: \" + totalFare + \" so'm\");</code>"
       ]
     }
   },
@@ -233,11 +278,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "4. Payme Wallet — 'Transaction' va Holat Flaglari (State Flags)",
-      "en": "4. Payme Wallet — 'Transaction' & State Flags"
+      "en": "4. Payme Wallet — 'Transaction' & State Flags",
+      "ru": "4. Кошелек Payme — «транзакция» и флаги состояний"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nPayme fintech to'lov ilovasida har bir pul o'tkazmasi tranzaksiya identifikatori, o'tkazma summasi, bajarilganlik holati (flag) va jo'natuvchi telefon raqami bilan monitoring qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Transaction klassini e'lon qiling: String txnId;, double amount;, boolean isCompleted;, String senderPhone;.\n2. Main metodida Transaction tx = new Transaction(); ob'yektini yarating.\n3. Maydonlariga qiymat bering: tx.txnId = \"TXN-77889\";, tx.amount = 150000.0;, tx.isCompleted = true;, tx.senderPhone = \"+998901234567\";.\n4. Shart orqali holat matnini aniqlang: agar tx.isCompleted rost bo'lsa \"Muvaffaqiyatli\", aks holda \"Kutilmoqda\".\n5. Tranzaksiya ma'lumotlarini chop eting: System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);",
-      "en": "[Real-World Story & Context]\nIn the Payme fintech payment system, each transaction is logged with a transaction ID, money amount, completion status flag, and sender phone number.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Transaction with: String txnId;, double amount;, boolean isCompleted;, String senderPhone;.\n2. In main, create object: Transaction tx = new Transaction();.\n3. Assign values: tx.txnId = \"TXN-77889\";, tx.amount = 150000.0;, tx.isCompleted = true;, tx.senderPhone = \"+998901234567\";.\n4. Check status flag: if tx.isCompleted is true, status is \"Muvaffaqiyatli\", else \"Kutilmoqda\".\n5. Print transaction summary: System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);"
+      "en": "[Real-World Story & Context]\nIn the Payme fintech payment system, each transaction is logged with a transaction ID, money amount, completion status flag, and sender phone number.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Transaction with: String txnId;, double amount;, boolean isCompleted;, String senderPhone;.\n2. In main, create object: Transaction tx = new Transaction();.\n3. Assign values: tx.txnId = \"TXN-77889\";, tx.amount = 150000.0;, tx.isCompleted = true;, tx.senderPhone = \"+998901234567\";.\n4. Check status flag: if tx.isCompleted is true, status is \"Muvaffaqiyatli\", else \"Kutilmoqda\".\n5. Print transaction summary: System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);",
+      "ru": "📖 Контекст и описание задачи\nВ финтех-платежной системе Payme каждая транзакция регистрируется с указанием идентификатора транзакции, суммы денег, флага статуса завершения и номера телефона отправителя.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Transaction</code> с помощью: <code>String txnId;</code>, <code>double amount;</code>, <code>boolean isCompleted;</code>, <code>String senderPhone;</code>.\n2. В <code>main</code> создайте объект: <code>Transaction tx = new Transaction();</code>.\n3. Присвойте значения: <code>tx.txnId = \"TXN-77889\";</code>, <code>tx.amount = 150000.0;</code>, <code>tx.isCompleted = true;</code>, <code>tx.senderPhone = \"+998901234567\";</code>.\n4. Проверьте флаг состояния: если <code>tx.isCompleted</code> истинно, то статус <code>\"Muvaffaqiyatli\"</code>, иначе <code>\"Kutilmoqda\"</code>.\n5. Распечатать сводку транзакции: <code>System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);</code>"
     },
     "requirements": {
       "classes": [
@@ -274,7 +321,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ternar operator orqali qisqa va toza mantiq yozildi."
       ],
       "pitfalls": "boolean maydonlar birlamchi qiymati false bo'ladi, buni esdan chiqarmang.",
-      "cw2Tip": "Buyurtmaning to'langan yoki bekor qilinganligini kuzatish uchun `isPaid` flagi shart."
+      "cw2Tip": "Buyurtmaning to'langan yoki bekor qilinganligini kuzatish uchun `isPaid` flagi shart.",
+      "theoryRu": "Логические флаги состояния фиксируют состояния жизненного цикла системы и направляют поток управления через условные выражения.",
+      "pitfallsRu": "Обратите внимание, что логические поля по умолчанию имеют значение false.",
+      "breakdownRu": [
+        "Поле <code>isCompleted</code> хранит статус платежа.",
+        "Ternar operator orqali qisqa va toza mantiq yozildi."
+      ]
     },
     "sampleData": [
       "txnId: \"TXN-884129\"",
@@ -285,7 +338,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "ID: TXN-884129 | Miqdor: 150000.0 | Holat: Muvaffaqiyatli",
     "story": {
       "uz": "Payme fintech to'lov ilovasida har bir pul o'tkazmasi tranzaksiya identifikatori, o'tkazma summasi, bajarilganlik holati (flag) va jo'natuvchi telefon raqami bilan monitoring qilinadi.",
-      "en": "In the Payme fintech payment system, each transaction is logged with a transaction ID, money amount, completion status flag, and sender phone number."
+      "en": "In the Payme fintech payment system, each transaction is logged with a transaction ID, money amount, completion status flag, and sender phone number.",
+      "ru": "В финтех-платежной системе Payme каждая транзакция регистрируется с указанием идентификатора транзакции, суммы денег, флага статуса завершения и номера телефона отправителя."
     },
     "steps": {
       "uz": [
@@ -301,6 +355,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>tx.txnId = \"TXN-77889\";</code>, <code>tx.amount = 150000.0;</code>, <code>tx.isCompleted = true;</code>, <code>tx.senderPhone = \"+998901234567\";</code>.",
         "Check status flag: if <code>tx.isCompleted</code> is true, status is <code>\"Muvaffaqiyatli\"</code>, else <code>\"Kutilmoqda\"</code>.",
         "Print transaction summary: <code>System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>Transaction</code> с помощью: <code>String txnId;</code>, <code>double amount;</code>, <code>boolean isCompleted;</code>, <code>String senderPhone;</code>.",
+        "В <code>main</code> создайте объект: <code>Transaction tx = new Transaction();</code>.",
+        "Присвойте значения: <code>tx.txnId = \"TXN-77889\";</code>, <code>tx.amount = 150000.0;</code>, <code>tx.isCompleted = true;</code>, <code>tx.senderPhone = \"+998901234567\";</code>.",
+        "Проверьте флаг состояния: если <code>tx.isCompleted</code> истинно, то статус <code>\"Muvaffaqiyatli\"</code>, иначе <code>\"Kutilmoqda\"</code>.",
+        "Распечатать сводку транзакции: <code>System.out.println(\"Tranzaksiya #\" + tx.txnId + \" | Summa: \" + tx.amount + \" so'm | Holat: \" + statusText + \" | Tel: \" + tx.senderPhone);</code>"
       ]
     }
   },
@@ -311,11 +372,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "5. Cloud Server — 'ServerNode' va Xotira Bandlik Monitoringi",
-      "en": "5. Cloud Server — 'ServerNode' & Resource Utilization"
+      "en": "5. Cloud Server — 'ServerNode' & Resource Utilization",
+      "ru": "5. Облачный сервер — «ServerNode» и использование ресурсов."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBulutli infratuzilma klasterida serverlarning tezkor xotira (RAM) sarfini monitoring qilib boruvchi agent ishlab chiqilmoqda. Bo'sh xotira va yuklanish foizi hisoblanishi zarur.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. ServerNode klassini tuzing: String hostName;, int totalRamMb;, int usedRamMb; maydonlarini e'lon qiling.\n2. Main metodida ServerNode node = new ServerNode(); ob'yektini yarating.\n3. Maydonlariga qiymat yuklang: node.hostName = \"prod-node-01.wiut.uz\";, node.totalRamMb = 16384;, node.usedRamMb = 12288;.\n4. Bo'sh RAM (node.totalRamMb - node.usedRamMb) va bandlik foizini (((double) node.usedRamMb / node.totalRamMb) * 100.0) hisoblang.\n5. Server monitoring ma'lumotlarini 2 qatorda chop eting:System.out.println(\"Server: \" + node.hostName);System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");",
-      "en": "[Real-World Story & Context]\nIn a cloud hosting cluster, an agent monitors server RAM usage. It calculates the remaining free RAM and percentage memory utilization.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class ServerNode with: String hostName;, int totalRamMb;, int usedRamMb;.\n2. In main, instantiate: ServerNode node = new ServerNode();.\n3. Assign values: node.hostName = \"prod-node-01.wiut.uz\";, node.totalRamMb = 16384;, node.usedRamMb = 12288;.\n4. Calculate free RAM (node.totalRamMb - node.usedRamMb) and usage percentage (((double) node.usedRamMb / node.totalRamMb) * 100.0).\n5. Print monitoring output on 2 lines:System.out.println(\"Server: \" + node.hostName);System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");"
+      "en": "[Real-World Story & Context]\nIn a cloud hosting cluster, an agent monitors server RAM usage. It calculates the remaining free RAM and percentage memory utilization.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class ServerNode with: String hostName;, int totalRamMb;, int usedRamMb;.\n2. In main, instantiate: ServerNode node = new ServerNode();.\n3. Assign values: node.hostName = \"prod-node-01.wiut.uz\";, node.totalRamMb = 16384;, node.usedRamMb = 12288;.\n4. Calculate free RAM (node.totalRamMb - node.usedRamMb) and usage percentage (((double) node.usedRamMb / node.totalRamMb) * 100.0).\n5. Print monitoring output on 2 lines:System.out.println(\"Server: \" + node.hostName);System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");",
+      "ru": "📖 Контекст и описание задачи\nВ кластере облачного хостинга агент контролирует использование оперативной памяти сервера. Он вычисляет оставшуюся свободную оперативную память и процент использования памяти.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>ServerNode</code> с помощью: <code>String hostName;</code>, <code>int totalRamMb;</code>, <code>int usedRamMb;</code>.\n2. В <code>main</code> создайте экземпляр: <code>ServerNode node = new ServerNode();</code>.\n3. Assign values: <code>node.hostName = \"prod-node-01.wiut.uz\";</code>, <code>node.totalRamMb = 16384;</code>, <code>node.usedRamMb = 12288;</code>.\n4. Рассчитайте свободную оперативную память (<code>node.totalRamMb - node.usedRamMb</code>) и процент использования (<code>((double) node.usedRamMb / node.totalRamMb) * 100.0</code>).\n5. Распечатайте выходные данные мониторинга в 2 строки:<br><code>System.out.println(\"Server: \" + node.hostName);</code><br><code>System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");</code>"
     },
     "requirements": {
       "classes": [
@@ -348,7 +411,13 @@ window.OOP_CHALLENGES_W1 = [
         "Hisoblashda casting to'g'ri qo'llanildi."
       ],
       "pitfalls": "Nolga bo'lish (Division by zero) holatlariga doim e'tibor qarating.",
-      "cw2Tip": "Kompyuter resurslarini to'g'ri hisoblash Java Core dasturchisi uchun shart."
+      "cw2Tip": "Kompyuter resurslarini to'g'ri hisoblash Java Core dasturchisi uchun shart.",
+      "theoryRu": "Явное приведение к двойному значению обеспечивает деление с плавающей запятой без усечения.",
+      "pitfallsRu": "Всегда обращайте внимание на деление на ноль.",
+      "breakdownRu": [
+        "Объявлены целочисленные поля, представляющие параметры сервера.",
+        "В расчете правильно применено литье."
+      ]
     },
     "sampleData": [
       "hostName: \"prod-node-01.wiut.uz\"",
@@ -358,7 +427,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Server: prod-node-01.wiut.uz\nBo'sh RAM: 4096 MB | Bandlik: 75.0%",
     "story": {
       "uz": "Bulutli infratuzilma klasterida serverlarning tezkor xotira (RAM) sarfini monitoring qilib boruvchi agent ishlab chiqilmoqda. Bo'sh xotira va yuklanish foizi hisoblanishi zarur.",
-      "en": "In a cloud hosting cluster, an agent monitors server RAM usage. It calculates the remaining free RAM and percentage memory utilization."
+      "en": "In a cloud hosting cluster, an agent monitors server RAM usage. It calculates the remaining free RAM and percentage memory utilization.",
+      "ru": "В кластере облачного хостинга агент контролирует использование оперативной памяти сервера. Он вычисляет оставшуюся свободную оперативную память и процент использования памяти."
     },
     "steps": {
       "uz": [
@@ -374,6 +444,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>node.hostName = \"prod-node-01.wiut.uz\";</code>, <code>node.totalRamMb = 16384;</code>, <code>node.usedRamMb = 12288;</code>.",
         "Calculate free RAM (<code>node.totalRamMb - node.usedRamMb</code>) and usage percentage (<code>((double) node.usedRamMb / node.totalRamMb) * 100.0</code>).",
         "Print monitoring output on 2 lines:<br><code>System.out.println(\"Server: \" + node.hostName);</code><br><code>System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>ServerNode</code> с помощью: <code>String hostName;</code>, <code>int totalRamMb;</code>, <code>int usedRamMb;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>ServerNode node = new ServerNode();</code>.",
+        "Assign values: <code>node.hostName = \"prod-node-01.wiut.uz\";</code>, <code>node.totalRamMb = 16384;</code>, <code>node.usedRamMb = 12288;</code>.",
+        "Рассчитайте свободную оперативную память (<code>node.totalRamMb - node.usedRamMb</code>) и процент использования (<code>((double) node.usedRamMb / node.totalRamMb) * 100.0</code>).",
+        "Распечатайте выходные данные мониторинга в 2 строки:<br><code>System.out.println(\"Server: \" + node.hostName);</code><br><code>System.out.println(\"Bo'sh RAM: \" + freeRam + \" MB | Bandlik: \" + usagePercent + \"%\");</code>"
       ]
     }
   },
@@ -384,11 +461,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "6. UzAirways — 'FlightBooking' va Chipta Shartli Formati",
-      "en": "6. UzAirways — 'FlightBooking' & Conditional Formatting"
+      "en": "6. UzAirways — 'FlightBooking' & Conditional Formatting",
+      "ru": "6. UzAirways — FlightBooking и условное форматирование"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nUzAirways aviakompaniyasining reys chiptalari boshqaruv tizimi. Yo'lovchining chipta klassi tekshirilib, biznes-klass yo'lovchilariga VIP Lounge kutish zaliga kirish ruxsati beriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. FlightBooking klassini yarating: String flightCode;, String passengerName;, int seatNumber;, boolean isBusinessClass;.\n2. Main metodida FlightBooking b = new FlightBooking(); ob'yektini yarating.\n3. Maydonlariga qiymat bering: b.flightCode = \"HY-101\";, b.passengerName = \"Akmal Nazarov\";, b.seatNumber = 3;, b.isBusinessClass = true;.\n4. Shart tekshiring: agar b.isBusinessClass rost bo'lsa \"Biznes-klass (VIP Lounge ruxsati bor)\", aks holda \"Standart joy\" matnini tayyorlang.\n5. Chiptani 2 qatorda chop eting:System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");",
-      "en": "[Real-World Story & Context]\nUzAirways flight ticketing system checks booking class. Business class passengers receive complimentary VIP Lounge access credentials.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FlightBooking with fields: String flightCode;, String passengerName;, int seatNumber;, boolean isBusinessClass;.\n2. In main, instantiate: FlightBooking b = new FlightBooking();.\n3. Assign values: b.flightCode = \"HY-101\";, b.passengerName = \"Akmal Nazarov\";, b.seatNumber = 3;, b.isBusinessClass = true;.\n4. Evaluate class: if b.isBusinessClass is true, text is \"Biznes-klass (VIP Lounge ruxsati bor)\", else \"Standart joy\".\n5. Print ticket details on 2 lines:System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");"
+      "en": "[Real-World Story & Context]\nUzAirways flight ticketing system checks booking class. Business class passengers receive complimentary VIP Lounge access credentials.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FlightBooking with fields: String flightCode;, String passengerName;, int seatNumber;, boolean isBusinessClass;.\n2. In main, instantiate: FlightBooking b = new FlightBooking();.\n3. Assign values: b.flightCode = \"HY-101\";, b.passengerName = \"Akmal Nazarov\";, b.seatNumber = 3;, b.isBusinessClass = true;.\n4. Evaluate class: if b.isBusinessClass is true, text is \"Biznes-klass (VIP Lounge ruxsati bor)\", else \"Standart joy\".\n5. Print ticket details on 2 lines:System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");",
+      "ru": "📖 Контекст и описание задачи\nСистема продажи авиабилетов UzAirways проверяет класс бронирования. Пассажиры бизнес-класса получают бесплатный доступ в VIP-зал.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>FlightBooking</code> с полями: <code>String flightCode;</code>, <code>String passengerName;</code>, <code>int seatNumber;</code>, <code>boolean isBusinessClass;</code>.\n2. В <code>main</code> создайте экземпляр: <code>FlightBooking b = new FlightBooking();</code>.\n3. Присвойте значения: <code>b.flightCode = \"HY-101\";</code>, <code>b.passengerName = \"Akmal Nazarov\";</code>, <code>b.seatNumber = 3;</code>, <code>b.isBusinessClass = true;</code>.\n4. Оценить класс: если <code>b.isBusinessClass</code> истинно, текст будет <code>\"Biznes-klass (VIP Lounge ruxsati bor)\"</code>, иначе <code>\"Standart joy\"</code>.\n5. Print ticket details on 2 lines:<br><code>System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);</code><br><code>System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");</code>"
     },
     "requirements": {
       "classes": [
@@ -425,7 +504,13 @@ window.OOP_CHALLENGES_W1 = [
         "Mantiqiy maydon asosida VIP xizmatlar ajratildi."
       ],
       "pitfalls": "boolean o'zgaruvchilarni if ichida `isBusinessClass == true` deb yozish shart emas, `if (isBusinessClass)` yetarli.",
-      "cw2Tip": "Foydalanuvchi huquqlari (Admin/User) ham xuddi shunday tekshiriladi."
+      "cw2Tip": "Foydalanuvchi huquqlari (Admin/User) ham xuddi shunday tekshiriladi.",
+      "theoryRu": "Поля действуют как авторитетный контейнер состояний, оцениваемый условной логикой.",
+      "pitfallsRu": "Нет необходимости записывать логические переменные как `isBusinessClass == true`, если достаточно `if (isBusinessClass)`.",
+      "breakdownRu": [
+        "Подробно описаны особенности авиабилета.",
+        "VIP-услуги распределяются на основе логической зоны."
+      ]
     },
     "sampleData": [
       "flightCode: \"HY-101\"",
@@ -436,7 +521,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Reys: HY-101 | Yo'lovchi: Akmal Nazarov\nJoy: #3 (Biznes-klass ? VIP Lounge ruxsati bor)",
     "story": {
       "uz": "UzAirways aviakompaniyasining reys chiptalari boshqaruv tizimi. Yo'lovchining chipta klassi tekshirilib, biznes-klass yo'lovchilariga VIP Lounge kutish zaliga kirish ruxsati beriladi.",
-      "en": "UzAirways flight ticketing system checks booking class. Business class passengers receive complimentary VIP Lounge access credentials."
+      "en": "UzAirways flight ticketing system checks booking class. Business class passengers receive complimentary VIP Lounge access credentials.",
+      "ru": "Система продажи авиабилетов UzAirways проверяет класс бронирования. Пассажиры бизнес-класса получают бесплатный доступ в VIP-зал."
     },
     "steps": {
       "uz": [
@@ -452,6 +538,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>b.flightCode = \"HY-101\";</code>, <code>b.passengerName = \"Akmal Nazarov\";</code>, <code>b.seatNumber = 3;</code>, <code>b.isBusinessClass = true;</code>.",
         "Evaluate class: if <code>b.isBusinessClass</code> is true, text is <code>\"Biznes-klass (VIP Lounge ruxsati bor)\"</code>, else <code>\"Standart joy\"</code>.",
         "Print ticket details on 2 lines:<br><code>System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);</code><br><code>System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>FlightBooking</code> с полями: <code>String flightCode;</code>, <code>String passengerName;</code>, <code>int seatNumber;</code>, <code>boolean isBusinessClass;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>FlightBooking b = new FlightBooking();</code>.",
+        "Присвойте значения: <code>b.flightCode = \"HY-101\";</code>, <code>b.passengerName = \"Akmal Nazarov\";</code>, <code>b.seatNumber = 3;</code>, <code>b.isBusinessClass = true;</code>.",
+        "Оценить класс: если <code>b.isBusinessClass</code> истинно, текст будет <code>\"Biznes-klass (VIP Lounge ruxsati bor)\"</code>, иначе <code>\"Standart joy\"</code>.",
+        "Print ticket details on 2 lines:<br><code>System.out.println(\"Reys: \" + b.flightCode + \" | Yo'lovchi: \" + b.passengerName);</code><br><code>System.out.println(\"Joy: #\" + b.seatNumber + \" (\" + loungeInfo + \")\");</code>"
       ]
     }
   },
@@ -462,11 +555,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "7. Korzinka Supermarket — 'InventoryItem' va Zaxira Qoldig'i Ogohlantirishi",
-      "en": "7. Korzinka Supermarket — 'InventoryItem' & Low Stock Alert"
+      "en": "7. Korzinka Supermarket — 'InventoryItem' & Low Stock Alert",
+      "ru": "7. Супермаркет «Корзинка» — «InventoryItem» и оповещение о низком запасе."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nKorzinka supermarketlar tarmog'ida tovar zaxirasi belgilangan minimal chegaradan kamayib ketganda avtomatik ogohlantiruvchi ta'minot moduli talab etiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. InventoryItem klassini tuzing: String skuCode;, String itemName;, int quantity;, int minThreshold;.\n2. Main metodida InventoryItem item = new InventoryItem(); ob'yektini yarating.\n3. Maydonlariga qiymat yuklang: item.skuCode = \"SKU-9901\";, item.itemName = \"Sut 1.5L Musaffo\";, item.quantity = 4;, item.minThreshold = 10;.\n4. item.quantity  shartini tekshirib, xulosa matnini tuzing.\n5. Ombor holatini 2 qatorda chop eting:System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" ",
-      "en": "[Real-World Story & Context]\nIn Korzinka supermarket chain, warehouse inventory triggers an automated restock alert when quantity drops below the designated threshold.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class InventoryItem with: String skuCode;, String itemName;, int quantity;, int minThreshold;.\n2. In main, instantiate: InventoryItem item = new InventoryItem();.\n3. Assign values: item.skuCode = \"SKU-9901\";, item.itemName = \"Sut 1.5L Musaffo\";, item.quantity = 4;, item.minThreshold = 10;.\n4. Check condition item.quantity .\n5. Print alert output on 2 lines:System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" "
+      "en": "[Real-World Story & Context]\nIn Korzinka supermarket chain, warehouse inventory triggers an automated restock alert when quantity drops below the designated threshold.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class InventoryItem with: String skuCode;, String itemName;, int quantity;, int minThreshold;.\n2. In main, instantiate: InventoryItem item = new InventoryItem();.\n3. Assign values: item.skuCode = \"SKU-9901\";, item.itemName = \"Sut 1.5L Musaffo\";, item.quantity = 4;, item.minThreshold = 10;.\n4. Check condition item.quantity .\n5. Print alert output on 2 lines:System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" ",
+      "ru": "📖 Контекст и описание задачи\nВ сети супермаркетов «Корзинка» наличие складских запасов вызывает автоматическое оповещение о пополнении запасов, когда количество падает ниже установленного порога.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>InventoryItem</code> с помощью: <code>String skuCode;</code>, <code>String itemName;</code>, <code>int quantity;</code>, <code>int minThreshold;</code>.\n2. В <code>main</code> создайте экземпляр: <code>InventoryItem item = new InventoryItem();</code>.\n3. Присвойте значения: <code>item.skuCode = \"SKU-9901\";</code>, <code>item.itemName = \"Sut 1.5L Musaffo\";</code>, <code>item.quantity = 4;</code>, <code>item.minThreshold = 10;</code>.\n4. Проверьте состояние <code>item.quantity <= item.minThreshold</code>.\n5. Распечатать вывод предупреждения в 2 строки:<br><code>System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");</code><br><code>System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" <= \" + item.minThreshold + \")\");</code>"
     },
     "requirements": {
       "classes": [
@@ -503,7 +598,13 @@ window.OOP_CHALLENGES_W1 = [
         "Minimal chegara bilan taqqoslab ogohlantirish berildi."
       ],
       "pitfalls": "Tenglik belgisini unutib faqat `<` yozish minimal miqdorda ogohlantirish chiqmay qolishiga olib kelishi mumkin.",
-      "cw2Tip": "CW2 Console ilovangizda mahsulot soni 0 ga tushib qolmasligini nazorat qilishda bu usul zarur."
+      "cw2Tip": "CW2 Console ilovangizda mahsulot soni 0 ga tushib qolmasligini nazorat qilishda bu usul zarur.",
+      "theoryRu": "Сравнение порогов оценивает ограничения производительности системы непосредственно на основании состояния экземпляра.",
+      "pitfallsRu": "Ввод только `<`, забыв знак равенства, может привести к тому, что будет пропущено минимальное количество предупреждений.",
+      "breakdownRu": [
+        "Артикул и номер складского товара сохранены.",
+        "Было вынесено предупреждение по поводу минимального порога."
+      ]
     },
     "sampleData": [
       "skuCode: \"SKU-99214\"",
@@ -514,7 +615,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Tovar: Sut 1.5L Musaffo | Qoldiq: 4 dona\nDIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (4 <= 10)",
     "story": {
       "uz": "Korzinka supermarketlar tarmog'ida tovar zaxirasi belgilangan minimal chegaradan kamayib ketganda avtomatik ogohlantiruvchi ta'minot moduli talab etiladi.",
-      "en": "In Korzinka supermarket chain, warehouse inventory triggers an automated restock alert when quantity drops below the designated threshold."
+      "en": "In Korzinka supermarket chain, warehouse inventory triggers an automated restock alert when quantity drops below the designated threshold.",
+      "ru": "В сети супермаркетов «Корзинка» наличие складских запасов вызывает автоматическое оповещение о пополнении запасов, когда количество падает ниже установленного порога."
     },
     "steps": {
       "uz": [
@@ -530,6 +632,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>item.skuCode = \"SKU-9901\";</code>, <code>item.itemName = \"Sut 1.5L Musaffo\";</code>, <code>item.quantity = 4;</code>, <code>item.minThreshold = 10;</code>.",
         "Check condition <code>item.quantity <= item.minThreshold</code>.",
         "Print alert output on 2 lines:<br><code>System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");</code><br><code>System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" <= \" + item.minThreshold + \")\");</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>InventoryItem</code> с помощью: <code>String skuCode;</code>, <code>String itemName;</code>, <code>int quantity;</code>, <code>int minThreshold;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>InventoryItem item = new InventoryItem();</code>.",
+        "Присвойте значения: <code>item.skuCode = \"SKU-9901\";</code>, <code>item.itemName = \"Sut 1.5L Musaffo\";</code>, <code>item.quantity = 4;</code>, <code>item.minThreshold = 10;</code>.",
+        "Проверьте состояние <code>item.quantity <= item.minThreshold</code>.",
+        "Распечатать вывод предупреждения в 2 строки:<br><code>System.out.println(\"Tovar: \" + item.itemName + \" | Qoldiq: \" + item.quantity + \" dona\");</code><br><code>System.out.println(\"DIQQAT: Qayta buyurtma bering! Qoldiq chegaradan kam (\" + item.quantity + \" <= \" + item.minThreshold + \")\");</code>"
       ]
     }
   },
@@ -540,11 +649,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "8. Medion Clinic — 'MedicalRecord' va Bemorning Vital Ko'rsatkichlari",
-      "en": "8. Medion Clinic — 'MedicalRecord' & Vital Health Metrics"
+      "en": "8. Medion Clinic — 'MedicalRecord' & Vital Health Metrics",
+      "ru": "8. Клиника Medion — «Медицинская запись» и показатели жизненно важного здоровья."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMedion xususiy klinikasida bemorning qon bosimi va tana harorati me'yordan oshganda gipertoniya xavfi to'g'risida shifokorga xulosa beruvchi tizim ishlab chiqilmoqda.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. MedicalRecord klassini yarating: String patientName;, int systolicPressure;, int diastolicPressure;, double bodyTemp;.\n2. Main metodida MedicalRecord rec = new MedicalRecord(); ob'yektini yarating.\n3. Maydonlariga qiymat bering: rec.patientName = \"Sanjar Jo'rayev\";, rec.systolicPressure = 145;, rec.diastolicPressure = 92;, rec.bodyTemp = 36.6;.\n4. Gipertoniya shartini tekshiring: if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90).\n5. Bemor kartasini 2 qatorda chop eting:System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");",
-      "en": "[Real-World Story & Context]\nMedion private clinic monitors vital patient health indicators, alerting doctors if systolic or diastolic blood pressure signals hypertension risk.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class MedicalRecord with: String patientName;, int systolicPressure;, int diastolicPressure;, double bodyTemp;.\n2. In main, instantiate: MedicalRecord rec = new MedicalRecord();.\n3. Assign values: rec.patientName = \"Sanjar Jo'rayev\";, rec.systolicPressure = 145;, rec.diastolicPressure = 92;, rec.bodyTemp = 36.6;.\n4. Evaluate hypertension condition: if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90).\n5. Print record details on 2 lines:System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");"
+      "en": "[Real-World Story & Context]\nMedion private clinic monitors vital patient health indicators, alerting doctors if systolic or diastolic blood pressure signals hypertension risk.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class MedicalRecord with: String patientName;, int systolicPressure;, int diastolicPressure;, double bodyTemp;.\n2. In main, instantiate: MedicalRecord rec = new MedicalRecord();.\n3. Assign values: rec.patientName = \"Sanjar Jo'rayev\";, rec.systolicPressure = 145;, rec.diastolicPressure = 92;, rec.bodyTemp = 36.6;.\n4. Evaluate hypertension condition: if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90).\n5. Print record details on 2 lines:System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");",
+      "ru": "📖 Контекст и описание задачи\nЧастная клиника Medion отслеживает жизненно важные показатели здоровья пациентов, предупреждая врачей, если систолическое или диастолическое артериальное давление сигнализирует о риске гипертонии.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>MedicalRecord</code> с помощью: <code>String patientName;</code>, <code>int systolicPressure;</code>, <code>int diastolicPressure;</code>, <code>double bodyTemp;</code>.\n2. В <code>main</code> создайте экземпляр: <code>MedicalRecord rec = new MedicalRecord();</code>.\n3. Присвойте значения: <code>rec.patientName = \"Sanjar Jo'rayev\";</code>, <code>rec.systolicPressure = 145;</code>, <code>rec.diastolicPressure = 92;</code>, <code>rec.bodyTemp = 36.6;</code>.\n4. Оценить состояние гипертонии: <code>if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90)</code>.\n5. Распечатать детали записи в 2 строки:<br><code>System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");</code><br><code>System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");</code>"
     },
     "requirements": {
       "classes": [
@@ -581,7 +692,13 @@ window.OOP_CHALLENGES_W1 = [
         "Qon bosimi xalqaro me'yorlari asosida xulosa berildi."
       ],
       "pitfalls": "Mantiqiy shartlarda qavslar ketma-ketligini to'g'ri qo'llash mantiqiy xatoliklarni oldini oladi.",
-      "cw2Tip": "Biznes qoidalari har doim bir nechta maydonlarning kombinatsiyasiga tayanadi."
+      "cw2Tip": "Biznes qoidalari har doim bir nechta maydonlarning kombinatsiyasiga tayanadi.",
+      "theoryRu": "Логическая дизъюнкция (||) оценивает несколько переменных состояния для определения условий медицинского риска.",
+      "pitfallsRu": "Правильное использование последовательности скобок в логических условиях позволяет избежать логических ошибок.",
+      "breakdownRu": [
+        "Систолическое и диастолическое давление сохранялось у инт-типов.",
+        "Заключение было сделано на основании международных норм артериального давления."
+      ]
     },
     "sampleData": [
       "patientName: \"Sanjar Jo'rayev\"",
@@ -592,7 +709,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Bemor: Sanjar Jo'rayev | Tana harorati: 36.6°C\nXulosa: Gipertoniya xavfi (145/92)",
     "story": {
       "uz": "Medion xususiy klinikasida bemorning qon bosimi va tana harorati me'yordan oshganda gipertoniya xavfi to'g'risida shifokorga xulosa beruvchi tizim ishlab chiqilmoqda.",
-      "en": "Medion private clinic monitors vital patient health indicators, alerting doctors if systolic or diastolic blood pressure signals hypertension risk."
+      "en": "Medion private clinic monitors vital patient health indicators, alerting doctors if systolic or diastolic blood pressure signals hypertension risk.",
+      "ru": "Частная клиника Medion отслеживает жизненно важные показатели здоровья пациентов, предупреждая врачей, если систолическое или диастолическое артериальное давление сигнализирует о риске гипертонии."
     },
     "steps": {
       "uz": [
@@ -608,6 +726,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>rec.patientName = \"Sanjar Jo'rayev\";</code>, <code>rec.systolicPressure = 145;</code>, <code>rec.diastolicPressure = 92;</code>, <code>rec.bodyTemp = 36.6;</code>.",
         "Evaluate hypertension condition: <code>if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90)</code>.",
         "Print record details on 2 lines:<br><code>System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");</code><br><code>System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>MedicalRecord</code> с помощью: <code>String patientName;</code>, <code>int systolicPressure;</code>, <code>int diastolicPressure;</code>, <code>double bodyTemp;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>MedicalRecord rec = new MedicalRecord();</code>.",
+        "Присвойте значения: <code>rec.patientName = \"Sanjar Jo'rayev\";</code>, <code>rec.systolicPressure = 145;</code>, <code>rec.diastolicPressure = 92;</code>, <code>rec.bodyTemp = 36.6;</code>.",
+        "Оценить состояние гипертонии: <code>if (rec.systolicPressure >= 140 || rec.diastolicPressure >= 90)</code>.",
+        "Распечатать детали записи в 2 строки:<br><code>System.out.println(\"Bemor: \" + rec.patientName + \" | Tana harorati: \" + rec.bodyTemp + \"°C\");</code><br><code>System.out.println(\"Xulosa: Gipertoniya xavfi (\" + rec.systolicPressure + \"/\" + rec.diastolicPressure + \")\");</code>"
       ]
     }
   },
@@ -618,11 +743,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "9. BYD Auto — 'VehicleTelemetry' va Elektromobil Zaxira Masofasi",
-      "en": "9. BYD Auto — 'VehicleTelemetry' & Electric Range Estimation"
+      "en": "9. BYD Auto — 'VehicleTelemetry' & Electric Range Estimation",
+      "ru": "9. BYD Auto — «Телеметрия транспортного средства» и оценка запаса хода на электротяге"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBYD elektromobilining bort kompyuteri telemetriya ma'lumotlari orqali akkumulyatorning qolgan quvvat foizi va unga asoslangan zaxira yurish masofasini (km) real vaqtda hisoblaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Vehicle klassini tuzing: String vin;, double batteryCapacityKwh;, double currentChargeKwh;, double consumptionPer100Km;.\n2. Main metodida Vehicle car = new Vehicle(); ob'yektini yarating.\n3. Maydonlariga qiymat yuklang: car.vin = \"BYD-CHAZOR-2024-UZB\";, car.batteryCapacityKwh = 18.3;, car.currentChargeKwh = 12.0;, car.consumptionPer100Km = 14.5;.\n4. Zaryad foizi ((car.currentChargeKwh / car.batteryCapacityKwh) * 100.0) va zaxira masofasini ((car.currentChargeKwh / car.consumptionPer100Km) * 100.0) hisoblang.\n5. Avtomobil telemetriyasini 2 qatorda chop eting:System.out.println(\"VIN: \" + car.vin);System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");",
-      "en": "[Real-World Story & Context]\nBYD electric vehicle telemetry computer estimates battery remaining charge percentage and calculates remaining driving range in kilometers.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Vehicle with: String vin;, double batteryCapacityKwh;, double currentChargeKwh;, double consumptionPer100Km;.\n2. In main, instantiate: Vehicle car = new Vehicle();.\n3. Assign values: car.vin = \"BYD-CHAZOR-2024-UZB\";, car.batteryCapacityKwh = 18.3;, car.currentChargeKwh = 12.0;, car.consumptionPer100Km = 14.5;.\n4. Compute charge percentage and remaining range in km.\n5. Print telemetry data on 2 lines:System.out.println(\"VIN: \" + car.vin);System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");"
+      "en": "[Real-World Story & Context]\nBYD electric vehicle telemetry computer estimates battery remaining charge percentage and calculates remaining driving range in kilometers.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Vehicle with: String vin;, double batteryCapacityKwh;, double currentChargeKwh;, double consumptionPer100Km;.\n2. In main, instantiate: Vehicle car = new Vehicle();.\n3. Assign values: car.vin = \"BYD-CHAZOR-2024-UZB\";, car.batteryCapacityKwh = 18.3;, car.currentChargeKwh = 12.0;, car.consumptionPer100Km = 14.5;.\n4. Compute charge percentage and remaining range in km.\n5. Print telemetry data on 2 lines:System.out.println(\"VIN: \" + car.vin);System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");",
+      "ru": "📖 Контекст и описание задачи\nКомпьютер телеметрии электромобиля BYD оценивает процент оставшегося заряда аккумулятора и рассчитывает оставшийся запас хода в километрах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Vehicle</code> с помощью: <code>String vin;</code>, <code>double batteryCapacityKwh;</code>, <code>double currentChargeKwh;</code>, <code>double consumptionPer100Km;</code>.\n2. В <code>main</code> создайте экземпляр: <code>Vehicle car = new Vehicle();</code>.\n3. Assign values: <code>car.vin = \"BYD-CHAZOR-2024-UZB\";</code>, <code>car.batteryCapacityKwh = 18.3;</code>, <code>car.currentChargeKwh = 12.0;</code>, <code>car.consumptionPer100Km = 14.5;</code>.\n4. Вычислите процент заряда и оставшийся запас хода в км.\n5. Print telemetry data on 2 lines:<br><code>System.out.println(\"VIN: \" + car.vin);</code><br><code>System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");</code>"
     },
     "requirements": {
       "classes": [
@@ -659,7 +786,13 @@ window.OOP_CHALLENGES_W1 = [
         "Qolgan quvvat va 100 km sarf nisbati orqali masofa aniqlandi."
       ],
       "pitfalls": "consumptionPer100Km nolga teng bo'lmasligi kerak, aks holda cheksizlik (Infinity) paydo bo'ladi.",
-      "cw2Tip": "Real konsol ilovalarida ma'lumotlarni hisoblash doimo shu kabi modellarga tayanadi."
+      "cw2Tip": "Real konsol ilovalarida ma'lumotlarni hisoblash doimo shu kabi modellarga tayanadi.",
+      "theoryRu": "Модели инженерной предметной области преобразуют необработанные физические показатели в действенные индикаторы для конечных пользователей.",
+      "pitfallsRu": "потребление на 100 км не должно быть нулевым, иначе появится бесконечность.",
+      "breakdownRu": [
+        "Параметры электромобиля публикуются с двойной точностью.",
+        "Расстояние определялось соотношением оставшейся мощности и расхода на 100 км."
+      ]
     },
     "sampleData": [
       "vin: \"BYD-CHAZOR-2024-UZB\"",
@@ -670,7 +803,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "VIN: BYD-CHAZOR-2024-UZB\nBatareya: 65.57377049180327% | Zaxira masofa: 82.75862068965517 km",
     "story": {
       "uz": "BYD elektromobilining bort kompyuteri telemetriya ma'lumotlari orqali akkumulyatorning qolgan quvvat foizi va unga asoslangan zaxira yurish masofasini (km) real vaqtda hisoblaydi.",
-      "en": "BYD electric vehicle telemetry computer estimates battery remaining charge percentage and calculates remaining driving range in kilometers."
+      "en": "BYD electric vehicle telemetry computer estimates battery remaining charge percentage and calculates remaining driving range in kilometers.",
+      "ru": "Компьютер телеметрии электромобиля BYD оценивает процент оставшегося заряда аккумулятора и рассчитывает оставшийся запас хода в километрах."
     },
     "steps": {
       "uz": [
@@ -686,6 +820,13 @@ window.OOP_CHALLENGES_W1 = [
         "Assign values: <code>car.vin = \"BYD-CHAZOR-2024-UZB\";</code>, <code>car.batteryCapacityKwh = 18.3;</code>, <code>car.currentChargeKwh = 12.0;</code>, <code>car.consumptionPer100Km = 14.5;</code>.",
         "Compute charge percentage and remaining range in km.",
         "Print telemetry data on 2 lines:<br><code>System.out.println(\"VIN: \" + car.vin);</code><br><code>System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>Vehicle</code> с помощью: <code>String vin;</code>, <code>double batteryCapacityKwh;</code>, <code>double currentChargeKwh;</code>, <code>double consumptionPer100Km;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>Vehicle car = new Vehicle();</code>.",
+        "Assign values: <code>car.vin = \"BYD-CHAZOR-2024-UZB\";</code>, <code>car.batteryCapacityKwh = 18.3;</code>, <code>car.currentChargeKwh = 12.0;</code>, <code>car.consumptionPer100Km = 14.5;</code>.",
+        "Вычислите процент заряда и оставшийся запас хода в км.",
+        "Print telemetry data on 2 lines:<br><code>System.out.println(\"VIN: \" + car.vin);</code><br><code>System.out.println(\"Batareya: \" + batteryPercent + \"% | Zaxira masofa: \" + remainingKm + \" km\");</code>"
       ]
     }
   },
@@ -696,11 +837,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "1-10",
     "title": {
       "uz": "10. E-Auction — 'AuctionLot' va Raqobatli Takliflar Logikasi (Stage 1 Master)",
-      "en": "10. E-Auction — 'AuctionLot' & Competitive Bidding (Stage 1 Master)"
+      "en": "10. E-Auction — 'AuctionLot' & Competitive Bidding (Stage 1 Master)",
+      "ru": "10. Электронный аукцион — «AuctionLot» и конкурсные торги (этап 1, мастер)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nE-Auksion platformasida qimmatbaho lot savdosi o'tkazilmoqda. Qatnashchilardan yangi taklif tushganda, agar u joriy eng yuqori narxdan katta bo'lsagina auksion yetakchisi va narxi yangilanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. AuctionLot klassini yarating: String lotTitle;, double startingPrice;, double highestBid;, String highestBidder;.\n2. Main metodida AuctionLot lot = new AuctionLot(); ob'yektini yarating.\n3. Boshlang'ich qiymatlarni o'rnating: lot.lotTitle = \"Toshkent City Ofis Binosi\";, lot.startingPrice = 500000.0;, lot.highestBid = 500000.0;, lot.highestBidder = \"Boshlang'ich\";.\n4. Yangi taklifni tekshiring (double newBid = 520000.0; String newBidder = \"Kompaniya A\";): agar newBid > lot.highestBid bo'lsa, highestBid va highestBidder ni yangilang.\n5. Auksion natijasini 2 qatorda chop eting:System.out.println(\"Lot: \" + lot.lotTitle);System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);",
-      "en": "[Real-World Story & Context]\nOn E-Auction platform, participants bid on high-value lots. A new bid updates the highest bidder and bid price only if it strictly exceeds the current highest bid.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class AuctionLot with: String lotTitle;, double startingPrice;, double highestBid;, String highestBidder;.\n2. In main, instantiate: AuctionLot lot = new AuctionLot();.\n3. Set initial values: lot.lotTitle = \"Toshkent City Ofis Binosi\";, lot.startingPrice = 500000.0;, lot.highestBid = 500000.0;, lot.highestBidder = \"Boshlang'ich\";.\n4. Process new bid (520000.0, \"Kompaniya A\"): update highest bidder if higher than current highest bid.\n5. Print auction result on 2 lines:System.out.println(\"Lot: \" + lot.lotTitle);System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);"
+      "en": "[Real-World Story & Context]\nOn E-Auction platform, participants bid on high-value lots. A new bid updates the highest bidder and bid price only if it strictly exceeds the current highest bid.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class AuctionLot with: String lotTitle;, double startingPrice;, double highestBid;, String highestBidder;.\n2. In main, instantiate: AuctionLot lot = new AuctionLot();.\n3. Set initial values: lot.lotTitle = \"Toshkent City Ofis Binosi\";, lot.startingPrice = 500000.0;, lot.highestBid = 500000.0;, lot.highestBidder = \"Boshlang'ich\";.\n4. Process new bid (520000.0, \"Kompaniya A\"): update highest bidder if higher than current highest bid.\n5. Print auction result on 2 lines:System.out.println(\"Lot: \" + lot.lotTitle);System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);",
+      "ru": "📖 Контекст и описание задачи\nНа платформе электронного аукциона участники делают ставки на дорогостоящие лоты. Новая ставка обновляет имя участника, предложившего самую высокую цену, и цену предложения только в том случае, если она строго превышает текущую максимальную ставку.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>AuctionLot</code> с помощью: <code>String lotTitle;</code>, <code>double startingPrice;</code>, <code>double highestBid;</code>, <code>String highestBidder;</code>.\n2. В <code>main</code> создайте экземпляр: <code>AuctionLot lot = new AuctionLot();</code>.\n3. Set initial values: <code>lot.lotTitle = \"Toshkent City Ofis Binosi\";</code>, <code>lot.startingPrice = 500000.0;</code>, <code>lot.highestBid = 500000.0;</code>, <code>lot.highestBidder = \"Boshlang'ich\";</code>.\n4. Обработка новой ставки (<code>520000.0, \"Kompaniya A\"</code>): обновление участника, предложившего самую высокую цену, если она превышает текущую максимальную ставку.\n5. Print auction result on 2 lines:<br><code>System.out.println(\"Lot: \" + lot.lotTitle);</code><br><code>System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);</code>"
     },
     "requirements": {
       "classes": [
@@ -738,7 +881,14 @@ window.OOP_CHALLENGES_W1 = [
         "Bu topshiriq 2-bosqichdagi metodlar konseptsiyasiga tabiiy ko'prik vazifasini o'taydi."
       ],
       "pitfalls": "Boshlang'ich narx bilan eng yuqori narx tenglashtirilmasa, takliflar xato tekshirilishi mumkin.",
-      "cw2Tip": "Auksion va savat tizimlarida ob'yekt holatini yangilash eng ko'p uchraydigan vazifadir."
+      "cw2Tip": "Auksion va savat tizimlarida ob'yekt holatini yangilash eng ko'p uchraydigan vazifadir.",
+      "theoryRu": "На этапе 1 мы внешне мутировали состояние. Перемещение этой логики внутри класса в виде методов экземпляра — основная цель этапа 2.",
+      "pitfallsRu": "Ставки могут быть проверены неправильно, если самая высокая цена не соответствует стартовой цене.",
+      "breakdownRu": [
+        "Все экземпляры лотов аукциона хранятся в памяти Heap.",
+        "Были проверены конкурентные ценовые условия и определен победитель.",
+        "Эта задача служит естественным мостом к концепции методов на этапе 2."
+      ]
     },
     "sampleData": [
       "lotTitle: \"Toshkent City Ofis Binosi\"",
@@ -750,7 +900,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Lot: Toshkent City Ofis Binosi\nG'olib: Kompaniya A | Yakuniy narx: $520000.0",
     "story": {
       "uz": "E-Auksion platformasida qimmatbaho lot savdosi o'tkazilmoqda. Qatnashchilardan yangi taklif tushganda, agar u joriy eng yuqori narxdan katta bo'lsagina auksion yetakchisi va narxi yangilanadi.",
-      "en": "On E-Auction platform, participants bid on high-value lots. A new bid updates the highest bidder and bid price only if it strictly exceeds the current highest bid."
+      "en": "On E-Auction platform, participants bid on high-value lots. A new bid updates the highest bidder and bid price only if it strictly exceeds the current highest bid.",
+      "ru": "На платформе электронного аукциона участники делают ставки на дорогостоящие лоты. Новая ставка обновляет имя участника, предложившего самую высокую цену, и цену предложения только в том случае, если она строго превышает текущую максимальную ставку."
     },
     "steps": {
       "uz": [
@@ -766,6 +917,13 @@ window.OOP_CHALLENGES_W1 = [
         "Set initial values: <code>lot.lotTitle = \"Toshkent City Ofis Binosi\";</code>, <code>lot.startingPrice = 500000.0;</code>, <code>lot.highestBid = 500000.0;</code>, <code>lot.highestBidder = \"Boshlang'ich\";</code>.",
         "Process new bid (<code>520000.0, \"Kompaniya A\"</code>): update highest bidder if higher than current highest bid.",
         "Print auction result on 2 lines:<br><code>System.out.println(\"Lot: \" + lot.lotTitle);</code><br><code>System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>AuctionLot</code> с помощью: <code>String lotTitle;</code>, <code>double startingPrice;</code>, <code>double highestBid;</code>, <code>String highestBidder;</code>.",
+        "В <code>main</code> создайте экземпляр: <code>AuctionLot lot = new AuctionLot();</code>.",
+        "Set initial values: <code>lot.lotTitle = \"Toshkent City Ofis Binosi\";</code>, <code>lot.startingPrice = 500000.0;</code>, <code>lot.highestBid = 500000.0;</code>, <code>lot.highestBidder = \"Boshlang'ich\";</code>.",
+        "Обработка новой ставки (<code>520000.0, \"Kompaniya A\"</code>): обновление участника, предложившего самую высокую цену, если она превышает текущую максимальную ставку.",
+        "Print auction result on 2 lines:<br><code>System.out.println(\"Lot: \" + lot.lotTitle);</code><br><code>System.out.println(\"G'olib: \" + lot.highestBidder + \" | Yakuniy narx: $\" + lot.highestBid);</code>"
       ]
     }
   },
@@ -776,11 +934,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "11. Digital Wallet — 'deposit' va 'withdraw' Instans Metodlari",
-      "en": "11. Digital Wallet — 'deposit' & 'withdraw' Instance Methods"
+      "en": "11. Digital Wallet — 'deposit' & 'withdraw' Instance Methods",
+      "ru": "11. Цифровой кошелек — методы «пополнения» и «вывода»"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nRaqamli hamyon tizimida balansni to'g'ridan-to'g'ri tashqaridan o'zgartirish o'rniga, pul kiritish va pul yechish amallari ob'yektning o'ziga tegishli instans metodlari orqali amalga oshiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Wallet klassini tuzing va unga double balance; maydonini e'lon qiling.\n2. public void deposit(double amount) metodini yozing: agar amount > 0 bo'lsa, balance += amount;.\n3. public void withdraw(double amount) metodini yozing: agar amount > 0 va balance >= amount bo'lsa, balance -= amount;.\n4. Main metodida Wallet w = new Wallet(); yarating va w.balance = 50000.0; boshlang'ich mablag' bering.\n5. Ketma-ket chaqiring: w.deposit(20000.0); so'ng w.withdraw(15000.0); va yakuniy balansni chop eting: System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");",
-      "en": "[Real-World Story & Context]\nIn a digital wallet system, funds must not be directly manipulated from outside. Dedicated instance methods manage deposits and withdrawals safely.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Wallet with field double balance;.\n2. Implement public void deposit(double amount): if amount > 0, add to balance.\n3. Implement public void withdraw(double amount): if amount > 0 and balance >= amount, subtract from balance.\n4. In main, instantiate Wallet w = new Wallet(); with w.balance = 50000.0;.\n5. Call w.deposit(20000.0);, then w.withdraw(15000.0);, and print final balance: System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");"
+      "en": "[Real-World Story & Context]\nIn a digital wallet system, funds must not be directly manipulated from outside. Dedicated instance methods manage deposits and withdrawals safely.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Wallet with field double balance;.\n2. Implement public void deposit(double amount): if amount > 0, add to balance.\n3. Implement public void withdraw(double amount): if amount > 0 and balance >= amount, subtract from balance.\n4. In main, instantiate Wallet w = new Wallet(); with w.balance = 50000.0;.\n5. Call w.deposit(20000.0);, then w.withdraw(15000.0);, and print final balance: System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");",
+      "ru": "📖 Контекст и описание задачи\nВ системе цифрового кошелька средствами нельзя манипулировать напрямую извне. Выделенные методы экземпляра безопасно управляют депозитами и снятием средств.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Wallet</code> с полем <code>double balance;</code>.\n2. Внедрить <code>public void deposit(double amount)</code>: если <code>amount > 0</code>, добавить к балансу.\n3. Реализуйте <code>public void withdraw(double amount)</code>: если <code>amount > 0</code> и <code>balance >= amount</code>, вычтите из баланса.\n4. В <code>main</code> создайте экземпляр <code>Wallet w = new Wallet();</code> с помощью <code>w.balance = 50000.0;</code>.\n5. Вызовите <code>w.deposit(20000.0);</code>, затем <code>w.withdraw(15000.0);</code> и напечатайте окончательный баланс: <code>System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");</code>."
     },
     "requirements": {
       "classes": [
@@ -834,7 +994,14 @@ window.OOP_CHALLENGES_W1 = [
         "Tashqi kod faqat metodlarni chaqiradi, hisoblash mantiqini takrorlamaydi."
       ],
       "pitfalls": "Manfiy miqdorlarni tekshirmasdan to'g'ridan-to'g'ri `balance += amount` qilish xatolikka olib keladi.",
-      "cw2Tip": "Bank va hisob-kitob klasslarida barcha harakatlar aynan metodlar orqali amalga oshiriladi."
+      "cw2Tip": "Bank va hisob-kitob klasslarida barcha harakatlar aynan metodlar orqali amalga oshiriladi.",
+      "theoryRu": "Методы экземпляра представляют поведение объекта, работая непосредственно с полями экземпляра для обеспечения автономности.",
+      "pitfallsRu": "Непосредственное выполнение `balance += amount` без проверки отрицательных величин приведет к ошибке.",
+      "breakdownRu": [
+        "<code>public void deposit(double amount)</code>: параметризованный метод void, заполняющий баланс.",
+        "<code>public void withdraw(double amount)</code>: Метод решения, когда средств достаточно.",
+        "Внешний код только вызывает методы, не повторяет логику вычислений."
+      ]
     },
     "sampleData": [
       "Boshlang'ich balans: 50000.0 so'm",
@@ -844,7 +1011,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Hamyon balansi: 55000.0 so'm",
     "story": {
       "uz": "Raqamli hamyon tizimida balansni to'g'ridan-to'g'ri tashqaridan o'zgartirish o'rniga, pul kiritish va pul yechish amallari ob'yektning o'ziga tegishli instans metodlari orqali amalga oshiriladi.",
-      "en": "In a digital wallet system, funds must not be directly manipulated from outside. Dedicated instance methods manage deposits and withdrawals safely."
+      "en": "In a digital wallet system, funds must not be directly manipulated from outside. Dedicated instance methods manage deposits and withdrawals safely.",
+      "ru": "В системе цифрового кошелька средствами нельзя манипулировать напрямую извне. Выделенные методы экземпляра безопасно управляют депозитами и снятием средств."
     },
     "steps": {
       "uz": [
@@ -860,6 +1028,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>public void withdraw(double amount)</code>: if <code>amount > 0</code> and <code>balance >= amount</code>, subtract from balance.",
         "In <code>main</code>, instantiate <code>Wallet w = new Wallet();</code> with <code>w.balance = 50000.0;</code>.",
         "Call <code>w.deposit(20000.0);</code>, then <code>w.withdraw(15000.0);</code>, and print final balance: <code>System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>Wallet</code> с полем <code>double balance;</code>.",
+        "Внедрить <code>public void deposit(double amount)</code>: если <code>amount > 0</code>, добавить к балансу.",
+        "Реализуйте <code>public void withdraw(double amount)</code>: если <code>amount > 0</code> и <code>balance >= amount</code>, вычтите из баланса.",
+        "В <code>main</code> создайте экземпляр <code>Wallet w = new Wallet();</code> с помощью <code>w.balance = 50000.0;</code>.",
+        "Вызовите <code>w.deposit(20000.0);</code>, затем <code>w.withdraw(15000.0);</code> и напечатайте окончательный баланс: <code>System.out.println(\"Hamyon balansi: \" + w.balance + \" so'm\");</code>."
       ]
     }
   },
@@ -870,11 +1045,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "12. Uzum Sale — Qiymat Qaytaruvchi 'calculateFinalPrice' Metodi",
-      "en": "12. Uzum Sale — Value-Returning 'calculateFinalPrice' Method"
+      "en": "12. Uzum Sale — Value-Returning 'calculateFinalPrice' Method",
+      "ru": "12. Продажа узума — метод «calculateFinalPrice», возвращающий стоимость."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nUzum Market elektron savdo platformasida mavsumiy chegirmalar kampaniyasi e'lon qilindi. Mahsulotning asl narxidan chegirma foizini ayirib, xaridor to'lashi kerak bo'lgan yakuniy narxni hisoblab qaytaruvchi ('return') metod zarur.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. ProductSale klassini yarating va unga double basePrice; maydonini qo'shing.\n2. public double calculateFinalPrice(double discountPercentage) metodini yozing:• Formulalar: double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;\n3. Main metodida ProductSale sale = new ProductSale(); obyektini yarating.\n4. Maydonga sale.basePrice = 1200000.0; qiymatini bering.\n5. Metodni chaqiring va natijani chop eting: double finalPrice = sale.calculateFinalPrice(15.0);System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);",
-      "en": "[Real-World Story & Context]\nOn Uzum Market, a seasonal discount campaign has been launched. A value-returning ('return') method is required to calculate the final price payable after deducting the discount percentage.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class ProductSale with field double basePrice;.\n2. Implement public double calculateFinalPrice(double discountPercentage):• Formula: double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;\n3. In main, instantiate ProductSale sale = new ProductSale();.\n4. Assign sale.basePrice = 1200000.0;.\n5. Call method and print output: double finalPrice = sale.calculateFinalPrice(15.0);System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);"
+      "en": "[Real-World Story & Context]\nOn Uzum Market, a seasonal discount campaign has been launched. A value-returning ('return') method is required to calculate the final price payable after deducting the discount percentage.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class ProductSale with field double basePrice;.\n2. Implement public double calculateFinalPrice(double discountPercentage):• Formula: double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;\n3. In main, instantiate ProductSale sale = new ProductSale();.\n4. Assign sale.basePrice = 1200000.0;.\n5. Call method and print output: double finalPrice = sale.calculateFinalPrice(15.0);System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);",
+      "ru": "📖 Контекст и описание задачи\nНа Uzum Market запущена сезонная скидочная кампания. Метод возврата стоимости («возврат») необходим для расчета окончательной цены, подлежащей уплате после вычета процента скидки.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>ProductSale</code> с полем <code>double basePrice;</code>.\n2. Реализуйте <code>public double calculateFinalPrice(double discountPercentage)</code>:<br>• Формула: <code>double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;</code>\n3. В <code>main</code> создайте экземпляр <code>ProductSale sale = new ProductSale();</code>.\n4. Назначьте <code>sale.basePrice = 1200000.0;</code>.\n5. Метод вызова и вывод на печать: <code>double finalPrice = sale.calculateFinalPrice(15.0);</code><br><code>System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);</code>"
     },
     "requirements": {
       "classes": [
@@ -915,7 +1092,13 @@ window.OOP_CHALLENGES_W1 = [
         "Asosiy narx buzilmasdan saqlanadi, faqat hisoblangan qiymat qaytariladi."
       ],
       "pitfalls": "return so'zidan keyin yozilgan har qanday kod bajarilmaydi (unreachable code xatosi).",
-      "cw2Tip": "CW2 buyurtma ilovasida savat chegirmalari aynan shu uslubda hisoblanadi."
+      "cw2Tip": "CW2 buyurtma ilovasida savat chegirmalari aynan shu uslubda hisoblanadi.",
+      "theoryRu": "Оператор return отправляет вычисленные данные обратно вызывающему объекту в соответствии с объявленным типом возвращаемого значения в сигнатуре.",
+      "pitfallsRu": "любой код, написанный после возврата, не будет выполнен (ошибка недостижимого кода).",
+      "breakdownRu": [
+        "<code>double calculateFinalPrice(double discountPercentage)</code>: указан входной аргумент и тип вывода.",
+        "Базовая цена сохраняется, возвращается только рассчитанное значение."
+      ]
     },
     "sampleData": [
       "basePrice: 1200000.0 so'm",
@@ -924,7 +1107,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Asl narx: 1200000.0 | Chegirmali narx: 1020000.0",
     "story": {
       "uz": "Uzum Market elektron savdo platformasida mavsumiy chegirmalar kampaniyasi e'lon qilindi. Mahsulotning asl narxidan chegirma foizini ayirib, xaridor to'lashi kerak bo'lgan yakuniy narxni hisoblab qaytaruvchi ('return') metod zarur.",
-      "en": "On Uzum Market, a seasonal discount campaign has been launched. A value-returning ('return') method is required to calculate the final price payable after deducting the discount percentage."
+      "en": "On Uzum Market, a seasonal discount campaign has been launched. A value-returning ('return') method is required to calculate the final price payable after deducting the discount percentage.",
+      "ru": "На Uzum Market запущена сезонная скидочная кампания. Метод возврата стоимости («возврат») необходим для расчета окончательной цены, подлежащей уплате после вычета процента скидки."
     },
     "steps": {
       "uz": [
@@ -940,6 +1124,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>ProductSale sale = new ProductSale();</code>.",
         "Assign <code>sale.basePrice = 1200000.0;</code>.",
         "Call method and print output: <code>double finalPrice = sale.calculateFinalPrice(15.0);</code><br><code>System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>ProductSale</code> с полем <code>double basePrice;</code>.",
+        "Реализуйте <code>public double calculateFinalPrice(double discountPercentage)</code>:<br>• Формула: <code>double discountAmount = basePrice * (discountPercentage / 100.0); return basePrice - discountAmount;</code>",
+        "В <code>main</code> создайте экземпляр <code>ProductSale sale = new ProductSale();</code>.",
+        "Назначьте <code>sale.basePrice = 1200000.0;</code>.",
+        "Метод вызова и вывод на печать: <code>double finalPrice = sale.calculateFinalPrice(15.0);</code><br><code>System.out.println(\"Asl narx: \" + sale.basePrice + \" | Chegirmali narx: \" + finalPrice);</code>"
       ]
     }
   },
@@ -950,11 +1141,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "13. Smart Thermostat — Limitlar va Chegaraviy Tekshiruv (Guard Clauses)",
-      "en": "13. Smart Thermostat — Guard Clauses & Safe Limits"
+      "en": "13. Smart Thermostat — Guard Clauses & Safe Limits",
+      "ru": "13. Умный термостат — защитные положения и безопасные пределы"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nAqlli uy termostati xona haroratini xavfsiz chegaralarda (16°C dan 32°C gacha) saqlashi shart. Haroratni ko'tarish yoki tushirishda chegaraviy qoidalar (Guard Clauses) qo'llaniladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Thermostat klassini tuzing: double currentTemp; maydonini e'lon qiling.\n2. public void increaseTemp(double delta) metodini yozing: agar currentTemp + delta  bo'lsa currentTemp += delta;, aks holda currentTemp = 32.0;.\n3. public void decreaseTemp(double delta) metodini yozing: agar currentTemp - delta >= 16.0 bo'lsa currentTemp -= delta;, aks holda currentTemp = 16.0;.\n4. Main metodida Thermostat t = new Thermostat(); tuzib, t.currentTemp = 22.0; bering.\n5. Metodlarni chaqiring va natijalarni chop eting:t.increaseTemp(15.0); -> System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");t.decreaseTemp(20.0); -> System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");",
-      "en": "[Real-World Story & Context]\nSmart home thermostat must keep ambient temperature strictly within safe bounds (16°C to 32°C). Guard clauses prevent out-of-range temperatures.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Thermostat with field double currentTemp;.\n2. Implement public void increaseTemp(double delta): cap at 32.0°C maximum.\n3. Implement public void decreaseTemp(double delta): floor at 16.0°C minimum.\n4. In main, instantiate Thermostat t = new Thermostat(); and set t.currentTemp = 22.0;.\n5. Invoke methods and print temperatures:t.increaseTemp(15.0); -> System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");t.decreaseTemp(20.0); -> System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");"
+      "en": "[Real-World Story & Context]\nSmart home thermostat must keep ambient temperature strictly within safe bounds (16°C to 32°C). Guard clauses prevent out-of-range temperatures.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Thermostat with field double currentTemp;.\n2. Implement public void increaseTemp(double delta): cap at 32.0°C maximum.\n3. Implement public void decreaseTemp(double delta): floor at 16.0°C minimum.\n4. In main, instantiate Thermostat t = new Thermostat(); and set t.currentTemp = 22.0;.\n5. Invoke methods and print temperatures:t.increaseTemp(15.0); -> System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");t.decreaseTemp(20.0); -> System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");",
+      "ru": "📖 Контекст и описание задачи\nУмный домашний термостат должен поддерживать температуру окружающей среды строго в безопасных пределах (от 16°C до 32°C). Защитные положения предотвращают выход температуры за пределы допустимого диапазона.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Thermostat</code> с полем <code>double currentTemp;</code>.\n2. Реализация <code>public void increaseTemp(double delta)</code>: ограничение при максимальной температуре 32,0°C.\n3. Реализация <code>public void decreaseTemp(double delta)</code>: температура пола минимум 16,0°C.\n4. В <code>main</code> создайте экземпляр <code>Thermostat t = new Thermostat();</code> и установите <code>t.currentTemp = 22.0;</code>.\n5. Вызов методов и температуры печати:<br><code>t.increaseTemp(15.0);</code> -> <code>System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");</code><br><code>t.decreaseTemp(20.0);</code> -> <code>System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");</code>"
     },
     "requirements": {
       "classes": [
@@ -1007,7 +1200,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ob'yekt noto'g'ri fizik holatga tushib qolishi taqiqlandi."
       ],
       "pitfalls": "Chegaradan o'tganda jim qolish yoki limitga qadash qarorini biznes talabi belgilaydi.",
-      "cw2Tip": "Buyurtmadagi tovar soni ombordagi qoldiqdan oshib ketmasligini tekshirishda xuddi shu mantiq ishlatiladi."
+      "cw2Tip": "Buyurtmadagi tovar soni ombordagi qoldiqdan oshib ketmasligini tekshirishda xuddi shu mantiq ishlatiladi.",
+      "theoryRu": "Предложения Guard внутри методов-мутаторов предотвращают повреждение состояний путем ограничения граничных пределов.",
+      "pitfallsRu": "Решение хранить молчание или ограничить превышение лимита продиктовано бизнес-требованиями.",
+      "breakdownRu": [
+        "Максимальные и минимальные пределы температуры защищены на уровне метода.",
+        "Объекту запрещено переходить в неправильное физическое состояние."
+      ]
     },
     "sampleData": [
       "Boshlang'ich harorat: 22.0°C",
@@ -1017,7 +1216,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Ko'tarilgandagi harorat: 32.0°C\nTushirilgandagi harorat: 16.0°C",
     "story": {
       "uz": "Aqlli uy termostati xona haroratini xavfsiz chegaralarda (16°C dan 32°C gacha) saqlashi shart. Haroratni ko'tarish yoki tushirishda chegaraviy qoidalar (Guard Clauses) qo'llaniladi.",
-      "en": "Smart home thermostat must keep ambient temperature strictly within safe bounds (16°C to 32°C). Guard clauses prevent out-of-range temperatures."
+      "en": "Smart home thermostat must keep ambient temperature strictly within safe bounds (16°C to 32°C). Guard clauses prevent out-of-range temperatures.",
+      "ru": "Умный домашний термостат должен поддерживать температуру окружающей среды строго в безопасных пределах (от 16°C до 32°C). Защитные положения предотвращают выход температуры за пределы допустимого диапазона."
     },
     "steps": {
       "uz": [
@@ -1033,6 +1233,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>public void decreaseTemp(double delta)</code>: floor at 16.0°C minimum.",
         "In <code>main</code>, instantiate <code>Thermostat t = new Thermostat();</code> and set <code>t.currentTemp = 22.0;</code>.",
         "Invoke methods and print temperatures:<br><code>t.increaseTemp(15.0);</code> -> <code>System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");</code><br><code>t.decreaseTemp(20.0);</code> -> <code>System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>Thermostat</code> с полем <code>double currentTemp;</code>.",
+        "Реализация <code>public void increaseTemp(double delta)</code>: ограничение при максимальной температуре 32,0°C.",
+        "Реализация <code>public void decreaseTemp(double delta)</code>: температура пола минимум 16,0°C.",
+        "В <code>main</code> создайте экземпляр <code>Thermostat t = new Thermostat();</code> и установите <code>t.currentTemp = 22.0;</code>.",
+        "Вызов методов и температуры печати:<br><code>t.increaseTemp(15.0);</code> -> <code>System.out.println(\"Ko'tarilgandagi harorat: \" + t.currentTemp + \"°C\");</code><br><code>t.decreaseTemp(20.0);</code> -> <code>System.out.println(\"Tushirilgandagi harorat: \" + t.currentTemp + \"°C\");</code>"
       ]
     }
   },
@@ -1043,11 +1250,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "14. Yandex Surge — 'estimateFare' Ko'p Argumentli Hisoblash Metodi",
-      "en": "14. Yandex Surge — Multi-Parameter 'estimateFare' Method"
+      "en": "14. Yandex Surge — Multi-Parameter 'estimateFare' Method",
+      "ru": "14. Yandex Surge — многопараметрический метод etimateFare"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nYandex Go servisida safar narxi masofa, boshlang'ich narx va tig'iz vaqtdagi tirbandlik koeffitsientiga (surge) bog'liq holda ko'p parametrli hisoblash metodi orqali aniqlanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. RideService klassini yarating va unga double baseFare; maydonini qo'shing.\n2. public double estimateFare(double km, double surgeMultiplier) metodini yozing:• Formulalar: return baseFare + (km * 2500.0 * surgeMultiplier);\n3. Main metodida RideService service = new RideService(); tuzib, service.baseFare = 5000.0; bering.\n4. Oddiy (1.0x) va tirbandlik (1.8x) tariflarini hisoblang: double normalFare = service.estimateFare(10.0, 1.0); va double peakFare = service.estimateFare(10.0, 1.8);.\n5. Ikkala narxni chop eting:System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");",
-      "en": "[Real-World Story & Context]\nIn Yandex Go, ride fares are dynamically computed based on base fare, distance, and peak-hour traffic surge multiplier.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class RideService with field double baseFare;.\n2. Implement public double estimateFare(double km, double surgeMultiplier):• Formula: return baseFare + (km * 2500.0 * surgeMultiplier);\n3. In main, instantiate RideService service = new RideService(); and set service.baseFare = 5000.0;.\n4. Calculate normal fare (10.0 km, 1.0x) and peak fare (10.0 km, 1.8x).\n5. Print both results:System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");"
+      "en": "[Real-World Story & Context]\nIn Yandex Go, ride fares are dynamically computed based on base fare, distance, and peak-hour traffic surge multiplier.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class RideService with field double baseFare;.\n2. Implement public double estimateFare(double km, double surgeMultiplier):• Formula: return baseFare + (km * 2500.0 * surgeMultiplier);\n3. In main, instantiate RideService service = new RideService(); and set service.baseFare = 5000.0;.\n4. Calculate normal fare (10.0 km, 1.0x) and peak fare (10.0 km, 1.8x).\n5. Print both results:System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");",
+      "ru": "📖 Контекст и описание задачи\nВ Yandex Go стоимость поездок рассчитывается динамически на основе базового тарифа, расстояния и множителя пика трафика в час пик.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>RideService</code> с полем <code>double baseFare;</code>.\n2. Реализуйте <code>public double estimateFare(double km, double surgeMultiplier)</code>:<br>• Формула: <code>return baseFare + (km * 2500.0 * surgeMultiplier);</code>\n3. В <code>main</code> создайте экземпляр <code>RideService service = new RideService();</code> и установите <code>service.baseFare = 5000.0;</code>.\n4. Рассчитайте нормальный тариф (10,0 км, 1,0x) и пиковый тариф (10,0 км, 1,8x).\n5. Распечатайте оба результата:<br><code>System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");</code><br><code>System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");</code>"
     },
     "requirements": {
       "classes": [
@@ -1088,7 +1297,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ob'yekt maydoni hisob-kitobda faol ishtirok etmoqda."
       ],
       "pitfalls": "Argumentlar tartibini adashtirish mantiqiy xatoga olib kelishi mumkin.",
-      "cw2Tip": "CW2 ilovasida yetkazib berish narxini masofaga qarab hisoblashda ayni muddao."
+      "cw2Tip": "CW2 ilovasida yetkazib berish narxini masofaga qarab hisoblashda ayni muddao.",
+      "theoryRu": "Методы плавно синтезируют внутренние поля состояния с входящими аргументами времени выполнения.",
+      "pitfallsRu": "Неправильный порядок аргументов может привести к логической ошибке.",
+      "breakdownRu": [
+        "2 аргумента: расстояние и множитель.",
+        "Площадь объекта активно участвует в расчете."
+      ]
     },
     "sampleData": [
       "baseFare: 5000.0 so'm",
@@ -1098,7 +1313,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Oddiy tarif: 30000.0 so'm\nTirbandlik tarifi (1.8x): 50000.0 so'm",
     "story": {
       "uz": "Yandex Go servisida safar narxi masofa, boshlang'ich narx va tig'iz vaqtdagi tirbandlik koeffitsientiga (surge) bog'liq holda ko'p parametrli hisoblash metodi orqali aniqlanadi.",
-      "en": "In Yandex Go, ride fares are dynamically computed based on base fare, distance, and peak-hour traffic surge multiplier."
+      "en": "In Yandex Go, ride fares are dynamically computed based on base fare, distance, and peak-hour traffic surge multiplier.",
+      "ru": "В Yandex Go стоимость поездок рассчитывается динамически на основе базового тарифа, расстояния и множителя пика трафика в час пик."
     },
     "steps": {
       "uz": [
@@ -1114,6 +1330,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>RideService service = new RideService();</code> and set <code>service.baseFare = 5000.0;</code>.",
         "Calculate normal fare (10.0 km, 1.0x) and peak fare (10.0 km, 1.8x).",
         "Print both results:<br><code>System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");</code><br><code>System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>RideService</code> с полем <code>double baseFare;</code>.",
+        "Реализуйте <code>public double estimateFare(double km, double surgeMultiplier)</code>:<br>• Формула: <code>return baseFare + (km * 2500.0 * surgeMultiplier);</code>",
+        "В <code>main</code> создайте экземпляр <code>RideService service = new RideService();</code> и установите <code>service.baseFare = 5000.0;</code>.",
+        "Рассчитайте нормальный тариф (10,0 км, 1,0x) и пиковый тариф (10,0 км, 1,8x).",
+        "Распечатайте оба результата:<br><code>System.out.println(\"Oddiy tarif: \" + normalFare + \" so'm\");</code><br><code>System.out.println(\"Tirbandlik tarifi (1.8x): \" + peakFare + \" so'm\");</code>"
       ]
     }
   },
@@ -1124,11 +1347,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "15. WIUT GradeBook — 'getOverallScore' va 'isPassed' Boolean Predikat Metodi",
-      "en": "15. WIUT GradeBook — Predicate Methods & Assessment Rules"
+      "en": "15. WIUT GradeBook — Predicate Methods & Assessment Rules",
+      "ru": "15. Журнал оценок WIUT — предикатные методы и правила оценивания."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nWIUT universiteti baholash tizimida modul natijasi Coursework (40%) va Yakuniy Imtihon (60%) ballaridan jamlanadi. Talaba jami 40.0 balldan kam olmasa moduldan o'tgan hisoblanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. GradeBook klassini tuzing: double courseworkMark; va double examMark; maydonlarini e'lon qiling.\n2. public double getOverallScore() metodini yozing: return courseworkMark * 0.4 + examMark * 0.6;.\n3. public boolean isPassed() metodini yozing: return getOverallScore() >= 40.0;.\n4. Main metodida GradeBook gb = new GradeBook(); yarating va qiymat bering: gb.courseworkMark = 73.0;, gb.examMark = 66.6;.\n5. Natijani chop eting: System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());",
-      "en": "[Real-World Story & Context]\nIn the WIUT grading system, overall module mark combines Coursework (40%) and Exam (60%). A student passes if the weighted overall score is at least 40.0.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class GradeBook with fields double courseworkMark; and double examMark;.\n2. Implement public double getOverallScore(): returns courseworkMark * 0.4 + examMark * 0.6;.\n3. Implement public boolean isPassed(): returns getOverallScore() >= 40.0;.\n4. In main, instantiate GradeBook gb = new GradeBook(); with 73.0 and 66.6.\n5. Print overall score and pass status: System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());"
+      "en": "[Real-World Story & Context]\nIn the WIUT grading system, overall module mark combines Coursework (40%) and Exam (60%). A student passes if the weighted overall score is at least 40.0.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class GradeBook with fields double courseworkMark; and double examMark;.\n2. Implement public double getOverallScore(): returns courseworkMark * 0.4 + examMark * 0.6;.\n3. Implement public boolean isPassed(): returns getOverallScore() >= 40.0;.\n4. In main, instantiate GradeBook gb = new GradeBook(); with 73.0 and 66.6.\n5. Print overall score and pass status: System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());",
+      "ru": "📖 Контекст и описание задачи\nВ системе оценок МВУТ общая оценка за модуль включает в себя курсовую работу (40%) и экзамен (60%). Студент сдает экзамен, если взвешенный общий балл составляет не менее 40,0.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>GradeBook</code> с полями <code>double courseworkMark;</code> и <code>double examMark;</code>.\n2. Реализация <code>public double getOverallScore()</code>: возвращает <code>courseworkMark * 0.4 + examMark * 0.6;</code>.\n3. Реализация <code>public boolean isPassed()</code>: возвращает <code>getOverallScore() >= 40.0;</code>.\n4. В <code>main</code> создайте экземпляр <code>GradeBook gb = new GradeBook();</code> с помощью <code>73.0</code> и <code>66.6</code>.\n5. Распечатать общий балл и статус прохождения: <code>System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());</code>."
     },
     "requirements": {
       "classes": [
@@ -1185,7 +1410,13 @@ window.OOP_CHALLENGES_W1 = [
         "Mantiqiy predikat metodi qisqa va aniq ifodalandi."
       ],
       "pitfalls": "40.0 o'rniga 40 deb butun son yozilsa ham Java implicit conversion qiladi, lekin double aniqligi saqlangan ma'qul.",
-      "cw2Tip": "Bu aynan WIUT 5COSC018C modulining rasmiy baholash qoidasidir!"
+      "cw2Tip": "Bu aynan WIUT 5COSC018C modulining rasmiy baholash qoidasidir!",
+      "theoryRu": "Делегирование метода позволяет isPassed() использовать getOverallScore(), строго соблюдая принципы DRY.",
+      "pitfallsRu": "Даже если целое число записано как 40 вместо 40,0, Java выполняет неявное преобразование, но лучше сохранять двойную точность.",
+      "breakdownRu": [
+        "Оценки рассчитывались по весу.",
+        "Mantiqiy predikat metodi qisqa va aniq ifodalandi."
+      ]
     },
     "sampleData": [
       "courseworkMark: 65.0",
@@ -1194,7 +1425,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Yakuniy ball: 69.19999999999999 | Moduldan o'tdi: true",
     "story": {
       "uz": "WIUT universiteti baholash tizimida modul natijasi Coursework (40%) va Yakuniy Imtihon (60%) ballaridan jamlanadi. Talaba jami 40.0 balldan kam olmasa moduldan o'tgan hisoblanadi.",
-      "en": "In the WIUT grading system, overall module mark combines Coursework (40%) and Exam (60%). A student passes if the weighted overall score is at least 40.0."
+      "en": "In the WIUT grading system, overall module mark combines Coursework (40%) and Exam (60%). A student passes if the weighted overall score is at least 40.0.",
+      "ru": "В системе оценок МВУТ общая оценка за модуль включает в себя курсовую работу (40%) и экзамен (60%). Студент сдает экзамен, если взвешенный общий балл составляет не менее 40,0."
     },
     "steps": {
       "uz": [
@@ -1210,6 +1442,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>public boolean isPassed()</code>: returns <code>getOverallScore() >= 40.0;</code>.",
         "In <code>main</code>, instantiate <code>GradeBook gb = new GradeBook();</code> with <code>73.0</code> and <code>66.6</code>.",
         "Print overall score and pass status: <code>System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>GradeBook</code> с полями <code>double courseworkMark;</code> и <code>double examMark;</code>.",
+        "Реализация <code>public double getOverallScore()</code>: возвращает <code>courseworkMark * 0.4 + examMark * 0.6;</code>.",
+        "Реализация <code>public boolean isPassed()</code>: возвращает <code>getOverallScore() >= 40.0;</code>.",
+        "В <code>main</code> создайте экземпляр <code>GradeBook gb = new GradeBook();</code> с помощью <code>73.0</code> и <code>66.6</code>.",
+        "Распечатать общий балл и статус прохождения: <code>System.out.println(\"Yakuniy ball: \" + gb.getOverallScore() + \" | Moduldan o'tdi: \" + gb.isPassed());</code>."
       ]
     }
   },
@@ -1220,11 +1459,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "16. Korzinka Plus — 'addPoints' va Darajani Avtomatik Yangilash (State Transitions)",
-      "en": "16. Korzinka Plus — Dynamic State Transitions & Tier Upgrades"
+      "en": "16. Korzinka Plus — Dynamic State Transitions & Tier Upgrades",
+      "ru": "16. Корзинка Плюс — динамические переходы между состояниями и обновления уровней"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nKorzinka supermarketining sodiqlik dasturida xaridor yig'gan ballariga qarab avtomatik daraja (Tier) oladi: 1000 dan oshsa 'GOLD', 500 dan oshsa 'SILVER', aks holda 'STANDARD'.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. LoyaltyCard klassini tuzing: int points; va String tier; maydonlarini e'lon qiling.\n2. public void addPoints(int earned) metodini yozing: ball qo'shing va shartlar bo'yicha tier holatini yangilang (>=1000: 'GOLD', >=500: 'SILVER', aks holda: 'STANDARD').\n3. Main metodida LoyaltyCard card = new LoyaltyCard(); tuzib, points = 0; tier = \"STANDARD\"; qiling.\n4. Dastlab 600 ball qo'shing: card.addPoints(600); va System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier); deb chop eting.\n5. Yana 500 ball qo'shing: card.addPoints(500); va System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier); deb chop eting.",
-      "en": "[Real-World Story & Context]\nIn Korzinka Plus loyalty system, customer tier dynamically updates with accumulated points: 1000+ points unlocks 'GOLD', 500+ unlocks 'SILVER', otherwise 'STANDARD'.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class LoyaltyCard with int points; and String tier;.\n2. Implement public void addPoints(int earned): increment points and evaluate tier state (>=1000: 'GOLD', >=500: 'SILVER', else: 'STANDARD').\n3. In main, instantiate LoyaltyCard card = new LoyaltyCard(); with points = 0; tier = \"STANDARD\";.\n4. Add 600 points: card.addPoints(600); and print: System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);.\n5. Add another 500 points: card.addPoints(500); and print: System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);."
+      "en": "[Real-World Story & Context]\nIn Korzinka Plus loyalty system, customer tier dynamically updates with accumulated points: 1000+ points unlocks 'GOLD', 500+ unlocks 'SILVER', otherwise 'STANDARD'.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class LoyaltyCard with int points; and String tier;.\n2. Implement public void addPoints(int earned): increment points and evaluate tier state (>=1000: 'GOLD', >=500: 'SILVER', else: 'STANDARD').\n3. In main, instantiate LoyaltyCard card = new LoyaltyCard(); with points = 0; tier = \"STANDARD\";.\n4. Add 600 points: card.addPoints(600); and print: System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);.\n5. Add another 500 points: card.addPoints(500); and print: System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);.",
+      "ru": "📖 Контекст и описание задачи\nВ системе лояльности «Корзинка Плюс» уровень клиента динамически обновляется с накоплением баллов: 1000+ баллов открывает «ЗОЛОТО», 500+ открывает «СЕРЕБРЯНЫЙ», в противном случае — «СТАНДАРТ».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>LoyaltyCard</code> с помощью <code>int points;</code> и <code>String tier;</code>.\n2. Реализуйте <code>public void addPoints(int earned)</code>: увеличивайте баллы и оценивайте состояние уровня (>=1000: «ЗОЛОТО», >=500: «СЕРЕБРО», иначе: «СТАНДАРТ»).\n3. В <code>main</code> создайте экземпляр <code>LoyaltyCard card = new LoyaltyCard();</code> с помощью <code>points = 0; tier = \"STANDARD\";</code>.\n4. Добавьте 600 точек: <code>card.addPoints(600);</code> и выведите: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>.\n5. Добавьте еще 500 точек: <code>card.addPoints(500);</code> и выведите: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>."
     },
     "requirements": {
       "classes": [
@@ -1269,7 +1510,13 @@ window.OOP_CHALLENGES_W1 = [
         "Foydalanuvchi darajasi (Bronze -> Silver -> Gold) avtomatik o'sdi."
       ],
       "pitfalls": "Shartlarni tekshirishda kichik sondan emas, avval eng katta sondan (1000) boshlash kerak, aks holda `points >= 500` barcha 1000 dan kattalarni ham ushlab qoladi.",
-      "cw2Tip": "CW2 loyihangizda buyurtma statusini (PENDING -> PAID -> DELIVERED) boshqarishda ayni usul qo'llaniladi."
+      "cw2Tip": "CW2 loyihangizda buyurtma statusini (PENDING -> PAID -> DELIVERED) boshqarishda ayni usul qo'llaniladi.",
+      "theoryRu": "Переходы между состояниями моделируют этапы жизненного цикла непосредственно в рамках логики мутации экземпляра.",
+      "pitfallsRu": "При проверке условий вы должны начинать с самого большого числа (1000), а не с наименьшего числа, иначе `points >= 500` будет улавливать все числа больше 1000.",
+      "breakdownRu": [
+        "Забиты и интервалы проверены.",
+        "Уровень пользователя (Бронза -> Серебро -> Золото) повышается автоматически."
+      ]
     },
     "sampleData": [
       "Boshlang'ich ball: 350 (Daraja: \"BRONZE\")",
@@ -1279,7 +1526,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Ball: 600 | Status: SILVER\nBall: 1100 | Status: GOLD",
     "story": {
       "uz": "Korzinka supermarketining sodiqlik dasturida xaridor yig'gan ballariga qarab avtomatik daraja (Tier) oladi: 1000 dan oshsa 'GOLD', 500 dan oshsa 'SILVER', aks holda 'STANDARD'.",
-      "en": "In Korzinka Plus loyalty system, customer tier dynamically updates with accumulated points: 1000+ points unlocks 'GOLD', 500+ unlocks 'SILVER', otherwise 'STANDARD'."
+      "en": "In Korzinka Plus loyalty system, customer tier dynamically updates with accumulated points: 1000+ points unlocks 'GOLD', 500+ unlocks 'SILVER', otherwise 'STANDARD'.",
+      "ru": "В системе лояльности «Корзинка Плюс» уровень клиента динамически обновляется с накоплением баллов: 1000+ баллов открывает «ЗОЛОТО», 500+ открывает «СЕРЕБРЯНЫЙ», в противном случае — «СТАНДАРТ»."
     },
     "steps": {
       "uz": [
@@ -1295,6 +1543,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>LoyaltyCard card = new LoyaltyCard();</code> with <code>points = 0; tier = \"STANDARD\";</code>.",
         "Add 600 points: <code>card.addPoints(600);</code> and print: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>.",
         "Add another 500 points: <code>card.addPoints(500);</code> and print: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>."
+      ],
+      "ru": [
+        "Объявите класс <code>LoyaltyCard</code> с помощью <code>int points;</code> и <code>String tier;</code>.",
+        "Реализуйте <code>public void addPoints(int earned)</code>: увеличивайте баллы и оценивайте состояние уровня (>=1000: «ЗОЛОТО», >=500: «СЕРЕБРО», иначе: «СТАНДАРТ»).",
+        "В <code>main</code> создайте экземпляр <code>LoyaltyCard card = new LoyaltyCard();</code> с помощью <code>points = 0; tier = \"STANDARD\";</code>.",
+        "Добавьте 600 точек: <code>card.addPoints(600);</code> и выведите: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>.",
+        "Добавьте еще 500 точек: <code>card.addPoints(500);</code> и выведите: <code>System.out.println(\"Ball: \" + card.points + \" | Status: \" + card.tier);</code>."
       ]
     }
   },
@@ -1305,11 +1560,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "17. Cargo Logistics — 'loadCargo' va Natija Statusini Qaytarish (Boolean Result)",
-      "en": "17. Cargo Logistics — 'loadCargo' with Capacity Status Return"
+      "en": "17. Cargo Logistics — 'loadCargo' with Capacity Status Return",
+      "ru": "17. Грузовая логистика — «loadCargo» с возвратом статуса мощности."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nToshkent-Samarqand logistika yo'nalishida yuk mashinasining ruxsat etilgan maksimal vazni nazorat qilinadi. Yangi yuk mashina sig'imidan oshib ketmasligi tekshirilib, natijasi boolean (true/false) qaytariladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. CargoTruck klassini tuzing: double maxCapacityKg; va double currentLoadKg; maydonlarini qo'shing.\n2. public boolean loadCargo(double weightKg) metodini yozing: agar currentLoadKg + weightKg  bo'lsa yukni qo'shib return true;, aks holda return false; qaytarsin.\n3. Main metodida CargoTruck truck = new CargoTruck(); tuzib, truck.maxCapacityKg = 1000.0; truck.currentLoadKg = 700.0; bering.\n4. 200 kg yuk orting va natijani chop eting: boolean res1 = truck.loadCargo(200.0);System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");\n5. Yana bir bor 200 kg yuk ortishga urinib ko'ring (sig'maydi) va natijani chop eting: boolean res2 = truck.loadCargo(200.0);System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");",
-      "en": "[Real-World Story & Context]\nFreight logistics truck enforces maximum cargo weight capacity. Adding cargo checks whether it fits within bounds and returns a boolean success status.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class CargoTruck with fields double maxCapacityKg; and double currentLoadKg;.\n2. Implement public boolean loadCargo(double weightKg): if it fits, update current load and return true; otherwise return false.\n3. In main, instantiate CargoTruck truck = new CargoTruck(); with 1000.0 max capacity and 700.0 current load.\n4. Load 200 kg and print: System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");.\n5. Try loading another 200 kg (fails) and print: System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");."
+      "en": "[Real-World Story & Context]\nFreight logistics truck enforces maximum cargo weight capacity. Adding cargo checks whether it fits within bounds and returns a boolean success status.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class CargoTruck with fields double maxCapacityKg; and double currentLoadKg;.\n2. Implement public boolean loadCargo(double weightKg): if it fits, update current load and return true; otherwise return false.\n3. In main, instantiate CargoTruck truck = new CargoTruck(); with 1000.0 max capacity and 700.0 current load.\n4. Load 200 kg and print: System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");.\n5. Try loading another 200 kg (fails) and print: System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");.",
+      "ru": "📖 Контекст и описание задачи\nГрузовой логистический грузовик обеспечивает максимальную грузоподъемность. Добавление груза проверяет, вписывается ли он в границы, и возвращает логический статус успеха.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>CargoTruck</code> с полями <code>double maxCapacityKg;</code> и <code>double currentLoadKg;</code>.\n2. Реализуйте <code>public boolean loadCargo(double weightKg)</code>: если подходит, обновите текущую нагрузку и верните true; в противном случае верните false.\n3. В <code>main</code> создайте экземпляр <code>CargoTruck truck = new CargoTruck();</code> с максимальной мощностью 1000,0 и текущей нагрузкой 700,0.\n4. Загрузите 200 кг и напечатайте: <code>System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>.\n5. Попробуйте загрузить еще 200 кг (не удалось) и выведите: <code>System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>."
     },
     "requirements": {
       "classes": [
@@ -1354,7 +1611,13 @@ window.OOP_CHALLENGES_W1 = [
         "Faqat sig'im yetarli bo'lganda og'irlik oshirildi."
       ],
       "pitfalls": "return false dan oldin currentWeightKg ni o'zgartirib qo'ymaslikka ehtiyot bo'ling.",
-      "cw2Tip": "Do'kon omborida qoldiq yetarli bo'lmaganda xaridni rad etish uchun ishlatiladi."
+      "cw2Tip": "Do'kon omborida qoldiq yetarli bo'lmaganda xaridni rad etish uchun ishlatiladi.",
+      "theoryRu": "Логический возврат статуса сигнализирует об успехе/неуспехе операции, предотвращая при этом недопустимые мутации состояния.",
+      "pitfallsRu": "Будьте осторожны и не измените currentWeightKg до возврата false.",
+      "breakdownRu": [
+        "Атомная проверка.",
+        "Вес увеличивали только тогда, когда мощности было достаточно."
+      ]
     },
     "sampleData": [
       "maxCapacityKg: 1000.0 kg",
@@ -1365,7 +1628,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "200 kg yuklandi: true (Jami: 900.0 kg)\nIkkinchi 200 kg yuklandi: false (Jami: 900.0 kg)",
     "story": {
       "uz": "Toshkent-Samarqand logistika yo'nalishida yuk mashinasining ruxsat etilgan maksimal vazni nazorat qilinadi. Yangi yuk mashina sig'imidan oshib ketmasligi tekshirilib, natijasi boolean (true/false) qaytariladi.",
-      "en": "Freight logistics truck enforces maximum cargo weight capacity. Adding cargo checks whether it fits within bounds and returns a boolean success status."
+      "en": "Freight logistics truck enforces maximum cargo weight capacity. Adding cargo checks whether it fits within bounds and returns a boolean success status.",
+      "ru": "Грузовой логистический грузовик обеспечивает максимальную грузоподъемность. Добавление груза проверяет, вписывается ли он в границы, и возвращает логический статус успеха."
     },
     "steps": {
       "uz": [
@@ -1381,6 +1645,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>CargoTruck truck = new CargoTruck();</code> with 1000.0 max capacity and 700.0 current load.",
         "Load 200 kg and print: <code>System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>.",
         "Try loading another 200 kg (fails) and print: <code>System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>."
+      ],
+      "ru": [
+        "Создайте класс <code>CargoTruck</code> с полями <code>double maxCapacityKg;</code> и <code>double currentLoadKg;</code>.",
+        "Реализуйте <code>public boolean loadCargo(double weightKg)</code>: если подходит, обновите текущую нагрузку и верните true; в противном случае верните false.",
+        "В <code>main</code> создайте экземпляр <code>CargoTruck truck = new CargoTruck();</code> с максимальной мощностью 1000,0 и текущей нагрузкой 700,0.",
+        "Загрузите 200 кг и напечатайте: <code>System.out.println(\"200 kg yuklandi: \" + res1 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>.",
+        "Попробуйте загрузить еще 200 кг (не удалось) и выведите: <code>System.out.println(\"Ikkinchi 200 kg yuklandi: \" + res2 + \" (Jami: \" + truck.currentLoadKg + \" kg)\");</code>."
       ]
     }
   },
@@ -1391,11 +1662,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "18. Bank Credit — Metodlarni Nomdosh Qilish (Method Overloading)",
-      "en": "18. Bank Credit — Method Overloading & Flexible Parameters"
+      "en": "18. Bank Credit — Method Overloading & Flexible Parameters",
+      "ru": "18. Банковский кредит — перегрузка метода и гибкие параметры"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBank kredit bo'limida oddiy mijozlarga standart yillik 20% stavka qo'llanilsa, korporativ mijozlarga maxsus chegirmali stavka hisoblanadi. Buning uchun bir xil nomli, ammo har xil parametrli metodlar (Method Overloading) tuziladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. LoanCalculator klassini tuzing: double principal; maydonini e'lon qiling.\n2. Standart 20% stavkali metodni yozing: public double calculateInterest(int months) { return principal * 0.20 * (months / 12.0); }.\n3. Maxsus stavkali nomdosh metodni overload qiling: public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }.\n4. Main metodida LoanCalculator calc = new LoanCalculator(); yarating va calc.principal = 12000000.0; bering.\n5. Har ikkala metodni chaqirib 2 qatorda chop eting:System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");",
-      "en": "[Real-World Story & Context]\nA banking loan calculator offers standard 20% annual interest or custom corporate rates using Method Overloading on calculateInterest().\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class LoanCalculator with field double principal;.\n2. Implement standard method: public double calculateInterest(int months) { return principal * 0.20 * (months / 12.0); }.\n3. Overload method with custom rate: public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }.\n4. In main, instantiate LoanCalculator calc = new LoanCalculator(); and set calc.principal = 12000000.0;.\n5. Print both interest calculations on 2 lines:System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");"
+      "en": "[Real-World Story & Context]\nA banking loan calculator offers standard 20% annual interest or custom corporate rates using Method Overloading on calculateInterest().\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class LoanCalculator with field double principal;.\n2. Implement standard method: public double calculateInterest(int months) { return principal * 0.20 * (months / 12.0); }.\n3. Overload method with custom rate: public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }.\n4. In main, instantiate LoanCalculator calc = new LoanCalculator(); and set calc.principal = 12000000.0;.\n5. Print both interest calculations on 2 lines:System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");",
+      "ru": "📖 Контекст и описание задачи\nКалькулятор банковского кредита предлагает стандартную годовую процентную ставку 20% или индивидуальные корпоративные ставки с использованием перегрузки метода в методе CalculateInterest().\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>LoanCalculator</code> с полем <code>double principal;</code>.\n2. Implement standard method: <code>public double calculateInterest(int months) { return principal * 0.20 * (months / 12.0); }</code>.\n3. Метод перегрузки с пользовательской ставкой: <code>public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }</code>.\n4. В <code>main</code> создайте экземпляр <code>LoanCalculator calc = new LoanCalculator();</code> и установите <code>calc.principal = 12000000.0;</code>.\n5. Распечатайте оба расчета процентов в 2 строки:<br><code>System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");</code><br><code>System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");</code>"
     },
     "requirements": {
       "classes": [
@@ -1447,7 +1720,13 @@ window.OOP_CHALLENGES_W1 = [
         "Default qiymatlar bilan qisqaroq chaqirish imkoniyati paydo bo'ldi."
       ],
       "pitfalls": "Faqat qaytarish turi (return type) farq qilishi overload hisoblanmaydi — parametrlar farq qilishi shart!",
-      "cw2Tip": "CW2 qidiruv tizimida: tovar nomi bo'yicha qidirish, yoki nomi hamda narxi bo'yicha qidirish overload metodlar bilan qilinadi."
+      "cw2Tip": "CW2 qidiruv tizimida: tovar nomi bo'yicha qidirish, yoki nomi hamda narxi bo'yicha qidirish overload metodlar bilan qilinadi.",
+      "theoryRu": "Перегрузка метода имеет одинаковые имена методов с разными сигнатурами параметров, которые разрешаются статически во время компиляции.",
+      "pitfallsRu": "Только разница в типе возвращаемого значения не перегружается — параметры должны быть разные!",
+      "breakdownRu": [
+        "Одно имя метода, два разных набора удобных параметров.",
+        "Появился более короткий вызов со значениями по умолчанию."
+      ]
     },
     "sampleData": [
       "principal (kredit summasi): 12000000.0 so'm",
@@ -1457,7 +1736,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Standart foiz (6 oy): 1200000.0 so'm\nImtiyozli foiz (6 oy, 14%): 840000.0000000002 so'm",
     "story": {
       "uz": "Bank kredit bo'limida oddiy mijozlarga standart yillik 20% stavka qo'llanilsa, korporativ mijozlarga maxsus chegirmali stavka hisoblanadi. Buning uchun bir xil nomli, ammo har xil parametrli metodlar (Method Overloading) tuziladi.",
-      "en": "A banking loan calculator offers standard 20% annual interest or custom corporate rates using Method Overloading on calculateInterest()."
+      "en": "A banking loan calculator offers standard 20% annual interest or custom corporate rates using Method Overloading on calculateInterest().",
+      "ru": "Калькулятор банковского кредита предлагает стандартную годовую процентную ставку 20% или индивидуальные корпоративные ставки с использованием перегрузки метода в методе CalculateInterest()."
     },
     "steps": {
       "uz": [
@@ -1473,6 +1753,13 @@ window.OOP_CHALLENGES_W1 = [
         "Overload method with custom rate: <code>public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }</code>.",
         "In <code>main</code>, instantiate <code>LoanCalculator calc = new LoanCalculator();</code> and set <code>calc.principal = 12000000.0;</code>.",
         "Print both interest calculations on 2 lines:<br><code>System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");</code><br><code>System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");</code>"
+      ],
+      "ru": [
+        "Создайте класс <code>LoanCalculator</code> с полем <code>double principal;</code>.",
+        "Implement standard method: <code>public double calculateInterest(int months) { return principal * 0.20 * (months / 12.0); }</code>.",
+        "Метод перегрузки с пользовательской ставкой: <code>public double calculateInterest(int months, double annualRate) { return principal * (annualRate / 100.0) * (months / 12.0); }</code>.",
+        "В <code>main</code> создайте экземпляр <code>LoanCalculator calc = new LoanCalculator();</code> и установите <code>calc.principal = 12000000.0;</code>.",
+        "Распечатайте оба расчета процентов в 2 строки:<br><code>System.out.println(\"Standart foiz (6 oy): \" + calc.calculateInterest(6) + \" so'm\");</code><br><code>System.out.println(\"Imtiyozli foiz (6 oy, 14%): \" + calc.calculateInterest(6, 14.0) + \" so'm\");</code>"
       ]
     }
   },
@@ -1483,11 +1770,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "19. Secure Auth — 'UserSession' va Vaqt Cheklovi (Session Timeout)",
-      "en": "19. Secure Auth — 'UserSession' & Activity Expiration"
+      "en": "19. Secure Auth — 'UserSession' & Activity Expiration",
+      "ru": "19. Безопасная аутентификация — «UserSession» и срок действия активности"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nXavfsizlik tizimida foydalanuvchi tizimga kirgan vaqt (sessiya) ma'lum vaqt o'tgach eskirgan (timeout) deb topilishi va yangitdan kirish talab etilishi shart.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. UserSession klassini e'lon qiling: String sessionId; va long createdAtMs; maydonlarini qo'shing.\n2. public boolean isExpired(long currentTimeMs, long timeoutDurationMs) metodini yozing: agar (currentTimeMs - createdAtMs) > timeoutDurationMs bo'lsa true, aks holda false qaytarsin.\n3. Main metodida UserSession session = new UserSession(); yarating va sessionId = \"SESS-9901\"; createdAtMs = 1000L; bering.\n4. 1500ms vaqtda tekshiring (timeout = 1000ms): boolean expired1 = session.isExpired(1500L, 1000L); va System.out.println(\"1500-millisekundda eskirganmi: \" + expired1); chop eting.\n5. 2500ms vaqtda tekshiring: boolean expired2 = session.isExpired(2500L, 1000L); va System.out.println(\"2500-millisekundda eskirganmi: \" + expired2); chop eting.",
-      "en": "[Real-World Story & Context]\nSecurity gateway validates user session expiration against a timeout threshold in milliseconds to prevent stale token reuse.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class UserSession with String sessionId; and long createdAtMs;.\n2. Implement public boolean isExpired(long currentTimeMs, long timeoutDurationMs) returning true when elapsed time exceeds timeout.\n3. In main, instantiate UserSession session = new UserSession(); with 1000L timestamp.\n4. Check at 1500ms and print: System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);.\n5. Check at 2500ms and print: System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);."
+      "en": "[Real-World Story & Context]\nSecurity gateway validates user session expiration against a timeout threshold in milliseconds to prevent stale token reuse.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class UserSession with String sessionId; and long createdAtMs;.\n2. Implement public boolean isExpired(long currentTimeMs, long timeoutDurationMs) returning true when elapsed time exceeds timeout.\n3. In main, instantiate UserSession session = new UserSession(); with 1000L timestamp.\n4. Check at 1500ms and print: System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);.\n5. Check at 2500ms and print: System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);.",
+      "ru": "📖 Контекст и описание задачи\nШлюз безопасности проверяет истечение срока действия сеанса пользователя по пороговому значению тайм-аута в миллисекундах, чтобы предотвратить повторное использование устаревшего токена.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>UserSession</code> с помощью <code>String sessionId;</code> и <code>long createdAtMs;</code>.\n2. Реализуйте <code>public boolean isExpired(long currentTimeMs, long timeoutDurationMs)</code>, возвращающий true, когда прошедшее время превышает тайм-аут.\n3. В <code>main</code> создайте экземпляр <code>UserSession session = new UserSession();</code> с отметкой времени 1000L.\n4. Проверьте на 1500 мс и напечатайте: <code>System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);</code>.\n5. Проверьте на 2500 мс и напечатайте: <code>System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);</code>."
     },
     "requirements": {
       "classes": [
@@ -1544,7 +1833,13 @@ window.OOP_CHALLENGES_W1 = [
         "Sessiyaning eskirganlik holati tekshirildi."
       ],
       "pitfalls": "long sonlar oxiriga 'L' qo'yish unutilsa (masalan 1000L), int deb qabul qilinib katta qiymatlarda overflow bo'lishi mumkin.",
-      "cw2Tip": "Foydalanuvchi tizimdan avtomatik chiqib ketishi (Logout) aynan shu algoritm bilan ishlaydi."
+      "cw2Tip": "Foydalanuvchi tizimdan avtomatik chiqib ketishi (Logout) aynan shu algoritm bilan ishlaydi.",
+      "theoryRu": "Манипулирование временными метками основано на 64-битных «длинных» примитивах. 'this' явно устраняет неоднозначность полей экземпляра.",
+      "pitfallsRu": "Если вы забудете поставить «L» в конце длинных чисел (например, 1000L), его можно принять как целое число и переполнить в больших значениях.",
+      "breakdownRu": [
+        "Временные интервалы (delat t) рассчитывались с использованием точного математического условия.",
+        "Проверено на устаревание сеанса."
+      ]
     },
     "sampleData": [
       "username: \"ali_dev\"",
@@ -1556,7 +1851,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "1500-millisekundda eskirganmi: false\n2500-millisekundda eskirganmi: true",
     "story": {
       "uz": "Xavfsizlik tizimida foydalanuvchi tizimga kirgan vaqt (sessiya) ma'lum vaqt o'tgach eskirgan (timeout) deb topilishi va yangitdan kirish talab etilishi shart.",
-      "en": "Security gateway validates user session expiration against a timeout threshold in milliseconds to prevent stale token reuse."
+      "en": "Security gateway validates user session expiration against a timeout threshold in milliseconds to prevent stale token reuse.",
+      "ru": "Шлюз безопасности проверяет истечение срока действия сеанса пользователя по пороговому значению тайм-аута в миллисекундах, чтобы предотвратить повторное использование устаревшего токена."
     },
     "steps": {
       "uz": [
@@ -1572,6 +1868,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>UserSession session = new UserSession();</code> with 1000L timestamp.",
         "Check at 1500ms and print: <code>System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);</code>.",
         "Check at 2500ms and print: <code>System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);</code>."
+      ],
+      "ru": [
+        "Объявите класс <code>UserSession</code> с помощью <code>String sessionId;</code> и <code>long createdAtMs;</code>.",
+        "Реализуйте <code>public boolean isExpired(long currentTimeMs, long timeoutDurationMs)</code>, возвращающий true, когда прошедшее время превышает тайм-аут.",
+        "В <code>main</code> создайте экземпляр <code>UserSession session = new UserSession();</code> с отметкой времени 1000L.",
+        "Проверьте на 1500 мс и напечатайте: <code>System.out.println(\"1500-millisekundda eskirganmi: \" + expired1);</code>.",
+        "Проверьте на 2500 мс и напечатайте: <code>System.out.println(\"2500-millisekundda eskirganmi: \" + expired2);</code>."
       ]
     }
   },
@@ -1582,11 +1885,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "11-20",
     "title": {
       "uz": "20. Express Cafe — 'generateReceipt' Matnli Kvitansiya Metodi (Stage 2 Master)",
-      "en": "20. Express Cafe — 'generateReceipt' Formatted String Method (Stage 2 Master)"
+      "en": "20. Express Cafe — 'generateReceipt' Formatted String Method (Stage 2 Master)",
+      "ru": "20. Express Cafe — метод форматированной строки «generateReceipt» (этап 2, мастер)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nExpress Cafe tarmog'ida kassada mijozga taom nomi, narxi, oraliq summasi, 12% soliq va jami summani chiroyli kvitansiya (String) ko'rinishida generatsiya qiluvchi metod kerak.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. FoodOrder klassini tuzing: String itemName;, double unitPrice;, int quantity; maydonlarini e'lon qiling.\n2. public String generateReceipt(double taxRate) metodini yozing: subtotal = unitPrice * quantity;, tax = subtotal * (taxRate / 100.0);, total = subtotal + tax; hisoblab, ko'p qatorli chek matnini qaytaring.\n3. Main metodida FoodOrder order = new FoodOrder(); ob'yektini yarating.\n4. Maydonlariga qiymat yuklang: order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;.\n5. Metodni 12.0% stavka bilan chaqiring va chekni chop eting: String receipt = order.generateReceipt(12.0); System.out.println(receipt);",
-      "en": "[Real-World Story & Context]\nExpress Cafe restaurant checkout generates a formatted multi-line receipt string combining item subtotal, sales tax, and final amount.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FoodOrder with String itemName;, double unitPrice;, and int quantity;.\n2. Implement public String generateReceipt(double taxRate) computing subtotal, tax, and total, returning the receipt text.\n3. In main, instantiate FoodOrder order = new FoodOrder();.\n4. Assign: order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;.\n5. Call order.generateReceipt(12.0); and print the output."
+      "en": "[Real-World Story & Context]\nExpress Cafe restaurant checkout generates a formatted multi-line receipt string combining item subtotal, sales tax, and final amount.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FoodOrder with String itemName;, double unitPrice;, and int quantity;.\n2. Implement public String generateReceipt(double taxRate) computing subtotal, tax, and total, returning the receipt text.\n3. In main, instantiate FoodOrder order = new FoodOrder();.\n4. Assign: order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;.\n5. Call order.generateReceipt(12.0); and print the output.",
+      "ru": "📖 Контекст и описание задачи\nПри оформлении заказа в ресторане Express Cafe генерируется форматированная многострочная строка квитанции, объединяющая промежуточную сумму товара, налог с продаж и окончательную сумму.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>FoodOrder</code> с помощью <code>String itemName;</code>, <code>double unitPrice;</code> и <code>int quantity;</code>.\n2. Реализуйте <code>public String generateReceipt(double taxRate)</code> для вычисления промежуточного итога, налога и итога, возвращая текст квитанции.\n3. В <code>main</code> создайте экземпляр <code>FoodOrder order = new FoodOrder();</code>.\n4. Назначьте: <code>order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;</code>.\n5. Вызовите <code>order.generateReceipt(12.0);</code> и распечатайте результат."
     },
     "requirements": {
       "classes": [
@@ -1636,7 +1941,14 @@ window.OOP_CHALLENGES_W1 = [
         "Bu topshiriq 3-bosqichdagi konstruktorlarga poydevor yaratadi."
       ],
       "pitfalls": "String birlashtirishda qator tashlash uchun `\\n` belgisidan to'g'ri foydalaning.",
-      "cw2Tip": "CW2 Console ilovasining yakuniy bosqichi aynan konsolga chek chiqarishdan iborat."
+      "cw2Tip": "CW2 Console ilovasining yakuniy bosqichi aynan konsolga chek chiqarishdan iborat.",
+      "theoryRu": "На втором этапе были представлены мощные методы. Этап 3 решает проблему частично инициализированного состояния путем введения КОНСТРУКТОРОВ.",
+      "pitfallsRu": "Правильно используйте символ `\\n` для создания строки при конкатенации строк.",
+      "breakdownRu": [
+        "Метод возвращает текст квитанции с расширенным форматированием.",
+        "Объект полностью обеспечивает собственный расчет и отображение.",
+        "Это задание закладывает основу для конструкторов 3-го уровня."
+      ]
     },
     "sampleData": [
       "itemName: \"Lavash Max\"",
@@ -1646,7 +1958,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "--- CHEK ---\nTaom: Lavash Max x 2\nOraliq summa: 76000.0 so'm\nSoliq (12.0%): 9120.0 so'm\nJAMI TO'LOV: 85120.0 so'm\n------------",
     "story": {
       "uz": "Express Cafe tarmog'ida kassada mijozga taom nomi, narxi, oraliq summasi, 12% soliq va jami summani chiroyli kvitansiya (String) ko'rinishida generatsiya qiluvchi metod kerak.",
-      "en": "Express Cafe restaurant checkout generates a formatted multi-line receipt string combining item subtotal, sales tax, and final amount."
+      "en": "Express Cafe restaurant checkout generates a formatted multi-line receipt string combining item subtotal, sales tax, and final amount.",
+      "ru": "При оформлении заказа в ресторане Express Cafe генерируется форматированная многострочная строка квитанции, объединяющая промежуточную сумму товара, налог с продаж и окончательную сумму."
     },
     "steps": {
       "uz": [
@@ -1662,6 +1975,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>FoodOrder order = new FoodOrder();</code>.",
         "Assign: <code>order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;</code>.",
         "Call <code>order.generateReceipt(12.0);</code> and print the output."
+      ],
+      "ru": [
+        "Объявите класс <code>FoodOrder</code> с помощью <code>String itemName;</code>, <code>double unitPrice;</code> и <code>int quantity;</code>.",
+        "Реализуйте <code>public String generateReceipt(double taxRate)</code> для вычисления промежуточного итога, налога и итога, возвращая текст квитанции.",
+        "В <code>main</code> создайте экземпляр <code>FoodOrder order = new FoodOrder();</code>.",
+        "Назначьте: <code>order.itemName = \"Lavash Max\"; order.unitPrice = 38000.0; order.quantity = 2;</code>.",
+        "Вызовите <code>order.generateReceipt(12.0);</code> и распечатайте результат."
       ]
     }
   },
@@ -1672,11 +1992,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "21. Book Catalog — Parametrlangan Konstruktor va 'this' Kalit So'zi",
-      "en": "21. Book Catalog — Parameterized Constructor & 'this' Keyword"
+      "en": "21. Book Catalog — Parameterized Constructor & 'this' Keyword",
+      "ru": "21. Каталог книг — параметризованный конструктор и ключевое слово this."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nKutubxona elektron katalogida yangi kitob kiritilayotganda uning nomi, muallifi va sahifalar soni majburiy bo'lib, ular parametrlangan konstruktor orqali 'this' yordamida o'zlashtiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Book klassini tuzing: String title;, String author;, int pages; maydonlarini e'lon qiling.\n2. public Book(String title, String author, int pages) konstruktorini yozing va this.title = title; this.author = author; this.pages = pages; qilib to'ldiring.\n3. Main metodida konstruktor orqali ob'yekt yarating: Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);.\n4. Maydonlar to'g'ri biriktirilganini tekshiring.\n5. Kitob ma'lumotlarini chop eting: System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);",
-      "en": "[Real-World Story & Context]\nIn a library catalog system, adding a book mandates title, author, and page count during instantiation using a parameterized constructor with the 'this' keyword.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Book with String title;, String author;, and int pages;.\n2. Implement public Book(String title, String author, int pages) assigning fields via this.\n3. In main, instantiate: Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);.\n4. Verify all field assignments.\n5. Print book details: System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);"
+      "en": "[Real-World Story & Context]\nIn a library catalog system, adding a book mandates title, author, and page count during instantiation using a parameterized constructor with the 'this' keyword.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Book with String title;, String author;, and int pages;.\n2. Implement public Book(String title, String author, int pages) assigning fields via this.\n3. In main, instantiate: Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);.\n4. Verify all field assignments.\n5. Print book details: System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);",
+      "ru": "📖 Контекст и описание задачи\nВ системе каталога библиотеки добавление книги требует названия, автора и количества страниц во время создания экземпляра с использованием параметризованного конструктора с ключевым словом «this».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Book</code> с помощью <code>String title;</code>, <code>String author;</code> и <code>int pages;</code>.\n2. Implement <code>public Book(String title, String author, int pages)</code> assigning fields via <code>this</code>.\n3. В <code>main</code> создайте экземпляр: <code>Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);</code>.\n4. Проверьте все назначения полей.\n5. Print book details: <code>System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);</code>"
     },
     "requirements": {
       "classes": [
@@ -1712,7 +2034,13 @@ window.OOP_CHALLENGES_W1 = [
         "`this` kalit so'zi hozir yaratilayotgan joriy nusxaning maydoniga ishora qiladi."
       ],
       "pitfalls": "Konstruktor oldiga tasodifan 'void' yozib qo'ysangiz, u oddiy metodga aylanadi va konstruktor bo'lmay qoladi!",
-      "cw2Tip": "CW2 barcha domen klasslarida konstruktorlar orqali ob'yekt tuzish majburiy hisoblanadi."
+      "cw2Tip": "CW2 barcha domen klasslarida konstruktorlar orqali ob'yekt tuzish majburiy hisoblanadi.",
+      "theoryRu": "Конструкторы запускаются автоматически во время выделения через «новый». Они имеют общее имя класса и не имеют возвращаемого типа.",
+      "pitfallsRu": "Если вы случайно поставили «void» перед конструктором, он станет простым методом и перестанет быть конструктором!",
+      "breakdownRu": [
+        "Ob'yekt bir qator kod bilan to'liq va to'g'ri holatda yaratiladi.",
+        "Ключевое слово `this` относится к области текущей копии, которая создается в данный момент."
+      ]
     },
     "sampleData": [
       "title: \"O'tkan Kunlar\"",
@@ -1722,7 +2050,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Kitob: O'tkan Kunlar | Muallif: Abdulla Qodiriy | Sahifa: 420",
     "story": {
       "uz": "Kutubxona elektron katalogida yangi kitob kiritilayotganda uning nomi, muallifi va sahifalar soni majburiy bo'lib, ular parametrlangan konstruktor orqali 'this' yordamida o'zlashtiriladi.",
-      "en": "In a library catalog system, adding a book mandates title, author, and page count during instantiation using a parameterized constructor with the 'this' keyword."
+      "en": "In a library catalog system, adding a book mandates title, author, and page count during instantiation using a parameterized constructor with the 'this' keyword.",
+      "ru": "В системе каталога библиотеки добавление книги требует названия, автора и количества страниц во время создания экземпляра с использованием параметризованного конструктора с ключевым словом «this»."
     },
     "steps": {
       "uz": [
@@ -1738,6 +2067,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate: <code>Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);</code>.",
         "Verify all field assignments.",
         "Print book details: <code>System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>Book</code> с помощью <code>String title;</code>, <code>String author;</code> и <code>int pages;</code>.",
+        "Implement <code>public Book(String title, String author, int pages)</code> assigning fields via <code>this</code>.",
+        "В <code>main</code> создайте экземпляр: <code>Book b = new Book(\"O'tkan Kunlar\", \"Abdulla Qodiriy\", 420);</code>.",
+        "Проверьте все назначения полей.",
+        "Print book details: <code>System.out.println(\"Kitob: \" + b.title + \" | Muallif: \" + b.author + \" | Sahifa: \" + b.pages);</code>"
       ]
     }
   },
@@ -1748,11 +2084,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "22. Account User — Konstruktor Overloading (Standart va To'liq)",
-      "en": "22. Account User — Constructor Overloading (Default & Full)"
+      "en": "22. Account User — Constructor Overloading (Default & Full)",
+      "ru": "22. Пользователь учетной записи — перегрузка конструктора (по умолчанию и полная версия)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nFoydalanuvchi akkaunti yaratilayotganda roli kiritilmasa avtomatik 'USER' bo'lishi, maxsus kiritilsa o'sha rol berilishi uchun konstruktorni nomdosh qilish (Constructor Overloading) qo'llaniladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. User klassini tuzing: String username;, String email;, String role;.\n2. 2 parametrli konstruktor yozing: public User(String username, String email) va role = \"USER\"; qilib o'rnating.\n3. 3 parametrli konstruktorni overload qiling: public User(String username, String email, String role).\n4. Main metodida ikkita ob'yekt yarating: User u1 = new User(\"nodirbek\", \"nodir@wiut.uz\"); va User u2 = new User(\"admin_ada\", \"ada@wiut.uz\", \"ADMIN\");.\n5. Har ikkala foydalanuvchini chop eting:System.out.println(\"Foydalanuvchi 1: \" + u1.username + \" (\" + u1.role + \")\");System.out.println(\"Foydalanuvchi 2: \" + u2.username + \" (\" + u2.role + \")\");",
-      "en": "[Real-World Story & Context]\nUser registration defaults role to 'USER' unless explicitly specified, implemented via Constructor Overloading.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class User with fields username, email, and role.\n2. Implement 2-arg constructor defaulting role to 'USER'.\n3. Implement 3-arg constructor setting custom role.\n4. In main, instantiate u1 (2-arg) and u2 (3-arg).\n5. Print both users on 2 lines."
+      "en": "[Real-World Story & Context]\nUser registration defaults role to 'USER' unless explicitly specified, implemented via Constructor Overloading.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class User with fields username, email, and role.\n2. Implement 2-arg constructor defaulting role to 'USER'.\n3. Implement 3-arg constructor setting custom role.\n4. In main, instantiate u1 (2-arg) and u2 (3-arg).\n5. Print both users on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nПри регистрации пользователя по умолчанию используется роль «ПОЛЬЗОВАТЕЛЬ», если это явно не указано и реализовано через перегрузку конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>User</code> с полями <code>username</code>, <code>email</code> и <code>role</code>.\n2. Implement 2-arg constructor defaulting role to 'USER'.\n3. Реализуйте конструктор с 3 аргументами, устанавливающий пользовательскую роль.\n4. В <code>main</code> создайте экземпляры <code>u1</code> (2 аргумента) и <code>u2</code> (3 аргумента).\n5. Напечатайте обоих пользователей в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -1788,7 +2126,13 @@ window.OOP_CHALLENGES_W1 = [
         "Maxsus ma'murlar uchun 3 ta parametr bilan rol berish mumkin."
       ],
       "pitfalls": "Agar klassda kamida 1 ta maxsus konstruktor yozilsa, Java standart bo'sh konstruktorni ('new User()') avtomatik taqdim etmay qo'yadi.",
-      "cw2Tip": "Buyurtmachiga buyurtma berishda manzil ko'rsatilgan yoki ko'rsatilmagan variantlarni qo'llashda asqotadi."
+      "cw2Tip": "Buyurtmachiga buyurtma berishda manzil ko'rsatilgan yoki ko'rsatilmagan variantlarni qo'llashda asqotadi.",
+      "theoryRu": "Перегрузка конструктора обеспечивает гибкие пути создания экземпляров с разумными резервными состояниями по умолчанию.",
+      "pitfallsRu": "Java не предоставляет автоматически пустой конструктор по умолчанию («новый пользователь()»), если в классе написан хотя бы один пользовательский конструктор.",
+      "breakdownRu": [
+        "Обычным пользователям достаточно двух параметров.",
+        "Специальным администраторам роль можно назначить с 3 параметрами."
+      ]
     },
     "sampleData": [
       "1-foydalanuvchi -> username: \"nodirbek\", email: \"nodir@wiut.uz\" (standart: USER)",
@@ -1797,7 +2141,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Foydalanuvchi 1: nodirbek (USER)\nFoydalanuvchi 2: admin_ada (ADMIN)",
     "story": {
       "uz": "Foydalanuvchi akkaunti yaratilayotganda roli kiritilmasa avtomatik 'USER' bo'lishi, maxsus kiritilsa o'sha rol berilishi uchun konstruktorni nomdosh qilish (Constructor Overloading) qo'llaniladi.",
-      "en": "User registration defaults role to 'USER' unless explicitly specified, implemented via Constructor Overloading."
+      "en": "User registration defaults role to 'USER' unless explicitly specified, implemented via Constructor Overloading.",
+      "ru": "При регистрации пользователя по умолчанию используется роль «ПОЛЬЗОВАТЕЛЬ», если это явно не указано и реализовано через перегрузку конструктора."
     },
     "steps": {
       "uz": [
@@ -1813,6 +2158,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement 3-arg constructor setting custom role.",
         "In <code>main</code>, instantiate <code>u1</code> (2-arg) and <code>u2</code> (3-arg).",
         "Print both users on 2 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>User</code> с полями <code>username</code>, <code>email</code> и <code>role</code>.",
+        "Implement 2-arg constructor defaulting role to 'USER'.",
+        "Реализуйте конструктор с 3 аргументами, устанавливающий пользовательскую роль.",
+        "В <code>main</code> создайте экземпляры <code>u1</code> (2 аргумента) и <code>u2</code> (3 аргумента).",
+        "Напечатайте обоих пользователей в 2 строки."
       ]
     }
   },
@@ -1823,11 +2175,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "23. Debit Card — Konstruktorlar Zanjiri ('this()' Chaining)",
-      "en": "23. Debit Card — Constructor Chaining via 'this()'"
+      "en": "23. Debit Card — Constructor Chaining via 'this()'",
+      "ru": "23. Дебетовая карта — цепочка конструкторов с помощью this()."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBank kartasi ochilganda balans sukut bo'yicha 0.0 UZS bilan boshlanadi. Kodni takrorlamaslik (DRY) uchun bir konstruktordan ikkinchisiga 'this()' zanjiri (Chaining) orqali murojaat qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. DebitCard klassini tuzing: String cardNumber;, String ownerName;, double balance;, String currency;.\n2. 4 parametrli to'liq konstruktorni e'lon qiling va maydonlarga qiymat bering.\n3. 2 parametrli konstruktorni tuzib, 'this()' zanjirini chaqiring: public DebitCard(String cardNumber, String ownerName) { this(cardNumber, ownerName, 0.0, \"UZS\"); }.\n4. Main metodida 2 parametrli konstruktor orqali karta oching: DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");.\n5. Karta ma'lumotlarini chop eting: System.out.println(\"Karta: \" + card.cardNumber + \" | Egasi: \" + card.ownerName + \" | Balans: \" + card.balance + \" \" + card.currency);",
-      "en": "[Real-World Story & Context]\nA debit card defaults to 0.0 UZS balance. To avoid duplicating initialization code, invoke the master constructor using constructor chaining ('this()').\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class DebitCard with fields for number, owner, balance, currency.\n2. Implement 4-parameter master constructor.\n3. Implement 2-parameter constructor delegating via this(cardNumber, ownerName, 0.0, \"UZS\");.\n4. In main, instantiate: DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");.\n5. Print card details matching expected output."
+      "en": "[Real-World Story & Context]\nA debit card defaults to 0.0 UZS balance. To avoid duplicating initialization code, invoke the master constructor using constructor chaining ('this()').\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class DebitCard with fields for number, owner, balance, currency.\n2. Implement 4-parameter master constructor.\n3. Implement 2-parameter constructor delegating via this(cardNumber, ownerName, 0.0, \"UZS\");.\n4. In main, instantiate: DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");.\n5. Print card details matching expected output.",
+      "ru": "📖 Контекст и описание задачи\nПо умолчанию баланс дебетовой карты составляет 0,0 сум. Чтобы избежать дублирования кода инициализации, вызовите главный конструктор, используя цепочку конструкторов («this()»).\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>DebitCard</code> с полями для номера, владельца, баланса и валюты.\n2. Implement 4-parameter master constructor.\n3. Implement 2-parameter constructor delegating via <code>this(cardNumber, ownerName, 0.0, \"UZS\");</code>.\n4. In <code>main</code>, instantiate: <code>DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");</code>.\n5. Распечатайте данные карты, соответствующие ожидаемому результату."
     },
     "requirements": {
       "classes": [
@@ -1870,7 +2224,13 @@ window.OOP_CHALLENGES_W1 = [
         "Qolgan konstruktorlar 'this(...)' orqali unga tayanadi."
       ],
       "pitfalls": "'this(...)' ni birinchi qatordan keyin yozsangiz, 'call to this must be first statement in constructor' xatoligi beradi.",
-      "cw2Tip": "Professor Ada Clean Code va SOLID tamoyillari bo'yicha konstruktor zanjirini yuqori baholaydi."
+      "cw2Tip": "Professor Ada Clean Code va SOLID tamoyillari bo'yicha konstruktor zanjirini yuqori baholaydi.",
+      "theoryRu": "'this(...)' связывает логику создания экземпляров с главными конструкторами, что строго обязательно в качестве первого оператора в теле.",
+      "pitfallsRu": "Если вы напишете «this(...)» после первой строки, это выдаст ошибку «вызов этого должен быть первым оператором в конструкторе».",
+      "breakdownRu": [
+        "Логика инициализации сосредоточена только в одном главном конструкторе.",
+        "Остальные конструкторы полагаются на него через «this(...)»."
+      ]
     },
     "sampleData": [
       "cardNumber: \"8600123456789012\"",
@@ -1880,7 +2240,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Karta: 8600123456789012 | Egasi: Kamron Bek | Balans: 0.0 UZS",
     "story": {
       "uz": "Bank kartasi ochilganda balans sukut bo'yicha 0.0 UZS bilan boshlanadi. Kodni takrorlamaslik (DRY) uchun bir konstruktordan ikkinchisiga 'this()' zanjiri (Chaining) orqali murojaat qilinadi.",
-      "en": "A debit card defaults to 0.0 UZS balance. To avoid duplicating initialization code, invoke the master constructor using constructor chaining ('this()')."
+      "en": "A debit card defaults to 0.0 UZS balance. To avoid duplicating initialization code, invoke the master constructor using constructor chaining ('this()').",
+      "ru": "По умолчанию баланс дебетовой карты составляет 0,0 сум. Чтобы избежать дублирования кода инициализации, вызовите главный конструктор, используя цепочку конструкторов («this()»)."
     },
     "steps": {
       "uz": [
@@ -1896,6 +2257,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement 2-parameter constructor delegating via <code>this(cardNumber, ownerName, 0.0, \"UZS\");</code>.",
         "In <code>main</code>, instantiate: <code>DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");</code>.",
         "Print card details matching expected output."
+      ],
+      "ru": [
+        "Создайте класс <code>DebitCard</code> с полями для номера, владельца, баланса и валюты.",
+        "Implement 4-parameter master constructor.",
+        "Implement 2-parameter constructor delegating via <code>this(cardNumber, ownerName, 0.0, \"UZS\");</code>.",
+        "In <code>main</code>, instantiate: <code>DebitCard card = new DebitCard(\"8600123456789012\", \"Kamron Bek\");</code>.",
+        "Распечатайте данные карты, соответствующие ожидаемому результату."
       ]
     }
   },
@@ -1906,11 +2274,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "24. Smartphone — Standart (No-Arg) va Maxsus Konstruktorlar",
-      "en": "24. Smartphone — Default (No-Arg) & Custom Constructors"
+      "en": "24. Smartphone — Default (No-Arg) & Custom Constructors",
+      "ru": "24. Смартфон — значения по умолчанию (без аргументов) и пользовательские конструкторы"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nElektronika do'koni inventarida nomsiz standart smartfonlar (Generic, 64GB, $150.0) va aniq parametrli modellar uchun ham bo'sh (no-arg), ham parametrli konstruktorlar talab qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Smartphone klassini yarating: String brand;, int storageGb;, double price;.\n2. Bo'sh no-arg konstruktorni yozing: this.brand = \"Generic\"; this.storageGb = 64; this.price = 150.0;.\n3. Parametrli konstruktorni yozing: public Smartphone(String brand, int storageGb, double price).\n4. Main metodida ikkita smartfon yarating: Smartphone phone1 = new Smartphone(); va Smartphone phone2 = new Smartphone(\"Samsung Galaxy S24\", 256, 950.0);.\n5. Har ikkala modelni 2 qatorda chop eting:System.out.println(\"Model 1: \" + phone1.brand + \" (\" + phone1.storageGb + \"GB) - $\" + phone1.price);System.out.println(\"Model 2: \" + phone2.brand + \" (\" + phone2.storageGb + \"GB) - $\" + phone2.price);",
-      "en": "[Real-World Story & Context]\nAn electronics inventory manages generic entry-level phones via a default no-argument constructor and flagship devices via a parameterized constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Smartphone with brand, storage, price.\n2. Implement no-arg constructor setting Generic, 64GB, 150.0.\n3. Implement parameterized constructor.\n4. Instantiate phone1 (no-arg) and phone2 (parameterized).\n5. Print both devices on 2 lines."
+      "en": "[Real-World Story & Context]\nAn electronics inventory manages generic entry-level phones via a default no-argument constructor and flagship devices via a parameterized constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Smartphone with brand, storage, price.\n2. Implement no-arg constructor setting Generic, 64GB, 150.0.\n3. Implement parameterized constructor.\n4. Instantiate phone1 (no-arg) and phone2 (parameterized).\n5. Print both devices on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nИнвентаризация электроники управляет универсальными телефонами начального уровня с помощью конструктора без аргументов по умолчанию, а флагманскими устройствами — с помощью параметризованного конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Укажите класс <code>Smartphone</code> с указанием марки, места хранения, цены.\n2. Реализуйте настройку конструктора без аргументов Generic, 64 ГБ, 150.0.0.\n3. Реализуйте параметризованный конструктор.\n4. Создайте экземпляры <code>phone1</code> (без аргументов) и <code>phone2</code> (параметризованные).\n5. Print both devices on 2 lines."
     },
     "requirements": {
       "classes": [
@@ -1946,7 +2316,13 @@ window.OOP_CHALLENGES_W1 = [
         "Parametrli versiya esa erkin sozlash imkonini berdi."
       ],
       "pitfalls": "Bo'sh konstruktor yozishni unutib 'new Smartphone()' chaqirilsa, dastur kompilyatsiyadan o'tmaydi.",
-      "cw2Tip": "JavaFX yoki konsolli menyularda ob'yektlarni avval bo'sh yaratib, keyin to'ldirishda no-arg kerak bo'ladi."
+      "cw2Tip": "JavaFX yoki konsolli menyularda ob'yektlarni avval bo'sh yaratib, keyin to'ldirishda no-arg kerak bo'ladi.",
+      "theoryRu": "Конструктор без аргументов должен быть явно объявлен, если вводятся параметризованные конструкторы.",
+      "pitfallsRu": "Если «new Smartphone()» вызывается без написания пустого конструктора, программа не скомпилируется.",
+      "breakdownRu": [
+        "Состояние по умолчанию защищено.",
+        "Версия параметра допускала свободную настройку."
+      ]
     },
     "sampleData": [
       "model: \"Samsung Galaxy S24\"",
@@ -1956,7 +2332,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Model 1: Generic (64GB) - $150.0\nModel 2: Samsung Galaxy S24 (256GB) - $950.0",
     "story": {
       "uz": "Elektronika do'koni inventarida nomsiz standart smartfonlar (Generic, 64GB, $150.0) va aniq parametrli modellar uchun ham bo'sh (no-arg), ham parametrli konstruktorlar talab qilinadi.",
-      "en": "An electronics inventory manages generic entry-level phones via a default no-argument constructor and flagship devices via a parameterized constructor."
+      "en": "An electronics inventory manages generic entry-level phones via a default no-argument constructor and flagship devices via a parameterized constructor.",
+      "ru": "Инвентаризация электроники управляет универсальными телефонами начального уровня с помощью конструктора без аргументов по умолчанию, а флагманскими устройствами — с помощью параметризованного конструктора."
     },
     "steps": {
       "uz": [
@@ -1972,6 +2349,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement parameterized constructor.",
         "Instantiate <code>phone1</code> (no-arg) and <code>phone2</code> (parameterized).",
         "Print both devices on 2 lines."
+      ],
+      "ru": [
+        "Укажите класс <code>Smartphone</code> с указанием марки, места хранения, цены.",
+        "Реализуйте настройку конструктора без аргументов Generic, 64 ГБ, 150.0.0.",
+        "Реализуйте параметризованный конструктор.",
+        "Создайте экземпляры <code>phone1</code> (без аргументов) и <code>phone2</code> (параметризованные).",
+        "Print both devices on 2 lines."
       ]
     }
   },
@@ -1982,11 +2366,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "25. University Course — Konstruktor Ichida Majburiy Himoyaviy Qoida",
-      "en": "25. University Course — Defensive Validation Inside Constructor"
+      "en": "25. University Course — Defensive Validation Inside Constructor",
+      "ru": "25. Университетский курс — Защитная валидация внутри конструктора"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nUniversitet kursining talabalar sig'imi hech qachon 0 yoki manfiy bo'lishi mumkin emas. Noto'g'ri kiritilgan qiymat konstruktor ichidagi himoya sharti orqali darhol 30 ga to'g'rilanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Course klassini tuzing: String courseCode; va int maxStudents; maydonlarini e'lon qiling.\n2. public Course(String courseCode, int maxStudents) konstruktorida tekshiring: agar maxStudents > 0 bo'lsa o'rnating, aks holda standart 30 qilib belgilang.\n3. Main metodida to'g'ri sig'imli Course c1 = new Course(\"5COSC018C\", 45); va manfiy sig'imli Course c2 = new Course(\"5BUIS009C\", -10); yarating.\n4. Himoyaviy shart ishlab ikkinchi kurs sig'imi 30 ga to'g'rilanganligini tekshiring.\n5. Kurslar ma'lumotlarini 2 qatorda chop eting:System.out.println(\"Kurs: \" + c1.courseCode + \" | Sig'im: \" + c1.maxStudents);System.out.println(\"Kurs: \" + c2.courseCode + \" | Sig'im (tuzatilgan): \" + c2.maxStudents);",
-      "en": "[Real-World Story & Context]\nUniversity course capacity must never be zero or negative. A constructor guard clause automatically clamps invalid values to 30.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Course with courseCode and maxStudents.\n2. Implement constructor enforcing maxStudents = (maxStudents > 0) ? maxStudents : 30;.\n3. In main, instantiate c1 (45) and c2 (-10).\n4. Verify second course capacity clamped to 30.\n5. Print course details on 2 lines."
+      "en": "[Real-World Story & Context]\nUniversity course capacity must never be zero or negative. A constructor guard clause automatically clamps invalid values to 30.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Course with courseCode and maxStudents.\n2. Implement constructor enforcing maxStudents = (maxStudents > 0) ? maxStudents : 30;.\n3. In main, instantiate c1 (45) and c2 (-10).\n4. Verify second course capacity clamped to 30.\n5. Print course details on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nОбъем университетского курса никогда не должен быть нулевым или отрицательным. Предложение защиты конструктора автоматически ограничивает недопустимые значения до 30.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Course</code> с <code>courseCode</code> и <code>maxStudents</code>.\n2. Реализуйте конструктор, обеспечивающий <code>maxStudents = (maxStudents > 0) ? maxStudents : 30;</code>.\n3. В <code>main</code> создайте экземпляры <code>c1</code> (45) и <code>c2</code> (-10).\n4. Убедитесь, что вместимость второго блюда ограничена до 30.\n5. Print course details on 2 lines."
     },
     "requirements": {
       "classes": [
@@ -2018,7 +2404,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ob'yekt doimo mantiqan to'g'ri sig'im bilan ish boshlaydi."
       ],
       "pitfalls": "Validatsiyani faqat metodlarga qo'yib, konstruktorda unutish ob'yektning nosoz tug'ilishiga yo'l ochadi.",
-      "cw2Tip": "Tovar narxi 0 bo'lib qolmasligini konstruktorda tekshirish CW2 talabidir."
+      "cw2Tip": "Tovar narxi 0 bo'lib qolmasligini konstruktorda tekshirish CW2 talabidir.",
+      "theoryRu": "Защитная проверка внутри конструктора гарантирует, что ни один недопустимый экземпляр не попадет во время выполнения системы.",
+      "pitfallsRu": "Включение проверки только в методы и забвение ее в конструкторе приведет к сбою объекта.",
+      "breakdownRu": [
+        "Исправлено неправильно введенное отрицательное значение.",
+        "Объект всегда начинается с логически правильной мощности."
+      ]
     },
     "sampleData": [
       "1-kurs -> code: \"5COSC018C\", enrolled: 45 (to'g'ri)",
@@ -2027,7 +2419,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Kurs: 5COSC018C | Sig'im: 45\nKurs: 5BUIS009C | Sig'im (tuzatilgan): 30",
     "story": {
       "uz": "Universitet kursining talabalar sig'imi hech qachon 0 yoki manfiy bo'lishi mumkin emas. Noto'g'ri kiritilgan qiymat konstruktor ichidagi himoya sharti orqali darhol 30 ga to'g'rilanadi.",
-      "en": "University course capacity must never be zero or negative. A constructor guard clause automatically clamps invalid values to 30."
+      "en": "University course capacity must never be zero or negative. A constructor guard clause automatically clamps invalid values to 30.",
+      "ru": "Объем университетского курса никогда не должен быть нулевым или отрицательным. Предложение защиты конструктора автоматически ограничивает недопустимые значения до 30."
     },
     "steps": {
       "uz": [
@@ -2043,6 +2436,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>c1</code> (45) and <code>c2</code> (-10).",
         "Verify second course capacity clamped to 30.",
         "Print course details on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>Course</code> с <code>courseCode</code> и <code>maxStudents</code>.",
+        "Реализуйте конструктор, обеспечивающий <code>maxStudents = (maxStudents > 0) ? maxStudents : 30;</code>.",
+        "В <code>main</code> создайте экземпляры <code>c1</code> (45) и <code>c2</code> (-10).",
+        "Убедитесь, что вместимость второго блюда ограничена до 30.",
+        "Print course details on 2 lines."
       ]
     }
   },
@@ -2053,11 +2453,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "26. Flight Ticket — Barcha Maydonlarni Xavfsiz Boshlang'ich Holatga Keltirish",
-      "en": "26. Flight Ticket — Robust State Initialization"
+      "en": "26. Flight Ticket — Robust State Initialization",
+      "ru": "26. Билет на рейс — робастная инициализация состояния"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nAviachipta sotuvida chipta narxi manfiy kiritilmasligi va $300 dan yuqori narxdagi chiptalar avtomatik ravishda puli qaytariladigan (refundable) maqomiga ega bo'lishi konstruktorda kafolatlanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. FlightTicket klassini yarating: String flightNum;, double price;, boolean isRefundable;.\n2. Konstruktorda tekshiring: narx manfiy bo'lsa 0.0 qiling; agar price > 300.0 bo'lsa isRefundable = true; deb belgilang.\n3. Main metodida ikkita chipta yarating: FlightTicket t1 = new FlightTicket(\"HY-201\", 320.0, false); va FlightTicket t2 = new FlightTicket(\"HY-55\", 50.0, false);.\n4. Birinchi chiptaning $300 dan yuqori bo'lgani sababli 'isRefundable' qiymati true bo'lganini tekshiring.\n5. Ikkala chiptani 2 qatorda chop eting:System.out.println(\"Chipta 1 narxi: $\" + t1.price + \" | Qaytariladimi: \" + t1.isRefundable);System.out.println(\"Chipta 2 narxi: $\" + t2.price + \" | Qaytariladimi: \" + t2.isRefundable);",
-      "en": "[Real-World Story & Context]\nAirline ticketing enforces non-negative pricing and automatically upgrades tickets over $300 to refundable status inside the constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FlightTicket with flightNum, price, isRefundable.\n2. Constructor clamps price >= 0 and overrides isRefundable = true if price > 300.0.\n3. In main, instantiate t1 ($320, false) and t2 ($50, false).\n4. Verify refund upgrade.\n5. Print tickets on 2 lines."
+      "en": "[Real-World Story & Context]\nAirline ticketing enforces non-negative pricing and automatically upgrades tickets over $300 to refundable status inside the constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class FlightTicket with flightNum, price, isRefundable.\n2. Constructor clamps price >= 0 and overrides isRefundable = true if price > 300.0.\n3. In main, instantiate t1 ($320, false) and t2 ($50, false).\n4. Verify refund upgrade.\n5. Print tickets on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nПри покупке авиабилетов применяются неотрицательные цены и автоматически повышается статус билетов стоимостью более 300 долларов США до возвратного статуса внутри конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>FlightTicket</code> с помощью <code>flightNum</code>, <code>price</code>, <code>isRefundable</code>.\n2. Конструктор фиксирует цену >= 0 и переопределяет <code>isRefundable = true</code>, если цена > 300,0.\n3. В <code>main</code> создайте экземпляры <code>t1</code> ($320, ложь) и <code>t2</code> ($50, ложь).\n4. Verify refund upgrade.\n5. Распечатайте билеты в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2093,7 +2495,13 @@ window.OOP_CHALLENGES_W1 = [
         "Eng kam narx chegarasi o'rnatildi."
       ],
       "pitfalls": "Ternar operatorida shartni ehtiyotkorlik bilan yozing.",
-      "cw2Tip": "CW2 bilet yoki buyurtma tizimida minimal buyurtma summasini shunday tekshirasiz."
+      "cw2Tip": "CW2 bilet yoki buyurtma tizimida minimal buyurtma summasini shunday tekshirasiz.",
+      "theoryRu": "Конструкторы служат основным защитным периметром для инвариантов предметной области.",
+      "pitfallsRu": "Внимательно запишите условие в тернарном операторе.",
+      "breakdownRu": [
+        "Номер и статус заявки сохранены.",
+        "Установлен минимальный ценовой лимит."
+      ]
     },
     "sampleData": [
       "1-chipta -> ticketId: \"TK-78901\", price: 320.0, hasLuggage: true",
@@ -2102,7 +2510,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Chipta 1 narxi: $320.0 | Qaytariladimi: true\nChipta 2 narxi: $50.0 | Qaytariladimi: false",
     "story": {
       "uz": "Aviachipta sotuvida chipta narxi manfiy kiritilmasligi va $300 dan yuqori narxdagi chiptalar avtomatik ravishda puli qaytariladigan (refundable) maqomiga ega bo'lishi konstruktorda kafolatlanadi.",
-      "en": "Airline ticketing enforces non-negative pricing and automatically upgrades tickets over $300 to refundable status inside the constructor."
+      "en": "Airline ticketing enforces non-negative pricing and automatically upgrades tickets over $300 to refundable status inside the constructor.",
+      "ru": "При покупке авиабилетов применяются неотрицательные цены и автоматически повышается статус билетов стоимостью более 300 долларов США до возвратного статуса внутри конструктора."
     },
     "steps": {
       "uz": [
@@ -2118,6 +2527,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate <code>t1</code> ($320, false) and <code>t2</code> ($50, false).",
         "Verify refund upgrade.",
         "Print tickets on 2 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>FlightTicket</code> с помощью <code>flightNum</code>, <code>price</code>, <code>isRefundable</code>.",
+        "Конструктор фиксирует цену >= 0 и переопределяет <code>isRefundable = true</code>, если цена > 300,0.",
+        "В <code>main</code> создайте экземпляры <code>t1</code> ($320, ложь) и <code>t2</code> ($50, ложь).",
+        "Verify refund upgrade.",
+        "Распечатайте билеты в 2 строки."
       ]
     }
   },
@@ -2128,11 +2544,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "27. HR Contract — Mehnat Shartnomasi va Minimal Oylik Kafolati",
-      "en": "27. HR Contract — Minimum Wage Guarantee in Constructor"
+      "en": "27. HR Contract — Minimum Wage Guarantee in Constructor",
+      "ru": "27. Контракт на работу с персоналом — гарантия минимальной заработной платы в Конструкторе"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMehnat shartnomasida qonuniy minimal oylik kafolati (kamida 2,000,000 so'm) mavjud. Konstruktor belgilangan maoshni kafolatlangan miqdordan kam bo'lmasligini ta'minlaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. EmploymentContract klassini tuzing: String employeeName;, String department;, double baseSalary;.\n2. Konstruktorda tekshiring: agar baseSalary >= 2000000.0 bo'lsa qabul qiling, aks holda minimal kafolat 2000000.0 o'rnating.\n3. Main metodida EmploymentContract contract = new EmploymentContract(\"Sardor Qodirov\", \"IT Qo'llab-quvvatlash\", 1500000.0); yarating.\n4. Kafolatlangan oylik 2,000,000 so'mga ko'tarilganligini tekshiring.\n5. Shartnoma ma'lumotlarini 2 qatorda chop eting:System.out.println(\"Xodim: \" + contract.employeeName + \" | Bo'lim: \" + contract.department);System.out.println(\"Kafolatlangan oylik: \" + contract.baseSalary + \" so'm\");",
-      "en": "[Real-World Story & Context]\nAn HR employment contract enforces a statutory minimum wage baseline (2,000,000 UZS) inside its constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class EmploymentContract with employeeName, department, baseSalary.\n2. Constructor enforces minimum salary: baseSalary = Math.max(baseSalary, 2000000.0);.\n3. In main, instantiate with 1500000.0.\n4. Verify wage is upgraded to 2000000.0.\n5. Print contract summary on 2 lines."
+      "en": "[Real-World Story & Context]\nAn HR employment contract enforces a statutory minimum wage baseline (2,000,000 UZS) inside its constructor.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class EmploymentContract with employeeName, department, baseSalary.\n2. Constructor enforces minimum salary: baseSalary = Math.max(baseSalary, 2000000.0);.\n3. In main, instantiate with 1500000.0.\n4. Verify wage is upgraded to 2000000.0.\n5. Print contract summary on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nТрудовой договор с персоналом предусматривает установленный законом базовый уровень минимальной заработной платы (2 000 000 сум) внутри его конструктора.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>EmploymentContract</code> с именем сотрудника, отделом и базовой зарплатой.\n2. Конструктор обеспечивает минимальную зарплату: <code>baseSalary = Math.max(baseSalary, 2000000.0);</code>.\n3. В <code>main</code> создайте экземпляр с 1500000.0.\n4. Убедитесь, что заработная плата повышена до 2000000,0.\n5. Распечатать резюме контракта в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2168,7 +2586,13 @@ window.OOP_CHALLENGES_W1 = [
         "Kam oylik kiritilganda kafolatlangan miqdor qo'yildi."
       ],
       "pitfalls": "Math.max(a, b) metodidan foydalanish ham shartni qisqartirish uchun juda qulay.",
-      "cw2Tip": "Hisobot tizimlarida manfiy yoki xato sonlar kirib kelmasligining oldini oladi."
+      "cw2Tip": "Hisobot tizimlarida manfiy yoki xato sonlar kirib kelmasligining oldini oladi.",
+      "theoryRu": "Обеспечение соблюдения законодательных правил с помощью инвариантов конструктора является основой чистой архитектуры предприятия.",
+      "pitfallsRu": "Использование метода Math.max(a, b) также очень удобно для уменьшения условия.",
+      "breakdownRu": [
+        "Информация о сотрудниках надежно установлена.",
+        "На вход низкой ежемесячной была поставлена ​​гарантированная сумма."
+      ]
     },
     "sampleData": [
       "fullName: \"Sardor Qodirov\"",
@@ -2178,7 +2602,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Xodim: Sardor Qodirov | Bo'lim: IT Qo'llab-quvvatlash\nKafolatlangan oylik: 2000000.0 so'm",
     "story": {
       "uz": "Mehnat shartnomasida qonuniy minimal oylik kafolati (kamida 2,000,000 so'm) mavjud. Konstruktor belgilangan maoshni kafolatlangan miqdordan kam bo'lmasligini ta'minlaydi.",
-      "en": "An HR employment contract enforces a statutory minimum wage baseline (2,000,000 UZS) inside its constructor."
+      "en": "An HR employment contract enforces a statutory minimum wage baseline (2,000,000 UZS) inside its constructor.",
+      "ru": "Трудовой договор с персоналом предусматривает установленный законом базовый уровень минимальной заработной платы (2 000 000 сум) внутри его конструктора."
     },
     "steps": {
       "uz": [
@@ -2194,6 +2619,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate with 1500000.0.",
         "Verify wage is upgraded to 2000000.0.",
         "Print contract summary on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>EmploymentContract</code> с именем сотрудника, отделом и базовой зарплатой.",
+        "Конструктор обеспечивает минимальную зарплату: <code>baseSalary = Math.max(baseSalary, 2000000.0);</code>.",
+        "В <code>main</code> создайте экземпляр с 1500000.0.",
+        "Убедитесь, что заработная плата повышена до 2000000,0.",
+        "Распечатать резюме контракта в 2 строки."
       ]
     }
   },
@@ -2204,11 +2636,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "28. SaaS Subscription — Ko'p Bosqichli Konstruktorlar Zanjiri",
-      "en": "28. SaaS Subscription — Multi-Stage Cascading Chaining"
+      "en": "28. SaaS Subscription — Multi-Stage Cascading Chaining",
+      "ru": "28. Подписка SaaS — многоступенчатая каскадная цепочка"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBulutli SaaS platformada tarif rejalari 3 xil: Starter ($10, 1 user), Team ($45, 10 users) va Enterprise ($199, 100 users). Ular konstruktorlar zanjiri (Chaining) orqali birlashtiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Subscription klassini tuzing: String planName;, double monthlyPrice;, int maxUsers;, boolean autoRenew;.\n2. 4 parametrli to'liq konstruktorni e'lon qiling va maydonlarga qiymat bering.\n3. 3 parametrli konstruktorni this(planName, monthlyPrice, maxUsers, true);, 1 parametrli konstruktorni esa this(planName, 10.0, 1, true); zanjiri bilan e'lon qiling.\n4. Main metodida 3 xil ob'yekt yarating: Subscription s1 = new Subscription(\"Starter\");, Subscription s2 = new Subscription(\"Team\", 45.0, 10);, Subscription s3 = new Subscription(\"Enterprise\", 199.0, 100, false);.\n5. Barcha tariflarni 3 qatorda chop eting:System.out.println(\"Plan: \" + s1.planName + \" ($\" + s1.monthlyPrice + \", \" + s1.maxUsers + \" user, auto: \" + s1.autoRenew + \")\");System.out.println(\"Plan: \" + s2.planName + \" ($\" + s2.monthlyPrice + \", \" + s2.maxUsers + \" users, auto: \" + s2.autoRenew + \")\");System.out.println(\"Plan: \" + s3.planName + \" ($\" + s3.monthlyPrice + \", \" + s3.maxUsers + \" users, auto: \" + s3.autoRenew + \")\");",
-      "en": "[Real-World Story & Context]\nA cloud SaaS billing tier models Starter, Team, and Enterprise packages using multi-stage constructor chaining.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Subscription with planName, monthlyPrice, maxUsers, autoRenew.\n2. Implement 4-arg master constructor.\n3. Implement 3-arg and 1-arg constructors chaining with this().\n4. In main, instantiate all 3 subscriptions.\n5. Print all 3 plans on 3 lines."
+      "en": "[Real-World Story & Context]\nA cloud SaaS billing tier models Starter, Team, and Enterprise packages using multi-stage constructor chaining.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Subscription with planName, monthlyPrice, maxUsers, autoRenew.\n2. Implement 4-arg master constructor.\n3. Implement 3-arg and 1-arg constructors chaining with this().\n4. In main, instantiate all 3 subscriptions.\n5. Print all 3 plans on 3 lines.",
+      "ru": "📖 Контекст и описание задачи\nОблачный уровень выставления счетов SaaS моделирует пакеты Starter, Team и Enterprise, используя многоступенчатую цепочку конструкторов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Subscription</code> с именем плана, ежемесячной ценой, maxUsers, autoRenew.\n2. Реализуйте главный конструктор с 4 аргументами.\n3. Реализуйте цепочку конструкторов с 3 и 1 аргументами с помощью <code>this()</code>.\n4. В <code>main</code> создайте экземпляры всех трех подписок.\n5. Распечатайте все 3 плана в 3 строки."
     },
     "requirements": {
       "classes": [
@@ -2251,7 +2685,13 @@ window.OOP_CHALLENGES_W1 = [
         "Takrorlanish nolga tushirildi."
       ],
       "pitfalls": "Zanjirda aylanma (circular) chaqiruv qilib qo'ymang (A -> B va B -> A), aks holda kompilyator xato beradi.",
-      "cw2Tip": "Enterprise tizimlarda konstruktorlar soni ko'p bo'ladi va ularni zanjirlash talab etiladi."
+      "cw2Tip": "Enterprise tizimlarda konstruktorlar soni ko'p bo'ladi va ularni zanjirlash talab etiladi.",
+      "theoryRu": "Каскадное соединение объединяет все варианты в один главный конструктор, упрощая будущее обслуживание.",
+      "pitfallsRu": "Zanjirda aylanma (круговой) chaqiruv qilib qo'ymang (A -> B va B -> A), акш холдинг компилятор xato beradi.",
+      "breakdownRu": [
+        "Уровни Starter, Team и Enterprise создаются с удобными параметрами.",
+        "Takrorlanish nolga tushirildi."
+      ]
     },
     "sampleData": [
       "1-obuna -> planName: \"Starter\" (standart qiymatlar bilan)",
@@ -2261,7 +2701,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Plan: Starter ($10.0, 1 user, auto: true)\nPlan: Team ($45.0, 10 users, auto: true)\nPlan: Enterprise ($199.0, 100 users, auto: false)",
     "story": {
       "uz": "Bulutli SaaS platformada tarif rejalari 3 xil: Starter ($10, 1 user), Team ($45, 10 users) va Enterprise ($199, 100 users). Ular konstruktorlar zanjiri (Chaining) orqali birlashtiriladi.",
-      "en": "A cloud SaaS billing tier models Starter, Team, and Enterprise packages using multi-stage constructor chaining."
+      "en": "A cloud SaaS billing tier models Starter, Team, and Enterprise packages using multi-stage constructor chaining.",
+      "ru": "Облачный уровень выставления счетов SaaS моделирует пакеты Starter, Team и Enterprise, используя многоступенчатую цепочку конструкторов."
     },
     "steps": {
       "uz": [
@@ -2277,6 +2718,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement 3-arg and 1-arg constructors chaining with <code>this()</code>.",
         "In <code>main</code>, instantiate all 3 subscriptions.",
         "Print all 3 plans on 3 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>Subscription</code> с именем плана, ежемесячной ценой, maxUsers, autoRenew.",
+        "Реализуйте главный конструктор с 4 аргументами.",
+        "Реализуйте цепочку конструкторов с 3 и 1 аргументами с помощью <code>this()</code>.",
+        "В <code>main</code> создайте экземпляры всех трех подписок.",
+        "Распечатайте все 3 плана в 3 строки."
       ]
     }
   },
@@ -2287,11 +2735,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "29. GPS Navigation — 'GeoPoint' va Geografik Koordinatalar Tekshiruvi",
-      "en": "29. GPS Navigation — 'GeoPoint' & Coordinate Range Check"
+      "en": "29. GPS Navigation — 'GeoPoint' & Coordinate Range Check",
+      "ru": "29. GPS-навигация — проверка геоточки и диапазона координат."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nGPS navigatsiya tizimida koordinatalar qat'iy chegaraga ega: kenglik [-90.0; 90.0], uzunlik esa [-180.0; 180.0]. Chegaradan chiqqan nuqtalar konstruktorda 0.0 ga keltiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. GeoPoint klassini e'lon qiling: double latitude; va double longitude; maydonlarini qo'shing.\n2. Konstruktorda kenglik va uzunlik chegaralarini tekshiring: oraliqdan tashqaridagi har qanday qiymatni 0.0 qilib belgilang.\n3. Main metodida to'g'ri GeoPoint toshkent = new GeoPoint(41.2995, 69.2401); va noto'g'ri GeoPoint xatoNuqta = new GeoPoint(120.5, 200.0); yarating.\n4. Xato kiritilgan koordinatalar avtomatik 0.0 ga to'g'rilanganini tekshiring.\n5. Ikkala nuqtani 2 qatorda chop eting:System.out.println(\"Toshkent: lat=\" + toshkent.latitude + \", lon=\" + toshkent.longitude);System.out.println(\"Xato nuqta (tuzatilgan): lat=\" + xatoNuqta.latitude + \", lon=\" + xatoNuqta.longitude);",
-      "en": "[Real-World Story & Context]\nA GPS telemetry system validates coordinates within latitude [-90.0, 90.0] and longitude [-180.0, 180.0], clamping out-of-bound coordinates to 0.0.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class GeoPoint with latitude and longitude.\n2. Constructor clamps values outside [-90.0, 90.0] and [-180.0, 180.0] to 0.0.\n3. In main, instantiate Tashkent and invalid coordinate points.\n4. Verify invalid point is clamped to (0.0, 0.0).\n5. Print both points on 2 lines."
+      "en": "[Real-World Story & Context]\nA GPS telemetry system validates coordinates within latitude [-90.0, 90.0] and longitude [-180.0, 180.0], clamping out-of-bound coordinates to 0.0.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class GeoPoint with latitude and longitude.\n2. Constructor clamps values outside [-90.0, 90.0] and [-180.0, 180.0] to 0.0.\n3. In main, instantiate Tashkent and invalid coordinate points.\n4. Verify invalid point is clamped to (0.0, 0.0).\n5. Print both points on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nСистема телеметрии GPS проверяет координаты в пределах широты [-90,0, 90,0] и долготы [-180,0, 180,0], фиксируя координаты за пределами границ до 0,0.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>GeoPoint</code> с широтой и долготой.\n2. Constructor clamps values outside [-90.0, 90.0] and [-180.0, 180.0] to 0.0.\n3. В <code>main</code> создайте экземпляр Ташкента и недопустимые точки координат.\n4. Verify invalid point is clamped to (0.0, 0.0).\n5. Выведите обе точки в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2323,7 +2773,13 @@ window.OOP_CHALLENGES_W1 = [
         "Noto'g'ri qiymat kiritilganda standart 0.0 koordinatasiga o'tkazildi."
       ],
       "pitfalls": "Mantiqiy 'va' (&&) o'rniga 'yoki' (||) ishlatilsa tekshiruv buziladi.",
-      "cw2Tip": "Yandex Go kabi transport tizimlarida bu eng asosiy obyekt hisoblanadi."
+      "cw2Tip": "Yandex Go kabi transport tizimlarida bu eng asosiy obyekt hisoblanadi.",
+      "theoryRu": "Диапазоны координат домена проверены на картах строительных щитов от аварий за пределами границ.",
+      "pitfallsRu": "Использование «или» (||) вместо логического «и» (&&) нарушит проверку.",
+      "breakdownRu": [
+        "Ширина и длина проверялись отдельно.",
+        "По умолчанию была установлена ​​координата 0,0, когда было введено неверное значение."
+      ]
     },
     "sampleData": [
       "Toshkent nuqtasi -> latitude: 41.2995, longitude: 69.2401 (to'g'ri)",
@@ -2332,7 +2788,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Toshkent: lat=41.2995, lon=69.2401\nXato nuqta (tuzatilgan): lat=0.0, lon=0.0",
     "story": {
       "uz": "GPS navigatsiya tizimida koordinatalar qat'iy chegaraga ega: kenglik [-90.0; 90.0], uzunlik esa [-180.0; 180.0]. Chegaradan chiqqan nuqtalar konstruktorda 0.0 ga keltiriladi.",
-      "en": "A GPS telemetry system validates coordinates within latitude [-90.0, 90.0] and longitude [-180.0, 180.0], clamping out-of-bound coordinates to 0.0."
+      "en": "A GPS telemetry system validates coordinates within latitude [-90.0, 90.0] and longitude [-180.0, 180.0], clamping out-of-bound coordinates to 0.0.",
+      "ru": "Система телеметрии GPS проверяет координаты в пределах широты [-90,0, 90,0] и долготы [-180,0, 180,0], фиксируя координаты за пределами границ до 0,0."
     },
     "steps": {
       "uz": [
@@ -2348,6 +2805,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, instantiate Tashkent and invalid coordinate points.",
         "Verify invalid point is clamped to (0.0, 0.0).",
         "Print both points on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>GeoPoint</code> с широтой и долготой.",
+        "Constructor clamps values outside [-90.0, 90.0] and [-180.0, 180.0] to 0.0.",
+        "В <code>main</code> создайте экземпляр Ташкента и недопустимые точки координат.",
+        "Verify invalid point is clamped to (0.0, 0.0).",
+        "Выведите обе точки в 2 строки."
       ]
     }
   },
@@ -2358,11 +2822,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "21-30",
     "title": {
       "uz": "30. Warehouse Logistics — Ob'yekt Nusxasini Yaratish (Copy Constructor • Stage 3 Master)",
-      "en": "30. Warehouse Logistics — Copy Constructor (Stage 3 Master)"
+      "en": "30. Warehouse Logistics — Copy Constructor (Stage 3 Master)",
+      "ru": "30. Складская логистика — Конструктор копирования (Мастер 3-го этапа)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nLogistika omborida mavjud palletning nusxasini (klonini) yaratish uchun Copy Constructor mexanizmi talab etiladi. Yangi palletga asl identifikator oxiriga '-COPY' qo'shilgan kod beriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Pallet klassini tuzing: String palletId;, double weightLimit;, int boxCount; maydonlarini e'lon qiling.\n2. Standart 3 parametrli konstruktorni yozing: public Pallet(String palletId, double weightLimit, int boxCount).\n3. Copy Constructor yarating: public Pallet(Pallet other) { this.palletId = other.palletId + \"-COPY\"; this.weightLimit = other.weightLimit; this.boxCount = other.boxCount; }.\n4. Main metodida asl palletni yarating: Pallet p1 = new Pallet(\"PLT-100\", 500.0, 24); va uning nusxasini oling: Pallet p2 = new Pallet(p1);.\n5. Asl va nusxa palletlarni 2 qatorda chop eting:System.out.println(\"Asl: \" + p1.palletId + \" | Qutilar: \" + p1.boxCount);System.out.println(\"Nusxa: \" + p2.palletId + \" | Qutilar: \" + p2.boxCount);",
-      "en": "[Real-World Story & Context]\nA warehouse logistics module creates a clone of an existing cargo pallet using a Copy Constructor, appending '-COPY' to the copied pallet ID.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Pallet with palletId, weightLimit, boxCount.\n2. Implement standard 3-arg constructor.\n3. Implement Copy Constructor: public Pallet(Pallet other) appending '-COPY'.\n4. In main, instantiate p1 and clone p2 = new Pallet(p1);.\n5. Print original and copied pallet records."
+      "en": "[Real-World Story & Context]\nA warehouse logistics module creates a clone of an existing cargo pallet using a Copy Constructor, appending '-COPY' to the copied pallet ID.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Pallet with palletId, weightLimit, boxCount.\n2. Implement standard 3-arg constructor.\n3. Implement Copy Constructor: public Pallet(Pallet other) appending '-COPY'.\n4. In main, instantiate p1 and clone p2 = new Pallet(p1);.\n5. Print original and copied pallet records.",
+      "ru": "📖 Контекст и описание задачи\nМодуль складской логистики создает клон существующего грузового поддона с помощью конструктора копирования, добавляя «-COPY» к скопированному идентификатору поддона.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Pallet</code> с palletId, WeightLimit, BoxCount.\n2. Реализуйте стандартный конструктор с 3 аргументами.\n3. Реализация конструктора копирования: <code>public Pallet(Pallet other)</code> с добавлением '-COPY'.\n4. В <code>main</code> создайте экземпляр <code>p1</code> и клонируйте <code>p2 = new Pallet(p1);</code>.\n5. Распечатайте оригинальные и скопированные записи паллет."
     },
     "requirements": {
       "classes": [
@@ -2399,7 +2865,14 @@ window.OOP_CHALLENGES_W1 = [
         "Bu topshiriq 4-bosqichdagi inkapsulyatsiyaga yo'l ochadi."
       ],
       "pitfalls": "Nusxa yaratayotganda `Pallet p2 = p1;` deb yozish yangi ob'yekt yaratmaydi, faqat bitta ob'yektga ikkinchi ko'rsatkich beradi!",
-      "cw2Tip": "Savatchadagi tovar nusxasini saqlashda va himoyalashda copy konstruktorlar ishlatiladi."
+      "cw2Tip": "Savatchadagi tovar nusxasini saqlashda va himoyalashda copy konstruktorlar ishlatiladi.",
+      "theoryRu": "Конструкторы копирования создают автономные клоны. На этапе 4 вводится ИНКАПСУЛЯЦИЯ для ограничения прямого доступа к полю через «частный».",
+      "pitfallsRu": "Nusxa yaratayotganda `Pallet p2 = p1;` deb yozish yangi ob'yekt yaratmaydi, faqat bitta ob'yektga ikkinchi ko'rsatkich beradi!",
+      "breakdownRu": [
+        "Состояние существующего объекта безопасно клонируется.",
+        "В куче памяти создается совершенно независимый новый объект.",
+        "Это присвоение приводит к инкапсуляции на шаге 4."
+      ]
     },
     "sampleData": [
       "Asl pallet (p1) -> code: \"PLT-100\", weightKg: 500.0, boxCount: 24",
@@ -2408,7 +2881,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Asl: PLT-100 | Qutilar: 24\nNusxa: PLT-100-COPY | Qutilar: 24",
     "story": {
       "uz": "Logistika omborida mavjud palletning nusxasini (klonini) yaratish uchun Copy Constructor mexanizmi talab etiladi. Yangi palletga asl identifikator oxiriga '-COPY' qo'shilgan kod beriladi.",
-      "en": "A warehouse logistics module creates a clone of an existing cargo pallet using a Copy Constructor, appending '-COPY' to the copied pallet ID."
+      "en": "A warehouse logistics module creates a clone of an existing cargo pallet using a Copy Constructor, appending '-COPY' to the copied pallet ID.",
+      "ru": "Модуль складской логистики создает клон существующего грузового поддона с помощью конструктора копирования, добавляя «-COPY» к скопированному идентификатору поддона."
     },
     "steps": {
       "uz": [
@@ -2424,6 +2898,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement Copy Constructor: <code>public Pallet(Pallet other)</code> appending '-COPY'.",
         "In <code>main</code>, instantiate <code>p1</code> and clone <code>p2 = new Pallet(p1);</code>.",
         "Print original and copied pallet records."
+      ],
+      "ru": [
+        "Объявите класс <code>Pallet</code> с palletId, WeightLimit, BoxCount.",
+        "Реализуйте стандартный конструктор с 3 аргументами.",
+        "Реализация конструктора копирования: <code>public Pallet(Pallet other)</code> с добавлением '-COPY'.",
+        "В <code>main</code> создайте экземпляр <code>p1</code> и клонируйте <code>p2 = new Pallet(p1);</code>.",
+        "Распечатайте оригинальные и скопированные записи паллет."
       ]
     }
   },
@@ -2434,11 +2915,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "31. User Profile — 'private' Maydonlar va Xavfsiz Getterlar",
-      "en": "31. User Profile — 'private' Fields & Safe Getters"
+      "en": "31. User Profile — 'private' Fields & Safe Getters",
+      "ru": "31. Профиль пользователя — «частные» поля и безопасные геттеры."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nFoydalanuvchi profilidagi shaxsiy ma'lumotlar tashqaridan bevosita o'zgartirilmasligi uchun 'private' modifikatori bilan himoyalanadi (inkapsulyatsiya) va faqat Getter metodlari orqali o'qiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. UserProfile klassini e'lon qiling: private String username; va private String email; maydonlarini qo'shing.\n2. Parametrli konstruktor yozing: public UserProfile(String username, String email).\n3. Getter metodlarini yozing: public String getUsername() { return this.username; } va public String getEmail() { return this.email; }.\n4. Main metodida UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\"); ob'yektini yarating.\n5. Getterlar orqali ma'lumotlarni chop eting: System.out.println(\"Foydalanuvchi: \" + profile.getUsername() + \" | Email: \" + profile.getEmail());",
-      "en": "[Real-World Story & Context]\nA user profile safeguards sensitive account fields behind private access modifiers, providing read-only access via public getter methods.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class UserProfile with private fields username and email.\n2. Implement constructor.\n3. Implement public getters: getUsername() and getEmail().\n4. In main, instantiate UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");.\n5. Print details using getters."
+      "en": "[Real-World Story & Context]\nA user profile safeguards sensitive account fields behind private access modifiers, providing read-only access via public getter methods.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class UserProfile with private fields username and email.\n2. Implement constructor.\n3. Implement public getters: getUsername() and getEmail().\n4. In main, instantiate UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");.\n5. Print details using getters.",
+      "ru": "📖 Контекст и описание задачи\nПрофиль пользователя защищает конфиденциальные поля учетной записи с помощью модификаторов частного доступа, обеспечивая доступ только для чтения с помощью общедоступных методов получения.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>UserProfile</code> с закрытыми полями <code>username</code> и <code>email</code>.\n2. Implement constructor.\n3. Implement public getters: <code>getUsername()</code> and <code>getEmail()</code>.\n4. В <code>main</code> создайте экземпляр <code>UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");</code>.\n5. Распечатайте детали, используя геттеры."
     },
     "requirements": {
       "classes": [
@@ -2482,7 +2965,14 @@ window.OOP_CHALLENGES_W1 = [
         "Getterlar orqali xavfsiz o'qish ta'minlandi."
       ],
       "pitfalls": "Getter metodlarida qiymat qaytishi shart, ularning turi maydon turi bilan bir xil bo'ladi.",
-      "cw2Tip": "CW2 barcha domen sinflarida har bir maydon 'private' bo'lishi majburiy shartdir."
+      "cw2Tip": "CW2 barcha domen sinflarida har bir maydon 'private' bo'lishi majburiy shartdir.",
+      "theoryRu": "Инкапсуляция скрывает состояние за «частными» модификаторами доступа, обеспечивая доступ исключительно через геттеры.",
+      "pitfallsRu": "Методы получения должны возвращать значение, тип которого совпадает с типом поля.",
+      "breakdownRu": [
+        "Поля полностью защищены как «частные».",
+        "Вход в систему под именем `profile.username` снаружи теперь запрещен.",
+        "Обеспечено безопасное чтение через геттеры."
+      ]
     },
     "sampleData": [
       "username: \"sherzod_it\"",
@@ -2491,7 +2981,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Foydalanuvchi: sherzod_it | Email: sherzod@wiut.uz",
     "story": {
       "uz": "Foydalanuvchi profilidagi shaxsiy ma'lumotlar tashqaridan bevosita o'zgartirilmasligi uchun 'private' modifikatori bilan himoyalanadi (inkapsulyatsiya) va faqat Getter metodlari orqali o'qiladi.",
-      "en": "A user profile safeguards sensitive account fields behind private access modifiers, providing read-only access via public getter methods."
+      "en": "A user profile safeguards sensitive account fields behind private access modifiers, providing read-only access via public getter methods.",
+      "ru": "Профиль пользователя защищает конфиденциальные поля учетной записи с помощью модификаторов частного доступа, обеспечивая доступ только для чтения с помощью общедоступных методов получения."
     },
     "steps": {
       "uz": [
@@ -2507,6 +2998,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement public getters: <code>getUsername()</code> and <code>getEmail()</code>.",
         "In <code>main</code>, instantiate <code>UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");</code>.",
         "Print details using getters."
+      ],
+      "ru": [
+        "Создайте класс <code>UserProfile</code> с закрытыми полями <code>username</code> и <code>email</code>.",
+        "Implement constructor.",
+        "Implement public getters: <code>getUsername()</code> and <code>getEmail()</code>.",
+        "В <code>main</code> создайте экземпляр <code>UserProfile profile = new UserProfile(\"sherzod_it\", \"sherzod@wiut.uz\");</code>.",
+        "Распечатайте детали, используя геттеры."
       ]
     }
   },
@@ -2517,11 +3015,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "32. Vault Bank Account — Balansni Himoyalangan Setter Bilan Nazorat Qilish",
-      "en": "32. Vault Bank Account — Guarded Balance Mutator via Setter"
+      "en": "32. Vault Bank Account — Guarded Balance Mutator via Setter",
+      "ru": "32. Банковский счет в хранилище — мутатор защищенного баланса через сеттер"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBank hisob raqamida balans manfiy qiymatga tushib ketmasligi uchun hisob balansi 'private' qilinadi va qiymat o'zgartirish faqat himoyalangan Setter orqali nazorat qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. BankAccount klassini tuzing: private double balance; maydonini e'lon qiling.\n2. Konstruktorda boshlang'ich balansni tekshirib o'rnating: manfiy bo'lsa 0.0 qiling.\n3. getBalance() va setBalance(double balance) metodlarini yozing: agar yangi balans manfiy bo'lsa, System.out.println(\"Xato: Balans manfiy bo'lishi mumkin emas!\"); xabarini chiqaring va balansni o'zgartirmang.\n4. Main metodida BankAccount acc = new BankAccount(100000.0); tuzing, 150000.0 qilib oshiring, so'ng -50000.0 qilishga urinib ko'ring (rad etiladi).\n5. Yakuniy balansni chop eting: System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");",
-      "en": "[Real-World Story & Context]\nA bank account protects its balance field with private access and guards against negative balance updates using an encapsulated setter.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class BankAccount with private field balance.\n2. Implement constructor setting initial balance.\n3. Implement getBalance() and setBalance(double balance) checking balance >= 0.\n4. In main, instantiate with 100000.0, set to 150000.0, attempt -50000.0.\n5. Print final balance: System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");"
+      "en": "[Real-World Story & Context]\nA bank account protects its balance field with private access and guards against negative balance updates using an encapsulated setter.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class BankAccount with private field balance.\n2. Implement constructor setting initial balance.\n3. Implement getBalance() and setBalance(double balance) checking balance >= 0.\n4. In main, instantiate with 100000.0, set to 150000.0, attempt -50000.0.\n5. Print final balance: System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");",
+      "ru": "📖 Контекст и описание задачи\nБанковский счет защищает свое поле баланса с помощью частного доступа и защищает от обновлений отрицательного баланса с помощью инкапсулированного установщика.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>BankAccount</code> с закрытым полем <code>balance</code>.\n2. Implement constructor setting initial balance.\n3. Реализуйте проверку баланса <code>getBalance()</code> и <code>setBalance(double balance)</code> >= 0.\n4. In <code>main</code>, instantiate with 100000.0, set to 150000.0, attempt -50000.0.\n5. Распечатать окончательный баланс: <code>System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");</code>"
     },
     "requirements": {
       "classes": [
@@ -2571,7 +3071,13 @@ window.OOP_CHALLENGES_W1 = [
         "Setter orqali faqat noldan katta yoki teng qiymatlar qabul qilindi."
       ],
       "pitfalls": "Konstruktor ichida ham xuddi shu tekshiruvni bajarishni yoki setBalanceni chaqirishni unutmang.",
-      "cw2Tip": "CW2 da buyurtma soni yoki narxi manfiy kiritilmasligi setterlar bilan kafolatlanadi."
+      "cw2Tip": "CW2 da buyurtma soni yoki narxi manfiy kiritilmasligi setterlar bilan kafolatlanadi.",
+      "theoryRu": "Сеттеры действуют как валидаторы контрольных точек, предотвращая недопустимые изменения состояния, которые могут привести к сбою последующих модулей.",
+      "pitfallsRu": "Не забудьте выполнить ту же проверку или вызвать setBalance внутри конструктора.",
+      "breakdownRu": [
+        "Запись непосредственно в поле запрещена.",
+        "Через сеттер принимаются только значения больше или равные нулю."
+      ]
     },
     "sampleData": [
       "Boshlang'ich balans: 100000.0 so'm",
@@ -2582,7 +3088,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Xato: Balans manfiy bo'lishi mumkin emas!\nYakuniy balans: 150000.0 so'm",
     "story": {
       "uz": "Bank hisob raqamida balans manfiy qiymatga tushib ketmasligi uchun hisob balansi 'private' qilinadi va qiymat o'zgartirish faqat himoyalangan Setter orqali nazorat qilinadi.",
-      "en": "A bank account protects its balance field with private access and guards against negative balance updates using an encapsulated setter."
+      "en": "A bank account protects its balance field with private access and guards against negative balance updates using an encapsulated setter.",
+      "ru": "Банковский счет защищает свое поле баланса с помощью частного доступа и защищает от обновлений отрицательного баланса с помощью инкапсулированного установщика."
     },
     "steps": {
       "uz": [
@@ -2598,6 +3105,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>getBalance()</code> and <code>setBalance(double balance)</code> checking balance >= 0.",
         "In <code>main</code>, instantiate with 100000.0, set to 150000.0, attempt -50000.0.",
         "Print final balance: <code>System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");</code>"
+      ],
+      "ru": [
+        "Объявите класс <code>BankAccount</code> с закрытым полем <code>balance</code>.",
+        "Implement constructor setting initial balance.",
+        "Реализуйте проверку баланса <code>getBalance()</code> и <code>setBalance(double balance)</code> >= 0.",
+        "In <code>main</code>, instantiate with 100000.0, set to 150000.0, attempt -50000.0.",
+        "Распечатать окончательный баланс: <code>System.out.println(\"Yakuniy balans: \" + acc.getBalance() + \" so'm\");</code>"
       ]
     }
   },
@@ -2608,11 +3122,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "33. Corporate Employee — Oylikni Kamaytirishni Taqiqlash (State-Dependent Setter)",
-      "en": "33. Corporate Employee — State-Dependent Salary Validation"
+      "en": "33. Corporate Employee — State-Dependent Salary Validation",
+      "ru": "33. Корпоративный сотрудник — подтверждение заработной платы в зависимости от государства"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nKorporativ qoidalarga ko'ra xodimning oylik maoshini asossiz ravishda kamaytirish qat'iyan taqiqlanadi (State-Dependent Setter). Faqat oshirish yoki saqlab qolishga ruxsat etiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Employee klassini tuzing: private String name; va private double salary; maydonlarini e'lon qiling.\n2. Konstruktor va Getter metodlarini yozing: getName(), getSalary().\n3. public void setSalary(double newSalary) metodini yozing: agar newSalary >= this.salary bo'lsa qabul qiling, aks holda System.out.println(\"Taqiqlangan: Oylikni kamaytirish mumkin emas!\"); deb chiqaring.\n4. Main metodida Employee emp = new Employee(\"Azizbek\", 5000000.0); tuzing, oylikni 6500000.0 ga oshiring, so'ng 4000000.0 ga tushirishga urinib ko'ring.\n5. Xodim ma'lumotlarini chop eting: System.out.println(\"Xodim: \" + emp.getName() + \" | Oylik: \" + emp.getSalary() + \" so'm\");",
-      "en": "[Real-World Story & Context]\nCorporate policy prohibits decreasing employee salaries. The encapsulated setter enforces state-dependent validation allowing only wage increases.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Employee with private fields name and salary.\n2. Implement constructor and getters.\n3. Implement setSalary(double newSalary) permitting only newSalary >= this.salary.\n4. In main, instantiate with 5000000.0, set to 6500000.0, attempt 4000000.0.\n5. Print final employee details."
+      "en": "[Real-World Story & Context]\nCorporate policy prohibits decreasing employee salaries. The encapsulated setter enforces state-dependent validation allowing only wage increases.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Employee with private fields name and salary.\n2. Implement constructor and getters.\n3. Implement setSalary(double newSalary) permitting only newSalary >= this.salary.\n4. In main, instantiate with 5000000.0, set to 6500000.0, attempt 4000000.0.\n5. Print final employee details.",
+      "ru": "📖 Контекст и описание задачи\nКорпоративная политика запрещает снижение заработной платы сотрудников. Инкапсулированный установщик обеспечивает проверку, зависящую от состояния, позволяя только увеличивать заработную плату.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Employee</code> с закрытыми полями <code>name</code> и <code>salary</code>.\n2. Реализуйте конструктор и геттеры.\n3. Реализуйте <code>setSalary(double newSalary)</code>, разрешив только <code>newSalary >= this.salary</code>.\n4. В <code>main</code> создайте экземпляр с 5000000.0, установите значение 6500000.0, попытайтесь 4000000.0.\n5. Распечатайте окончательные данные о сотруднике."
     },
     "requirements": {
       "classes": [
@@ -2656,7 +3172,13 @@ window.OOP_CHALLENGES_W1 = [
         "Oylik faqat ko'tarilish yo'nalishida o'zgaradi."
       ],
       "pitfalls": "Shartda `newSalary >= this.salary` o'rniga faqat `newSalary >= 0` deb qo'yish kamaytirishga ruxsat berib yuboradi.",
-      "cw2Tip": "Auksion narxini oshirishda ham faqat yuqoriroq narxlar qabul qilinadi."
+      "cw2Tip": "Auksion narxini oshirishda ham faqat yuqoriroq narxlar qabul qilinadi.",
+      "theoryRu": "Зависимые от состояния мутаторы оценивают предлагаемые значения по сравнению с текущим состоянием экземпляра.",
+      "pitfallsRu": "Shartda `newSalary >= this.salary` o'rniga faqat `newSalary >= 0` deb qo'yish kamaytirishga ruxsat berib yuboradi.",
+      "breakdownRu": [
+        "Поля полностью инкапсулированы.",
+        "Месячные изменения только в сторону роста."
+      ]
     },
     "sampleData": [
       "name: \"Azizbek\"",
@@ -2667,7 +3189,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Taqiqlangan: Oylikni kamaytirish mumkin emas!\nXodim: Azizbek | Oylik: 6500000.0 so'm",
     "story": {
       "uz": "Korporativ qoidalarga ko'ra xodimning oylik maoshini asossiz ravishda kamaytirish qat'iyan taqiqlanadi (State-Dependent Setter). Faqat oshirish yoki saqlab qolishga ruxsat etiladi.",
-      "en": "Corporate policy prohibits decreasing employee salaries. The encapsulated setter enforces state-dependent validation allowing only wage increases."
+      "en": "Corporate policy prohibits decreasing employee salaries. The encapsulated setter enforces state-dependent validation allowing only wage increases.",
+      "ru": "Корпоративная политика запрещает снижение заработной платы сотрудников. Инкапсулированный установщик обеспечивает проверку, зависящую от состояния, позволяя только увеличивать заработную плату."
     },
     "steps": {
       "uz": [
@@ -2683,6 +3206,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>setSalary(double newSalary)</code> permitting only <code>newSalary >= this.salary</code>.",
         "In <code>main</code>, instantiate with 5000000.0, set to 6500000.0, attempt 4000000.0.",
         "Print final employee details."
+      ],
+      "ru": [
+        "Создайте класс <code>Employee</code> с закрытыми полями <code>name</code> и <code>salary</code>.",
+        "Реализуйте конструктор и геттеры.",
+        "Реализуйте <code>setSalary(double newSalary)</code>, разрешив только <code>newSalary >= this.salary</code>.",
+        "В <code>main</code> создайте экземпляр с 5000000.0, установите значение 6500000.0, попытайтесь 4000000.0.",
+        "Распечатайте окончательные данные о сотруднике."
       ]
     }
   },
@@ -2693,11 +3223,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "34. Rectangle Geometry — Hisoblanuvchi Getter (Computed Read-Only Property)",
-      "en": "34. Rectangle Geometry — Computed Read-Only Property"
+      "en": "34. Rectangle Geometry — Computed Read-Only Property",
+      "ru": "34. Геометрия прямоугольника — вычисляемое свойство, доступное только для чтения."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nGeometrik to'g'ri to'rtburchak klassida yuzani alohida maydonda saqlamasdan, uni talab bo'lganda eni va bo'yidan hisoblab beruvchi Read-Only hisoblanuvchi Getter (Computed Property) tavsiya etiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Rectangle klassini e'lon qiling: private double width; va private double height; maydonlarini qo'shing.\n2. Konstruktorda qiymatlarni tekshiring (kamida 1.0) va o'rnating.\n3. Oddiy getterlar getWidth(), getHeight() hamda hisoblanuvchi public double getArea() { return this.width * this.height; } metodini yozing.\n4. Main metodida Rectangle rect = new Rectangle(5.0, 8.0); ob'yektini yarating.\n5. O'lchamlari va yuzasini 2 qatorda chop eting:System.out.println(\"Eni: \" + rect.getWidth() + \" | Bo'yi: \" + rect.getHeight());System.out.println(\"Yuzasi: \" + rect.getArea());",
-      "en": "[Real-World Story & Context]\nA geometric Rectangle calculates its area on the fly using a read-only computed getter, ensuring synchronized dimensions without redundant state.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Rectangle with private fields width and height.\n2. Implement constructor enforcing min 1.0.\n3. Implement getters and computed property getArea() returning width * height.\n4. In main, instantiate Rectangle(5.0, 8.0).\n5. Print dimensions and area on 2 lines."
+      "en": "[Real-World Story & Context]\nA geometric Rectangle calculates its area on the fly using a read-only computed getter, ensuring synchronized dimensions without redundant state.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Rectangle with private fields width and height.\n2. Implement constructor enforcing min 1.0.\n3. Implement getters and computed property getArea() returning width * height.\n4. In main, instantiate Rectangle(5.0, 8.0).\n5. Print dimensions and area on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nГеометрический прямоугольник вычисляет свою площадь на лету, используя вычисляемый метод получения только для чтения, обеспечивая синхронизацию размеров без избыточного состояния.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Rectangle</code> с закрытыми полями <code>width</code> и <code>height</code>.\n2. Реализуйте конструктор, обеспечивающий мин. 1.0.\n3. Реализуйте геттеры и вычисляемое свойство <code>getArea()</code>, возвращающее ширину * высоту.\n4. В <code>main</code> создайте экземпляр <code>Rectangle(5.0, 8.0)</code>.\n5. Напечатайте размеры и площадь в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2741,7 +3273,13 @@ window.OOP_CHALLENGES_W1 = [
         "Yuza hisobi getter ichida dinamik amalga oshirildi."
       ],
       "pitfalls": "Hisoblanuvchi propertylar uchun setter yaratilmaydi — ular faqat read-only bo'ladi.",
-      "cw2Tip": "CW2 savatining umumiy summasi (`getTotalAmount()`) xuddi shunday dinamik hisoblanadi."
+      "cw2Tip": "CW2 savatining umumiy summasi (`getTotalAmount()`) xuddi shunday dinamik hisoblanadi.",
+      "theoryRu": "Вычисляемые свойства предотвращают десинхронизацию состояния, динамически получая значения по требованию.",
+      "pitfallsRu": "Сеттеры не создаются для перечисляемых свойств — они доступны только для чтения.",
+      "breakdownRu": [
+        "В памяти сохранились только базовые поля (ширина, высота).",
+        "Yuza hisobi getter ichida dinamik amalga oshirildi."
+      ]
     },
     "sampleData": [
       "width (eni): 5.0",
@@ -2750,7 +3288,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Eni: 5.0 | Bo'yi: 8.0\nYuzasi: 40.0",
     "story": {
       "uz": "Geometrik to'g'ri to'rtburchak klassida yuzani alohida maydonda saqlamasdan, uni talab bo'lganda eni va bo'yidan hisoblab beruvchi Read-Only hisoblanuvchi Getter (Computed Property) tavsiya etiladi.",
-      "en": "A geometric Rectangle calculates its area on the fly using a read-only computed getter, ensuring synchronized dimensions without redundant state."
+      "en": "A geometric Rectangle calculates its area on the fly using a read-only computed getter, ensuring synchronized dimensions without redundant state.",
+      "ru": "Геометрический прямоугольник вычисляет свою площадь на лету, используя вычисляемый метод получения только для чтения, обеспечивая синхронизацию размеров без избыточного состояния."
     },
     "steps": {
       "uz": [
@@ -2766,6 +3305,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement getters and computed property <code>getArea()</code> returning width * height.",
         "In <code>main</code>, instantiate <code>Rectangle(5.0, 8.0)</code>.",
         "Print dimensions and area on 2 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>Rectangle</code> с закрытыми полями <code>width</code> и <code>height</code>.",
+        "Реализуйте конструктор, обеспечивающий мин. 1.0.",
+        "Реализуйте геттеры и вычисляемое свойство <code>getArea()</code>, возвращающее ширину * высоту.",
+        "В <code>main</code> создайте экземпляр <code>Rectangle(5.0, 8.0)</code>.",
+        "Напечатайте размеры и площадь в 2 строки."
       ]
     }
   },
@@ -2776,11 +3322,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "35. Supermarket Tax — QQS Qo'shilgan Narx Getteri ('getPriceWithTax')",
-      "en": "35. Supermarket Tax — Encapsulated Price with VAT Calculation"
+      "en": "35. Supermarket Tax — Encapsulated Price with VAT Calculation",
+      "ru": "35. Налог на супермаркеты — инкапсулированная цена с расчетом НДС."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nSupermarketda mahsulotning sof narxiga 12% QQS solig'i qo'shilgan narxini xaridordan alohida hisoblash uchun 'getPriceWithTax()' maxsus getteri xizmat qiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Product klassini tuzing: private double netPrice; maydonini e'lon qiling.\n2. Konstruktor, getNetPrice() va manfiy bo'lmagan qiymatni tekshiruvchi setNetPrice(double netPrice) metodlarini yozing.\n3. public double getPriceWithTax() metodini yozing: return this.netPrice * 1.12; (12% QQS).\n4. Main metodida Product p = new Product(100000.0); yarating.\n5. Sof narx va QQS bilan narxni 2 qatorda chop eting:System.out.println(\"Tansiq narx: \" + p.getNetPrice() + \" so'm\");System.out.println(\"QQS bilan narx: \" + p.getPriceWithTax() + \" so'm\");",
-      "en": "[Real-World Story & Context]\nA supermarket inventory models net price and exposes a VAT-inclusive price through a computed getter adding 12% tax.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with private field netPrice.\n2. Implement constructor, getNetPrice(), and setNetPrice().\n3. Implement computed getter getPriceWithTax() returning netPrice * 1.12.\n4. In main, instantiate with 100000.0.\n5. Print net price and tax-inclusive price on 2 lines."
+      "en": "[Real-World Story & Context]\nA supermarket inventory models net price and exposes a VAT-inclusive price through a computed getter adding 12% tax.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with private field netPrice.\n2. Implement constructor, getNetPrice(), and setNetPrice().\n3. Implement computed getter getPriceWithTax() returning netPrice * 1.12.\n4. In main, instantiate with 100000.0.\n5. Print net price and tax-inclusive price on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nЗапасы в супермаркете моделируют чистую цену и выставляют цену с учетом НДС через вычисляемый геттер, добавляющий налог в размере 12%.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Product</code> с закрытым полем <code>netPrice</code>.\n2. Реализуйте конструктор <code>getNetPrice()</code> и <code>setNetPrice()</code>.\n3. Реализуйте вычисляемый метод получения <code>getPriceWithTax()</code>, возвращающий netPrice * 1.12.\n4. В <code>main</code> создайте экземпляр с 100000.0.\n5. Распечатайте чистую цену и цену с учетом налогов в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2823,7 +3371,13 @@ window.OOP_CHALLENGES_W1 = [
         "Fiskal soliq qoidasi klass ichida berkitildi."
       ],
       "pitfalls": "Soliq stavkasi o'zgarganda faqat klass ichidagi formulani o'zgartirish kifoya, butun dasturni qayta yozish shart emas.",
-      "cw2Tip": "Savdo kvitansiyalarida toza narx va soliq ajratib ko'rsatilishi shart."
+      "cw2Tip": "Savdo kvitansiyalarida toza narx va soliq ajratib ko'rsatilishi shart.",
+      "theoryRu": "Вызов установщиков внутри конструкторов повторно использует логику проверки без дублирования.",
+      "pitfallsRu": "Солик ставкаси о'згарганда факат класс ичидаги формули о'згартириш кифоя, но тун дастурни каита йозиш шарт эмас.",
+      "breakdownRu": [
+        "Цена инкапсулирована.",
+        "Fiskal soliq qoidasi klass ichida berkitildi."
+      ]
     },
     "sampleData": [
       "netPrice (tannarx): 100000.0 so'm",
@@ -2832,7 +3386,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Tansiq narx: 100000.0 so'm\nQQS bilan narx: 112000.0 so'm",
     "story": {
       "uz": "Supermarketda mahsulotning sof narxiga 12% QQS solig'i qo'shilgan narxini xaridordan alohida hisoblash uchun 'getPriceWithTax()' maxsus getteri xizmat qiladi.",
-      "en": "A supermarket inventory models net price and exposes a VAT-inclusive price through a computed getter adding 12% tax."
+      "en": "A supermarket inventory models net price and exposes a VAT-inclusive price through a computed getter adding 12% tax.",
+      "ru": "Запасы в супермаркете моделируют чистую цену и выставляют цену с учетом НДС через вычисляемый геттер, добавляющий налог в размере 12%."
     },
     "steps": {
       "uz": [
@@ -2848,6 +3403,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement computed getter <code>getPriceWithTax()</code> returning netPrice * 1.12.",
         "In <code>main</code>, instantiate with 100000.0.",
         "Print net price and tax-inclusive price on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>Product</code> с закрытым полем <code>netPrice</code>.",
+        "Реализуйте конструктор <code>getNetPrice()</code> и <code>setNetPrice()</code>.",
+        "Реализуйте вычисляемый метод получения <code>getPriceWithTax()</code>, возвращающий netPrice * 1.12.",
+        "В <code>main</code> создайте экземпляр с 100000.0.",
+        "Распечатайте чистую цену и цену с учетом налогов в 2 строки."
       ]
     }
   },
@@ -2858,11 +3420,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "36. WIUT Student ID — Setterda Satr Formatini Validatsiya Qilish",
-      "en": "36. WIUT Student ID — String Format Validation in Setter"
+      "en": "36. WIUT Student ID — String Format Validation in Setter",
+      "ru": "36. Идентификатор студента МВУТ — проверка формата строки в сеттере"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nWIUT universitetida talaba ID raqami qat'iy qoidaga ega: u roppa-rosa 8 ta belgidan iborat bo'lishi va '000' prefiksi bilan boshlanishi shart. Setter orqali satr formati tekshiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Student klassini tuzing: private String studentId; maydonini e'lon qiling.\n2. public void setStudentId(String studentId) metodini yozing: agar studentId != null && studentId.length() == 8 && studentId.startsWith(\"000\") bo'lsa qabul qiling, aks holda xato xabarini chiqaring va this.studentId = \"00000000\"; deb belgilang.\n3. Konstruktorda this.setStudentId(studentId); chaqiring va getStudentId() metodini qo'shing.\n4. Main metodida ikkita talaba yarating: to'g'ri ID li Student s1 = new Student(\"00014523\"); va noto'g'ri ID li Student s2 = new Student(\"12345\");.\n5. Ikkala talabaning yakuniy ID raqamlarini 2 qatorda chop eting:System.out.println(\"Talaba 1 ID: \" + s1.getStudentId());System.out.println(\"Talaba 2 ID: \" + s2.getStudentId());",
-      "en": "[Real-World Story & Context]\nThe WIUT Student Portal validates Student ID formatting via an encapsulated setter requiring an 8-character string prefixed with '000'.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Student with private field studentId.\n2. Implement setStudentId() validating 8 characters and '000' prefix.\n3. Implement constructor delegating to setter and getStudentId().\n4. In main, instantiate valid s1 and invalid s2.\n5. Print both IDs on 2 lines."
+      "en": "[Real-World Story & Context]\nThe WIUT Student Portal validates Student ID formatting via an encapsulated setter requiring an 8-character string prefixed with '000'.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Student with private field studentId.\n2. Implement setStudentId() validating 8 characters and '000' prefix.\n3. Implement constructor delegating to setter and getStudentId().\n4. In main, instantiate valid s1 and invalid s2.\n5. Print both IDs on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nСтуденческий портал WIUT проверяет форматирование идентификатора студента с помощью инкапсулированного установщика, требующего 8-значной строки с префиксом «000».\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Student</code> с закрытым полем <code>studentId</code>.\n2. Реализуйте <code>setStudentId()</code>, проверяющий 8 символов и префикс «000».\n3. Реализуйте конструктор, делегирующий функции установщику и <code>getStudentId()</code>.\n4. В <code>main</code> создайте экземпляр действительного <code>s1</code> и недействительного <code>s2</code>.\n5. Распечатайте оба идентификатора в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -2904,7 +3468,13 @@ window.OOP_CHALLENGES_W1 = [
         "Xato kiritilganda standart xavfsiz qiymat berildi."
       ],
       "pitfalls": "Shartda `studentId.length() == 8 && studentId != null` deb yozilsa, null kelgan paytda baribir xato beradi — 'null' tekshiruvi doim birinchi bo'lishi shart!",
-      "cw2Tip": "Mijoz telefon raqami (+998...) yoki pochtasini tekshirishda ham aynan shu tartib ishlatiladi."
+      "cw2Tip": "Mijoz telefon raqami (+998...) yoki pochtasini tekshirishda ham aynan shu tartib ishlatiladi.",
+      "theoryRu": "Упреждающая защита от нулевых указателей с помощью 'studentId != null' обеспечивает надежную проверку строк.",
+      "pitfallsRu": "Если условие записано как `studentId.length() == 8 && studentId != null`, оно все равно выдаст ошибку при обнаружении значения null — проверка «null» всегда должна быть первой!",
+      "breakdownRu": [
+        "Формат студенческого билета строго контролируется.",
+        "Xato kiritilganda standart xavfsiz qiymat berildi."
+      ]
     },
     "sampleData": [
       "1-talaba ID: \"00014523\" (8 ta raqam, to'g'ri)",
@@ -2913,7 +3483,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Xato: ID 8 ta belgidan iborat va '000' bilan boshlanishi shart!\nTalaba 1 ID: 00014523\nTalaba 2 ID: 00000000",
     "story": {
       "uz": "WIUT universitetida talaba ID raqami qat'iy qoidaga ega: u roppa-rosa 8 ta belgidan iborat bo'lishi va '000' prefiksi bilan boshlanishi shart. Setter orqali satr formati tekshiriladi.",
-      "en": "The WIUT Student Portal validates Student ID formatting via an encapsulated setter requiring an 8-character string prefixed with '000'."
+      "en": "The WIUT Student Portal validates Student ID formatting via an encapsulated setter requiring an 8-character string prefixed with '000'.",
+      "ru": "Студенческий портал WIUT проверяет форматирование идентификатора студента с помощью инкапсулированного установщика, требующего 8-значной строки с префиксом «000»."
     },
     "steps": {
       "uz": [
@@ -2929,6 +3500,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement constructor delegating to setter and <code>getStudentId()</code>.",
         "In <code>main</code>, instantiate valid <code>s1</code> and invalid <code>s2</code>.",
         "Print both IDs on 2 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>Student</code> с закрытым полем <code>studentId</code>.",
+        "Реализуйте <code>setStudentId()</code>, проверяющий 8 символов и префикс «000».",
+        "Реализуйте конструктор, делегирующий функции установщику и <code>getStudentId()</code>.",
+        "В <code>main</code> создайте экземпляр действительного <code>s1</code> и недействительного <code>s2</code>.",
+        "Распечатайте оба идентификатора в 2 строки."
       ]
     }
   },
@@ -2939,11 +3517,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "37. Fiscal Receipt — O'zgarmas Klass (Immutable Class va 'final' Maydonlar)",
-      "en": "37. Fiscal Receipt — Immutable Class & 'final' State"
+      "en": "37. Fiscal Receipt — Immutable Class & 'final' State",
+      "ru": "37. Фискальная квитанция — неизменяемый класс и «окончательное» состояние"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMoliyaviy fiskal cheklar generatsiya qilingandan so'ng ularning tranzaksiya kodi va summasi o'zgartirilmasligi (tamper-proof) uchun 'final' modifikatorli Immutable (o'zgarmas) klass yaratiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Receipt klassini tuzing: private final String txnId; va private final double amount; maydonlarini e'lon qiling.\n2. Konstruktorda ikkala maydonni to'ldiring: public Receipt(String txnId, double amount).\n3. Faqat Getter metodlarini (getTxnId(), getAmount()) yozing (Setter metodlari bo'lmaydi!).\n4. Main metodida Receipt r = new Receipt(\"FISCAL-9912\", 240000.0); ob'yektini yarating.\n5. Chek ma'lumotlarini chop eting: System.out.println(\"Chek: \" + r.getTxnId() + \" | Summa: \" + r.getAmount() + \" so'm\");",
-      "en": "[Real-World Story & Context]\nA fiscal financial receipt must remain tamper-proof after creation. Implement an immutable class using 'final' fields without setters.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Receipt with private final fields txnId and amount.\n2. Implement constructor initializing both fields.\n3. Provide public getters only (no setters).\n4. In main, instantiate Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);.\n5. Print receipt details."
+      "en": "[Real-World Story & Context]\nA fiscal financial receipt must remain tamper-proof after creation. Implement an immutable class using 'final' fields without setters.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Receipt with private final fields txnId and amount.\n2. Implement constructor initializing both fields.\n3. Provide public getters only (no setters).\n4. In main, instantiate Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);.\n5. Print receipt details.",
+      "ru": "📖 Контекст и описание задачи\nФискальный финансовый чек должен оставаться защищенным от несанкционированного доступа после создания. Реализуйте неизменяемый класс, используя «конечные» поля без установщиков.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Receipt</code> с закрытыми конечными полями <code>txnId</code> и <code>amount</code>.\n2. Реализуйте конструктор, инициализирующий оба поля.\n3. Предоставляйте только публичные геттеры (без сеттеров).\n4. В <code>main</code> создайте экземпляр <code>Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);</code>.\n5. Print receipt details."
     },
     "requirements": {
       "classes": [
@@ -2989,7 +3569,13 @@ window.OOP_CHALLENGES_W1 = [
         "Maydonlar 'final' bo'lgani uchun o'zgarish mutlaqo imkonsiz."
       ],
       "pitfalls": "final maydonga konstruktorda qiymat berish unutilsa, kompilyator xato beradi.",
-      "cw2Tip": "Moliyaviy operatsiyalar va audit yozuvlari har doim Immutable klasslar orqali ifodalanadi."
+      "cw2Tip": "Moliyaviy operatsiyalar va audit yozuvlari har doim Immutable klasslar orqali ifodalanadi.",
+      "theoryRu": "Неизменяемость гарантирует потокобезопасность и целостность аудита за счет объединения «конечных» полей с нулевыми мутаторами.",
+      "pitfallsRu": "если вы забудете присвоить значение последнему полю в конструкторе, компилятор выдаст ошибку.",
+      "breakdownRu": [
+        "Фискальный платежный чек надежно защищен.",
+        "Maydonlar 'final' bo'lgani uchun o'zgarish mutlaqo imkonsiz."
+      ]
     },
     "sampleData": [
       "txnId: \"FISCAL-9912\"",
@@ -2998,7 +3584,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Chek: FISCAL-9912 | Summa: 240000.0 so'm",
     "story": {
       "uz": "Moliyaviy fiskal cheklar generatsiya qilingandan so'ng ularning tranzaksiya kodi va summasi o'zgartirilmasligi (tamper-proof) uchun 'final' modifikatorli Immutable (o'zgarmas) klass yaratiladi.",
-      "en": "A fiscal financial receipt must remain tamper-proof after creation. Implement an immutable class using 'final' fields without setters."
+      "en": "A fiscal financial receipt must remain tamper-proof after creation. Implement an immutable class using 'final' fields without setters.",
+      "ru": "Фискальный финансовый чек должен оставаться защищенным от несанкционированного доступа после создания. Реализуйте неизменяемый класс, используя «конечные» поля без установщиков."
     },
     "steps": {
       "uz": [
@@ -3014,6 +3601,13 @@ window.OOP_CHALLENGES_W1 = [
         "Provide public getters only (no setters).",
         "In <code>main</code>, instantiate <code>Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);</code>.",
         "Print receipt details."
+      ],
+      "ru": [
+        "Объявите класс <code>Receipt</code> с закрытыми конечными полями <code>txnId</code> и <code>amount</code>.",
+        "Реализуйте конструктор, инициализирующий оба поля.",
+        "Предоставляйте только публичные геттеры (без сеттеров).",
+        "В <code>main</code> создайте экземпляр <code>Receipt r = new Receipt(\"FISCAL-9912\", 240000.0);</code>.",
+        "Print receipt details."
       ]
     }
   },
@@ -3024,11 +3618,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "38. IoT Temperature — Selsiy va Farengeyt Abstraksiyasi (Unit Conversion)",
-      "en": "38. IoT Temperature — Celsius & Fahrenheit Abstraction"
+      "en": "38. IoT Temperature — Celsius & Fahrenheit Abstraction",
+      "ru": "38. Температура Интернета вещей — абстракция по Цельсию и Фаренгейту"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nAqlli harorat datchigi ichki xotirasida haroratni Selsiyda saqlaydi, lekin xalqaro tizimlar uchun uni bir vaqtning o'zida Farengeytga konvertatsiya qilib beruvchi xavfsiz abstraksiya taqdim etadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. TempSensor klassini tuzing: private double celsius; maydonini e'lon qiling.\n2. Konstruktor va mutlaq nol haroratdan (-273.15°C) past bo'lmaslikni tekshiruvchi setCelsius(double celsius) metodini yozing.\n3. getCelsius() va Farengeytga hisoblab beruvchi public double getFahrenheit() { return (this.celsius * 9.0 / 5.0) + 32.0; } metodlarini qo'shing.\n4. Main metodida TempSensor sensor = new TempSensor(25.0); yarating.\n5. Haroratni Selsiy va Farengeytda 2 qatorda chop eting:System.out.println(\"Harorat (Selsiy): \" + sensor.getCelsius() + \"°C\");System.out.println(\"Harorat (Farengeyt): \" + sensor.getFahrenheit() + \"°F\");",
-      "en": "[Real-World Story & Context]\nAn IoT temperature sensor stores temperature in Celsius and provides an encapsulated Fahrenheit conversion getter without duplicating state.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class TempSensor with private field celsius.\n2. Implement constructor, getCelsius(), and setCelsius() clamping at absolute zero (-273.15).\n3. Implement getFahrenheit() returning (celsius * 9.0 / 5.0) + 32.0.\n4. In main, instantiate with 25.0.\n5. Print temperature in Celsius and Fahrenheit on 2 lines."
+      "en": "[Real-World Story & Context]\nAn IoT temperature sensor stores temperature in Celsius and provides an encapsulated Fahrenheit conversion getter without duplicating state.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class TempSensor with private field celsius.\n2. Implement constructor, getCelsius(), and setCelsius() clamping at absolute zero (-273.15).\n3. Implement getFahrenheit() returning (celsius * 9.0 / 5.0) + 32.0.\n4. In main, instantiate with 25.0.\n5. Print temperature in Celsius and Fahrenheit on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nДатчик температуры IoT сохраняет температуру в градусах Цельсия и обеспечивает инкапсулированный преобразователь градусов Фаренгейта без дублирования состояния.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>TempSensor</code> с закрытым полем <code>celsius</code>.\n2. Реализуйте конструктор <code>getCelsius()</code> и <code>setCelsius()</code>, фиксирующий абсолютный ноль (-273,15).\n3. Реализуйте <code>getFahrenheit()</code>, возвращающий <code>(celsius * 9.0 / 5.0) + 32.0</code>.\n4. В <code>main</code> создайте экземпляр с 25.0.\n5. Печатайте температуру в градусах Цельсия и Фаренгейта в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -3071,7 +3667,13 @@ window.OOP_CHALLENGES_W1 = [
         "Farengeyt birligiga matematik konvertatsiya taqdim etildi."
       ],
       "pitfalls": "9/5 o'rniga 9.0/5.0 yozish shart, aks holda butun son bo'linishi (integer division) natijani 1 ga aylantirib qo'yadi!",
-      "cw2Tip": "Valyutalarni konvertatsiya qilishda aynan shu abstraksiya modeli qo'llaniladi."
+      "cw2Tip": "Valyutalarni konvertatsiya qilishda aynan shu abstraksiya modeli qo'llaniladi.",
+      "theoryRu": "Инкапсуляция четко отделяет физические представления внутренней памяти от внешних форматов проекции.",
+      "pitfallsRu": "Вместо 9/5 необходимо писать 9,0/5,0, иначе целочисленное деление превратит результат в 1!",
+      "breakdownRu": [
+        "В установщике проверяли физический минимум (-273,15°С).",
+        "Farengeyt birligiga matematik konvertatsiya taqdim etildi."
+      ]
     },
     "sampleData": [
       "celsius (harorat): 25.0°C"
@@ -3079,7 +3681,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Harorat (Selsiy): 25.0°C\nHarorat (Farengeyt): 77.0°F",
     "story": {
       "uz": "Aqlli harorat datchigi ichki xotirasida haroratni Selsiyda saqlaydi, lekin xalqaro tizimlar uchun uni bir vaqtning o'zida Farengeytga konvertatsiya qilib beruvchi xavfsiz abstraksiya taqdim etadi.",
-      "en": "An IoT temperature sensor stores temperature in Celsius and provides an encapsulated Fahrenheit conversion getter without duplicating state."
+      "en": "An IoT temperature sensor stores temperature in Celsius and provides an encapsulated Fahrenheit conversion getter without duplicating state.",
+      "ru": "Датчик температуры IoT сохраняет температуру в градусах Цельсия и обеспечивает инкапсулированный преобразователь градусов Фаренгейта без дублирования состояния."
     },
     "steps": {
       "uz": [
@@ -3095,6 +3698,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>getFahrenheit()</code> returning <code>(celsius * 9.0 / 5.0) + 32.0</code>.",
         "In <code>main</code>, instantiate with 25.0.",
         "Print temperature in Celsius and Fahrenheit on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>TempSensor</code> с закрытым полем <code>celsius</code>.",
+        "Реализуйте конструктор <code>getCelsius()</code> и <code>setCelsius()</code>, фиксирующий абсолютный ноль (-273,15).",
+        "Реализуйте <code>getFahrenheit()</code>, возвращающий <code>(celsius * 9.0 / 5.0) + 32.0</code>.",
+        "В <code>main</code> создайте экземпляр с 25.0.",
+        "Печатайте температуру в градусах Цельсия и Фаренгейта в 2 строки."
       ]
     }
   },
@@ -3105,11 +3715,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "39. Credit Score — Reyting Toifasini Aniqlash (Classification Property)",
-      "en": "39. Credit Score — Rating Classification Property"
+      "en": "39. Credit Score — Rating Classification Property",
+      "ru": "39. Кредитный рейтинг — рейтинговая классификация имущества."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nBank kredit skoringi tizimida mijozning 300 dan 850 gacha bo'lgan ball ko'rsatkichi asosida uning kredit toifasi (EXCELLENT, GOOD, FAIR, POOR) tasniflanadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. CreditScore klassini yarating: private int score; maydonini qo'shing.\n2. Konstruktor, getScore() va [300; 850] oralig'ini tekshiruvchi setScore(int score) metodlarini yozing.\n3. public String getCategory() metodini yozing: agar score >= 750 bo'lsa \"EXCELLENT\", score >= 650 bo'lsa \"GOOD\", score >= 550 bo'lsa \"FAIR\", aks holda \"POOR\" qaytarsin.\n4. Main metodida CreditScore cs = new CreditScore(780); ob'yektini yarating.\n5. Natijani chop eting: System.out.println(\"Skoring bali: \" + cs.getScore() + \" | Toifa: \" + cs.getCategory());",
-      "en": "[Real-World Story & Context]\nA credit scoring engine encapsulates risk assessment, classifying scores from 300 to 850 into EXCELLENT, GOOD, FAIR, or POOR categories.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class CreditScore with private field score.\n2. Implement constructor, getter, and setter bounded between 300 and 850.\n3. Implement getCategory() classifying into EXCELLENT, GOOD, FAIR, POOR.\n4. In main, instantiate CreditScore(780).\n5. Print score and classification category."
+      "en": "[Real-World Story & Context]\nA credit scoring engine encapsulates risk assessment, classifying scores from 300 to 850 into EXCELLENT, GOOD, FAIR, or POOR categories.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class CreditScore with private field score.\n2. Implement constructor, getter, and setter bounded between 300 and 850.\n3. Implement getCategory() classifying into EXCELLENT, GOOD, FAIR, POOR.\n4. In main, instantiate CreditScore(780).\n5. Print score and classification category.",
+      "ru": "📖 Контекст и описание задачи\nМеханизм кредитного скоринга инкапсулирует оценку рисков, классифицируя баллы от 300 до 850 по категориям ОТЛИЧНО, ХОРОШО, СПРАВЕДЛИВО или ПЛОХО.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>CreditScore</code> с закрытым полем <code>score</code>.\n2. Реализуйте конструктор, геттер и сеттер, ограниченный диапазоном от 300 до 850.\n3. Внедрить классификацию <code>getCategory()</code> на ОТЛИЧНО, ХОРОШО, УДОВЛЕТВОРИТЕЛЬНО, ПЛОХО.\n4. В <code>main</code> создайте экземпляр <code>CreditScore(780)</code>.\n5. Распечатать оценку и классификационную категорию."
     },
     "requirements": {
       "classes": [
@@ -3152,7 +3764,13 @@ window.OOP_CHALLENGES_W1 = [
         "Kredit ajratish uchun toifalar aniq belgilandi."
       ],
       "pitfalls": "Shartlarni tekshirishda katta sondan boshlash tartibiga rioya qiling.",
-      "cw2Tip": "Mijoz xarid hajmiga qarab VIP toifani aniqlashda aynan shu qoida ishlaydi."
+      "cw2Tip": "Mijoz xarid hajmiga qarab VIP toifani aniqlashda aynan shu qoida ishlaydi.",
+      "theoryRu": "Свойства классификации отображают внутренние непрерывные показатели в отдельные бизнес-домены.",
+      "pitfallsRu": "При проверке условий следуйте порядку, начиная с наибольшего числа.",
+      "breakdownRu": [
+        "Предел подсчета очков [300, 850] зафиксирован в установщике.",
+        "Kredit ajratish uchun toifalar aniq belgilandi."
+      ]
     },
     "sampleData": [
       "score (skoring bali): 780 (Toifa: A'LO)"
@@ -3160,7 +3778,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Skoring bali: 780 | Toifa: EXCELLENT",
     "story": {
       "uz": "Bank kredit skoringi tizimida mijozning 300 dan 850 gacha bo'lgan ball ko'rsatkichi asosida uning kredit toifasi (EXCELLENT, GOOD, FAIR, POOR) tasniflanadi.",
-      "en": "A credit scoring engine encapsulates risk assessment, classifying scores from 300 to 850 into EXCELLENT, GOOD, FAIR, or POOR categories."
+      "en": "A credit scoring engine encapsulates risk assessment, classifying scores from 300 to 850 into EXCELLENT, GOOD, FAIR, or POOR categories.",
+      "ru": "Механизм кредитного скоринга инкапсулирует оценку рисков, классифицируя баллы от 300 до 850 по категориям ОТЛИЧНО, ХОРОШО, СПРАВЕДЛИВО или ПЛОХО."
     },
     "steps": {
       "uz": [
@@ -3176,6 +3795,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>getCategory()</code> classifying into EXCELLENT, GOOD, FAIR, POOR.",
         "In <code>main</code>, instantiate <code>CreditScore(780)</code>.",
         "Print score and classification category."
+      ],
+      "ru": [
+        "Объявите класс <code>CreditScore</code> с закрытым полем <code>score</code>.",
+        "Реализуйте конструктор, геттер и сеттер, ограниченный диапазоном от 300 до 850.",
+        "Внедрить классификацию <code>getCategory()</code> на ОТЛИЧНО, ХОРОШО, УДОВЛЕТВОРИТЕЛЬНО, ПЛОХО.",
+        "В <code>main</code> создайте экземпляр <code>CreditScore(780)</code>.",
+        "Распечатать оценку и классификационную категорию."
       ]
     }
   },
@@ -3186,11 +3812,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "31-40",
     "title": {
       "uz": "40. Safe Credential — Bir Tomonlama Yoziluvchi Maydon (Write-Only & No-Leak Security • Stage 4 Master)",
-      "en": "40. Safe Credential — Write-Only State & Zero-Leak Security (Stage 4 Master)"
+      "en": "40. Safe Credential — Write-Only State & Zero-Leak Security (Stage 4 Master)",
+      "ru": "40. Безопасные учетные данные — состояние только для записи и защита от утечек (этап 4 Master)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nAxborot xavfsizligida foydalanuvchi parollari hech qachon Getter orqali ochiq ko'rsatilmaydi (No Leak). Ular faqat ichki solishtirish (verify) va eski parolni tasdiqlagan holda o'zgartirish (change) imkonini beradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. UserCredential klassini tuzing: private String password; maydonini e'lon qiling.\n2. Konstruktorda parolni kamida 6 belgidan iboratligini tekshirib o'rnating.\n3. Getter yozmang! Solishtirish metodini yozing: public boolean verifyPassword(String attempt) { return this.password.equals(attempt); }.\n4. Parolni xavfsiz almashtirish metodini yozing: public boolean changePassword(String oldPass, String newPass) (eski parol to'g'ri bo'lsa va yangi parol >=6 bo'lsa o'zgartirsin).\n5. Main metodida UserCredential cred = new UserCredential(\"secret2024\"); yarating, tekshiruvlarni bajaring va parolni almashtirib chop eting:System.out.println(\"Tekshiruv ('wrong'): \" + cred.verifyPassword(\"wrong\"));System.out.println(\"Tekshiruv ('secret2024'): \" + cred.verifyPassword(\"secret2024\"));System.out.println(\"Parol o'zgardimi: \" + cred.changePassword(\"secret2024\", \"newMasterPass99\"));",
-      "en": "[Real-World Story & Context]\nEnterprise credential management prohibits leaking passwords through getters, exposing only verification and authenticated password change methods.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class UserCredential with private field password.\n2. Implement constructor enforcing min length 6.\n3. Omit getters! Implement verifyPassword(String attempt).\n4. Implement changePassword(String oldPass, String newPass) requiring authentication.\n5. In main, test verification and change password, printing outputs."
+      "en": "[Real-World Story & Context]\nEnterprise credential management prohibits leaking passwords through getters, exposing only verification and authenticated password change methods.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class UserCredential with private field password.\n2. Implement constructor enforcing min length 6.\n3. Omit getters! Implement verifyPassword(String attempt).\n4. Implement changePassword(String oldPass, String newPass) requiring authentication.\n5. In main, test verification and change password, printing outputs.",
+      "ru": "📖 Контекст и описание задачи\nУправление учетными данными предприятия запрещает утечку паролей через геттеры, предоставляя доступ только к методам проверки и аутентификации паролей.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>UserCredential</code> с закрытым полем <code>password</code>.\n2. Реализуйте конструктор, обеспечивающий минимальную длину 6.\n3. Опустить геттеры! Внедрите <code>verifyPassword(String attempt)</code>.\n4. Реализуйте <code>changePassword(String oldPass, String newPass)</code>, требующий аутентификации.\n5. В <code>main</code> проверьте проверку и смените пароль, распечатайте результаты."
     },
     "requirements": {
       "classes": [
@@ -3233,7 +3861,14 @@ window.OOP_CHALLENGES_W1 = [
         "Bu topshiriq 5-bosqichdagi arxitektura va kompozitsiyaga ko'prikdir."
       ],
       "pitfalls": "Stringlarni taqqoslashda '==' emas, doimo '.equals()' metodidan foydalaning!",
-      "cw2Tip": "Foydalanuvchi autentifikatsiyasida ma'lumotlarni himoyalashning asosiy shartidir."
+      "cw2Tip": "Foydalanuvchi autentifikatsiyasida ma'lumotlarni himoyalashning asosiy shartidir.",
+      "theoryRu": "На этапе 4 освоена инкапсуляция, включая состояние «только для записи» с нулевой утечкой. На этапе 5 эти концепции синтезируются в статические элементы, композицию и архитектуру CW2.",
+      "pitfallsRu": "Всегда используйте метод «.equals()», а не «==» при сравнении строк!",
+      "breakdownRu": [
+        "Конфиденциальность пароля полностью обеспечена (путь чтения отсутствует).",
+        "Eski parolni tasdiqlash orqali xavfsiz almashtirish amalga oshirildi.",
+        "Bu topshiriq 5-bosqichdagi arxitektura va kompozitsiyaga ko'prikdir."
+      ]
     },
     "sampleData": [
       "Boshlang'ich parol: \"secret2024\"",
@@ -3243,7 +3878,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Tekshiruv ('wrong'): false\nTekshiruv ('secret2024'): true\nParol o'zgardimi: true",
     "story": {
       "uz": "Axborot xavfsizligida foydalanuvchi parollari hech qachon Getter orqali ochiq ko'rsatilmaydi (No Leak). Ular faqat ichki solishtirish (verify) va eski parolni tasdiqlagan holda o'zgartirish (change) imkonini beradi.",
-      "en": "Enterprise credential management prohibits leaking passwords through getters, exposing only verification and authenticated password change methods."
+      "en": "Enterprise credential management prohibits leaking passwords through getters, exposing only verification and authenticated password change methods.",
+      "ru": "Управление учетными данными предприятия запрещает утечку паролей через геттеры, предоставляя доступ только к методам проверки и аутентификации паролей."
     },
     "steps": {
       "uz": [
@@ -3259,6 +3895,13 @@ window.OOP_CHALLENGES_W1 = [
         "Omit getters! Implement <code>verifyPassword(String attempt)</code>.",
         "Implement <code>changePassword(String oldPass, String newPass)</code> requiring authentication.",
         "In <code>main</code>, test verification and change password, printing outputs."
+      ],
+      "ru": [
+        "Создайте класс <code>UserCredential</code> с закрытым полем <code>password</code>.",
+        "Реализуйте конструктор, обеспечивающий минимальную длину 6.",
+        "Опустить геттеры! Внедрите <code>verifyPassword(String attempt)</code>.",
+        "Реализуйте <code>changePassword(String oldPass, String newPass)</code>, требующий аутентификации.",
+        "В <code>main</code> проверьте проверку и смените пароль, распечатайте результаты."
       ]
     }
   },
@@ -3269,11 +3912,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "41. System ID Generator — 'static' Hisoblagich va Avtomatik ID Berish",
-      "en": "41. System ID Generator — 'static' Counter & Auto-Increment IDs"
+      "en": "41. System ID Generator — 'static' Counter & Auto-Increment IDs",
+      "ru": "41. Генератор системных идентификаторов — «статические» счетчики и идентификаторы с автоматическим приращением."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMa'lumotlar bazasi yoki tizimda yangi foydalanuvchi ro'yxatdan o'tganda ularga avtomatik ketma-ket unikal ID berilishi uchun umumiy 'static' hisoblagich xizmat qiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. UserAccount klassini e'lon qiling: public static int totalUsers = 0;, private int id;, private String username;.\n2. Konstruktorda hisoblagichni oshirib ID ga bering: totalUsers++; this.id = totalUsers; this.username = username;.\n3. Getter metodlarini yozing: getId() va getUsername().\n4. Main metodida ketma-ket uchta foydalanuvchi yarating: 'ali', 'vali' va 'gani'.\n5. Har bir foydalanuvchini va jami sonni 4 qatorda chop eting:System.out.println(\"User 1 ID: \" + u1.getId() + \" (\" + u1.getUsername() + \")\");System.out.println(\"User 2 ID: \" + u2.getId() + \" (\" + u2.getUsername() + \")\");System.out.println(\"User 3 ID: \" + u3.getId() + \" (\" + u3.getUsername() + \")\");System.out.println(\"Jami foydalanuvchilar soni: \" + UserAccount.totalUsers);",
-      "en": "[Real-World Story & Context]\nA system user account registry automatically increments and assigns unique sequential IDs using a class-level static counter.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class UserAccount with public static int totalUsers = 0;, private id, private username.\n2. Constructor increments static counter and assigns to id.\n3. Implement getters for id and username.\n4. In main, instantiate users 'ali', 'vali', 'gani'.\n5. Print all 3 users and totalUsers count on 4 lines."
+      "en": "[Real-World Story & Context]\nA system user account registry automatically increments and assigns unique sequential IDs using a class-level static counter.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class UserAccount with public static int totalUsers = 0;, private id, private username.\n2. Constructor increments static counter and assigns to id.\n3. Implement getters for id and username.\n4. In main, instantiate users 'ali', 'vali', 'gani'.\n5. Print all 3 users and totalUsers count on 4 lines.",
+      "ru": "📖 Контекст и описание задачи\nРеестр учетных записей пользователей системы автоматически увеличивает и присваивает уникальные последовательные идентификаторы с помощью статического счетчика уровня класса.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>UserAccount</code> с помощью <code>public static int totalUsers = 0;</code>, частного <code>id</code>, частного <code>username</code>.\n2. Конструктор увеличивает статический счетчик и присваивает ему идентификатор.\n3. Реализуйте геттеры для идентификатора и имени пользователя.\n4. В <code>main</code> создайте экземпляры пользователей «ali», «vali», «gani».\n5. Выведите всех 3 пользователей и общее число пользователей в 4 строках."
     },
     "requirements": {
       "classes": [
@@ -3319,7 +3964,13 @@ window.OOP_CHALLENGES_W1 = [
         "Har bir ob'yekt ketma-ket betakror ID ga ega bo'ldi."
       ],
       "pitfalls": "Statik maydonlarga ob'yekt orqali emas (`u1.totalUsers`), klass nomi orqali (`UserAccount.totalUsers`) murojaat qilish Clean Code qoidasidir.",
-      "cw2Tip": "CW2 Console Order tizimida buyurtma raqamini (Order #1, Order #2) avtomatik generatsiya qilishda ayni usul shart."
+      "cw2Tip": "CW2 Console Order tizimida buyurtma raqamini (Order #1, Order #2) avtomatik generatsiya qilishda ayni usul shart.",
+      "theoryRu": "«Статические» поля принадлежат проекту класса в Metaspace, единообразно используемому для всех созданных объектов.",
+      "pitfallsRu": "Правило чистого кода ссылается на статические поля по имени класса (`UserAccount.totalUsers`), а не по объекту (`u1.totalUsers`).",
+      "breakdownRu": [
+        "Установлен глобальный счетчик на уровне класса.",
+        "Каждому объекту присвоен последовательный уникальный идентификатор."
+      ]
     },
     "sampleData": [
       "1-foydalanuvchi username: \"ali\"",
@@ -3329,7 +3980,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "User 1 ID: 1 (ali)\nUser 2 ID: 2 (vali)\nUser 3 ID: 3 (gani)\nJami foydalanuvchilar soni: 3",
     "story": {
       "uz": "Ma'lumotlar bazasi yoki tizimda yangi foydalanuvchi ro'yxatdan o'tganda ularga avtomatik ketma-ket unikal ID berilishi uchun umumiy 'static' hisoblagich xizmat qiladi.",
-      "en": "A system user account registry automatically increments and assigns unique sequential IDs using a class-level static counter."
+      "en": "A system user account registry automatically increments and assigns unique sequential IDs using a class-level static counter.",
+      "ru": "Реестр учетных записей пользователей системы автоматически увеличивает и присваивает уникальные последовательные идентификаторы с помощью статического счетчика уровня класса."
     },
     "steps": {
       "uz": [
@@ -3345,6 +3997,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement getters for id and username.",
         "In <code>main</code>, instantiate users 'ali', 'vali', 'gani'.",
         "Print all 3 users and totalUsers count on 4 lines."
+      ],
+      "ru": [
+        "Объявите класс <code>UserAccount</code> с помощью <code>public static int totalUsers = 0;</code>, частного <code>id</code>, частного <code>username</code>.",
+        "Конструктор увеличивает статический счетчик и присваивает ему идентификатор.",
+        "Реализуйте геттеры для идентификатора и имени пользователя.",
+        "В <code>main</code> создайте экземпляры пользователей «ali», «vali», «gani».",
+        "Выведите всех 3 пользователей и общее число пользователей в 4 строках."
       ]
     }
   },
@@ -3355,11 +4014,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "42. Math Utilities — 'static' Yordamchi Metodlar (Utility Class)",
-      "en": "42. Math Utilities — 'static' Helper Methods (Utility Class)"
+      "en": "42. Math Utilities — 'static' Helper Methods (Utility Class)",
+      "ru": "42. Math Utilities — «статические» вспомогательные методы (класс утилиты)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMoliyaviy ilovada QQS solig'ini hisoblash va sonlarni yaxlitlash kabi takrorlanuvchi amallarni ob'yekt yaratmasdan chaqirish uchun 'static' yordamchi (utility) klass kerak.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. FinancialMath klassini tuzing va uning konstruktorini private qilib yoping.\n2. Statik soliq hisoblash metodini yozing: public static double calcVat(double amount, double rate) { return amount * (rate / 100.0); }.\n3. Statik yaxlitlash metodini yozing: public static double roundTwoDecimals(double val) { return Math.round(val * 100.0) / 100.0; }.\n4. Main metodida klass nomi orqali metodlarni to'g'ridan-to'g'ri chaqiring: calcVat(1250000.0, 12.0) va roundTwoDecimals(145.6789).\n5. Natijalarni 2 qatorda chop eting:System.out.println(\"Hisoblangan soliq: \" + soliq + \" so'm\");System.out.println(\"Yaxlitlangan qiymat: \" + yaxlitlangan);",
-      "en": "[Real-World Story & Context]\nA financial calculation module provides stateless static utility methods for VAT computation and decimal rounding without needing object instantiation.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create utility class FinancialMath with private constructor.\n2. Implement public static double calcVat(double amount, double rate).\n3. Implement public static double roundTwoDecimals(double val).\n4. In main, call methods directly on class.\n5. Print VAT and rounded result on 2 lines."
+      "en": "[Real-World Story & Context]\nA financial calculation module provides stateless static utility methods for VAT computation and decimal rounding without needing object instantiation.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create utility class FinancialMath with private constructor.\n2. Implement public static double calcVat(double amount, double rate).\n3. Implement public static double roundTwoDecimals(double val).\n4. In main, call methods directly on class.\n5. Print VAT and rounded result on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nМодуль финансовых расчетов предоставляет статические служебные методы без сохранения состояния для расчета НДС и десятичных округлений без необходимости создания экземпляра объекта.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте служебный класс <code>FinancialMath</code> с помощью частного конструктора.\n2. Внедрите <code>public static double calcVat(double amount, double rate)</code>.\n3. Внедрите <code>public static double roundTwoDecimals(double val)</code>.\n4. В <code>main</code> вызывайте методы непосредственно в классе.\n5. Распечатайте НДС и округлите результат в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -3398,7 +4059,13 @@ window.OOP_CHALLENGES_W1 = [
         "Metodlar to'g'ridan-to'g'ri chaqirildi."
       ],
       "pitfalls": "Statik metodlar ichidan instans maydonlarga ('this.x') murojaat qilib bo'lmaydi.",
-      "cw2Tip": "Valyuta konvertatsiyasi va formatlash utilitlarini alohida sinfga ajratish yaxshi me'morchilikdir."
+      "cw2Tip": "Valyuta konvertatsiyasi va formatlash utilitlarini alohida sinfga ajratish yaxshi me'morchilikdir.",
+      "theoryRu": "Служебные классы объединяют статические функции без сохранения состояния и подавляют создание экземпляров с помощью частных конструкторов.",
+      "pitfallsRu": "На поля экземпляра («this.x») нельзя ссылаться из статических методов.",
+      "breakdownRu": [
+        "Создается чистый некопируемый вспомогательный класс.",
+        "Методы вызываются напрямую."
+      ]
     },
     "sampleData": [
       "Baza summasi: 1250000.0 so'm, QQS stavkasi: 12.0%",
@@ -3407,7 +4074,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Hisoblangan soliq: 150000.0 so'm\nYaxlitlangan qiymat: 145.68",
     "story": {
       "uz": "Moliyaviy ilovada QQS solig'ini hisoblash va sonlarni yaxlitlash kabi takrorlanuvchi amallarni ob'yekt yaratmasdan chaqirish uchun 'static' yordamchi (utility) klass kerak.",
-      "en": "A financial calculation module provides stateless static utility methods for VAT computation and decimal rounding without needing object instantiation."
+      "en": "A financial calculation module provides stateless static utility methods for VAT computation and decimal rounding without needing object instantiation.",
+      "ru": "Модуль финансовых расчетов предоставляет статические служебные методы без сохранения состояния для расчета НДС и десятичных округлений без необходимости создания экземпляра объекта."
     },
     "steps": {
       "uz": [
@@ -3423,6 +4091,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>public static double roundTwoDecimals(double val)</code>.",
         "In <code>main</code>, call methods directly on class.",
         "Print VAT and rounded result on 2 lines."
+      ],
+      "ru": [
+        "Создайте служебный класс <code>FinancialMath</code> с помощью частного конструктора.",
+        "Внедрите <code>public static double calcVat(double amount, double rate)</code>.",
+        "Внедрите <code>public static double roundTwoDecimals(double val)</code>.",
+        "В <code>main</code> вызывайте методы непосредственно в классе.",
+        "Распечатайте НДС и округлите результат в 2 строки."
       ]
     }
   },
@@ -3433,11 +4108,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "43. Central Bank — 'CurrencyConverter' va Umumiy Kurs ('static' State)",
-      "en": "43. Central Bank — 'CurrencyConverter' & Global Shared Rate"
+      "en": "43. Central Bank — 'CurrencyConverter' & Global Shared Rate",
+      "ru": "43. Центральный банк — «Конвертер валют» и глобальный общий курс."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nMarkaziy bank valyuta kursi barcha operatsiyalar uchun umumiy bitta qiymatga ega. Kurs yangilanganda barcha o'tkazmalar avtomatik yangi kurs bo'yicha hisoblanadi ('static' State).\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. CurrencyConverter klassini tuzing: private static double usdToUzs = 12700.0; maydonini e'lon qiling.\n2. Kursni yangilash metodini yozing: public static void setRate(double newRate) { if (newRate > 0) usdToUzs = newRate; }.\n3. Konvertatsiya metodini yozing: public static double toUzs(double usd) { return usd * usdToUzs; }.\n4. Main metodida 100 dollarni eski kursda (12700.0) hisoblab chop eting: System.out.println(\"100 USD (eski kurs): \" + summa1 + \" so'm\");.\n5. Kursni 12800.0 ga o'zgartiring va yana 100 dollarni yangi kursda chop eting: System.out.println(\"100 USD (yangi kurs): \" + summa2 + \" so'm\");.",
-      "en": "[Real-World Story & Context]\nA central banking currency converter manages a shared static exchange rate, dynamically affecting all conversion calculations across the system.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class CurrencyConverter with private static usdToUzs = 12700.0;.\n2. Implement static setRate(double newRate) and static toUzs(double usd).\n3. In main, convert 100 USD at original rate and print.\n4. Update rate to 12800.0 and convert 100 USD again.\n5. Print both conversions matching expected output."
+      "en": "[Real-World Story & Context]\nA central banking currency converter manages a shared static exchange rate, dynamically affecting all conversion calculations across the system.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class CurrencyConverter with private static usdToUzs = 12700.0;.\n2. Implement static setRate(double newRate) and static toUzs(double usd).\n3. In main, convert 100 USD at original rate and print.\n4. Update rate to 12800.0 and convert 100 USD again.\n5. Print both conversions matching expected output.",
+      "ru": "📖 Контекст и описание задачи\nКонвертер валют центрального банка управляет общим статическим обменным курсом, динамически влияя на все расчеты конвертации в системе.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>CurrencyConverter</code> с приватным статическим <code>usdToUzs = 12700.0;</code>.\n2. Реализуйте статические <code>setRate(double newRate)</code> и статические <code>toUzs(double usd)</code>.\n3. В <code>main</code> конвертируйте 100 долларов США по исходному курсу и распечатайте.\n4. Обновите курс до 12800,0 и снова конвертируйте 100 долларов США.\n5. Выведите оба преобразования, соответствующие ожидаемому результату."
     },
     "requirements": {
       "classes": [
@@ -3476,7 +4153,13 @@ window.OOP_CHALLENGES_W1 = [
         "Statik setter orqali yangi stavka barcha chaqiruvlarga ta'sir qildi."
       ],
       "pitfalls": "Statik o'zgaruvchilarni ko'p joyda ehtiyotsiz o'zgartirish kutilmagan yon ta'sirlarga (side effects) sabab bo'lishi mumkin.",
-      "cw2Tip": "CW2 ilovasida global chegirma foizini boshqarishda qo'llaniladi."
+      "cw2Tip": "CW2 ilovasida global chegirma foizini boshqarishda qo'llaniladi.",
+      "theoryRu": "Общая статическая конфигурация обеспечивает глобальное распространение унифицированных изменений состояния по всем модулям.",
+      "pitfallsRu": "Неосторожное изменение статических переменных во многих местах может вызвать неожиданные побочные эффекты.",
+      "breakdownRu": [
+        "Мировым обменным курсом можно было безопасно управлять.",
+        "Благодаря статическому установщику новая скорость повлияла на все вызовы."
+      ]
     },
     "sampleData": [
       "USD miqdori: 100.0",
@@ -3486,7 +4169,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "100 USD (eski kurs): 1270000.0 so'm\n100 USD (yangi kurs): 1280000.0 so'm",
     "story": {
       "uz": "Markaziy bank valyuta kursi barcha operatsiyalar uchun umumiy bitta qiymatga ega. Kurs yangilanganda barcha o'tkazmalar avtomatik yangi kurs bo'yicha hisoblanadi ('static' State).",
-      "en": "A central banking currency converter manages a shared static exchange rate, dynamically affecting all conversion calculations across the system."
+      "en": "A central banking currency converter manages a shared static exchange rate, dynamically affecting all conversion calculations across the system.",
+      "ru": "Конвертер валют центрального банка управляет общим статическим обменным курсом, динамически влияя на все расчеты конвертации в системе."
     },
     "steps": {
       "uz": [
@@ -3502,6 +4186,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, convert 100 USD at original rate and print.",
         "Update rate to 12800.0 and convert 100 USD again.",
         "Print both conversions matching expected output."
+      ],
+      "ru": [
+        "Объявите класс <code>CurrencyConverter</code> с приватным статическим <code>usdToUzs = 12700.0;</code>.",
+        "Реализуйте статические <code>setRate(double newRate)</code> и статические <code>toUzs(double usd)</code>.",
+        "В <code>main</code> конвертируйте 100 долларов США по исходному курсу и распечатайте.",
+        "Обновите курс до 12800,0 и снова конвертируйте 100 долларов США.",
+        "Выведите оба преобразования, соответствующие ожидаемому результату."
       ]
     }
   },
@@ -3512,11 +4203,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "44. Person & Address — Ob'yekt Kompozitsiyasi ('has-a' Munosabati)",
-      "en": "44. Person & Address — Object Composition ('has-a' Relationship)"
+      "en": "44. Person & Address — Object Composition ('has-a' Relationship)",
+      "ru": "44. Человек и адрес — состав объекта (отношение «имеет»)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nDasturiy tizimda inson va uning yashash manzili alohida klasslar bo'lib, inson ob'yektining ichida manzil ob'yekti saqlanadi ('has-a' Munosabati / Kompozitsiya).\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Address klassini tuzing: city va street maydonlari, konstruktor va getterlar.\n2. Person klassini tuzing: name va Address address maydonlari, konstruktor.\n3. Person klassida public String getFullDetails() { return this.name + \" (\" + this.address.getCity() + \", \" + this.address.getStreet() + \")\"; } metodini yozing.\n4. Main metodida Address addr = new Address(\"Toshkent\", \"Amir Temur ko'chasi, 12\"); va Person p = new Person(\"Rustam Shokirov\", addr); yarating.\n5. Shaxs ma'lumotlarini chop eting: System.out.println(\"Shaxs ma'lumotlari: \" + p.getFullDetails());",
-      "en": "[Real-World Story & Context]\nA domain model represents a Person possessing an Address ('has-a' relationship) through object composition.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Address with city, street, constructor, getters.\n2. Create class Person with name, address, constructor.\n3. Implement getFullDetails() formatting name and address details.\n4. In main, instantiate Address, then instantiate Person.\n5. Print full details matching expected output."
+      "en": "[Real-World Story & Context]\nA domain model represents a Person possessing an Address ('has-a' relationship) through object composition.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Address with city, street, constructor, getters.\n2. Create class Person with name, address, constructor.\n3. Implement getFullDetails() formatting name and address details.\n4. In main, instantiate Address, then instantiate Person.\n5. Print full details matching expected output.",
+      "ru": "📖 Контекст и описание задачи\nМодель предметной области представляет собой человека, обладающего адресом (отношение «имеет») посредством композиции объектов.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Address</code> с городом, улицей, конструктором и геттерами.\n2. Создайте класс <code>Person</code> с именем, адресом и конструктором.\n3. Реализовать форматирование имени и адреса <code>getFullDetails()</code>.\n4. В <code>main</code> создайте экземпляр Address, затем создайте экземпляр Person.\n5. Распечатайте полную информацию, соответствующую ожидаемому результату."
     },
     "requirements": {
       "classes": [
@@ -3562,7 +4255,13 @@ window.OOP_CHALLENGES_W1 = [
         "Person klassi Address ob'yektiga murojaat qildi."
       ],
       "pitfalls": "Agar address null bo'lsa, `address.getCity()` chaqiruvi NullPointerException beradi — null tekshiruvini esdan chiqarmang.",
-      "cw2Tip": "CW2 da `Customer has an Address` va `Order has a Customer` aynan shu usulda quriladi."
+      "cw2Tip": "CW2 da `Customer has an Address` va `Order has a Customer` aynan shu usulda quriladi.",
+      "theoryRu": "Композиция предпочитает гибкое делегирование «имеет» монолитным отдельным классам.",
+      "pitfallsRu": "Если адрес равен нулю, вызов `address.getCity()` вызовет исключение NullPointerException — не забудьте проверить наличие нуля.",
+      "breakdownRu": [
+        "Адрес, выделенный в отдельный повторно используемый класс.",
+        "Класс Person имеет ссылку на объект Address."
+      ]
     },
     "sampleData": [
       "Manzil -> city: \"Toshkent\", street: \"Amir Temur ko'chasi, 12\"",
@@ -3571,7 +4270,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Shaxs ma'lumotlari: Rustam Shokirov (Toshkent, Amir Temur ko'chasi, 12)",
     "story": {
       "uz": "Dasturiy tizimda inson va uning yashash manzili alohida klasslar bo'lib, inson ob'yektining ichida manzil ob'yekti saqlanadi ('has-a' Munosabati / Kompozitsiya).",
-      "en": "A domain model represents a Person possessing an Address ('has-a' relationship) through object composition."
+      "en": "A domain model represents a Person possessing an Address ('has-a' relationship) through object composition.",
+      "ru": "Модель предметной области представляет собой человека, обладающего адресом (отношение «имеет») посредством композиции объектов."
     },
     "steps": {
       "uz": [
@@ -3587,6 +4287,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>getFullDetails()</code> formatting name and address details.",
         "In <code>main</code>, instantiate Address, then instantiate Person.",
         "Print full details matching expected output."
+      ],
+      "ru": [
+        "Создайте класс <code>Address</code> с городом, улицей, конструктором и геттерами.",
+        "Создайте класс <code>Person</code> с именем, адресом и конструктором.",
+        "Реализовать форматирование имени и адреса <code>getFullDetails()</code>.",
+        "В <code>main</code> создайте экземпляр Address, затем создайте экземпляр Person.",
+        "Распечатайте полную информацию, соответствующую ожидаемому результату."
       ]
     }
   },
@@ -3597,11 +4304,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "45. Vehicle & Engine — Kuchli Kompozitsiya va Ichki Delegatsiya",
-      "en": "45. Vehicle & Engine — Strong Composition & Internal Delegation"
+      "en": "45. Vehicle & Engine — Strong Composition & Internal Delegation",
+      "ru": "45. Транспортное средство и двигатель — сильный состав и внутреннее делегирование"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nAvtomobil o'zining ichki dvigateliga (Engine) ega. Avtomobil o't oldirilganda dvigatelning turi va ot kuchini delegatsiya orqali konsolga aks ettiradi (Kuchli Kompozitsiya).\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Engine klassini e'lon qiling: private int horsePower;, private String type;, konstruktor va getterlar.\n2. Car klassini e'lon qiling: private String model;, private Engine engine;, konstruktor.\n3. Car klassida public void startCar() metodini yozing: System.out.println(this.model + \" o't oldirildi! Dvigatel: \" + this.engine.getType() + \" (\" + this.engine.getHorsePower() + \" HP)\");.\n4. Main metodida Engine turbo = new Engine(250, \"2.0 Turbo\"); va Car myCar = new Car(\"Malibu Premier\", turbo); ob'yektlarini yarating.\n5. Avtomobilni o't oldiring: myCar.startCar();",
-      "en": "[Real-World Story & Context]\nAn automotive Car model encapsulates an internal Engine component, delegating start telemetry to engine specifications.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Engine with horsePower, type, constructor, getters.\n2. Declare class Car with model, engine, constructor.\n3. Implement startCar() printing engine telemetry.\n4. In main, instantiate Engine, then instantiate Car.\n5. Invoke myCar.startCar();."
+      "en": "[Real-World Story & Context]\nAn automotive Car model encapsulates an internal Engine component, delegating start telemetry to engine specifications.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Declare class Engine with horsePower, type, constructor, getters.\n2. Declare class Car with model, engine, constructor.\n3. Implement startCar() printing engine telemetry.\n4. In main, instantiate Engine, then instantiate Car.\n5. Invoke myCar.startCar();.",
+      "ru": "📖 Контекст и описание задачи\nАвтомобильная модель автомобиля инкапсулирует внутренний компонент двигателя, делегируя телеметрию запуска спецификациям двигателя.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Объявите класс <code>Engine</code> с указанием лошадиной силы, типа, конструктора и геттеров.\n2. Объявите класс <code>Car</code> с моделью, двигателем, конструктором.\n3. Внедрите телеметрию механизма печати <code>startCar()</code>.\n4. В <code>main</code> создайте экземпляр Engine, затем создайте экземпляр Car.\n5. Вызовите <code>myCar.startCar();</code>."
     },
     "requirements": {
       "classes": [
@@ -3647,7 +4356,13 @@ window.OOP_CHALLENGES_W1 = [
         "Avtomobil dvigatel imkoniyatlaridan to'liq foydalandi."
       ],
       "pitfalls": "Kompozitsiya qilingan ob'yektni private qilib himoyalash yaxshi amaliyotdir.",
-      "cw2Tip": "CW2 tizimida `Order` o'z to'lovini `PaymentProcessor` ob'yektiga delegatsiya qiladi."
+      "cw2Tip": "CW2 tizimida `Order` o'z to'lovini `PaymentProcessor` ob'yektiga delegatsiya qiladi.",
+      "theoryRu": "Делегирование назначает специализированные обязанности выделенным экземплярам компонентов.",
+      "pitfallsRu": "Хорошей практикой является сделать составной объект закрытым.",
+      "breakdownRu": [
+        "Двигатель создавался как самостоятельный модульный объект.",
+        "Автомобиль в полной мере использовал возможности двигателя."
+      ]
     },
     "sampleData": [
       "Dvigatel -> horsepower: 250, model: \"2.0 Turbo\"",
@@ -3656,7 +4371,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Malibu Premier o't oldirildi! Dvigatel: 2.0 Turbo (250 HP)",
     "story": {
       "uz": "Avtomobil o'zining ichki dvigateliga (Engine) ega. Avtomobil o't oldirilganda dvigatelning turi va ot kuchini delegatsiya orqali konsolga aks ettiradi (Kuchli Kompozitsiya).",
-      "en": "An automotive Car model encapsulates an internal Engine component, delegating start telemetry to engine specifications."
+      "en": "An automotive Car model encapsulates an internal Engine component, delegating start telemetry to engine specifications.",
+      "ru": "Автомобильная модель автомобиля инкапсулирует внутренний компонент двигателя, делегируя телеметрию запуска спецификациям двигателя."
     },
     "steps": {
       "uz": [
@@ -3672,6 +4388,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>startCar()</code> printing engine telemetry.",
         "In <code>main</code>, instantiate Engine, then instantiate Car.",
         "Invoke <code>myCar.startCar();</code>."
+      ],
+      "ru": [
+        "Объявите класс <code>Engine</code> с указанием лошадиной силы, типа, конструктора и геттеров.",
+        "Объявите класс <code>Car</code> с моделью, двигателем, конструктором.",
+        "Внедрите телеметрию механизма печати <code>startCar()</code>.",
+        "В <code>main</code> создайте экземпляр Engine, затем создайте экземпляр Car.",
+        "Вызовите <code>myCar.startCar();</code>."
       ]
     }
   },
@@ -3682,11 +4405,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "46. E-Commerce Cart — 'Product' va 'OrderItem' Savat Pozitsiyasi",
-      "en": "46. E-Commerce Cart — 'Product' & 'OrderItem' Cart Line Item"
+      "en": "46. E-Commerce Cart — 'Product' & 'OrderItem' Cart Line Item",
+      "ru": "46. ​​Корзина электронной торговли — позиция корзины «Продукт» и «OrderItem»."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nElektron savatda har bir buyurtma qatori (OrderItem) mahsulot ob'yektiga va buyurtma soniga ega bo'lib, uning oraliq summasini (subtotal) hisoblab beradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Product klassini tuzing: name va price maydonlari, konstruktor va getterlar.\n2. OrderItem klassini tuzing: Product product va int quantity maydonlari, konstruktor va getterlar.\n3. OrderItem klassida public double getSubtotal() { return this.product.getPrice() * this.quantity; } metodini yozing.\n4. Main metodida Product p = new Product(\"Simsiz Quloqchin\", 350000.0); va OrderItem item = new OrderItem(p, 3); yarating.\n5. Tovar ma'lumotlari va oraliq summani 2 qatorda chop eting:System.out.println(\"Tovar: \" + item.getProduct().getName() + \" x \" + item.getQuantity() + \" dona\");System.out.println(\"Oraliq summa: \" + item.getSubtotal() + \" so'm\");",
-      "en": "[Real-World Story & Context]\nAn e-commerce cart position (OrderItem) aggregates a Product reference and quantity, computing line-item subtotal.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with name, price, constructor, getters.\n2. Create class OrderItem with product, quantity, constructor, getters.\n3. Implement getSubtotal() returning product.getPrice() * quantity.\n4. In main, instantiate Product, then OrderItem with quantity 3.\n5. Print product name, quantity, and subtotal on 2 lines."
+      "en": "[Real-World Story & Context]\nAn e-commerce cart position (OrderItem) aggregates a Product reference and quantity, computing line-item subtotal.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with name, price, constructor, getters.\n2. Create class OrderItem with product, quantity, constructor, getters.\n3. Implement getSubtotal() returning product.getPrice() * quantity.\n4. In main, instantiate Product, then OrderItem with quantity 3.\n5. Print product name, quantity, and subtotal on 2 lines.",
+      "ru": "📖 Контекст и описание задачи\nПозиция корзины электронной торговли (OrderItem) объединяет ссылку на продукт и его количество, вычисляя промежуточный итог по позиции.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Product</code> с именем, ценой, конструктором и геттерами.\n2. Создайте класс <code>OrderItem</code> с продуктом, количеством, конструктором и геттерами.\n3. Реализуйте <code>getSubtotal()</code>, возвращающий Product.getPrice() * количество.\n4. В <code>main</code> создайте экземпляр Product, затем OrderItem с количеством 3.\n5. Напечатайте название продукта, количество и промежуточную сумму в 2 строки."
     },
     "requirements": {
       "classes": [
@@ -3732,7 +4457,13 @@ window.OOP_CHALLENGES_W1 = [
         "Oraliq narx kompozitsiyalangan Product getteri orqali hisoblandi."
       ],
       "pitfalls": "Product narxi o'zgarsa ham, OrderItem har doim dolzarb narxni oladi.",
-      "cw2Tip": "Bu sinf CW2 kurs ishining eng markaziy ob'yektlaridan biridir."
+      "cw2Tip": "Bu sinf CW2 kurs ishining eng markaziy ob'yektlaridan biridir.",
+      "theoryRu": "OrderItem служит строкой, связывающей продукт домена с количеством его в корзине.",
+      "pitfallsRu": "Даже если цена продукта изменится, OrderItem всегда получит текущую цену.",
+      "breakdownRu": [
+        "Связь между Product и OrderItem установлена ​​правильно.",
+        "Промежуточная цена рассчитывалась с использованием составного метода получения продукта."
+      ]
     },
     "sampleData": [
       "Mahsulot -> name: \"Simsiz Quloqchin\", price: 350000.0 so'm",
@@ -3741,7 +4472,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Tovar: Simsiz Quloqchin x 3 dona\nOraliq summa: 1050000.0 so'm",
     "story": {
       "uz": "Elektron savatda har bir buyurtma qatori (OrderItem) mahsulot ob'yektiga va buyurtma soniga ega bo'lib, uning oraliq summasini (subtotal) hisoblab beradi.",
-      "en": "An e-commerce cart position (OrderItem) aggregates a Product reference and quantity, computing line-item subtotal."
+      "en": "An e-commerce cart position (OrderItem) aggregates a Product reference and quantity, computing line-item subtotal.",
+      "ru": "Позиция корзины электронной торговли (OrderItem) объединяет ссылку на продукт и его количество, вычисляя промежуточный итог по позиции."
     },
     "steps": {
       "uz": [
@@ -3757,6 +4489,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>getSubtotal()</code> returning product.getPrice() * quantity.",
         "In <code>main</code>, instantiate Product, then OrderItem with quantity 3.",
         "Print product name, quantity, and subtotal on 2 lines."
+      ],
+      "ru": [
+        "Создайте класс <code>Product</code> с именем, ценой, конструктором и геттерами.",
+        "Создайте класс <code>OrderItem</code> с продуктом, количеством, конструктором и геттерами.",
+        "Реализуйте <code>getSubtotal()</code>, возвращающий Product.getPrice() * количество.",
+        "В <code>main</code> создайте экземпляр Product, затем OrderItem с количеством 3.",
+        "Напечатайте название продукта, количество и промежуточную сумму в 2 строки."
       ]
     }
   },
@@ -3767,11 +4506,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "47. Enterprise Order — Mijoz va Buyurtma Assotsiatsiyasi ('Customer' & 'Order')",
-      "en": "47. Enterprise Order — Customer & Order Association"
+      "en": "47. Enterprise Order — Customer & Order Association",
+      "ru": "47. Заказ предприятия — Ассоциация клиентов и заказов"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nKorxona buyurtmalar tizimida buyurtma (Order) ma'lum bir mijozga (Customer) tegishli bo'lib, buyurtma kvitansiyasida mijoz rekvizitlari va to'lov summasi korporativ ramkada ko'rsatiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Customer klassini tuzing: customerId, fullName, phone, konstruktor va getterlar.\n2. Order klassini tuzing: orderId, Customer customer, totalAmount, konstruktor.\n3. Order klassida public void printOrderSummary() metodini yozing: buyurtma raqami, mijoz ismi, telefoni va to'lov summasini ramkali kvitansiya formatida chop etsin.\n4. Main metodida Customer c = new Customer(101, \"Dilshod Karimov\", \"+998931112233\"); va Order ord = new Order(5001, c, 480000.0); yarating.\n5. Kvitansiyani chop eting: ord.printOrderSummary();",
-      "en": "[Real-World Story & Context]\nAn enterprise order management system links orders to customers, rendering formatted order summaries with customer details.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Customer with customerId, fullName, phone, getters.\n2. Create class Order with orderId, customer, totalAmount.\n3. Implement printOrderSummary() formatting customer summary box.\n4. In main, instantiate Customer, then Order.\n5. Invoke ord.printOrderSummary();."
+      "en": "[Real-World Story & Context]\nAn enterprise order management system links orders to customers, rendering formatted order summaries with customer details.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Customer with customerId, fullName, phone, getters.\n2. Create class Order with orderId, customer, totalAmount.\n3. Implement printOrderSummary() formatting customer summary box.\n4. In main, instantiate Customer, then Order.\n5. Invoke ord.printOrderSummary();.",
+      "ru": "📖 Контекст и описание задачи\nКорпоративная система управления заказами связывает заказы с клиентами, предоставляя отформатированные сводки заказов с подробной информацией о клиентах.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Customer</code> с идентификатором клиента, полным именем, телефоном и геттерами.\n2. Создайте класс <code>Order</code> с идентификатором заказа, клиентом и общей суммой.\n3. Реализовать поле сводной информации о клиенте в формате <code>printOrderSummary()</code>.\n4. В <code>main</code> создайте экземпляр Customer, затем Order.\n5. Вызовите <code>ord.printOrderSummary();</code>."
     },
     "requirements": {
       "classes": [
@@ -3819,7 +4560,13 @@ window.OOP_CHALLENGES_W1 = [
         "Buyurtma xulosasi kvitansiya ko'rinishida formatlandi."
       ],
       "pitfalls": "Customer ob'yektining maydonlari 'private' bo'lgani sababli `this.customer.fullName` emas, `this.customer.getFullName()` orqali o'qiladi.",
-      "cw2Tip": "CW2 konsol ilovangizda foydalanuvchi buyurtmalari aynan shu modelda tashkil qilinadi."
+      "cw2Tip": "CW2 konsol ilovangizda foydalanuvchi buyurtmalari aynan shu modelda tashkil qilinadi.",
+      "theoryRu": "Ассоциация объектов моделирует реляционные внешние ключи через ссылки на объекты в объектно-ориентированной памяти.",
+      "pitfallsRu": "Поскольку поля объекта «Клиент» являются «частными», они считываются через `this.customer.getFullName()`, а не через `this.customer.fullName`.",
+      "breakdownRu": [
+        "Была установлена ​​прямая связь между заказчиком и заказом.",
+        "Сводка заказа оформляется как квитанция."
+      ]
     },
     "sampleData": [
       "Mijoz -> id: 101, name: \"Dilshod Karimov\", phone: \"+998931112233\"",
@@ -3828,7 +4575,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "=== BUYURTMA #5001 ===\nMijoz: Dilshod Karimov (Tel: +998931112233)\nTo'lov summasi: 480000.0 so'm\n==========================",
     "story": {
       "uz": "Korxona buyurtmalar tizimida buyurtma (Order) ma'lum bir mijozga (Customer) tegishli bo'lib, buyurtma kvitansiyasida mijoz rekvizitlari va to'lov summasi korporativ ramkada ko'rsatiladi.",
-      "en": "An enterprise order management system links orders to customers, rendering formatted order summaries with customer details."
+      "en": "An enterprise order management system links orders to customers, rendering formatted order summaries with customer details.",
+      "ru": "Корпоративная система управления заказами связывает заказы с клиентами, предоставляя отформатированные сводки заказов с подробной информацией о клиентах."
     },
     "steps": {
       "uz": [
@@ -3844,6 +4592,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>printOrderSummary()</code> formatting customer summary box.",
         "In <code>main</code>, instantiate Customer, then Order.",
         "Invoke <code>ord.printOrderSummary();</code>."
+      ],
+      "ru": [
+        "Создайте класс <code>Customer</code> с идентификатором клиента, полным именем, телефоном и геттерами.",
+        "Создайте класс <code>Order</code> с идентификатором заказа, клиентом и общей суммой.",
+        "Реализовать поле сводной информации о клиенте в формате <code>printOrderSummary()</code>.",
+        "В <code>main</code> создайте экземпляр Customer, затем Order.",
+        "Вызовите <code>ord.printOrderSummary();</code>."
       ]
     }
   },
@@ -3854,11 +4609,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "48. Global Constants — 'public static final' Tizim Sozlamalari",
-      "en": "48. Global Constants — 'public static final' App Configuration"
+      "en": "48. Global Constants — 'public static final' App Configuration",
+      "ru": "48. Глобальные константы — конфигурация приложения «public static Final»."
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nIlovaning global sozlamalari, tizim nomi, versiyasi va ruxsat etilgan maksimal chegirma ko'rsatkichi butun dastur bo'ylab o'zgarmas 'public static final' konstantalar sifatida markazlashtiriladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. AppConfig klassini tuzing va tashqaridan ob'yekt olinmasligi uchun konstruktorini private qiling.\n2. 3 ta konstantani e'lon qiling: public static final String APP_NAME = \"WIUT Academy\";, public static final String VERSION = \"2.0\";, public static final double MAX_DISCOUNT_PCT = 30.0;.\n3. Main metodida ob'yekt yaratmasdan bevosita AppConfig orqali konstantalarga murojaat qiling.\n4. Tizim nomi va versiyasini chop eting: System.out.println(\"Tizim: \" + AppConfig.APP_NAME + \" v\" + AppConfig.VERSION);.\n5. Maksimal chegirma foizini chop eting: System.out.println(\"Maksimal ruxsat etilgan chegirma: \" + AppConfig.MAX_DISCOUNT_PCT + \"%\");.",
-      "en": "[Real-World Story & Context]\nEnterprise system configuration maintains global immutable settings (APP_NAME, VERSION, MAX_DISCOUNT_PCT) as public static final constants.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class AppConfig with private constructor.\n2. Declare 3 constants: APP_NAME, VERSION, MAX_DISCOUNT_PCT.\n3. In main, access constants directly via class name.\n4. Print app name and version on first line.\n5. Print max discount percentage on second line."
+      "en": "[Real-World Story & Context]\nEnterprise system configuration maintains global immutable settings (APP_NAME, VERSION, MAX_DISCOUNT_PCT) as public static final constants.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class AppConfig with private constructor.\n2. Declare 3 constants: APP_NAME, VERSION, MAX_DISCOUNT_PCT.\n3. In main, access constants directly via class name.\n4. Print app name and version on first line.\n5. Print max discount percentage on second line.",
+      "ru": "📖 Контекст и описание задачи\nВ конфигурации корпоративной системы глобальные неизменяемые настройки (APP_NAME, VERSION, MAX_DISCOUNT_PCT) сохраняются как общедоступные статические конечные константы.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>AppConfig</code> с помощью частного конструктора.\n2. Объявите 3 константы: APP_NAME, VERSION, MAX_DISCOUNT_PCT.\n3. В <code>main</code> доступ к константам осуществляется напрямую через имя класса.\n4. Напечатайте название и версию приложения в первой строке.\n5. Выведите максимальный процент скидки во второй строке."
     },
     "requirements": {
       "classes": [
@@ -3881,7 +4638,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ob'yekt yaratmasdan to'g'ridan-to'g'ri foydalaniladi."
       ],
       "pitfalls": "Konstantalarni kichik harflar bilan yozish Clean Code talablariga zid sanaladi.",
-      "cw2Tip": "Soliq stavkalari va do'kon nomini shunday o'zgarmas qilib e'lon qilish tavsiya etiladi."
+      "cw2Tip": "Soliq stavkalari va do'kon nomini shunday o'zgarmas qilib e'lon qilish tavsiya etiladi.",
+      "theoryRu": "Поля «public static Final» определяют глобально доступные константы времени компиляции, соответствующие UPPER_SNAKE_CASE.",
+      "pitfallsRu": "Написание констант в нижнем регистре противоречит требованиям чистого кода.",
+      "breakdownRu": [
+        "Константы, имеющие в памяти только одну неизменяемую копию.",
+        "Он используется напрямую, без создания объекта."
+      ]
     },
     "sampleData": [
       "Tizim nomi: \"WIUT Academy\", versiya: \"2.0\"",
@@ -3890,7 +4653,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Tizim: WIUT Academy v2.0\nMaksimal ruxsat etilgan chegirma: 30.0%",
     "story": {
       "uz": "Ilovaning global sozlamalari, tizim nomi, versiyasi va ruxsat etilgan maksimal chegirma ko'rsatkichi butun dastur bo'ylab o'zgarmas 'public static final' konstantalar sifatida markazlashtiriladi.",
-      "en": "Enterprise system configuration maintains global immutable settings (APP_NAME, VERSION, MAX_DISCOUNT_PCT) as public static final constants."
+      "en": "Enterprise system configuration maintains global immutable settings (APP_NAME, VERSION, MAX_DISCOUNT_PCT) as public static final constants.",
+      "ru": "В конфигурации корпоративной системы глобальные неизменяемые настройки (APP_NAME, VERSION, MAX_DISCOUNT_PCT) сохраняются как общедоступные статические конечные константы."
     },
     "steps": {
       "uz": [
@@ -3906,6 +4670,13 @@ window.OOP_CHALLENGES_W1 = [
         "In <code>main</code>, access constants directly via class name.",
         "Print app name and version on first line.",
         "Print max discount percentage on second line."
+      ],
+      "ru": [
+        "Создайте класс <code>AppConfig</code> с помощью частного конструктора.",
+        "Объявите 3 константы: APP_NAME, VERSION, MAX_DISCOUNT_PCT.",
+        "В <code>main</code> доступ к константам осуществляется напрямую через имя класса.",
+        "Напечатайте название и версию приложения в первой строке.",
+        "Выведите максимальный процент скидки во второй строке."
       ]
     }
   },
@@ -3916,11 +4687,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "49. Warehouse Report — Bir Nechta Ob'yektlar Kompozitsiyasi va Jami Qiymat",
-      "en": "49. Warehouse Report — Multi-Object Container Composition"
+      "en": "49. Warehouse Report — Multi-Object Container Composition",
+      "ru": "49. Отчет о складе — состав многообъектного контейнера"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nOmbor hisoboti bir nechta tovar ob'yektlarini o'zida birlashtirib (kompozitsiya), ularning umumiy ombor zaxira qiymatini (narx * qoldiq soni) jamlab hisoblaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Product klassini tuzing: name, price, stock, konstruktor va getterlar.\n2. WarehouseReport klassini tuzing: private Product p1; private Product p2; private Product p3; va 3 ta tovarni qabul qiluvchi konstruktor.\n3. public double calculateTotalInventoryValue() metodini yozing: har bir tovarning getPrice() * getStock() qiymatlarini jamlab qaytarsin.\n4. Main metodida 3 ta tovar yarating (\"Laptop Dell\", \"Monitor 27\", \"Klaviatura RGB\") va WarehouseReport report = new WarehouseReport(prd1, prd2, prd3); ob'yektiga uzating.\n5. Ombordagi jami tovarlar qiymatini hisoblab chop eting: System.out.println(\"Ombordagi barcha tovarlarning jami qiymati: \" + totalVal + \" so'm\");",
-      "en": "[Real-World Story & Context]\nA warehouse management report aggregates multiple product items, calculating total inventory valuation across all stock.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with name, price, stock, getters.\n2. Create class WarehouseReport aggregating 3 products.\n3. Implement calculateTotalInventoryValue() summing (price * stock) of each.\n4. In main, instantiate 3 products, pass to report.\n5. Print total inventory value."
+      "en": "[Real-World Story & Context]\nA warehouse management report aggregates multiple product items, calculating total inventory valuation across all stock.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Product with name, price, stock, getters.\n2. Create class WarehouseReport aggregating 3 products.\n3. Implement calculateTotalInventoryValue() summing (price * stock) of each.\n4. In main, instantiate 3 products, pass to report.\n5. Print total inventory value.",
+      "ru": "📖 Контекст и описание задачи\nОтчет по управлению складом объединяет несколько позиций продуктов, рассчитывая общую оценку запасов по всем запасам.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Product</code> с именем, ценой, акциями и геттерами.\n2. Создайте класс <code>WarehouseReport</code>, объединяющий 3 продукта.\n3. Реализуйте суммирование <code>calculateTotalInventoryValue()</code> (цена * запас) каждого.\n4. В <code>main</code> создайте экземпляры 3 продуктов и перейдите к отчету.\n5. Распечатайте общую стоимость запасов."
     },
     "requirements": {
       "classes": [
@@ -3968,7 +4741,13 @@ window.OOP_CHALLENGES_W1 = [
         "Ombor bo'yicha jami aktivlar qiymati hisoblandi."
       ],
       "pitfalls": "Stock yoki price manfiy bo'lmasligi tovar konstruktorida kafolatlanishi shart.",
-      "cw2Tip": "CW2 loyihangizda ombor zaxirasini tahlil qilish moduli aynan shunday ishlaydi."
+      "cw2Tip": "CW2 loyihangizda ombor zaxirasini tahlil qilish moduli aynan shunday ishlaydi.",
+      "theoryRu": "Композиция контейнеров организует коллекции подчиненных сущностей для синтеза показателей более высокого порядка.",
+      "pitfallsRu": "Неотрицательный запас или цена должны быть гарантированы в конструкторе продуктов.",
+      "breakdownRu": [
+        "Каждый товар агрегировался как самостоятельное поле.",
+        "Рассчитана общая стоимость активов склада."
+      ]
     },
     "sampleData": [
       "1-tovar -> \"Laptop Dell\", narxi: 8500000.0 so'm, soni: 5 dona",
@@ -3978,7 +4757,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "Ombordagi barcha tovarlarning jami qiymati: 7.15E7 so'm",
     "story": {
       "uz": "Ombor hisoboti bir nechta tovar ob'yektlarini o'zida birlashtirib (kompozitsiya), ularning umumiy ombor zaxira qiymatini (narx * qoldiq soni) jamlab hisoblaydi.",
-      "en": "A warehouse management report aggregates multiple product items, calculating total inventory valuation across all stock."
+      "en": "A warehouse management report aggregates multiple product items, calculating total inventory valuation across all stock.",
+      "ru": "Отчет по управлению складом объединяет несколько позиций продуктов, рассчитывая общую оценку запасов по всем запасам."
     },
     "steps": {
       "uz": [
@@ -3994,6 +4774,13 @@ window.OOP_CHALLENGES_W1 = [
         "Implement <code>calculateTotalInventoryValue()</code> summing (price * stock) of each.",
         "In <code>main</code>, instantiate 3 products, pass to report.",
         "Print total inventory value."
+      ],
+      "ru": [
+        "Создайте класс <code>Product</code> с именем, ценой, акциями и геттерами.",
+        "Создайте класс <code>WarehouseReport</code>, объединяющий 3 продукта.",
+        "Реализуйте суммирование <code>calculateTotalInventoryValue()</code> (цена * запас) каждого.",
+        "В <code>main</code> создайте экземпляры 3 продуктов и перейдите к отчету.",
+        "Распечатайте общую стоимость запасов."
       ]
     }
   },
@@ -4004,11 +4791,13 @@ window.OOP_CHALLENGES_W1 = [
     "sector": "41-50",
     "title": {
       "uz": "50. CW2 Capstone Prototip — 'Customer', 'Product', 'Order' To'liq Konsol Buyurtma Ilovasi",
-      "en": "50. CW2 Capstone Prototype — Full Console Order Application Architecture (Grand Finale)"
+      "en": "50. CW2 Capstone Prototype — Full Console Order Application Architecture (Grand Finale)",
+      "ru": "50. Прототип CW2 Capstone — полная архитектура приложения консольного заказа (гранд-финал)"
     },
     "scenario": {
       "uz": "[Hayotiy Voqealik & Kontekst]\nOOP Modulining CW2 (50%) Kurs Ishi Capstone prototipi! Mijoz (Customer), Tovar (Product) va Buyurtma (Order) klasslarini statik hisoblagich, inkapsulyatsiya va formatlangan korporativ kvitansiya (Invoice) bilan to'liq konsol ilovasi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. Customer klassini tuzing: name, phone, konstruktor va getterlar.\n2. Product klassini tuzing: title, price, konstruktor va getterlar.\n3. Order klassini tuzing: public static int orderCounter = 0;, orderId, Customer customer, Product product, quantity; konstruktorda orderCounter++ qilib yangi buyurtma raqamini bering.\n4. Order klassida public void printInvoice(double discountPct) metodini yozing: oraliq summa, foizli chegirma va yakuniy summani to'liq korporativ ramkali kvitansiya ko'rinishida chop etsin.\n5. Main metodida Customer client = new Customer(\"Ravshanbek Rahimov\", \"+998901234567\"); va Product macbook = new Product(\"MacBook Air M3\", 14500000.0); yarating, buyurtma ochib 10% talaba chegirmasi bilan kvitansiyani chop eting: order1.printInvoice(10.0);.",
-      "en": "[Real-World Story & Context]\nThe Capstone Milestone for OOP Coursework 2 (50%)! An end-to-end console order management invoice system integrating Customer, Product, Order, static counters, and formatted invoices.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Customer with name, phone, getters.\n2. Create class Product with title, price, getters.\n3. Create class Order with static orderCounter, customer, product, quantity, autoincrementing orderId.\n4. Implement printInvoice(double discountPct) rendering the full corporate invoice frame.\n5. In main, instantiate Customer, Product, Order and invoke order1.printInvoice(10.0);."
+      "en": "[Real-World Story & Context]\nThe Capstone Milestone for OOP Coursework 2 (50%)! An end-to-end console order management invoice system integrating Customer, Product, Order, static counters, and formatted invoices.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. Create class Customer with name, phone, getters.\n2. Create class Product with title, price, getters.\n3. Create class Order with static orderCounter, customer, product, quantity, autoincrementing orderId.\n4. Implement printInvoice(double discountPct) rendering the full corporate invoice frame.\n5. In main, instantiate Customer, Product, Order and invoke order1.printInvoice(10.0);.",
+      "ru": "📖 Контекст и описание задачи\nОсновная веха для курсовой работы ООП 2 (50%)! Комплексная консольная система управления счетами для управления заказами, объединяющая Клиента, Продукта, Заказа, статические счетчики и форматированные счета.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. Создайте класс <code>Customer</code> с именем, телефоном и геттерами.\n2. Создайте класс <code>Product</code> с названием, ценой и геттерами.\n3. Создайте класс <code>Order</code> со статическим orderCounter, клиентом, продуктом, количеством и автоматически увеличивающимся идентификатором заказа.\n4. Внедрите <code>printInvoice(double discountPct)</code> для рендеринга полного кадра корпоративного счета.\n5. В <code>main</code> создайте экземпляр Customer, Product, Order и вызовите <code>order1.printInvoice(10.0);</code>."
     },
     "requirements": {
       "classes": [
@@ -4064,7 +4853,14 @@ window.OOP_CHALLENGES_W1 = [
         "Chek chiqarish to'liq professional darajada amalga oshirildi."
       ],
       "pitfalls": "Chegirma hisoblashda subtotalga salbiy ta'sir ko'rsatmaslik uchun doimo qavslarga e'tibor bering.",
-      "cw2Tip": "CW2 baholash mezonida UML diagrammasini tuzishda aynan ushbu 3 ta klass asos qilib olinadi!"
+      "cw2Tip": "CW2 baholash mezonida UML diagrammasini tuzishda aynan ushbu 3 ta klass asos qilib olinadi!",
+      "theoryRu": "ПОЗДРАВЛЯЕМ! Вы освоили Модуль 1! Эта модель Capstone представляет производственную архитектуру, ожидаемую в курсовой работе 2 WIUT 5COSC018C.",
+      "pitfallsRu": "Всегда обращайте внимание на скобки при расчете вычета, чтобы избежать негативного влияния на промежуточный итог.",
+      "breakdownRu": [
+        "Классы Customer, Product и Order были объединены с помощью полной инкапсуляции.",
+        "Статический счетчик автоматически нумеровал заказы.",
+        "Оформление заказа прошло на вполне профессиональном уровне."
+      ]
     },
     "sampleData": [
       "Mijoz -> ism: \"Ravshanbek Rahimov\", tel: \"+998901234567\"",
@@ -4074,7 +4870,8 @@ window.OOP_CHALLENGES_W1 = [
     "expectedOutput": "================================================\n          WIUT OOP ENTERPRISE INVOICE          \nBuyurtma Raqami: #1\nMijoz: Ravshanbek Rahimov | Tel: +998901234567\n------------------------------------------------\nTovar: MacBook Air M3\nDona narxi: 1.45E7 so'm x 1 dona\nOraliq summa: 1.45E7 so'm\nChegirma (10.0%): -1450000.0 so'm\n------------------------------------------------\nJAMI TO'LOV: 1.305E7 so'm\n================================================",
     "story": {
       "uz": "OOP Modulining CW2 (50%) Kurs Ishi Capstone prototipi! Mijoz (Customer), Tovar (Product) va Buyurtma (Order) klasslarini statik hisoblagich, inkapsulyatsiya va formatlangan korporativ kvitansiya (Invoice) bilan to'liq konsol ilovasi.",
-      "en": "The Capstone Milestone for OOP Coursework 2 (50%)! An end-to-end console order management invoice system integrating Customer, Product, Order, static counters, and formatted invoices."
+      "en": "The Capstone Milestone for OOP Coursework 2 (50%)! An end-to-end console order management invoice system integrating Customer, Product, Order, static counters, and formatted invoices.",
+      "ru": "Основная веха для курсовой работы ООП 2 (50%)! Комплексная консольная система управления счетами для управления заказами, объединяющая Клиента, Продукта, Заказа, статические счетчики и форматированные счета."
     },
     "steps": {
       "uz": [
@@ -4090,6 +4887,13 @@ window.OOP_CHALLENGES_W1 = [
         "Create class <code>Order</code> with static orderCounter, customer, product, quantity, autoincrementing orderId.",
         "Implement <code>printInvoice(double discountPct)</code> rendering the full corporate invoice frame.",
         "In <code>main</code>, instantiate Customer, Product, Order and invoke <code>order1.printInvoice(10.0);</code>."
+      ],
+      "ru": [
+        "Создайте класс <code>Customer</code> с именем, телефоном и геттерами.",
+        "Создайте класс <code>Product</code> с названием, ценой и геттерами.",
+        "Создайте класс <code>Order</code> со статическим orderCounter, клиентом, продуктом, количеством и автоматически увеличивающимся идентификатором заказа.",
+        "Внедрите <code>printInvoice(double discountPct)</code> для рендеринга полного кадра корпоративного счета.",
+        "В <code>main</code> создайте экземпляр Customer, Product, Order и вызовите <code>order1.printInvoice(10.0);</code>."
       ]
     }
   }
