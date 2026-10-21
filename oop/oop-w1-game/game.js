@@ -535,6 +535,7 @@ class Main {
   }
 
   // 4. Code Execution & Testing with Line-by-Line Diagnostics
+    // 4. Code Execution & Testing with Real OpenJDK Engine & Line-by-Line Diagnostics
   async function handleInstantTest() {
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
@@ -544,24 +545,45 @@ class Main {
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
     consoleOut.textContent = isEn
-      ? "⏳ Verifying full code requirements and executing on OpenJDK 21 JVM..."
-      : "⏳ Barcha topshiriq detallari tekshirilmoqda va OpenJDK 21 JVM da ishga tushirilmoqda...";
+      ? "⏳ Verifying code requirements and compiling on OpenJDK JVM..."
+      : "⏳ Barcha topshiriq detallari tekshirilmoqda va OpenJDK JVM da ishga tushirilmoqda...";
 
-    // 1. Static OOP and syntax verification (passes full challenge object)
+    // 1. Static OOP and syntax verification
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements, ch);
 
-    // 2. Real OpenJDK 21 execution
+    // Fast pre-check: If obvious syntax errors exist, give instant 0ms feedback!
+    if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
+      consoleOut.className = "console-output error";
+      let report = "==================================================\n";
+      report += isEn ? "❌ SYNTAX ERRORS DETECTED (PROFESSOR ADA)\n" : "❌ SINTAKTIK XATOLIKLAR ANIQLANDI (PROFESSOR ADA)\n";
+      report += "==================================================\n\n";
+      validation.syntaxErrors.forEach(err => {
+        const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
+        report += "📍 " + lineStr + ": " + err.message + "\n";
+        if (err.snippet) report += (isEn ? "   Your code: " : "   Kodingiz: ") + err.snippet + "\n";
+        if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n\n";
+      });
+      report += isEn
+        ? "💡 Fix the syntax errors above and test again!"
+        : "💡 Yuqoridagi sintaktik xatolarni tuzatib, qayta tekshiring!";
+      consoleOut.textContent = report;
+      updateUML();
+      return;
+    }
+
+    // 2. Real OpenJDK execution (Dual-Engine: Fast Judge0 JDK 17 + Wandbox OpenJDK 21)
     const runResult = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
     // 3. Strict verification of execution output
     const hasOutput = runResult.success && runResult.output && runResult.output.trim().length > 0;
     if (runResult.success && !hasOutput) {
       validation.passed = false;
+      validation.semanticIssues = validation.semanticIssues || [];
       validation.semanticIssues.push({
         line: null,
         title: isEn ? "Program Produced No Console Output" : "Konsolga hech qanday natija chop etilmadi",
         message: isEn
-          ? "The program completed with no printed output. The task requires results to be displayed using System.out.println()!"
+          ? "The program compiled successfully, but produced no printed output. Use System.out.println() to print results!"
           : "Dastur muvaffaqiyatli kompilyatsiya qilindi, lekin konsolga hech narsa chop etilmadi. Masala oxiriga yetishi uchun hisoblangan natijalar 'System.out.println(...)' orqali ekranga chiqarilishi shart!",
         fix: isEn ? "Add System.out.println(...); to display results." : "Natijani chiqarish uchun 'System.out.println(...);' qo'shing."
       });
@@ -572,7 +594,7 @@ class Main {
     // A. Always show actual program output (STDOUT) if program ran
     if (runResult.success) {
       report += "==================================================\n";
-      report += isEn ? "☕ YOUR CONSOLE OUTPUT (OPENJDK 21 STDOUT)\n" : "☕ SIZNING KONSOL CHIQQAN NATIJANGIZ (OPENJDK 21 STDOUT)\n";
+      report += isEn ? "☕ YOUR CONSOLE OUTPUT (OPENJDK STDOUT)\n" : "☕ SIZNING KONSOL CHIQQAN NATIJANGIZ (OPENJDK STDOUT)\n";
       report += "==================================================\n\n";
       if (runResult.output) {
         report += runResult.output + "\n\n";
@@ -590,7 +612,7 @@ class Main {
       }
     }
 
-    // B. Check both OOP rules AND OpenJDK 21 compilation AND non-empty output
+    // B. Check both OOP rules AND OpenJDK compilation AND non-empty output
     if (validation.passed && runResult.success && hasOutput) {
       consoleOut.className = "console-output success";
       solvedQuestions.add(ch.id);
@@ -602,11 +624,11 @@ class Main {
       report += "==================================================\n\n";
       report += isEn
         ? "✔️ All OOP Conditions & Deep Requirements Fully Satisfied\n" +
-          "✔️ OpenJDK 21 Java Compiler: 0 Errors Detected\n" +
+          "✔️ OpenJDK Java Compiler: 0 Errors Detected\n" +
           "✔️ Valid Execution Output Verified on Console\n" +
           "⭐ +50 Points Added to Rating Score!\n"
         : "✔️ Barcha OOP shartlari va nozik detallari to'liq bajarildi\n" +
-          "✔️ OpenJDK 21 Java Kompilyatori: 0 ta xatolik aniqlandi\n" +
+          "✔️ OpenJDK Java Kompilyatori: 0 ta xatolik aniqlandi\n" +
           "✔️ Konsolga talab qilingan natija to'liq chop etildi\n" +
           "⭐ Reytingga +50 Ball qo'shildi!\n";
 
@@ -619,10 +641,10 @@ class Main {
     } else {
       consoleOut.className = "console-output error";
 
-      // If OpenJDK 21 failed to compile/run
+      // If OpenJDK failed to compile/run
       if (!runResult.success) {
         report += "==================================================\n";
-        report += isEn ? "❌ OPENJDK 21 COMPILER / RUNTIME ERROR\n" : "❌ OPENJDK 21 KOMPILYATSIYA / BAJARILISH XATOLIGI\n";
+        report += isEn ? "❌ OPENJDK COMPILER / RUNTIME ERROR\n" : "❌ OPENJDK KOMPILYATSIYA / BAJARILISH XATOLIGI\n";
         report += "==================================================\n\n";
 
         if (runResult.diagnostics && runResult.diagnostics.length > 0) {
@@ -640,7 +662,7 @@ class Main {
         }
       }
 
-      // If OOP requirements or syntax linting failed or task incomplete
+      // If OOP requirements or semantic verification failed
       if (!validation.passed) {
         report += "==================================================\n";
         report += isEn ? "❌ CHALLENGE NOT FULLY COMPLETED (PROFESSOR ADA)\n" : "❌ MASALA TO'LIQ YAKUNLANMAGAN (PROFESSOR ADA TEKSHIRUVI)\n";
@@ -680,11 +702,10 @@ class Main {
 
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
-    consoleOut.textContent = isEn ? "⏳ Compiling and executing on OpenJDK 21 JVM..." : "⏳ OpenJDK 21 JVM da kompilyatsiya va ijro etilmoqda...";
+    consoleOut.textContent = isEn ? "⏳ Compiling and executing on OpenJDK JVM..." : "⏳ OpenJDK JVM da kompilyatsiya va ijro etilmoqda...";
 
     const res = await window.JavaRunner.runOnOpenJDK21(codeArea.value);
 
-    // In Challenge Mode, also run strict verification so student cannot pass with incomplete code
     if (currentAppMode === "challenge") {
       const ch = CHALLENGES[currentQIndex];
       const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch ? ch.requirements : {}, ch);
@@ -697,7 +718,7 @@ class Main {
         renderHUD();
 
         let successOut = "==================================================\n" +
-          (isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n") +
+          (isEn ? "☕ OPENJDK EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK DASTUR CHIQISHI (STDOUT)\n") +
           "==================================================\n\n" +
           res.output + "\n\n";
 
@@ -714,67 +735,20 @@ class Main {
 
         consoleOut.textContent = successOut;
         return;
-      } else if (res.success) {
-        consoleOut.className = "console-output error";
-        let report = "==================================================\n";
-        report += isEn ? "☕ YOUR CONSOLE OUTPUT (STDOUT)\n" : "☕ SIZNING KONSOL CHIQQAN NATIJANGIZ (STDOUT)\n";
-        report += "==================================================\n\n";
-        report += (res.output ? res.output + "\n\n" : (isEn ? "(No printed output. Use System.out.println() to print results.)\n\n" : "(Konsolga hech narsa chop etilmadi. System.out.println() orqali natija chiqaring.)\n\n"));
-
-        if (ch && ch.expectedOutput) {
-          report += "--------------------------------------------------\n";
-          report += isEn ? "📋 EXPECTED REFERENCE OUTPUT (SAMPLE):\n" : "📋 KUTILGAN NAMUNAVIY NATIJA:\n";
-          report += "--------------------------------------------------\n\n";
-          report += ch.expectedOutput + "\n\n";
-        }
-
-        report += "==================================================\n";
-        report += isEn ? "⚠️ CHALLENGE NOT YET COMPLETED TO FULL DEPTH\n" : "⚠️ MASALA HALI OXIRIGACHA YETMAGAN (PROFESSOR ADA TEKSHIRUVI)\n";
-        report += "==================================================\n\n";
-
-        if (!hasOutput) {
-          report += isEn
-            ? "📍 [Console Output]: Program produced no output. Print results using System.out.println()!\n\n"
-            : "📍 [Konsol chiqishi]: Dastur ekranga hech narsa chop etmadi. Masala yechimi natijasini 'System.out.println()' orqali chiqaring!\n\n";
-        }
-
-        if (validation.syntaxErrors && validation.syntaxErrors.length > 0) {
-          validation.syntaxErrors.forEach(err => {
-            const lineStr = isEn ? `[Line ${err.line}]` : `[${err.line}-Qator]`;
-            report += "📍 " + lineStr + ": " + err.message + "\n";
-            if (err.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + err.fix + "\n\n";
-          });
-        }
-
-        if (validation.semanticIssues && validation.semanticIssues.length > 0) {
-          validation.semanticIssues.forEach(iss => {
-            const linePrefix = iss.line ? (isEn ? "[Line " + iss.line + "]: " : "[" + iss.line + "-Qator]: ") : "";
-            report += "📍 " + linePrefix + (iss.message || iss.title) + "\n";
-            if (iss.fix) report += (isEn ? "   💡 Tip: " : "   💡 Tavsiya: ") + iss.fix + "\n\n";
-          });
-        }
-
-        report += isEn
-          ? "💡 Complete the remaining steps above to finish the challenge!"
-          : "💡 Masalani to'liq yakunlash uchun yuqorida qolib ketgan qismlarni yozing va qayta tekshiring!";
-
-        consoleOut.textContent = report;
-        return;
       }
     }
 
-    // In Playground mode or if compilation failed
     if (res.success) {
       consoleOut.className = "console-output success";
       consoleOut.textContent = "==================================================\n" +
-        (isEn ? "☕ OPENJDK 21 EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK 21 DASTUR CHIQISHI (STDOUT)\n") +
+        (isEn ? "☕ OPENJDK EXECUTION OUTPUT (STDOUT)\n" : "☕ OPENJDK DASTUR CHIQISHI (STDOUT)\n") +
         "==================================================\n\n" +
         (res.output || (isEn ? "(Program completed with no output. Use System.out.println() to print results.)" : "(Dastur muvaffaqiyatli yakunlandi, lekin konsolga hech narsa chop etilmadi. System.out.println orqali natija chiqaring.)")) +
         (isEn ? "\n\n✅ Code successfully compiled and executed!" : "\n\n✅ Kod muvaffaqiyatli kompilyatsiya qilindi va bajarildi!");
     } else {
       consoleOut.className = "console-output error";
       let report = "==================================================\n";
-      report += isEn ? "❌ COMPILER / RUNTIME ERROR (OPENJDK 21)\n" : "❌ KOMPILYATOR / JVM XATOLIGI (OPENJDK 21)\n";
+      report += isEn ? "❌ COMPILER / RUNTIME ERROR (OPENJDK)\n" : "❌ KOMPILYATOR / JVM XATOLIGI (OPENJDK)\n";
       report += "==================================================\n\n";
 
       if (res.diagnostics && res.diagnostics.length > 0) {
@@ -784,15 +758,12 @@ class Main {
           const msg = isEn ? (d.original || d.uzbek) : d.uzbek;
           report += "• " + lineStr + ": " + msg + "\n  💡 " + (isEn ? "Tip: " : "Tavsiya: ") + d.tip + "\n\n";
         });
-        report += isEn ? "--- Full Compiler / JVM Message ---\n" : "--- To'liq Kompilyator / JVM Xabari ---\n";
       }
 
-      report += res.errors || (isEn ? "Unknown execution error" : "Noma'lum ijro xatoligi");
+      report += res.errors || (isEn ? "Unknown error" : "Noma'lum xatolik");
       consoleOut.textContent = report;
     }
   }
-
-  // 5. Setup Event Listeners
   document.addEventListener("DOMContentLoaded", () => {
     loadSolved();
 
