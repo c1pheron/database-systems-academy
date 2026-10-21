@@ -96,6 +96,7 @@
     const elPoints = document.getElementById("hudRatingPoints");
     if (elPoints) {
       const isEn = currentLang === "en";
+      const isRu = currentLang === "ru";
       elPoints.textContent = solvedQuestions.size * 50 + (isRu ? " Очков" : (isEn ? " Pts" : " Ball"));
     }
   }
@@ -135,39 +136,46 @@
     if (reqList) {
       let reqHtml = "";
       if (ch.requirements.classes) {
-        reqHtml += isEn
-          ? "<li><strong>Classes:</strong> Declare class <code>" + ch.requirements.classes.join(", ") + "</code>.</li>"
-          : "<li><strong>Klasslar:</strong> <code>" + ch.requirements.classes.join(", ") + "</code> sinfi e'lon qilinishi shart.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Классы:</strong> Объявите класс <code>" + ch.requirements.classes.join(", ") + "</code>.</li>"
+          : (isEn ? "<li><strong>Classes:</strong> Declare class <code>" + ch.requirements.classes.join(", ") + "</code>.</li>"
+                  : "<li><strong>Klasslar:</strong> <code>" + ch.requirements.classes.join(", ") + "</code> sinfi e'lon qilinishi shart.</li>");
       }
       if (ch.requirements.fields) {
         const fieldStr = ch.requirements.fields.map(f => "<code>" + f.type + " " + f.name + "</code>").join(", ");
-        reqHtml += isEn
-          ? "<li><strong>Fields:</strong> Define <code>" + fieldStr + "</code> with appropriate types.</li>"
-          : "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda yozilsin.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Поля:</strong> Объявите поля " + fieldStr + " с соответствующими типами.</li>"
+          : (isEn ? "<li><strong>Fields:</strong> Define <code>" + fieldStr + "</code> with appropriate types.</li>"
+                  : "<li><strong>Maydonlar:</strong> " + fieldStr + " maydonlari to'g'ri turda yozilsin.</li>");
       }
       if (ch.requirements.privateFields) {
-        reqHtml += isEn
-          ? "<li><strong>Encapsulation:</strong> Fields <code>" + ch.requirements.privateFields.join(", ") + "</code> must be <code>private</code>.</li>"
-          : "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Инкапсуляция:</strong> Поля <code>" + ch.requirements.privateFields.join(", ") + "</code> должны быть объявлены как <code>private</code>.</li>"
+          : (isEn ? "<li><strong>Encapsulation:</strong> Fields <code>" + ch.requirements.privateFields.join(", ") + "</code> must be <code>private</code>.</li>"
+                  : "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>");
       }
       if (ch.requirements.methods && ch.requirements.methods.length > 0) {
-        reqHtml += isEn
-          ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
-          : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Методы:</strong> Реализуйте метод(ы) <code>" + ch.requirements.methods.join("(), ") + "()</code>.</li>"
+          : (isEn ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
+                  : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>");
       }
       if (ch.requirements.constructors) {
-        reqHtml += isEn
-          ? "<li><strong>Constructor:</strong> Create constructor for <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
-          : "<li><strong>Konstruktor:</strong> <code>" + ch.requirements.constructors.join(", ") + "</code> klassi uchun konstruktor tuzilsin.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Конструктор:</strong> Создайте конструктор для <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
+          : (isEn ? "<li><strong>Constructor:</strong> Create constructor for <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
+                  : "<li><strong>Konstruktor:</strong> <code>" + ch.requirements.constructors.join(", ") + "</code> klassi uchun konstruktor tuzilsin.</li>");
       }
       if (ch.requirements.keywords) {
-        reqHtml += isEn
-          ? "<li><strong>Keywords:</strong> Must use keyword(s) <code>" + ch.requirements.keywords.join(", ") + "</code>.</li>"
-          : "<li><strong>Kalit so'zlar:</strong> <code>" + ch.requirements.keywords.join(", ") + "</code> qo'llanilishi kerak.</li>";
+        reqHtml += isRu
+          ? "<li><strong>Ключевые слова:</strong> Необходимо использовать ключевое слово <code>" + ch.requirements.keywords.join(", ") + "</code>.</li>"
+          : (isEn ? "<li><strong>Keywords:</strong> Must use keyword(s) <code>" + ch.requirements.keywords.join(", ") + "</code>.</li>"
+                  : "<li><strong>Kalit so'zlar:</strong> <code>" + ch.requirements.keywords.join(", ") + "</code> qo'llanilishi kerak.</li>");
       }
-      reqHtml += isEn
-        ? "<li>Ensure zero syntax errors and follow Clean Code conventions.</li>"
-        : "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>";
+      reqHtml += isRu
+        ? "<li>Решите задачу без ошибок компиляции, следуя стандартам Clean Code.</li>"
+        : (isEn ? "<li>Ensure zero syntax errors and follow Clean Code conventions.</li>"
+                : "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>");
       reqList.innerHTML = reqHtml;
     }
 
