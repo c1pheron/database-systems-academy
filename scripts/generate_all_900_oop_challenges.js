@@ -1288,10 +1288,8 @@ const w1 = generateWeek1();
 const w1Content = `// WIUT OOP (5COSC018C) — WEEK 1 DATASET (150 PROGRESSIVE CHALLENGES)\nwindow.OOP_CHALLENGES_W1 = ${JSON.stringify(w1, null, 2)};\n`;
 fs.writeFileSync(path.join(targetDir, 'challenges-w1.js'), w1Content, 'utf8');
 
-console.log("⚡ 2-Hafta (150 ta Masala) generatsiya qilinmoqda...");
-const w2 = generateWeek2();
-const w2Content = `// WIUT OOP (5COSC018C) — WEEK 2 DATASET (150 PROGRESSIVE CHALLENGES)\nwindow.OOP_CHALLENGES_W2 = ${JSON.stringify(w2, null, 2)};\n`;
-fs.writeFileSync(path.join(targetDir, 'challenges-w2.js'), w2Content, 'utf8');
+console.log("⚡ 2-Hafta — Protected: Managed by dedicated scripts/generate_w2_oop_challenges.js");
+// Do NOT overwrite challenges-w2.js
 
 console.log("⚡ 3-Hafta (150 ta Masala) generatsiya qilinmoqda...");
 const w3 = generateWeek3();
