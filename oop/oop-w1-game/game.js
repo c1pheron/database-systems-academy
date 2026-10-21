@@ -13,9 +13,14 @@
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
+    if (window.LeaderboardEngine) window.LeaderboardEngine.setLanguage(lang);
     currentLang = lang;
     renderHUD();
     renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
     if (window.JavaEditorEnhancer) {
       window.JavaEditorEnhancer.init("codeEditor", CHALLENGES[currentQIndex]);
     }
@@ -57,6 +62,9 @@
   }
 
   function saveSolved() {
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.recordSolved(1, (typeof CHALLENGES !== 'undefined' && CHALLENGES[currentQIndex]) ? CHALLENGES[currentQIndex].id : 0, solvedQuestions.size, solvedQuestions.size * 50);
+    }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({
         solvedCount: solvedQuestions.size,
@@ -351,6 +359,10 @@
 
     renderHUD();
     renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
   }
 
   // =========================================================================
@@ -414,7 +426,11 @@ class Main {
       if (btnNext) btnNext.style.display = "inline-flex";
 
       renderHUD();
-      renderChallenge();
+    renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
     }
   }
 
@@ -803,6 +819,10 @@ class Main {
 
     renderHUD();
     renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
 
     // Mobile Segmented Switcher Handlers
     const btnMobProb = document.getElementById("btnTabMobileProblem");
@@ -975,7 +995,11 @@ class Main {
           btnUz.classList.add("active");
           btnEn.classList.remove("active");
           renderHUD();
-          renderChallenge();
+    renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
         }
       });
       btnEn.addEventListener("click", () => {
@@ -986,7 +1010,11 @@ class Main {
           btnEn.classList.add("active");
           btnUz.classList.remove("active");
           renderHUD();
-          renderChallenge();
+    renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(1);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
         }
       });
     }
