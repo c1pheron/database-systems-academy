@@ -1,0 +1,31 @@
+{
+  "users": {
+    "7801207111": {
+      "id": 7801207111,
+      "first_name": "Infinite Vision",
+      "last_name": "",
+      "username": "@infinitevisionai_support",
+      "language_code": "en",
+      "first_seen": "2026-10-21T18:58:01.614Z",
+      "last_seen": "2026-10-21T19:21:02.953Z",
+      "interactions": 6,
+      "last_action": "/help"
+    },
+    "8715311673": {
+      "id": 8715311673,
+      "first_name": "Sardor Raimov",
+      "last_name": "",
+      "username": "@sardor_raimov",
+      "language_code": "en",
+      "first_seen": "2026-10-21T19:06:30.906Z",
+      "last_seen": "2026-10-21T19:06:30.906Z",
+      "interactions": 1,
+      "last_action": "/users"
+    }
+  },
+  "stats": {
+    "total_users": 2,
+    "created_at": "2026-10-21T18:57:13.361Z",
+    "last_updated": "2026-10-21T19:21:03.963Z"
+  }
+}
