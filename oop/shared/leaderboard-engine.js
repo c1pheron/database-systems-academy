@@ -177,24 +177,67 @@
     const solvedByWeek = {};
 
     for (let w = 1; w <= 6; w++) {
-      try {
-        const raw = localStorage.getItem('WIUT_OOP_W' + w + '_SOLVED');
-        solvedByWeek[w] = [];
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          const list = Array.isArray(parsed)
-            ? parsed
-            : (parsed && Array.isArray(parsed.solvedList) ? parsed.solvedList : []);
-          solvedByWeek[w] = list;
-          totalSolved += list.length;
-          if (w === currentWeekNum) {
-            weekSolved = list.length;
+      solvedByWeek[w] = [];
+      const keysToScan = [
+        'WIUT_OOP_W' + w + '_PROGRESS',
+        'WIUT_OOP_W' + w + '_SOLVED',
+        'OOP_W' + w + '_PROGRESS',
+        'WIUT_OOP_W' + w,
+        'DS_W' + w + '_PROGRESS',
+        'ACADEMY_DS_W' + w + '_PROGRESS',
+        'WIUT_DS_W' + w + '_PROGRESS',
+        'WIUT_DS_W' + w + '_SOLVED',
+        'DS_W' + w + '_SOLVED_IDS'
+      ];
+
+      const solvedSet = new Set();
+      for (const k of keysToScan) {
+        try {
+          const raw = localStorage.getItem(k);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) {
+              parsed.forEach(id => {
+                const n = Number(id);
+                if (!isNaN(n) && n > 0) solvedSet.add(n);
+              });
+            } else if (parsed && typeof parsed === 'object') {
+              if (Array.isArray(parsed.solvedList)) {
+                parsed.solvedList.forEach(id => {
+                  const n = Number(id);
+                  if (!isNaN(n) && n > 0) solvedSet.add(n);
+                });
+              } else if (Array.isArray(parsed.solved)) {
+                parsed.solved.forEach(id => {
+                  const n = Number(id);
+                  if (!isNaN(n) && n > 0) solvedSet.add(n);
+                });
+              } else if (typeof parsed.solvedCount === 'number' && parsed.solvedCount > 0 && solvedSet.size === 0) {
+                for (let i = 1; i <= parsed.solvedCount; i++) solvedSet.add(i);
+              }
+            }
           }
-        }
-      } catch (e) {
-        solvedByWeek[w] = [];
+        } catch (e) {}
+      }
+
+      const arr = Array.from(solvedSet);
+      solvedByWeek[w] = arr;
+      totalSolved += arr.length;
+      if (w === currentWeekNum) {
+        weekSolved = arr.length;
       }
     }
+
+    // Check manual override if saved
+    try {
+      const manualRaw = localStorage.getItem('WIUT_MANUAL_SOLVED_OVERRIDE');
+      if (manualRaw) {
+        const m = Number(manualRaw);
+        if (!isNaN(m) && m > totalSolved) {
+          totalSolved = m;
+        }
+      }
+    } catch (e) {}
 
     return {
       totalSolved,
@@ -212,10 +255,7 @@
       id: 'tg_7801207111',
       name: 'Infinite Vision',
       avatar: '👨‍💻',
-      totalSolved: 1,
-      weekSolved: 1,
-      totalScore: 50,
-      weekScore: 50,
+      totalSolved: 0, weekSolved: 0, totalScore: 0, weekScore: 0,
       online: true,
       solvedByWeek: { 1: [1] }
     },
@@ -223,10 +263,7 @@
       id: 'tg_8715311673',
       name: 'Sardor Raimov',
       avatar: '🚀',
-      totalSolved: 1,
-      weekSolved: 1,
-      totalScore: 50,
-      weekScore: 50,
+      totalSolved: 0, weekSolved: 0, totalScore: 0, weekScore: 0,
       online: true,
       solvedByWeek: { 1: [1] }
     }
@@ -247,10 +284,7 @@
                 id: 'tg_' + u.id,
                 name: tgName,
                 avatar: u.id === 8715311673 ? '🚀' : '👨‍💻',
-                totalSolved: 1,
-                weekSolved: 1,
-                totalScore: 50,
-                weekScore: 50,
+                totalSolved: 0, weekSolved: 0, totalScore: 0, weekScore: 0,
                 online: true,
                 solvedByWeek: { 1: [1] }
               };
@@ -319,6 +353,27 @@
 
     tryFetchRealUsers();
     updateHUDOnlinePill();
+
+    // Send XP and progress sync to local Bot HTTP API
+    if (typeof fetch !== 'undefined') {
+      const syncPayload = {
+        id: profile.id,
+        name: profile.name,
+        totalSolved: progress.totalSolved,
+        totalScore: progress.totalScore,
+        weekSolved: progress.weekSolved,
+        weekScore: progress.weekScore,
+        solvedByWeek: progress.solvedByWeek
+      };
+
+      try {
+        fetch('http://localhost:3000/api/sync', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(syncPayload)
+        }).catch(() => {});
+      } catch (e) {}
+    }
 
     // Firebase REST Heartbeat
     if (FIREBASE_URL && typeof fetch !== 'undefined') {
