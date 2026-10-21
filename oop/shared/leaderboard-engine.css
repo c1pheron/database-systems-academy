@@ -712,3 +712,184 @@
     display: none !important; /* Hide weekly on narrow mobile */
   }
 }
+
+
+/* Student Detail Breakdown Modal */
+.student-detail-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(4, 2, 12, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  z-index: 10100 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease !important;
+}
+
+.student-detail-overlay.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.student-detail-card {
+  background: linear-gradient(180deg, #171133 0%, #0c081e 100%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.45) !important;
+  border-radius: 16px !important;
+  width: 100% !important;
+  max-width: 620px !important;
+  max-height: 88vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(168, 85, 247, 0.3) !important;
+  overflow: hidden !important;
+  transform: scale(0.96);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.student-detail-overlay.open .student-detail-card {
+  transform: scale(1) !important;
+}
+
+.sd-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 16px 20px !important;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.25) !important;
+  background: rgba(26, 18, 54, 0.7) !important;
+}
+
+.sd-user-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.sd-avatar {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 50% !important;
+  background: #251b4d !important;
+  border: 2px solid #a855f7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 20px !important;
+}
+
+.sd-name {
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+
+.sd-id {
+  font-size: 11px !important;
+  color: #a78bfa !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.sd-body {
+  padding: 16px 20px !important;
+  overflow-y: auto !important;
+  flex: 1 1 0% !important;
+  scrollbar-width: thin !important;
+}
+
+.sd-summary-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 10px !important;
+  margin-bottom: 16px !important;
+}
+
+.sd-summary-box {
+  background: rgba(13, 10, 31, 0.75) !important;
+  border: 1px solid rgba(168, 85, 247, 0.25) !important;
+  border-radius: 10px !important;
+  padding: 10px 12px !important;
+  text-align: center !important;
+}
+
+.sd-summary-label {
+  font-size: 10px !important;
+  color: #94a3b8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.sd-summary-val {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #34d399 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  margin-top: 2px !important;
+}
+
+.sd-week-section {
+  background: rgba(18, 13, 38, 0.6) !important;
+  border: 1px solid rgba(168, 85, 247, 0.2) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 12px !important;
+}
+
+.sd-week-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 8px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #f1f5f9 !important;
+}
+
+.sd-week-count {
+  font-size: 11px !important;
+  color: #c084fc !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.sd-dots-wrap {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 4px !important;
+}
+
+.sd-dot-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 5px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  user-select: none !important;
+}
+
+.sd-dot-badge.solved {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border: 1px solid rgba(52, 211, 153, 0.6) !important;
+  color: #a7f3d0 !important;
+  box-shadow: 0 0 6px rgba(52, 211, 153, 0.3) !important;
+}
+
+.sd-dot-badge.unsolved {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #64748b !important;
+}
+
+.lb-row {
+  cursor: pointer !important;
+}
+.podium-slot {
+  cursor: pointer !important;
+}
