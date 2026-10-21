@@ -163,10 +163,17 @@
       window.I18N.init();
 
       const btnUz = document.getElementById("btnLangUz");
+      const btnRu = document.getElementById("btnLangRu");
       const btnEn = document.getElementById("btnLangEn");
       if (btnUz) {
         btnUz.addEventListener("click", function() {
           window.I18N.setLang("uz");
+          refresh();
+        });
+      }
+      if (btnRu) {
+        btnRu.addEventListener("click", function() {
+          window.I18N.setLang("ru");
           refresh();
         });
       }

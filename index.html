@@ -507,9 +507,10 @@
           </div>
         </div>
 
-        <!-- BILINGUAL LANGUAGE SWITCHER (UZ / EN) -->
+        <!-- TRILINGUAL LANGUAGE SWITCHER (UZ / RU / EN) -->
         <div class="lang-switch-box" id="langSwitchBox">
           <button id="btnLangUz" class="btn-lang active" type="button" title="O'zbekcha">UZ</button>
+          <button id="btnLangRu" class="btn-lang" type="button" title="Русский">RU</button>
           <button id="btnLangEn" class="btn-lang" type="button" title="English">EN</button>
         </div>
       </div>
@@ -630,18 +631,23 @@
           👨‍💻
         </div>
         <div>
-          <div style="font-size: 14px; font-weight: 700; color: #fff;">Loyiha Muallifi: Abdalimov Sardor</div>
-          <div style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;">
-            Toshkent xalqaro Westminster universiteti (WIUT) • Computer Science
+          <div style="font-size: 14px; font-weight: 700; color: #fff;">
+            <span data-i18n="portal_footer_author_id">Muallif: 00023271</span>
+          </div>
+          <div style="font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace;" data-i18n="portal_footer_desc">
+            Level 5 talabasi (BSc Computer Science) • Toshkent xalqaro Westminster universiteti (WIUT)
           </div>
         </div>
       </div>
-      <div style="display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 11px; color: #94a3b8; background: rgba(255, 255, 255, 0.05); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <span style="font-size: 11px; color: #94a3b8; background: rgba(255, 255, 255, 0.05); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);" data-i18n="portal_footer_badge">
           🎯 70%+ First Class Honours Platformasi
         </span>
-        <a href="https://t.me/seventyoneplus_bot" target="_blank" style="font-size: 11px; font-weight: 700; color: #38bdf8; text-decoration: none; background: rgba(56, 189, 248, 0.12); padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3);">
-          🤖 @seventyoneplus_bot
+        <a href="mailto:00023271@wiut.uz" style="font-size: 11px; font-weight: 600; color: #a5b4fc; text-decoration: none; background: rgba(165, 180, 252, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(165, 180, 252, 0.25); display: inline-flex; align-items: center; gap: 4px;">
+          <span>✉️</span> <span data-i18n="portal_footer_email">00023271@wiut.uz</span>
+        </a>
+        <a href="https://t.me/seventyoneplus_bot" target="_blank" style="font-size: 11px; font-weight: 700; color: #38bdf8; text-decoration: none; background: rgba(56, 189, 248, 0.12); padding: 5px 14px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3); display: inline-flex; align-items: center; gap: 4px;">
+          <span>🤖</span> <span>@seventyoneplus_bot</span>
         </a>
       </div>
     </footer>
@@ -770,10 +776,17 @@
         window.I18N.init();
 
         const btnUz = document.getElementById("btnLangUz");
+        const btnRu = document.getElementById("btnLangRu");
         const btnEn = document.getElementById("btnLangEn");
         if (btnUz) {
           btnUz.addEventListener("click", function() {
             window.I18N.setLang("uz");
+            syncProgress();
+          });
+        }
+        if (btnRu) {
+          btnRu.addEventListener("click", function() {
+            window.I18N.setLang("ru");
             syncProgress();
           });
         }

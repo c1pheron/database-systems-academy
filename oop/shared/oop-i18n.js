@@ -1,6 +1,7 @@
 // ============================================================================
-// OOP ACADEMY — UNIFIED BILINGUAL I18N ENGINE (UZ / EN)
+// OOP ACADEMY — UNIFIED TRILINGUAL I18N ENGINE (UZ / RU / EN)
 // Seamlessly translates OOP Hub, 6 Weekly Game Simulators, and Dictionary
+// Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
 // Professor Ada • WIUT Object-Oriented Programming (5COSC018C)
 // ============================================================================
 
@@ -80,6 +81,78 @@
       req_default_1: "Klass to'g'ri nomlangan va maydonlar e'lon qilingan bo'lishi kerak.",
       req_default_2: "Sintaksis xatolarisiz va clean code qoidalariga mos yozing."
     },
+
+    ru: {
+      // Hub (index.html)
+      portal_back: "← Портал SeventyOne+",
+      hub_brand_sub: "Clean Code, SOLID, Creational, Structural и Behavioural Паттерны Проектирования",
+      user_name: "Java Разработчик",
+      user_rank: "🌱 Java Junior Coder",
+      stat_solved: "Решено:",
+      stat_points: "Рейтинг:",
+      stat_points_unit: " Баллов",
+      btn_dict: "📖 Словарь и Поиск",
+      hub_hero_title: "Java Core, Паттерны GoF и Архитектура Clean Code",
+      hub_hero_desc: "Добро пожаловать! Практическая подготовка по Westminster 5COSC018C (OOP): компилятор OpenJDK 21, живые UML диаграммы классов, инкапсуляция, полиморфизм, 23 паттерна GoF и Assessment 2 (50%) Console Order App на 6 модулях и 900 задачах!",
+      hub_progress_title: "Общий Прогресс Модуля OOP",
+      hub_completed: "Завершено",
+      hub_track_title: "🗺️ Учебный Трек и 6 Корпоративных Модулей",
+      hub_track_sub: "6 Модулей • 900 Задач • OpenJDK 21",
+
+      hub_w1_title: "Java Core, Модель Памяти и Классы",
+      hub_w1_desc: "Классы и Объекты, механика памяти Heap vs Stack, оператор `new`, конструкторы по умолчанию и с параметрами, ключевое слово `this`.",
+      hub_w1_btn: "Войти в Модуль 1 →",
+
+      hub_w2_title: "Инкапсуляция и Защита Данных",
+      hub_w2_desc: "Модификаторы доступа (private, protected, public, package-private), валидация в геттерах и сеттерах, целостность данных и неизменяемые классы.",
+      hub_w2_btn: "Войти в Модуль 2 →",
+
+      hub_w3_title: "Наследование и Композиция",
+      hub_w3_desc: "Иерархия классов (`extends`), вызовы `super()`, переопределение методов (@Override), и соотношение 'Is-A' против 'Has-A'.",
+      hub_w3_btn: "Войти в Модуль 3 →",
+
+      hub_w4_title: "Полиморфизм и Абстрактные Классы",
+      hub_w4_desc: "Динамическая диспетчеризация (Runtime Polymorphism), контракты `abstract class`, управление разнородными объектами (`List<Product>`).",
+      hub_w4_btn: "Войти в Модуль 4 →",
+
+      hub_w5_title: "Интерфейсы и Слабая Связанность (Loose Coupling)",
+      hub_w5_desc: "Контракты (`interface`), множественная реализация (`implements`), инверсия зависимостей (DIP) и гибкая модульная архитектура.",
+      hub_w5_btn: "Войти в Модуль 5 →",
+
+      hub_w6_title: "Паттерны Проектирования GoF и Консольное Приложение CW2",
+      hub_w6_desc: "23 паттерна GoF (Singleton, Factory, Builder, Decorator, Adapter, Strategy, Observer) и курсовая работа Westminster Assessment 2 (50%).",
+      hub_w6_btn: "Войти в Модуль 6 →",
+
+      // Weekly Game Simulator UI
+      back_hub: "← Назад в OOP Hub",
+      rating_score: "Рейтинг:",
+      sector_all: "Все (150)",
+      sector_1: "1-й Этап (1-30)",
+      sector_2: "2-й Этап (31-60)",
+      sector_3: "3-й Этап (61-90)",
+      sector_4: "4-й Этап (91-120)",
+      sector_5: "5-й Этап (121-150)",
+      btn_map: "🗺️ Карта (150)",
+      tab_mobile_problem: "📝 Задание & UML",
+      tab_mobile_editor: "💻 Java Код & Терминал",
+      tab_problem: "📝 Условие Задачи",
+      tab_uml: "📊 Живая UML Диаграмма",
+      task_req_title: "Требования Задачи:",
+      btn_solution: "💡 Подробное Решение",
+      solution_hint_open: "[Открыть ▾]",
+      solution_hint_close: "[Закрыть ▴]",
+      btn_reset: "Сбросить Код",
+      btn_verify: "Проверить Код",
+      btn_run_cloud: "Запустить (OpenJDK 21)",
+      btn_next: "Следующее →",
+      console_tab: "💻 Консоль Java (Терминал)",
+      console_env: "Окружение OpenJDK 21",
+      console_ready: "Консоль Java готова. Нажмите '▶ Проверить Код' или '☕ Запустить (OpenJDK 21)'.",
+      editor_placeholder: "// Напишите ваш Java код здесь...",
+      req_default_1: "Класс должен быть правильно объявлен с нужными полями.",
+      req_default_2: "Пишите чистый код без ошибок компиляции."
+    },
+
     en: {
       // Hub (index.html)
       portal_back: "← SeventyOne+ Portal",
@@ -157,13 +230,13 @@
       if (root.OOP_CURRENT_LANG) return root.OOP_CURRENT_LANG;
       try {
         const saved = localStorage.getItem("OOP_LANG") || localStorage.getItem("DS_ACADEMY_LANG");
-        if (saved === "en" || saved === "uz") return saved;
+        if (saved === "en" || saved === "uz" || saved === "ru") return saved;
       } catch (e) {}
       return "uz";
     },
 
     setLang: function (lang) {
-      if (lang !== "uz" && lang !== "en") return;
+      if (lang !== "uz" && lang !== "en" && lang !== "ru") return;
       root.OOP_CURRENT_LANG = lang;
       try {
         localStorage.setItem("OOP_LANG", lang);
@@ -186,12 +259,15 @@
       if (root.onOopLanguageChange) {
         root.onOopLanguageChange(lang);
       }
+      if (root.onLanguageChange) {
+        root.onLanguageChange(lang);
+      }
     },
 
     t: function (key, fallback = "") {
       const lang = this.getLang();
       const bundle = STRINGS[lang] || STRINGS.uz;
-      if (bundle[key] !== undefined) return bundle[key];
+      if (bundle && bundle[key] !== undefined) return bundle[key];
       return STRINGS.uz[key] !== undefined ? STRINGS.uz[key] : fallback;
     },
 
@@ -199,31 +275,33 @@
       if (typeof document === "undefined") return;
       const lang = this.getLang();
       const btnUz = document.getElementById("btnLangUz");
+      const btnRu = document.getElementById("btnLangRu");
       const btnEn = document.getElementById("btnLangEn");
 
-      if (btnUz && btnEn) {
-        if (lang === "en") {
-          btnEn.classList.add("active");
-          btnUz.classList.remove("active");
-          btnEn.style.background = "#7c3aed";
-          btnEn.style.color = "#fff";
-          btnUz.style.background = "transparent";
-          btnUz.style.color = "#cbd5e1";
-        } else {
-          btnUz.classList.add("active");
-          btnEn.classList.remove("active");
-          btnUz.style.background = "#7c3aed";
-          btnUz.style.color = "#fff";
-          btnEn.style.background = "transparent";
-          btnEn.style.color = "#cbd5e1";
+      const buttons = [
+        { el: btnUz, lang: "uz" },
+        { el: btnRu, lang: "ru" },
+        { el: btnEn, lang: "en" }
+      ];
+
+      buttons.forEach(b => {
+        if (b.el) {
+          if (lang === b.lang) {
+            b.el.classList.add("active");
+            b.el.style.background = "#7c3aed";
+            b.el.style.color = "#fff";
+          } else {
+            b.el.classList.remove("active");
+            b.el.style.background = "transparent";
+            b.el.style.color = "#cbd5e1";
+          }
         }
-      }
+      });
     },
 
     applyDOM: function () {
       if (typeof document === "undefined") return;
       const lang = this.getLang();
-      const isEn = lang === "en";
 
       // 1. data-oop-i18n elements
       document.querySelectorAll("[data-oop-i18n]").forEach(el => {
@@ -242,175 +320,102 @@
       }
 
       const statSolvedLabel = document.querySelector(".stat-chip .label");
-      if (statSolvedLabel && (statSolvedLabel.textContent.includes("Bajarildi") || statSolvedLabel.textContent.includes("Solved"))) {
+      if (statSolvedLabel && (statSolvedLabel.textContent.includes("Bajarildi") || statSolvedLabel.textContent.includes("Solved") || statSolvedLabel.textContent.includes("Решено"))) {
         statSolvedLabel.textContent = this.t("stat_solved");
       }
 
       // 3. Weekly Game UI Elements
       const btnBack = document.querySelector(".btn-back, #btnNavBack");
       if (btnBack) {
-        const fullSpan = btnBack.querySelector(".btn-back-text-full");
-        if (fullSpan) fullSpan.textContent = isEn ? "Back to OOP Hub" : "OOP Hubga Qaytish";
+        const textFull = btnBack.querySelector(".btn-back-text-full");
+        if (textFull) textFull.textContent = this.t("back_hub").replace("← ", "");
       }
-
-      const btnDict = document.getElementById("btnOpenDictionary");
-      if (btnDict) {
-        const dictText = btnDict.querySelector("span:last-child");
-        if (dictText) dictText.textContent = isEn ? "Dictionary & Search" : "Lug'at & Qidiruv";
-      }
-
-      const tabProblem = document.getElementById("tabProblem");
-      if (tabProblem) {
-        const s = tabProblem.querySelector("span:last-child");
-        if (s) s.textContent = isEn ? "Problem Statement" : "Masala Sharti";
-      }
-
-      const tabUML = document.getElementById("tabUML");
-      if (tabUML) {
-        const s = tabUML.querySelector("span:last-child");
-        if (s) s.textContent = isEn ? "Live UML Diagram" : "Jonli UML Diagrammasi";
-      }
-
-      const tabMobProb = document.getElementById("btnTabMobileProblem");
-      if (tabMobProb) {
-        const s = tabMobProb.querySelector("span:last-child");
-        if (s) s.textContent = isEn ? "Task & UML" : "Topshiriq & UML";
-      }
-
-      const tabMobEdit = document.getElementById("btnTabMobileEditor");
-      if (tabMobEdit) {
-        const s = tabMobEdit.querySelector("span:last-child");
-        if (s) s.textContent = isEn ? "Java Code & Terminal" : "Java Kod & Terminal";
-      }
-
-      const reqH4 = document.querySelector(".task-requirements h4");
-      if (reqH4) reqH4.textContent = this.t("task_req_title");
 
       const btnReset = document.getElementById("btnResetCode");
-      if (btnReset) {
-        const spanFull = btnReset.querySelector(".btn-text-full");
-        if (spanFull) spanFull.textContent = isEn ? "Reset Code" : "Asliga qaytarish";
-        const spanShort = btnReset.querySelector(".btn-text-short");
-        if (spanShort) spanShort.textContent = isEn ? "Reset" : "Asliga";
-      }
+      if (btnReset) btnReset.textContent = "↺ " + this.t("btn_reset");
 
-      const btnVerify = document.getElementById("btnInstantTest");
-      if (btnVerify) {
-        const spanFull = btnVerify.querySelector(".btn-text-full");
-        if (spanFull) spanFull.textContent = isEn ? "Verify Code" : "Kodni Tekshirish";
-        const spanShort = btnVerify.querySelector(".btn-text-short");
-        if (spanShort) spanShort.textContent = isEn ? "Verify" : "Tekshirish";
-      }
+      const btnVerify = document.getElementById("btnVerifyCode");
+      if (btnVerify) btnVerify.textContent = "▶ " + this.t("btn_verify");
 
-      const btnCloud = document.getElementById("btnCloudRun");
-      if (btnCloud) {
-        const spanFull = btnCloud.querySelector(".btn-text-full");
-        if (spanFull) spanFull.textContent = isEn ? "Run (OpenJDK 21)" : "Ishga tushirish (OpenJDK 21)";
-        const spanShort = btnCloud.querySelector(".btn-text-short");
-        if (spanShort) spanShort.textContent = isEn ? "OpenJDK 21" : "OpenJDK 21";
-      }
+      const btnRun = document.getElementById("btnRunCloud");
+      if (btnRun) btnRun.textContent = "☕ " + this.t("btn_run_cloud");
 
       const btnNext = document.getElementById("btnNextChallenge");
-      if (btnNext) {
-        const spanFull = btnNext.querySelector(".btn-text-full");
-        if (spanFull) spanFull.textContent = isEn ? "Next →" : "Keyingi →";
-        const spanShort = btnNext.querySelector(".btn-text-short");
-        if (spanShort) spanShort.textContent = isEn ? "Next →" : "Keyingi →";
+      if (btnNext) btnNext.textContent = this.t("btn_next");
+
+      const tabProblem = document.getElementById("tabProblem");
+      if (tabProblem) tabProblem.textContent = this.t("tab_problem");
+
+      const tabUml = document.getElementById("tabUml");
+      if (tabUml) tabUml.textContent = this.t("tab_uml");
+
+      const taskReqTitle = document.getElementById("taskReqTitle");
+      if (taskReqTitle) taskReqTitle.textContent = this.t("task_req_title");
+
+      const btnSolText = document.getElementById("btnSolutionText");
+      if (btnSolText) btnSolText.textContent = this.t("btn_solution");
+
+      const codeEditor = document.getElementById("codeEditor");
+      if (codeEditor && !codeEditor.value) {
+        codeEditor.setAttribute("placeholder", this.t("editor_placeholder"));
       }
+
+      // Sector pills
+      const sectorMap = {
+        "1-30": "sector_1",
+        "31-60": "sector_2",
+        "61-90": "sector_3",
+        "91-120": "sector_4",
+        "121-150": "sector_5",
+        "all": "sector_all"
+      };
+      document.querySelectorAll(".sector-tab-pill").forEach(pill => {
+        const range = pill.getAttribute("data-range");
+        if (sectorMap[range]) {
+          pill.textContent = this.t(sectorMap[range]);
+        }
+      });
 
       const btnMap = document.getElementById("btnOpenMapOverview");
       if (btnMap) btnMap.textContent = this.t("btn_map");
+    },
 
-      // Sector Tabs
-      const pills = document.querySelectorAll(".sector-tab-pill");
-      pills.forEach(p => {
-        const range = p.dataset.range;
-        if (range === "all") p.textContent = this.t("sector_all");
-        else if (range === "1-30") p.textContent = this.t("sector_1");
-        else if (range === "31-60") p.textContent = this.t("sector_2");
-        else if (range === "61-90") p.textContent = this.t("sector_3");
-        else if (range === "91-120") p.textContent = this.t("sector_4");
-        else if (range === "121-150") p.textContent = this.t("sector_5");
-      });
+    bindEvents: function () {
+      if (typeof document === "undefined") return;
+      const btnUz = document.getElementById("btnLangUz");
+      const btnRu = document.getElementById("btnLangRu");
+      const btnEn = document.getElementById("btnLangEn");
 
-      const consoleTab = document.querySelector(".c-tab");
-      if (consoleTab) consoleTab.textContent = this.t("console_tab");
-
-      const editorArea = document.getElementById("codeEditor");
-      if (editorArea) editorArea.setAttribute("placeholder", this.t("editor_placeholder"));
-
-      const btnToggleSol = document.getElementById("btnToggleSolution");
-      if (btnToggleSol) {
-        const s = btnToggleSol.querySelector("span:first-child");
-        if (s) s.textContent = isEn ? "💡 Detailed Solution" : "💡 Batafsil Yechim";
+      if (btnUz) {
+        btnUz.onclick = () => this.setLang("uz");
       }
-
-      const hint = document.getElementById("solutionToggleHint");
-      if (hint) {
-        const card = document.getElementById("solutionContentCard");
-        const isOpen = card && card.style.display !== "none";
-        hint.textContent = isOpen ? (isEn ? "[Close ▴]" : "[Yopish ▴]") : (isEn ? "[View ▾]" : "[Ko'rish ▾]");
+      if (btnRu) {
+        btnRu.onclick = () => this.setLang("ru");
       }
-
-      const statPillLabel = document.querySelector(".stat-pill span:first-child");
-      if (statPillLabel) {
-        statPillLabel.textContent = isEn ? "Rating Score:" : "Reyting Bali:";
-      }
-
-      const brandTitle = document.querySelector(".brand-title");
-      if (brandTitle) {
-        const badge = brandTitle.querySelector(".brand-badge");
-        const badgeHtml = badge ? badge.outerHTML : "";
-        const m = brandTitle.textContent.match(/(\d+)[ -]Modul/i) || brandTitle.textContent.match(/Module\s*(\d+)/i);
-        if (m) {
-          const modNum = m[1];
-          const titlesUz = {
-            "1": "1-Modul: Java Core & Xotira",
-            "2": "2-Modul: Inkapsulyatsiya & Himoya",
-            "3": "3-Modul: Merosxo'rlik & Kompozitsiya",
-            "4": "4-Modul: Polimorfizm & Abstraksiya",
-            "5": "5-Modul: Interfeyslar & Bo'sh Bog'lanish",
-            "6": "6-Modul: GoF Patternlar & CW2"
-          };
-          const titlesEn = {
-            "1": "Module 1: Java Core & Memory",
-            "2": "Module 2: Encapsulation & Protection",
-            "3": "Module 3: Inheritance & Composition",
-            "4": "Module 4: Polymorphism & Abstraction",
-            "5": "Module 5: Interfaces & Loose Coupling",
-            "6": "Module 6: GoF Patterns & CW2"
-          };
-          const newTitle = isEn ? (titlesEn[modNum] || `Module ${modNum}`) : (titlesUz[modNum] || `${modNum}-Modul`);
-          brandTitle.innerHTML = `${newTitle} ${badgeHtml}`;
-        }
+      if (btnEn) {
+        btnEn.onclick = () => this.setLang("en");
       }
     },
 
     init: function () {
-      const lang = this.getLang();
-      root.OOP_CURRENT_LANG = lang;
+      this.bindEvents();
       this.updateSwitcherUI();
       this.applyDOM();
-
-      // Bind buttons if found
-      const btnUz = document.getElementById("btnLangUz");
-      const btnEn = document.getElementById("btnLangEn");
-      if (btnUz) {
-        btnUz.addEventListener("click", () => this.setLang("uz"));
-      }
-      if (btnEn) {
-        btnEn.addEventListener("click", () => this.setLang("en"));
-      }
     }
   };
 
   root.OOP_I18N = OopI18n;
 
+  // Auto-init on DOM ready
   if (typeof document !== "undefined") {
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", () => OopI18n.init());
     } else {
       OopI18n.init();
     }
+  }
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = OopI18n;
   }
 })();

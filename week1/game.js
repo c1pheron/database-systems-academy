@@ -608,13 +608,20 @@
       });
     }
 
-    // Language Switcher (UZ / EN)
+    // Language Switcher (UZ / RU / EN)
     const btnUz = document.getElementById('btnLangUz');
+    const btnRu = document.getElementById('btnLangRu');
     const btnEn = document.getElementById('btnLangEn');
     if (btnUz) {
       btnUz.addEventListener('click', () => {
         window.playSfx('click');
         if (window.I18N) window.I18N.setLang('uz');
+      });
+    }
+    if (btnRu) {
+      btnRu.addEventListener('click', () => {
+        window.playSfx('click');
+        if (window.I18N) window.I18N.setLang('ru');
       });
     }
     if (btnEn) {
