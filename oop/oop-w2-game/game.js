@@ -301,6 +301,17 @@
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
       if (saved !== null && saved !== undefined && saved.trim().length > 0) {
+        // Pedagogical check: If saved code still has untouched starter comments and prefilled main, clean main
+        const onlyCommentsInClass = /class\s+\w+\s*\{\s*(\s*\/\/[^\n]*)*\s*\}/.test(saved);
+        const hasPrefilledMain = /class\s+Main\s*\{[\s\S]*?public\s+static\s+void\s+main\s*\([^)]*\)\s*\{[\s\S]*?\S[\s\S]*?\}\s*\}/.test(saved);
+        const isOldUntouchedC1 = saved.includes("Product p = new Product(45000.0);") && saved.includes("// 1. private double price");
+        
+        if (isOldUntouchedC1 || (onlyCommentsInClass && hasPrefilledMain)) {
+          saved = saved.replace(/class\s+Main\s*\{[\s\S]*?public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*\]\s*args\s*\)\s*\{[\s\S]*?\}\s*\}/, 'class Main {\n    public static void main(String[] args) {\n        \n    }\n}');
+          try {
+            localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, saved);
+          } catch (e) {}
+        }
         codeArea.value = saved;
       } else {
         codeArea.value = ch.starterCode || "";
