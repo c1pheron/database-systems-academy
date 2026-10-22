@@ -1,7 +1,4 @@
-// WIUT OOP (5COSC018C) — WEEK 2 MASTER DATASET (150 STRICTLY PROGRESSIVE DISTINCT CHALLENGES)
-// Full Trilingual Support (UZ / RU / EN) — Author: 00023271 • Level 5 • WIUT • 00023271@wiut.uz
-// Pedagogical Guarantee: Every level from 1 to 150 introduces a distinct OOP challenge with monotonic difficulty ladder.
-(typeof window !== 'undefined' ? window : global).OOP_CHALLENGES_W2 = [
+window.OOP_CHALLENGES_W2 = [
   {
     "id": 1,
     "tier": 1,
@@ -56,14 +53,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>45000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>45000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>45000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       }
     ],
@@ -72,14 +69,14 @@
         "name": "Product",
         "signature": "public Product(double price)",
         "params": {
-          "uz": "<code>double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double price</code>",
-          "ru": "Принимает параметры: <code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>45000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>45000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>45000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.price = price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.price = price;</code>"
         }
       }
     ],
@@ -154,14 +151,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String username</code> maydonining qiymatini return qiladi (masalan, <code>\"rustam_payme\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String username</code> (e.g. <code>\"rustam_payme\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String username</code> (например, <code>\"rustam_payme\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>username</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>username</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>username</code> без возможности модификации."
         }
       },
       {
@@ -173,14 +170,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int attempts</code> maydonining qiymatini return qiladi (masalan, <code>3</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int attempts</code> (e.g. <code>3</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int attempts</code> (например, <code>3</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>attempts</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>attempts</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>attempts</code> без возможности модификации."
         }
       }
     ],
@@ -189,14 +186,14 @@
         "name": "WalletAuth",
         "signature": "public WalletAuth(String username, int attempts)",
         "params": {
-          "uz": "<code>String username, int attempts</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String username, int attempts</code>",
-          "ru": "Принимает параметры: <code>String username, int attempts</code>"
+          "uz": "<code>String username, int attempts</code> (masalan, <code>\"rustam_payme\", 3</code>)",
+          "en": "<code>String username, int attempts</code> (e.g. <code>\"rustam_payme\", 3</code>)",
+          "ru": "<code>String username, int attempts</code> (например, <code>\"rustam_payme\", 3</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.username = username;</code> <code>this.attempts = attempts;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.username = username;</code> <code>this.attempts = attempts;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.username = username;</code> <code>this.attempts = attempts;</code>"
         }
       }
     ],
@@ -271,14 +268,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi (masalan, <code>\"Sut\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String name</code> (e.g. <code>\"Sut\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code> (например, <code>\"Sut\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -290,14 +287,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean inStock</code> maydonining qiymatini return qiladi (masalan, <code>true</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean inStock</code> (e.g. <code>true</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean inStock</code> (например, <code>true</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>inStock</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>inStock</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>inStock</code> без возможности модификации."
         }
       }
     ],
@@ -306,14 +303,14 @@
         "name": "InventoryItem",
         "signature": "public InventoryItem(String name, boolean inStock)",
         "params": {
-          "uz": "<code>String name, boolean inStock</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, boolean inStock</code>",
-          "ru": "Принимает параметры: <code>String name, boolean inStock</code>"
+          "uz": "<code>String name, boolean inStock</code> (masalan, <code>\"Sut\", true</code>)",
+          "en": "<code>String name, boolean inStock</code> (e.g. <code>\"Sut\", true</code>)",
+          "ru": "<code>String name, boolean inStock</code> (например, <code>\"Sut\", true</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> <code>this.inStock = inStock;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code> <code>this.inStock = inStock;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code> <code>this.inStock = inStock;</code>"
         }
       }
     ],
@@ -386,14 +383,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String tripId</code> maydonining qiymatini return qiladi (masalan, <code>\"TRIP-99824\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String tripId</code> (e.g. <code>\"TRIP-99824\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String tripId</code> (например, <code>\"TRIP-99824\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>tripId</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>tripId</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>tripId</code> без возможности модификации."
         }
       }
     ],
@@ -402,14 +399,14 @@
         "name": "Trip",
         "signature": "public Trip(String tripId)",
         "params": {
-          "uz": "<code>String tripId</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String tripId</code>",
-          "ru": "Принимает параметры: <code>String tripId</code>"
+          "uz": "<code>String tripId</code> (masalan, <code>\"TRIP-99824\"</code>)",
+          "en": "<code>String tripId</code> (e.g. <code>\"TRIP-99824\"</code>)",
+          "ru": "<code>String tripId</code> (например, <code>\"TRIP-99824\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.tripId = tripId;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.tripId = tripId;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.tripId = tripId;</code>"
         }
       }
     ],
@@ -482,14 +479,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "char: ob'yekt havolasi",
-          "en": "char: object reference",
-          "ru": "char: ссылка на объект"
+          "uz": "<code>char</code>: <code>private char grade</code> maydonining qiymatini return qiladi (masalan, <code>'A'</code>).",
+          "en": "<code>char</code>: returns the value of <code>private char grade</code> (e.g. <code>'A'</code>).",
+          "ru": "<code>char</code>: возвращает значение поля <code>private char grade</code> (например, <code>'A'</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>grade</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>grade</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>grade</code> без возможности модификации."
         }
       }
     ],
@@ -498,14 +495,14 @@
         "name": "TechItem",
         "signature": "public TechItem(char grade)",
         "params": {
-          "uz": "<code>char grade</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>char grade</code>",
-          "ru": "Принимает параметры: <code>char grade</code>"
+          "uz": "<code>char grade</code> (masalan, <code>'A'</code>)",
+          "en": "<code>char grade</code> (e.g. <code>'A'</code>)",
+          "ru": "<code>char grade</code> (например, <code>'A'</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.grade = grade;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.grade = grade;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.grade = grade;</code>"
         }
       }
     ],
@@ -578,14 +575,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>name</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>name</code> qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>String</code>: returns safe default if <code>name</code> is null, otherwise returns <code>name</code> (e.g. <code>null</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>name</code> null, иначе <code>name</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -594,14 +591,14 @@
         "name": "SafeUser",
         "signature": "public SafeUser(String name)",
         "params": {
-          "uz": "<code>String name</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name</code>",
-          "ru": "Принимает параметры: <code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>null</code>)",
+          "en": "<code>String name</code> (e.g. <code>null</code>)",
+          "ru": "<code>String name</code> (например, <code>null</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code>"
         }
       }
     ],
@@ -675,14 +672,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int age</code> maydonining qiymatini return qiladi (masalan, <code>17</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int age</code> (e.g. <code>17</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int age</code> (например, <code>17</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>age</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>age</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>age</code> без возможности модификации."
         }
       },
       {
@@ -694,14 +691,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.age >= 18</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.age >= 18</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.age >= 18</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xodimning yoshi 18 yoki undan katta (age >= 18) ekanligini dinamik tekshirib beradi.",
-          "en": "Dynamically evaluates whether employee age is 18 or older (age >= 18).",
-          "ru": "Динамически проверяет совершеннолетие сотрудника (age >= 18)."
+          "uz": "Ichki maydon holati <code>this.age >= 18</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.age >= 18</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.age >= 18</code>."
         }
       }
     ],
@@ -710,14 +707,14 @@
         "name": "Employee",
         "signature": "public Employee(int age)",
         "params": {
-          "uz": "<code>int age</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int age</code>",
-          "ru": "Принимает параметры: <code>int age</code>"
+          "uz": "<code>int age</code> (masalan, <code>17</code>)",
+          "en": "<code>int age</code> (e.g. <code>17</code>)",
+          "ru": "<code>int age</code> (например, <code>17</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.age = age;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.age = age;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.age = age;</code>"
         }
       }
     ],
@@ -791,14 +788,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String zoneCode</code> maydonining qiymatini return qiladi (masalan, <code>\"chilonzor-9\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String zoneCode</code> (e.g. <code>\"chilonzor-9\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String zoneCode</code> (например, <code>\"chilonzor-9\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>zoneCode</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>zoneCode</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>zoneCode</code> без возможности модификации."
         }
       },
       {
@@ -810,14 +807,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>zoneCode</code> maydoni qiymatini <code>toUpperCase()</code> orqali katta harflarda return qiladi (masalan, <code>\"CHILONZOR-9\"</code>).",
+          "en": "<code>String</code>: returns <code>zoneCode</code> converted to uppercase via <code>toUpperCase()</code> (e.g. <code>\"CHILONZOR-9\"</code>).",
+          "ru": "<code>String</code>: возвращает поле <code>zoneCode</code> в верхнем регистре через <code>toUpperCase()</code> (например, <code>\"CHILONZOR-9\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>zoneCode</code> qiymatini to'liq bosh harflarga aylantirib, formatlangan holda return qiladi.",
+          "en": "Converts <code>zoneCode</code> value to uppercase characters and returns it.",
+          "ru": "Преобразует значение <code>zoneCode</code> в верхний регистр и возвращает его."
         }
       }
     ],
@@ -826,14 +823,14 @@
         "name": "CourierZone",
         "signature": "public CourierZone(String zoneCode)",
         "params": {
-          "uz": "<code>String zoneCode</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String zoneCode</code>",
-          "ru": "Принимает параметры: <code>String zoneCode</code>"
+          "uz": "<code>String zoneCode</code> (masalan, <code>\"chilonzor-9\"</code>)",
+          "en": "<code>String zoneCode</code> (e.g. <code>\"chilonzor-9\"</code>)",
+          "ru": "<code>String zoneCode</code> (например, <code>\"chilonzor-9\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.zoneCode = zoneCode;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.zoneCode = zoneCode;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.zoneCode = zoneCode;</code>"
         }
       }
     ],
@@ -906,14 +903,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>cardNumber</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>cardNumber</code> qiymatini return qiladi (masalan, <code>\"8600123456789911\"</code>).",
+          "en": "<code>String</code>: returns safe default if <code>cardNumber</code> is null, otherwise returns <code>cardNumber</code> (e.g. <code>\"8600123456789911\"</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>cardNumber</code> null, иначе <code>cardNumber</code> (например, <code>\"8600123456789911\"</code>)."
         },
         "desc": {
-          "uz": "Karta raqamining oxirgi 4 ta raqamini qoldirib, qolganini yulduzcha qilib qaytaradi.",
-          "en": "Masks card number with asterisks, revealing strictly the last 4 digits.",
-          "ru": "Маскирует номер карты звездочками, оставляя открытыми только последние 4 цифры."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -922,14 +919,14 @@
         "name": "BankCard",
         "signature": "public BankCard(String cardNumber)",
         "params": {
-          "uz": "<code>String cardNumber</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String cardNumber</code>",
-          "ru": "Принимает параметры: <code>String cardNumber</code>"
+          "uz": "<code>String cardNumber</code> (masalan, <code>\"8600123456789911\"</code>)",
+          "en": "<code>String cardNumber</code> (e.g. <code>\"8600123456789911\"</code>)",
+          "ru": "<code>String cardNumber</code> (например, <code>\"8600123456789911\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.cardNumber = cardNumber;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.cardNumber = cardNumber;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.cardNumber = cardNumber;</code>"
         }
       }
     ],
@@ -1004,14 +1001,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>accessCount</code> hisoblagichini 1 taga oshirib, <code>private apiKey</code> maydonini return qiladi (masalan, <code>\"SECRET_ASAXIY_99\"</code>).",
+          "en": "<code>String</code>: increments <code>accessCount</code> counter and returns <code>private apiKey</code> (e.g. <code>\"SECRET_ASAXIY_99\"</code>).",
+          "ru": "<code>String</code>: увеличивает счетчик <code>accessCount</code> и возвращает поле <code>apiKey</code> (например, <code>\"SECRET_ASAXIY_99\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Har murojaatda <code>accessCount</code> maydonini oshirib, <code>apiKey</code> maydonining joriy qiymatini return qiladi.",
+          "en": "Increments <code>accessCount</code> count on each call and returns the current <code>apiKey</code> value.",
+          "ru": "Инкрементирует <code>accessCount</code> при каждом вызове и возвращает значение <code>apiKey</code>."
         }
       },
       {
@@ -1023,14 +1020,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int accessCount</code> maydonining qiymatini return qiladi.",
+          "en": "<code>int</code>: returns the value of <code>private int accessCount</code>.",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int accessCount</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>accessCount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>accessCount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>accessCount</code> без возможности модификации."
         }
       }
     ],
@@ -1039,14 +1036,14 @@
         "name": "ApiKeyManager",
         "signature": "public ApiKeyManager(String apiKey)",
         "params": {
-          "uz": "<code>String apiKey</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String apiKey</code>",
-          "ru": "Принимает параметры: <code>String apiKey</code>"
+          "uz": "<code>String apiKey</code> (masalan, <code>\"SECRET_ASAXIY_99\"</code>)",
+          "en": "<code>String apiKey</code> (e.g. <code>\"SECRET_ASAXIY_99\"</code>)",
+          "ru": "<code>String apiKey</code> (например, <code>\"SECRET_ASAXIY_99\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.apiKey = apiKey;</code> <code>this.accessCount = 0;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.apiKey = apiKey;</code> <code>this.accessCount = 0;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.apiKey = apiKey;</code> <code>this.accessCount = 0;</code>"
         }
       }
     ],
@@ -1122,14 +1119,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>cachedReport</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>cachedReport</code> qiymatini return qiladi.",
+          "en": "<code>String</code>: returns safe default if <code>cachedReport</code> is null, otherwise returns <code>cachedReport</code>.",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>cachedReport</code> null, иначе <code>cachedReport</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -1138,14 +1135,14 @@
         "name": "KitchenReport",
         "signature": "public KitchenReport()",
         "params": {
-          "uz": "Parametr qabul qilmaydi (no-arg default)",
-          "en": "No parameters (default constructor)",
-          "ru": "Параметров не принимает (по умолчанию)"
+          "uz": "Parametr qabul qilmaydi",
+          "en": "No parameters",
+          "ru": "Без параметров"
         },
         "desc": {
-          "uz": "Boshlang'ich biznes standart qiymatlarini o'rnatadi.",
-          "en": "Assigns default business initial state.",
-          "ru": "Присваивает начальные значения по умолчанию."
+          "uz": "Standart parametrsiz konstruktor, barcha xususiy maydonlarni boshlang'ich holatga keltiradi.",
+          "en": "Default constructor, initializes private fields to baseline state.",
+          "ru": "Конструктор по умолчанию, инициализирует приватные поля."
         }
       }
     ],
@@ -1218,14 +1215,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>status</code> maydoni qiymatini <code>toLowerCase()</code> orqali kichik harflarda return qiladi.",
+          "en": "<code>String</code>: returns <code>status</code> converted to lowercase via <code>toLowerCase()</code>.",
+          "ru": "<code>String</code>: возвращает поле <code>status</code> в нижнем регистре через <code>toLowerCase()</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>status</code> qiymatini to'liq kichik harflarga aylantirib, xavfsiz return qiladi.",
+          "en": "Converts <code>status</code> to lowercase characters and returns it safely.",
+          "ru": "Преобразует <code>status</code> в нижний регистр и безопасно возвращает."
         }
       }
     ],
@@ -1234,14 +1231,14 @@
         "name": "LabTest",
         "signature": "public LabTest(ResultStatus status)",
         "params": {
-          "uz": "<code>ResultStatus status</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>ResultStatus status</code>",
-          "ru": "Принимает параметры: <code>ResultStatus status</code>"
+          "uz": "<code>ResultStatus status</code> (masalan, <code>ResultStatus.READY</code>)",
+          "en": "<code>ResultStatus status</code> (e.g. <code>ResultStatus.READY</code>)",
+          "ru": "<code>ResultStatus status</code> (например, <code>ResultStatus.READY</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.status = status;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.status = status;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.status = status;</code>"
         }
       }
     ],
@@ -1315,14 +1312,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -1331,14 +1328,14 @@
         "name": "Subscriber",
         "signature": "public Subscriber(String firstName, String lastName)",
         "params": {
-          "uz": "<code>String firstName, String lastName</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String firstName, String lastName</code>",
-          "ru": "Принимает параметры: <code>String firstName, String lastName</code>"
+          "uz": "<code>String firstName, String lastName</code> (masalan, <code>\"Vali\", \"Karimov\"</code>)",
+          "en": "<code>String firstName, String lastName</code> (e.g. <code>\"Vali\", \"Karimov\"</code>)",
+          "ru": "<code>String firstName, String lastName</code> (например, <code>\"Vali\", \"Karimov\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code>"
         }
       }
     ],
@@ -1411,14 +1408,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -1427,14 +1424,14 @@
         "name": "FlightDelay",
         "signature": "public FlightDelay(int totalSeconds)",
         "params": {
-          "uz": "<code>int totalSeconds</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int totalSeconds</code>",
-          "ru": "Принимает параметры: <code>int totalSeconds</code>"
+          "uz": "<code>int totalSeconds</code> (masalan, <code>225</code>)",
+          "en": "<code>int totalSeconds</code> (e.g. <code>225</code>)",
+          "ru": "<code>int totalSeconds</code> (например, <code>225</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.totalSeconds = totalSeconds;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.totalSeconds = totalSeconds;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.totalSeconds = totalSeconds;</code>"
         }
       }
     ],
@@ -1510,14 +1507,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -1526,14 +1523,14 @@
         "name": "StudentProfile",
         "signature": "public StudentProfile(String studentId, String fullName, double gpa, boolean active)",
         "params": {
-          "uz": "<code>String studentId, String fullName, double gpa, boolean active</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String studentId, String fullName, double gpa, boolean active</code>",
-          "ru": "Принимает параметры: <code>String studentId, String fullName, double gpa, boolean active</code>"
+          "uz": "<code>String studentId, String fullName, double gpa, boolean active</code> (masalan, <code>\"00023271\", \"Ali Valiyev\", 3.85, true</code>)",
+          "en": "<code>String studentId, String fullName, double gpa, boolean active</code> (e.g. <code>\"00023271\", \"Ali Valiyev\", 3.85, true</code>)",
+          "ru": "<code>String studentId, String fullName, double gpa, boolean active</code> (например, <code>\"00023271\", \"Ali Valiyev\", 3.85, true</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.studentId = studentId;</code> <code>this.fullName = fullName;</code> <code>this.gpa = gpa;</code> <code>this.active = active;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.studentId = studentId;</code> <code>this.fullName = fullName;</code> <code>this.gpa = gpa;</code> <code>this.active = active;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.studentId = studentId;</code> <code>this.fullName = fullName;</code> <code>this.gpa = gpa;</code> <code>this.active = active;</code>"
         }
       }
     ],
@@ -1607,33 +1604,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>10000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>10000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>10000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       },
       {
         "name": "setPrice()",
         "signature": "public void setPrice(double price)",
         "params": {
-          "uz": "<code>double price</code>",
-          "en": "<code>double price</code>",
-          "ru": "<code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>18000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>18000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>18000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi <code>price</code> qiymatini qabul qilib, <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>price</code> and sets <code>this.price = price;</code>.",
+          "ru": "Принимает <code>price</code> и обновляет <code>this.price = price;</code>."
         }
       }
     ],
@@ -1642,14 +1639,14 @@
         "name": "ProductPricing",
         "signature": "public ProductPricing(double price)",
         "params": {
-          "uz": "<code>double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double price</code>",
-          "ru": "Принимает параметры: <code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>10000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>10000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>10000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.price = price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.price = price;</code>"
         }
       }
     ],
@@ -1726,33 +1723,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double balance</code> maydonining qiymatini return qiladi (masalan, <code>50000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double balance</code> (e.g. <code>50000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double balance</code> (например, <code>50000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>balance</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>balance</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>balance</code> без возможности модификации."
         }
       },
       {
         "name": "setBalance()",
         "signature": "public void setBalance(double amount)",
         "params": {
-          "uz": "<code>double amount</code>",
-          "en": "<code>double amount</code>",
-          "ru": "<code>double amount</code>"
+          "uz": "<code>double amount</code> (masalan, <code>-20000.0</code>)",
+          "en": "<code>double amount</code> (e.g. <code>-20000.0</code>)",
+          "ru": "<code>double amount</code> (например, <code>-20000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>amount > 0</code> shartiga tekshiradi, agar shart bajarilsa <code>this.balance = amount;</code> qilib yangilaydi.",
+          "en": "Checks <code>amount > 0</code> condition, and if valid, updates <code>this.balance = amount;</code>.",
+          "ru": "Проверяет условие <code>amount > 0</code>, и если верно, обновляет <code>this.balance = amount;</code>."
         }
       }
     ],
@@ -1761,14 +1758,14 @@
         "name": "PaymeBalance",
         "signature": "public PaymeBalance(double balance)",
         "params": {
-          "uz": "<code>double balance</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double balance</code>",
-          "ru": "Принимает параметры: <code>double balance</code>"
+          "uz": "<code>double balance</code> (masalan, <code>50000.0</code>)",
+          "en": "<code>double balance</code> (e.g. <code>50000.0</code>)",
+          "ru": "<code>double balance</code> (например, <code>50000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.balance = balance;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.balance = balance;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.balance = balance;</code>"
         }
       }
     ],
@@ -1845,33 +1842,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int rating</code> maydonining qiymatini return qiladi (masalan, <code>3</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int rating</code> (e.g. <code>3</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int rating</code> (например, <code>3</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>rating</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>rating</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>rating</code> без возможности модификации."
         }
       },
       {
         "name": "setRating()",
         "signature": "public void setRating(int rating)",
         "params": {
-          "uz": "<code>int rating</code>",
-          "en": "<code>int rating</code>",
-          "ru": "<code>int rating</code>"
+          "uz": "<code>int rating</code> (masalan, <code>10</code>)",
+          "en": "<code>int rating</code> (e.g. <code>10</code>)",
+          "ru": "<code>int rating</code> (например, <code>10</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>rating >= 1 && rating <= 5</code> shartiga tekshiradi, agar shart bajarilsa <code>this.rating = rating;</code> qilib yangilaydi.",
+          "en": "Checks <code>rating >= 1 && rating <= 5</code> condition, and if valid, updates <code>this.rating = rating;</code>.",
+          "ru": "Проверяет условие <code>rating >= 1 && rating <= 5</code>, и если верно, обновляет <code>this.rating = rating;</code>."
         }
       }
     ],
@@ -1880,14 +1877,14 @@
         "name": "StoreRating",
         "signature": "public StoreRating(int rating)",
         "params": {
-          "uz": "<code>int rating</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int rating</code>",
-          "ru": "Принимает параметры: <code>int rating</code>"
+          "uz": "<code>int rating</code> (masalan, <code>3</code>)",
+          "en": "<code>int rating</code> (e.g. <code>3</code>)",
+          "ru": "<code>int rating</code> (например, <code>3</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.rating = rating;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.rating = rating;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.rating = rating;</code>"
         }
       }
     ],
@@ -1964,33 +1961,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String driverName</code> maydonining qiymatini return qiladi (masalan, <code>\"Botir\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String driverName</code> (e.g. <code>\"Botir\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String driverName</code> (например, <code>\"Botir\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>driverName</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>driverName</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>driverName</code> без возможности модификации."
         }
       },
       {
         "name": "setDriverName()",
         "signature": "public void setDriverName(String name)",
         "params": {
-          "uz": "<code>String name</code>",
-          "en": "<code>String name</code>",
-          "ru": "<code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"   \"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"   \"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"   \"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>driverName</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>driverName</code> qiymatini return qiladi (masalan, <code>\"Botir\"</code>).",
+          "en": "<code>void</code>: returns safe default if <code>driverName</code> is null, otherwise returns <code>driverName</code> (e.g. <code>\"Botir\"</code>).",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>driverName</code> null, иначе <code>driverName</code> (например, <code>\"Botir\"</code>)."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -1999,14 +1996,14 @@
         "name": "DriverProfile",
         "signature": "public DriverProfile(String driverName)",
         "params": {
-          "uz": "<code>String driverName</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String driverName</code>",
-          "ru": "Принимает параметры: <code>String driverName</code>"
+          "uz": "<code>String driverName</code> (masalan, <code>\"Botir\"</code>)",
+          "en": "<code>String driverName</code> (e.g. <code>\"Botir\"</code>)",
+          "ru": "<code>String driverName</code> (например, <code>\"Botir\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.driverName = driverName;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.driverName = driverName;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.driverName = driverName;</code>"
         }
       }
     ],
@@ -2083,33 +2080,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int volume</code> maydonining qiymatini return qiladi (masalan, <code>50</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int volume</code> (e.g. <code>50</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int volume</code> (например, <code>50</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>volume</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>volume</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>volume</code> без возможности модификации."
         }
       },
       {
         "name": "setVolume()",
         "signature": "public void setVolume(int v)",
         "params": {
-          "uz": "<code>int v</code>",
-          "en": "<code>int v</code>",
-          "ru": "<code>int v</code>"
+          "uz": "<code>int v</code> (masalan, <code>140</code>)",
+          "en": "<code>int v</code> (e.g. <code>140</code>)",
+          "ru": "<code>int v</code> (например, <code>140</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>v > 100</code> shartiga tekshiradi, agar shart bajarilsa <code>this.volume = 100;</code> qilib yangilaydi.",
+          "en": "Checks <code>v > 100</code> condition, and if valid, updates <code>this.volume = 100;</code>.",
+          "ru": "Проверяет условие <code>v > 100</code>, и если верно, обновляет <code>this.volume = 100;</code>."
         }
       }
     ],
@@ -2118,14 +2115,14 @@
         "name": "AppAudio",
         "signature": "public AppAudio(int volume)",
         "params": {
-          "uz": "<code>int volume</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int volume</code>",
-          "ru": "Принимает параметры: <code>int volume</code>"
+          "uz": "<code>int volume</code> (masalan, <code>50</code>)",
+          "en": "<code>int volume</code> (e.g. <code>50</code>)",
+          "ru": "<code>int volume</code> (например, <code>50</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.volume = volume;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.volume = volume;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.volume = volume;</code>"
         }
       }
     ],
@@ -2202,14 +2199,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean active</code> maydonining qiymatini return qiladi (masalan, <code>false</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean active</code> (e.g. <code>false</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean active</code> (например, <code>false</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>active</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>active</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>active</code> без возможности модификации."
         }
       },
       {
@@ -2221,14 +2218,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -2237,14 +2234,14 @@
         "name": "MixerMachine",
         "signature": "public MixerMachine(boolean active)",
         "params": {
-          "uz": "<code>boolean active</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>boolean active</code>",
-          "ru": "Принимает параметры: <code>boolean active</code>"
+          "uz": "<code>boolean active</code> (masalan, <code>false</code>)",
+          "en": "<code>boolean active</code> (e.g. <code>false</code>)",
+          "ru": "<code>boolean active</code> (например, <code>false</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.active = active;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.active = active;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.active = active;</code>"
         }
       }
     ],
@@ -2320,14 +2317,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double currentPrice</code> maydonining qiymatini return qiladi (masalan, <code>65000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double currentPrice</code> (e.g. <code>65000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double currentPrice</code> (например, <code>65000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>currentPrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>currentPrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>currentPrice</code> без возможности модификации."
         }
       },
       {
@@ -2339,33 +2336,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double previousPrice</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double previousPrice</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double previousPrice</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>previousPrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>previousPrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>previousPrice</code> без возможности модификации."
         }
       },
       {
         "name": "setPrice()",
         "signature": "public void setPrice(double newPrice)",
         "params": {
-          "uz": "<code>double newPrice</code>",
-          "en": "<code>double newPrice</code>",
-          "ru": "<code>double newPrice</code>"
+          "uz": "<code>double newPrice</code> (masalan, <code>72000.0</code>)",
+          "en": "<code>double newPrice</code> (e.g. <code>72000.0</code>)",
+          "ru": "<code>double newPrice</code> (например, <code>72000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>newPrice > 0</code> shartiga tekshiradi, agar shart bajarilsa <code>this.previousPrice = this.currentPrice;</code> qilib yangilaydi.",
+          "en": "Checks <code>newPrice > 0</code> condition, and if valid, updates <code>this.previousPrice = this.currentPrice;</code>.",
+          "ru": "Проверяет условие <code>newPrice > 0</code>, и если верно, обновляет <code>this.previousPrice = this.currentPrice;</code>."
         }
       }
     ],
@@ -2374,14 +2371,14 @@
         "name": "PizzaPricing",
         "signature": "public PizzaPricing(double currentPrice)",
         "params": {
-          "uz": "<code>double currentPrice</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double currentPrice</code>",
-          "ru": "Принимает параметры: <code>double currentPrice</code>"
+          "uz": "<code>double currentPrice</code> (masalan, <code>65000.0</code>)",
+          "en": "<code>double currentPrice</code> (e.g. <code>65000.0</code>)",
+          "ru": "<code>double currentPrice</code> (например, <code>65000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.currentPrice = currentPrice;</code> <code>this.previousPrice = currentPrice;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.currentPrice = currentPrice;</code> <code>this.previousPrice = currentPrice;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.currentPrice = currentPrice;</code> <code>this.previousPrice = currentPrice;</code>"
         }
       }
     ],
@@ -2458,33 +2455,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String pin</code> maydonining qiymatini return qiladi (masalan, <code>\"1234\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String pin</code> (e.g. <code>\"1234\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String pin</code> (например, <code>\"1234\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>pin</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>pin</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>pin</code> без возможности модификации."
         }
       },
       {
         "name": "setPin()",
         "signature": "public boolean setPin(String newPin)",
         "params": {
-          "uz": "<code>String newPin</code>",
-          "en": "<code>String newPin</code>",
-          "ru": "<code>String newPin</code>"
+          "uz": "<code>String newPin</code> (masalan, <code>\"99\"</code>)",
+          "en": "<code>String newPin</code> (e.g. <code>\"99\"</code>)",
+          "ru": "<code>String newPin</code> (например, <code>\"99\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>pin</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>pin</code> qiymatini return qiladi (masalan, <code>\"1234\"</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>pin</code> is null, otherwise returns <code>pin</code> (e.g. <code>\"1234\"</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>pin</code> null, иначе <code>pin</code> (например, <code>\"1234\"</code>)."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -2493,14 +2490,14 @@
         "name": "PosTerminal",
         "signature": "public PosTerminal(String pin)",
         "params": {
-          "uz": "<code>String pin</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String pin</code>",
-          "ru": "Принимает параметры: <code>String pin</code>"
+          "uz": "<code>String pin</code> (masalan, <code>\"1234\"</code>)",
+          "en": "<code>String pin</code> (e.g. <code>\"1234\"</code>)",
+          "ru": "<code>String pin</code> (например, <code>\"1234\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.pin = pin;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.pin = pin;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.pin = pin;</code>"
         }
       }
     ],
@@ -2577,33 +2574,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int odometerKm</code> maydonining qiymatini return qiladi (masalan, <code>120</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int odometerKm</code> (e.g. <code>120</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int odometerKm</code> (например, <code>120</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>odometerKm</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>odometerKm</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>odometerKm</code> без возможности модификации."
         }
       },
       {
         "name": "updateOdometer()",
         "signature": "public void updateOdometer(int newKm)",
         "params": {
-          "uz": "<code>int newKm</code>",
-          "en": "<code>int newKm</code>",
-          "ru": "<code>int newKm</code>"
+          "uz": "<code>int newKm</code> (masalan, <code>90</code>)",
+          "en": "<code>int newKm</code> (e.g. <code>90</code>)",
+          "ru": "<code>int newKm</code> (например, <code>90</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>newKm > this.odometerKm</code> shartiga tekshiradi, agar shart bajarilsa <code>this.odometerKm = newKm;</code> qilib yangilaydi.",
+          "en": "Checks <code>newKm > this.odometerKm</code> condition, and if valid, updates <code>this.odometerKm = newKm;</code>.",
+          "ru": "Проверяет условие <code>newKm > this.odometerKm</code>, и если верно, обновляет <code>this.odometerKm = newKm;</code>."
         }
       }
     ],
@@ -2612,14 +2609,14 @@
         "name": "Odometer",
         "signature": "public Odometer(int odometerKm)",
         "params": {
-          "uz": "<code>int odometerKm</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int odometerKm</code>",
-          "ru": "Принимает параметры: <code>int odometerKm</code>"
+          "uz": "<code>int odometerKm</code> (masalan, <code>120</code>)",
+          "en": "<code>int odometerKm</code> (e.g. <code>120</code>)",
+          "ru": "<code>int odometerKm</code> (например, <code>120</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.odometerKm = odometerKm;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.odometerKm = odometerKm;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.odometerKm = odometerKm;</code>"
         }
       }
     ],
@@ -2696,33 +2693,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String email</code> maydonining qiymatini return qiladi (masalan, <code>\"admin@asaxiy.uz\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String email</code> (e.g. <code>\"admin@asaxiy.uz\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String email</code> (например, <code>\"admin@asaxiy.uz\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>email</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>email</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>email</code> без возможности модификации."
         }
       },
       {
         "name": "setEmail()",
         "signature": "public void setEmail(String email)",
         "params": {
-          "uz": "<code>String email</code>",
-          "en": "<code>String email</code>",
-          "ru": "<code>String email</code>"
+          "uz": "<code>String email</code> (masalan, <code>\"notanemail\"</code>)",
+          "en": "<code>String email</code> (e.g. <code>\"notanemail\"</code>)",
+          "ru": "<code>String email</code> (например, <code>\"notanemail\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>email</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>email</code> qiymatini return qiladi (masalan, <code>\"admin@asaxiy.uz\"</code>).",
+          "en": "<code>void</code>: returns safe default if <code>email</code> is null, otherwise returns <code>email</code> (e.g. <code>\"admin@asaxiy.uz\"</code>).",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>email</code> null, иначе <code>email</code> (например, <code>\"admin@asaxiy.uz\"</code>)."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -2731,14 +2728,14 @@
         "name": "ClientEmail",
         "signature": "public ClientEmail(String email)",
         "params": {
-          "uz": "<code>String email</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String email</code>",
-          "ru": "Принимает параметры: <code>String email</code>"
+          "uz": "<code>String email</code> (masalan, <code>\"admin@asaxiy.uz\"</code>)",
+          "en": "<code>String email</code> (e.g. <code>\"admin@asaxiy.uz\"</code>)",
+          "ru": "<code>String email</code> (например, <code>\"admin@asaxiy.uz\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.email = email;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.email = email;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.email = email;</code>"
         }
       }
     ],
@@ -2817,14 +2814,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double basePrice</code> maydonining qiymatini return qiladi (masalan, <code>100000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double basePrice</code> (e.g. <code>100000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double basePrice</code> (например, <code>100000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>basePrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>basePrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>basePrice</code> без возможности модификации."
         }
       },
       {
@@ -2836,33 +2833,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double taxAmount</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double taxAmount</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double taxAmount</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>taxAmount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>taxAmount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>taxAmount</code> без возможности модификации."
         }
       },
       {
         "name": "setBasePrice()",
         "signature": "public void setBasePrice(double price)",
         "params": {
-          "uz": "<code>double price</code>",
-          "en": "<code>double price</code>",
-          "ru": "<code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>200000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>200000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>200000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>price > 0</code> shartiga tekshiradi, agar shart bajarilsa <code>this.basePrice = price;</code> qilib yangilaydi.",
+          "en": "Checks <code>price > 0</code> condition, and if valid, updates <code>this.basePrice = price;</code>.",
+          "ru": "Проверяет условие <code>price > 0</code>, и если верно, обновляет <code>this.basePrice = price;</code>."
         }
       }
     ],
@@ -2871,14 +2868,14 @@
         "name": "MedicalBill",
         "signature": "public MedicalBill(double basePrice)",
         "params": {
-          "uz": "<code>double basePrice</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double basePrice</code>",
-          "ru": "Принимает параметры: <code>double basePrice</code>"
+          "uz": "<code>double basePrice</code> (masalan, <code>100000.0</code>)",
+          "en": "<code>double basePrice</code> (e.g. <code>100000.0</code>)",
+          "ru": "<code>double basePrice</code> (например, <code>100000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.basePrice = basePrice;</code> <code>this.taxAmount = basePrice * 0.12;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.basePrice = basePrice;</code> <code>this.taxAmount = basePrice * 0.12;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.basePrice = basePrice;</code> <code>this.taxAmount = basePrice * 0.12;</code>"
         }
       }
     ],
@@ -2955,33 +2952,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double sharePrice</code> maydonining qiymatini return qiladi (masalan, <code>100.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double sharePrice</code> (e.g. <code>100.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double sharePrice</code> (например, <code>100.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>sharePrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>sharePrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>sharePrice</code> без возможности модификации."
         }
       },
       {
         "name": "setSharePrice()",
         "signature": "public void setSharePrice(double newPrice)",
         "params": {
-          "uz": "<code>double newPrice</code>",
-          "en": "<code>double newPrice</code>",
-          "ru": "<code>double newPrice</code>"
+          "uz": "<code>double newPrice</code> (masalan, <code>150.0</code>)",
+          "en": "<code>double newPrice</code> (e.g. <code>150.0</code>)",
+          "ru": "<code>double newPrice</code> (например, <code>150.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>delta <= this.sharePrice * 0.20</code> shartiga tekshiradi, agar shart bajarilsa <code>this.sharePrice = newPrice;</code> qilib yangilaydi.",
+          "en": "Checks <code>delta <= this.sharePrice * 0.20</code> condition, and if valid, updates <code>this.sharePrice = newPrice;</code>.",
+          "ru": "Проверяет условие <code>delta <= this.sharePrice * 0.20</code>, и если верно, обновляет <code>this.sharePrice = newPrice;</code>."
         }
       }
     ],
@@ -2990,14 +2987,14 @@
         "name": "StockSecurity",
         "signature": "public StockSecurity(double sharePrice)",
         "params": {
-          "uz": "<code>double sharePrice</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double sharePrice</code>",
-          "ru": "Принимает параметры: <code>double sharePrice</code>"
+          "uz": "<code>double sharePrice</code> (masalan, <code>100.0</code>)",
+          "en": "<code>double sharePrice</code> (e.g. <code>100.0</code>)",
+          "ru": "<code>double sharePrice</code> (например, <code>100.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.sharePrice = sharePrice;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.sharePrice = sharePrice;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.sharePrice = sharePrice;</code>"
         }
       }
     ],
@@ -3068,19 +3065,19 @@
         "name": "changePassword()",
         "signature": "public boolean changePassword(String oldPass, String newPass)",
         "params": {
-          "uz": "<code>String oldPass, String newPass</code>",
-          "en": "<code>String oldPass, String newPass</code>",
-          "ru": "<code>String oldPass, String newPass</code>"
+          "uz": "<code>String oldPass, String newPass</code> (masalan, <code>\"wrong\", \"newSecret2\"</code>)",
+          "en": "<code>String oldPass, String newPass</code> (e.g. <code>\"wrong\", \"newSecret2\"</code>)",
+          "ru": "<code>String oldPass, String newPass</code> (например, <code>\"wrong\", \"newSecret2\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>password</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>password</code> qiymatini return qiladi (masalan, <code>\"oldSecret1\"</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>password</code> is null, otherwise returns <code>password</code> (e.g. <code>\"oldSecret1\"</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>password</code> null, иначе <code>password</code> (например, <code>\"oldSecret1\"</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -3089,14 +3086,14 @@
         "name": "AccountSecurity",
         "signature": "public AccountSecurity(String password)",
         "params": {
-          "uz": "<code>String password</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String password</code>",
-          "ru": "Принимает параметры: <code>String password</code>"
+          "uz": "<code>String password</code> (masalan, <code>\"oldSecret1\"</code>)",
+          "en": "<code>String password</code> (e.g. <code>\"oldSecret1\"</code>)",
+          "ru": "<code>String password</code> (например, <code>\"oldSecret1\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.password = password;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.password = password;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.password = password;</code>"
         }
       }
     ],
@@ -3174,33 +3171,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int seatNumber</code> maydonining qiymatini return qiladi (masalan, <code>12</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int seatNumber</code> (e.g. <code>12</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int seatNumber</code> (например, <code>12</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>seatNumber</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>seatNumber</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>seatNumber</code> без возможности модификации."
         }
       },
       {
         "name": "setSeatNumber()",
         "signature": "public void setSeatNumber(int seatNumber)",
         "params": {
-          "uz": "<code>int seatNumber</code>",
-          "en": "<code>int seatNumber</code>",
-          "ru": "<code>int seatNumber</code>"
+          "uz": "<code>int seatNumber</code> (masalan, <code>-5</code>)",
+          "en": "<code>int seatNumber</code> (e.g. <code>-5</code>)",
+          "ru": "<code>int seatNumber</code> (например, <code>-5</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -3209,14 +3206,14 @@
         "name": "FlightSeat",
         "signature": "public FlightSeat(int seatNumber)",
         "params": {
-          "uz": "<code>int seatNumber</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int seatNumber</code>",
-          "ru": "Принимает параметры: <code>int seatNumber</code>"
+          "uz": "<code>int seatNumber</code> (masalan, <code>12</code>)",
+          "en": "<code>int seatNumber</code> (e.g. <code>12</code>)",
+          "ru": "<code>int seatNumber</code> (например, <code>12</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.seatNumber = seatNumber;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.seatNumber = seatNumber;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.seatNumber = seatNumber;</code>"
         }
       }
     ],
@@ -3294,33 +3291,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double moduleMark</code> maydonining qiymatini return qiladi (masalan, <code>78.5</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double moduleMark</code> (e.g. <code>78.5</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double moduleMark</code> (например, <code>78.5</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>moduleMark</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>moduleMark</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>moduleMark</code> без возможности модификации."
         }
       },
       {
         "name": "setModuleMark()",
         "signature": "public void setModuleMark(double mark)",
         "params": {
-          "uz": "<code>double mark</code>",
-          "en": "<code>double mark</code>",
-          "ru": "<code>double mark</code>"
+          "uz": "<code>double mark</code> (masalan, <code>105.0</code>)",
+          "en": "<code>double mark</code> (e.g. <code>105.0</code>)",
+          "ru": "<code>double mark</code> (например, <code>105.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -3329,14 +3326,14 @@
         "name": "ModuleGrade",
         "signature": "public ModuleGrade(double moduleMark)",
         "params": {
-          "uz": "<code>double moduleMark</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double moduleMark</code>",
-          "ru": "Принимает параметры: <code>double moduleMark</code>"
+          "uz": "<code>double moduleMark</code> (masalan, <code>78.5</code>)",
+          "en": "<code>double moduleMark</code> (e.g. <code>78.5</code>)",
+          "ru": "<code>double moduleMark</code> (например, <code>78.5</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.moduleMark = moduleMark;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.moduleMark = moduleMark;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.moduleMark = moduleMark;</code>"
         }
       }
     ],
@@ -3403,21 +3400,21 @@
     "methodSpecs": [
       {
         "name": "calculateFee()",
-        "signature": "public double calculateFee(double amt)",
+        "signature": "private double calculateFee(double amt)",
         "params": {
           "uz": "<code>double amt</code>",
           "en": "<code>double amt</code>",
           "ru": "<code>double amt</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -3429,14 +3426,14 @@
           "ru": "<code>double amt</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -3505,40 +3502,40 @@
     "methodSpecs": [
       {
         "name": "isValidPromo()",
-        "signature": "public boolean isValidPromo(String code)",
+        "signature": "private boolean isValidPromo(String code)",
         "params": {
           "uz": "<code>String code</code>",
           "en": "<code>String code</code>",
           "ru": "<code>String code</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki maydon holati <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>code != null && code.startsWith(\"PAYME-\") && code.length() >= 8</code>."
         }
       },
       {
         "name": "applyPromo()",
         "signature": "public boolean applyPromo(String code)",
         "params": {
-          "uz": "<code>String code</code>",
-          "en": "<code>String code</code>",
-          "ru": "<code>String code</code>"
+          "uz": "<code>String code</code> (masalan, <code>\"TEST1\"</code>)",
+          "en": "<code>String code</code> (e.g. <code>\"TEST1\"</code>)",
+          "ru": "<code>String code</code> (например, <code>\"TEST1\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -3550,14 +3547,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean discountApplied</code> maydonining qiymatini return qiladi (masalan, <code>false</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean discountApplied</code> (e.g. <code>false</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean discountApplied</code> (например, <code>false</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>discountApplied</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>discountApplied</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>discountApplied</code> без возможности модификации."
         }
       }
     ],
@@ -3629,59 +3626,59 @@
     "methodSpecs": [
       {
         "name": "verifyStock()",
-        "signature": "public boolean verifyStock()",
+        "signature": "private boolean verifyStock()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean true</code> maydonining qiymatini return qiladi.",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean true</code>.",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean true</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ichki <code>true</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>true</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>true</code> без возможности модификации."
         }
       },
       {
         "name": "applyLoyaltyDiscount()",
-        "signature": "public void applyLoyaltyDiscount()",
+        "signature": "private void applyLoyaltyDiscount()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "recordFiscalReceipt()",
-        "signature": "public void recordFiscalReceipt()",
+        "signature": "private void recordFiscalReceipt()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -3693,14 +3690,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -3712,14 +3709,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double totalAmount</code> maydonining qiymatini return qiladi (masalan, <code>100000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double totalAmount</code> (e.g. <code>100000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double totalAmount</code> (например, <code>100000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>totalAmount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>totalAmount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>totalAmount</code> без возможности модификации."
         }
       }
     ],
@@ -3728,14 +3725,14 @@
         "name": "CheckoutPipeline",
         "signature": "public CheckoutPipeline(double totalAmount)",
         "params": {
-          "uz": "<code>double totalAmount</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double totalAmount</code>",
-          "ru": "Принимает параметры: <code>double totalAmount</code>"
+          "uz": "<code>double totalAmount</code> (masalan, <code>100000.0</code>)",
+          "en": "<code>double totalAmount</code> (e.g. <code>100000.0</code>)",
+          "ru": "<code>double totalAmount</code> (например, <code>100000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.totalAmount = totalAmount;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.totalAmount = totalAmount;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.totalAmount = totalAmount;</code>"
         }
       }
     ],
@@ -3805,21 +3802,21 @@
     "methodSpecs": [
       {
         "name": "computeTaxRate()",
-        "signature": "public double computeTaxRate(double income)",
+        "signature": "private double computeTaxRate(double income)",
         "params": {
           "uz": "<code>double income</code>",
           "en": "<code>double income</code>",
           "ru": "<code>double income</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -3831,14 +3828,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -3847,14 +3844,14 @@
         "name": "TaxCalculator",
         "signature": "public TaxCalculator(double grossIncome)",
         "params": {
-          "uz": "<code>double grossIncome</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double grossIncome</code>",
-          "ru": "Принимает параметры: <code>double grossIncome</code>"
+          "uz": "<code>double grossIncome</code> (masalan, <code>10000000.0</code>)",
+          "en": "<code>double grossIncome</code> (e.g. <code>10000000.0</code>)",
+          "ru": "<code>double grossIncome</code> (например, <code>10000000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.grossIncome = grossIncome;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.grossIncome = grossIncome;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.grossIncome = grossIncome;</code>"
         }
       }
     ],
@@ -3921,21 +3918,21 @@
     "methodSpecs": [
       {
         "name": "formatWithSpaces()",
-        "signature": "public String formatWithSpaces(long val)",
+        "signature": "private String formatWithSpaces(long val)",
         "params": {
           "uz": "<code>long val</code>",
           "en": "<code>long val</code>",
           "ru": "<code>long val</code>"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       },
       {
@@ -3947,14 +3944,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -3963,14 +3960,14 @@
         "name": "PastryItem",
         "signature": "public PastryItem(long priceUzs)",
         "params": {
-          "uz": "<code>long priceUzs</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>long priceUzs</code>",
-          "ru": "Принимает параметры: <code>long priceUzs</code>"
+          "uz": "<code>long priceUzs</code> (masalan, <code>125000</code>)",
+          "en": "<code>long priceUzs</code> (e.g. <code>125000</code>)",
+          "ru": "<code>long priceUzs</code> (например, <code>125000</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.priceUzs = priceUzs;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.priceUzs = priceUzs;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.priceUzs = priceUzs;</code>"
         }
       }
     ],
@@ -4038,40 +4035,40 @@
     "methodSpecs": [
       {
         "name": "sanitize()",
-        "signature": "public String sanitize(String input)",
+        "signature": "private String sanitize(String input)",
         "params": {
           "uz": "<code>String input</code>",
           "en": "<code>String input</code>",
           "ru": "<code>String input</code>"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>qiymat</code> maydoni qiymatini <code>toLowerCase()</code> orqali kichik harflarda return qiladi.",
+          "en": "<code>String</code>: returns <code>qiymat</code> converted to lowercase via <code>toLowerCase()</code>.",
+          "ru": "<code>String</code>: возвращает поле <code>qiymat</code> в нижнем регистре через <code>toLowerCase()</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "<code>qiymat</code> qiymatini to'liq kichik harflarga aylantirib, xavfsiz return qiladi.",
+          "en": "Converts <code>qiymat</code> to lowercase characters and returns it safely.",
+          "ru": "Преобразует <code>qiymat</code> в нижний регистр и безопасно возвращает."
         }
       },
       {
         "name": "setDescription()",
         "signature": "public void setDescription(String desc)",
         "params": {
-          "uz": "<code>String desc</code>",
-          "en": "<code>String desc</code>",
-          "ru": "<code>String desc</code>"
+          "uz": "<code>String desc</code> (masalan, <code>\"  Smartfon SAMSUNG Galaxy S24  \"</code>)",
+          "en": "<code>String desc</code> (e.g. <code>\"  Smartfon SAMSUNG Galaxy S24  \"</code>)",
+          "ru": "<code>String desc</code> (например, <code>\"  Smartfon SAMSUNG Galaxy S24  \"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4083,14 +4080,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String description</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String description</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String description</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>description</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>description</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>description</code> без возможности модификации."
         }
       }
     ],
@@ -4165,19 +4162,19 @@
         "name": "claimDiscount()",
         "signature": "public boolean claimDiscount(double percent)",
         "params": {
-          "uz": "<code>double percent</code>",
-          "en": "<code>double percent</code>",
-          "ru": "<code>double percent</code>"
+          "uz": "<code>double percent</code> (masalan, <code>0.10</code>)",
+          "en": "<code>double percent</code> (e.g. <code>0.10</code>)",
+          "ru": "<code>double percent</code> (например, <code>0.10</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4189,14 +4186,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double currentPrice</code> maydonining qiymatini return qiladi (masalan, <code>80000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double currentPrice</code> (e.g. <code>80000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double currentPrice</code> (например, <code>80000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>currentPrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>currentPrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>currentPrice</code> без возможности модификации."
         }
       }
     ],
@@ -4205,14 +4202,14 @@
         "name": "VoucherCoupon",
         "signature": "public VoucherCoupon(double currentPrice)",
         "params": {
-          "uz": "<code>double currentPrice</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double currentPrice</code>",
-          "ru": "Принимает параметры: <code>double currentPrice</code>"
+          "uz": "<code>double currentPrice</code> (masalan, <code>80000.0</code>)",
+          "en": "<code>double currentPrice</code> (e.g. <code>80000.0</code>)",
+          "ru": "<code>double currentPrice</code> (например, <code>80000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.currentPrice = currentPrice;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.currentPrice = currentPrice;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.currentPrice = currentPrice;</code>"
         }
       }
     ],
@@ -4284,59 +4281,59 @@
     "methodSpecs": [
       {
         "name": "appendLog()",
-        "signature": "public void appendLog(String action)",
+        "signature": "private void appendLog(String action)",
         "params": {
           "uz": "<code>String action</code>",
           "en": "<code>String action</code>",
           "ru": "<code>String action</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "pickupOrder()",
         "signature": "public void pickupOrder(String orderId)",
         "params": {
-          "uz": "<code>String orderId</code>",
-          "en": "<code>String orderId</code>",
-          "ru": "<code>String orderId</code>"
+          "uz": "<code>String orderId</code> (masalan, <code>\"ORD-101\"</code>)",
+          "en": "<code>String orderId</code> (e.g. <code>\"ORD-101\"</code>)",
+          "ru": "<code>String orderId</code> (например, <code>\"ORD-101\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "deliverOrder()",
         "signature": "public void deliverOrder(String orderId)",
         "params": {
-          "uz": "<code>String orderId</code>",
-          "en": "<code>String orderId</code>",
-          "ru": "<code>String orderId</code>"
+          "uz": "<code>String orderId</code> (masalan, <code>\"ORD-101\"</code>)",
+          "en": "<code>String orderId</code> (e.g. <code>\"ORD-101\"</code>)",
+          "ru": "<code>String orderId</code> (например, <code>\"ORD-101\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4348,14 +4345,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -4427,40 +4424,40 @@
     "methodSpecs": [
       {
         "name": "isAllowedTransition()",
-        "signature": "public boolean isAllowedTransition(String from, String to)",
+        "signature": "private boolean isAllowedTransition(String from, String to)",
         "params": {
           "uz": "<code>String from, String to</code>",
           "en": "<code>String from, String to</code>",
           "ru": "<code>String from, String to</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "transitionTo()",
         "signature": "public boolean transitionTo(String nextStatus)",
         "params": {
-          "uz": "<code>String nextStatus</code>",
-          "en": "<code>String nextStatus</code>",
-          "ru": "<code>String nextStatus</code>"
+          "uz": "<code>String nextStatus</code> (masalan, <code>\"COMPLETED\"</code>)",
+          "en": "<code>String nextStatus</code> (e.g. <code>\"COMPLETED\"</code>)",
+          "ru": "<code>String nextStatus</code> (например, <code>\"COMPLETED\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4472,14 +4469,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String status</code> maydonining qiymatini return qiladi (masalan, <code>\"NEW\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String status</code> (e.g. <code>\"NEW\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String status</code> (например, <code>\"NEW\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>status</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>status</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>status</code> без возможности модификации."
         }
       }
     ],
@@ -4551,40 +4548,40 @@
     "methodSpecs": [
       {
         "name": "calcDistance()",
-        "signature": "public double calcDistance(double x1, double y1, double x2, double y2)",
+        "signature": "private double calcDistance(double x1, double y1, double x2, double y2)",
         "params": {
           "uz": "<code>double x1, double y1, double x2, double y2</code>",
           "en": "<code>double x1, double y1, double x2, double y2</code>",
           "ru": "<code>double x1, double y1, double x2, double y2</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "calculateTripFare()",
         "signature": "public double calculateTripFare(double x1, double y1, double x2, double y2)",
         "params": {
-          "uz": "<code>double x1, double y1, double x2, double y2</code>",
-          "en": "<code>double x1, double y1, double x2, double y2</code>",
-          "ru": "<code>double x1, double y1, double x2, double y2</code>"
+          "uz": "<code>double x1, double y1, double x2, double y2</code> (masalan, <code>0, 0, 3, 4</code>)",
+          "en": "<code>double x1, double y1, double x2, double y2</code> (e.g. <code>0, 0, 3, 4</code>)",
+          "ru": "<code>double x1, double y1, double x2, double y2</code> (например, <code>0, 0, 3, 4</code>)"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -4593,14 +4590,14 @@
         "name": "DeliveryFare",
         "signature": "public DeliveryFare(double baseFare, double ratePerKm)",
         "params": {
-          "uz": "<code>double baseFare, double ratePerKm</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double baseFare, double ratePerKm</code>",
-          "ru": "Принимает параметры: <code>double baseFare, double ratePerKm</code>"
+          "uz": "<code>double baseFare, double ratePerKm</code> (masalan, <code>5000.0, 2000.0</code>)",
+          "en": "<code>double baseFare, double ratePerKm</code> (e.g. <code>5000.0, 2000.0</code>)",
+          "ru": "<code>double baseFare, double ratePerKm</code> (например, <code>5000.0, 2000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.baseFare = baseFare;</code> <code>this.ratePerKm = ratePerKm;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.baseFare = baseFare;</code> <code>this.ratePerKm = ratePerKm;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.baseFare = baseFare;</code> <code>this.ratePerKm = ratePerKm;</code>"
         }
       }
     ],
@@ -4667,21 +4664,21 @@
     "methodSpecs": [
       {
         "name": "factorial()",
-        "signature": "public long factorial(int n)",
+        "signature": "private long factorial(int n)",
         "params": {
           "uz": "<code>int n</code>",
           "en": "<code>int n</code>",
           "ru": "<code>int n</code>"
         },
         "returns": {
-          "uz": "long: ob'yekt havolasi",
-          "en": "long: object reference",
-          "ru": "long: ссылка на объект"
+          "uz": "<code>long</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>long</code>: returns computed business result or operation state.",
+          "ru": "<code>long</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4693,14 +4690,14 @@
           "ru": "<code>int n</code>"
         },
         "returns": {
-          "uz": "long: ob'yekt havolasi",
-          "en": "long: object reference",
-          "ru": "long: ссылка на объект"
+          "uz": "<code>long</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>long</code>: returns computed business result or operation state.",
+          "ru": "<code>long</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -4768,21 +4765,21 @@
     "methodSpecs": [
       {
         "name": "maskToken()",
-        "signature": "public String maskToken(String t)",
+        "signature": "private String maskToken(String t)",
         "params": {
           "uz": "<code>String t</code>",
           "en": "<code>String t</code>",
           "ru": "<code>String t</code>"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>qiymat</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>qiymat</code> qiymatini return qiladi.",
+          "en": "<code>String</code>: returns safe default if <code>qiymat</code> is null, otherwise returns <code>qiymat</code>.",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>qiymat</code> null, иначе <code>qiymat</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -4794,14 +4791,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -4810,14 +4807,14 @@
         "name": "AuthToken",
         "signature": "public AuthToken(String rawToken)",
         "params": {
-          "uz": "<code>String rawToken</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String rawToken</code>",
-          "ru": "Принимает параметры: <code>String rawToken</code>"
+          "uz": "<code>String rawToken</code> (masalan, <code>\"TK-12345678-UZ\"</code>)",
+          "en": "<code>String rawToken</code> (e.g. <code>\"TK-12345678-UZ\"</code>)",
+          "ru": "<code>String rawToken</code> (например, <code>\"TK-12345678-UZ\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.rawToken = rawToken;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.rawToken = rawToken;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.rawToken = rawToken;</code>"
         }
       }
     ],
@@ -4886,40 +4883,40 @@
     "methodSpecs": [
       {
         "name": "invalidateCache()",
-        "signature": "public void invalidateCache()",
+        "signature": "private void invalidateCache()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Kiruvchi <code>null</code> qiymatini qabul qilib, <code>this.cachedSummary = null;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>null</code> and sets <code>this.cachedSummary = null;</code>.",
+          "ru": "Принимает <code>null</code> и обновляет <code>this.cachedSummary = null;</code>."
         }
       },
       {
         "name": "addTraffic()",
         "signature": "public void addTraffic(int mb)",
         "params": {
-          "uz": "<code>int mb</code>",
-          "en": "<code>int mb</code>",
-          "ru": "<code>int mb</code>"
+          "uz": "<code>int mb</code> (masalan, <code>500</code>)",
+          "en": "<code>int mb</code> (e.g. <code>500</code>)",
+          "ru": "<code>int mb</code> (например, <code>500</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -4931,14 +4928,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>balanceMb</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>balanceMb</code> qiymatini return qiladi (masalan, <code>1000</code>).",
+          "en": "<code>String</code>: returns safe default if <code>balanceMb</code> is null, otherwise returns <code>balanceMb</code> (e.g. <code>1000</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>balanceMb</code> null, иначе <code>balanceMb</code> (например, <code>1000</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -4947,14 +4944,14 @@
         "name": "TrafficReport",
         "signature": "public TrafficReport(int balanceMb)",
         "params": {
-          "uz": "<code>int balanceMb</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int balanceMb</code>",
-          "ru": "Принимает параметры: <code>int balanceMb</code>"
+          "uz": "<code>int balanceMb</code> (masalan, <code>1000</code>)",
+          "en": "<code>int balanceMb</code> (e.g. <code>1000</code>)",
+          "ru": "<code>int balanceMb</code> (например, <code>1000</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.balanceMb = balanceMb;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.balanceMb = balanceMb;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.balanceMb = balanceMb;</code>"
         }
       }
     ],
@@ -5021,21 +5018,21 @@
     "methodSpecs": [
       {
         "name": "verifyChecksum()",
-        "signature": "public boolean verifyChecksum(String cardNo)",
+        "signature": "private boolean verifyChecksum(String cardNo)",
         "params": {
           "uz": "<code>String cardNo</code>",
           "en": "<code>String cardNo</code>",
           "ru": "<code>String cardNo</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>sum</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>sum</code> qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>sum</code> is null, otherwise returns <code>sum</code> (e.g. <code>0</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>sum</code> null, иначе <code>sum</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -5047,14 +5044,14 @@
           "ru": "<code>String cardNo</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -5124,78 +5121,78 @@
     "methodSpecs": [
       {
         "name": "validateAmount()",
-        "signature": "public boolean validateAmount(double amount)",
+        "signature": "private boolean validateAmount(double amount)",
         "params": {
           "uz": "<code>double amount</code>",
           "en": "<code>double amount</code>",
           "ru": "<code>double amount</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>amount > 0 && amount <= this.tuitionDue</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>amount > 0 && amount <= this.tuitionDue</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>amount > 0 && amount <= this.tuitionDue</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ichki maydon holati <code>amount > 0 && amount <= this.tuitionDue</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>amount > 0 && amount <= this.tuitionDue</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>amount > 0 && amount <= this.tuitionDue</code>."
         }
       },
       {
         "name": "hasFunds()",
-        "signature": "public boolean hasFunds(double amount)",
+        "signature": "private boolean hasFunds(double amount)",
         "params": {
           "uz": "<code>double amount</code>",
           "en": "<code>double amount</code>",
           "ru": "<code>double amount</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.studentBalance >= amount</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.studentBalance >= amount</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.studentBalance >= amount</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki maydon holati <code>this.studentBalance >= amount</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.studentBalance >= amount</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.studentBalance >= amount</code>."
         }
       },
       {
         "name": "deduct()",
-        "signature": "public void deduct(double amount)",
+        "signature": "private void deduct(double amount)",
         "params": {
           "uz": "<code>double amount</code>",
           "en": "<code>double amount</code>",
           "ru": "<code>double amount</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "payTuition()",
         "signature": "public boolean payTuition(double amount)",
         "params": {
-          "uz": "<code>double amount</code>",
-          "en": "<code>double amount</code>",
-          "ru": "<code>double amount</code>"
+          "uz": "<code>double amount</code> (masalan, <code>30000000.0</code>)",
+          "en": "<code>double amount</code> (e.g. <code>30000000.0</code>)",
+          "ru": "<code>double amount</code> (например, <code>30000000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -5207,14 +5204,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double tuitionDue</code> maydonining qiymatini return qiladi (masalan, <code>30000000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double tuitionDue</code> (e.g. <code>30000000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double tuitionDue</code> (например, <code>30000000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>tuitionDue</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>tuitionDue</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>tuitionDue</code> без возможности модификации."
         }
       }
     ],
@@ -5223,14 +5220,14 @@
         "name": "TuitionGateway",
         "signature": "public TuitionGateway(double studentBalance, double tuitionDue)",
         "params": {
-          "uz": "<code>double studentBalance, double tuitionDue</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double studentBalance, double tuitionDue</code>",
-          "ru": "Принимает параметры: <code>double studentBalance, double tuitionDue</code>"
+          "uz": "<code>double studentBalance, double tuitionDue</code> (masalan, <code>35000000.0, 30000000.0</code>)",
+          "en": "<code>double studentBalance, double tuitionDue</code> (e.g. <code>35000000.0, 30000000.0</code>)",
+          "ru": "<code>double studentBalance, double tuitionDue</code> (например, <code>35000000.0, 30000000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.studentBalance = studentBalance;</code> <code>this.tuitionDue = tuitionDue;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.studentBalance = studentBalance;</code> <code>this.tuitionDue = tuitionDue;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.studentBalance = studentBalance;</code> <code>this.tuitionDue = tuitionDue;</code>"
         }
       }
     ],
@@ -5310,14 +5307,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String name</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -5329,14 +5326,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double price</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       }
     ],
@@ -5345,14 +5342,14 @@
         "name": "Product",
         "signature": "public Product()",
         "params": {
-          "uz": "Parametr qabul qilmaydi (no-arg default)",
-          "en": "No parameters (default constructor)",
-          "ru": "Параметров не принимает (по умолчанию)"
+          "uz": "Parametr qabul qilmaydi",
+          "en": "No parameters",
+          "ru": "Без параметров"
         },
         "desc": {
-          "uz": "Boshlang'ich biznes standart qiymatlarini o'rnatadi.",
-          "en": "Assigns default business initial state.",
-          "ru": "Присваивает начальные значения по умолчанию."
+          "uz": "Standart parametrsiz konstruktor, barcha xususiy maydonlarni boshlang'ich holatga keltiradi.",
+          "en": "Default constructor, initializes private fields to baseline state.",
+          "ru": "Конструктор по умолчанию, инициализирует приватные поля."
         }
       }
     ],
@@ -5429,14 +5426,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String owner</code> maydonining qiymatini return qiladi (masalan, <code>\"Nodir\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String owner</code> (e.g. <code>\"Nodir\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String owner</code> (например, <code>\"Nodir\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>owner</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>owner</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>owner</code> без возможности модификации."
         }
       },
       {
@@ -5448,14 +5445,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double balance</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double balance</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double balance</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>balance</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>balance</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>balance</code> без возможности модификации."
         }
       }
     ],
@@ -5464,14 +5461,14 @@
         "name": "Wallet",
         "signature": "public Wallet(String owner)",
         "params": {
-          "uz": "<code>String owner</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String owner</code>",
-          "ru": "Принимает параметры: <code>String owner</code>"
+          "uz": "<code>String owner</code> (masalan, <code>\"Nodir\"</code>)",
+          "en": "<code>String owner</code> (e.g. <code>\"Nodir\"</code>)",
+          "ru": "<code>String owner</code> (например, <code>\"Nodir\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.owner = owner;</code> <code>this.balance = 0.0;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.owner = owner;</code> <code>this.balance = 0.0;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.owner = owner;</code> <code>this.balance = 0.0;</code>"
         }
       }
     ],
@@ -5548,14 +5545,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String name</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -5567,14 +5564,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double price</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       }
     ],
@@ -5583,28 +5580,28 @@
         "name": "SupermarketItem",
         "signature": "public SupermarketItem()",
         "params": {
-          "uz": "Parametr qabul qilmaydi (no-arg default)",
-          "en": "No parameters (default constructor)",
-          "ru": "Параметров не принимает (по умолчанию)"
+          "uz": "Parametr qabul qilmaydi",
+          "en": "No parameters",
+          "ru": "Без параметров"
         },
         "desc": {
-          "uz": "Boshlang'ich biznes standart qiymatlarini o'rnatadi.",
-          "en": "Assigns default business initial state.",
-          "ru": "Присваивает начальные значения по умолчанию."
+          "uz": "Standart parametrsiz konstruktor, barcha xususiy maydonlarni boshlang'ich holatga keltiradi.",
+          "en": "Default constructor, initializes private fields to baseline state.",
+          "ru": "Конструктор по умолчанию, инициализирует приватные поля."
         }
       },
       {
         "name": "SupermarketItem",
         "signature": "public SupermarketItem(String name, double price)",
         "params": {
-          "uz": "<code>String name, double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, double price</code>",
-          "ru": "Принимает параметры: <code>String name, double price</code>"
+          "uz": "<code>String name, double price</code> (masalan, <code>\"Non\", 4000.0</code>)",
+          "en": "<code>String name, double price</code> (e.g. <code>\"Non\", 4000.0</code>)",
+          "ru": "<code>String name, double price</code> (например, <code>\"Non\", 4000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code> <code>this.price = price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code> <code>this.price = price;</code>"
         }
       }
     ],
@@ -5680,14 +5677,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String serviceName</code> maydonining qiymatini return qiladi (masalan, <code>\"Kommunal\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String serviceName</code> (e.g. <code>\"Kommunal\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String serviceName</code> (например, <code>\"Kommunal\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>serviceName</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>serviceName</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>serviceName</code> без возможности модификации."
         }
       },
       {
@@ -5699,14 +5696,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double fee</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double fee</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double fee</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>fee</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>fee</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>fee</code> без возможности модификации."
         }
       }
     ],
@@ -5715,28 +5712,28 @@
         "name": "BillService",
         "signature": "public BillService(String serviceName, double fee)",
         "params": {
-          "uz": "<code>String serviceName, double fee</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String serviceName, double fee</code>",
-          "ru": "Принимает параметры: <code>String serviceName, double fee</code>"
+          "uz": "<code>String serviceName, double fee</code> (masalan, <code>\"Kommunal\"</code>)",
+          "en": "<code>String serviceName, double fee</code> (e.g. <code>\"Kommunal\"</code>)",
+          "ru": "<code>String serviceName, double fee</code> (например, <code>\"Kommunal\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.serviceName = serviceName;</code> <code>this.fee = fee;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.serviceName = serviceName;</code> <code>this.fee = fee;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.serviceName = serviceName;</code> <code>this.fee = fee;</code>"
         }
       },
       {
         "name": "BillService",
         "signature": "public BillService(String serviceName)",
         "params": {
-          "uz": "<code>String serviceName</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String serviceName</code>",
-          "ru": "Принимает параметры: <code>String serviceName</code>"
+          "uz": "<code>String serviceName</code> (masalan, <code>\"Kommunal\"</code>)",
+          "en": "<code>String serviceName</code> (e.g. <code>\"Kommunal\"</code>)",
+          "ru": "<code>String serviceName</code> (например, <code>\"Kommunal\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametrlarni qabul qilib, ob'yekt holatini o'rnatadi.",
+          "en": "Accepts parameters and sets up initial object state.",
+          "ru": "Принимает параметры и устанавливает состояние объекта."
         }
       }
     ],
@@ -5812,14 +5809,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String model</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String model</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String model</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>model</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>model</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>model</code> без возможности модификации."
         }
       },
       {
@@ -5831,14 +5828,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double rateMultiplier</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double rateMultiplier</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double rateMultiplier</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>rateMultiplier</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>rateMultiplier</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>rateMultiplier</code> без возможности модификации."
         }
       }
     ],
@@ -5847,42 +5844,42 @@
         "name": "TaxiTier",
         "signature": "public TaxiTier()",
         "params": {
-          "uz": "Parametr qabul qilmaydi (no-arg default)",
-          "en": "No parameters (default constructor)",
-          "ru": "Параметров не принимает (по умолчанию)"
+          "uz": "Parametr qabul qilmaydi",
+          "en": "No parameters",
+          "ru": "Без параметров"
         },
         "desc": {
-          "uz": "Boshlang'ich biznes standart qiymatlarini o'rnatadi.",
-          "en": "Assigns default business initial state.",
-          "ru": "Присваивает начальные значения по умолчанию."
+          "uz": "Standart parametrsiz konstruktor, barcha xususiy maydonlarni boshlang'ich holatga keltiradi.",
+          "en": "Default constructor, initializes private fields to baseline state.",
+          "ru": "Конструктор по умолчанию, инициализирует приватные поля."
         }
       },
       {
         "name": "TaxiTier",
         "signature": "public TaxiTier(String model)",
         "params": {
-          "uz": "<code>String model</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String model</code>",
-          "ru": "Принимает параметры: <code>String model</code>"
+          "uz": "<code>String model</code>",
+          "en": "<code>String model</code>",
+          "ru": "<code>String model</code>"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametrlarni qabul qilib, ob'yekt holatini o'rnatadi.",
+          "en": "Accepts parameters and sets up initial object state.",
+          "ru": "Принимает параметры и устанавливает состояние объекта."
         }
       },
       {
         "name": "TaxiTier",
         "signature": "public TaxiTier(String model, double rateMultiplier)",
         "params": {
-          "uz": "<code>String model, double rateMultiplier</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String model, double rateMultiplier</code>",
-          "ru": "Принимает параметры: <code>String model, double rateMultiplier</code>"
+          "uz": "<code>String model, double rateMultiplier</code>",
+          "en": "<code>String model, double rateMultiplier</code>",
+          "ru": "<code>String model, double rateMultiplier</code>"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.model = model;</code> <code>this.rateMultiplier = rateMultiplier;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.model = model;</code> <code>this.rateMultiplier = rateMultiplier;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.model = model;</code> <code>this.rateMultiplier = rateMultiplier;</code>"
         }
       }
     ],
@@ -5958,14 +5955,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double weightKg</code> maydonining qiymatini return qiladi (masalan, <code>-2.5</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double weightKg</code> (e.g. <code>-2.5</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double weightKg</code> (например, <code>-2.5</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>weightKg</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>weightKg</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>weightKg</code> без возможности модификации."
         }
       }
     ],
@@ -5974,14 +5971,14 @@
         "name": "CakeOrder",
         "signature": "public CakeOrder(double weightKg)",
         "params": {
-          "uz": "<code>double weightKg</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double weightKg</code>",
-          "ru": "Принимает параметры: <code>double weightKg</code>"
+          "uz": "<code>double weightKg</code> (masalan, <code>-2.5</code>)",
+          "en": "<code>double weightKg</code> (e.g. <code>-2.5</code>)",
+          "ru": "<code>double weightKg</code> (например, <code>-2.5</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.weightKg = weightKg;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.weightKg = weightKg;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.weightKg = weightKg;</code>"
         }
       }
     ],
@@ -6056,14 +6053,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String serialNumber</code> maydonining qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String serialNumber</code> (e.g. <code>null</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String serialNumber</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>serialNumber</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>serialNumber</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>serialNumber</code> без возможности модификации."
         }
       }
     ],
@@ -6072,14 +6069,14 @@
         "name": "DeviceSerial",
         "signature": "public DeviceSerial(String serialNumber)",
         "params": {
-          "uz": "<code>String serialNumber</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String serialNumber</code>",
-          "ru": "Принимает параметры: <code>String serialNumber</code>"
+          "uz": "<code>String serialNumber</code> (masalan, <code>null</code>)",
+          "en": "<code>String serialNumber</code> (e.g. <code>null</code>)",
+          "ru": "<code>String serialNumber</code> (например, <code>null</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.serialNumber = = null || serialNumber.trim().isEmpty()) {\n            this.serialNumber = \"UNASSIGNED\";</code> <code>this.serialNumber = serialNumber.trim();</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.serialNumber = = null || serialNumber.trim().isEmpty()) {\n            this.serialNumber = \"UNASSIGNED\";</code> <code>this.serialNumber = serialNumber.trim();</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.serialNumber = = null || serialNumber.trim().isEmpty()) {\n            this.serialNumber = \"UNASSIGNED\";</code> <code>this.serialNumber = serialNumber.trim();</code>"
         }
       }
     ],
@@ -6159,14 +6156,14 @@
           "ru": "<code>String name</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>name</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>name</code> qiymatini return qiladi (masalan, <code>\"Margarita\"</code>).",
+          "en": "<code>void</code>: returns safe default if <code>name</code> is null, otherwise returns <code>name</code> (e.g. <code>\"Margarita\"</code>).",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>name</code> null, иначе <code>name</code> (например, <code>\"Margarita\"</code>)."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -6178,14 +6175,14 @@
           "ru": "<code>double price</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -6197,14 +6194,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi (masalan, <code>\"Margarita\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String name</code> (e.g. <code>\"Margarita\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code> (например, <code>\"Margarita\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -6216,14 +6213,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>55000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>55000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>55000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       }
     ],
@@ -6232,14 +6229,14 @@
         "name": "PizzaItem",
         "signature": "public PizzaItem(String name, double price)",
         "params": {
-          "uz": "<code>String name, double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, double price</code>",
-          "ru": "Принимает параметры: <code>String name, double price</code>"
+          "uz": "<code>String name, double price</code> (masalan, <code>\"Margarita\", 55000.0</code>)",
+          "en": "<code>String name, double price</code> (e.g. <code>\"Margarita\", 55000.0</code>)",
+          "ru": "<code>String name, double price</code> (например, <code>\"Margarita\", 55000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametrlarni qabul qilib, ob'yekt holatini o'rnatadi.",
+          "en": "Accepts parameters and sets up initial object state.",
+          "ru": "Принимает параметры и устанавливает состояние объекта."
         }
       }
     ],
@@ -6312,19 +6309,19 @@
         "name": "setPrice()",
         "signature": "public void setPrice(double price)",
         "params": {
-          "uz": "<code>double price</code>",
-          "en": "<code>double price</code>",
-          "ru": "<code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>50000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>50000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>50000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi <code>price</code> qiymatini qabul qilib, <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>price</code> and sets <code>this.price = price;</code>.",
+          "ru": "Принимает <code>price</code> и обновляет <code>this.price = price;</code>."
         }
       },
       {
@@ -6336,14 +6333,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String title</code> maydonining qiymatini return qiladi (masalan, <code>\"O'tkan Kunlar\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String title</code> (e.g. <code>\"O'tkan Kunlar\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String title</code> (например, <code>\"O'tkan Kunlar\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>title</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>title</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>title</code> без возможности модификации."
         }
       },
       {
@@ -6355,14 +6352,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>45000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>45000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>45000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       }
     ],
@@ -6371,28 +6368,28 @@
         "name": "Book",
         "signature": "public Book(String title, double price)",
         "params": {
-          "uz": "<code>String title, double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String title, double price</code>",
-          "ru": "Принимает параметры: <code>String title, double price</code>"
+          "uz": "<code>String title, double price</code> (masalan, <code>\"O'tkan Kunlar\", 45000.0</code>)",
+          "en": "<code>String title, double price</code> (e.g. <code>\"O'tkan Kunlar\", 45000.0</code>)",
+          "ru": "<code>String title, double price</code> (например, <code>\"O'tkan Kunlar\", 45000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.title = title;</code> <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.title = title;</code> <code>this.price = price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.title = title;</code> <code>this.price = price;</code>"
         }
       },
       {
         "name": "Book",
         "signature": "public Book(Book other)",
         "params": {
-          "uz": "<code>Book other</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>Book other</code>",
-          "ru": "Принимает параметры: <code>Book other</code>"
+          "uz": "<code>Book other</code> (masalan, <code>\"O'tkan Kunlar\", 45000.0</code>)",
+          "en": "<code>Book other</code> (e.g. <code>\"O'tkan Kunlar\", 45000.0</code>)",
+          "ru": "<code>Book other</code> (например, <code>\"O'tkan Kunlar\", 45000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.title = other.title;</code> <code>this.price = other.price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.title = other.title;</code> <code>this.price = other.price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.title = other.title;</code> <code>this.price = other.price;</code>"
         }
       }
     ],
@@ -6472,14 +6469,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int patientId</code> maydonining qiymatini return qiladi.",
+          "en": "<code>int</code>: returns the value of <code>private int patientId</code>.",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int patientId</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>patientId</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>patientId</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>patientId</code> без возможности модификации."
         }
       },
       {
@@ -6491,14 +6488,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi (masalan, <code>\"Anvar\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String name</code> (e.g. <code>\"Anvar\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code> (например, <code>\"Anvar\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       }
     ],
@@ -6507,14 +6504,14 @@
         "name": "PatientRecord",
         "signature": "public PatientRecord(String name)",
         "params": {
-          "uz": "<code>String name</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name</code>",
-          "ru": "Принимает параметры: <code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"Anvar\"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"Anvar\"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"Anvar\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.patientId = nextId++;</code> <code>this.name = name;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.patientId = nextId++;</code> <code>this.name = name;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.patientId = nextId++;</code> <code>this.name = name;</code>"
         }
       }
     ],
@@ -6593,14 +6590,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String city</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String city</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String city</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>city</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>city</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>city</code> без возможности модификации."
         }
       },
       {
@@ -6612,14 +6609,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String district</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String district</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String district</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>district</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>district</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>district</code> без возможности модификации."
         }
       },
       {
@@ -6631,14 +6628,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String building</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String building</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String building</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>building</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>building</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>building</code> без возможности модификации."
         }
       }
     ],
@@ -6647,14 +6644,14 @@
         "name": "CourierLocation",
         "signature": "public CourierLocation(String csv)",
         "params": {
-          "uz": "<code>String csv</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String csv</code>",
-          "ru": "Принимает параметры: <code>String csv</code>"
+          "uz": "<code>String csv</code> (masalan, <code>\"Toshkent,Chilonzor,12\"</code>)",
+          "en": "<code>String csv</code> (e.g. <code>\"Toshkent,Chilonzor,12\"</code>)",
+          "ru": "<code>String csv</code> (например, <code>\"Toshkent,Chilonzor,12\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.parts = csv.split(\",\");</code> <code>this.city = parts[0].trim();</code> <code>this.district = parts[1].trim();</code> <code>this.building = parts[2].trim();</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.parts = csv.split(\",\");</code> <code>this.city = parts[0].trim();</code> <code>this.district = parts[1].trim();</code> <code>this.building = parts[2].trim();</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.parts = csv.split(\",\");</code> <code>this.city = parts[0].trim();</code> <code>this.district = parts[1].trim();</code> <code>this.building = parts[2].trim();</code>"
         }
       }
     ],
@@ -6732,14 +6729,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double minAmount</code> maydonining qiymatini return qiladi (masalan, <code>5000000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double minAmount</code> (e.g. <code>5000000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double minAmount</code> (например, <code>5000000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>minAmount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>minAmount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>minAmount</code> без возможности модификации."
         }
       },
       {
@@ -6751,14 +6748,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double maxAmount</code> maydonining qiymatini return qiladi (masalan, <code>1000000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double maxAmount</code> (e.g. <code>1000000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double maxAmount</code> (например, <code>1000000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>maxAmount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>maxAmount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>maxAmount</code> без возможности модификации."
         }
       }
     ],
@@ -6767,14 +6764,14 @@
         "name": "CreditRange",
         "signature": "public CreditRange(double minAmount, double maxAmount)",
         "params": {
-          "uz": "<code>double minAmount, double maxAmount</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double minAmount, double maxAmount</code>",
-          "ru": "Принимает параметры: <code>double minAmount, double maxAmount</code>"
+          "uz": "<code>double minAmount, double maxAmount</code> (masalan, <code>5000000.0, 1000000.0</code>)",
+          "en": "<code>double minAmount, double maxAmount</code> (e.g. <code>5000000.0, 1000000.0</code>)",
+          "ru": "<code>double minAmount, double maxAmount</code> (например, <code>5000000.0, 1000000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.minAmount = minAmount;</code> <code>this.maxAmount = maxAmount;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.minAmount = minAmount;</code> <code>this.maxAmount = maxAmount;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.minAmount = minAmount;</code> <code>this.maxAmount = maxAmount;</code>"
         }
       }
     ],
@@ -6851,14 +6848,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String searchKey</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String searchKey</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String searchKey</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>searchKey</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>searchKey</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>searchKey</code> без возможности модификации."
         }
       }
     ],
@@ -6867,14 +6864,14 @@
         "name": "SubscriberKey",
         "signature": "public SubscriberKey(String firstName, String lastName)",
         "params": {
-          "uz": "<code>String firstName, String lastName</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String firstName, String lastName</code>",
-          "ru": "Принимает параметры: <code>String firstName, String lastName</code>"
+          "uz": "<code>String firstName, String lastName</code> (masalan, <code>\"Jasur\", \"Rahmatov\"</code>)",
+          "en": "<code>String firstName, String lastName</code> (e.g. <code>\"Jasur\", \"Rahmatov\"</code>)",
+          "ru": "<code>String firstName, String lastName</code> (например, <code>\"Jasur\", \"Rahmatov\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code> <code>this.initial = (firstName != null && !firstName.isEmpty()) ? firstName.charAt(0) : 'X';</code> <code>this.searchKey = (lastName != null ? lastName : \"\") + \"_\" + initial;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code> <code>this.initial = (firstName != null && !firstName.isEmpty()) ? firstName.charAt(0) : 'X';</code> <code>this.searchKey = (lastName != null ? lastName : \"\") + \"_\" + initial;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.firstName = firstName;</code> <code>this.lastName = lastName;</code> <code>this.initial = (firstName != null && !firstName.isEmpty()) ? firstName.charAt(0) : 'X';</code> <code>this.searchKey = (lastName != null ? lastName : \"\") + \"_\" + initial;</code>"
         }
       }
     ],
@@ -6942,21 +6939,21 @@
     "methodSpecs": [
       {
         "name": "of()",
-        "signature": "public FlightPass of(String code)",
+        "signature": "public static FlightPass of(String code)",
         "params": {
-          "uz": "<code>String code</code>",
-          "en": "<code>String code</code>",
-          "ru": "<code>String code</code>"
+          "uz": "<code>String code</code> (masalan, <code>\"HY-051-A\"</code>)",
+          "en": "<code>String code</code> (e.g. <code>\"HY-051-A\"</code>)",
+          "ru": "<code>String code</code> (например, <code>\"HY-051-A\"</code>)"
         },
         "returns": {
-          "uz": "FlightPass: ob'yekt havolasi",
-          "en": "FlightPass: object reference",
-          "ru": "FlightPass: ссылка на объект"
+          "uz": "<code>FlightPass</code>: agar <code>qiymat</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>qiymat</code> qiymatini return qiladi.",
+          "en": "<code>FlightPass</code>: returns safe default if <code>qiymat</code> is null, otherwise returns <code>qiymat</code>.",
+          "ru": "<code>FlightPass</code>: возвращает безопасное значение если <code>qiymat</code> null, иначе <code>qiymat</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -6968,18 +6965,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String boardingCode</code> maydonining qiymatini return qiladi (masalan, <code>code</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String boardingCode</code> (e.g. <code>code</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String boardingCode</code> (например, <code>code</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>boardingCode</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>boardingCode</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>boardingCode</code> без возможности модификации."
         }
       }
     ],
-    "constructorSpecs": [],
+    "constructorSpecs": [
+      {
+        "name": "FlightPass",
+        "signature": "public FlightPass(String boardingCode)",
+        "params": {
+          "uz": "<code>String boardingCode</code> (masalan, <code>code</code>)",
+          "en": "<code>String boardingCode</code> (e.g. <code>code</code>)",
+          "ru": "<code>String boardingCode</code> (например, <code>code</code>)"
+        },
+        "desc": {
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.boardingCode = boardingCode;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.boardingCode = boardingCode;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.boardingCode = boardingCode;</code>"
+        }
+      }
+    ],
     "mainTask": {
       "steps": {
         "uz": [
@@ -7053,14 +7065,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -7069,14 +7081,14 @@
         "name": "SRSStudent",
         "signature": "public SRSStudent(String name)",
         "params": {
-          "uz": "<code>String name</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name</code>",
-          "ru": "Принимает параметры: <code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"Aziz\"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"Aziz\"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"Aziz\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = = null || name.trim().isEmpty()) {\n            throw new IllegalArgumentException(\"Ism bo'sh bo'lishi mumkin emas\");</code> <code>this.studentId = \"000\" + (++seq);</code> <code>this.name = name.trim();</code> <code>this.credits = 120;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = = null || name.trim().isEmpty()) {\n            throw new IllegalArgumentException(\"Ism bo'sh bo'lishi mumkin emas\");</code> <code>this.studentId = \"000\" + (++seq);</code> <code>this.name = name.trim();</code> <code>this.credits = 120;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = = null || name.trim().isEmpty()) {\n            throw new IllegalArgumentException(\"Ism bo'sh bo'lishi mumkin emas\");</code> <code>this.studentId = \"000\" + (++seq);</code> <code>this.name = name.trim();</code> <code>this.credits = 120;</code>"
         }
       }
     ],
@@ -7144,40 +7156,40 @@
     "methodSpecs": [
       {
         "name": "checkInvariant()",
-        "signature": "public boolean checkInvariant()",
+        "signature": "private boolean checkInvariant()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.stock >= 0</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.stock >= 0</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.stock >= 0</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ichki maydon holati <code>this.stock >= 0</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.stock >= 0</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.stock >= 0</code>."
         }
       },
       {
         "name": "reduceStock()",
         "signature": "public boolean reduceStock(int amount)",
         "params": {
-          "uz": "<code>int amount</code>",
-          "en": "<code>int amount</code>",
-          "ru": "<code>int amount</code>"
+          "uz": "<code>int amount</code> (masalan, <code>4</code>)",
+          "en": "<code>int amount</code> (e.g. <code>4</code>)",
+          "ru": "<code>int amount</code> (например, <code>4</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -7189,14 +7201,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int stock</code> maydonining qiymatini return qiladi (masalan, <code>10</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int stock</code> (e.g. <code>10</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int stock</code> (например, <code>10</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>stock</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>stock</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>stock</code> без возможности модификации."
         }
       }
     ],
@@ -7205,14 +7217,14 @@
         "name": "WarehouseItem",
         "signature": "public WarehouseItem(int stock)",
         "params": {
-          "uz": "<code>int stock</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int stock</code>",
-          "ru": "Принимает параметры: <code>int stock</code>"
+          "uz": "<code>int stock</code> (masalan, <code>10</code>)",
+          "en": "<code>int stock</code> (e.g. <code>10</code>)",
+          "ru": "<code>int stock</code> (например, <code>10</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.stock = stock;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.stock = stock;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.stock = stock;</code>"
         }
       }
     ],
@@ -7287,19 +7299,19 @@
         "name": "setPrice()",
         "signature": "public void setPrice(double p)",
         "params": {
-          "uz": "<code>double p</code>",
-          "en": "<code>double p</code>",
-          "ru": "<code>double p</code>"
+          "uz": "<code>double p</code> (masalan, <code>500.0</code>)",
+          "en": "<code>double p</code> (e.g. <code>500.0</code>)",
+          "ru": "<code>double p</code> (например, <code>500.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>p >= this.minLimit && p <= this.maxLimit</code> shartiga tekshiradi, agar shart bajarilsa <code>this.currentPrice = p;</code> qilib yangilaydi.",
+          "en": "Checks <code>p >= this.minLimit && p <= this.maxLimit</code> condition, and if valid, updates <code>this.currentPrice = p;</code>.",
+          "ru": "Проверяет условие <code>p >= this.minLimit && p <= this.maxLimit</code>, и если верно, обновляет <code>this.currentPrice = p;</code>."
         }
       },
       {
@@ -7311,14 +7323,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double currentPrice</code> maydonining qiymatini return qiladi (masalan, <code>20000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double currentPrice</code> (e.g. <code>20000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double currentPrice</code> (например, <code>20000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>currentPrice</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>currentPrice</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>currentPrice</code> без возможности модификации."
         }
       }
     ],
@@ -7327,14 +7339,14 @@
         "name": "PriceBound",
         "signature": "public PriceBound(double minLimit, double maxLimit, double initialPrice)",
         "params": {
-          "uz": "<code>double minLimit, double maxLimit, double initialPrice</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double minLimit, double maxLimit, double initialPrice</code>",
-          "ru": "Принимает параметры: <code>double minLimit, double maxLimit, double initialPrice</code>"
+          "uz": "<code>double minLimit, double maxLimit, double initialPrice</code> (masalan, <code>1000.0, 50000.0, 20000.0</code>)",
+          "en": "<code>double minLimit, double maxLimit, double initialPrice</code> (e.g. <code>1000.0, 50000.0, 20000.0</code>)",
+          "ru": "<code>double minLimit, double maxLimit, double initialPrice</code> (например, <code>1000.0, 50000.0, 20000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.minLimit = minLimit;</code> <code>this.maxLimit = maxLimit;</code> <code>this.currentPrice = initialPrice;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.minLimit = minLimit;</code> <code>this.maxLimit = maxLimit;</code> <code>this.currentPrice = initialPrice;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.minLimit = minLimit;</code> <code>this.maxLimit = maxLimit;</code> <code>this.currentPrice = initialPrice;</code>"
         }
       }
     ],
@@ -7410,38 +7422,38 @@
         "name": "spend()",
         "signature": "public boolean spend(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>300000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>300000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>300000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "refund()",
         "signature": "public boolean refund(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>50000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>50000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>50000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -7453,14 +7465,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -7469,14 +7481,14 @@
         "name": "BudgetManager",
         "signature": "public BudgetManager(double totalBudget)",
         "params": {
-          "uz": "<code>double totalBudget</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double totalBudget</code>",
-          "ru": "Принимает параметры: <code>double totalBudget</code>"
+          "uz": "<code>double totalBudget</code> (masalan, <code>1000000.0</code>)",
+          "en": "<code>double totalBudget</code> (e.g. <code>1000000.0</code>)",
+          "ru": "<code>double totalBudget</code> (например, <code>1000000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.totalBudget = totalBudget;</code> <code>this.spent = 0.0;</code> <code>this.remaining = totalBudget;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.totalBudget = totalBudget;</code> <code>this.spent = 0.0;</code> <code>this.remaining = totalBudget;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.totalBudget = totalBudget;</code> <code>this.spent = 0.0;</code> <code>this.remaining = totalBudget;</code>"
         }
       }
     ],
@@ -7549,19 +7561,19 @@
         "name": "setTemperature()",
         "signature": "public void setTemperature(double newT)",
         "params": {
-          "uz": "<code>double newT</code>",
-          "en": "<code>double newT</code>",
-          "ru": "<code>double newT</code>"
+          "uz": "<code>double newT</code> (masalan, <code>35.0</code>)",
+          "en": "<code>double newT</code> (e.g. <code>35.0</code>)",
+          "ru": "<code>double newT</code> (например, <code>35.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -7573,14 +7585,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double temperature</code> maydonining qiymatini return qiladi (masalan, <code>22.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double temperature</code> (e.g. <code>22.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double temperature</code> (например, <code>22.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>temperature</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>temperature</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>temperature</code> без возможности модификации."
         }
       }
     ],
@@ -7589,14 +7601,14 @@
         "name": "Thermostat",
         "signature": "public Thermostat(double temperature)",
         "params": {
-          "uz": "<code>double temperature</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double temperature</code>",
-          "ru": "Принимает параметры: <code>double temperature</code>"
+          "uz": "<code>double temperature</code> (masalan, <code>22.0</code>)",
+          "en": "<code>double temperature</code> (e.g. <code>22.0</code>)",
+          "ru": "<code>double temperature</code> (например, <code>22.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.temperature = temperature;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.temperature = temperature;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.temperature = temperature;</code>"
         }
       }
     ],
@@ -7667,21 +7679,21 @@
     "methodSpecs": [
       {
         "name": "gcd()",
-        "signature": "public int gcd(int a, int b)",
+        "signature": "private int gcd(int a, int b)",
         "params": {
           "uz": "<code>int a, int b</code>",
           "en": "<code>int a, int b</code>",
           "ru": "<code>int a, int b</code>"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int</code>: returns computed business result or operation state.",
+          "ru": "<code>int</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -7693,14 +7705,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -7709,14 +7721,14 @@
         "name": "Fraction",
         "signature": "public Fraction(int numerator, int denominator)",
         "params": {
-          "uz": "<code>int numerator, int denominator</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int numerator, int denominator</code>",
-          "ru": "Принимает параметры: <code>int numerator, int denominator</code>"
+          "uz": "<code>int numerator, int denominator</code> (masalan, <code>4, 8</code>)",
+          "en": "<code>int numerator, int denominator</code> (e.g. <code>4, 8</code>)",
+          "ru": "<code>int numerator, int denominator</code> (например, <code>4, 8</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.denominator = = 0) throw new IllegalArgumentException(\"Denominator cannot be 0\");</code> <code>this.common = gcd(Math.abs(numerator), Math.abs(denominator));</code> <code>this.numerator = numerator / common;</code> <code>this.denominator = denominator / common;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.denominator = = 0) throw new IllegalArgumentException(\"Denominator cannot be 0\");</code> <code>this.common = gcd(Math.abs(numerator), Math.abs(denominator));</code> <code>this.numerator = numerator / common;</code> <code>this.denominator = denominator / common;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.denominator = = 0) throw new IllegalArgumentException(\"Denominator cannot be 0\");</code> <code>this.common = gcd(Math.abs(numerator), Math.abs(denominator));</code> <code>this.numerator = numerator / common;</code> <code>this.denominator = denominator / common;</code>"
         }
       }
     ],
@@ -7788,19 +7800,19 @@
         "name": "add()",
         "signature": "public boolean add(int val)",
         "params": {
-          "uz": "<code>int val</code>",
-          "en": "<code>int val</code>",
-          "ru": "<code>int val</code>"
+          "uz": "<code>int val</code> (masalan, <code>10</code>)",
+          "en": "<code>int val</code> (e.g. <code>10</code>)",
+          "ru": "<code>int val</code> (например, <code>10</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>size</code> hisoblagichini 1 taga oshirib, <code>private true</code> maydonini return qiladi.",
+          "en": "<code>boolean</code>: increments <code>size</code> counter and returns <code>private true</code>.",
+          "ru": "<code>boolean</code>: увеличивает счетчик <code>size</code> и возвращает поле <code>true</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Har murojaatda <code>size</code> maydonini oshirib, <code>true</code> maydonining joriy qiymatini return qiladi.",
+          "en": "Increments <code>size</code> count on each call and returns the current <code>true</code> value.",
+          "ru": "Инкрементирует <code>size</code> при каждом вызове и возвращает значение <code>true</code>."
         }
       },
       {
@@ -7812,14 +7824,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int size</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int size</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int size</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>size</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>size</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>size</code> без возможности модификации."
         }
       }
     ],
@@ -7828,14 +7840,14 @@
         "name": "CircularBuffer",
         "signature": "public CircularBuffer(int capacity)",
         "params": {
-          "uz": "<code>int capacity</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int capacity</code>",
-          "ru": "Принимает параметры: <code>int capacity</code>"
+          "uz": "<code>int capacity</code> (masalan, <code>3</code>)",
+          "en": "<code>int capacity</code> (e.g. <code>3</code>)",
+          "ru": "<code>int capacity</code> (например, <code>3</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.capacity = capacity;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.capacity = capacity;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.capacity = capacity;</code>"
         }
       }
     ],
@@ -7908,40 +7920,40 @@
     "methodSpecs": [
       {
         "name": "isLeapYear()",
-        "signature": "public boolean isLeapYear(int y)",
+        "signature": "private boolean isLeapYear(int y)",
         "params": {
           "uz": "<code>int y</code>",
           "en": "<code>int y</code>",
           "ru": "<code>int y</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "daysInMonth()",
-        "signature": "public int daysInMonth(int y, int m)",
+        "signature": "private int daysInMonth(int y, int m)",
         "params": {
           "uz": "<code>int y, int m</code>",
           "en": "<code>int y, int m</code>",
           "ru": "<code>int y, int m</code>"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int</code>: returns computed business result or operation state.",
+          "ru": "<code>int</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -7953,14 +7965,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -7969,14 +7981,14 @@
         "name": "CalendarDate",
         "signature": "public CalendarDate(int y, int m, int d)",
         "params": {
-          "uz": "<code>int y, int m, int d</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int y, int m, int d</code>",
-          "ru": "Принимает параметры: <code>int y, int m, int d</code>"
+          "uz": "<code>int y, int m, int d</code> (masalan, <code>2026, 2, 29</code>)",
+          "en": "<code>int y, int m, int d</code> (e.g. <code>2026, 2, 29</code>)",
+          "ru": "<code>int y, int m, int d</code> (например, <code>2026, 2, 29</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.year = y;</code> <code>this.month = m;</code> <code>this.day = d;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.year = y;</code> <code>this.month = m;</code> <code>this.day = d;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.year = y;</code> <code>this.month = m;</code> <code>this.day = d;</code>"
         }
       }
     ],
@@ -8047,19 +8059,19 @@
         "name": "setShift()",
         "signature": "public boolean setShift(int start, int end)",
         "params": {
-          "uz": "<code>int start, int end</code>",
-          "en": "<code>int start, int end</code>",
-          "ru": "<code>int start, int end</code>"
+          "uz": "<code>int start, int end</code> (masalan, <code>17, 12</code>)",
+          "en": "<code>int start, int end</code> (e.g. <code>17, 12</code>)",
+          "ru": "<code>int start, int end</code> (например, <code>17, 12</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -8071,14 +8083,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int</code>: returns computed business result or operation state.",
+          "ru": "<code>int</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -8087,14 +8099,14 @@
         "name": "KitchenShift",
         "signature": "public KitchenShift(int startHour, int endHour)",
         "params": {
-          "uz": "<code>int startHour, int endHour</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int startHour, int endHour</code>",
-          "ru": "Принимает параметры: <code>int startHour, int endHour</code>"
+          "uz": "<code>int startHour, int endHour</code> (masalan, <code>9, 18</code>)",
+          "en": "<code>int startHour, int endHour</code> (e.g. <code>9, 18</code>)",
+          "ru": "<code>int startHour, int endHour</code> (например, <code>9, 18</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.startHour = startHour;</code> <code>this.endHour = endHour;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.startHour = startHour;</code> <code>this.endHour = endHour;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.startHour = startHour;</code> <code>this.endHour = endHour;</code>"
         }
       }
     ],
@@ -8168,38 +8180,38 @@
         "name": "addDebit()",
         "signature": "public void addDebit(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>150000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>150000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>150000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "addCredit()",
         "signature": "public void addCredit(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>150000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>150000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>150000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -8211,14 +8223,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -8293,19 +8305,19 @@
         "name": "sell()",
         "signature": "public boolean sell(int count)",
         "params": {
-          "uz": "<code>int count</code>",
-          "en": "<code>int count</code>",
-          "ru": "<code>int count</code>"
+          "uz": "<code>int count</code> (masalan, <code>8</code>)",
+          "en": "<code>int count</code> (e.g. <code>8</code>)",
+          "ru": "<code>int count</code> (например, <code>8</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -8317,14 +8329,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.stock <= this.reorderThreshold</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.stock <= this.reorderThreshold</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.stock <= this.reorderThreshold</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki maydon holati <code>this.stock <= this.reorderThreshold</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.stock <= this.reorderThreshold</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.stock <= this.reorderThreshold</code>."
         }
       }
     ],
@@ -8333,14 +8345,14 @@
         "name": "StockThreshold",
         "signature": "public StockThreshold(int stock, int reorderThreshold)",
         "params": {
-          "uz": "<code>int stock, int reorderThreshold</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int stock, int reorderThreshold</code>",
-          "ru": "Принимает параметры: <code>int stock, int reorderThreshold</code>"
+          "uz": "<code>int stock, int reorderThreshold</code> (masalan, <code>10, 3</code>)",
+          "en": "<code>int stock, int reorderThreshold</code> (e.g. <code>10, 3</code>)",
+          "ru": "<code>int stock, int reorderThreshold</code> (например, <code>10, 3</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.stock = stock;</code> <code>this.reorderThreshold = reorderThreshold;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.stock = stock;</code> <code>this.reorderThreshold = reorderThreshold;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.stock = stock;</code> <code>this.reorderThreshold = reorderThreshold;</code>"
         }
       }
     ],
@@ -8414,19 +8426,19 @@
         "name": "setPassword()",
         "signature": "public boolean setPassword(String pass)",
         "params": {
-          "uz": "<code>String pass</code>",
-          "en": "<code>String pass</code>",
-          "ru": "<code>String pass</code>"
+          "uz": "<code>String pass</code> (masalan, <code>\"weak\"</code>)",
+          "en": "<code>String pass</code> (e.g. <code>\"weak\"</code>)",
+          "ru": "<code>String pass</code> (например, <code>\"weak\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>passwordHash</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>passwordHash</code> qiymatini return qiladi.",
+          "en": "<code>boolean</code>: returns safe default if <code>passwordHash</code> is null, otherwise returns <code>passwordHash</code>.",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>passwordHash</code> null, иначе <code>passwordHash</code>."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -8438,14 +8450,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.passwordHash != null</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.passwordHash != null</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.passwordHash != null</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki maydon holati <code>this.passwordHash != null</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.passwordHash != null</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.passwordHash != null</code>."
         }
       }
     ],
@@ -8518,19 +8530,19 @@
         "name": "requestSms()",
         "signature": "public boolean requestSms(long currentTimestamp)",
         "params": {
-          "uz": "<code>long currentTimestamp</code>",
-          "en": "<code>long currentTimestamp</code>",
-          "ru": "<code>long currentTimestamp</code>"
+          "uz": "<code>long currentTimestamp</code> (masalan, <code>1000</code>)",
+          "en": "<code>long currentTimestamp</code> (e.g. <code>1000</code>)",
+          "ru": "<code>long currentTimestamp</code> (например, <code>1000</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -8611,14 +8623,14 @@
           "ru": "<code>double w</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>w > 0</code> shartiga tekshiradi, agar shart bajarilsa <code>this.width = w;</code> qilib yangilaydi.",
+          "en": "Checks <code>w > 0</code> condition, and if valid, updates <code>this.width = w;</code>.",
+          "ru": "Проверяет условие <code>w > 0</code>, и если верно, обновляет <code>this.width = w;</code>."
         }
       },
       {
@@ -8630,14 +8642,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double width</code> maydonining qiymatini return qiladi (masalan, <code>1600.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double width</code> (e.g. <code>1600.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double width</code> (например, <code>1600.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>width</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>width</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>width</code> без возможности модификации."
         }
       },
       {
@@ -8649,14 +8661,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double height</code> maydonining qiymatini return qiladi.",
+          "en": "<code>double</code>: returns the value of <code>private double height</code>.",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double height</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>height</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>height</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>height</code> без возможности модификации."
         }
       }
     ],
@@ -8665,14 +8677,14 @@
         "name": "MenuPhoto",
         "signature": "public MenuPhoto(double width)",
         "params": {
-          "uz": "<code>double width</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double width</code>",
-          "ru": "Принимает параметры: <code>double width</code>"
+          "uz": "<code>double width</code> (masalan, <code>1600.0</code>)",
+          "en": "<code>double width</code> (e.g. <code>1600.0</code>)",
+          "ru": "<code>double width</code> (например, <code>1600.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametrlarni qabul qilib, ob'yekt holatini o'rnatadi.",
+          "en": "Accepts parameters and sets up initial object state.",
+          "ru": "Принимает параметры и устанавливает состояние объекта."
         }
       }
     ],
@@ -8741,40 +8753,40 @@
     "methodSpecs": [
       {
         "name": "updateStatus()",
-        "signature": "public void updateStatus()",
+        "signature": "private void updateStatus()",
         "params": {
           "uz": "Parametr qabul qilmaydi",
           "en": "No parameters",
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi qiymatni <code>this.points >= 25000</code> shartiga tekshiradi, agar shart bajarilsa <code>this.status = \"PLATINUM\";</code> qilib yangilaydi.",
+          "en": "Checks <code>this.points >= 25000</code> condition, and if valid, updates <code>this.status = \"PLATINUM\";</code>.",
+          "ru": "Проверяет условие <code>this.points >= 25000</code>, и если верно, обновляет <code>this.status = \"PLATINUM\";</code>."
         }
       },
       {
         "name": "addMiles()",
         "signature": "public void addMiles(int miles)",
         "params": {
-          "uz": "<code>int miles</code>",
-          "en": "<code>int miles</code>",
-          "ru": "<code>int miles</code>"
+          "uz": "<code>int miles</code> (masalan, <code>12000</code>)",
+          "en": "<code>int miles</code> (e.g. <code>12000</code>)",
+          "ru": "<code>int miles</code> (например, <code>12000</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -8786,14 +8798,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String status</code> maydonining qiymatini return qiladi (masalan, <code>\"SILVER\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String status</code> (e.g. <code>\"SILVER\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String status</code> (например, <code>\"SILVER\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>status</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>status</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>status</code> без возможности модификации."
         }
       }
     ],
@@ -8867,19 +8879,19 @@
         "name": "enrollModule()",
         "signature": "public boolean enrollModule(int credits)",
         "params": {
-          "uz": "<code>int credits</code>",
-          "en": "<code>int credits</code>",
-          "ru": "<code>int credits</code>"
+          "uz": "<code>int credits</code> (masalan, <code>30</code>)",
+          "en": "<code>int credits</code> (e.g. <code>30</code>)",
+          "ru": "<code>int credits</code> (например, <code>30</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -8891,14 +8903,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int enrolledCredits</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int enrolledCredits</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int enrolledCredits</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>enrolledCredits</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>enrolledCredits</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>enrolledCredits</code> без возможности модификации."
         }
       }
     ],
@@ -8978,14 +8990,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String receiptId</code> maydonining qiymatini return qiladi (masalan, <code>\"RCP-1092\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String receiptId</code> (e.g. <code>\"RCP-1092\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String receiptId</code> (например, <code>\"RCP-1092\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>receiptId</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>receiptId</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>receiptId</code> без возможности модификации."
         }
       },
       {
@@ -8997,14 +9009,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double totalAmount</code> maydonining qiymatini return qiladi (masalan, <code>125000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double totalAmount</code> (e.g. <code>125000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double totalAmount</code> (например, <code>125000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>totalAmount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>totalAmount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>totalAmount</code> без возможности модификации."
         }
       }
     ],
@@ -9013,14 +9025,14 @@
         "name": "OrderReceipt",
         "signature": "public OrderReceipt(String receiptId, double totalAmount)",
         "params": {
-          "uz": "<code>String receiptId, double totalAmount</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String receiptId, double totalAmount</code>",
-          "ru": "Принимает параметры: <code>String receiptId, double totalAmount</code>"
+          "uz": "<code>String receiptId, double totalAmount</code> (masalan, <code>\"RCP-1092\", 125000.0</code>)",
+          "en": "<code>String receiptId, double totalAmount</code> (e.g. <code>\"RCP-1092\", 125000.0</code>)",
+          "ru": "<code>String receiptId, double totalAmount</code> (например, <code>\"RCP-1092\", 125000.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.receiptId = receiptId;</code> <code>this.totalAmount = totalAmount;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.receiptId = receiptId;</code> <code>this.totalAmount = totalAmount;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.receiptId = receiptId;</code> <code>this.totalAmount = totalAmount;</code>"
         }
       }
     ],
@@ -9099,14 +9111,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double x</code> maydonining qiymatini return qiladi (masalan, <code>newX</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double x</code> (e.g. <code>newX</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double x</code> (например, <code>newX</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>x</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>x</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>x</code> без возможности модификации."
         }
       },
       {
@@ -9118,33 +9130,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double y</code> maydonining qiymatini return qiladi (masalan, <code>this.y</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double y</code> (e.g. <code>this.y</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double y</code> (например, <code>this.y</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>y</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>y</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>y</code> без возможности модификации."
         }
       },
       {
         "name": "withX()",
         "signature": "public Point2D withX(double newX)",
         "params": {
-          "uz": "<code>double newX</code>",
-          "en": "<code>double newX</code>",
-          "ru": "<code>double newX</code>"
+          "uz": "<code>double newX</code> (masalan, <code>50.0</code>)",
+          "en": "<code>double newX</code> (e.g. <code>50.0</code>)",
+          "ru": "<code>double newX</code> (например, <code>50.0</code>)"
         },
         "returns": {
-          "uz": "Point2D: ob'yekt havolasi",
-          "en": "Point2D: object reference",
-          "ru": "Point2D: ссылка на объект"
+          "uz": "<code>Point2D</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>Point2D</code> ob'yektini return qiladi.",
+          "en": "<code>Point2D</code>: returns a new <code>Point2D</code> instance without mutating original object.",
+          "ru": "<code>Point2D</code>: возвращает новый экземпляр <code>Point2D</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       },
       {
@@ -9156,14 +9168,14 @@
           "ru": "<code>double newY</code>"
         },
         "returns": {
-          "uz": "Point2D: ob'yekt havolasi",
-          "en": "Point2D: object reference",
-          "ru": "Point2D: ссылка на объект"
+          "uz": "<code>Point2D</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>Point2D</code> ob'yektini return qiladi.",
+          "en": "<code>Point2D</code>: returns a new <code>Point2D</code> instance without mutating original object.",
+          "ru": "<code>Point2D</code>: возвращает новый экземпляр <code>Point2D</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       }
     ],
@@ -9172,14 +9184,14 @@
         "name": "Point2D",
         "signature": "public Point2D(double x, double y)",
         "params": {
-          "uz": "<code>double x, double y</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double x, double y</code>",
-          "ru": "Принимает параметры: <code>double x, double y</code>"
+          "uz": "<code>double x, double y</code> (masalan, <code>newX, this.y</code>)",
+          "en": "<code>double x, double y</code> (e.g. <code>newX, this.y</code>)",
+          "ru": "<code>double x, double y</code> (например, <code>newX, this.y</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.x = x;</code> <code>this.y = y;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.x = x;</code> <code>this.y = y;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.x = x;</code> <code>this.y = y;</code>"
         }
       }
     ],
@@ -9260,14 +9272,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double amount</code> maydonining qiymatini return qiladi (masalan, <code>this.amount + other.amount</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double amount</code> (e.g. <code>this.amount + other.amount</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double amount</code> (например, <code>this.amount + other.amount</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>amount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>amount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>amount</code> без возможности модификации."
         }
       },
       {
@@ -9279,33 +9291,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String currency</code> maydonining qiymatini return qiladi (masalan, <code>this.currency</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String currency</code> (e.g. <code>this.currency</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String currency</code> (например, <code>this.currency</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>currency</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>currency</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>currency</code> без возможности модификации."
         }
       },
       {
         "name": "add()",
         "signature": "public Money add(Money other)",
         "params": {
-          "uz": "<code>Money other</code>",
-          "en": "<code>Money other</code>",
-          "ru": "<code>Money other</code>"
+          "uz": "<code>Money other</code> (masalan, <code>m2</code>)",
+          "en": "<code>Money other</code> (e.g. <code>m2</code>)",
+          "ru": "<code>Money other</code> (например, <code>m2</code>)"
         },
         "returns": {
-          "uz": "Money: ob'yekt havolasi",
-          "en": "Money: object reference",
-          "ru": "Money: ссылка на объект"
+          "uz": "<code>Money</code>: agar <code>amount</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>amount</code> qiymatini return qiladi (masalan, <code>this.amount + other.amount</code>).",
+          "en": "<code>Money</code>: returns safe default if <code>amount</code> is null, otherwise returns <code>amount</code> (e.g. <code>this.amount + other.amount</code>).",
+          "ru": "<code>Money</code>: возвращает безопасное значение если <code>amount</code> null, иначе <code>amount</code> (например, <code>this.amount + other.amount</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -9314,14 +9326,14 @@
         "name": "Money",
         "signature": "public Money(double amount, String currency)",
         "params": {
-          "uz": "<code>double amount, String currency</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double amount, String currency</code>",
-          "ru": "Принимает параметры: <code>double amount, String currency</code>"
+          "uz": "<code>double amount, String currency</code> (masalan, <code>this.amount + other.amount, this.currency</code>)",
+          "en": "<code>double amount, String currency</code> (e.g. <code>this.amount + other.amount, this.currency</code>)",
+          "ru": "<code>double amount, String currency</code> (например, <code>this.amount + other.amount, this.currency</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.amount = amount;</code> <code>this.currency = (currency != null) ? currency.toUpperCase() : \"UZS\";</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.amount = amount;</code> <code>this.currency = (currency != null) ? currency.toUpperCase() : \"UZS\";</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.amount = amount;</code> <code>this.currency = (currency != null) ? currency.toUpperCase() : \"UZS\";</code>"
         }
       }
     ],
@@ -9396,19 +9408,19 @@
         "name": "plus()",
         "signature": "public Complex plus(Complex other)",
         "params": {
-          "uz": "<code>Complex other</code>",
-          "en": "<code>Complex other</code>",
-          "ru": "<code>Complex other</code>"
+          "uz": "<code>Complex other</code> (masalan, <code>c2</code>)",
+          "en": "<code>Complex other</code> (e.g. <code>c2</code>)",
+          "ru": "<code>Complex other</code> (например, <code>c2</code>)"
         },
         "returns": {
-          "uz": "Complex: ob'yekt havolasi",
-          "en": "Complex: object reference",
-          "ru": "Complex: ссылка на объект"
+          "uz": "<code>Complex</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>Complex</code> ob'yektini return qiladi.",
+          "en": "<code>Complex</code>: returns a new <code>Complex</code> instance without mutating original object.",
+          "ru": "<code>Complex</code>: возвращает новый экземпляр <code>Complex</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       },
       {
@@ -9420,14 +9432,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -9436,14 +9448,14 @@
         "name": "Complex",
         "signature": "public Complex(double real, double imag)",
         "params": {
-          "uz": "<code>double real, double imag</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double real, double imag</code>",
-          "ru": "Принимает параметры: <code>double real, double imag</code>"
+          "uz": "<code>double real, double imag</code> (masalan, <code>this.real + other.real, this.imag + other.imag</code>)",
+          "en": "<code>double real, double imag</code> (e.g. <code>this.real + other.real, this.imag + other.imag</code>)",
+          "ru": "<code>double real, double imag</code> (например, <code>this.real + other.real, this.imag + other.imag</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.real = real;</code> <code>this.imag = imag;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.real = real;</code> <code>this.imag = imag;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.real = real;</code> <code>this.imag = imag;</code>"
         }
       }
     ],
@@ -9520,14 +9532,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String value</code> maydonining qiymatini return qiladi (masalan, <code>\"  Azizbek_2026  \"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String value</code> (e.g. <code>\"  Azizbek_2026  \"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String value</code> (например, <code>\"  Azizbek_2026  \"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>value</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>value</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>value</code> без возможности модификации."
         }
       }
     ],
@@ -9536,14 +9548,14 @@
         "name": "Username",
         "signature": "public Username(String raw)",
         "params": {
-          "uz": "<code>String raw</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String raw</code>",
-          "ru": "Принимает параметры: <code>String raw</code>"
+          "uz": "<code>String raw</code> (masalan, <code>\"  Azizbek_2026  \"</code>)",
+          "en": "<code>String raw</code> (e.g. <code>\"  Azizbek_2026  \"</code>)",
+          "ru": "<code>String raw</code> (например, <code>\"  Azizbek_2026  \"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.raw = = null || raw.trim().length() < 3) {\n            throw new IllegalArgumentException(\"Yaroqsiz login\");</code> <code>this.value = raw.trim().toLowerCase();</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.raw = = null || raw.trim().length() < 3) {\n            throw new IllegalArgumentException(\"Yaroqsiz login\");</code> <code>this.value = raw.trim().toLowerCase();</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.raw = = null || raw.trim().length() < 3) {\n            throw new IllegalArgumentException(\"Yaroqsiz login\");</code> <code>this.value = raw.trim().toLowerCase();</code>"
         }
       }
     ],
@@ -9616,19 +9628,19 @@
         "name": "darken()",
         "signature": "public ColorRGB darken(double factor)",
         "params": {
-          "uz": "<code>double factor</code>",
-          "en": "<code>double factor</code>",
-          "ru": "<code>double factor</code>"
+          "uz": "<code>double factor</code> (masalan, <code>0.5</code>)",
+          "en": "<code>double factor</code> (e.g. <code>0.5</code>)",
+          "ru": "<code>double factor</code> (например, <code>0.5</code>)"
         },
         "returns": {
-          "uz": "ColorRGB: ob'yekt havolasi",
-          "en": "ColorRGB: object reference",
-          "ru": "ColorRGB: ссылка на объект"
+          "uz": "<code>ColorRGB</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>ColorRGB</code> ob'yektini return qiladi.",
+          "en": "<code>ColorRGB</code>: returns a new <code>ColorRGB</code> instance without mutating original object.",
+          "ru": "<code>ColorRGB</code>: возвращает новый экземпляр <code>ColorRGB</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       },
       {
@@ -9640,14 +9652,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -9656,14 +9668,14 @@
         "name": "ColorRGB",
         "signature": "public ColorRGB(int red, int green, int blue)",
         "params": {
-          "uz": "<code>int red, int green, int blue</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int red, int green, int blue</code>",
-          "ru": "Принимает параметры: <code>int red, int green, int blue</code>"
+          "uz": "<code>int red, int green, int blue</code> (masalan, <code>(int</code>)",
+          "en": "<code>int red, int green, int blue</code> (e.g. <code>(int</code>)",
+          "ru": "<code>int red, int green, int blue</code> (например, <code>(int</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.red = Math.max(0, Math.min(255, red));</code> <code>this.green = Math.max(0, Math.min(255, green));</code> <code>this.blue = Math.max(0, Math.min(255, blue));</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.red = Math.max(0, Math.min(255, red));</code> <code>this.green = Math.max(0, Math.min(255, green));</code> <code>this.blue = Math.max(0, Math.min(255, blue));</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.red = Math.max(0, Math.min(255, red));</code> <code>this.green = Math.max(0, Math.min(255, green));</code> <code>this.blue = Math.max(0, Math.min(255, blue));</code>"
         }
       }
     ],
@@ -9738,19 +9750,19 @@
         "name": "overlaps()",
         "signature": "public boolean overlaps(TimeInterval other)",
         "params": {
-          "uz": "<code>TimeInterval other</code>",
-          "en": "<code>TimeInterval other</code>",
-          "ru": "<code>TimeInterval other</code>"
+          "uz": "<code>TimeInterval other</code> (masalan, <code>t3</code>)",
+          "en": "<code>TimeInterval other</code> (e.g. <code>t3</code>)",
+          "ru": "<code>TimeInterval other</code> (например, <code>t3</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>startMinute</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>startMinute</code> qiymatini return qiladi (masalan, <code>600</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>startMinute</code> is null, otherwise returns <code>startMinute</code> (e.g. <code>600</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>startMinute</code> null, иначе <code>startMinute</code> (например, <code>600</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -9762,14 +9774,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int startMinute</code> maydonining qiymatini return qiladi (masalan, <code>600</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int startMinute</code> (e.g. <code>600</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int startMinute</code> (например, <code>600</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>startMinute</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>startMinute</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>startMinute</code> без возможности модификации."
         }
       },
       {
@@ -9781,14 +9793,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int endMinute</code> maydonining qiymatini return qiladi (masalan, <code>720</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int endMinute</code> (e.g. <code>720</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int endMinute</code> (например, <code>720</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>endMinute</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>endMinute</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>endMinute</code> без возможности модификации."
         }
       }
     ],
@@ -9797,14 +9809,14 @@
         "name": "TimeInterval",
         "signature": "public TimeInterval(int startMinute, int endMinute)",
         "params": {
-          "uz": "<code>int startMinute, int endMinute</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int startMinute, int endMinute</code>",
-          "ru": "Принимает параметры: <code>int startMinute, int endMinute</code>"
+          "uz": "<code>int startMinute, int endMinute</code> (masalan, <code>600, 720</code>)",
+          "en": "<code>int startMinute, int endMinute</code> (e.g. <code>600, 720</code>)",
+          "ru": "<code>int startMinute, int endMinute</code> (например, <code>600, 720</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.startMinute = startMinute;</code> <code>this.endMinute = endMinute;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.startMinute = startMinute;</code> <code>this.endMinute = endMinute;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.startMinute = startMinute;</code> <code>this.endMinute = endMinute;</code>"
         }
       }
     ],
@@ -9877,19 +9889,19 @@
         "name": "getOctet()",
         "signature": "public int getOctet(int index)",
         "params": {
-          "uz": "<code>int index</code>",
-          "en": "<code>int index</code>",
-          "ru": "<code>int index</code>"
+          "uz": "<code>int index</code> (masalan, <code>4</code>)",
+          "en": "<code>int index</code> (e.g. <code>4</code>)",
+          "ru": "<code>int index</code> (например, <code>4</code>)"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int</code>: returns computed business result or operation state.",
+          "ru": "<code>int</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -9901,14 +9913,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -9917,14 +9929,14 @@
         "name": "IpAddress",
         "signature": "public IpAddress(String ip)",
         "params": {
-          "uz": "<code>String ip</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String ip</code>",
-          "ru": "Принимает параметры: <code>String ip</code>"
+          "uz": "<code>String ip</code> (masalan, <code>\"192.168.0.1\"</code>)",
+          "en": "<code>String ip</code> (e.g. <code>\"192.168.0.1\"</code>)",
+          "ru": "<code>String ip</code> (например, <code>\"192.168.0.1\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.parts = ip.split(\"\\\\.\");</code> <code>this.o1 = Integer.parseInt(parts[0]);</code> <code>this.o2 = Integer.parseInt(parts[1]);</code> <code>this.o3 = Integer.parseInt(parts[2]);</code> <code>this.o4 = Integer.parseInt(parts[3]);</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.parts = ip.split(\"\\\\.\");</code> <code>this.o1 = Integer.parseInt(parts[0]);</code> <code>this.o2 = Integer.parseInt(parts[1]);</code> <code>this.o3 = Integer.parseInt(parts[2]);</code> <code>this.o4 = Integer.parseInt(parts[3]);</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.parts = ip.split(\"\\\\.\");</code> <code>this.o1 = Integer.parseInt(parts[0]);</code> <code>this.o2 = Integer.parseInt(parts[1]);</code> <code>this.o3 = Integer.parseInt(parts[2]);</code> <code>this.o4 = Integer.parseInt(parts[3]);</code>"
         }
       }
     ],
@@ -9997,19 +10009,19 @@
         "name": "scale()",
         "signature": "public Dimensions3D scale(double factor)",
         "params": {
-          "uz": "<code>double factor</code>",
-          "en": "<code>double factor</code>",
-          "ru": "<code>double factor</code>"
+          "uz": "<code>double factor</code> (masalan, <code>2.0</code>)",
+          "en": "<code>double factor</code> (e.g. <code>2.0</code>)",
+          "ru": "<code>double factor</code> (например, <code>2.0</code>)"
         },
         "returns": {
-          "uz": "Dimensions3D: ob'yekt havolasi",
-          "en": "Dimensions3D: object reference",
-          "ru": "Dimensions3D: ссылка на объект"
+          "uz": "<code>Dimensions3D</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>Dimensions3D</code> ob'yektini return qiladi.",
+          "en": "<code>Dimensions3D</code>: returns a new <code>Dimensions3D</code> instance without mutating original object.",
+          "ru": "<code>Dimensions3D</code>: возвращает новый экземпляр <code>Dimensions3D</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       },
       {
@@ -10021,14 +10033,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -10037,14 +10049,14 @@
         "name": "Dimensions3D",
         "signature": "public Dimensions3D(double width, double height, double depth)",
         "params": {
-          "uz": "<code>double width, double height, double depth</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double width, double height, double depth</code>",
-          "ru": "Принимает параметры: <code>double width, double height, double depth</code>"
+          "uz": "<code>double width, double height, double depth</code> (masalan, <code>this.width * factor, this.height * factor, this.depth * factor</code>)",
+          "en": "<code>double width, double height, double depth</code> (e.g. <code>this.width * factor, this.height * factor, this.depth * factor</code>)",
+          "ru": "<code>double width, double height, double depth</code> (например, <code>this.width * factor, this.height * factor, this.depth * factor</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.width = width;</code> <code>this.height = height;</code> <code>this.depth = depth;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.width = width;</code> <code>this.height = height;</code> <code>this.depth = depth;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.width = width;</code> <code>this.height = height;</code> <code>this.depth = depth;</code>"
         }
       }
     ],
@@ -10122,14 +10134,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>this.kelvin - 273.15</code> formulasi bo'yicha Selsiy haroratini return qiladi.",
+          "en": "<code>double</code>: returns Celsius temperature calculated as <code>this.kelvin - 273.15</code>.",
+          "ru": "<code>double</code>: возвращает температуру в Цельсиях по формуле <code>this.kelvin - 273.15</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Kelvin haroratini Selsiy shkalasiga o'tkazib return qiladi.",
+          "en": "Converts Kelvin temperature to Celsius scale and returns it.",
+          "ru": "Конвертирует температуру Кельвина в шкалу Цельсия и возвращает ее."
         }
       },
       {
@@ -10141,14 +10153,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -10157,14 +10169,14 @@
         "name": "Temperature",
         "signature": "public Temperature(double kelvin)",
         "params": {
-          "uz": "<code>double kelvin</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double kelvin</code>",
-          "ru": "Принимает параметры: <code>double kelvin</code>"
+          "uz": "<code>double kelvin</code> (masalan, <code>300.0</code>)",
+          "en": "<code>double kelvin</code> (e.g. <code>300.0</code>)",
+          "ru": "<code>double kelvin</code> (например, <code>300.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.kelvin = kelvin;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.kelvin = kelvin;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.kelvin = kelvin;</code>"
         }
       }
     ],
@@ -10241,14 +10253,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double latitude</code> maydonining qiymatini return qiladi (masalan, <code>41.30</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double latitude</code> (e.g. <code>41.30</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double latitude</code> (например, <code>41.30</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>latitude</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>latitude</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>latitude</code> без возможности модификации."
         }
       },
       {
@@ -10260,14 +10272,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double longitude</code> maydonining qiymatini return qiladi (masalan, <code>69.25</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double longitude</code> (e.g. <code>69.25</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double longitude</code> (например, <code>69.25</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>longitude</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>longitude</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>longitude</code> без возможности модификации."
         }
       },
       {
@@ -10279,14 +10291,14 @@
           "ru": "<code>GeoPoint other</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -10295,14 +10307,14 @@
         "name": "GeoPoint",
         "signature": "public GeoPoint(double latitude, double longitude)",
         "params": {
-          "uz": "<code>double latitude, double longitude</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double latitude, double longitude</code>",
-          "ru": "Принимает параметры: <code>double latitude, double longitude</code>"
+          "uz": "<code>double latitude, double longitude</code> (masalan, <code>41.30, 69.25</code>)",
+          "en": "<code>double latitude, double longitude</code> (e.g. <code>41.30, 69.25</code>)",
+          "ru": "<code>double latitude, double longitude</code> (например, <code>41.30, 69.25</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.latitude = latitude;</code> <code>this.longitude = longitude;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.latitude = latitude;</code> <code>this.longitude = longitude;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.latitude = latitude;</code> <code>this.longitude = longitude;</code>"
         }
       }
     ],
@@ -10372,19 +10384,19 @@
         "name": "applyTo()",
         "signature": "public double applyTo(double total)",
         "params": {
-          "uz": "<code>double total</code>",
-          "en": "<code>double total</code>",
-          "ru": "<code>double total</code>"
+          "uz": "<code>double total</code> (masalan, <code>100000.0</code>)",
+          "en": "<code>double total</code> (e.g. <code>100000.0</code>)",
+          "ru": "<code>double total</code> (например, <code>100000.0</code>)"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -10396,14 +10408,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -10412,14 +10424,14 @@
         "name": "Percentage",
         "signature": "public Percentage(double pct0to100)",
         "params": {
-          "uz": "<code>double pct0to100</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double pct0to100</code>",
-          "ru": "Принимает параметры: <code>double pct0to100</code>"
+          "uz": "<code>double pct0to100</code> (masalan, <code>12.0</code>)",
+          "en": "<code>double pct0to100</code> (e.g. <code>12.0</code>)",
+          "ru": "<code>double pct0to100</code> (например, <code>12.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.fraction = pct0to100 / 100.0;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.fraction = pct0to100 / 100.0;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.fraction = pct0to100 / 100.0;</code>"
         }
       }
     ],
@@ -10496,14 +10508,14 @@
           "ru": "<code>double amount</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -10515,14 +10527,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double rate</code> maydonining qiymatini return qiladi (masalan, <code>12800.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double rate</code> (e.g. <code>12800.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double rate</code> (например, <code>12800.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>rate</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>rate</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>rate</code> без возможности модификации."
         }
       }
     ],
@@ -10531,14 +10543,14 @@
         "name": "ExchangeRate",
         "signature": "public ExchangeRate(String fromCurrency, String toCurrency, double rate)",
         "params": {
-          "uz": "<code>String fromCurrency, String toCurrency, double rate</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String fromCurrency, String toCurrency, double rate</code>",
-          "ru": "Принимает параметры: <code>String fromCurrency, String toCurrency, double rate</code>"
+          "uz": "<code>String fromCurrency, String toCurrency, double rate</code> (masalan, <code>\"USD\", \"UZS\", 12800.0</code>)",
+          "en": "<code>String fromCurrency, String toCurrency, double rate</code> (e.g. <code>\"USD\", \"UZS\", 12800.0</code>)",
+          "ru": "<code>String fromCurrency, String toCurrency, double rate</code> (например, <code>\"USD\", \"UZS\", 12800.0</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.fromCurrency = fromCurrency;</code> <code>this.toCurrency = toCurrency;</code> <code>this.rate = rate;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.fromCurrency = fromCurrency;</code> <code>this.toCurrency = toCurrency;</code> <code>this.rate = rate;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.fromCurrency = fromCurrency;</code> <code>this.toCurrency = toCurrency;</code> <code>this.rate = rate;</code>"
         }
       }
     ],
@@ -10614,14 +10626,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -10630,14 +10642,14 @@
         "name": "SeatReservation",
         "signature": "public SeatReservation(String ticketNo, String passenger, String seatCode)",
         "params": {
-          "uz": "<code>String ticketNo, String passenger, String seatCode</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String ticketNo, String passenger, String seatCode</code>",
-          "ru": "Принимает параметры: <code>String ticketNo, String passenger, String seatCode</code>"
+          "uz": "<code>String ticketNo, String passenger, String seatCode</code> (masalan, <code>\"HY-9921\", \"Sherzod\", \"12A\"</code>)",
+          "en": "<code>String ticketNo, String passenger, String seatCode</code> (e.g. <code>\"HY-9921\", \"Sherzod\", \"12A\"</code>)",
+          "ru": "<code>String ticketNo, String passenger, String seatCode</code> (например, <code>\"HY-9921\", \"Sherzod\", \"12A\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.ticketNo = ticketNo;</code> <code>this.passenger = passenger;</code> <code>this.seatCode = seatCode;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.ticketNo = ticketNo;</code> <code>this.passenger = passenger;</code> <code>this.seatCode = seatCode;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.ticketNo = ticketNo;</code> <code>this.passenger = passenger;</code> <code>this.seatCode = seatCode;</code>"
         }
       }
     ],
@@ -10713,14 +10725,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String address</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String address</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String address</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>address</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>address</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>address</code> без возможности модификации."
         }
       },
       {
@@ -10732,14 +10744,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       },
       {
@@ -10751,14 +10763,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
@@ -10767,14 +10779,14 @@
         "name": "EmailAddress",
         "signature": "public EmailAddress(String raw)",
         "params": {
-          "uz": "<code>String raw</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String raw</code>",
-          "ru": "Принимает параметры: <code>String raw</code>"
+          "uz": "<code>String raw</code> (masalan, <code>\"  00023271@wiut.uz  \"</code>)",
+          "en": "<code>String raw</code> (e.g. <code>\"  00023271@wiut.uz  \"</code>)",
+          "ru": "<code>String raw</code> (например, <code>\"  00023271@wiut.uz  \"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.raw = = null) throw new IllegalArgumentException(\"Email null bo'lishi mumkin emas\");</code> <code>this.clean = raw.trim().toLowerCase();</code> <code>this.address = clean;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.raw = = null) throw new IllegalArgumentException(\"Email null bo'lishi mumkin emas\");</code> <code>this.clean = raw.trim().toLowerCase();</code> <code>this.address = clean;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.raw = = null) throw new IllegalArgumentException(\"Email null bo'lishi mumkin emas\");</code> <code>this.clean = raw.trim().toLowerCase();</code> <code>this.address = clean;</code>"
         }
       }
     ],
@@ -10848,14 +10860,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int[]: elementlar massivining xavfsiz nusxasi",
-          "en": "int[]: defensive copy of elements array",
-          "ru": "int[]: защитная копия массива элементов"
+          "uz": "<code>int[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int[]</code>: returns computed business result or operation state.",
+          "ru": "<code>int[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -10864,14 +10876,14 @@
         "name": "SalesTracker",
         "signature": "public SalesTracker(int[] initialSales)",
         "params": {
-          "uz": "<code>int[] initialSales</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[] initialSales</code>",
-          "ru": "Принимает параметры: <code>int[] initialSales</code>"
+          "uz": "<code>int[] initialSales</code> (masalan, <code>original</code>)",
+          "en": "<code>int[] initialSales</code> (e.g. <code>original</code>)",
+          "ru": "<code>int[] initialSales</code> (например, <code>original</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.sales = initialSales.clone();</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.sales = initialSales.clone();</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.sales = initialSales.clone();</code>"
         }
       }
     ],
@@ -10948,14 +10960,14 @@
           "ru": "<code>int index</code>"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>limits</code> massividan <code>index</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>int</code>: returns element at index <code>index</code> from <code>limits</code> (or null if out of bounds).",
+          "ru": "<code>int</code>: возвращает элемент по индексу <code>index</code> из <code>limits</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>index</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>index</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>index</code>."
         }
       }
     ],
@@ -10964,14 +10976,14 @@
         "name": "TierLimits",
         "signature": "public TierLimits(int[] limits)",
         "params": {
-          "uz": "<code>int[] limits</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[] limits</code>",
-          "ru": "Принимает параметры: <code>int[] limits</code>"
+          "uz": "<code>int[] limits</code> (masalan, <code>raw</code>)",
+          "en": "<code>int[] limits</code> (e.g. <code>raw</code>)",
+          "ru": "<code>int[] limits</code> (например, <code>raw</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.limits = (limits != null) ? limits.clone() : new int[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.limits = (limits != null) ? limits.clone() : new int[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.limits = (limits != null) ? limits.clone() : new int[0];</code>"
         }
       }
     ],
@@ -11045,14 +11057,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int[][]: elementlar massivining xavfsiz nusxasi",
-          "en": "int[][]: defensive copy of elements array",
-          "ru": "int[][]: защитная копия массива элементов"
+          "uz": "<code>int[][]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int[][]</code>: returns computed business result or operation state.",
+          "ru": "<code>int[][]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -11061,14 +11073,14 @@
         "name": "StoreGrid",
         "signature": "public StoreGrid(int[][] input)",
         "params": {
-          "uz": "<code>int[][] input</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[][] input</code>",
-          "ru": "Принимает параметры: <code>int[][] input</code>"
+          "uz": "<code>int[][] input</code> (masalan, <code>original</code>)",
+          "en": "<code>int[][] input</code> (e.g. <code>original</code>)",
+          "ru": "<code>int[][] input</code> (например, <code>original</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.grid = new int[input.length][];</code> <code>this.i = 0;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.grid = new int[input.length][];</code> <code>this.i = 0;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.grid = new int[input.length][];</code> <code>this.i = 0;</code>"
         }
       }
     ],
@@ -11136,14 +11148,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "long: ob'yekt havolasi",
-          "en": "long: object reference",
-          "ru": "long: ссылка на объект"
+          "uz": "<code>long</code>: <code>private long epochMillis</code> maydonining qiymatini return qiladi (masalan, <code>1700000000000L</code>).",
+          "en": "<code>long</code>: returns the value of <code>private long epochMillis</code> (e.g. <code>1700000000000L</code>).",
+          "ru": "<code>long</code>: возвращает значение поля <code>private long epochMillis</code> (например, <code>1700000000000L</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>epochMillis</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>epochMillis</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>epochMillis</code> без возможности модификации."
         }
       }
     ],
@@ -11152,14 +11164,14 @@
         "name": "AuditTimestamp",
         "signature": "public AuditTimestamp(long epochMillis)",
         "params": {
-          "uz": "<code>long epochMillis</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>long epochMillis</code>",
-          "ru": "Принимает параметры: <code>long epochMillis</code>"
+          "uz": "<code>long epochMillis</code> (masalan, <code>1700000000000L</code>)",
+          "en": "<code>long epochMillis</code> (e.g. <code>1700000000000L</code>)",
+          "ru": "<code>long epochMillis</code> (например, <code>1700000000000L</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.epochMillis = epochMillis;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.epochMillis = epochMillis;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.epochMillis = epochMillis;</code>"
         }
       }
     ],
@@ -11234,33 +11246,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>stops</code> massividagi jami elementlar sonini return qiladi.",
+          "en": "<code>int</code>: returns total count of elements in <code>stops</code> array.",
+          "ru": "<code>int</code>: возвращает общее количество элементов в массиве <code>stops</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>stops</code> massivining joriy uzunligini (hajmini) qaytaradi.",
+          "en": "Returns current size/length of <code>stops</code> array.",
+          "ru": "Возвращает текущую длину массива <code>stops</code>."
         }
       },
       {
         "name": "getStop()",
         "signature": "public String getStop(int index)",
         "params": {
-          "uz": "<code>int index</code>",
-          "en": "<code>int index</code>",
-          "ru": "<code>int index</code>"
+          "uz": "<code>int index</code> (masalan, <code>1</code>)",
+          "en": "<code>int index</code> (e.g. <code>1</code>)",
+          "ru": "<code>int index</code> (например, <code>1</code>)"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>stops</code> massividan <code>index</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>String</code>: returns element at index <code>index</code> from <code>stops</code> (or null if out of bounds).",
+          "ru": "<code>String</code>: возвращает элемент по индексу <code>index</code> из <code>stops</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>index</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>index</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>index</code>."
         }
       }
     ],
@@ -11269,14 +11281,14 @@
         "name": "RouteStops",
         "signature": "public RouteStops(String[] stops)",
         "params": {
-          "uz": "<code>String[] stops</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String[] stops</code>",
-          "ru": "Принимает параметры: <code>String[] stops</code>"
+          "uz": "<code>String[] stops</code> (masalan, <code>s</code>)",
+          "en": "<code>String[] stops</code> (e.g. <code>s</code>)",
+          "ru": "<code>String[] stops</code> (например, <code>s</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.stops = (stops != null) ? stops.clone() : new String[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.stops = (stops != null) ? stops.clone() : new String[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.stops = (stops != null) ? stops.clone() : new String[0];</code>"
         }
       }
     ],
@@ -11347,19 +11359,19 @@
         "name": "addPrice()",
         "signature": "public void addPrice(double p)",
         "params": {
-          "uz": "<code>double p</code>",
-          "en": "<code>double p</code>",
-          "ru": "<code>double p</code>"
+          "uz": "<code>double p</code> (masalan, <code>12000.0</code>)",
+          "en": "<code>double p</code> (e.g. <code>12000.0</code>)",
+          "ru": "<code>double p</code> (например, <code>12000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -11371,14 +11383,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int size</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int size</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int size</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>size</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>size</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>size</code> без возможности модификации."
         }
       }
     ],
@@ -11451,19 +11463,19 @@
         "name": "getTopN()",
         "signature": "public int[] getTopN(int n)",
         "params": {
-          "uz": "<code>int n</code>",
-          "en": "<code>int n</code>",
-          "ru": "<code>int n</code>"
+          "uz": "<code>int n</code> (masalan, <code>2</code>)",
+          "en": "<code>int n</code> (e.g. <code>2</code>)",
+          "ru": "<code>int n</code> (например, <code>2</code>)"
         },
         "returns": {
-          "uz": "int[]: elementlar massivining xavfsiz nusxasi",
-          "en": "int[]: defensive copy of elements array",
-          "ru": "int[]: защитная копия массива элементов"
+          "uz": "<code>int[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int[]</code>: returns computed business result or operation state.",
+          "ru": "<code>int[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -11472,14 +11484,14 @@
         "name": "PizzaRanking",
         "signature": "public PizzaRanking(int[] orders)",
         "params": {
-          "uz": "<code>int[] orders</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[] orders</code>",
-          "ru": "Принимает параметры: <code>int[] orders</code>"
+          "uz": "<code>int[] orders</code> (masalan, <code>all</code>)",
+          "en": "<code>int[] orders</code> (e.g. <code>all</code>)",
+          "ru": "<code>int[] orders</code> (например, <code>all</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.orders = (orders != null) ? orders.clone() : new int[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.orders = (orders != null) ? orders.clone() : new int[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.orders = (orders != null) ? orders.clone() : new int[0];</code>"
         }
       }
     ],
@@ -11551,19 +11563,19 @@
         "name": "getPremiumPrices()",
         "signature": "public double[] getPremiumPrices(double threshold)",
         "params": {
-          "uz": "<code>double threshold</code>",
-          "en": "<code>double threshold</code>",
-          "ru": "<code>double threshold</code>"
+          "uz": "<code>double threshold</code> (masalan, <code>100.0</code>)",
+          "en": "<code>double threshold</code> (e.g. <code>100.0</code>)",
+          "ru": "<code>double threshold</code> (например, <code>100.0</code>)"
         },
         "returns": {
-          "uz": "double[]: elementlar massivining xavfsiz nusxasi",
-          "en": "double[]: defensive copy of elements array",
-          "ru": "double[]: защитная копия массива элементов"
+          "uz": "<code>double[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double[]</code>: returns computed business result or operation state.",
+          "ru": "<code>double[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -11572,14 +11584,14 @@
         "name": "CatalogPrices",
         "signature": "public CatalogPrices(double[] prices)",
         "params": {
-          "uz": "<code>double[] prices</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double[] prices</code>",
-          "ru": "Принимает параметры: <code>double[] prices</code>"
+          "uz": "<code>double[] prices</code> (masalan, <code>p</code>)",
+          "en": "<code>double[] prices</code> (e.g. <code>p</code>)",
+          "ru": "<code>double[] prices</code> (например, <code>p</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.prices = (prices != null) ? prices.clone() : new double[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.prices = (prices != null) ? prices.clone() : new double[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.prices = (prices != null) ? prices.clone() : new double[0];</code>"
         }
       }
     ],
@@ -11656,14 +11668,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int[]: elementlar massivining xavfsiz nusxasi",
-          "en": "int[]: defensive copy of elements array",
-          "ru": "int[]: защитная копия массива элементов"
+          "uz": "<code>int[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int[]</code>: returns computed business result or operation state.",
+          "ru": "<code>int[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -11672,14 +11684,14 @@
         "name": "OrderHistory",
         "signature": "public OrderHistory(int[] orderIds)",
         "params": {
-          "uz": "<code>int[] orderIds</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[] orderIds</code>",
-          "ru": "Принимает параметры: <code>int[] orderIds</code>"
+          "uz": "<code>int[] orderIds</code> (masalan, <code>ids</code>)",
+          "en": "<code>int[] orderIds</code> (e.g. <code>ids</code>)",
+          "ru": "<code>int[] orderIds</code> (например, <code>ids</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.orderIds = (orderIds != null) ? orderIds.clone() : new int[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.orderIds = (orderIds != null) ? orderIds.clone() : new int[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.orderIds = (orderIds != null) ? orderIds.clone() : new int[0];</code>"
         }
       }
     ],
@@ -11752,19 +11764,19 @@
         "name": "updateReadings()",
         "signature": "public boolean updateReadings(double[] input)",
         "params": {
-          "uz": "<code>double[] input</code>",
-          "en": "<code>double[] input</code>",
-          "ru": "<code>double[] input</code>"
+          "uz": "<code>double[] input</code> (masalan, <code>good</code>)",
+          "en": "<code>double[] input</code> (e.g. <code>good</code>)",
+          "ru": "<code>double[] input</code> (например, <code>good</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>readings</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>readings</code> qiymatini return qiladi (masalan, <code>new double[0]</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>readings</code> is null, otherwise returns <code>readings</code> (e.g. <code>new double[0]</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>readings</code> null, иначе <code>readings</code> (например, <code>new double[0]</code>)."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -11776,14 +11788,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>readings</code> massividagi jami elementlar sonini return qiladi.",
+          "en": "<code>int</code>: returns total count of elements in <code>readings</code> array.",
+          "ru": "<code>int</code>: возвращает общее количество элементов в массиве <code>readings</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>readings</code> massivining joriy uzunligini (hajmini) qaytaradi.",
+          "en": "Returns current size/length of <code>readings</code> array.",
+          "ru": "Возвращает текущую длину массива <code>readings</code>."
         }
       }
     ],
@@ -11856,38 +11868,38 @@
         "name": "add()",
         "signature": "public void add(int v)",
         "params": {
-          "uz": "<code>int v</code>",
-          "en": "<code>int v</code>",
-          "ru": "<code>int v</code>"
+          "uz": "<code>int v</code> (masalan, <code>10</code>)",
+          "en": "<code>int v</code> (e.g. <code>10</code>)",
+          "ru": "<code>int v</code> (например, <code>10</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "get()",
         "signature": "public int get(int index)",
         "params": {
-          "uz": "<code>int index</code>",
-          "en": "<code>int index</code>",
-          "ru": "<code>int index</code>"
+          "uz": "<code>int index</code> (masalan, <code>1</code>)",
+          "en": "<code>int index</code> (e.g. <code>1</code>)",
+          "ru": "<code>int index</code> (например, <code>1</code>)"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>data</code> massividan <code>index</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>int</code>: returns element at index <code>index</code> from <code>data</code> (or null if out of bounds).",
+          "ru": "<code>int</code>: возвращает элемент по индексу <code>index</code> из <code>data</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>index</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>index</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>index</code>."
         }
       },
       {
@@ -11899,14 +11911,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int count</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int count</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int count</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ichki <code>count</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>count</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>count</code> без возможности модификации."
         }
       }
     ],
@@ -11981,38 +11993,38 @@
         "name": "addCourier()",
         "signature": "public void addCourier(String name, int deliveries)",
         "params": {
-          "uz": "<code>String name, int deliveries</code>",
-          "en": "<code>String name, int deliveries</code>",
-          "ru": "<code>String name, int deliveries</code>"
+          "uz": "<code>String name, int deliveries</code> (masalan, <code>\"Ali\", 15</code>)",
+          "en": "<code>String name, int deliveries</code> (e.g. <code>\"Ali\", 15</code>)",
+          "ru": "<code>String name, int deliveries</code> (например, <code>\"Ali\", 15</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "getDeliveries()",
         "signature": "public int getDeliveries(String name)",
         "params": {
-          "uz": "<code>String name</code>",
-          "en": "<code>String name</code>",
-          "ru": "<code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"Vali\"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"Vali\"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"Vali\"</code>)"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>counts</code> massividan <code>i</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>int</code>: returns element at index <code>i</code> from <code>counts</code> (or null if out of bounds).",
+          "ru": "<code>int</code>: возвращает элемент по индексу <code>i</code> из <code>counts</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>i</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>i</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>i</code>."
         }
       }
     ],
@@ -12091,33 +12103,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String number</code> maydonining qiymatini return qiladi (masalan, <code>input[i].getNumber(</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String number</code> (e.g. <code>input[i].getNumber(</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String number</code> (например, <code>input[i].getNumber(</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>number</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>number</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>number</code> без возможности модификации."
         }
       },
       {
         "name": "setNumber()",
         "signature": "public void setNumber(String n)",
         "params": {
-          "uz": "<code>String n</code>",
-          "en": "<code>String n</code>",
-          "ru": "<code>String n</code>"
+          "uz": "<code>String n</code> (masalan, <code>\"MODIFIED\"</code>)",
+          "en": "<code>String n</code> (e.g. <code>\"MODIFIED\"</code>)",
+          "ru": "<code>String n</code> (например, <code>\"MODIFIED\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi <code>n</code> qiymatini qabul qilib, <code>this.number = n;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>n</code> and sets <code>this.number = n;</code>.",
+          "ru": "Принимает <code>n</code> и обновляет <code>this.number = n;</code>."
         }
       },
       {
@@ -12129,14 +12141,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "SimCard[]: elementlar massivining xavfsiz nusxasi",
-          "en": "SimCard[]: defensive copy of elements array",
-          "ru": "SimCard[]: защитная копия массива элементов"
+          "uz": "<code>SimCard[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>SimCard[]</code>: returns computed business result or operation state.",
+          "ru": "<code>SimCard[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -12145,28 +12157,14 @@
         "name": "SimCard",
         "signature": "public SimCard(String n)",
         "params": {
-          "uz": "<code>String n</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String n</code>",
-          "ru": "Принимает параметры: <code>String n</code>"
+          "uz": "<code>String n</code> (masalan, <code>input[i].getNumber(</code>)",
+          "en": "<code>String n</code> (e.g. <code>input[i].getNumber(</code>)",
+          "ru": "<code>String n</code> (например, <code>input[i].getNumber(</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "SimBatch",
-        "signature": "public SimBatch(SimCard[] input)",
-        "params": {
-          "uz": "<code>SimCard[] input</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>SimCard[] input</code>",
-          "ru": "Принимает параметры: <code>SimCard[] input</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.number = n;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.number = n;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.number = n;</code>"
         }
       }
     ],
@@ -12244,14 +12242,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>buffer</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>buffer</code> qiymatini return qiladi.",
+          "en": "<code>void</code>: returns safe default if <code>buffer</code> is null, otherwise returns <code>buffer</code>.",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>buffer</code> null, иначе <code>buffer</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -12263,14 +12261,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -12279,14 +12277,14 @@
         "name": "SecureCharBuffer",
         "signature": "public SecureCharBuffer(char[] pass)",
         "params": {
-          "uz": "<code>char[] pass</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>char[] pass</code>",
-          "ru": "Принимает параметры: <code>char[] pass</code>"
+          "uz": "<code>char[] pass</code> (masalan, <code>pass</code>)",
+          "en": "<code>char[] pass</code> (e.g. <code>pass</code>)",
+          "ru": "<code>char[] pass</code> (например, <code>pass</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.buffer = (pass != null) ? pass.clone() : new char[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.buffer = (pass != null) ? pass.clone() : new char[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.buffer = (pass != null) ? pass.clone() : new char[0];</code>"
         }
       }
     ],
@@ -12364,14 +12362,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int[]: elementlar massivining xavfsiz nusxasi",
-          "en": "int[]: defensive copy of elements array",
-          "ru": "int[]: защитная копия массива элементов"
+          "uz": "<code>int[]</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int[]</code>: returns computed business result or operation state.",
+          "ru": "<code>int[]</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12383,14 +12381,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -12399,14 +12397,14 @@
         "name": "StudentMarksRecord",
         "signature": "public StudentMarksRecord(int[] marks)",
         "params": {
-          "uz": "<code>int[] marks</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int[] marks</code>",
-          "ru": "Принимает параметры: <code>int[] marks</code>"
+          "uz": "<code>int[] marks</code> (masalan, <code>original</code>)",
+          "en": "<code>int[] marks</code> (e.g. <code>original</code>)",
+          "ru": "<code>int[] marks</code> (например, <code>original</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.marks = (marks != null) ? marks.clone() : new int[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.marks = (marks != null) ? marks.clone() : new int[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.marks = (marks != null) ? marks.clone() : new int[0];</code>"
         }
       }
     ],
@@ -12485,14 +12483,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12504,14 +12502,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12523,14 +12521,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean isOn</code> maydonining qiymatini return qiladi (masalan, <code>false</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean isOn</code> (e.g. <code>false</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean isOn</code> (например, <code>false</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>isOn</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>isOn</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>isOn</code> без возможности модификации."
         }
       }
     ],
@@ -12607,14 +12605,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12626,14 +12624,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12645,14 +12643,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String state</code> maydonining qiymatini return qiladi (masalan, <code>\"CREATED\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String state</code> (e.g. <code>\"CREATED\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String state</code> (например, <code>\"CREATED\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>state</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>state</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>state</code> без возможности модификации."
         }
       }
     ],
@@ -12732,14 +12730,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12751,14 +12749,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Agar buyurtma DELIVERED bo'lmagan bo'lsa uni bekor qiladi va true qaytaradi.",
-          "en": "Cancels order if not yet in terminal DELIVERED state, returning true.",
-          "ru": "Отменяет заказ, если он еще не доставлен, и возвращает true."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12770,14 +12768,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String status</code> maydonining qiymatini return qiladi (masalan, <code>\"PAID\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String status</code> (e.g. <code>\"PAID\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String status</code> (например, <code>\"PAID\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>status</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>status</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>status</code> без возможности модификации."
         }
       }
     ],
@@ -12857,14 +12855,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12876,14 +12874,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String fiscalSign</code> maydonining qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String fiscalSign</code> (e.g. <code>null</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String fiscalSign</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>fiscalSign</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>fiscalSign</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>fiscalSign</code> без возможности модификации."
         }
       }
     ],
@@ -12964,14 +12962,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -12983,14 +12981,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13002,14 +13000,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13021,14 +13019,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String phase</code> maydonining qiymatini return qiladi (masalan, <code>\"IDLE\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String phase</code> (e.g. <code>\"IDLE\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String phase</code> (например, <code>\"IDLE\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>phase</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>phase</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>phase</code> без возможности модификации."
         }
       }
     ],
@@ -13108,14 +13106,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13127,14 +13125,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String state</code> maydonining qiymatini return qiladi (masalan, <code>\"READY\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String state</code> (e.g. <code>\"READY\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String state</code> (например, <code>\"READY\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>state</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>state</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>state</code> без возможности модификации."
         }
       }
     ],
@@ -13143,14 +13141,14 @@
         "name": "CoffeeMaker",
         "signature": "public CoffeeMaker(int beansGrams)",
         "params": {
-          "uz": "<code>int beansGrams</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int beansGrams</code>",
-          "ru": "Принимает параметры: <code>int beansGrams</code>"
+          "uz": "<code>int beansGrams</code> (masalan, <code>20</code>)",
+          "en": "<code>int beansGrams</code> (e.g. <code>20</code>)",
+          "ru": "<code>int beansGrams</code> (например, <code>20</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.beansGrams = beansGrams;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.beansGrams = beansGrams;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.beansGrams = beansGrams;</code>"
         }
       }
     ],
@@ -13229,14 +13227,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Kiruvchi qiymatni <code>this.retryCount >= 3</code> shartiga tekshiradi, agar shart bajarilsa <code>this.state = \"DEAD_LETTER\";</code> qilib yangilaydi.",
+          "en": "Checks <code>this.retryCount >= 3</code> condition, and if valid, updates <code>this.state = \"DEAD_LETTER\";</code>.",
+          "ru": "Проверяет условие <code>this.retryCount >= 3</code>, и если верно, обновляет <code>this.state = \"DEAD_LETTER\";</code>."
         }
       },
       {
@@ -13248,14 +13246,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String state</code> maydonining qiymatini return qiladi (masalan, <code>\"PENDING\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String state</code> (e.g. <code>\"PENDING\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String state</code> (например, <code>\"PENDING\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>state</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>state</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>state</code> без возможности модификации."
         }
       }
     ],
@@ -13337,33 +13335,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "reject()",
         "signature": "public boolean reject(String reason)",
         "params": {
-          "uz": "<code>String reason</code>",
-          "en": "<code>String reason</code>",
-          "ru": "<code>String reason</code>"
+          "uz": "<code>String reason</code> (masalan, <code>\"Imzo yetishmaydi\"</code>)",
+          "en": "<code>String reason</code> (e.g. <code>\"Imzo yetishmaydi\"</code>)",
+          "ru": "<code>String reason</code> (например, <code>\"Imzo yetishmaydi\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13375,14 +13373,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String status</code> maydonining qiymatini return qiladi (masalan, <code>\"DRAFT\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String status</code> (e.g. <code>\"DRAFT\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String status</code> (например, <code>\"DRAFT\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>status</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>status</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>status</code> без возможности модификации."
         }
       },
       {
@@ -13394,14 +13392,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String rejectReason</code> maydonining qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String rejectReason</code> (e.g. <code>null</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String rejectReason</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>rejectReason</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>rejectReason</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>rejectReason</code> без возможности модификации."
         }
       }
     ],
@@ -13483,14 +13481,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13502,14 +13500,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13521,14 +13519,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13540,14 +13538,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int playbackPosition</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int playbackPosition</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int playbackPosition</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>playbackPosition</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>playbackPosition</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>playbackPosition</code> без возможности модификации."
         }
       }
     ],
@@ -13624,38 +13622,38 @@
         "name": "deposit()",
         "signature": "public boolean deposit(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>100000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>100000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>100000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "withdraw()",
         "signature": "public boolean withdraw(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>20000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>20000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>20000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13667,14 +13665,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13686,14 +13684,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -13772,14 +13770,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13791,14 +13789,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String color</code> maydonining qiymatini return qiladi (masalan, <code>\"RED\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String color</code> (e.g. <code>\"RED\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String color</code> (например, <code>\"RED\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>color</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>color</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>color</code> без возможности модификации."
         }
       }
     ],
@@ -13878,33 +13876,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "upgradeToAdmin()",
         "signature": "public boolean upgradeToAdmin(String masterKey)",
         "params": {
-          "uz": "<code>String masterKey</code>",
-          "en": "<code>String masterKey</code>",
-          "ru": "<code>String masterKey</code>"
+          "uz": "<code>String masterKey</code> (masalan, <code>\"MEDION_ROOT\"</code>)",
+          "en": "<code>String masterKey</code> (e.g. <code>\"MEDION_ROOT\"</code>)",
+          "ru": "<code>String masterKey</code> (например, <code>\"MEDION_ROOT\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -13916,14 +13914,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String role</code> maydonining qiymatini return qiladi (masalan, <code>\"GUEST\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String role</code> (e.g. <code>\"GUEST\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String role</code> (например, <code>\"GUEST\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>role</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>role</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>role</code> без возможности модификации."
         }
       }
     ],
@@ -14003,14 +14001,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14022,14 +14020,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14041,14 +14039,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String planState</code> maydonining qiymatini return qiladi (masalan, <code>\"TRIAL\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String planState</code> (e.g. <code>\"TRIAL\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String planState</code> (например, <code>\"TRIAL\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>planState</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>planState</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>planState</code> без возможности модификации."
         }
       }
     ],
@@ -14128,14 +14126,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Kiruvchi <code>false</code> qiymatini qabul qilib, <code>this.isLocked = false;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>false</code> and sets <code>this.isLocked = false;</code>.",
+          "ru": "Принимает <code>false</code> и обновляет <code>this.isLocked = false;</code>."
         }
       },
       {
@@ -14147,14 +14145,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14166,14 +14164,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean isLocked</code> maydonining qiymatini return qiladi (masalan, <code>true</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean isLocked</code> (e.g. <code>true</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean isLocked</code> (например, <code>true</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>isLocked</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>isLocked</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>isLocked</code> без возможности модификации."
         }
       }
     ],
@@ -14254,33 +14252,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "gradeModule()",
         "signature": "public boolean gradeModule(int mark)",
         "params": {
-          "uz": "<code>int mark</code>",
-          "en": "<code>int mark</code>",
-          "ru": "<code>int mark</code>"
+          "uz": "<code>int mark</code> (masalan, <code>72</code>)",
+          "en": "<code>int mark</code> (e.g. <code>72</code>)",
+          "ru": "<code>int mark</code> (например, <code>72</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14292,14 +14290,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String state</code> maydonining qiymatini return qiladi (masalan, <code>\"REGISTERED\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String state</code> (e.g. <code>\"REGISTERED\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String state</code> (например, <code>\"REGISTERED\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>state</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>state</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>state</code> без возможности модификации."
         }
       }
     ],
@@ -14378,14 +14376,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14397,33 +14395,18 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>engine</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>engine</code> qiymatini return qiladi (masalan, <code>new Engine(</code>).",
+          "en": "<code>String</code>: returns safe default if <code>engine</code> is null, otherwise returns <code>engine</code> (e.g. <code>new Engine(</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>engine</code> null, иначе <code>engine</code> (например, <code>new Engine(</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
-    "constructorSpecs": [
-      {
-        "name": "DeliveryCar",
-        "signature": "public DeliveryCar(Engine engine)",
-        "params": {
-          "uz": "<code>Engine engine</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>Engine engine</code>",
-          "ru": "Принимает параметры: <code>Engine engine</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      }
-    ],
+    "constructorSpecs": [],
     "mainTask": {
       "steps": {
         "uz": [
@@ -14490,19 +14473,19 @@
         "name": "processPayment()",
         "signature": "public boolean processPayment(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>amt</code>)",
+          "en": "<code>double amt</code> (e.g. <code>amt</code>)",
+          "ru": "<code>double amt</code> (например, <code>amt</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>amt > 0</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>amt > 0</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>amt > 0</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Ichki maydon holati <code>amt > 0</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>amt > 0</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>amt > 0</code>."
         }
       },
       {
@@ -14514,33 +14497,18 @@
           "ru": "<code>double amt</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>processor</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>processor</code> qiymatini return qiladi (masalan, <code>new PaymentProcessor(</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>processor</code> is null, otherwise returns <code>processor</code> (e.g. <code>new PaymentProcessor(</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>processor</code> null, иначе <code>processor</code> (например, <code>new PaymentProcessor(</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
-    "constructorSpecs": [
-      {
-        "name": "PosTerminal",
-        "signature": "public PosTerminal(PaymentProcessor processor)",
-        "params": {
-          "uz": "<code>PaymentProcessor processor</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>PaymentProcessor processor</code>",
-          "ru": "Принимает параметры: <code>PaymentProcessor processor</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      }
-    ],
+    "constructorSpecs": [],
     "mainTask": {
       "steps": {
         "uz": [
@@ -14612,14 +14580,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int points</code> maydonining qiymatini return qiladi (masalan, <code>450</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int points</code> (e.g. <code>450</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int points</code> (например, <code>450</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>points</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>points</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>points</code> без возможности модификации."
         }
       },
       {
@@ -14631,14 +14599,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: agar <code>card</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>card</code> qiymatini return qiladi (masalan, <code>new MembershipCard(450</code>).",
+          "en": "<code>int</code>: returns safe default if <code>card</code> is null, otherwise returns <code>card</code> (e.g. <code>new MembershipCard(450</code>).",
+          "ru": "<code>int</code>: возвращает безопасное значение если <code>card</code> null, иначе <code>card</code> (например, <code>new MembershipCard(450</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -14647,28 +14615,14 @@
         "name": "MembershipCard",
         "signature": "public MembershipCard(int points)",
         "params": {
-          "uz": "<code>int points</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int points</code>",
-          "ru": "Принимает параметры: <code>int points</code>"
+          "uz": "<code>int points</code> (masalan, <code>450</code>)",
+          "en": "<code>int points</code> (e.g. <code>450</code>)",
+          "ru": "<code>int points</code> (например, <code>450</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "Customer",
-        "signature": "public Customer(MembershipCard card)",
-        "params": {
-          "uz": "<code>MembershipCard card</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>MembershipCard card</code>",
-          "ru": "Принимает параметры: <code>MembershipCard card</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.points = points;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.points = points;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.points = points;</code>"
         }
       }
     ],
@@ -14741,19 +14695,19 @@
         "name": "drain()",
         "signature": "public void drain(int p)",
         "params": {
-          "uz": "<code>int p</code>",
-          "en": "<code>int p</code>",
-          "ru": "<code>int p</code>"
+          "uz": "<code>int p</code> (masalan, <code>5</code>)",
+          "en": "<code>int p</code> (e.g. <code>5</code>)",
+          "ru": "<code>int p</code> (например, <code>5</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14765,14 +14719,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int level</code> maydonining qiymatini return qiladi (masalan, <code>100</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int level</code> (e.g. <code>100</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int level</code> (например, <code>100</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>level</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>level</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>level</code> без возможности модификации."
         }
       },
       {
@@ -14784,14 +14738,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14803,14 +14757,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -14822,14 +14776,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>int</code>: returns computed business result or operation state.",
+          "ru": "<code>int</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -14908,14 +14862,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi (masalan, <code>\"Rustam\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String name</code> (e.g. <code>\"Rustam\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code> (например, <code>\"Rustam\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -14927,14 +14881,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>profile</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>profile</code> qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>String</code>: returns safe default if <code>profile</code> is null, otherwise returns <code>profile</code> (e.g. <code>null</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>profile</code> null, иначе <code>profile</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -14943,28 +14897,14 @@
         "name": "UserProfile",
         "signature": "public UserProfile(String name)",
         "params": {
-          "uz": "<code>String name</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name</code>",
-          "ru": "Принимает параметры: <code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"Rustam\"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"Rustam\"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"Rustam\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "User",
-        "signature": "public User(UserProfile profile)",
-        "params": {
-          "uz": "<code>UserProfile profile</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>UserProfile profile</code>",
-          "ru": "Принимает параметры: <code>UserProfile profile</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code>"
         }
       }
     ],
@@ -15040,14 +14980,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15059,14 +14999,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Car: ob'yekt havolasi",
-          "en": "Car: object reference",
-          "ru": "Car: ссылка на объект"
+          "uz": "<code>Car</code>: <code>private Car car</code> maydonining qiymatini return qiladi.",
+          "en": "<code>Car</code>: returns the value of <code>private Car car</code>.",
+          "ru": "<code>Car</code>: возвращает значение поля <code>private Car car</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>car</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>car</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>car</code> без возможности модификации."
         }
       },
       {
@@ -15078,14 +15018,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>qiymat</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>qiymat</code> qiymatini return qiladi.",
+          "en": "<code>String</code>: returns safe default if <code>qiymat</code> is null, otherwise returns <code>qiymat</code>.",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>qiymat</code> null, иначе <code>qiymat</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -15162,14 +15102,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15181,14 +15121,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Address: ob'yekt havolasi",
-          "en": "Address: object reference",
-          "ru": "Address: ссылка на объект"
+          "uz": "<code>Address</code>: <code>private Address addr</code> maydonining qiymatini return qiladi.",
+          "en": "<code>Address</code>: returns the value of <code>private Address addr</code>.",
+          "ru": "<code>Address</code>: возвращает значение поля <code>private Address addr</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>addr</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>addr</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>addr</code> без возможности модификации."
         }
       },
       {
@@ -15200,14 +15140,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>qiymat</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>qiymat</code> qiymatini return qiladi.",
+          "en": "<code>String</code>: returns safe default if <code>qiymat</code> is null, otherwise returns <code>qiymat</code>.",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>qiymat</code> null, иначе <code>qiymat</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -15285,33 +15225,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>price</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>price</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>price</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       },
       {
         "name": "addItem()",
         "signature": "public void addItem(String name, double price)",
         "params": {
-          "uz": "<code>String name, double price</code>",
-          "en": "<code>String name, double price</code>",
-          "ru": "<code>String name, double price</code>"
+          "uz": "<code>String name, double price</code> (masalan, <code>\"Pepperoni\", 65000.0</code>)",
+          "en": "<code>String name, double price</code> (e.g. <code>\"Pepperoni\", 65000.0</code>)",
+          "ru": "<code>String name, double price</code> (например, <code>\"Pepperoni\", 65000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15323,14 +15263,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -15339,14 +15279,14 @@
         "name": "OrderItem",
         "signature": "public OrderItem(String name, double price)",
         "params": {
-          "uz": "<code>String name, double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, double price</code>",
-          "ru": "Принимает параметры: <code>String name, double price</code>"
+          "uz": "<code>String name, double price</code> (masalan, <code>name, price</code>)",
+          "en": "<code>String name, double price</code> (e.g. <code>name, price</code>)",
+          "ru": "<code>String name, double price</code> (например, <code>name, price</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> <code>this.price = price;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code> <code>this.price = price;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code> <code>this.price = price;</code>"
         }
       }
     ],
@@ -15425,33 +15365,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double lineTotal</code> maydonining qiymatini return qiladi (masalan, <code>amount</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double lineTotal</code> (e.g. <code>amount</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double lineTotal</code> (например, <code>amount</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>lineTotal</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>lineTotal</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>lineTotal</code> без возможности модификации."
         }
       },
       {
         "name": "addLine()",
         "signature": "public void addLine(double amount)",
         "params": {
-          "uz": "<code>double amount</code>",
-          "en": "<code>double amount</code>",
-          "ru": "<code>double amount</code>"
+          "uz": "<code>double amount</code> (masalan, <code>100000.0</code>)",
+          "en": "<code>double amount</code> (e.g. <code>100000.0</code>)",
+          "ru": "<code>double amount</code> (например, <code>100000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15463,14 +15403,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -15479,14 +15419,14 @@
         "name": "InvoiceLine",
         "signature": "public InvoiceLine(double lineTotal)",
         "params": {
-          "uz": "<code>double lineTotal</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double lineTotal</code>",
-          "ru": "Принимает параметры: <code>double lineTotal</code>"
+          "uz": "<code>double lineTotal</code> (masalan, <code>amount</code>)",
+          "en": "<code>double lineTotal</code> (e.g. <code>amount</code>)",
+          "ru": "<code>double lineTotal</code> (например, <code>amount</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.lineTotal = lineTotal;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.lineTotal = lineTotal;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.lineTotal = lineTotal;</code>"
         }
       }
     ],
@@ -15561,38 +15501,38 @@
         "name": "debit()",
         "signature": "public boolean debit(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>amt</code>)",
+          "en": "<code>double amt</code> (e.g. <code>amt</code>)",
+          "ru": "<code>double amt</code> (например, <code>amt</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "pay()",
         "signature": "public boolean pay(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>30000.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>30000.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>30000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>txCount</code> hisoblagichini 1 taga oshirib, <code>private true</code> maydonini return qiladi.",
+          "en": "<code>boolean</code>: increments <code>txCount</code> counter and returns <code>private true</code>.",
+          "ru": "<code>boolean</code>: увеличивает счетчик <code>txCount</code> и возвращает поле <code>true</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Har murojaatda <code>txCount</code> maydonini oshirib, <code>true</code> maydonining joriy qiymatini return qiladi.",
+          "en": "Increments <code>txCount</code> count on each call and returns the current <code>true</code> value.",
+          "ru": "Инкрементирует <code>txCount</code> при каждом вызове и возвращает значение <code>true</code>."
         }
       },
       {
@@ -15604,14 +15544,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int txCount</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int txCount</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int txCount</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>txCount</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>txCount</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>txCount</code> без возможности модификации."
         }
       }
     ],
@@ -15689,14 +15629,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: agar <code>subFolder</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>subFolder</code> qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>int</code>: returns safe default if <code>subFolder</code> is null, otherwise returns <code>subFolder</code> (e.g. <code>null</code>).",
+          "ru": "<code>int</code>: возвращает безопасное значение если <code>subFolder</code> null, иначе <code>subFolder</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -15705,14 +15645,14 @@
         "name": "ArchiveFolder",
         "signature": "public ArchiveFolder(ArchiveFolder subFolder)",
         "params": {
-          "uz": "<code>ArchiveFolder subFolder</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>ArchiveFolder subFolder</code>",
-          "ru": "Принимает параметры: <code>ArchiveFolder subFolder</code>"
+          "uz": "<code>ArchiveFolder subFolder</code> (masalan, <code>null</code>)",
+          "en": "<code>ArchiveFolder subFolder</code> (e.g. <code>null</code>)",
+          "ru": "<code>ArchiveFolder subFolder</code> (например, <code>null</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.subFolder = subFolder;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.subFolder = subFolder;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.subFolder = subFolder;</code>"
         }
       }
     ],
@@ -15783,19 +15723,19 @@
         "name": "addOption()",
         "signature": "public void addOption(String name, double cost)",
         "params": {
-          "uz": "<code>String name, double cost</code>",
-          "en": "<code>String name, double cost</code>",
-          "ru": "<code>String name, double cost</code>"
+          "uz": "<code>String name, double cost</code> (masalan, <code>\"Cheksiz Telegram\", 10000.0</code>)",
+          "en": "<code>String name, double cost</code> (e.g. <code>\"Cheksiz Telegram\", 10000.0</code>)",
+          "ru": "<code>String name, double cost</code> (например, <code>\"Cheksiz Telegram\", 10000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15807,14 +15747,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int count</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int count</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int count</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>count</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>count</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>count</code> без возможности модификации."
         }
       }
     ],
@@ -15823,14 +15763,14 @@
         "name": "TariffOption",
         "signature": "public TariffOption(String name, double cost)",
         "params": {
-          "uz": "<code>String name, double cost</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, double cost</code>",
-          "ru": "Принимает параметры: <code>String name, double cost</code>"
+          "uz": "<code>String name, double cost</code> (masalan, <code>name, cost</code>)",
+          "en": "<code>String name, double cost</code> (e.g. <code>name, cost</code>)",
+          "ru": "<code>String name, double cost</code> (например, <code>name, cost</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> <code>this.cost = cost;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code> <code>this.cost = cost;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code> <code>this.cost = cost;</code>"
         }
       }
     ],
@@ -15909,14 +15849,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Kiruvchi <code>false</code> qiymatini qabul qilib, <code>this.active = false;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>false</code> and sets <code>this.active = false;</code>.",
+          "ru": "Принимает <code>false</code> и обновляет <code>this.active = false;</code>."
         }
       },
       {
@@ -15928,14 +15868,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean active</code> maydonining qiymatini return qiladi (masalan, <code>true</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean active</code> (e.g. <code>true</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean active</code> (например, <code>true</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>active</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>active</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>active</code> без возможности модификации."
         }
       },
       {
@@ -15947,14 +15887,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -15966,14 +15906,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -16054,14 +15994,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -16073,14 +16013,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int 2</code> maydonining qiymatini return qiladi.",
+          "en": "<code>int</code>: returns the value of <code>private int 2</code>.",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int 2</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>2</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>2</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>2</code> без возможности модификации."
         }
       },
       {
@@ -16092,33 +16032,18 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: ob'yekt maydonlari qiymatlarini birlashtirib, formatlangan ma'lumot satrini return qiladi.",
+          "en": "<code>String</code>: combines object fields into a structured, formatted summary string.",
+          "ru": "<code>String</code>: объединяет значения полей объекта в форматированную строку."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ob'yektning barcha zarur xususiyatlarini formatlangan yagona matn ko'rinishida return qiladi.",
+          "en": "Formats and returns object properties as a unified text representation.",
+          "ru": "Форматирует и возвращает свойства объекта в виде единого текста."
         }
       }
     ],
-    "constructorSpecs": [
-      {
-        "name": "Flight",
-        "signature": "public Flight(Route route, Crew crew)",
-        "params": {
-          "uz": "<code>Route route, Crew crew</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>Route route, Crew crew</code>",
-          "ru": "Принимает параметры: <code>Route route, Crew crew</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      }
-    ],
+    "constructorSpecs": [],
     "mainTask": {
       "steps": {
         "uz": [
@@ -16190,14 +16115,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double gpa</code> maydonining qiymatini return qiladi (masalan, <code>3.92</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double gpa</code> (e.g. <code>3.92</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double gpa</code> (например, <code>3.92</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>gpa</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>gpa</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>gpa</code> без возможности модификации."
         }
       },
       {
@@ -16209,14 +16134,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: agar <code>transcript</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>transcript</code> qiymatini return qiladi (masalan, <code>new Transcript(3.92</code>).",
+          "en": "<code>double</code>: returns safe default if <code>transcript</code> is null, otherwise returns <code>transcript</code> (e.g. <code>new Transcript(3.92</code>).",
+          "ru": "<code>double</code>: возвращает безопасное значение если <code>transcript</code> null, иначе <code>transcript</code> (например, <code>new Transcript(3.92</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -16225,28 +16150,14 @@
         "name": "Transcript",
         "signature": "public Transcript(double gpa)",
         "params": {
-          "uz": "<code>double gpa</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>double gpa</code>",
-          "ru": "Принимает параметры: <code>double gpa</code>"
+          "uz": "<code>double gpa</code> (masalan, <code>3.92</code>)",
+          "en": "<code>double gpa</code> (e.g. <code>3.92</code>)",
+          "ru": "<code>double gpa</code> (например, <code>3.92</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "WIUTStudent",
-        "signature": "public WIUTStudent(String name, Transcript transcript)",
-        "params": {
-          "uz": "<code>String name, Transcript transcript</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name, Transcript transcript</code>",
-          "ru": "Принимает параметры: <code>String name, Transcript transcript</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.gpa = gpa;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.gpa = gpa;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.gpa = gpa;</code>"
         }
       }
     ],
@@ -16322,14 +16233,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>this.cursor < this.items.length</code> shartini tekshirib, shart bajarilsa <code>true</code>, aks holda <code>false</code> return qiladi.",
+          "en": "<code>boolean</code>: evaluates <code>this.cursor < this.items.length</code>, returns <code>true</code> if satisfied, otherwise <code>false</code>.",
+          "ru": "<code>boolean</code>: проверяет условие <code>this.cursor < this.items.length</code>, возвращает <code>true</code> при выполнении, иначе <code>false</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki maydon holati <code>this.cursor < this.items.length</code> qoidasiga mosligini dinamik tekshirib mantiqiy natija beradi.",
+          "en": "Dynamically evaluates whether state satisfies <code>this.cursor < this.items.length</code>.",
+          "ru": "Динамически проверяет соответствие состояния правилу <code>this.cursor < this.items.length</code>."
         }
       },
       {
@@ -16341,14 +16252,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>String</code>: returns computed business result or operation state.",
+          "ru": "<code>String</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -16357,14 +16268,14 @@
         "name": "DataStream",
         "signature": "public DataStream(String[] items)",
         "params": {
-          "uz": "<code>String[] items</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String[] items</code>",
-          "ru": "Принимает параметры: <code>String[] items</code>"
+          "uz": "<code>String[] items</code> (masalan, <code>data</code>)",
+          "en": "<code>String[] items</code> (e.g. <code>data</code>)",
+          "ru": "<code>String[] items</code> (например, <code>data</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.items = (items != null) ? items.clone() : new String[0];</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.items = (items != null) ? items.clone() : new String[0];</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.items = (items != null) ? items.clone() : new String[0];</code>"
         }
       }
     ],
@@ -16442,14 +16353,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String username</code> maydonining qiymatini return qiladi (masalan, <code>this</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String username</code> (e.g. <code>this</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String username</code> (например, <code>this</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>username</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>username</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>username</code> без возможности модификации."
         }
       },
       {
@@ -16461,52 +16372,52 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String email</code> maydonining qiymatini return qiladi.",
+          "en": "<code>String</code>: returns the value of <code>private String email</code>.",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String email</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>email</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>email</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>email</code> без возможности модификации."
         }
       },
       {
         "name": "setUsername()",
         "signature": "public Builder setUsername(String u)",
         "params": {
-          "uz": "<code>String u</code>",
-          "en": "<code>String u</code>",
-          "ru": "<code>String u</code>"
+          "uz": "<code>String u</code> (masalan, <code>\"nodir_payme\"</code>)",
+          "en": "<code>String u</code> (e.g. <code>\"nodir_payme\"</code>)",
+          "ru": "<code>String u</code> (например, <code>\"nodir_payme\"</code>)"
         },
         "returns": {
-          "uz": "Builder: ob'yekt havolasi",
-          "en": "Builder: object reference",
-          "ru": "Builder: ссылка на объект"
+          "uz": "<code>Builder</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>Builder</code>: returns computed business result or operation state.",
+          "ru": "<code>Builder</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "setEmail()",
         "signature": "public Builder setEmail(String e)",
         "params": {
-          "uz": "<code>String e</code>",
-          "en": "<code>String e</code>",
-          "ru": "<code>String e</code>"
+          "uz": "<code>String e</code> (masalan, <code>\"nodir@payme.uz\"</code>)",
+          "en": "<code>String e</code> (e.g. <code>\"nodir@payme.uz\"</code>)",
+          "ru": "<code>String e</code> (например, <code>\"nodir@payme.uz\"</code>)"
         },
         "returns": {
-          "uz": "Builder: ob'yekt havolasi",
-          "en": "Builder: object reference",
-          "ru": "Builder: ссылка на объект"
+          "uz": "<code>Builder</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>Builder</code>: returns computed business result or operation state.",
+          "ru": "<code>Builder</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -16518,30 +16429,87 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "UserProfile: ob'yekt havolasi",
-          "en": "UserProfile: object reference",
-          "ru": "UserProfile: ссылка на объект"
+          "uz": "<code>UserProfile</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>UserProfile</code> ob'yektini return qiladi.",
+          "en": "<code>UserProfile</code>: returns a new <code>UserProfile</code> instance without mutating original object.",
+          "ru": "<code>UserProfile</code>: возвращает новый экземпляр <code>UserProfile</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
+        }
+      },
+      {
+        "name": "setUsername()",
+        "signature": "public Builder setUsername(String u)",
+        "params": {
+          "uz": "<code>String u</code> (masalan, <code>\"nodir_payme\"</code>)",
+          "en": "<code>String u</code> (e.g. <code>\"nodir_payme\"</code>)",
+          "ru": "<code>String u</code> (например, <code>\"nodir_payme\"</code>)"
+        },
+        "returns": {
+          "uz": "<code>Builder</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>Builder</code>: returns computed business result or operation state.",
+          "ru": "<code>Builder</code>: возвращает вычисленный бизнес-результат или статус операции."
+        },
+        "desc": {
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
+        }
+      },
+      {
+        "name": "setEmail()",
+        "signature": "public Builder setEmail(String e)",
+        "params": {
+          "uz": "<code>String e</code> (masalan, <code>\"nodir@payme.uz\"</code>)",
+          "en": "<code>String e</code> (e.g. <code>\"nodir@payme.uz\"</code>)",
+          "ru": "<code>String e</code> (например, <code>\"nodir@payme.uz\"</code>)"
+        },
+        "returns": {
+          "uz": "<code>Builder</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>Builder</code>: returns computed business result or operation state.",
+          "ru": "<code>Builder</code>: возвращает вычисленный бизнес-результат или статус операции."
+        },
+        "desc": {
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
+        }
+      },
+      {
+        "name": "build()",
+        "signature": "public UserProfile build()",
+        "params": {
+          "uz": "Parametr qabul qilmaydi",
+          "en": "No parameters",
+          "ru": "Без параметров"
+        },
+        "returns": {
+          "uz": "<code>UserProfile</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>UserProfile</code> ob'yektini return qiladi.",
+          "en": "<code>UserProfile</code>: returns a new <code>UserProfile</code> instance without mutating original object.",
+          "ru": "<code>UserProfile</code>: возвращает новый экземпляр <code>UserProfile</code> не изменяя исходный объект."
+        },
+        "desc": {
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       }
     ],
     "constructorSpecs": [
       {
         "name": "UserProfile",
-        "signature": "public UserProfile(Builder b)",
+        "signature": "private UserProfile(Builder b)",
         "params": {
-          "uz": "<code>Builder b</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>Builder b</code>",
-          "ru": "Принимает параметры: <code>Builder b</code>"
+          "uz": "<code>Builder b</code> (masalan, <code>this</code>)",
+          "en": "<code>Builder b</code> (e.g. <code>this</code>)",
+          "ru": "<code>Builder b</code> (например, <code>this</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.username = b.username;</code> <code>this.email = b.email;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.username = b.username;</code> <code>this.email = b.email;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.username = b.username;</code> <code>this.email = b.email;</code>"
         }
       }
     ],
@@ -16616,19 +16584,19 @@
         "name": "save()",
         "signature": "public boolean save(int id, String name)",
         "params": {
-          "uz": "<code>int id, String name</code>",
-          "en": "<code>int id, String name</code>",
-          "ru": "<code>int id, String name</code>"
+          "uz": "<code>int id, String name</code> (masalan, <code>1, \"Ali\"</code>)",
+          "en": "<code>int id, String name</code> (e.g. <code>1, \"Ali\"</code>)",
+          "ru": "<code>int id, String name</code> (например, <code>1, \"Ali\"</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>size</code> hisoblagichini 1 taga oshirib, <code>private true</code> maydonini return qiladi.",
+          "en": "<code>boolean</code>: increments <code>size</code> counter and returns <code>private true</code>.",
+          "ru": "<code>boolean</code>: увеличивает счетчик <code>size</code> и возвращает поле <code>true</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Har murojaatda <code>size</code> maydonini oshirib, <code>true</code> maydonining joriy qiymatini return qiladi.",
+          "en": "Increments <code>size</code> count on each call and returns the current <code>true</code> value.",
+          "ru": "Инкрементирует <code>size</code> при каждом вызове и возвращает значение <code>true</code>."
         }
       },
       {
@@ -16640,14 +16608,14 @@
           "ru": "<code>int id</code>"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>names</code> massividan <code>i</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>String</code>: returns element at index <code>i</code> from <code>names</code> (or null if out of bounds).",
+          "ru": "<code>String</code>: возвращает элемент по индексу <code>i</code> из <code>names</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "<code>i</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>i</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>i</code>."
         }
       }
     ],
@@ -16727,14 +16695,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -16746,14 +16714,14 @@
           "ru": "<code>int count</code>"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -16762,14 +16730,14 @@
         "name": "TokenBucket",
         "signature": "public TokenBucket(int capacity)",
         "params": {
-          "uz": "<code>int capacity</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int capacity</code>",
-          "ru": "Принимает параметры: <code>int capacity</code>"
+          "uz": "<code>int capacity</code> (masalan, <code>2</code>)",
+          "en": "<code>int capacity</code> (e.g. <code>2</code>)",
+          "ru": "<code>int capacity</code> (например, <code>2</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.maxCapacity = capacity;</code> <code>this.tokens = capacity;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.maxCapacity = capacity;</code> <code>this.tokens = capacity;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.maxCapacity = capacity;</code> <code>this.tokens = capacity;</code>"
         }
       }
     ],
@@ -16840,38 +16808,38 @@
         "name": "put()",
         "signature": "public void put(String k, String v)",
         "params": {
-          "uz": "<code>String k, String v</code>",
-          "en": "<code>String k, String v</code>",
-          "ru": "<code>String k, String v</code>"
+          "uz": "<code>String k, String v</code> (masalan, <code>\"A\", \"Toshkent\"</code>)",
+          "en": "<code>String k, String v</code> (e.g. <code>\"A\", \"Toshkent\"</code>)",
+          "ru": "<code>String k, String v</code> (например, <code>\"A\", \"Toshkent\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
         "name": "get()",
         "signature": "public String get(String k)",
         "params": {
-          "uz": "<code>String k</code>",
-          "en": "<code>String k</code>",
-          "ru": "<code>String k</code>"
+          "uz": "<code>String k</code> (masalan, <code>\"C\"</code>)",
+          "en": "<code>String k</code> (e.g. <code>\"C\"</code>)",
+          "ru": "<code>String k</code> (например, <code>\"C\"</code>)"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>values</code> massividan <code>i</code>-indeksdagi elementni return qiladi (chegaradan chiqsa null).",
+          "en": "<code>String</code>: returns element at index <code>i</code> from <code>values</code> (or null if out of bounds).",
+          "ru": "<code>String</code>: возвращает элемент по индексу <code>i</code> из <code>values</code> (или null при выходе за границы)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "<code>i</code> indeksi bo'yicha massiv elementini xavfsiz o'qib beradi.",
+          "en": "Safely retrieves array element at <code>i</code> index.",
+          "ru": "Безопасно возвращает элемент массива по индексу <code>i</code>."
         }
       }
     ],
@@ -16951,33 +16919,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int state</code> maydonining qiymatini return qiladi (masalan, <code>this.sugarGrams</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int state</code> (e.g. <code>this.sugarGrams</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int state</code> (например, <code>this.sugarGrams</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>state</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>state</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>state</code> без возможности модификации."
         }
       },
       {
         "name": "setSugar()",
         "signature": "public void setSugar(int s)",
         "params": {
-          "uz": "<code>int s</code>",
-          "en": "<code>int s</code>",
-          "ru": "<code>int s</code>"
+          "uz": "<code>int s</code> (masalan, <code>100</code>)",
+          "en": "<code>int s</code> (e.g. <code>100</code>)",
+          "ru": "<code>int s</code> (например, <code>100</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: qiymat qaytarmaydi",
+          "en": "<code>void</code>: returns nothing",
+          "ru": "<code>void</code>: ничего не возвращает"
         },
         "desc": {
-          "uz": "Kiruvchi qiymatni qat'iy qoidalar bo'yicha tekshirib (validatsiya), xususiy maydonga o'zlashtiradi.",
-          "en": "Validates incoming parameter against invariants and mutates internal state.",
-          "ru": "Валидирует входящее значение и обновляет приватное поле."
+          "uz": "Kiruvchi <code>s</code> qiymatini qabul qilib, <code>this.sugarGrams = s;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts <code>s</code> and sets <code>this.sugarGrams = s;</code>.",
+          "ru": "Принимает <code>s</code> и обновляет <code>this.sugarGrams = s;</code>."
         }
       },
       {
@@ -16989,14 +16957,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int sugarGrams</code> maydonining qiymatini return qiladi.",
+          "en": "<code>int</code>: returns the value of <code>private int sugarGrams</code>.",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int sugarGrams</code>."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>sugarGrams</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>sugarGrams</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>sugarGrams</code> без возможности модификации."
         }
       },
       {
@@ -17008,33 +16976,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "RecipeMemento: ob'yekt havolasi",
-          "en": "RecipeMemento: object reference",
-          "ru": "RecipeMemento: ссылка на объект"
+          "uz": "<code>RecipeMemento</code>: joriy ob'yektni o'zgartirmasdan, yangilangan parametr bilan yangi <code>RecipeMemento</code> ob'yektini return qiladi.",
+          "en": "<code>RecipeMemento</code>: returns a new <code>RecipeMemento</code> instance without mutating original object.",
+          "ru": "<code>RecipeMemento</code>: возвращает новый экземпляр <code>RecipeMemento</code> не изменяя исходный объект."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Immutability (o'zgarmaslik) qoidasi bo'yicha yangi nusxa yaratib return qiladi.",
+          "en": "Creates and returns a new copy following immutability principles.",
+          "ru": "Создает и возвращает новую копию согласно принципу неизменяемости."
         }
       },
       {
         "name": "restore()",
         "signature": "public void restore(RecipeMemento m)",
         "params": {
-          "uz": "<code>RecipeMemento m</code>",
-          "en": "<code>RecipeMemento m</code>",
-          "ru": "<code>RecipeMemento m</code>"
+          "uz": "<code>RecipeMemento m</code> (masalan, <code>snapshot</code>)",
+          "en": "<code>RecipeMemento m</code> (e.g. <code>snapshot</code>)",
+          "ru": "<code>RecipeMemento m</code> (например, <code>snapshot</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>sugarGrams</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>sugarGrams</code> qiymatini return qiladi.",
+          "en": "<code>void</code>: returns safe default if <code>sugarGrams</code> is null, otherwise returns <code>sugarGrams</code>.",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>sugarGrams</code> null, иначе <code>sugarGrams</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -17043,14 +17011,14 @@
         "name": "RecipeMemento",
         "signature": "public RecipeMemento(int state)",
         "params": {
-          "uz": "<code>int state</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>int state</code>",
-          "ru": "Принимает параметры: <code>int state</code>"
+          "uz": "<code>int state</code> (masalan, <code>this.sugarGrams</code>)",
+          "en": "<code>int state</code> (e.g. <code>this.sugarGrams</code>)",
+          "ru": "<code>int state</code> (например, <code>this.sugarGrams</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.state = state;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.state = state;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.state = state;</code>"
         }
       }
     ],
@@ -17124,19 +17092,19 @@
         "name": "executeOrder()",
         "signature": "public boolean executeOrder(double price)",
         "params": {
-          "uz": "<code>double price</code>",
-          "en": "<code>double price</code>",
-          "ru": "<code>double price</code>"
+          "uz": "<code>double price</code> (masalan, <code>50000.0</code>)",
+          "en": "<code>double price</code> (e.g. <code>50000.0</code>)",
+          "ru": "<code>double price</code> (например, <code>50000.0</code>)"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17148,14 +17116,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double balance</code> maydonining qiymatini return qiladi (masalan, <code>100000.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double balance</code> (e.g. <code>100000.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double balance</code> (например, <code>100000.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>balance</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>balance</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>balance</code> без возможности модификации."
         }
       }
     ],
@@ -17232,19 +17200,19 @@
         "name": "add()",
         "signature": "public void add(int n)",
         "params": {
-          "uz": "<code>int n</code>",
-          "en": "<code>int n</code>",
-          "ru": "<code>int n</code>"
+          "uz": "<code>int n</code> (masalan, <code>50</code>)",
+          "en": "<code>int n</code> (e.g. <code>50</code>)",
+          "ru": "<code>int n</code> (например, <code>50</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17256,14 +17224,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17275,14 +17243,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int value</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int value</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int value</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>value</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>value</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>value</code> без возможности модификации."
         }
       }
     ],
@@ -17357,38 +17325,38 @@
         "name": "addListener()",
         "signature": "public void addListener(OrderListener l)",
         "params": {
-          "uz": "<code>OrderListener l</code>",
-          "en": "<code>OrderListener l</code>",
-          "ru": "<code>OrderListener l</code>"
+          "uz": "<code>OrderListener l</code> (masalan, <code>st -> System.out.println(\"Eshitildi: \" + st</code>)",
+          "en": "<code>OrderListener l</code> (e.g. <code>st -> System.out.println(\"Eshitildi: \" + st</code>)",
+          "ru": "<code>OrderListener l</code> (например, <code>st -> System.out.println(\"Eshitildi: \" + st</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>listeners</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>listeners</code> qiymatini return qiladi (masalan, <code>new OrderListener[5]</code>).",
+          "en": "<code>void</code>: returns safe default if <code>listeners</code> is null, otherwise returns <code>listeners</code> (e.g. <code>new OrderListener[5]</code>).",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>listeners</code> null, иначе <code>listeners</code> (например, <code>new OrderListener[5]</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
         "name": "dispatchOrder()",
         "signature": "public void dispatchOrder(String status)",
         "params": {
-          "uz": "<code>String status</code>",
-          "en": "<code>String status</code>",
-          "ru": "<code>String status</code>"
+          "uz": "<code>String status</code> (masalan, <code>\"READY_FOR_DELIVERY\"</code>)",
+          "en": "<code>String status</code> (e.g. <code>\"READY_FOR_DELIVERY\"</code>)",
+          "ru": "<code>String status</code> (например, <code>\"READY_FOR_DELIVERY\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       }
     ],
@@ -17467,14 +17435,14 @@
           "ru": "<code>String input</code>"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: agar <code>salt</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>salt</code> qiymatini return qiladi (masalan, <code>\"XYZ99\"</code>).",
+          "en": "<code>boolean</code>: returns safe default if <code>salt</code> is null, otherwise returns <code>salt</code> (e.g. <code>\"XYZ99\"</code>).",
+          "ru": "<code>boolean</code>: возвращает безопасное значение если <code>salt</code> null, иначе <code>salt</code> (например, <code>\"XYZ99\"</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -17483,14 +17451,14 @@
         "name": "SaltedVerifier",
         "signature": "public SaltedVerifier(String rawPassword)",
         "params": {
-          "uz": "<code>String rawPassword</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String rawPassword</code>",
-          "ru": "Принимает параметры: <code>String rawPassword</code>"
+          "uz": "<code>String rawPassword</code> (masalan, <code>\"mySecret\"</code>)",
+          "en": "<code>String rawPassword</code> (e.g. <code>\"mySecret\"</code>)",
+          "ru": "<code>String rawPassword</code> (например, <code>\"mySecret\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.storedHash = this.salt + \"_\" + rawPassword;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.storedHash = this.salt + \"_\" + rawPassword;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.storedHash = this.salt + \"_\" + rawPassword;</code>"
         }
       }
     ],
@@ -17562,19 +17530,19 @@
         "name": "stageAmount()",
         "signature": "public void stageAmount(double amt)",
         "params": {
-          "uz": "<code>double amt</code>",
-          "en": "<code>double amt</code>",
-          "ru": "<code>double amt</code>"
+          "uz": "<code>double amt</code> (masalan, <code>100.0</code>)",
+          "en": "<code>double amt</code> (e.g. <code>100.0</code>)",
+          "ru": "<code>double amt</code> (например, <code>100.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17586,14 +17554,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17605,14 +17573,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double committedTotal</code> maydonining qiymatini return qiladi (masalan, <code>0.0</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double committedTotal</code> (e.g. <code>0.0</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double committedTotal</code> (например, <code>0.0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>committedTotal</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>committedTotal</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>committedTotal</code> без возможности модификации."
         }
       }
     ],
@@ -17686,19 +17654,19 @@
         "name": "getDiscountRate()",
         "signature": "public double getDiscountRate(int visitCount)",
         "params": {
-          "uz": "<code>int visitCount</code>",
-          "en": "<code>int visitCount</code>",
-          "ru": "<code>int visitCount</code>"
+          "uz": "<code>int visitCount</code> (masalan, <code>visits</code>)",
+          "en": "<code>int visitCount</code> (e.g. <code>visits</code>)",
+          "ru": "<code>int visitCount</code> (например, <code>visits</code>)"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17710,33 +17678,18 @@
           "ru": "<code>double base, int visits</code>"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: agar <code>policy</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>policy</code> qiymatini return qiladi (masalan, <code>new DiscountPolicy(</code>).",
+          "en": "<code>double</code>: returns safe default if <code>policy</code> is null, otherwise returns <code>policy</code> (e.g. <code>new DiscountPolicy(</code>).",
+          "ru": "<code>double</code>: возвращает безопасное значение если <code>policy</code> null, иначе <code>policy</code> (например, <code>new DiscountPolicy(</code>)."
         },
         "desc": {
-          "uz": "Ichki maydonlar asosida biznes hisob-kitobini amalga oshirib natijani qaytaradi.",
-          "en": "Executes encapsulated domain calculation and derives final result.",
-          "ru": "Выполняет доменный расчет на основе внутренних полей и возвращает итог."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
-    "constructorSpecs": [
-      {
-        "name": "BillingService",
-        "signature": "public BillingService(DiscountPolicy policy)",
-        "params": {
-          "uz": "<code>DiscountPolicy policy</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>DiscountPolicy policy</code>",
-          "ru": "Принимает параметры: <code>DiscountPolicy policy</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      }
-    ],
+    "constructorSpecs": [],
     "mainTask": {
       "steps": {
         "uz": [
@@ -17805,19 +17758,19 @@
         "name": "startSession()",
         "signature": "public void startSession(String t)",
         "params": {
-          "uz": "<code>String t</code>",
-          "en": "<code>String t</code>",
-          "ru": "<code>String t</code>"
+          "uz": "<code>String t</code> (masalan, <code>\"SESS-991\"</code>)",
+          "en": "<code>String t</code> (e.g. <code>\"SESS-991\"</code>)",
+          "ru": "<code>String t</code> (например, <code>\"SESS-991\"</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: agar <code>token</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>token</code> qiymatini return qiladi (masalan, <code>null</code>).",
+          "en": "<code>void</code>: returns safe default if <code>token</code> is null, otherwise returns <code>token</code> (e.g. <code>null</code>).",
+          "ru": "<code>void</code>: возвращает безопасное значение если <code>token</code> null, иначе <code>token</code> (например, <code>null</code>)."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       },
       {
@@ -17829,14 +17782,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -17848,14 +17801,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>private boolean active</code> maydonining qiymatini return qiladi (masalan, <code>false</code>).",
+          "en": "<code>boolean</code>: returns the value of <code>private boolean active</code> (e.g. <code>false</code>).",
+          "ru": "<code>boolean</code>: возвращает значение поля <code>private boolean active</code> (например, <code>false</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>active</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>active</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>active</code> без возможности модификации."
         }
       }
     ],
@@ -17935,14 +17888,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: <code>bookedSeats</code> hisoblagichini 1 taga oshirib, <code>private true</code> maydonini return qiladi.",
+          "en": "<code>boolean</code>: increments <code>bookedSeats</code> counter and returns <code>private true</code>.",
+          "ru": "<code>boolean</code>: увеличивает счетчик <code>bookedSeats</code> и возвращает поле <code>true</code>."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Har murojaatda <code>bookedSeats</code> maydonini oshirib, <code>true</code> maydonining joriy qiymatini return qiladi.",
+          "en": "Increments <code>bookedSeats</code> count on each call and returns the current <code>true</code> value.",
+          "ru": "Инкрементирует <code>bookedSeats</code> при каждом вызове и возвращает значение <code>true</code>."
         }
       },
       {
@@ -17954,14 +17907,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "int: butun son qiymati",
-          "en": "int: integer numeric value",
-          "ru": "int: целочисленное значение"
+          "uz": "<code>int</code>: <code>private int bookedSeats</code> maydonining qiymatini return qiladi (masalan, <code>0</code>).",
+          "en": "<code>int</code>: returns the value of <code>private int bookedSeats</code> (e.g. <code>0</code>).",
+          "ru": "<code>int</code>: возвращает значение поля <code>private int bookedSeats</code> (например, <code>0</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>bookedSeats</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>bookedSeats</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>bookedSeats</code> без возможности модификации."
         }
       }
     ],
@@ -18047,14 +18000,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: <code>private String name</code> maydonining qiymatini return qiladi (masalan, <code>\"Ali Valiyev\"</code>).",
+          "en": "<code>String</code>: returns the value of <code>private String name</code> (e.g. <code>\"Ali Valiyev\"</code>).",
+          "ru": "<code>String</code>: возвращает значение поля <code>private String name</code> (например, <code>\"Ali Valiyev\"</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>name</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>name</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>name</code> без возможности модификации."
         }
       },
       {
@@ -18066,33 +18019,33 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: <code>private double price</code> maydonining qiymatini return qiladi (masalan, <code>price</code>).",
+          "en": "<code>double</code>: returns the value of <code>private double price</code> (e.g. <code>price</code>).",
+          "ru": "<code>double</code>: возвращает значение поля <code>private double price</code> (например, <code>price</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Ichki <code>price</code> maydonidagi xususiy ma'lumotni tashqariga xavfsiz return qiladi.",
+          "en": "Safely exposes the private <code>price</code> field value without allowing mutation.",
+          "ru": "Безопасно возвращает значение приватного поля <code>price</code> без возможности модификации."
         }
       },
       {
         "name": "addItem()",
         "signature": "public void addItem(String title, double price)",
         "params": {
-          "uz": "<code>String title, double price</code>",
-          "en": "<code>String title, double price</code>",
-          "ru": "<code>String title, double price</code>"
+          "uz": "<code>String title, double price</code> (masalan, <code>\"Java OOP Darsligi\", 120000.0</code>)",
+          "en": "<code>String title, double price</code> (e.g. <code>\"Java OOP Darsligi\", 120000.0</code>)",
+          "ru": "<code>String title, double price</code> (например, <code>\"Java OOP Darsligi\", 120000.0</code>)"
         },
         "returns": {
-          "uz": "Hech narsa qaytarmaydi (void)",
-          "en": "Nothing (void)",
-          "ru": "Ничего не возвращает (void)"
+          "uz": "<code>void</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>void</code>: returns computed business result or operation state.",
+          "ru": "<code>void</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -18104,14 +18057,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -18123,14 +18076,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "boolean: shart bajarilsa true, aks holda false",
-          "en": "boolean: true if condition is met, otherwise false",
-          "ru": "boolean: true если условие выполнено, иначе false"
+          "uz": "<code>boolean</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>boolean</code>: returns computed business result or operation state.",
+          "ru": "<code>boolean</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Belgilangan biznes operatsiyasini xavfsiz bajaradi va ob'yekt yaxlitligini saqlaydi.",
-          "en": "Executes domain operation safely while preserving class invariants.",
-          "ru": "Выполняет бизнес-операцию, сохраняя целостность инвариантов."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -18142,14 +18095,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "double: hisoblangan yoki saqlangan haqiqiy son qiymati",
-          "en": "double: computed or stored floating-point numeric value",
-          "ru": "double: вычисленное или сохраненное вещественное число"
+          "uz": "<code>double</code>: hisoblangan biznes natijasini yoki operatsiya holatini return qiladi.",
+          "en": "<code>double</code>: returns computed business result or operation state.",
+          "ru": "<code>double</code>: возвращает вычисленный бизнес-результат или статус операции."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "Qabul qilingan parametrlarni qayta ishlab, belgilangan algoritm bo'yicha natijani return qiladi.",
+          "en": "Processes parameters and returns the computed result according to algorithm.",
+          "ru": "Обрабатывает параметры и возвращает вычисленный результат согласно алгоритму."
         }
       },
       {
@@ -18161,14 +18114,14 @@
           "ru": "Без параметров"
         },
         "returns": {
-          "uz": "String: matn ko'rinishidagi qiymat yoki formatlangan satr",
-          "en": "String: textual value or formatted string",
-          "ru": "String: текстовое значение или форматированная строка"
+          "uz": "<code>String</code>: agar <code>customer</code> null bo'lsa xavfsiz qiymat (\"\" yoki default), aks holda <code>customer</code> qiymatini return qiladi (masalan, <code>c</code>).",
+          "en": "<code>String</code>: returns safe default if <code>customer</code> is null, otherwise returns <code>customer</code> (e.g. <code>c</code>).",
+          "ru": "<code>String</code>: возвращает безопасное значение если <code>customer</code> null, иначе <code>customer</code> (например, <code>c</code>)."
         },
         "desc": {
-          "uz": "Xususiy maydon qiymatini xavfsiz o'qib beradi yoki holatni dinamik hisoblaydi.",
-          "en": "Safely exposes private field value or computes property on-the-fly.",
-          "ru": "Безопасно возвращает значение приватного поля или вычисляет свойство."
+          "uz": "NullPointerException xatosini oldini oluvchi xavfsiz getter, null qiymatni tekshirib qaytaradi.",
+          "en": "Null-safe getter preventing NullPointerException by guarding against null.",
+          "ru": "Null-safe геттер, предотвращающий NullPointerException проверкой на null."
         }
       }
     ],
@@ -18177,42 +18130,14 @@
         "name": "Customer",
         "signature": "public Customer(String name)",
         "params": {
-          "uz": "<code>String name</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String name</code>",
-          "ru": "Принимает параметры: <code>String name</code>"
+          "uz": "<code>String name</code> (masalan, <code>\"Ali Valiyev\"</code>)",
+          "en": "<code>String name</code> (e.g. <code>\"Ali Valiyev\"</code>)",
+          "ru": "<code>String name</code> (например, <code>\"Ali Valiyev\"</code>)"
         },
         "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "OrderItem",
-        "signature": "public OrderItem(String title, double price)",
-        "params": {
-          "uz": "<code>String title, double price</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>String title, double price</code>",
-          "ru": "Принимает параметры: <code>String title, double price</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
-        }
-      },
-      {
-        "name": "Order",
-        "signature": "public Order(Customer customer)",
-        "params": {
-          "uz": "<code>Customer customer</code> parametrlarini qabul qiladi",
-          "en": "Accepts parameters: <code>Customer customer</code>",
-          "ru": "Принимает параметры: <code>Customer customer</code>"
-        },
-        "desc": {
-          "uz": "Berilgan qiymatlarni tekshirib, xususiy maydonlarga o'zlashtiradi.",
-          "en": "Initializes and binds input parameters to private fields.",
-          "ru": "Инициализирует приватные поля переданными значениями."
+          "uz": "Kiruvchi parametr(lar)ni qabul qilib, <code>this.name = name;</code> maydoniga o'zlashtiradi.",
+          "en": "Accepts input parameter(s) and initializes: <code>this.name = name;</code>",
+          "ru": "Принимает входные параметры и инициализирует: <code>this.name = name;</code>"
         }
       }
     ],

@@ -274,7 +274,7 @@
           return '<div class="method-spec-card">' +
             '<div class="method-spec-sig"><code>' + (m.signature || m.name) + '</code></div>' +
             '<div class="method-spec-line"><span class="spec-lbl">📥 ' + (isRu ? "Параметры:" : (isEn ? "Parameters:" : "Qabul qiladi:")) + '</span> <span class="spec-val">' + p + '</span></div>' +
-            '<div class="method-spec-line"><span class="spec-lbl">📤 ' + (isRu ? "Возвращает:" : (isEn ? "Returns:" : "Qaytaradi:")) + '</span> <span class="spec-val"><code>' + r + '</code></span></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">📤 ' + (isRu ? "Возвращает:" : (isEn ? "Returns:" : "Qaytaradi:")) + '</span> <span class="spec-val">' + r + '</span></div>' +
             '<div class="method-spec-line"><span class="spec-lbl">⚙️ ' + (isRu ? "Назначение:" : (isEn ? "Purpose:" : "Vazifasi:")) + '</span> <span class="spec-val">' + d + '</span></div>' +
           '</div>';
         }).join("");
