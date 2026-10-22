@@ -8,6 +8,7 @@
 
   const STORAGE_KEY = "WIUT_OOP_W2_PROGRESS";
   const CODE_STORAGE_PREFIX = "WIUT_OOP_W2_CODE_";
+  const LAST_Q_KEY = "WIUT_OOP_W2_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -346,7 +347,7 @@
       elNewKnowledge.style.display = "block";
     }
 
-    // Set code editor
+    // Set code editor - 100% faithful restoration of student's code
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
       let saved = null;
@@ -354,17 +355,6 @@
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
       if (saved !== null && saved !== undefined && saved.trim().length > 0) {
-        // Pedagogical check: If saved code still has untouched starter comments and prefilled main, clean main
-        const onlyCommentsInClass = /class\s+\w+\s*\{\s*(\s*\/\/[^\n]*)*\s*\}/.test(saved);
-        const hasPrefilledMain = /class\s+Main\s*\{[\s\S]*?public\s+static\s+void\s+main\s*\([^)]*\)\s*\{[\s\S]*?\S[\s\S]*?\}\s*\}/.test(saved);
-        const isOldUntouchedC1 = saved.includes("Product p = new Product(45000.0);") && saved.includes("// 1. private double price");
-        
-        if (isOldUntouchedC1 || (onlyCommentsInClass && hasPrefilledMain)) {
-          saved = saved.replace(/class\s+Main\s*\{[\s\S]*?public\s+static\s+void\s+main\s*\(\s*String\s*\[\s*\]\s*args\s*\)\s*\{[\s\S]*?\}\s*\}/, 'class Main {\n    public static void main(String[] args) {\n        \n    }\n}');
-          try {
-            localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, saved);
-          } catch (e) {}
-        }
         codeArea.value = saved;
       } else {
         codeArea.value = ch.starterCode || "";
@@ -414,9 +404,11 @@
 
   function switchChallenge(idx) {
     saveCurrentCode();
-    saveCurrentCode();
     if (idx < 0 || idx >= CHALLENGES.length) return;
     currentQIndex = idx;
+    try {
+      localStorage.setItem(LAST_Q_KEY, String(idx));
+    } catch (e) {}
 
         // Auto-update sector filter to match current question
     const ch = CHALLENGES[idx];
@@ -617,6 +609,7 @@ class Main {
   // 4. Code Execution & Testing with Line-by-Line Diagnostics
     // 4. Code Execution & Testing with Real OpenJDK Engine & Line-by-Line Diagnostics
   async function handleInstantTest() {
+    saveCurrentCode();
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
@@ -871,6 +864,17 @@ class Main {
   }
   document.addEventListener("DOMContentLoaded", () => {
     loadSolved();
+    try {
+      const savedLastQ = parseInt(localStorage.getItem(LAST_Q_KEY), 10);
+      if (!isNaN(savedLastQ) && savedLastQ >= 0 && savedLastQ < CHALLENGES.length) {
+        currentQIndex = savedLastQ;
+        const ch = CHALLENGES[currentQIndex];
+        if (ch) {
+          const targetSector = (ch.id <= 30) ? "1-30" : (ch.id <= 60) ? "31-60" : (ch.id <= 90) ? "61-90" : (ch.id <= 120) ? "91-120" : "121-150";
+          currentSector = targetSector;
+        }
+      }
+    } catch (e) {}
     initSectorTabs();
     initModeSwitcher();
     renderHUD();
@@ -965,7 +969,17 @@ class Main {
     const elToggleHint = document.getElementById("solutionToggleHint");
 
     const edArea = document.getElementById("codeEditor");
-    if (edArea) edArea.addEventListener("input", saveCurrentCode);
+    if (edArea) {
+      edArea.addEventListener("input", saveCurrentCode);
+      edArea.addEventListener("keyup", saveCurrentCode);
+      edArea.addEventListener("change", saveCurrentCode);
+      edArea.addEventListener("blur", saveCurrentCode);
+    }
+    window.addEventListener("beforeunload", saveCurrentCode);
+    window.addEventListener("pagehide", saveCurrentCode);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") saveCurrentCode();
+    });
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
     if (btnReset) btnReset.addEventListener("click", () => {
