@@ -1575,3 +1575,87 @@ input, textarea, select, [contenteditable="true"] {
   border-radius: 12px;
   font-family: var(--font-mono, monospace);
 }
+
+
+    /* MAIN TASK SPECIFICATIONS & EXPECTED OUTPUT */
+    .main-task-card {
+      margin-top: 8px !important;
+      padding: 12px 14px !important;
+      background: rgba(13, 10, 28, 0.8) !important;
+      border: 1px solid rgba(56, 189, 248, 0.45) !important;
+      border-left: 3px solid #38bdf8 !important;
+      border-radius: 8px !important;
+    }
+    .main-task-inst-title {
+      font-size: 13px !important;
+      font-weight: 700 !important;
+      color: #38bdf8 !important;
+      margin-bottom: 8px !important;
+    }
+    .main-task-steps {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 8px !important;
+      margin-bottom: 10px !important;
+    }
+    .main-task-step {
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 8px !important;
+      font-size: 13px !important;
+      color: #e2e8f0 !important;
+      line-height: 1.5 !important;
+    }
+    .main-step-num {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      border-radius: 50% !important;
+      background: rgba(56, 189, 248, 0.25) !important;
+      border: 1px solid #38bdf8 !important;
+      color: #38bdf8 !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      margin-top: 1px !important;
+    }
+    .main-step-content {
+      flex: 1 !important;
+    }
+    .main-step-content code {
+      background: rgba(168, 85, 247, 0.22) !important;
+      color: #e9d5ff !important;
+      padding: 1px 6px !important;
+      border-radius: 4px !important;
+      font-family: 'Consolas', 'JetBrains Mono', monospace !important;
+      font-size: 12.5px !important;
+    }
+    .main-expected-box {
+      margin-top: 10px !important;
+      padding: 10px 12px !important;
+      background: #090714 !important;
+      border: 1px solid rgba(56, 189, 248, 0.35) !important;
+      border-radius: 6px !important;
+    }
+    .main-expected-header {
+      font-size: 12px !important;
+      font-weight: 700 !important;
+      color: #38bdf8 !important;
+      margin-bottom: 6px !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.3px !important;
+    }
+    .main-expected-output {
+      margin: 0 !important;
+      padding: 8px 10px !important;
+      background: rgba(0, 0, 0, 0.6) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 4px !important;
+      color: #4ade80 !important;
+      font-family: 'Consolas', 'JetBrains Mono', monospace !important;
+      font-size: 13px !important;
+      white-space: pre-wrap !important;
+      word-break: break-all !important;
+    }

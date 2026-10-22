@@ -82,7 +82,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Product p = new Product(45000.0);",
+        "System.out.println(\"Mahsulot narxi: \" + p.getPrice() + \" UZS\");"
+      ],
+      "instantiations": [
+        "Product p = new Product(45000.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Mahsulot narxi: \" + p.getPrice() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Product p = new Product(45000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Mahsulot narxi: \" + p.getPrice() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `Product p = new Product(45000.0);`",
+          "Print result to console: `System.out.println(\"Mahsulot narxi: \" + p.getPrice() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Product p = new Product(45000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Mahsulot narxi: \" + p.getPrice() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Mahsulot narxi: 45000.0 UZS"
+    }
   },
   {
     "id": 2,
@@ -185,7 +213,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "WalletAuth auth = new WalletAuth(\"rustam_payme\", 3);",
+        "System.out.println(\"Foydalanuvchi: \" + auth.getUsername() + \" | Urinishlar: \" + auth.getAttempts());"
+      ],
+      "instantiations": [
+        "WalletAuth auth = new WalletAuth(\"rustam_payme\", 3);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Foydalanuvchi: \" + auth.getUsername() + \" | Urinishlar: \" + auth.getAttempts());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `WalletAuth auth = new WalletAuth(\"rustam_payme\", 3);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Foydalanuvchi: \" + auth.getUsername() + \" | Urinishlar: \" + auth.getAttempts());`"
+        ],
+        "en": [
+          "Instantiate object: `WalletAuth auth = new WalletAuth(\"rustam_payme\", 3);`",
+          "Print result to console: `System.out.println(\"Foydalanuvchi: \" + auth.getUsername() + \" | Urinishlar: \" + auth.getAttempts());`"
+        ],
+        "ru": [
+          "Создание объекта: `WalletAuth auth = new WalletAuth(\"rustam_payme\", 3);`",
+          "Вывод результата в консоль: `System.out.println(\"Foydalanuvchi: \" + auth.getUsername() + \" | Urinishlar: \" + auth.getAttempts());`"
+        ]
+      },
+      "expectedOutput": "Foydalanuvchi: rustam_payme | Urinishlar: 3"
+    }
   },
   {
     "id": 3,
@@ -288,7 +344,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "InventoryItem item = new InventoryItem(\"Sut\", true);",
+        "System.out.println(\"Tovar mavjudmi: \" + item.isInStock());"
+      ],
+      "instantiations": [
+        "InventoryItem item = new InventoryItem(\"Sut\", true);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Tovar mavjudmi: \" + item.isInStock());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `InventoryItem item = new InventoryItem(\"Sut\", true);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Tovar mavjudmi: \" + item.isInStock());`"
+        ],
+        "en": [
+          "Instantiate object: `InventoryItem item = new InventoryItem(\"Sut\", true);`",
+          "Print result to console: `System.out.println(\"Tovar mavjudmi: \" + item.isInStock());`"
+        ],
+        "ru": [
+          "Создание объекта: `InventoryItem item = new InventoryItem(\"Sut\", true);`",
+          "Вывод результата в консоль: `System.out.println(\"Tovar mavjudmi: \" + item.isInStock());`"
+        ]
+      },
+      "expectedOutput": "Tovar mavjudmi: true"
+    }
   },
   {
     "id": 4,
@@ -370,7 +454,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Trip trip = new Trip(\"TRIP-99824\");",
+        "System.out.println(\"Safar ID: \" + trip.getTripId());"
+      ],
+      "instantiations": [
+        "Trip trip = new Trip(\"TRIP-99824\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Safar ID: \" + trip.getTripId());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Trip trip = new Trip(\"TRIP-99824\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Safar ID: \" + trip.getTripId());`"
+        ],
+        "en": [
+          "Instantiate object: `Trip trip = new Trip(\"TRIP-99824\");`",
+          "Print result to console: `System.out.println(\"Safar ID: \" + trip.getTripId());`"
+        ],
+        "ru": [
+          "Создание объекта: `Trip trip = new Trip(\"TRIP-99824\");`",
+          "Вывод результата в консоль: `System.out.println(\"Safar ID: \" + trip.getTripId());`"
+        ]
+      },
+      "expectedOutput": "Safar ID: TRIP-99824"
+    }
   },
   {
     "id": 5,
@@ -452,7 +564,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TechItem item = new TechItem('A');",
+        "System.out.println(\"Sifat darajasi: \" + item.getGrade());"
+      ],
+      "instantiations": [
+        "TechItem item = new TechItem('A');"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Sifat darajasi: \" + item.getGrade());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TechItem item = new TechItem('A');`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Sifat darajasi: \" + item.getGrade());`"
+        ],
+        "en": [
+          "Instantiate object: `TechItem item = new TechItem('A');`",
+          "Print result to console: `System.out.println(\"Sifat darajasi: \" + item.getGrade());`"
+        ],
+        "ru": [
+          "Создание объекта: `TechItem item = new TechItem('A');`",
+          "Вывод результата в консоль: `System.out.println(\"Sifat darajasi: \" + item.getGrade());`"
+        ]
+      },
+      "expectedOutput": "Sifat darajasi: A"
+    }
   },
   {
     "id": 6,
@@ -534,7 +674,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SafeUser u1 = new SafeUser(null);",
+        "SafeUser u2 = new SafeUser(\"Jasur\");",
+        "System.out.println(\"User1: [\" + u1.getName() + \"] | User2: [\" + u2.getName() + \"]\");"
+      ],
+      "instantiations": [
+        "SafeUser u1 = new SafeUser(null);",
+        "SafeUser u2 = new SafeUser(\"Jasur\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"User1: [\" + u1.getName() + \"] | User2: [\" + u2.getName() + \"]\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `SafeUser u1 = new SafeUser(null);` va `SafeUser u2 = new SafeUser(\"Jasur\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"User1: [\" + u1.getName() + \"] | User2: [\" + u2.getName() + \"]\");`"
+        ],
+        "en": [
+          "Instantiate objects: `SafeUser u1 = new SafeUser(null);` and `SafeUser u2 = new SafeUser(\"Jasur\");`",
+          "Print result to console: `System.out.println(\"User1: [\" + u1.getName() + \"] | User2: [\" + u2.getName() + \"]\");`"
+        ],
+        "ru": [
+          "Создание объектов: `SafeUser u1 = new SafeUser(null);` и `SafeUser u2 = new SafeUser(\"Jasur\");`",
+          "Вывод результата в консоль: `System.out.println(\"User1: [\" + u1.getName() + \"] | User2: [\" + u2.getName() + \"]\");`"
+        ]
+      },
+      "expectedOutput": "User1: [] | User2: [Jasur]"
+    }
   },
   {
     "id": 7,
@@ -636,7 +806,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Employee e1 = new Employee(17);",
+        "Employee e2 = new Employee(22);",
+        "System.out.println(\"E1 voyaga yetganmi: \" + e1.isAdult() + \" | E2: \" + e2.isAdult());"
+      ],
+      "instantiations": [
+        "Employee e1 = new Employee(17);",
+        "Employee e2 = new Employee(22);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"E1 voyaga yetganmi: \" + e1.isAdult() + \" | E2: \" + e2.isAdult());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `Employee e1 = new Employee(17);` va `Employee e2 = new Employee(22);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"E1 voyaga yetganmi: \" + e1.isAdult() + \" | E2: \" + e2.isAdult());`"
+        ],
+        "en": [
+          "Instantiate objects: `Employee e1 = new Employee(17);` and `Employee e2 = new Employee(22);`",
+          "Print result to console: `System.out.println(\"E1 voyaga yetganmi: \" + e1.isAdult() + \" | E2: \" + e2.isAdult());`"
+        ],
+        "ru": [
+          "Создание объектов: `Employee e1 = new Employee(17);` и `Employee e2 = new Employee(22);`",
+          "Вывод результата в консоль: `System.out.println(\"E1 voyaga yetganmi: \" + e1.isAdult() + \" | E2: \" + e2.isAdult());`"
+        ]
+      },
+      "expectedOutput": "E1 voyaga yetganmi: false | E2: true"
+    }
   },
   {
     "id": 8,
@@ -738,7 +938,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "CourierZone zone = new CourierZone(\"chilonzor-9\");",
+        "System.out.println(\"Asl: \" + zone.getZoneCode() + \" | Normal: \" + zone.getNormalizedZone());"
+      ],
+      "instantiations": [
+        "CourierZone zone = new CourierZone(\"chilonzor-9\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Asl: \" + zone.getZoneCode() + \" | Normal: \" + zone.getNormalizedZone());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CourierZone zone = new CourierZone(\"chilonzor-9\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Asl: \" + zone.getZoneCode() + \" | Normal: \" + zone.getNormalizedZone());`"
+        ],
+        "en": [
+          "Instantiate object: `CourierZone zone = new CourierZone(\"chilonzor-9\");`",
+          "Print result to console: `System.out.println(\"Asl: \" + zone.getZoneCode() + \" | Normal: \" + zone.getNormalizedZone());`"
+        ],
+        "ru": [
+          "Создание объекта: `CourierZone zone = new CourierZone(\"chilonzor-9\");`",
+          "Вывод результата в консоль: `System.out.println(\"Asl: \" + zone.getZoneCode() + \" | Normal: \" + zone.getNormalizedZone());`"
+        ]
+      },
+      "expectedOutput": "Asl: chilonzor-9 | Normal: CHILONZOR-9"
+    }
   },
   {
     "id": 9,
@@ -820,7 +1048,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "BankCard card = new BankCard(\"8600123456789911\");",
+        "System.out.println(\"Karta: \" + card.getMaskedNumber());"
+      ],
+      "instantiations": [
+        "BankCard card = new BankCard(\"8600123456789911\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Karta: \" + card.getMaskedNumber());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `BankCard card = new BankCard(\"8600123456789911\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Karta: \" + card.getMaskedNumber());`"
+        ],
+        "en": [
+          "Instantiate object: `BankCard card = new BankCard(\"8600123456789911\");`",
+          "Print result to console: `System.out.println(\"Karta: \" + card.getMaskedNumber());`"
+        ],
+        "ru": [
+          "Создание объекта: `BankCard card = new BankCard(\"8600123456789911\");`",
+          "Вывод результата в консоль: `System.out.println(\"Karta: \" + card.getMaskedNumber());`"
+        ]
+      },
+      "expectedOutput": "Karta: **** **** **** 9911"
+    }
   },
   {
     "id": 10,
@@ -923,7 +1179,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ApiKeyManager mgr = new ApiKeyManager(\"SECRET_ASAXIY_99\");",
+        "mgr.getApiKey();",
+        "mgr.getApiKey();",
+        "System.out.println(\"Kalit o'qildi: \" + mgr.getAccessCount() + \" marta\");"
+      ],
+      "instantiations": [
+        "ApiKeyManager mgr = new ApiKeyManager(\"SECRET_ASAXIY_99\");"
+      ],
+      "methodCalls": [
+        "mgr.getApiKey();",
+        "mgr.getApiKey();"
+      ],
+      "prints": [
+        "System.out.println(\"Kalit o'qildi: \" + mgr.getAccessCount() + \" marta\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ApiKeyManager mgr = new ApiKeyManager(\"SECRET_ASAXIY_99\");`",
+          "Metodlarni chaqirish / amallar: `mgr.getApiKey();`, `mgr.getApiKey();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Kalit o'qildi: \" + mgr.getAccessCount() + \" marta\");`"
+        ],
+        "en": [
+          "Instantiate object: `ApiKeyManager mgr = new ApiKeyManager(\"SECRET_ASAXIY_99\");`",
+          "Invoke methods / operations: `mgr.getApiKey();`, `mgr.getApiKey();`",
+          "Print result to console: `System.out.println(\"Kalit o'qildi: \" + mgr.getAccessCount() + \" marta\");`"
+        ],
+        "ru": [
+          "Создание объекта: `ApiKeyManager mgr = new ApiKeyManager(\"SECRET_ASAXIY_99\");`",
+          "Вызовы методов / операции: `mgr.getApiKey();`, `mgr.getApiKey();`",
+          "Вывод результата в консоль: `System.out.println(\"Kalit o'qildi: \" + mgr.getAccessCount() + \" marta\");`"
+        ]
+      },
+      "expectedOutput": "Kalit o'qildi: 2 marta"
+    }
   },
   {
     "id": 11,
@@ -1005,7 +1297,37 @@
           "ru": "Присваивает начальные значения по умолчанию."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "KitchenReport kr = new KitchenReport();",
+        "System.out.println(\"1: \" + kr.getReport());",
+        "System.out.println(\"2: \" + kr.getReport());"
+      ],
+      "instantiations": [
+        "KitchenReport kr = new KitchenReport();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"1: \" + kr.getReport());",
+        "System.out.println(\"2: \" + kr.getReport());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `KitchenReport kr = new KitchenReport();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"1: \" + kr.getReport());; System.out.println(\"2: \" + kr.getReport());`"
+        ],
+        "en": [
+          "Instantiate object: `KitchenReport kr = new KitchenReport();`",
+          "Print result to console: `System.out.println(\"1: \" + kr.getReport());; System.out.println(\"2: \" + kr.getReport());`"
+        ],
+        "ru": [
+          "Создание объекта: `KitchenReport kr = new KitchenReport();`",
+          "Вывод результата в консоль: `System.out.println(\"1: \" + kr.getReport());; System.out.println(\"2: \" + kr.getReport());`"
+        ]
+      },
+      "expectedOutput": "1: Dodo Hisoboti: 15 ta pitsa\n2: Dodo Hisoboti: 15 ta pitsa"
+    }
   },
   {
     "id": 12,
@@ -1087,7 +1409,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "LabTest test = new LabTest(ResultStatus.READY);",
+        "System.out.println(\"Holat: \" + test.getStatusText());"
+      ],
+      "instantiations": [
+        "LabTest test = new LabTest(ResultStatus.READY);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Holat: \" + test.getStatusText());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `LabTest test = new LabTest(ResultStatus.READY);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Holat: \" + test.getStatusText());`"
+        ],
+        "en": [
+          "Instantiate object: `LabTest test = new LabTest(ResultStatus.READY);`",
+          "Print result to console: `System.out.println(\"Holat: \" + test.getStatusText());`"
+        ],
+        "ru": [
+          "Создание объекта: `LabTest test = new LabTest(ResultStatus.READY);`",
+          "Вывод результата в консоль: `System.out.println(\"Holat: \" + test.getStatusText());`"
+        ]
+      },
+      "expectedOutput": "Holat: ready"
+    }
   },
   {
     "id": 13,
@@ -1170,7 +1520,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Subscriber s = new Subscriber(\"Vali\", \"Karimov\");",
+        "System.out.println(\"Mijoz: \" + s.getFullName());"
+      ],
+      "instantiations": [
+        "Subscriber s = new Subscriber(\"Vali\", \"Karimov\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Mijoz: \" + s.getFullName());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Subscriber s = new Subscriber(\"Vali\", \"Karimov\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Mijoz: \" + s.getFullName());`"
+        ],
+        "en": [
+          "Instantiate object: `Subscriber s = new Subscriber(\"Vali\", \"Karimov\");`",
+          "Print result to console: `System.out.println(\"Mijoz: \" + s.getFullName());`"
+        ],
+        "ru": [
+          "Создание объекта: `Subscriber s = new Subscriber(\"Vali\", \"Karimov\");`",
+          "Вывод результата в консоль: `System.out.println(\"Mijoz: \" + s.getFullName());`"
+        ]
+      },
+      "expectedOutput": "Mijoz: Karimov, Vali"
+    }
   },
   {
     "id": 14,
@@ -1252,7 +1630,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "FlightDelay delay = new FlightDelay(225);",
+        "System.out.println(\"Kechikish: \" + delay.getFormattedDuration());"
+      ],
+      "instantiations": [
+        "FlightDelay delay = new FlightDelay(225);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Kechikish: \" + delay.getFormattedDuration());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `FlightDelay delay = new FlightDelay(225);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Kechikish: \" + delay.getFormattedDuration());`"
+        ],
+        "en": [
+          "Instantiate object: `FlightDelay delay = new FlightDelay(225);`",
+          "Print result to console: `System.out.println(\"Kechikish: \" + delay.getFormattedDuration());`"
+        ],
+        "ru": [
+          "Создание объекта: `FlightDelay delay = new FlightDelay(225);`",
+          "Вывод результата в консоль: `System.out.println(\"Kechikish: \" + delay.getFormattedDuration());`"
+        ]
+      },
+      "expectedOutput": "Kechikish: 03:45"
+    }
   },
   {
     "id": 15,
@@ -1337,7 +1743,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "StudentProfile s = new StudentProfile(\"00023271\", \"Ali Valiyev\", 3.85, true);",
+        "System.out.println(s.getAcademicSummary());"
+      ],
+      "instantiations": [
+        "StudentProfile s = new StudentProfile(\"00023271\", \"Ali Valiyev\", 3.85, true);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(s.getAcademicSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `StudentProfile s = new StudentProfile(\"00023271\", \"Ali Valiyev\", 3.85, true);`",
+          "Natijani konsolga chiqarish: `System.out.println(s.getAcademicSummary());`"
+        ],
+        "en": [
+          "Instantiate object: `StudentProfile s = new StudentProfile(\"00023271\", \"Ali Valiyev\", 3.85, true);`",
+          "Print result to console: `System.out.println(s.getAcademicSummary());`"
+        ],
+        "ru": [
+          "Создание объекта: `StudentProfile s = new StudentProfile(\"00023271\", \"Ali Valiyev\", 3.85, true);`",
+          "Вывод результата в консоль: `System.out.println(s.getAcademicSummary());`"
+        ]
+      },
+      "expectedOutput": "ID: 00023271 | Ism: Ali Valiyev | GPA: 3.85 | Faol: true"
+    }
   },
   {
     "id": 16,
@@ -1439,7 +1873,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ProductPricing pp = new ProductPricing(10000.0);",
+        "pp.setPrice(18000.0);",
+        "System.out.println(\"Yangilangan narx: \" + pp.getPrice() + \" UZS\");"
+      ],
+      "instantiations": [
+        "ProductPricing pp = new ProductPricing(10000.0);"
+      ],
+      "methodCalls": [
+        "pp.setPrice(18000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Yangilangan narx: \" + pp.getPrice() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ProductPricing pp = new ProductPricing(10000.0);`",
+          "Metodlarni chaqirish / amallar: `pp.setPrice(18000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yangilangan narx: \" + pp.getPrice() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `ProductPricing pp = new ProductPricing(10000.0);`",
+          "Invoke methods / operations: `pp.setPrice(18000.0);`",
+          "Print result to console: `System.out.println(\"Yangilangan narx: \" + pp.getPrice() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `ProductPricing pp = new ProductPricing(10000.0);`",
+          "Вызовы методов / операции: `pp.setPrice(18000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Yangilangan narx: \" + pp.getPrice() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Yangilangan narx: 18000.0 UZS"
+    }
   },
   {
     "id": 17,
@@ -1541,7 +2009,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PaymeBalance pb = new PaymeBalance(50000.0);",
+        "pb.setBalance(-20000.0);",
+        "pb.setBalance(75000.0);",
+        "System.out.println(\"Balans: \" + pb.getBalance() + \" UZS\");"
+      ],
+      "instantiations": [
+        "PaymeBalance pb = new PaymeBalance(50000.0);"
+      ],
+      "methodCalls": [
+        "pb.setBalance(-20000.0);",
+        "pb.setBalance(75000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Balans: \" + pb.getBalance() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PaymeBalance pb = new PaymeBalance(50000.0);`",
+          "Metodlarni chaqirish / amallar: `pb.setBalance(-20000.0);`, `pb.setBalance(75000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Balans: \" + pb.getBalance() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `PaymeBalance pb = new PaymeBalance(50000.0);`",
+          "Invoke methods / operations: `pb.setBalance(-20000.0);`, `pb.setBalance(75000.0);`",
+          "Print result to console: `System.out.println(\"Balans: \" + pb.getBalance() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `PaymeBalance pb = new PaymeBalance(50000.0);`",
+          "Вызовы методов / операции: `pb.setBalance(-20000.0);`, `pb.setBalance(75000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Balans: \" + pb.getBalance() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Balans: 75000.0 UZS"
+    }
   },
   {
     "id": 18,
@@ -1643,7 +2147,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "StoreRating sr = new StoreRating(3);",
+        "sr.setRating(10);",
+        "sr.setRating(5);",
+        "System.out.println(\"Reyting: \" + sr.getRating());"
+      ],
+      "instantiations": [
+        "StoreRating sr = new StoreRating(3);"
+      ],
+      "methodCalls": [
+        "sr.setRating(10);",
+        "sr.setRating(5);"
+      ],
+      "prints": [
+        "System.out.println(\"Reyting: \" + sr.getRating());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `StoreRating sr = new StoreRating(3);`",
+          "Metodlarni chaqirish / amallar: `sr.setRating(10);`, `sr.setRating(5);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Reyting: \" + sr.getRating());`"
+        ],
+        "en": [
+          "Instantiate object: `StoreRating sr = new StoreRating(3);`",
+          "Invoke methods / operations: `sr.setRating(10);`, `sr.setRating(5);`",
+          "Print result to console: `System.out.println(\"Reyting: \" + sr.getRating());`"
+        ],
+        "ru": [
+          "Создание объекта: `StoreRating sr = new StoreRating(3);`",
+          "Вызовы методов / операции: `sr.setRating(10);`, `sr.setRating(5);`",
+          "Вывод результата в консоль: `System.out.println(\"Reyting: \" + sr.getRating());`"
+        ]
+      },
+      "expectedOutput": "Reyting: 5"
+    }
   },
   {
     "id": 19,
@@ -1745,7 +2285,45 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "DriverProfile dp = new DriverProfile(\"Botir\");",
+        "dp.setDriverName(\"   \");",
+        "dp.setDriverName(null);",
+        "dp.setDriverName(\"Sherzod\");",
+        "System.out.println(\"Haydovchi: \" + dp.getDriverName());"
+      ],
+      "instantiations": [
+        "DriverProfile dp = new DriverProfile(\"Botir\");"
+      ],
+      "methodCalls": [
+        "dp.setDriverName(\"   \");",
+        "dp.setDriverName(null);",
+        "dp.setDriverName(\"Sherzod\");"
+      ],
+      "prints": [
+        "System.out.println(\"Haydovchi: \" + dp.getDriverName());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `DriverProfile dp = new DriverProfile(\"Botir\");`",
+          "Metodlarni chaqirish / amallar: `dp.setDriverName(\"   \");`, `dp.setDriverName(null);`, `dp.setDriverName(\"Sherzod\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Haydovchi: \" + dp.getDriverName());`"
+        ],
+        "en": [
+          "Instantiate object: `DriverProfile dp = new DriverProfile(\"Botir\");`",
+          "Invoke methods / operations: `dp.setDriverName(\"   \");`, `dp.setDriverName(null);`, `dp.setDriverName(\"Sherzod\");`",
+          "Print result to console: `System.out.println(\"Haydovchi: \" + dp.getDriverName());`"
+        ],
+        "ru": [
+          "Создание объекта: `DriverProfile dp = new DriverProfile(\"Botir\");`",
+          "Вызовы методов / операции: `dp.setDriverName(\"   \");`, `dp.setDriverName(null);`, `dp.setDriverName(\"Sherzod\");`",
+          "Вывод результата в консоль: `System.out.println(\"Haydovchi: \" + dp.getDriverName());`"
+        ]
+      },
+      "expectedOutput": "Haydovchi: Sherzod"
+    }
   },
   {
     "id": 20,
@@ -1847,7 +2425,45 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "AppAudio audio = new AppAudio(50);",
+        "audio.setVolume(140);",
+        "System.out.println(\"Yuqori clamp: \" + audio.getVolume());",
+        "audio.setVolume(-20);",
+        "System.out.println(\"Quyi clamp: \" + audio.getVolume());"
+      ],
+      "instantiations": [
+        "AppAudio audio = new AppAudio(50);"
+      ],
+      "methodCalls": [
+        "audio.setVolume(140);",
+        "audio.setVolume(-20);"
+      ],
+      "prints": [
+        "System.out.println(\"Yuqori clamp: \" + audio.getVolume());",
+        "System.out.println(\"Quyi clamp: \" + audio.getVolume());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AppAudio audio = new AppAudio(50);`",
+          "Metodlarni chaqirish / amallar: `audio.setVolume(140);`, `audio.setVolume(-20);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yuqori clamp: \" + audio.getVolume());; System.out.println(\"Quyi clamp: \" + audio.getVolume());`"
+        ],
+        "en": [
+          "Instantiate object: `AppAudio audio = new AppAudio(50);`",
+          "Invoke methods / operations: `audio.setVolume(140);`, `audio.setVolume(-20);`",
+          "Print result to console: `System.out.println(\"Yuqori clamp: \" + audio.getVolume());; System.out.println(\"Quyi clamp: \" + audio.getVolume());`"
+        ],
+        "ru": [
+          "Создание объекта: `AppAudio audio = new AppAudio(50);`",
+          "Вызовы методов / операции: `audio.setVolume(140);`, `audio.setVolume(-20);`",
+          "Вывод результата в консоль: `System.out.println(\"Yuqori clamp: \" + audio.getVolume());; System.out.println(\"Quyi clamp: \" + audio.getVolume());`"
+        ]
+      },
+      "expectedOutput": "Yuqori clamp: 100\nQuyi clamp: 0"
+    }
   },
   {
     "id": 21,
@@ -1949,7 +2565,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "MixerMachine m = new MixerMachine(false);",
+        "System.out.println(\"Holat 1: \" + m.toggleActive());",
+        "System.out.println(\"Holat 2: \" + m.toggleActive());"
+      ],
+      "instantiations": [
+        "MixerMachine m = new MixerMachine(false);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Holat 1: \" + m.toggleActive());",
+        "System.out.println(\"Holat 2: \" + m.toggleActive());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `MixerMachine m = new MixerMachine(false);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Holat 1: \" + m.toggleActive());; System.out.println(\"Holat 2: \" + m.toggleActive());`"
+        ],
+        "en": [
+          "Instantiate object: `MixerMachine m = new MixerMachine(false);`",
+          "Print result to console: `System.out.println(\"Holat 1: \" + m.toggleActive());; System.out.println(\"Holat 2: \" + m.toggleActive());`"
+        ],
+        "ru": [
+          "Создание объекта: `MixerMachine m = new MixerMachine(false);`",
+          "Вывод результата в консоль: `System.out.println(\"Holat 1: \" + m.toggleActive());; System.out.println(\"Holat 2: \" + m.toggleActive());`"
+        ]
+      },
+      "expectedOutput": "Holat 1: true\nHolat 2: false"
+    }
   },
   {
     "id": 22,
@@ -2072,7 +2718,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PizzaPricing pp = new PizzaPricing(65000.0);",
+        "pp.setPrice(72000.0);",
+        "System.out.println(\"Joriy: \" + pp.getCurrentPrice() + \" | Avvalgi: \" + pp.getPreviousPrice());"
+      ],
+      "instantiations": [
+        "PizzaPricing pp = new PizzaPricing(65000.0);"
+      ],
+      "methodCalls": [
+        "pp.setPrice(72000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Joriy: \" + pp.getCurrentPrice() + \" | Avvalgi: \" + pp.getPreviousPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PizzaPricing pp = new PizzaPricing(65000.0);`",
+          "Metodlarni chaqirish / amallar: `pp.setPrice(72000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Joriy: \" + pp.getCurrentPrice() + \" | Avvalgi: \" + pp.getPreviousPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `PizzaPricing pp = new PizzaPricing(65000.0);`",
+          "Invoke methods / operations: `pp.setPrice(72000.0);`",
+          "Print result to console: `System.out.println(\"Joriy: \" + pp.getCurrentPrice() + \" | Avvalgi: \" + pp.getPreviousPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `PizzaPricing pp = new PizzaPricing(65000.0);`",
+          "Вызовы методов / операции: `pp.setPrice(72000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Joriy: \" + pp.getCurrentPrice() + \" | Avvalgi: \" + pp.getPreviousPrice());`"
+        ]
+      },
+      "expectedOutput": "Joriy: 72000.0 | Avvalgi: 65000.0"
+    }
   },
   {
     "id": 23,
@@ -2174,7 +2854,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PosTerminal term = new PosTerminal(\"1234\");",
+        "boolean res1 = term.setPin(\"99\");",
+        "boolean res2 = term.setPin(\"7788\");",
+        "System.out.println(\"Res1: \" + res1 + \" | Res2: \" + res2 + \" | PIN: \" + term.getPin());"
+      ],
+      "instantiations": [
+        "PosTerminal term = new PosTerminal(\"1234\");"
+      ],
+      "methodCalls": [
+        "boolean res1 = term.setPin(\"99\");",
+        "boolean res2 = term.setPin(\"7788\");"
+      ],
+      "prints": [
+        "System.out.println(\"Res1: \" + res1 + \" | Res2: \" + res2 + \" | PIN: \" + term.getPin());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PosTerminal term = new PosTerminal(\"1234\");`",
+          "Metodlarni chaqirish / amallar: `boolean res1 = term.setPin(\"99\");`, `boolean res2 = term.setPin(\"7788\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Res1: \" + res1 + \" | Res2: \" + res2 + \" | PIN: \" + term.getPin());`"
+        ],
+        "en": [
+          "Instantiate object: `PosTerminal term = new PosTerminal(\"1234\");`",
+          "Invoke methods / operations: `boolean res1 = term.setPin(\"99\");`, `boolean res2 = term.setPin(\"7788\");`",
+          "Print result to console: `System.out.println(\"Res1: \" + res1 + \" | Res2: \" + res2 + \" | PIN: \" + term.getPin());`"
+        ],
+        "ru": [
+          "Создание объекта: `PosTerminal term = new PosTerminal(\"1234\");`",
+          "Вызовы методов / операции: `boolean res1 = term.setPin(\"99\");`, `boolean res2 = term.setPin(\"7788\");`",
+          "Вывод результата в консоль: `System.out.println(\"Res1: \" + res1 + \" | Res2: \" + res2 + \" | PIN: \" + term.getPin());`"
+        ]
+      },
+      "expectedOutput": "Res1: false | Res2: true | PIN: 7788"
+    }
   },
   {
     "id": 24,
@@ -2276,7 +2992,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Odometer odo = new Odometer(120);",
+        "odo.updateOdometer(90);",
+        "odo.updateOdometer(155);",
+        "System.out.println(\"Kilometraj: \" + odo.getOdometerKm() + \" km\");"
+      ],
+      "instantiations": [
+        "Odometer odo = new Odometer(120);"
+      ],
+      "methodCalls": [
+        "odo.updateOdometer(90);",
+        "odo.updateOdometer(155);"
+      ],
+      "prints": [
+        "System.out.println(\"Kilometraj: \" + odo.getOdometerKm() + \" km\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Odometer odo = new Odometer(120);`",
+          "Metodlarni chaqirish / amallar: `odo.updateOdometer(90);`, `odo.updateOdometer(155);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Kilometraj: \" + odo.getOdometerKm() + \" km\");`"
+        ],
+        "en": [
+          "Instantiate object: `Odometer odo = new Odometer(120);`",
+          "Invoke methods / operations: `odo.updateOdometer(90);`, `odo.updateOdometer(155);`",
+          "Print result to console: `System.out.println(\"Kilometraj: \" + odo.getOdometerKm() + \" km\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Odometer odo = new Odometer(120);`",
+          "Вызовы методов / операции: `odo.updateOdometer(90);`, `odo.updateOdometer(155);`",
+          "Вывод результата в консоль: `System.out.println(\"Kilometraj: \" + odo.getOdometerKm() + \" km\");`"
+        ]
+      },
+      "expectedOutput": "Kilometraj: 155 km"
+    }
   },
   {
     "id": 25,
@@ -2378,7 +3130,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ClientEmail ce = new ClientEmail(\"admin@asaxiy.uz\");",
+        "ce.setEmail(\"notanemail\");",
+        "ce.setEmail(\"support@asaxiy.uz\");",
+        "System.out.println(\"Pochta: \" + ce.getEmail());"
+      ],
+      "instantiations": [
+        "ClientEmail ce = new ClientEmail(\"admin@asaxiy.uz\");"
+      ],
+      "methodCalls": [
+        "ce.setEmail(\"notanemail\");",
+        "ce.setEmail(\"support@asaxiy.uz\");"
+      ],
+      "prints": [
+        "System.out.println(\"Pochta: \" + ce.getEmail());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ClientEmail ce = new ClientEmail(\"admin@asaxiy.uz\");`",
+          "Metodlarni chaqirish / amallar: `ce.setEmail(\"notanemail\");`, `ce.setEmail(\"support@asaxiy.uz\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Pochta: \" + ce.getEmail());`"
+        ],
+        "en": [
+          "Instantiate object: `ClientEmail ce = new ClientEmail(\"admin@asaxiy.uz\");`",
+          "Invoke methods / operations: `ce.setEmail(\"notanemail\");`, `ce.setEmail(\"support@asaxiy.uz\");`",
+          "Print result to console: `System.out.println(\"Pochta: \" + ce.getEmail());`"
+        ],
+        "ru": [
+          "Создание объекта: `ClientEmail ce = new ClientEmail(\"admin@asaxiy.uz\");`",
+          "Вызовы методов / операции: `ce.setEmail(\"notanemail\");`, `ce.setEmail(\"support@asaxiy.uz\");`",
+          "Вывод результата в консоль: `System.out.println(\"Pochta: \" + ce.getEmail());`"
+        ]
+      },
+      "expectedOutput": "Pochta: support@asaxiy.uz"
+    }
   },
   {
     "id": 26,
@@ -2501,7 +3289,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "MedicalBill bill = new MedicalBill(100000.0);",
+        "bill.setBasePrice(200000.0);",
+        "System.out.println(\"Asosiy: \" + bill.getBasePrice() + \" | Soliq: \" + bill.getTaxAmount());"
+      ],
+      "instantiations": [
+        "MedicalBill bill = new MedicalBill(100000.0);"
+      ],
+      "methodCalls": [
+        "bill.setBasePrice(200000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Asosiy: \" + bill.getBasePrice() + \" | Soliq: \" + bill.getTaxAmount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `MedicalBill bill = new MedicalBill(100000.0);`",
+          "Metodlarni chaqirish / amallar: `bill.setBasePrice(200000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Asosiy: \" + bill.getBasePrice() + \" | Soliq: \" + bill.getTaxAmount());`"
+        ],
+        "en": [
+          "Instantiate object: `MedicalBill bill = new MedicalBill(100000.0);`",
+          "Invoke methods / operations: `bill.setBasePrice(200000.0);`",
+          "Print result to console: `System.out.println(\"Asosiy: \" + bill.getBasePrice() + \" | Soliq: \" + bill.getTaxAmount());`"
+        ],
+        "ru": [
+          "Создание объекта: `MedicalBill bill = new MedicalBill(100000.0);`",
+          "Вызовы методов / операции: `bill.setBasePrice(200000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Asosiy: \" + bill.getBasePrice() + \" | Soliq: \" + bill.getTaxAmount());`"
+        ]
+      },
+      "expectedOutput": "Asosiy: 200000.0 | Soliq: 24000.0"
+    }
   },
   {
     "id": 27,
@@ -2603,7 +3425,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "StockSecurity stock = new StockSecurity(100.0);",
+        "stock.setSharePrice(150.0);",
+        "stock.setSharePrice(115.0);",
+        "System.out.println(\"Aksiya narxi: \" + stock.getSharePrice());"
+      ],
+      "instantiations": [
+        "StockSecurity stock = new StockSecurity(100.0);"
+      ],
+      "methodCalls": [
+        "stock.setSharePrice(150.0);",
+        "stock.setSharePrice(115.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Aksiya narxi: \" + stock.getSharePrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `StockSecurity stock = new StockSecurity(100.0);`",
+          "Metodlarni chaqirish / amallar: `stock.setSharePrice(150.0);`, `stock.setSharePrice(115.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Aksiya narxi: \" + stock.getSharePrice());`"
+        ],
+        "en": [
+          "Instantiate object: `StockSecurity stock = new StockSecurity(100.0);`",
+          "Invoke methods / operations: `stock.setSharePrice(150.0);`, `stock.setSharePrice(115.0);`",
+          "Print result to console: `System.out.println(\"Aksiya narxi: \" + stock.getSharePrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `StockSecurity stock = new StockSecurity(100.0);`",
+          "Вызовы методов / операции: `stock.setSharePrice(150.0);`, `stock.setSharePrice(115.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Aksiya narxi: \" + stock.getSharePrice());`"
+        ]
+      },
+      "expectedOutput": "Aksiya narxi: 115.0"
+    }
   },
   {
     "id": 28,
@@ -2685,7 +3543,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "AccountSecurity sec = new AccountSecurity(\"oldSecret1\");",
+        "boolean b1 = sec.changePassword(\"wrong\", \"newSecret2\");",
+        "boolean b2 = sec.changePassword(\"oldSecret1\", \"newSecret2\");",
+        "System.out.println(\"Harakat 1: \" + b1 + \" | Harakat 2: \" + b2);"
+      ],
+      "instantiations": [
+        "AccountSecurity sec = new AccountSecurity(\"oldSecret1\");"
+      ],
+      "methodCalls": [
+        "boolean b1 = sec.changePassword(\"wrong\", \"newSecret2\");",
+        "boolean b2 = sec.changePassword(\"oldSecret1\", \"newSecret2\");"
+      ],
+      "prints": [
+        "System.out.println(\"Harakat 1: \" + b1 + \" | Harakat 2: \" + b2);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AccountSecurity sec = new AccountSecurity(\"oldSecret1\");`",
+          "Metodlarni chaqirish / amallar: `boolean b1 = sec.changePassword(\"wrong\", \"newSecret2\");`, `boolean b2 = sec.changePassword(\"oldSecret1\", \"newSecret2\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Harakat 1: \" + b1 + \" | Harakat 2: \" + b2);`"
+        ],
+        "en": [
+          "Instantiate object: `AccountSecurity sec = new AccountSecurity(\"oldSecret1\");`",
+          "Invoke methods / operations: `boolean b1 = sec.changePassword(\"wrong\", \"newSecret2\");`, `boolean b2 = sec.changePassword(\"oldSecret1\", \"newSecret2\");`",
+          "Print result to console: `System.out.println(\"Harakat 1: \" + b1 + \" | Harakat 2: \" + b2);`"
+        ],
+        "ru": [
+          "Создание объекта: `AccountSecurity sec = new AccountSecurity(\"oldSecret1\");`",
+          "Вызовы методов / операции: `boolean b1 = sec.changePassword(\"wrong\", \"newSecret2\");`, `boolean b2 = sec.changePassword(\"oldSecret1\", \"newSecret2\");`",
+          "Вывод результата в консоль: `System.out.println(\"Harakat 1: \" + b1 + \" | Harakat 2: \" + b2);`"
+        ]
+      },
+      "expectedOutput": "Harakat 1: false | Harakat 2: true"
+    }
   },
   {
     "id": 29,
@@ -2788,7 +3682,49 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "FlightSeat seat = new FlightSeat(12);",
+        "try {",
+        "seat.setSeatNumber(-5);",
+        "} catch (IllegalArgumentException e) {",
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "}",
+        "System.out.println(\"O'rindiq: \" + seat.getSeatNumber());"
+      ],
+      "instantiations": [
+        "FlightSeat seat = new FlightSeat(12);"
+      ],
+      "methodCalls": [
+        "try {",
+        "seat.setSeatNumber(-5);",
+        "} catch (IllegalArgumentException e) {",
+        "}"
+      ],
+      "prints": [
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "System.out.println(\"O'rindiq: \" + seat.getSeatNumber());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `FlightSeat seat = new FlightSeat(12);`",
+          "Metodlarni chaqirish / amallar: `try {`, `seat.setSeatNumber(-5);`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"O'rindiq: \" + seat.getSeatNumber());`"
+        ],
+        "en": [
+          "Instantiate object: `FlightSeat seat = new FlightSeat(12);`",
+          "Invoke methods / operations: `try {`, `seat.setSeatNumber(-5);`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Print result to console: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"O'rindiq: \" + seat.getSeatNumber());`"
+        ],
+        "ru": [
+          "Создание объекта: `FlightSeat seat = new FlightSeat(12);`",
+          "Вызовы методов / операции: `try {`, `seat.setSeatNumber(-5);`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Вывод результата в консоль: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"O'rindiq: \" + seat.getSeatNumber());`"
+        ]
+      },
+      "expectedOutput": "Ushlandi: Invalid seat\nO'rindiq: 12"
+    }
   },
   {
     "id": 30,
@@ -2891,7 +3827,51 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ModuleGrade mg = new ModuleGrade(78.5);",
+        "try {",
+        "mg.setModuleMark(105.0);",
+        "} catch (IllegalArgumentException e) {",
+        "System.out.println(\"Xato: \" + e.getMessage());",
+        "}",
+        "mg.setModuleMark(84.0);",
+        "System.out.println(\"Yakuniy baho: \" + mg.getModuleMark());"
+      ],
+      "instantiations": [
+        "ModuleGrade mg = new ModuleGrade(78.5);"
+      ],
+      "methodCalls": [
+        "try {",
+        "mg.setModuleMark(105.0);",
+        "} catch (IllegalArgumentException e) {",
+        "}",
+        "mg.setModuleMark(84.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Xato: \" + e.getMessage());",
+        "System.out.println(\"Yakuniy baho: \" + mg.getModuleMark());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ModuleGrade mg = new ModuleGrade(78.5);`",
+          "Metodlarni chaqirish / amallar: `try {`, `mg.setModuleMark(105.0);`, `} catch (IllegalArgumentException e) {`, `}`, `mg.setModuleMark(84.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Yakuniy baho: \" + mg.getModuleMark());`"
+        ],
+        "en": [
+          "Instantiate object: `ModuleGrade mg = new ModuleGrade(78.5);`",
+          "Invoke methods / operations: `try {`, `mg.setModuleMark(105.0);`, `} catch (IllegalArgumentException e) {`, `}`, `mg.setModuleMark(84.0);`",
+          "Print result to console: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Yakuniy baho: \" + mg.getModuleMark());`"
+        ],
+        "ru": [
+          "Создание объекта: `ModuleGrade mg = new ModuleGrade(78.5);`",
+          "Вызовы методов / операции: `try {`, `mg.setModuleMark(105.0);`, `} catch (IllegalArgumentException e) {`, `}`, `mg.setModuleMark(84.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Yakuniy baho: \" + mg.getModuleMark());`"
+        ]
+      },
+      "expectedOutput": "Xato: Baho 0 va 100 oralig'ida bo'lishi shart\nYakuniy baho: 84.0"
+    }
   },
   {
     "id": 31,
@@ -2975,7 +3955,35 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SellerPayout sp = new SellerPayout();",
+        "System.out.println(\"Sof to'lov: \" + sp.calculateNetPayout(1000000.0) + \" UZS\");"
+      ],
+      "instantiations": [
+        "SellerPayout sp = new SellerPayout();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Sof to'lov: \" + sp.calculateNetPayout(1000000.0) + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SellerPayout sp = new SellerPayout();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Sof to'lov: \" + sp.calculateNetPayout(1000000.0) + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `SellerPayout sp = new SellerPayout();`",
+          "Print result to console: `System.out.println(\"Sof to'lov: \" + sp.calculateNetPayout(1000000.0) + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `SellerPayout sp = new SellerPayout();`",
+          "Вывод результата в консоль: `System.out.println(\"Sof to'lov: \" + sp.calculateNetPayout(1000000.0) + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Sof to'lov: 970000.0 UZS"
+    }
   },
   {
     "id": 32,
@@ -3082,7 +4090,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "PromoManager pm = new PromoManager();",
+        "boolean r1 = pm.applyPromo(\"TEST1\");",
+        "boolean r2 = pm.applyPromo(\"PAYME-2026\");",
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qo'llandi: \" + pm.isDiscountApplied());"
+      ],
+      "instantiations": [
+        "PromoManager pm = new PromoManager();"
+      ],
+      "methodCalls": [
+        "boolean r1 = pm.applyPromo(\"TEST1\");",
+        "boolean r2 = pm.applyPromo(\"PAYME-2026\");"
+      ],
+      "prints": [
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qo'llandi: \" + pm.isDiscountApplied());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PromoManager pm = new PromoManager();`",
+          "Metodlarni chaqirish / amallar: `boolean r1 = pm.applyPromo(\"TEST1\");`, `boolean r2 = pm.applyPromo(\"PAYME-2026\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qo'llandi: \" + pm.isDiscountApplied());`"
+        ],
+        "en": [
+          "Instantiate object: `PromoManager pm = new PromoManager();`",
+          "Invoke methods / operations: `boolean r1 = pm.applyPromo(\"TEST1\");`, `boolean r2 = pm.applyPromo(\"PAYME-2026\");`",
+          "Print result to console: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qo'llandi: \" + pm.isDiscountApplied());`"
+        ],
+        "ru": [
+          "Создание объекта: `PromoManager pm = new PromoManager();`",
+          "Вызовы методов / операции: `boolean r1 = pm.applyPromo(\"TEST1\");`, `boolean r2 = pm.applyPromo(\"PAYME-2026\");`",
+          "Вывод результата в консоль: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qo'llandi: \" + pm.isDiscountApplied());`"
+        ]
+      },
+      "expectedOutput": "R1: false | R2: true | Qo'llandi: true"
+    }
   },
   {
     "id": 33,
@@ -3242,7 +4286,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "CheckoutPipeline cp = new CheckoutPipeline(100000.0);",
+        "cp.processCheckout();",
+        "System.out.println(\"Yakuniy kassa summasi: \" + cp.getTotalAmount() + \" UZS\");"
+      ],
+      "instantiations": [
+        "CheckoutPipeline cp = new CheckoutPipeline(100000.0);"
+      ],
+      "methodCalls": [
+        "cp.processCheckout();"
+      ],
+      "prints": [
+        "System.out.println(\"Yakuniy kassa summasi: \" + cp.getTotalAmount() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CheckoutPipeline cp = new CheckoutPipeline(100000.0);`",
+          "Metodlarni chaqirish / amallar: `cp.processCheckout();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yakuniy kassa summasi: \" + cp.getTotalAmount() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `CheckoutPipeline cp = new CheckoutPipeline(100000.0);`",
+          "Invoke methods / operations: `cp.processCheckout();`",
+          "Print result to console: `System.out.println(\"Yakuniy kassa summasi: \" + cp.getTotalAmount() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `CheckoutPipeline cp = new CheckoutPipeline(100000.0);`",
+          "Вызовы методов / операции: `cp.processCheckout();`",
+          "Вывод результата в консоль: `System.out.println(\"Yakuniy kassa summasi: \" + cp.getTotalAmount() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Yakuniy kassa summasi: 95000.0 UZS"
+    }
   },
   {
     "id": 34,
@@ -3344,7 +4422,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TaxCalculator tc = new TaxCalculator(10000000.0);",
+        "System.out.println(\"Sof daromad: \" + tc.getNetIncome() + \" UZS\");"
+      ],
+      "instantiations": [
+        "TaxCalculator tc = new TaxCalculator(10000000.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Sof daromad: \" + tc.getNetIncome() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TaxCalculator tc = new TaxCalculator(10000000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Sof daromad: \" + tc.getNetIncome() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `TaxCalculator tc = new TaxCalculator(10000000.0);`",
+          "Print result to console: `System.out.println(\"Sof daromad: \" + tc.getNetIncome() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `TaxCalculator tc = new TaxCalculator(10000000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Sof daromad: \" + tc.getNetIncome() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Sof daromad: 8800000.0 UZS"
+    }
   },
   {
     "id": 35,
@@ -3446,7 +4552,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PastryItem item = new PastryItem(125000);",
+        "System.out.println(\"Narx: \" + item.getFormattedPrice());"
+      ],
+      "instantiations": [
+        "PastryItem item = new PastryItem(125000);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Narx: \" + item.getFormattedPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PastryItem item = new PastryItem(125000);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Narx: \" + item.getFormattedPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `PastryItem item = new PastryItem(125000);`",
+          "Print result to console: `System.out.println(\"Narx: \" + item.getFormattedPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `PastryItem item = new PastryItem(125000);`",
+          "Вывод результата в консоль: `System.out.println(\"Narx: \" + item.getFormattedPrice());`"
+        ]
+      },
+      "expectedOutput": "Narx: 125 000 UZS"
+    }
   },
   {
     "id": 36,
@@ -3553,7 +4687,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "ItemDescription item = new ItemDescription();",
+        "item.setDescription(\"  Smartfon SAMSUNG Galaxy S24  \");",
+        "System.out.println(\"Tozalangan: [\" + item.getDescription() + \"]\");"
+      ],
+      "instantiations": [
+        "ItemDescription item = new ItemDescription();"
+      ],
+      "methodCalls": [
+        "item.setDescription(\"  Smartfon SAMSUNG Galaxy S24  \");"
+      ],
+      "prints": [
+        "System.out.println(\"Tozalangan: [\" + item.getDescription() + \"]\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ItemDescription item = new ItemDescription();`",
+          "Metodlarni chaqirish / amallar: `item.setDescription(\"  Smartfon SAMSUNG Galaxy S24  \");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Tozalangan: [\" + item.getDescription() + \"]\");`"
+        ],
+        "en": [
+          "Instantiate object: `ItemDescription item = new ItemDescription();`",
+          "Invoke methods / operations: `item.setDescription(\"  Smartfon SAMSUNG Galaxy S24  \");`",
+          "Print result to console: `System.out.println(\"Tozalangan: [\" + item.getDescription() + \"]\");`"
+        ],
+        "ru": [
+          "Создание объекта: `ItemDescription item = new ItemDescription();`",
+          "Вызовы методов / операции: `item.setDescription(\"  Smartfon SAMSUNG Galaxy S24  \");`",
+          "Вывод результата в консоль: `System.out.println(\"Tozalangan: [\" + item.getDescription() + \"]\");`"
+        ]
+      },
+      "expectedOutput": "Tozalangan: [smartfon samsung galaxy s24]"
+    }
   },
   {
     "id": 37,
@@ -3657,7 +4825,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "VoucherCoupon vc = new VoucherCoupon(80000.0);",
+        "boolean firstTry = vc.claimDiscount(0.10);",
+        "boolean secondTry = vc.claimDiscount(0.10);",
+        "System.out.println(\"Birinchi: \" + firstTry + \" | Ikkinchi: \" + secondTry + \" | Narx: \" + vc.getCurrentPrice());"
+      ],
+      "instantiations": [
+        "VoucherCoupon vc = new VoucherCoupon(80000.0);"
+      ],
+      "methodCalls": [
+        "boolean firstTry = vc.claimDiscount(0.10);",
+        "boolean secondTry = vc.claimDiscount(0.10);"
+      ],
+      "prints": [
+        "System.out.println(\"Birinchi: \" + firstTry + \" | Ikkinchi: \" + secondTry + \" | Narx: \" + vc.getCurrentPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `VoucherCoupon vc = new VoucherCoupon(80000.0);`",
+          "Metodlarni chaqirish / amallar: `boolean firstTry = vc.claimDiscount(0.10);`, `boolean secondTry = vc.claimDiscount(0.10);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Birinchi: \" + firstTry + \" | Ikkinchi: \" + secondTry + \" | Narx: \" + vc.getCurrentPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `VoucherCoupon vc = new VoucherCoupon(80000.0);`",
+          "Invoke methods / operations: `boolean firstTry = vc.claimDiscount(0.10);`, `boolean secondTry = vc.claimDiscount(0.10);`",
+          "Print result to console: `System.out.println(\"Birinchi: \" + firstTry + \" | Ikkinchi: \" + secondTry + \" | Narx: \" + vc.getCurrentPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `VoucherCoupon vc = new VoucherCoupon(80000.0);`",
+          "Вызовы методов / операции: `boolean firstTry = vc.claimDiscount(0.10);`, `boolean secondTry = vc.claimDiscount(0.10);`",
+          "Вывод результата в консоль: `System.out.println(\"Birinchi: \" + firstTry + \" | Ikkinchi: \" + secondTry + \" | Narx: \" + vc.getCurrentPrice());`"
+        ]
+      },
+      "expectedOutput": "Birinchi: true | Ikkinchi: false | Narx: 72000.0"
+    }
   },
   {
     "id": 38,
@@ -3784,7 +4988,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "CourierAudit ca = new CourierAudit();",
+        "ca.pickupOrder(\"ORD-101\");",
+        "ca.deliverOrder(\"ORD-101\");",
+        "System.out.println(ca.getAuditLog());"
+      ],
+      "instantiations": [
+        "CourierAudit ca = new CourierAudit();"
+      ],
+      "methodCalls": [
+        "ca.pickupOrder(\"ORD-101\");",
+        "ca.deliverOrder(\"ORD-101\");"
+      ],
+      "prints": [
+        "System.out.println(ca.getAuditLog());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CourierAudit ca = new CourierAudit();`",
+          "Metodlarni chaqirish / amallar: `ca.pickupOrder(\"ORD-101\");`, `ca.deliverOrder(\"ORD-101\");`",
+          "Natijani konsolga chiqarish: `System.out.println(ca.getAuditLog());`"
+        ],
+        "en": [
+          "Instantiate object: `CourierAudit ca = new CourierAudit();`",
+          "Invoke methods / operations: `ca.pickupOrder(\"ORD-101\");`, `ca.deliverOrder(\"ORD-101\");`",
+          "Print result to console: `System.out.println(ca.getAuditLog());`"
+        ],
+        "ru": [
+          "Создание объекта: `CourierAudit ca = new CourierAudit();`",
+          "Вызовы методов / операции: `ca.pickupOrder(\"ORD-101\");`, `ca.deliverOrder(\"ORD-101\");`",
+          "Вывод результата в консоль: `System.out.println(ca.getAuditLog());`"
+        ]
+      },
+      "expectedOutput": "[PICKED_UP: ORD-101]; [DELIVERED: ORD-101];"
+    }
   },
   {
     "id": 39,
@@ -3891,7 +5131,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "OrderTracker ot = new OrderTracker();",
+        "boolean b1 = ot.transitionTo(\"COMPLETED\");",
+        "boolean b2 = ot.transitionTo(\"PROCESSING\");",
+        "System.out.println(\"B1: \" + b1 + \" | B2: \" + b2 + \" | Holat: \" + ot.getStatus());"
+      ],
+      "instantiations": [
+        "OrderTracker ot = new OrderTracker();"
+      ],
+      "methodCalls": [
+        "boolean b1 = ot.transitionTo(\"COMPLETED\");",
+        "boolean b2 = ot.transitionTo(\"PROCESSING\");"
+      ],
+      "prints": [
+        "System.out.println(\"B1: \" + b1 + \" | B2: \" + b2 + \" | Holat: \" + ot.getStatus());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `OrderTracker ot = new OrderTracker();`",
+          "Metodlarni chaqirish / amallar: `boolean b1 = ot.transitionTo(\"COMPLETED\");`, `boolean b2 = ot.transitionTo(\"PROCESSING\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2 + \" | Holat: \" + ot.getStatus());`"
+        ],
+        "en": [
+          "Instantiate object: `OrderTracker ot = new OrderTracker();`",
+          "Invoke methods / operations: `boolean b1 = ot.transitionTo(\"COMPLETED\");`, `boolean b2 = ot.transitionTo(\"PROCESSING\");`",
+          "Print result to console: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2 + \" | Holat: \" + ot.getStatus());`"
+        ],
+        "ru": [
+          "Создание объекта: `OrderTracker ot = new OrderTracker();`",
+          "Вызовы методов / операции: `boolean b1 = ot.transitionTo(\"COMPLETED\");`, `boolean b2 = ot.transitionTo(\"PROCESSING\");`",
+          "Вывод результата в консоль: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2 + \" | Holat: \" + ot.getStatus());`"
+        ]
+      },
+      "expectedOutput": "B1: false | B2: true | Holat: PROCESSING"
+    }
   },
   {
     "id": 40,
@@ -3994,7 +5270,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "DeliveryFare df = new DeliveryFare(5000.0, 2000.0);",
+        "double fare = df.calculateTripFare(0, 0, 3, 4);",
+        "System.out.println(\"Safar narxi: \" + fare + \" UZS\");"
+      ],
+      "instantiations": [
+        "DeliveryFare df = new DeliveryFare(5000.0, 2000.0);"
+      ],
+      "methodCalls": [
+        "double fare = df.calculateTripFare(0, 0, 3, 4);"
+      ],
+      "prints": [
+        "System.out.println(\"Safar narxi: \" + fare + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `DeliveryFare df = new DeliveryFare(5000.0, 2000.0);`",
+          "Metodlarni chaqirish / amallar: `double fare = df.calculateTripFare(0, 0, 3, 4);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Safar narxi: \" + fare + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `DeliveryFare df = new DeliveryFare(5000.0, 2000.0);`",
+          "Invoke methods / operations: `double fare = df.calculateTripFare(0, 0, 3, 4);`",
+          "Print result to console: `System.out.println(\"Safar narxi: \" + fare + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `DeliveryFare df = new DeliveryFare(5000.0, 2000.0);`",
+          "Вызовы методов / операции: `double fare = df.calculateTripFare(0, 0, 3, 4);`",
+          "Вывод результата в консоль: `System.out.println(\"Safar narxi: \" + fare + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Safar narxi: 15000.0 UZS"
+    }
   },
   {
     "id": 41,
@@ -4078,7 +5388,35 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "LabPermutations lp = new LabPermutations();",
+        "System.out.println(\"5 ta tahlil ketma-ketligi: \" + lp.getPermutations(5));"
+      ],
+      "instantiations": [
+        "LabPermutations lp = new LabPermutations();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"5 ta tahlil ketma-ketligi: \" + lp.getPermutations(5));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `LabPermutations lp = new LabPermutations();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"5 ta tahlil ketma-ketligi: \" + lp.getPermutations(5));`"
+        ],
+        "en": [
+          "Instantiate object: `LabPermutations lp = new LabPermutations();`",
+          "Print result to console: `System.out.println(\"5 ta tahlil ketma-ketligi: \" + lp.getPermutations(5));`"
+        ],
+        "ru": [
+          "Создание объекта: `LabPermutations lp = new LabPermutations();`",
+          "Вывод результата в консоль: `System.out.println(\"5 ta tahlil ketma-ketligi: \" + lp.getPermutations(5));`"
+        ]
+      },
+      "expectedOutput": "5 ta tahlil ketma-ketligi: 120"
+    }
   },
   {
     "id": 42,
@@ -4180,7 +5518,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "AuthToken tok = new AuthToken(\"TK-12345678-UZ\");",
+        "System.out.println(\"Xavfsiz token: \" + tok.getMaskedToken());"
+      ],
+      "instantiations": [
+        "AuthToken tok = new AuthToken(\"TK-12345678-UZ\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Xavfsiz token: \" + tok.getMaskedToken());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AuthToken tok = new AuthToken(\"TK-12345678-UZ\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xavfsiz token: \" + tok.getMaskedToken());`"
+        ],
+        "en": [
+          "Instantiate object: `AuthToken tok = new AuthToken(\"TK-12345678-UZ\");`",
+          "Print result to console: `System.out.println(\"Xavfsiz token: \" + tok.getMaskedToken());`"
+        ],
+        "ru": [
+          "Создание объекта: `AuthToken tok = new AuthToken(\"TK-12345678-UZ\");`",
+          "Вывод результата в консоль: `System.out.println(\"Xavfsiz token: \" + tok.getMaskedToken());`"
+        ]
+      },
+      "expectedOutput": "Xavfsiz token: TK***UZ"
+    }
   },
   {
     "id": 43,
@@ -4303,7 +5669,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TrafficReport tr = new TrafficReport(1000);",
+        "System.out.println(\"1: \" + tr.getSummary());",
+        "tr.addTraffic(500);",
+        "System.out.println(\"2: \" + tr.getSummary());"
+      ],
+      "instantiations": [
+        "TrafficReport tr = new TrafficReport(1000);"
+      ],
+      "methodCalls": [
+        "tr.addTraffic(500);"
+      ],
+      "prints": [
+        "System.out.println(\"1: \" + tr.getSummary());",
+        "System.out.println(\"2: \" + tr.getSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TrafficReport tr = new TrafficReport(1000);`",
+          "Metodlarni chaqirish / amallar: `tr.addTraffic(500);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"1: \" + tr.getSummary());; System.out.println(\"2: \" + tr.getSummary());`"
+        ],
+        "en": [
+          "Instantiate object: `TrafficReport tr = new TrafficReport(1000);`",
+          "Invoke methods / operations: `tr.addTraffic(500);`",
+          "Print result to console: `System.out.println(\"1: \" + tr.getSummary());; System.out.println(\"2: \" + tr.getSummary());`"
+        ],
+        "ru": [
+          "Создание объекта: `TrafficReport tr = new TrafficReport(1000);`",
+          "Вызовы методов / операции: `tr.addTraffic(500);`",
+          "Вывод результата в консоль: `System.out.println(\"1: \" + tr.getSummary());; System.out.println(\"2: \" + tr.getSummary());`"
+        ]
+      },
+      "expectedOutput": "1: Mavjud trafik: 1000 MB\n2: Mavjud trafik: 1500 MB"
+    }
   },
   {
     "id": 44,
@@ -4387,7 +5789,37 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "PaymentValidator pv = new PaymentValidator();",
+        "System.out.println(\"Karta 1: \" + pv.isCardAcceptable(\"8600123456789912\"));",
+        "System.out.println(\"Karta 2: \" + pv.isCardAcceptable(\"bad\"));"
+      ],
+      "instantiations": [
+        "PaymentValidator pv = new PaymentValidator();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Karta 1: \" + pv.isCardAcceptable(\"8600123456789912\"));",
+        "System.out.println(\"Karta 2: \" + pv.isCardAcceptable(\"bad\"));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PaymentValidator pv = new PaymentValidator();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Karta 1: \" + pv.isCardAcceptable(\"8600123456789912\"));; System.out.println(\"Karta 2: \" + pv.isCardAcceptable(\"bad\"));`"
+        ],
+        "en": [
+          "Instantiate object: `PaymentValidator pv = new PaymentValidator();`",
+          "Print result to console: `System.out.println(\"Karta 1: \" + pv.isCardAcceptable(\"8600123456789912\"));; System.out.println(\"Karta 2: \" + pv.isCardAcceptable(\"bad\"));`"
+        ],
+        "ru": [
+          "Создание объекта: `PaymentValidator pv = new PaymentValidator();`",
+          "Вывод результата в консоль: `System.out.println(\"Karta 1: \" + pv.isCardAcceptable(\"8600123456789912\"));; System.out.println(\"Karta 2: \" + pv.isCardAcceptable(\"bad\"));`"
+        ]
+      },
+      "expectedOutput": "Karta 1: true\nKarta 2: false"
+    }
   },
   {
     "id": 45,
@@ -4548,7 +5980,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TuitionGateway gw = new TuitionGateway(35000000.0, 30000000.0);",
+        "boolean success = gw.payTuition(30000000.0);",
+        "System.out.println(\"To'lov muvaffaqiyatlimi: \" + success + \" | Qoldiq qarz: \" + gw.getTuitionDue());"
+      ],
+      "instantiations": [
+        "TuitionGateway gw = new TuitionGateway(35000000.0, 30000000.0);"
+      ],
+      "methodCalls": [
+        "boolean success = gw.payTuition(30000000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"To'lov muvaffaqiyatlimi: \" + success + \" | Qoldiq qarz: \" + gw.getTuitionDue());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TuitionGateway gw = new TuitionGateway(35000000.0, 30000000.0);`",
+          "Metodlarni chaqirish / amallar: `boolean success = gw.payTuition(30000000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"To'lov muvaffaqiyatlimi: \" + success + \" | Qoldiq qarz: \" + gw.getTuitionDue());`"
+        ],
+        "en": [
+          "Instantiate object: `TuitionGateway gw = new TuitionGateway(35000000.0, 30000000.0);`",
+          "Invoke methods / operations: `boolean success = gw.payTuition(30000000.0);`",
+          "Print result to console: `System.out.println(\"To'lov muvaffaqiyatlimi: \" + success + \" | Qoldiq qarz: \" + gw.getTuitionDue());`"
+        ],
+        "ru": [
+          "Создание объекта: `TuitionGateway gw = new TuitionGateway(35000000.0, 30000000.0);`",
+          "Вызовы методов / операции: `boolean success = gw.payTuition(30000000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"To'lov muvaffaqiyatlimi: \" + success + \" | Qoldiq qarz: \" + gw.getTuitionDue());`"
+        ]
+      },
+      "expectedOutput": "To'lov muvaffaqiyatlimi: true | Qoldiq qarz: 0.0"
+    }
   },
   {
     "id": 46,
@@ -4653,7 +6119,35 @@
           "ru": "Присваивает начальные значения по умолчанию."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Product p = new Product();",
+        "System.out.println(\"Tovar: \" + p.getName() + \" | Narx: \" + p.getPrice());"
+      ],
+      "instantiations": [
+        "Product p = new Product();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Tovar: \" + p.getName() + \" | Narx: \" + p.getPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Product p = new Product();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Tovar: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `Product p = new Product();`",
+          "Print result to console: `System.out.println(\"Tovar: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `Product p = new Product();`",
+          "Вывод результата в консоль: `System.out.println(\"Tovar: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ]
+      },
+      "expectedOutput": "Tovar: Noma'lum | Narx: 1000.0"
+    }
   },
   {
     "id": 47,
@@ -4758,7 +6252,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Wallet w = new Wallet(\"Nodir\");",
+        "System.out.println(\"Egasi: \" + w.getOwner() + \" | Balans: \" + w.getBalance());"
+      ],
+      "instantiations": [
+        "Wallet w = new Wallet(\"Nodir\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Egasi: \" + w.getOwner() + \" | Balans: \" + w.getBalance());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Wallet w = new Wallet(\"Nodir\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Egasi: \" + w.getOwner() + \" | Balans: \" + w.getBalance());`"
+        ],
+        "en": [
+          "Instantiate object: `Wallet w = new Wallet(\"Nodir\");`",
+          "Print result to console: `System.out.println(\"Egasi: \" + w.getOwner() + \" | Balans: \" + w.getBalance());`"
+        ],
+        "ru": [
+          "Создание объекта: `Wallet w = new Wallet(\"Nodir\");`",
+          "Вывод результата в консоль: `System.out.println(\"Egasi: \" + w.getOwner() + \" | Balans: \" + w.getBalance());`"
+        ]
+      },
+      "expectedOutput": "Egasi: Nodir | Balans: 0.0"
+    }
   },
   {
     "id": 48,
@@ -4877,7 +6399,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SupermarketItem i1 = new SupermarketItem();",
+        "SupermarketItem i2 = new SupermarketItem(\"Non\", 4000.0);",
+        "System.out.println(\"I1: \" + i1.getName() + \" | I2: \" + i2.getName());"
+      ],
+      "instantiations": [
+        "SupermarketItem i1 = new SupermarketItem();",
+        "SupermarketItem i2 = new SupermarketItem(\"Non\", 4000.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"I1: \" + i1.getName() + \" | I2: \" + i2.getName());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `SupermarketItem i1 = new SupermarketItem();` va `SupermarketItem i2 = new SupermarketItem(\"Non\", 4000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"I1: \" + i1.getName() + \" | I2: \" + i2.getName());`"
+        ],
+        "en": [
+          "Instantiate objects: `SupermarketItem i1 = new SupermarketItem();` and `SupermarketItem i2 = new SupermarketItem(\"Non\", 4000.0);`",
+          "Print result to console: `System.out.println(\"I1: \" + i1.getName() + \" | I2: \" + i2.getName());`"
+        ],
+        "ru": [
+          "Создание объектов: `SupermarketItem i1 = new SupermarketItem();` и `SupermarketItem i2 = new SupermarketItem(\"Non\", 4000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"I1: \" + i1.getName() + \" | I2: \" + i2.getName());`"
+        ]
+      },
+      "expectedOutput": "I1: Standart Mahsulot | I2: Non"
+    }
   },
   {
     "id": 49,
@@ -4995,7 +6547,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "BillService s = new BillService(\"Kommunal\");",
+        "System.out.println(\"Xizmat: \" + s.getServiceName() + \" | Komissiya: \" + s.getFee());"
+      ],
+      "instantiations": [
+        "BillService s = new BillService(\"Kommunal\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Xizmat: \" + s.getServiceName() + \" | Komissiya: \" + s.getFee());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `BillService s = new BillService(\"Kommunal\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xizmat: \" + s.getServiceName() + \" | Komissiya: \" + s.getFee());`"
+        ],
+        "en": [
+          "Instantiate object: `BillService s = new BillService(\"Kommunal\");`",
+          "Print result to console: `System.out.println(\"Xizmat: \" + s.getServiceName() + \" | Komissiya: \" + s.getFee());`"
+        ],
+        "ru": [
+          "Создание объекта: `BillService s = new BillService(\"Kommunal\");`",
+          "Вывод результата в консоль: `System.out.println(\"Xizmat: \" + s.getServiceName() + \" | Komissiya: \" + s.getFee());`"
+        ]
+      },
+      "expectedOutput": "Xizmat: Kommunal | Komissiya: 0.0"
+    }
   },
   {
     "id": 50,
@@ -5127,7 +6707,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TaxiTier t = new TaxiTier();",
+        "System.out.println(\"Model: \" + t.getModel() + \" | Multiplier: \" + t.getRateMultiplier());"
+      ],
+      "instantiations": [
+        "TaxiTier t = new TaxiTier();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Model: \" + t.getModel() + \" | Multiplier: \" + t.getRateMultiplier());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TaxiTier t = new TaxiTier();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Model: \" + t.getModel() + \" | Multiplier: \" + t.getRateMultiplier());`"
+        ],
+        "en": [
+          "Instantiate object: `TaxiTier t = new TaxiTier();`",
+          "Print result to console: `System.out.println(\"Model: \" + t.getModel() + \" | Multiplier: \" + t.getRateMultiplier());`"
+        ],
+        "ru": [
+          "Создание объекта: `TaxiTier t = new TaxiTier();`",
+          "Вывод результата в консоль: `System.out.println(\"Model: \" + t.getModel() + \" | Multiplier: \" + t.getRateMultiplier());`"
+        ]
+      },
+      "expectedOutput": "Model: Standart | Multiplier: 1.0"
+    }
   },
   {
     "id": 51,
@@ -5212,7 +6820,49 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "try {",
+        "CakeOrder bad = new CakeOrder(-2.5);",
+        "} catch (IllegalArgumentException e) {",
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "}",
+        "CakeOrder good = new CakeOrder(1.8);",
+        "System.out.println(\"Og'irlik: \" + good.getWeightKg() + \" kg\");"
+      ],
+      "instantiations": [
+        "CakeOrder bad = new CakeOrder(-2.5);",
+        "CakeOrder good = new CakeOrder(1.8);"
+      ],
+      "methodCalls": [
+        "try {",
+        "} catch (IllegalArgumentException e) {",
+        "}"
+      ],
+      "prints": [
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "System.out.println(\"Og'irlik: \" + good.getWeightKg() + \" kg\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `CakeOrder bad = new CakeOrder(-2.5);` va `CakeOrder good = new CakeOrder(1.8);`",
+          "Metodlarni chaqirish / amallar: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Og'irlik: \" + good.getWeightKg() + \" kg\");`"
+        ],
+        "en": [
+          "Instantiate objects: `CakeOrder bad = new CakeOrder(-2.5);` and `CakeOrder good = new CakeOrder(1.8);`",
+          "Invoke methods / operations: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Print result to console: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Og'irlik: \" + good.getWeightKg() + \" kg\");`"
+        ],
+        "ru": [
+          "Создание объектов: `CakeOrder bad = new CakeOrder(-2.5);` и `CakeOrder good = new CakeOrder(1.8);`",
+          "Вызовы методов / операции: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Вывод результата в консоль: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Og'irlik: \" + good.getWeightKg() + \" kg\");`"
+        ]
+      },
+      "expectedOutput": "Ushlandi: Vazn musbat bo'lishi shart\nOg'irlik: 1.8 kg"
+    }
   },
   {
     "id": 52,
@@ -5296,7 +6946,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "DeviceSerial d1 = new DeviceSerial(null);",
+        "DeviceSerial d2 = new DeviceSerial(\"  SN-9988-UZ  \");",
+        "System.out.println(\"D1: \" + d1.getSerialNumber() + \" | D2: \" + d2.getSerialNumber());"
+      ],
+      "instantiations": [
+        "DeviceSerial d1 = new DeviceSerial(null);",
+        "DeviceSerial d2 = new DeviceSerial(\"  SN-9988-UZ  \");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"D1: \" + d1.getSerialNumber() + \" | D2: \" + d2.getSerialNumber());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `DeviceSerial d1 = new DeviceSerial(null);` va `DeviceSerial d2 = new DeviceSerial(\"  SN-9988-UZ  \");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"D1: \" + d1.getSerialNumber() + \" | D2: \" + d2.getSerialNumber());`"
+        ],
+        "en": [
+          "Instantiate objects: `DeviceSerial d1 = new DeviceSerial(null);` and `DeviceSerial d2 = new DeviceSerial(\"  SN-9988-UZ  \");`",
+          "Print result to console: `System.out.println(\"D1: \" + d1.getSerialNumber() + \" | D2: \" + d2.getSerialNumber());`"
+        ],
+        "ru": [
+          "Создание объектов: `DeviceSerial d1 = new DeviceSerial(null);` и `DeviceSerial d2 = new DeviceSerial(\"  SN-9988-UZ  \");`",
+          "Вывод результата в консоль: `System.out.println(\"D1: \" + d1.getSerialNumber() + \" | D2: \" + d2.getSerialNumber());`"
+        ]
+      },
+      "expectedOutput": "D1: UNASSIGNED | D2: SN-9988-UZ"
+    }
   },
   {
     "id": 53,
@@ -5442,7 +7122,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PizzaItem p = new PizzaItem(\"Margarita\", 55000.0);",
+        "System.out.println(\"Pitsa: \" + p.getName() + \" | Narx: \" + p.getPrice());"
+      ],
+      "instantiations": [
+        "PizzaItem p = new PizzaItem(\"Margarita\", 55000.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Pitsa: \" + p.getName() + \" | Narx: \" + p.getPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PizzaItem p = new PizzaItem(\"Margarita\", 55000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Pitsa: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `PizzaItem p = new PizzaItem(\"Margarita\", 55000.0);`",
+          "Print result to console: `System.out.println(\"Pitsa: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `PizzaItem p = new PizzaItem(\"Margarita\", 55000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Pitsa: \" + p.getName() + \" | Narx: \" + p.getPrice());`"
+        ]
+      },
+      "expectedOutput": "Pitsa: Margarita | Narx: 55000.0"
+    }
   },
   {
     "id": 54,
@@ -5581,7 +7289,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Book b1 = new Book(\"O'tkan Kunlar\", 45000.0);",
+        "Book b2 = new Book(b1);",
+        "b2.setPrice(50000.0);",
+        "System.out.println(\"B1 narxi: \" + b1.getPrice() + \" | B2 narxi: \" + b2.getPrice());"
+      ],
+      "instantiations": [
+        "Book b1 = new Book(\"O'tkan Kunlar\", 45000.0);",
+        "Book b2 = new Book(b1);"
+      ],
+      "methodCalls": [
+        "b2.setPrice(50000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"B1 narxi: \" + b1.getPrice() + \" | B2 narxi: \" + b2.getPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `Book b1 = new Book(\"O'tkan Kunlar\", 45000.0);` va `Book b2 = new Book(b1);`",
+          "Metodlarni chaqirish / amallar: `b2.setPrice(50000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"B1 narxi: \" + b1.getPrice() + \" | B2 narxi: \" + b2.getPrice());`"
+        ],
+        "en": [
+          "Instantiate objects: `Book b1 = new Book(\"O'tkan Kunlar\", 45000.0);` and `Book b2 = new Book(b1);`",
+          "Invoke methods / operations: `b2.setPrice(50000.0);`",
+          "Print result to console: `System.out.println(\"B1 narxi: \" + b1.getPrice() + \" | B2 narxi: \" + b2.getPrice());`"
+        ],
+        "ru": [
+          "Создание объектов: `Book b1 = new Book(\"O'tkan Kunlar\", 45000.0);` и `Book b2 = new Book(b1);`",
+          "Вызовы методов / операции: `b2.setPrice(50000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"B1 narxi: \" + b1.getPrice() + \" | B2 narxi: \" + b2.getPrice());`"
+        ]
+      },
+      "expectedOutput": "B1 narxi: 45000.0 | B2 narxi: 50000.0"
+    }
   },
   {
     "id": 55,
@@ -5686,7 +7430,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PatientRecord p1 = new PatientRecord(\"Anvar\");",
+        "PatientRecord p2 = new PatientRecord(\"Malika\");",
+        "System.out.println(\"P1 ID: \" + p1.getPatientId() + \" | P2 ID: \" + p2.getPatientId());"
+      ],
+      "instantiations": [
+        "PatientRecord p1 = new PatientRecord(\"Anvar\");",
+        "PatientRecord p2 = new PatientRecord(\"Malika\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"P1 ID: \" + p1.getPatientId() + \" | P2 ID: \" + p2.getPatientId());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `PatientRecord p1 = new PatientRecord(\"Anvar\");` va `PatientRecord p2 = new PatientRecord(\"Malika\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"P1 ID: \" + p1.getPatientId() + \" | P2 ID: \" + p2.getPatientId());`"
+        ],
+        "en": [
+          "Instantiate objects: `PatientRecord p1 = new PatientRecord(\"Anvar\");` and `PatientRecord p2 = new PatientRecord(\"Malika\");`",
+          "Print result to console: `System.out.println(\"P1 ID: \" + p1.getPatientId() + \" | P2 ID: \" + p2.getPatientId());`"
+        ],
+        "ru": [
+          "Создание объектов: `PatientRecord p1 = new PatientRecord(\"Anvar\");` и `PatientRecord p2 = new PatientRecord(\"Malika\");`",
+          "Вывод результата в консоль: `System.out.println(\"P1 ID: \" + p1.getPatientId() + \" | P2 ID: \" + p2.getPatientId());`"
+        ]
+      },
+      "expectedOutput": "P1 ID: 1000 | P2 ID: 1001"
+    }
   },
   {
     "id": 56,
@@ -5812,7 +7586,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "CourierLocation loc = new CourierLocation(\"Toshkent,Chilonzor,12\");",
+        "System.out.println(\"Shahar: \" + loc.getCity() + \" | Tuman: \" + loc.getDistrict() + \" | Bino: \" + loc.getBuilding());"
+      ],
+      "instantiations": [
+        "CourierLocation loc = new CourierLocation(\"Toshkent,Chilonzor,12\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Shahar: \" + loc.getCity() + \" | Tuman: \" + loc.getDistrict() + \" | Bino: \" + loc.getBuilding());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CourierLocation loc = new CourierLocation(\"Toshkent,Chilonzor,12\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Shahar: \" + loc.getCity() + \" | Tuman: \" + loc.getDistrict() + \" | Bino: \" + loc.getBuilding());`"
+        ],
+        "en": [
+          "Instantiate object: `CourierLocation loc = new CourierLocation(\"Toshkent,Chilonzor,12\");`",
+          "Print result to console: `System.out.println(\"Shahar: \" + loc.getCity() + \" | Tuman: \" + loc.getDistrict() + \" | Bino: \" + loc.getBuilding());`"
+        ],
+        "ru": [
+          "Создание объекта: `CourierLocation loc = new CourierLocation(\"Toshkent,Chilonzor,12\");`",
+          "Вывод результата в консоль: `System.out.println(\"Shahar: \" + loc.getCity() + \" | Tuman: \" + loc.getDistrict() + \" | Bino: \" + loc.getBuilding());`"
+        ]
+      },
+      "expectedOutput": "Shahar: Toshkent | Tuman: Chilonzor | Bino: 12"
+    }
   },
   {
     "id": 57,
@@ -5918,7 +7720,49 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "try {",
+        "CreditRange bad = new CreditRange(5000000.0, 1000000.0);",
+        "} catch (IllegalArgumentException e) {",
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "}",
+        "CreditRange good = new CreditRange(1000000.0, 10000000.0);",
+        "System.out.println(\"Min: \" + good.getMinAmount() + \" | Max: \" + good.getMaxAmount());"
+      ],
+      "instantiations": [
+        "CreditRange bad = new CreditRange(5000000.0, 1000000.0);",
+        "CreditRange good = new CreditRange(1000000.0, 10000000.0);"
+      ],
+      "methodCalls": [
+        "try {",
+        "} catch (IllegalArgumentException e) {",
+        "}"
+      ],
+      "prints": [
+        "System.out.println(\"Ushlandi: \" + e.getMessage());",
+        "System.out.println(\"Min: \" + good.getMinAmount() + \" | Max: \" + good.getMaxAmount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `CreditRange bad = new CreditRange(5000000.0, 1000000.0);` va `CreditRange good = new CreditRange(1000000.0, 10000000.0);`",
+          "Metodlarni chaqirish / amallar: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Min: \" + good.getMinAmount() + \" | Max: \" + good.getMaxAmount());`"
+        ],
+        "en": [
+          "Instantiate objects: `CreditRange bad = new CreditRange(5000000.0, 1000000.0);` and `CreditRange good = new CreditRange(1000000.0, 10000000.0);`",
+          "Invoke methods / operations: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Print result to console: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Min: \" + good.getMinAmount() + \" | Max: \" + good.getMaxAmount());`"
+        ],
+        "ru": [
+          "Создание объектов: `CreditRange bad = new CreditRange(5000000.0, 1000000.0);` и `CreditRange good = new CreditRange(1000000.0, 10000000.0);`",
+          "Вызовы методов / операции: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Вывод результата в консоль: `System.out.println(\"Ushlandi: \" + e.getMessage());; System.out.println(\"Min: \" + good.getMinAmount() + \" | Max: \" + good.getMaxAmount());`"
+        ]
+      },
+      "expectedOutput": "Ushlandi: Min summa Max summadan katta bo'lishi mumkin emas\nMin: 1000000.0 | Max: 10000000.0"
+    }
   },
   {
     "id": 58,
@@ -6004,7 +7848,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SubscriberKey sub = new SubscriberKey(\"Jasur\", \"Rahmatov\");",
+        "System.out.println(\"Qidiruv kaliti: \" + sub.getSearchKey());"
+      ],
+      "instantiations": [
+        "SubscriberKey sub = new SubscriberKey(\"Jasur\", \"Rahmatov\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Qidiruv kaliti: \" + sub.getSearchKey());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SubscriberKey sub = new SubscriberKey(\"Jasur\", \"Rahmatov\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Qidiruv kaliti: \" + sub.getSearchKey());`"
+        ],
+        "en": [
+          "Instantiate object: `SubscriberKey sub = new SubscriberKey(\"Jasur\", \"Rahmatov\");`",
+          "Print result to console: `System.out.println(\"Qidiruv kaliti: \" + sub.getSearchKey());`"
+        ],
+        "ru": [
+          "Создание объекта: `SubscriberKey sub = new SubscriberKey(\"Jasur\", \"Rahmatov\");`",
+          "Вывод результата в консоль: `System.out.println(\"Qidiruv kaliti: \" + sub.getSearchKey());`"
+        ]
+      },
+      "expectedOutput": "Qidiruv kaliti: Rahmatov_J"
+    }
   },
   {
     "id": 59,
@@ -6092,7 +7964,35 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "FlightPass pass = FlightPass.of(\"HY-051-A\");",
+        "System.out.println(\"Pasadka kodi: \" + pass.getBoardingCode());"
+      ],
+      "instantiations": [],
+      "methodCalls": [
+        "FlightPass pass = FlightPass.of(\"HY-051-A\");"
+      ],
+      "prints": [
+        "System.out.println(\"Pasadka kodi: \" + pass.getBoardingCode());"
+      ],
+      "steps": {
+        "uz": [
+          "Metodlarni chaqirish / amallar: `FlightPass pass = FlightPass.of(\"HY-051-A\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Pasadka kodi: \" + pass.getBoardingCode());`"
+        ],
+        "en": [
+          "Invoke methods / operations: `FlightPass pass = FlightPass.of(\"HY-051-A\");`",
+          "Print result to console: `System.out.println(\"Pasadka kodi: \" + pass.getBoardingCode());`"
+        ],
+        "ru": [
+          "Вызовы методов / операции: `FlightPass pass = FlightPass.of(\"HY-051-A\");`",
+          "Вывод результата в консоль: `System.out.println(\"Pasadka kodi: \" + pass.getBoardingCode());`"
+        ]
+      },
+      "expectedOutput": "Pasadka kodi: HY-051-A"
+    }
   },
   {
     "id": 60,
@@ -6178,7 +8078,39 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SRSStudent s1 = new SRSStudent(\"Aziz\");",
+        "SRSStudent s2 = new SRSStudent(\"Diyora\");",
+        "System.out.println(s1.getProfile());",
+        "System.out.println(s2.getProfile());"
+      ],
+      "instantiations": [
+        "SRSStudent s1 = new SRSStudent(\"Aziz\");",
+        "SRSStudent s2 = new SRSStudent(\"Diyora\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(s1.getProfile());",
+        "System.out.println(s2.getProfile());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `SRSStudent s1 = new SRSStudent(\"Aziz\");` va `SRSStudent s2 = new SRSStudent(\"Diyora\");`",
+          "Natijani konsolga chiqarish: `System.out.println(s1.getProfile());; System.out.println(s2.getProfile());`"
+        ],
+        "en": [
+          "Instantiate objects: `SRSStudent s1 = new SRSStudent(\"Aziz\");` and `SRSStudent s2 = new SRSStudent(\"Diyora\");`",
+          "Print result to console: `System.out.println(s1.getProfile());; System.out.println(s2.getProfile());`"
+        ],
+        "ru": [
+          "Создание объектов: `SRSStudent s1 = new SRSStudent(\"Aziz\");` и `SRSStudent s2 = new SRSStudent(\"Diyora\");`",
+          "Вывод результата в консоль: `System.out.println(s1.getProfile());; System.out.println(s2.getProfile());`"
+        ]
+      },
+      "expectedOutput": "Talaba: Aziz | ID: 00023001 | Kredit: 120\nTalaba: Diyora | ID: 00023002 | Kredit: 120"
+    }
   },
   {
     "id": 61,
@@ -6300,7 +8232,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "WarehouseItem wi = new WarehouseItem(10);",
+        "boolean r1 = wi.reduceStock(4);",
+        "boolean r2 = wi.reduceStock(10);",
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qoldiq: \" + wi.getStock());"
+      ],
+      "instantiations": [
+        "WarehouseItem wi = new WarehouseItem(10);"
+      ],
+      "methodCalls": [
+        "boolean r1 = wi.reduceStock(4);",
+        "boolean r2 = wi.reduceStock(10);"
+      ],
+      "prints": [
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qoldiq: \" + wi.getStock());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `WarehouseItem wi = new WarehouseItem(10);`",
+          "Metodlarni chaqirish / amallar: `boolean r1 = wi.reduceStock(4);`, `boolean r2 = wi.reduceStock(10);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qoldiq: \" + wi.getStock());`"
+        ],
+        "en": [
+          "Instantiate object: `WarehouseItem wi = new WarehouseItem(10);`",
+          "Invoke methods / operations: `boolean r1 = wi.reduceStock(4);`, `boolean r2 = wi.reduceStock(10);`",
+          "Print result to console: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qoldiq: \" + wi.getStock());`"
+        ],
+        "ru": [
+          "Создание объекта: `WarehouseItem wi = new WarehouseItem(10);`",
+          "Вызовы методов / операции: `boolean r1 = wi.reduceStock(4);`, `boolean r2 = wi.reduceStock(10);`",
+          "Вывод результата в консоль: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Qoldiq: \" + wi.getStock());`"
+        ]
+      },
+      "expectedOutput": "R1: true | R2: false | Qoldiq: 6"
+    }
   },
   {
     "id": 62,
@@ -6405,7 +8373,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PriceBound pb = new PriceBound(1000.0, 50000.0, 20000.0);",
+        "pb.setPrice(500.0);",
+        "pb.setPrice(35000.0);",
+        "System.out.println(\"Narx: \" + pb.getCurrentPrice());"
+      ],
+      "instantiations": [
+        "PriceBound pb = new PriceBound(1000.0, 50000.0, 20000.0);"
+      ],
+      "methodCalls": [
+        "pb.setPrice(500.0);",
+        "pb.setPrice(35000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Narx: \" + pb.getCurrentPrice());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PriceBound pb = new PriceBound(1000.0, 50000.0, 20000.0);`",
+          "Metodlarni chaqirish / amallar: `pb.setPrice(500.0);`, `pb.setPrice(35000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Narx: \" + pb.getCurrentPrice());`"
+        ],
+        "en": [
+          "Instantiate object: `PriceBound pb = new PriceBound(1000.0, 50000.0, 20000.0);`",
+          "Invoke methods / operations: `pb.setPrice(500.0);`, `pb.setPrice(35000.0);`",
+          "Print result to console: `System.out.println(\"Narx: \" + pb.getCurrentPrice());`"
+        ],
+        "ru": [
+          "Создание объекта: `PriceBound pb = new PriceBound(1000.0, 50000.0, 20000.0);`",
+          "Вызовы методов / операции: `pb.setPrice(500.0);`, `pb.setPrice(35000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Narx: \" + pb.getCurrentPrice());`"
+        ]
+      },
+      "expectedOutput": "Narx: 35000.0"
+    }
   },
   {
     "id": 63,
@@ -6530,7 +8534,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "BudgetManager bm = new BudgetManager(1000000.0);",
+        "bm.spend(300000.0);",
+        "bm.refund(50000.0);",
+        "System.out.println(bm.getSummary());"
+      ],
+      "instantiations": [
+        "BudgetManager bm = new BudgetManager(1000000.0);"
+      ],
+      "methodCalls": [
+        "bm.spend(300000.0);",
+        "bm.refund(50000.0);"
+      ],
+      "prints": [
+        "System.out.println(bm.getSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `BudgetManager bm = new BudgetManager(1000000.0);`",
+          "Metodlarni chaqirish / amallar: `bm.spend(300000.0);`, `bm.refund(50000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(bm.getSummary());`"
+        ],
+        "en": [
+          "Instantiate object: `BudgetManager bm = new BudgetManager(1000000.0);`",
+          "Invoke methods / operations: `bm.spend(300000.0);`, `bm.refund(50000.0);`",
+          "Print result to console: `System.out.println(bm.getSummary());`"
+        ],
+        "ru": [
+          "Создание объекта: `BudgetManager bm = new BudgetManager(1000000.0);`",
+          "Вызовы методов / операции: `bm.spend(300000.0);`, `bm.refund(50000.0);`",
+          "Вывод результата в консоль: `System.out.println(bm.getSummary());`"
+        ]
+      },
+      "expectedOutput": "Sarflangan: 250000.0 | Qoldiq: 750000.0"
+    }
   },
   {
     "id": 64,
@@ -6633,7 +8673,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Thermostat th = new Thermostat(22.0);",
+        "th.setTemperature(35.0);",
+        "th.setTemperature(25.0);",
+        "System.out.println(\"Harorat: \" + th.getTemperature());"
+      ],
+      "instantiations": [
+        "Thermostat th = new Thermostat(22.0);"
+      ],
+      "methodCalls": [
+        "th.setTemperature(35.0);",
+        "th.setTemperature(25.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Harorat: \" + th.getTemperature());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Thermostat th = new Thermostat(22.0);`",
+          "Metodlarni chaqirish / amallar: `th.setTemperature(35.0);`, `th.setTemperature(25.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Harorat: \" + th.getTemperature());`"
+        ],
+        "en": [
+          "Instantiate object: `Thermostat th = new Thermostat(22.0);`",
+          "Invoke methods / operations: `th.setTemperature(35.0);`, `th.setTemperature(25.0);`",
+          "Print result to console: `System.out.println(\"Harorat: \" + th.getTemperature());`"
+        ],
+        "ru": [
+          "Создание объекта: `Thermostat th = new Thermostat(22.0);`",
+          "Вызовы методов / операции: `th.setTemperature(35.0);`, `th.setTemperature(25.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Harorat: \" + th.getTemperature());`"
+        ]
+      },
+      "expectedOutput": "Harorat: 25.0"
+    }
   },
   {
     "id": 65,
@@ -6736,7 +8812,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Fraction f = new Fraction(4, 8);",
+        "System.out.println(\"Qisqargan kasr: \" + f);"
+      ],
+      "instantiations": [
+        "Fraction f = new Fraction(4, 8);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Qisqargan kasr: \" + f);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Fraction f = new Fraction(4, 8);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Qisqargan kasr: \" + f);`"
+        ],
+        "en": [
+          "Instantiate object: `Fraction f = new Fraction(4, 8);`",
+          "Print result to console: `System.out.println(\"Qisqargan kasr: \" + f);`"
+        ],
+        "ru": [
+          "Создание объекта: `Fraction f = new Fraction(4, 8);`",
+          "Вывод результата в консоль: `System.out.println(\"Qisqargan kasr: \" + f);`"
+        ]
+      },
+      "expectedOutput": "Qisqargan kasr: 1/2"
+    }
   },
   {
     "id": 66,
@@ -6841,7 +8945,47 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "CircularBuffer cb = new CircularBuffer(3);",
+        "cb.add(10);",
+        "cb.add(20);",
+        "cb.add(30);",
+        "boolean overflow = cb.add(40);",
+        "System.out.println(\"Sig'im to'ldimi: \" + !overflow + \" | O'lcham: \" + cb.getSize());"
+      ],
+      "instantiations": [
+        "CircularBuffer cb = new CircularBuffer(3);"
+      ],
+      "methodCalls": [
+        "cb.add(10);",
+        "cb.add(20);",
+        "cb.add(30);",
+        "boolean overflow = cb.add(40);"
+      ],
+      "prints": [
+        "System.out.println(\"Sig'im to'ldimi: \" + !overflow + \" | O'lcham: \" + cb.getSize());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CircularBuffer cb = new CircularBuffer(3);`",
+          "Metodlarni chaqirish / amallar: `cb.add(10);`, `cb.add(20);`, `cb.add(30);`, `boolean overflow = cb.add(40);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Sig'im to'ldimi: \" + !overflow + \" | O'lcham: \" + cb.getSize());`"
+        ],
+        "en": [
+          "Instantiate object: `CircularBuffer cb = new CircularBuffer(3);`",
+          "Invoke methods / operations: `cb.add(10);`, `cb.add(20);`, `cb.add(30);`, `boolean overflow = cb.add(40);`",
+          "Print result to console: `System.out.println(\"Sig'im to'ldimi: \" + !overflow + \" | O'lcham: \" + cb.getSize());`"
+        ],
+        "ru": [
+          "Создание объекта: `CircularBuffer cb = new CircularBuffer(3);`",
+          "Вызовы методов / операции: `cb.add(10);`, `cb.add(20);`, `cb.add(30);`, `boolean overflow = cb.add(40);`",
+          "Вывод результата в консоль: `System.out.println(\"Sig'im to'ldimi: \" + !overflow + \" | O'lcham: \" + cb.getSize());`"
+        ]
+      },
+      "expectedOutput": "Sig'im to'ldimi: true | O'lcham: 3"
+    }
   },
   {
     "id": 67,
@@ -6965,7 +9109,49 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "try {",
+        "CalendarDate bad = new CalendarDate(2026, 2, 29);",
+        "} catch (IllegalArgumentException e) {",
+        "System.out.println(\"Xato: \" + e.getMessage());",
+        "}",
+        "CalendarDate good = new CalendarDate(2024, 2, 29);",
+        "System.out.println(\"Sana: \" + good.getFormattedDate());"
+      ],
+      "instantiations": [
+        "CalendarDate bad = new CalendarDate(2026, 2, 29);",
+        "CalendarDate good = new CalendarDate(2024, 2, 29);"
+      ],
+      "methodCalls": [
+        "try {",
+        "} catch (IllegalArgumentException e) {",
+        "}"
+      ],
+      "prints": [
+        "System.out.println(\"Xato: \" + e.getMessage());",
+        "System.out.println(\"Sana: \" + good.getFormattedDate());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `CalendarDate bad = new CalendarDate(2026, 2, 29);` va `CalendarDate good = new CalendarDate(2024, 2, 29);`",
+          "Metodlarni chaqirish / amallar: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Sana: \" + good.getFormattedDate());`"
+        ],
+        "en": [
+          "Instantiate objects: `CalendarDate bad = new CalendarDate(2026, 2, 29);` and `CalendarDate good = new CalendarDate(2024, 2, 29);`",
+          "Invoke methods / operations: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Print result to console: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Sana: \" + good.getFormattedDate());`"
+        ],
+        "ru": [
+          "Создание объектов: `CalendarDate bad = new CalendarDate(2026, 2, 29);` и `CalendarDate good = new CalendarDate(2024, 2, 29);`",
+          "Вызовы методов / операции: `try {`, `} catch (IllegalArgumentException e) {`, `}`",
+          "Вывод результата в консоль: `System.out.println(\"Xato: \" + e.getMessage());; System.out.println(\"Sana: \" + good.getFormattedDate());`"
+        ]
+      },
+      "expectedOutput": "Xato: Noto'g'ri kun\nSana: 2024-02-29"
+    }
   },
   {
     "id": 68,
@@ -7069,7 +9255,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "KitchenShift shift = new KitchenShift(9, 18);",
+        "boolean r1 = shift.setShift(17, 12);",
+        "boolean r2 = shift.setShift(10, 22);",
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Davomiylik: \" + shift.getDurationHours() + \" soat\");"
+      ],
+      "instantiations": [
+        "KitchenShift shift = new KitchenShift(9, 18);"
+      ],
+      "methodCalls": [
+        "boolean r1 = shift.setShift(17, 12);",
+        "boolean r2 = shift.setShift(10, 22);"
+      ],
+      "prints": [
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Davomiylik: \" + shift.getDurationHours() + \" soat\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `KitchenShift shift = new KitchenShift(9, 18);`",
+          "Metodlarni chaqirish / amallar: `boolean r1 = shift.setShift(17, 12);`, `boolean r2 = shift.setShift(10, 22);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Davomiylik: \" + shift.getDurationHours() + \" soat\");`"
+        ],
+        "en": [
+          "Instantiate object: `KitchenShift shift = new KitchenShift(9, 18);`",
+          "Invoke methods / operations: `boolean r1 = shift.setShift(17, 12);`, `boolean r2 = shift.setShift(10, 22);`",
+          "Print result to console: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Davomiylik: \" + shift.getDurationHours() + \" soat\");`"
+        ],
+        "ru": [
+          "Создание объекта: `KitchenShift shift = new KitchenShift(9, 18);`",
+          "Вызовы методов / операции: `boolean r1 = shift.setShift(17, 12);`, `boolean r2 = shift.setShift(10, 22);`",
+          "Вывод результата в консоль: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | Davomiylik: \" + shift.getDurationHours() + \" soat\");`"
+        ]
+      },
+      "expectedOutput": "R1: false | R2: true | Davomiylik: 12 soat"
+    }
   },
   {
     "id": 69,
@@ -7177,7 +9399,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "LedgerTransaction tx = new LedgerTransaction();",
+        "tx.addDebit(150000.0);",
+        "tx.addCredit(150000.0);",
+        "System.out.println(\"Provodka muvozanatdami: \" + tx.isBalanced());"
+      ],
+      "instantiations": [
+        "LedgerTransaction tx = new LedgerTransaction();"
+      ],
+      "methodCalls": [
+        "tx.addDebit(150000.0);",
+        "tx.addCredit(150000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Provodka muvozanatdami: \" + tx.isBalanced());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `LedgerTransaction tx = new LedgerTransaction();`",
+          "Metodlarni chaqirish / amallar: `tx.addDebit(150000.0);`, `tx.addCredit(150000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Provodka muvozanatdami: \" + tx.isBalanced());`"
+        ],
+        "en": [
+          "Instantiate object: `LedgerTransaction tx = new LedgerTransaction();`",
+          "Invoke methods / operations: `tx.addDebit(150000.0);`, `tx.addCredit(150000.0);`",
+          "Print result to console: `System.out.println(\"Provodka muvozanatdami: \" + tx.isBalanced());`"
+        ],
+        "ru": [
+          "Создание объекта: `LedgerTransaction tx = new LedgerTransaction();`",
+          "Вызовы методов / операции: `tx.addDebit(150000.0);`, `tx.addCredit(150000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Provodka muvozanatdami: \" + tx.isBalanced());`"
+        ]
+      },
+      "expectedOutput": "Provodka muvozanatdami: true"
+    }
   },
   {
     "id": 70,
@@ -7281,7 +9539,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "StockThreshold st = new StockThreshold(10, 3);",
+        "st.sell(8);",
+        "System.out.println(\"Qayta buyurtma kerakmi: \" + st.isReorderNeeded());"
+      ],
+      "instantiations": [
+        "StockThreshold st = new StockThreshold(10, 3);"
+      ],
+      "methodCalls": [
+        "st.sell(8);"
+      ],
+      "prints": [
+        "System.out.println(\"Qayta buyurtma kerakmi: \" + st.isReorderNeeded());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `StockThreshold st = new StockThreshold(10, 3);`",
+          "Metodlarni chaqirish / amallar: `st.sell(8);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Qayta buyurtma kerakmi: \" + st.isReorderNeeded());`"
+        ],
+        "en": [
+          "Instantiate object: `StockThreshold st = new StockThreshold(10, 3);`",
+          "Invoke methods / operations: `st.sell(8);`",
+          "Print result to console: `System.out.println(\"Qayta buyurtma kerakmi: \" + st.isReorderNeeded());`"
+        ],
+        "ru": [
+          "Создание объекта: `StockThreshold st = new StockThreshold(10, 3);`",
+          "Вызовы методов / операции: `st.sell(8);`",
+          "Вывод результата в консоль: `System.out.println(\"Qayta buyurtma kerakmi: \" + st.isReorderNeeded());`"
+        ]
+      },
+      "expectedOutput": "Qayta buyurtma kerakmi: true"
+    }
   },
   {
     "id": 71,
@@ -7370,7 +9662,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SecurePassword sp = new SecurePassword();",
+        "boolean b1 = sp.setPassword(\"weak\");",
+        "boolean b2 = sp.setPassword(\"Medion2026\");",
+        "System.out.println(\"B1: \" + b1 + \" | B2: \" + b2);"
+      ],
+      "instantiations": [
+        "SecurePassword sp = new SecurePassword();"
+      ],
+      "methodCalls": [
+        "boolean b1 = sp.setPassword(\"weak\");",
+        "boolean b2 = sp.setPassword(\"Medion2026\");"
+      ],
+      "prints": [
+        "System.out.println(\"B1: \" + b1 + \" | B2: \" + b2);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SecurePassword sp = new SecurePassword();`",
+          "Metodlarni chaqirish / amallar: `boolean b1 = sp.setPassword(\"weak\");`, `boolean b2 = sp.setPassword(\"Medion2026\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2);`"
+        ],
+        "en": [
+          "Instantiate object: `SecurePassword sp = new SecurePassword();`",
+          "Invoke methods / operations: `boolean b1 = sp.setPassword(\"weak\");`, `boolean b2 = sp.setPassword(\"Medion2026\");`",
+          "Print result to console: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2);`"
+        ],
+        "ru": [
+          "Создание объекта: `SecurePassword sp = new SecurePassword();`",
+          "Вызовы методов / операции: `boolean b1 = sp.setPassword(\"weak\");`, `boolean b2 = sp.setPassword(\"Medion2026\");`",
+          "Вывод результата в консоль: `System.out.println(\"B1: \" + b1 + \" | B2: \" + b2);`"
+        ]
+      },
+      "expectedOutput": "B1: false | B2: true"
+    }
   },
   {
     "id": 72,
@@ -7438,7 +9766,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SmsThrottler st = new SmsThrottler();",
+        "boolean r1 = st.requestSms(1000);",
+        "boolean r2 = st.requestSms(1500);",
+        "boolean r3 = st.requestSms(3100);",
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | R3: \" + r3);"
+      ],
+      "instantiations": [
+        "SmsThrottler st = new SmsThrottler();"
+      ],
+      "methodCalls": [
+        "boolean r1 = st.requestSms(1000);",
+        "boolean r2 = st.requestSms(1500);",
+        "boolean r3 = st.requestSms(3100);"
+      ],
+      "prints": [
+        "System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | R3: \" + r3);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SmsThrottler st = new SmsThrottler();`",
+          "Metodlarni chaqirish / amallar: `boolean r1 = st.requestSms(1000);`, `boolean r2 = st.requestSms(1500);`, `boolean r3 = st.requestSms(3100);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | R3: \" + r3);`"
+        ],
+        "en": [
+          "Instantiate object: `SmsThrottler st = new SmsThrottler();`",
+          "Invoke methods / operations: `boolean r1 = st.requestSms(1000);`, `boolean r2 = st.requestSms(1500);`, `boolean r3 = st.requestSms(3100);`",
+          "Print result to console: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | R3: \" + r3);`"
+        ],
+        "ru": [
+          "Создание объекта: `SmsThrottler st = new SmsThrottler();`",
+          "Вызовы методов / операции: `boolean r1 = st.requestSms(1000);`, `boolean r2 = st.requestSms(1500);`, `boolean r3 = st.requestSms(3100);`",
+          "Вывод результата в консоль: `System.out.println(\"R1: \" + r1 + \" | R2: \" + r2 + \" | R3: \" + r3);`"
+        ]
+      },
+      "expectedOutput": "R1: true | R2: false | R3: true"
+    }
   },
   {
     "id": 73,
@@ -7562,7 +9928,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "MenuPhoto photo = new MenuPhoto(1600.0);",
+        "System.out.println(\"Kenglik: \" + photo.getWidth() + \" | Balandlik: \" + photo.getHeight());"
+      ],
+      "instantiations": [
+        "MenuPhoto photo = new MenuPhoto(1600.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Kenglik: \" + photo.getWidth() + \" | Balandlik: \" + photo.getHeight());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `MenuPhoto photo = new MenuPhoto(1600.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Kenglik: \" + photo.getWidth() + \" | Balandlik: \" + photo.getHeight());`"
+        ],
+        "en": [
+          "Instantiate object: `MenuPhoto photo = new MenuPhoto(1600.0);`",
+          "Print result to console: `System.out.println(\"Kenglik: \" + photo.getWidth() + \" | Balandlik: \" + photo.getHeight());`"
+        ],
+        "ru": [
+          "Создание объекта: `MenuPhoto photo = new MenuPhoto(1600.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Kenglik: \" + photo.getWidth() + \" | Balandlik: \" + photo.getHeight());`"
+        ]
+      },
+      "expectedOutput": "Kenglik: 1600.0 | Balandlik: 900.0"
+    }
   },
   {
     "id": 74,
@@ -7670,7 +10064,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "FrequentFlyer ff = new FrequentFlyer();",
+        "ff.addMiles(12000);",
+        "System.out.println(\"12k millar holati: \" + ff.getStatus());",
+        "ff.addMiles(15000);",
+        "System.out.println(\"27k millar holati: \" + ff.getStatus());"
+      ],
+      "instantiations": [
+        "FrequentFlyer ff = new FrequentFlyer();"
+      ],
+      "methodCalls": [
+        "ff.addMiles(12000);",
+        "ff.addMiles(15000);"
+      ],
+      "prints": [
+        "System.out.println(\"12k millar holati: \" + ff.getStatus());",
+        "System.out.println(\"27k millar holati: \" + ff.getStatus());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `FrequentFlyer ff = new FrequentFlyer();`",
+          "Metodlarni chaqirish / amallar: `ff.addMiles(12000);`, `ff.addMiles(15000);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"12k millar holati: \" + ff.getStatus());; System.out.println(\"27k millar holati: \" + ff.getStatus());`"
+        ],
+        "en": [
+          "Instantiate object: `FrequentFlyer ff = new FrequentFlyer();`",
+          "Invoke methods / operations: `ff.addMiles(12000);`, `ff.addMiles(15000);`",
+          "Print result to console: `System.out.println(\"12k millar holati: \" + ff.getStatus());; System.out.println(\"27k millar holati: \" + ff.getStatus());`"
+        ],
+        "ru": [
+          "Создание объекта: `FrequentFlyer ff = new FrequentFlyer();`",
+          "Вызовы методов / операции: `ff.addMiles(12000);`, `ff.addMiles(15000);`",
+          "Вывод результата в консоль: `System.out.println(\"12k millar holati: \" + ff.getStatus());; System.out.println(\"27k millar holati: \" + ff.getStatus());`"
+        ]
+      },
+      "expectedOutput": "12k millar holati: GOLD\n27k millar holati: PLATINUM"
+    }
   },
   {
     "id": 75,
@@ -7758,7 +10190,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SemesterEnrollment se = new SemesterEnrollment();",
+        "boolean m1 = se.enrollModule(30);",
+        "boolean m2 = se.enrollModule(30);",
+        "boolean m3 = se.enrollModule(15);",
+        "System.out.println(\"M1: \" + m1 + \" | M2: \" + m2 + \" | M3: \" + m3 + \" | Jami: \" + se.getEnrolledCredits());"
+      ],
+      "instantiations": [
+        "SemesterEnrollment se = new SemesterEnrollment();"
+      ],
+      "methodCalls": [
+        "boolean m1 = se.enrollModule(30);",
+        "boolean m2 = se.enrollModule(30);",
+        "boolean m3 = se.enrollModule(15);"
+      ],
+      "prints": [
+        "System.out.println(\"M1: \" + m1 + \" | M2: \" + m2 + \" | M3: \" + m3 + \" | Jami: \" + se.getEnrolledCredits());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SemesterEnrollment se = new SemesterEnrollment();`",
+          "Metodlarni chaqirish / amallar: `boolean m1 = se.enrollModule(30);`, `boolean m2 = se.enrollModule(30);`, `boolean m3 = se.enrollModule(15);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"M1: \" + m1 + \" | M2: \" + m2 + \" | M3: \" + m3 + \" | Jami: \" + se.getEnrolledCredits());`"
+        ],
+        "en": [
+          "Instantiate object: `SemesterEnrollment se = new SemesterEnrollment();`",
+          "Invoke methods / operations: `boolean m1 = se.enrollModule(30);`, `boolean m2 = se.enrollModule(30);`, `boolean m3 = se.enrollModule(15);`",
+          "Print result to console: `System.out.println(\"M1: \" + m1 + \" | M2: \" + m2 + \" | M3: \" + m3 + \" | Jami: \" + se.getEnrolledCredits());`"
+        ],
+        "ru": [
+          "Создание объекта: `SemesterEnrollment se = new SemesterEnrollment();`",
+          "Вызовы методов / операции: `boolean m1 = se.enrollModule(30);`, `boolean m2 = se.enrollModule(30);`, `boolean m3 = se.enrollModule(15);`",
+          "Вывод результата в консоль: `System.out.println(\"M1: \" + m1 + \" | M2: \" + m2 + \" | M3: \" + m3 + \" | Jami: \" + se.getEnrolledCredits());`"
+        ]
+      },
+      "expectedOutput": "M1: true | M2: true | M3: false | Jami: 60"
+    }
   },
   {
     "id": 76,
@@ -7862,7 +10332,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "OrderReceipt r = new OrderReceipt(\"RCP-1092\", 125000.0);",
+        "System.out.println(\"Chek: \" + r.getReceiptId() + \" | Summa: \" + r.getTotalAmount());"
+      ],
+      "instantiations": [
+        "OrderReceipt r = new OrderReceipt(\"RCP-1092\", 125000.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Chek: \" + r.getReceiptId() + \" | Summa: \" + r.getTotalAmount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `OrderReceipt r = new OrderReceipt(\"RCP-1092\", 125000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Chek: \" + r.getReceiptId() + \" | Summa: \" + r.getTotalAmount());`"
+        ],
+        "en": [
+          "Instantiate object: `OrderReceipt r = new OrderReceipt(\"RCP-1092\", 125000.0);`",
+          "Print result to console: `System.out.println(\"Chek: \" + r.getReceiptId() + \" | Summa: \" + r.getTotalAmount());`"
+        ],
+        "ru": [
+          "Создание объекта: `OrderReceipt r = new OrderReceipt(\"RCP-1092\", 125000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Chek: \" + r.getReceiptId() + \" | Summa: \" + r.getTotalAmount());`"
+        ]
+      },
+      "expectedOutput": "Chek: RCP-1092 | Summa: 125000.0"
+    }
   },
   {
     "id": 77,
@@ -8007,7 +10505,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Point2D p1 = new Point2D(10.0, 20.0);",
+        "Point2D p2 = p1.withX(50.0);",
+        "System.out.println(\"P1: (\" + p1.getX() + \", \" + p1.getY() + \") | P2: (\" + p2.getX() + \", \" + p2.getY() + \")\");"
+      ],
+      "instantiations": [
+        "Point2D p1 = new Point2D(10.0, 20.0);"
+      ],
+      "methodCalls": [
+        "Point2D p2 = p1.withX(50.0);"
+      ],
+      "prints": [
+        "System.out.println(\"P1: (\" + p1.getX() + \", \" + p1.getY() + \") | P2: (\" + p2.getX() + \", \" + p2.getY() + \")\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Point2D p1 = new Point2D(10.0, 20.0);`",
+          "Metodlarni chaqirish / amallar: `Point2D p2 = p1.withX(50.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"P1: (\" + p1.getX() + \", \" + p1.getY() + \") | P2: (\" + p2.getX() + \", \" + p2.getY() + \")\");`"
+        ],
+        "en": [
+          "Instantiate object: `Point2D p1 = new Point2D(10.0, 20.0);`",
+          "Invoke methods / operations: `Point2D p2 = p1.withX(50.0);`",
+          "Print result to console: `System.out.println(\"P1: (\" + p1.getX() + \", \" + p1.getY() + \") | P2: (\" + p2.getX() + \", \" + p2.getY() + \")\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Point2D p1 = new Point2D(10.0, 20.0);`",
+          "Вызовы методов / операции: `Point2D p2 = p1.withX(50.0);`",
+          "Вывод результата в консоль: `System.out.println(\"P1: (\" + p1.getX() + \", \" + p1.getY() + \") | P2: (\" + p2.getX() + \", \" + p2.getY() + \")\");`"
+        ]
+      },
+      "expectedOutput": "P1: (10.0, 20.0) | P2: (50.0, 20.0)"
+    }
   },
   {
     "id": 78,
@@ -8132,7 +10664,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Money m1 = new Money(50000.0, \"UZS\");",
+        "Money m2 = new Money(30000.0, \"UZS\");",
+        "Money m3 = m1.add(m2);",
+        "System.out.println(\"Jami pul: \" + m3.getAmount() + \" \" + m3.getCurrency());"
+      ],
+      "instantiations": [
+        "Money m1 = new Money(50000.0, \"UZS\");",
+        "Money m2 = new Money(30000.0, \"UZS\");"
+      ],
+      "methodCalls": [
+        "Money m3 = m1.add(m2);"
+      ],
+      "prints": [
+        "System.out.println(\"Jami pul: \" + m3.getAmount() + \" \" + m3.getCurrency());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `Money m1 = new Money(50000.0, \"UZS\");` va `Money m2 = new Money(30000.0, \"UZS\");`",
+          "Metodlarni chaqirish / amallar: `Money m3 = m1.add(m2);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Jami pul: \" + m3.getAmount() + \" \" + m3.getCurrency());`"
+        ],
+        "en": [
+          "Instantiate objects: `Money m1 = new Money(50000.0, \"UZS\");` and `Money m2 = new Money(30000.0, \"UZS\");`",
+          "Invoke methods / operations: `Money m3 = m1.add(m2);`",
+          "Print result to console: `System.out.println(\"Jami pul: \" + m3.getAmount() + \" \" + m3.getCurrency());`"
+        ],
+        "ru": [
+          "Создание объектов: `Money m1 = new Money(50000.0, \"UZS\");` и `Money m2 = new Money(30000.0, \"UZS\");`",
+          "Вызовы методов / операции: `Money m3 = m1.add(m2);`",
+          "Вывод результата в консоль: `System.out.println(\"Jami pul: \" + m3.getAmount() + \" \" + m3.getCurrency());`"
+        ]
+      },
+      "expectedOutput": "Jami pul: 80000.0 UZS"
+    }
   },
   {
     "id": 79,
@@ -8237,7 +10805,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Complex c1 = new Complex(3.0, 2.0);",
+        "Complex c2 = new Complex(1.0, 7.0);",
+        "Complex c3 = c1.plus(c2);",
+        "System.out.println(\"Yig'indi: \" + c3);"
+      ],
+      "instantiations": [
+        "Complex c1 = new Complex(3.0, 2.0);",
+        "Complex c2 = new Complex(1.0, 7.0);"
+      ],
+      "methodCalls": [
+        "Complex c3 = c1.plus(c2);"
+      ],
+      "prints": [
+        "System.out.println(\"Yig'indi: \" + c3);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `Complex c1 = new Complex(3.0, 2.0);` va `Complex c2 = new Complex(1.0, 7.0);`",
+          "Metodlarni chaqirish / amallar: `Complex c3 = c1.plus(c2);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yig'indi: \" + c3);`"
+        ],
+        "en": [
+          "Instantiate objects: `Complex c1 = new Complex(3.0, 2.0);` and `Complex c2 = new Complex(1.0, 7.0);`",
+          "Invoke methods / operations: `Complex c3 = c1.plus(c2);`",
+          "Print result to console: `System.out.println(\"Yig'indi: \" + c3);`"
+        ],
+        "ru": [
+          "Создание объектов: `Complex c1 = new Complex(3.0, 2.0);` и `Complex c2 = new Complex(1.0, 7.0);`",
+          "Вызовы методов / операции: `Complex c3 = c1.plus(c2);`",
+          "Вывод результата в консоль: `System.out.println(\"Yig'indi: \" + c3);`"
+        ]
+      },
+      "expectedOutput": "Yig'indi: 4.0 + 9.0i"
+    }
   },
   {
     "id": 80,
@@ -8320,7 +10924,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Username u = new Username(\"  Azizbek_2026  \");",
+        "System.out.println(\"Login: \" + u.getValue());"
+      ],
+      "instantiations": [
+        "Username u = new Username(\"  Azizbek_2026  \");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Login: \" + u.getValue());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Username u = new Username(\"  Azizbek_2026  \");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Login: \" + u.getValue());`"
+        ],
+        "en": [
+          "Instantiate object: `Username u = new Username(\"  Azizbek_2026  \");`",
+          "Print result to console: `System.out.println(\"Login: \" + u.getValue());`"
+        ],
+        "ru": [
+          "Создание объекта: `Username u = new Username(\"  Azizbek_2026  \");`",
+          "Вывод результата в консоль: `System.out.println(\"Login: \" + u.getValue());`"
+        ]
+      },
+      "expectedOutput": "Login: azizbek_2026"
+    }
   },
   {
     "id": 81,
@@ -8426,7 +11058,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ColorRGB c1 = new ColorRGB(200, 100, 50);",
+        "ColorRGB c2 = c1.darken(0.5);",
+        "System.out.println(\"Asl: \" + c1 + \" | To'q: \" + c2);"
+      ],
+      "instantiations": [
+        "ColorRGB c1 = new ColorRGB(200, 100, 50);"
+      ],
+      "methodCalls": [
+        "ColorRGB c2 = c1.darken(0.5);"
+      ],
+      "prints": [
+        "System.out.println(\"Asl: \" + c1 + \" | To'q: \" + c2);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ColorRGB c1 = new ColorRGB(200, 100, 50);`",
+          "Metodlarni chaqirish / amallar: `ColorRGB c2 = c1.darken(0.5);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Asl: \" + c1 + \" | To'q: \" + c2);`"
+        ],
+        "en": [
+          "Instantiate object: `ColorRGB c1 = new ColorRGB(200, 100, 50);`",
+          "Invoke methods / operations: `ColorRGB c2 = c1.darken(0.5);`",
+          "Print result to console: `System.out.println(\"Asl: \" + c1 + \" | To'q: \" + c2);`"
+        ],
+        "ru": [
+          "Создание объекта: `ColorRGB c1 = new ColorRGB(200, 100, 50);`",
+          "Вызовы методов / операции: `ColorRGB c2 = c1.darken(0.5);`",
+          "Вывод результата в консоль: `System.out.println(\"Asl: \" + c1 + \" | To'q: \" + c2);`"
+        ]
+      },
+      "expectedOutput": "Asl: rgb(200,100,50) | To'q: rgb(100,50,25)"
+    }
   },
   {
     "id": 82,
@@ -8550,7 +11216,39 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TimeInterval t1 = new TimeInterval(600, 720);",
+        "TimeInterval t2 = new TimeInterval(690, 800);",
+        "TimeInterval t3 = new TimeInterval(750, 900);",
+        "System.out.println(\"T1 va T2: \" + t1.overlaps(t2) + \" | T1 va T3: \" + t1.overlaps(t3));"
+      ],
+      "instantiations": [
+        "TimeInterval t1 = new TimeInterval(600, 720);",
+        "TimeInterval t2 = new TimeInterval(690, 800);",
+        "TimeInterval t3 = new TimeInterval(750, 900);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"T1 va T2: \" + t1.overlaps(t2) + \" | T1 va T3: \" + t1.overlaps(t3));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `TimeInterval t1 = new TimeInterval(600, 720);` va `TimeInterval t2 = new TimeInterval(690, 800);` va `TimeInterval t3 = new TimeInterval(750, 900);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"T1 va T2: \" + t1.overlaps(t2) + \" | T1 va T3: \" + t1.overlaps(t3));`"
+        ],
+        "en": [
+          "Instantiate objects: `TimeInterval t1 = new TimeInterval(600, 720);` and `TimeInterval t2 = new TimeInterval(690, 800);` and `TimeInterval t3 = new TimeInterval(750, 900);`",
+          "Print result to console: `System.out.println(\"T1 va T2: \" + t1.overlaps(t2) + \" | T1 va T3: \" + t1.overlaps(t3));`"
+        ],
+        "ru": [
+          "Создание объектов: `TimeInterval t1 = new TimeInterval(600, 720);` и `TimeInterval t2 = new TimeInterval(690, 800);` и `TimeInterval t3 = new TimeInterval(750, 900);`",
+          "Вывод результата в консоль: `System.out.println(\"T1 va T2: \" + t1.overlaps(t2) + \" | T1 va T3: \" + t1.overlaps(t3));`"
+        ]
+      },
+      "expectedOutput": "T1 va T2: true | T1 va T3: false"
+    }
   },
   {
     "id": 83,
@@ -8656,7 +11354,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "IpAddress ip = new IpAddress(\"192.168.0.1\");",
+        "System.out.println(\"Oktet 1: \" + ip.getOctet(1) + \" | Oktet 4: \" + ip.getOctet(4));"
+      ],
+      "instantiations": [
+        "IpAddress ip = new IpAddress(\"192.168.0.1\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Oktet 1: \" + ip.getOctet(1) + \" | Oktet 4: \" + ip.getOctet(4));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `IpAddress ip = new IpAddress(\"192.168.0.1\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Oktet 1: \" + ip.getOctet(1) + \" | Oktet 4: \" + ip.getOctet(4));`"
+        ],
+        "en": [
+          "Instantiate object: `IpAddress ip = new IpAddress(\"192.168.0.1\");`",
+          "Print result to console: `System.out.println(\"Oktet 1: \" + ip.getOctet(1) + \" | Oktet 4: \" + ip.getOctet(4));`"
+        ],
+        "ru": [
+          "Создание объекта: `IpAddress ip = new IpAddress(\"192.168.0.1\");`",
+          "Вывод результата в консоль: `System.out.println(\"Oktet 1: \" + ip.getOctet(1) + \" | Oktet 4: \" + ip.getOctet(4));`"
+        ]
+      },
+      "expectedOutput": "Oktet 1: 192 | Oktet 4: 1"
+    }
   },
   {
     "id": 84,
@@ -8762,7 +11488,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Dimensions3D box1 = new Dimensions3D(10.0, 20.0, 30.0);",
+        "Dimensions3D box2 = box1.scale(2.0);",
+        "System.out.println(\"Hajm 1: \" + box1.volume() + \" | Hajm 2: \" + box2.volume());"
+      ],
+      "instantiations": [
+        "Dimensions3D box1 = new Dimensions3D(10.0, 20.0, 30.0);"
+      ],
+      "methodCalls": [
+        "Dimensions3D box2 = box1.scale(2.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Hajm 1: \" + box1.volume() + \" | Hajm 2: \" + box2.volume());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Dimensions3D box1 = new Dimensions3D(10.0, 20.0, 30.0);`",
+          "Metodlarni chaqirish / amallar: `Dimensions3D box2 = box1.scale(2.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Hajm 1: \" + box1.volume() + \" | Hajm 2: \" + box2.volume());`"
+        ],
+        "en": [
+          "Instantiate object: `Dimensions3D box1 = new Dimensions3D(10.0, 20.0, 30.0);`",
+          "Invoke methods / operations: `Dimensions3D box2 = box1.scale(2.0);`",
+          "Print result to console: `System.out.println(\"Hajm 1: \" + box1.volume() + \" | Hajm 2: \" + box2.volume());`"
+        ],
+        "ru": [
+          "Создание объекта: `Dimensions3D box1 = new Dimensions3D(10.0, 20.0, 30.0);`",
+          "Вызовы методов / операции: `Dimensions3D box2 = box1.scale(2.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Hajm 1: \" + box1.volume() + \" | Hajm 2: \" + box2.volume());`"
+        ]
+      },
+      "expectedOutput": "Hajm 1: 6000.0 | Hajm 2: 48000.0"
+    }
   },
   {
     "id": 85,
@@ -8865,7 +11625,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Temperature t = new Temperature(300.0);",
+        "System.out.println(\"Kelvin: 300 -> Selsiy: \" + Math.round(t.toCelsius()) + \" C\");"
+      ],
+      "instantiations": [
+        "Temperature t = new Temperature(300.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Kelvin: 300 -> Selsiy: \" + Math.round(t.toCelsius()) + \" C\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Temperature t = new Temperature(300.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Kelvin: 300 -> Selsiy: \" + Math.round(t.toCelsius()) + \" C\");`"
+        ],
+        "en": [
+          "Instantiate object: `Temperature t = new Temperature(300.0);`",
+          "Print result to console: `System.out.println(\"Kelvin: 300 -> Selsiy: \" + Math.round(t.toCelsius()) + \" C\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Temperature t = new Temperature(300.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Kelvin: 300 -> Selsiy: \" + Math.round(t.toCelsius()) + \" C\");`"
+        ]
+      },
+      "expectedOutput": "Kelvin: 300 -> Selsiy: 27 C"
+    }
   },
   {
     "id": 86,
@@ -8989,7 +11777,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "GeoPoint p1 = new GeoPoint(41.30, 69.25);",
+        "GeoPoint p2 = new GeoPoint(41.30, 69.30);",
+        "System.out.println(\"Toshkent markazi: \" + p1.getLatitude() + \", \" + p1.getLongitude());"
+      ],
+      "instantiations": [
+        "GeoPoint p1 = new GeoPoint(41.30, 69.25);",
+        "GeoPoint p2 = new GeoPoint(41.30, 69.30);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Toshkent markazi: \" + p1.getLatitude() + \", \" + p1.getLongitude());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `GeoPoint p1 = new GeoPoint(41.30, 69.25);` va `GeoPoint p2 = new GeoPoint(41.30, 69.30);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Toshkent markazi: \" + p1.getLatitude() + \", \" + p1.getLongitude());`"
+        ],
+        "en": [
+          "Instantiate objects: `GeoPoint p1 = new GeoPoint(41.30, 69.25);` and `GeoPoint p2 = new GeoPoint(41.30, 69.30);`",
+          "Print result to console: `System.out.println(\"Toshkent markazi: \" + p1.getLatitude() + \", \" + p1.getLongitude());`"
+        ],
+        "ru": [
+          "Создание объектов: `GeoPoint p1 = new GeoPoint(41.30, 69.25);` и `GeoPoint p2 = new GeoPoint(41.30, 69.30);`",
+          "Вывод результата в консоль: `System.out.println(\"Toshkent markazi: \" + p1.getLatitude() + \", \" + p1.getLongitude());`"
+        ]
+      },
+      "expectedOutput": "Toshkent markazi: 41.3, 69.25"
+    }
   },
   {
     "id": 87,
@@ -9092,7 +11910,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Percentage tax = new Percentage(12.0);",
+        "System.out.println(\"Displey: \" + tax.getPercentDisplay() + \" | Soliq: \" + tax.applyTo(100000.0) + \" UZS\");"
+      ],
+      "instantiations": [
+        "Percentage tax = new Percentage(12.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Displey: \" + tax.getPercentDisplay() + \" | Soliq: \" + tax.applyTo(100000.0) + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Percentage tax = new Percentage(12.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Displey: \" + tax.getPercentDisplay() + \" | Soliq: \" + tax.applyTo(100000.0) + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `Percentage tax = new Percentage(12.0);`",
+          "Print result to console: `System.out.println(\"Displey: \" + tax.getPercentDisplay() + \" | Soliq: \" + tax.applyTo(100000.0) + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Percentage tax = new Percentage(12.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Displey: \" + tax.getPercentDisplay() + \" | Soliq: \" + tax.applyTo(100000.0) + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Displey: 12.0% | Soliq: 12000.0 UZS"
+    }
   },
   {
     "id": 88,
@@ -9197,7 +12043,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ExchangeRate usdToUzs = new ExchangeRate(\"USD\", \"UZS\", 12800.0);",
+        "System.out.println(\"100 USD = \" + usdToUzs.convert(100.0) + \" UZS\");"
+      ],
+      "instantiations": [
+        "ExchangeRate usdToUzs = new ExchangeRate(\"USD\", \"UZS\", 12800.0);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"100 USD = \" + usdToUzs.convert(100.0) + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ExchangeRate usdToUzs = new ExchangeRate(\"USD\", \"UZS\", 12800.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"100 USD = \" + usdToUzs.convert(100.0) + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `ExchangeRate usdToUzs = new ExchangeRate(\"USD\", \"UZS\", 12800.0);`",
+          "Print result to console: `System.out.println(\"100 USD = \" + usdToUzs.convert(100.0) + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `ExchangeRate usdToUzs = new ExchangeRate(\"USD\", \"UZS\", 12800.0);`",
+          "Вывод результата в консоль: `System.out.println(\"100 USD = \" + usdToUzs.convert(100.0) + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "100 USD = 1280000.0 UZS"
+    }
   },
   {
     "id": 89,
@@ -9282,7 +12156,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SeatReservation sr = new SeatReservation(\"HY-9921\", \"Sherzod\", \"12A\");",
+        "System.out.println(sr.getSummary());"
+      ],
+      "instantiations": [
+        "SeatReservation sr = new SeatReservation(\"HY-9921\", \"Sherzod\", \"12A\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(sr.getSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SeatReservation sr = new SeatReservation(\"HY-9921\", \"Sherzod\", \"12A\");`",
+          "Natijani konsolga chiqarish: `System.out.println(sr.getSummary());`"
+        ],
+        "en": [
+          "Instantiate object: `SeatReservation sr = new SeatReservation(\"HY-9921\", \"Sherzod\", \"12A\");`",
+          "Print result to console: `System.out.println(sr.getSummary());`"
+        ],
+        "ru": [
+          "Создание объекта: `SeatReservation sr = new SeatReservation(\"HY-9921\", \"Sherzod\", \"12A\");`",
+          "Вывод результата в консоль: `System.out.println(sr.getSummary());`"
+        ]
+      },
+      "expectedOutput": "Bilet: HY-9921 | Yo'lovchi: Sherzod | Joy: 12A"
+    }
   },
   {
     "id": 90,
@@ -9405,7 +12307,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "EmailAddress email = new EmailAddress(\"  00023271@wiut.uz  \");",
+        "System.out.println(\"Email: \" + email.getAddress() + \" | Domen: \" + email.getDomain() + \" | Niqoblangan: \" + email.getMasked());"
+      ],
+      "instantiations": [
+        "EmailAddress email = new EmailAddress(\"  00023271@wiut.uz  \");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Email: \" + email.getAddress() + \" | Domen: \" + email.getDomain() + \" | Niqoblangan: \" + email.getMasked());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `EmailAddress email = new EmailAddress(\"  00023271@wiut.uz  \");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Email: \" + email.getAddress() + \" | Domen: \" + email.getDomain() + \" | Niqoblangan: \" + email.getMasked());`"
+        ],
+        "en": [
+          "Instantiate object: `EmailAddress email = new EmailAddress(\"  00023271@wiut.uz  \");`",
+          "Print result to console: `System.out.println(\"Email: \" + email.getAddress() + \" | Domen: \" + email.getDomain() + \" | Niqoblangan: \" + email.getMasked());`"
+        ],
+        "ru": [
+          "Создание объекта: `EmailAddress email = new EmailAddress(\"  00023271@wiut.uz  \");`",
+          "Вывод результата в консоль: `System.out.println(\"Email: \" + email.getAddress() + \" | Domen: \" + email.getDomain() + \" | Niqoblangan: \" + email.getMasked());`"
+        ]
+      },
+      "expectedOutput": "Email: 00023271@wiut.uz | Domen: wiut.uz | Niqoblangan: 00***@wiut.uz"
+    }
   },
   {
     "id": 91,
@@ -9488,7 +12418,45 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[] original = {100, 200, 300};",
+        "SalesTracker tracker = new SalesTracker(original);",
+        "int[] leaked = tracker.getDailySales();",
+        "leaked[0] = 9999;",
+        "System.out.println(\"Ichki 0-element: \" + tracker.getDailySales()[0]);"
+      ],
+      "instantiations": [
+        "SalesTracker tracker = new SalesTracker(original);"
+      ],
+      "methodCalls": [
+        "int[] original = {100, 200, 300};",
+        "int[] leaked = tracker.getDailySales();",
+        "leaked[0] = 9999;"
+      ],
+      "prints": [
+        "System.out.println(\"Ichki 0-element: \" + tracker.getDailySales()[0]);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SalesTracker tracker = new SalesTracker(original);`",
+          "Metodlarni chaqirish / amallar: `int[] original = {100, 200, 300};`, `int[] leaked = tracker.getDailySales();`, `leaked[0] = 9999;`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Ichki 0-element: \" + tracker.getDailySales()[0]);`"
+        ],
+        "en": [
+          "Instantiate object: `SalesTracker tracker = new SalesTracker(original);`",
+          "Invoke methods / operations: `int[] original = {100, 200, 300};`, `int[] leaked = tracker.getDailySales();`, `leaked[0] = 9999;`",
+          "Print result to console: `System.out.println(\"Ichki 0-element: \" + tracker.getDailySales()[0]);`"
+        ],
+        "ru": [
+          "Создание объекта: `SalesTracker tracker = new SalesTracker(original);`",
+          "Вызовы методов / операции: `int[] original = {100, 200, 300};`, `int[] leaked = tracker.getDailySales();`, `leaked[0] = 9999;`",
+          "Вывод результата в консоль: `System.out.println(\"Ichki 0-element: \" + tracker.getDailySales()[0]);`"
+        ]
+      },
+      "expectedOutput": "Ichki 0-element: 100"
+    }
   },
   {
     "id": 92,
@@ -9571,7 +12539,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[] raw = {1000, 5000, 10000};",
+        "TierLimits tl = new TierLimits(raw);",
+        "raw[1] = 99999;",
+        "System.out.println(\"Himoyalangan 1-limit: \" + tl.getLimitAt(1));"
+      ],
+      "instantiations": [
+        "TierLimits tl = new TierLimits(raw);"
+      ],
+      "methodCalls": [
+        "int[] raw = {1000, 5000, 10000};",
+        "raw[1] = 99999;"
+      ],
+      "prints": [
+        "System.out.println(\"Himoyalangan 1-limit: \" + tl.getLimitAt(1));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TierLimits tl = new TierLimits(raw);`",
+          "Metodlarni chaqirish / amallar: `int[] raw = {1000, 5000, 10000};`, `raw[1] = 99999;`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Himoyalangan 1-limit: \" + tl.getLimitAt(1));`"
+        ],
+        "en": [
+          "Instantiate object: `TierLimits tl = new TierLimits(raw);`",
+          "Invoke methods / operations: `int[] raw = {1000, 5000, 10000};`, `raw[1] = 99999;`",
+          "Print result to console: `System.out.println(\"Himoyalangan 1-limit: \" + tl.getLimitAt(1));`"
+        ],
+        "ru": [
+          "Создание объекта: `TierLimits tl = new TierLimits(raw);`",
+          "Вызовы методов / операции: `int[] raw = {1000, 5000, 10000};`, `raw[1] = 99999;`",
+          "Вывод результата в консоль: `System.out.println(\"Himoyalangan 1-limit: \" + tl.getLimitAt(1));`"
+        ]
+      },
+      "expectedOutput": "Himoyalangan 1-limit: 5000"
+    }
   },
   {
     "id": 93,
@@ -9654,7 +12658,29 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[][] original = {{1, 2}, {3, 4"
+      ],
+      "instantiations": [],
+      "methodCalls": [
+        "int[][] original = {{1, 2}, {3, 4"
+      ],
+      "prints": [],
+      "steps": {
+        "uz": [
+          "Metodlarni chaqirish / amallar: `int[][] original = {{1, 2}, {3, 4`"
+        ],
+        "en": [
+          "Invoke methods / operations: `int[][] original = {{1, 2}, {3, 4`"
+        ],
+        "ru": [
+          "Вызовы методов / операции: `int[][] original = {{1, 2}, {3, 4`"
+        ]
+      },
+      "expectedOutput": "Asl matritsa [0][0]: 1"
+    }
   },
   {
     "id": 94,
@@ -9737,7 +12763,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "AuditTimestamp at = new AuditTimestamp(1700000000000L);",
+        "System.out.println(\"Xavfsiz vaqt: \" + at.getEpochMillis());"
+      ],
+      "instantiations": [
+        "AuditTimestamp at = new AuditTimestamp(1700000000000L);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Xavfsiz vaqt: \" + at.getEpochMillis());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AuditTimestamp at = new AuditTimestamp(1700000000000L);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xavfsiz vaqt: \" + at.getEpochMillis());`"
+        ],
+        "en": [
+          "Instantiate object: `AuditTimestamp at = new AuditTimestamp(1700000000000L);`",
+          "Print result to console: `System.out.println(\"Xavfsiz vaqt: \" + at.getEpochMillis());`"
+        ],
+        "ru": [
+          "Создание объекта: `AuditTimestamp at = new AuditTimestamp(1700000000000L);`",
+          "Вывод результата в консоль: `System.out.println(\"Xavfsiz vaqt: \" + at.getEpochMillis());`"
+        ]
+      },
+      "expectedOutput": "Xavfsiz vaqt: 1700000000000"
+    }
   },
   {
     "id": 95,
@@ -9840,7 +12894,41 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "String[] s = {\"Chilonzor\", \"Paxtakor\", \"Buyuk Ipak Yo'li\"};",
+        "RouteStops route = new RouteStops(s);",
+        "System.out.println(\"Bekatlar soni: \" + route.getStopCount() + \" | 2-bekat: \" + route.getStop(1));"
+      ],
+      "instantiations": [
+        "RouteStops route = new RouteStops(s);"
+      ],
+      "methodCalls": [
+        "String[] s = {\"Chilonzor\", \"Paxtakor\", \"Buyuk Ipak Yo'li\"};"
+      ],
+      "prints": [
+        "System.out.println(\"Bekatlar soni: \" + route.getStopCount() + \" | 2-bekat: \" + route.getStop(1));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `RouteStops route = new RouteStops(s);`",
+          "Metodlarni chaqirish / amallar: `String[] s = {\"Chilonzor\", \"Paxtakor\", \"Buyuk Ipak Yo'li\"};`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Bekatlar soni: \" + route.getStopCount() + \" | 2-bekat: \" + route.getStop(1));`"
+        ],
+        "en": [
+          "Instantiate object: `RouteStops route = new RouteStops(s);`",
+          "Invoke methods / operations: `String[] s = {\"Chilonzor\", \"Paxtakor\", \"Buyuk Ipak Yo'li\"};`",
+          "Print result to console: `System.out.println(\"Bekatlar soni: \" + route.getStopCount() + \" | 2-bekat: \" + route.getStop(1));`"
+        ],
+        "ru": [
+          "Создание объекта: `RouteStops route = new RouteStops(s);`",
+          "Вызовы методов / операции: `String[] s = {\"Chilonzor\", \"Paxtakor\", \"Buyuk Ipak Yo'li\"};`",
+          "Вывод результата в консоль: `System.out.println(\"Bekatlar soni: \" + route.getStopCount() + \" | 2-bekat: \" + route.getStop(1));`"
+        ]
+      },
+      "expectedOutput": "Bekatlar soni: 3 | 2-bekat: Paxtakor"
+    }
   },
   {
     "id": 96,
@@ -9929,7 +13017,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "PriceList pl = new PriceList();",
+        "pl.addPrice(12000.0);",
+        "pl.addPrice(15000.0);",
+        "pl.addPrice(18000.0);",
+        "System.out.println(\"Jami narxlar soni: \" + pl.getSize());"
+      ],
+      "instantiations": [
+        "PriceList pl = new PriceList();"
+      ],
+      "methodCalls": [
+        "pl.addPrice(12000.0);",
+        "pl.addPrice(15000.0);",
+        "pl.addPrice(18000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Jami narxlar soni: \" + pl.getSize());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PriceList pl = new PriceList();`",
+          "Metodlarni chaqirish / amallar: `pl.addPrice(12000.0);`, `pl.addPrice(15000.0);`, `pl.addPrice(18000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Jami narxlar soni: \" + pl.getSize());`"
+        ],
+        "en": [
+          "Instantiate object: `PriceList pl = new PriceList();`",
+          "Invoke methods / operations: `pl.addPrice(12000.0);`, `pl.addPrice(15000.0);`, `pl.addPrice(18000.0);`",
+          "Print result to console: `System.out.println(\"Jami narxlar soni: \" + pl.getSize());`"
+        ],
+        "ru": [
+          "Создание объекта: `PriceList pl = new PriceList();`",
+          "Вызовы методов / операции: `pl.addPrice(12000.0);`, `pl.addPrice(15000.0);`, `pl.addPrice(18000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Jami narxlar soni: \" + pl.getSize());`"
+        ]
+      },
+      "expectedOutput": "Jami narxlar soni: 3"
+    }
   },
   {
     "id": 97,
@@ -10012,7 +13138,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[] all = {95, 80, 75, 60, 40};",
+        "PizzaRanking ranking = new PizzaRanking(all);",
+        "int[] top2 = ranking.getTopN(2);",
+        "System.out.println(\"Top 2: \" + top2[0] + \", \" + top2[1]);"
+      ],
+      "instantiations": [
+        "PizzaRanking ranking = new PizzaRanking(all);"
+      ],
+      "methodCalls": [
+        "int[] all = {95, 80, 75, 60, 40};",
+        "int[] top2 = ranking.getTopN(2);"
+      ],
+      "prints": [
+        "System.out.println(\"Top 2: \" + top2[0] + \", \" + top2[1]);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PizzaRanking ranking = new PizzaRanking(all);`",
+          "Metodlarni chaqirish / amallar: `int[] all = {95, 80, 75, 60, 40};`, `int[] top2 = ranking.getTopN(2);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Top 2: \" + top2[0] + \", \" + top2[1]);`"
+        ],
+        "en": [
+          "Instantiate object: `PizzaRanking ranking = new PizzaRanking(all);`",
+          "Invoke methods / operations: `int[] all = {95, 80, 75, 60, 40};`, `int[] top2 = ranking.getTopN(2);`",
+          "Print result to console: `System.out.println(\"Top 2: \" + top2[0] + \", \" + top2[1]);`"
+        ],
+        "ru": [
+          "Создание объекта: `PizzaRanking ranking = new PizzaRanking(all);`",
+          "Вызовы методов / операции: `int[] all = {95, 80, 75, 60, 40};`, `int[] top2 = ranking.getTopN(2);`",
+          "Вывод результата в консоль: `System.out.println(\"Top 2: \" + top2[0] + \", \" + top2[1]);`"
+        ]
+      },
+      "expectedOutput": "Top 2: 95, 80"
+    }
   },
   {
     "id": 98,
@@ -10095,7 +13257,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "double[] p = {50.0, 150.0, 80.0, 220.0};",
+        "CatalogPrices cat = new CatalogPrices(p);",
+        "double[] premium = cat.getPremiumPrices(100.0);",
+        "System.out.println(\"Premium soni: \" + premium.length + \" | Birinchisi: \" + premium[0]);"
+      ],
+      "instantiations": [
+        "CatalogPrices cat = new CatalogPrices(p);"
+      ],
+      "methodCalls": [
+        "double[] p = {50.0, 150.0, 80.0, 220.0};",
+        "double[] premium = cat.getPremiumPrices(100.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Premium soni: \" + premium.length + \" | Birinchisi: \" + premium[0]);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CatalogPrices cat = new CatalogPrices(p);`",
+          "Metodlarni chaqirish / amallar: `double[] p = {50.0, 150.0, 80.0, 220.0};`, `double[] premium = cat.getPremiumPrices(100.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Premium soni: \" + premium.length + \" | Birinchisi: \" + premium[0]);`"
+        ],
+        "en": [
+          "Instantiate object: `CatalogPrices cat = new CatalogPrices(p);`",
+          "Invoke methods / operations: `double[] p = {50.0, 150.0, 80.0, 220.0};`, `double[] premium = cat.getPremiumPrices(100.0);`",
+          "Print result to console: `System.out.println(\"Premium soni: \" + premium.length + \" | Birinchisi: \" + premium[0]);`"
+        ],
+        "ru": [
+          "Создание объекта: `CatalogPrices cat = new CatalogPrices(p);`",
+          "Вызовы методов / операции: `double[] p = {50.0, 150.0, 80.0, 220.0};`, `double[] premium = cat.getPremiumPrices(100.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Premium soni: \" + premium.length + \" | Birinchisi: \" + premium[0]);`"
+        ]
+      },
+      "expectedOutput": "Premium soni: 2 | Birinchisi: 150.0"
+    }
   },
   {
     "id": 99,
@@ -10178,7 +13376,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[] ids = {101, 102, 103};",
+        "OrderHistory hist = new OrderHistory(ids);",
+        "int[] rev = hist.getReversedHistory();",
+        "System.out.println(\"Teskari 1-element: \" + rev[0] + \" | Oxirgi: \" + rev[2]);"
+      ],
+      "instantiations": [
+        "OrderHistory hist = new OrderHistory(ids);"
+      ],
+      "methodCalls": [
+        "int[] ids = {101, 102, 103};",
+        "int[] rev = hist.getReversedHistory();"
+      ],
+      "prints": [
+        "System.out.println(\"Teskari 1-element: \" + rev[0] + \" | Oxirgi: \" + rev[2]);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `OrderHistory hist = new OrderHistory(ids);`",
+          "Metodlarni chaqirish / amallar: `int[] ids = {101, 102, 103};`, `int[] rev = hist.getReversedHistory();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Teskari 1-element: \" + rev[0] + \" | Oxirgi: \" + rev[2]);`"
+        ],
+        "en": [
+          "Instantiate object: `OrderHistory hist = new OrderHistory(ids);`",
+          "Invoke methods / operations: `int[] ids = {101, 102, 103};`, `int[] rev = hist.getReversedHistory();`",
+          "Print result to console: `System.out.println(\"Teskari 1-element: \" + rev[0] + \" | Oxirgi: \" + rev[2]);`"
+        ],
+        "ru": [
+          "Создание объекта: `OrderHistory hist = new OrderHistory(ids);`",
+          "Вызовы методов / операции: `int[] ids = {101, 102, 103};`, `int[] rev = hist.getReversedHistory();`",
+          "Вывод результата в консоль: `System.out.println(\"Teskari 1-element: \" + rev[0] + \" | Oxirgi: \" + rev[2]);`"
+        ]
+      },
+      "expectedOutput": "Teskari 1-element: 103 | Oxirgi: 101"
+    }
   },
   {
     "id": 100,
@@ -10266,7 +13500,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "LabReadings lr = new LabReadings();",
+        "double[] bad = {12.5, -4.0, 18.0};",
+        "double[] good = {12.5, 5.0, 18.0};",
+        "System.out.println(\"Bad: \" + lr.updateReadings(bad) + \" | Good: \" + lr.updateReadings(good));"
+      ],
+      "instantiations": [
+        "LabReadings lr = new LabReadings();"
+      ],
+      "methodCalls": [
+        "double[] bad = {12.5, -4.0, 18.0};",
+        "double[] good = {12.5, 5.0, 18.0};"
+      ],
+      "prints": [
+        "System.out.println(\"Bad: \" + lr.updateReadings(bad) + \" | Good: \" + lr.updateReadings(good));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `LabReadings lr = new LabReadings();`",
+          "Metodlarni chaqirish / amallar: `double[] bad = {12.5, -4.0, 18.0};`, `double[] good = {12.5, 5.0, 18.0};`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Bad: \" + lr.updateReadings(bad) + \" | Good: \" + lr.updateReadings(good));`"
+        ],
+        "en": [
+          "Instantiate object: `LabReadings lr = new LabReadings();`",
+          "Invoke methods / operations: `double[] bad = {12.5, -4.0, 18.0};`, `double[] good = {12.5, 5.0, 18.0};`",
+          "Print result to console: `System.out.println(\"Bad: \" + lr.updateReadings(bad) + \" | Good: \" + lr.updateReadings(good));`"
+        ],
+        "ru": [
+          "Создание объекта: `LabReadings lr = new LabReadings();`",
+          "Вызовы методов / операции: `double[] bad = {12.5, -4.0, 18.0};`, `double[] good = {12.5, 5.0, 18.0};`",
+          "Вывод результата в консоль: `System.out.println(\"Bad: \" + lr.updateReadings(bad) + \" | Good: \" + lr.updateReadings(good));`"
+        ]
+      },
+      "expectedOutput": "Bad: false | Good: true"
+    }
   },
   {
     "id": 101,
@@ -10375,7 +13645,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "CustomIntList list = new CustomIntList();",
+        "list.add(10);",
+        "list.add(20);",
+        "list.add(30);",
+        "System.out.println(\"Hajm: \" + list.size() + \" | Index 1: \" + list.get(1));"
+      ],
+      "instantiations": [
+        "CustomIntList list = new CustomIntList();"
+      ],
+      "methodCalls": [
+        "list.add(10);",
+        "list.add(20);",
+        "list.add(30);"
+      ],
+      "prints": [
+        "System.out.println(\"Hajm: \" + list.size() + \" | Index 1: \" + list.get(1));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CustomIntList list = new CustomIntList();`",
+          "Metodlarni chaqirish / amallar: `list.add(10);`, `list.add(20);`, `list.add(30);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Hajm: \" + list.size() + \" | Index 1: \" + list.get(1));`"
+        ],
+        "en": [
+          "Instantiate object: `CustomIntList list = new CustomIntList();`",
+          "Invoke methods / operations: `list.add(10);`, `list.add(20);`, `list.add(30);`",
+          "Print result to console: `System.out.println(\"Hajm: \" + list.size() + \" | Index 1: \" + list.get(1));`"
+        ],
+        "ru": [
+          "Создание объекта: `CustomIntList list = new CustomIntList();`",
+          "Вызовы методов / операции: `list.add(10);`, `list.add(20);`, `list.add(30);`",
+          "Вывод результата в консоль: `System.out.println(\"Hajm: \" + list.size() + \" | Index 1: \" + list.get(1));`"
+        ]
+      },
+      "expectedOutput": "Hajm: 3 | Index 1: 20"
+    }
   },
   {
     "id": 102,
@@ -10464,7 +13772,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "CourierStats stats = new CourierStats();",
+        "stats.addCourier(\"Ali\", 15);",
+        "stats.addCourier(\"Vali\", 22);",
+        "System.out.println(\"Ali: \" + stats.getDeliveries(\"Ali\") + \" | Vali: \" + stats.getDeliveries(\"Vali\"));"
+      ],
+      "instantiations": [
+        "CourierStats stats = new CourierStats();"
+      ],
+      "methodCalls": [
+        "stats.addCourier(\"Ali\", 15);",
+        "stats.addCourier(\"Vali\", 22);"
+      ],
+      "prints": [
+        "System.out.println(\"Ali: \" + stats.getDeliveries(\"Ali\") + \" | Vali: \" + stats.getDeliveries(\"Vali\"));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CourierStats stats = new CourierStats();`",
+          "Metodlarni chaqirish / amallar: `stats.addCourier(\"Ali\", 15);`, `stats.addCourier(\"Vali\", 22);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Ali: \" + stats.getDeliveries(\"Ali\") + \" | Vali: \" + stats.getDeliveries(\"Vali\"));`"
+        ],
+        "en": [
+          "Instantiate object: `CourierStats stats = new CourierStats();`",
+          "Invoke methods / operations: `stats.addCourier(\"Ali\", 15);`, `stats.addCourier(\"Vali\", 22);`",
+          "Print result to console: `System.out.println(\"Ali: \" + stats.getDeliveries(\"Ali\") + \" | Vali: \" + stats.getDeliveries(\"Vali\"));`"
+        ],
+        "ru": [
+          "Создание объекта: `CourierStats stats = new CourierStats();`",
+          "Вызовы методов / операции: `stats.addCourier(\"Ali\", 15);`, `stats.addCourier(\"Vali\", 22);`",
+          "Вывод результата в консоль: `System.out.println(\"Ali: \" + stats.getDeliveries(\"Ali\") + \" | Vali: \" + stats.getDeliveries(\"Vali\"));`"
+        ]
+      },
+      "expectedOutput": "Ali: 15 | Vali: 22"
+    }
   },
   {
     "id": 103,
@@ -10600,7 +13944,45 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SimCard[] raw = { new SimCard(\"99890111\"), new SimCard(\"99890222\") };",
+        "SimBatch batch = new SimBatch(raw);",
+        "SimCard[] leak = batch.getCardsDeepCopy();",
+        "leak[0].setNumber(\"MODIFIED\");",
+        "System.out.println(\"Asl SIM: \" + batch.getCardsDeepCopy()[0].getNumber());"
+      ],
+      "instantiations": [
+        "SimCard[] raw = { new SimCard(\"99890111\"), new SimCard(\"99890222\") };",
+        "SimBatch batch = new SimBatch(raw);"
+      ],
+      "methodCalls": [
+        "SimCard[] leak = batch.getCardsDeepCopy();",
+        "leak[0].setNumber(\"MODIFIED\");"
+      ],
+      "prints": [
+        "System.out.println(\"Asl SIM: \" + batch.getCardsDeepCopy()[0].getNumber());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `SimCard[] raw = { new SimCard(\"99890111\"), new SimCard(\"99890222\") };` va `SimBatch batch = new SimBatch(raw);`",
+          "Metodlarni chaqirish / amallar: `SimCard[] leak = batch.getCardsDeepCopy();`, `leak[0].setNumber(\"MODIFIED\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Asl SIM: \" + batch.getCardsDeepCopy()[0].getNumber());`"
+        ],
+        "en": [
+          "Instantiate objects: `SimCard[] raw = { new SimCard(\"99890111\"), new SimCard(\"99890222\") };` and `SimBatch batch = new SimBatch(raw);`",
+          "Invoke methods / operations: `SimCard[] leak = batch.getCardsDeepCopy();`, `leak[0].setNumber(\"MODIFIED\");`",
+          "Print result to console: `System.out.println(\"Asl SIM: \" + batch.getCardsDeepCopy()[0].getNumber());`"
+        ],
+        "ru": [
+          "Создание объектов: `SimCard[] raw = { new SimCard(\"99890111\"), new SimCard(\"99890222\") };` и `SimBatch batch = new SimBatch(raw);`",
+          "Вызовы методов / операции: `SimCard[] leak = batch.getCardsDeepCopy();`, `leak[0].setNumber(\"MODIFIED\");`",
+          "Вывод результата в консоль: `System.out.println(\"Asl SIM: \" + batch.getCardsDeepCopy()[0].getNumber());`"
+        ]
+      },
+      "expectedOutput": "Asl SIM: 99890111"
+    }
   },
   {
     "id": 104,
@@ -10703,7 +14085,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "char[] pass = {'S', 'E', 'C', 'R', 'E', 'T'};",
+        "SecureCharBuffer scb = new SecureCharBuffer(pass);",
+        "scb.clear();",
+        "System.out.println(\"Xotira tozalandimi: \" + scb.isCleared());"
+      ],
+      "instantiations": [
+        "SecureCharBuffer scb = new SecureCharBuffer(pass);"
+      ],
+      "methodCalls": [
+        "char[] pass = {'S', 'E', 'C', 'R', 'E', 'T'};",
+        "scb.clear();"
+      ],
+      "prints": [
+        "System.out.println(\"Xotira tozalandimi: \" + scb.isCleared());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SecureCharBuffer scb = new SecureCharBuffer(pass);`",
+          "Metodlarni chaqirish / amallar: `char[] pass = {'S', 'E', 'C', 'R', 'E', 'T'};`, `scb.clear();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Xotira tozalandimi: \" + scb.isCleared());`"
+        ],
+        "en": [
+          "Instantiate object: `SecureCharBuffer scb = new SecureCharBuffer(pass);`",
+          "Invoke methods / operations: `char[] pass = {'S', 'E', 'C', 'R', 'E', 'T'};`, `scb.clear();`",
+          "Print result to console: `System.out.println(\"Xotira tozalandimi: \" + scb.isCleared());`"
+        ],
+        "ru": [
+          "Создание объекта: `SecureCharBuffer scb = new SecureCharBuffer(pass);`",
+          "Вызовы методов / операции: `char[] pass = {'S', 'E', 'C', 'R', 'E', 'T'};`, `scb.clear();`",
+          "Вывод результата в консоль: `System.out.println(\"Xotira tozalandimi: \" + scb.isCleared());`"
+        ]
+      },
+      "expectedOutput": "Xotira tozalandimi: true"
+    }
   },
   {
     "id": 105,
@@ -10806,7 +14224,47 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "int[] original = {75, 80, 85};",
+        "StudentMarksRecord rec = new StudentMarksRecord(original);",
+        "original[0] = 10;",
+        "int[] leak = rec.getMarksCopy();",
+        "leak[1] = 20;",
+        "System.out.println(\"O'rtacha baho: \" + rec.calculateAverage());"
+      ],
+      "instantiations": [
+        "StudentMarksRecord rec = new StudentMarksRecord(original);"
+      ],
+      "methodCalls": [
+        "int[] original = {75, 80, 85};",
+        "original[0] = 10;",
+        "int[] leak = rec.getMarksCopy();",
+        "leak[1] = 20;"
+      ],
+      "prints": [
+        "System.out.println(\"O'rtacha baho: \" + rec.calculateAverage());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `StudentMarksRecord rec = new StudentMarksRecord(original);`",
+          "Metodlarni chaqirish / amallar: `int[] original = {75, 80, 85};`, `original[0] = 10;`, `int[] leak = rec.getMarksCopy();`, `leak[1] = 20;`",
+          "Natijani konsolga chiqarish: `System.out.println(\"O'rtacha baho: \" + rec.calculateAverage());`"
+        ],
+        "en": [
+          "Instantiate object: `StudentMarksRecord rec = new StudentMarksRecord(original);`",
+          "Invoke methods / operations: `int[] original = {75, 80, 85};`, `original[0] = 10;`, `int[] leak = rec.getMarksCopy();`, `leak[1] = 20;`",
+          "Print result to console: `System.out.println(\"O'rtacha baho: \" + rec.calculateAverage());`"
+        ],
+        "ru": [
+          "Создание объекта: `StudentMarksRecord rec = new StudentMarksRecord(original);`",
+          "Вызовы методов / операции: `int[] original = {75, 80, 85};`, `original[0] = 10;`, `int[] leak = rec.getMarksCopy();`, `leak[1] = 20;`",
+          "Вывод результата в консоль: `System.out.println(\"O'rtacha baho: \" + rec.calculateAverage());`"
+        ]
+      },
+      "expectedOutput": "O'rtacha baho: 80.0"
+    }
   },
   {
     "id": 106,
@@ -10914,7 +14372,39 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "WarehouseScanner ws = new WarehouseScanner();",
+        "System.out.println(\"1-yoqish: \" + ws.turnOn());",
+        "System.out.println(\"2-yoqish: \" + ws.turnOn());",
+        "System.out.println(\"O'chirish: \" + ws.turnOff());"
+      ],
+      "instantiations": [
+        "WarehouseScanner ws = new WarehouseScanner();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"1-yoqish: \" + ws.turnOn());",
+        "System.out.println(\"2-yoqish: \" + ws.turnOn());",
+        "System.out.println(\"O'chirish: \" + ws.turnOff());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `WarehouseScanner ws = new WarehouseScanner();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"1-yoqish: \" + ws.turnOn());; System.out.println(\"2-yoqish: \" + ws.turnOn());; System.out.println(\"O'chirish: \" + ws.turnOff());`"
+        ],
+        "en": [
+          "Instantiate object: `WarehouseScanner ws = new WarehouseScanner();`",
+          "Print result to console: `System.out.println(\"1-yoqish: \" + ws.turnOn());; System.out.println(\"2-yoqish: \" + ws.turnOn());; System.out.println(\"O'chirish: \" + ws.turnOff());`"
+        ],
+        "ru": [
+          "Создание объекта: `WarehouseScanner ws = new WarehouseScanner();`",
+          "Вывод результата в консоль: `System.out.println(\"1-yoqish: \" + ws.turnOn());; System.out.println(\"2-yoqish: \" + ws.turnOn());; System.out.println(\"O'chirish: \" + ws.turnOff());`"
+        ]
+      },
+      "expectedOutput": "1-yoqish: true\n2-yoqish: false\nO'chirish: true"
+    }
   },
   {
     "id": 107,
@@ -11022,7 +14512,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "OrderLifecycle ord = new OrderLifecycle();",
+        "boolean d1 = ord.deliver();",
+        "boolean p1 = ord.pay();",
+        "boolean d2 = ord.deliver();",
+        "System.out.println(\"D1: \" + d1 + \" | P1: \" + p1 + \" | D2: \" + d2 + \" | Holat: \" + ord.getState());"
+      ],
+      "instantiations": [
+        "OrderLifecycle ord = new OrderLifecycle();"
+      ],
+      "methodCalls": [
+        "boolean d1 = ord.deliver();",
+        "boolean p1 = ord.pay();",
+        "boolean d2 = ord.deliver();"
+      ],
+      "prints": [
+        "System.out.println(\"D1: \" + d1 + \" | P1: \" + p1 + \" | D2: \" + d2 + \" | Holat: \" + ord.getState());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `OrderLifecycle ord = new OrderLifecycle();`",
+          "Metodlarni chaqirish / amallar: `boolean d1 = ord.deliver();`, `boolean p1 = ord.pay();`, `boolean d2 = ord.deliver();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"D1: \" + d1 + \" | P1: \" + p1 + \" | D2: \" + d2 + \" | Holat: \" + ord.getState());`"
+        ],
+        "en": [
+          "Instantiate object: `OrderLifecycle ord = new OrderLifecycle();`",
+          "Invoke methods / operations: `boolean d1 = ord.deliver();`, `boolean p1 = ord.pay();`, `boolean d2 = ord.deliver();`",
+          "Print result to console: `System.out.println(\"D1: \" + d1 + \" | P1: \" + p1 + \" | D2: \" + d2 + \" | Holat: \" + ord.getState());`"
+        ],
+        "ru": [
+          "Создание объекта: `OrderLifecycle ord = new OrderLifecycle();`",
+          "Вызовы методов / операции: `boolean d1 = ord.deliver();`, `boolean p1 = ord.pay();`, `boolean d2 = ord.deliver();`",
+          "Вывод результата в консоль: `System.out.println(\"D1: \" + d1 + \" | P1: \" + p1 + \" | D2: \" + d2 + \" | Holat: \" + ord.getState());`"
+        ]
+      },
+      "expectedOutput": "D1: false | P1: true | D2: true | Holat: DELIVERED"
+    }
   },
   {
     "id": 108,
@@ -11130,7 +14658,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "CancellableOrder o1 = new CancellableOrder();",
+        "System.out.println(\"O1 bekor qilindi: \" + o1.cancel());",
+        "CancellableOrder o2 = new CancellableOrder();",
+        "o2.deliver();",
+        "System.out.println(\"O2 yetkazilgach bekor qilindi: \" + o2.cancel());"
+      ],
+      "instantiations": [
+        "CancellableOrder o1 = new CancellableOrder();",
+        "CancellableOrder o2 = new CancellableOrder();"
+      ],
+      "methodCalls": [
+        "o2.deliver();"
+      ],
+      "prints": [
+        "System.out.println(\"O1 bekor qilindi: \" + o1.cancel());",
+        "System.out.println(\"O2 yetkazilgach bekor qilindi: \" + o2.cancel());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `CancellableOrder o1 = new CancellableOrder();` va `CancellableOrder o2 = new CancellableOrder();`",
+          "Metodlarni chaqirish / amallar: `o2.deliver();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"O1 bekor qilindi: \" + o1.cancel());; System.out.println(\"O2 yetkazilgach bekor qilindi: \" + o2.cancel());`"
+        ],
+        "en": [
+          "Instantiate objects: `CancellableOrder o1 = new CancellableOrder();` and `CancellableOrder o2 = new CancellableOrder();`",
+          "Invoke methods / operations: `o2.deliver();`",
+          "Print result to console: `System.out.println(\"O1 bekor qilindi: \" + o1.cancel());; System.out.println(\"O2 yetkazilgach bekor qilindi: \" + o2.cancel());`"
+        ],
+        "ru": [
+          "Создание объектов: `CancellableOrder o1 = new CancellableOrder();` и `CancellableOrder o2 = new CancellableOrder();`",
+          "Вызовы методов / операции: `o2.deliver();`",
+          "Вывод результата в консоль: `System.out.println(\"O1 bekor qilindi: \" + o1.cancel());; System.out.println(\"O2 yetkazilgach bekor qilindi: \" + o2.cancel());`"
+        ]
+      },
+      "expectedOutput": "O1 bekor qilindi: true\nO2 yetkazilgach bekor qilindi: false"
+    }
   },
   {
     "id": 109,
@@ -11219,7 +14785,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "PaymentTransaction tx = new PaymentTransaction();",
+        "tx.capture();",
+        "System.out.println(\"Fiskal belgi: \" + tx.getFiscalSign());"
+      ],
+      "instantiations": [
+        "PaymentTransaction tx = new PaymentTransaction();"
+      ],
+      "methodCalls": [
+        "tx.capture();"
+      ],
+      "prints": [
+        "System.out.println(\"Fiskal belgi: \" + tx.getFiscalSign());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PaymentTransaction tx = new PaymentTransaction();`",
+          "Metodlarni chaqirish / amallar: `tx.capture();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Fiskal belgi: \" + tx.getFiscalSign());`"
+        ],
+        "en": [
+          "Instantiate object: `PaymentTransaction tx = new PaymentTransaction();`",
+          "Invoke methods / operations: `tx.capture();`",
+          "Print result to console: `System.out.println(\"Fiskal belgi: \" + tx.getFiscalSign());`"
+        ],
+        "ru": [
+          "Создание объекта: `PaymentTransaction tx = new PaymentTransaction();`",
+          "Вызовы методов / операции: `tx.capture();`",
+          "Вывод результата в консоль: `System.out.println(\"Fiskal belgi: \" + tx.getFiscalSign());`"
+        ]
+      },
+      "expectedOutput": "Fiskal belgi: FS-9942"
+    }
   },
   {
     "id": 110,
@@ -11347,7 +14947,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "TaxiDriverState td = new TaxiDriverState();",
+        "td.dispatch();",
+        "td.startTrip();",
+        "td.completeTrip();",
+        "System.out.println(\"Yakuniy faza: \" + td.getPhase());"
+      ],
+      "instantiations": [
+        "TaxiDriverState td = new TaxiDriverState();"
+      ],
+      "methodCalls": [
+        "td.dispatch();",
+        "td.startTrip();",
+        "td.completeTrip();"
+      ],
+      "prints": [
+        "System.out.println(\"Yakuniy faza: \" + td.getPhase());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TaxiDriverState td = new TaxiDriverState();`",
+          "Metodlarni chaqirish / amallar: `td.dispatch();`, `td.startTrip();`, `td.completeTrip();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yakuniy faza: \" + td.getPhase());`"
+        ],
+        "en": [
+          "Instantiate object: `TaxiDriverState td = new TaxiDriverState();`",
+          "Invoke methods / operations: `td.dispatch();`, `td.startTrip();`, `td.completeTrip();`",
+          "Print result to console: `System.out.println(\"Yakuniy faza: \" + td.getPhase());`"
+        ],
+        "ru": [
+          "Создание объекта: `TaxiDriverState td = new TaxiDriverState();`",
+          "Вызовы методов / операции: `td.dispatch();`, `td.startTrip();`, `td.completeTrip();`",
+          "Вывод результата в консоль: `System.out.println(\"Yakuniy faza: \" + td.getPhase());`"
+        ]
+      },
+      "expectedOutput": "Yakuniy faza: IDLE"
+    }
   },
   {
     "id": 111,
@@ -11451,7 +15089,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "CoffeeMaker cm = new CoffeeMaker(20);",
+        "cm.brew();",
+        "cm.brew();",
+        "System.out.println(\"Holat: \" + cm.getState());"
+      ],
+      "instantiations": [
+        "CoffeeMaker cm = new CoffeeMaker(20);"
+      ],
+      "methodCalls": [
+        "cm.brew();",
+        "cm.brew();"
+      ],
+      "prints": [
+        "System.out.println(\"Holat: \" + cm.getState());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `CoffeeMaker cm = new CoffeeMaker(20);`",
+          "Metodlarni chaqirish / amallar: `cm.brew();`, `cm.brew();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Holat: \" + cm.getState());`"
+        ],
+        "en": [
+          "Instantiate object: `CoffeeMaker cm = new CoffeeMaker(20);`",
+          "Invoke methods / operations: `cm.brew();`, `cm.brew();`",
+          "Print result to console: `System.out.println(\"Holat: \" + cm.getState());`"
+        ],
+        "ru": [
+          "Создание объекта: `CoffeeMaker cm = new CoffeeMaker(20);`",
+          "Вызовы методов / операции: `cm.brew();`, `cm.brew();`",
+          "Вывод результата в консоль: `System.out.println(\"Holat: \" + cm.getState());`"
+        ]
+      },
+      "expectedOutput": "Holat: OUT_OF_BEANS"
+    }
   },
   {
     "id": 112,
@@ -11540,7 +15214,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "RetryTask task = new RetryTask();",
+        "task.fail();",
+        "task.fail();",
+        "task.fail();",
+        "System.out.println(\"Vazifa holati: \" + task.getState());"
+      ],
+      "instantiations": [
+        "RetryTask task = new RetryTask();"
+      ],
+      "methodCalls": [
+        "task.fail();",
+        "task.fail();",
+        "task.fail();"
+      ],
+      "prints": [
+        "System.out.println(\"Vazifa holati: \" + task.getState());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `RetryTask task = new RetryTask();`",
+          "Metodlarni chaqirish / amallar: `task.fail();`, `task.fail();`, `task.fail();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Vazifa holati: \" + task.getState());`"
+        ],
+        "en": [
+          "Instantiate object: `RetryTask task = new RetryTask();`",
+          "Invoke methods / operations: `task.fail();`, `task.fail();`, `task.fail();`",
+          "Print result to console: `System.out.println(\"Vazifa holati: \" + task.getState());`"
+        ],
+        "ru": [
+          "Создание объекта: `RetryTask task = new RetryTask();`",
+          "Вызовы методов / операции: `task.fail();`, `task.fail();`, `task.fail();`",
+          "Вывод результата в консоль: `System.out.println(\"Vazifa holati: \" + task.getState());`"
+        ]
+      },
+      "expectedOutput": "Vazifa holati: DEAD_LETTER"
+    }
   },
   {
     "id": 113,
@@ -11669,7 +15381,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "ContractWorkflow cw = new ContractWorkflow();",
+        "cw.submitForReview();",
+        "cw.reject(\"Imzo yetishmaydi\");",
+        "System.out.println(\"Holat: \" + cw.getStatus() + \" | Sabab: \" + cw.getRejectReason());"
+      ],
+      "instantiations": [
+        "ContractWorkflow cw = new ContractWorkflow();"
+      ],
+      "methodCalls": [
+        "cw.submitForReview();",
+        "cw.reject(\"Imzo yetishmaydi\");"
+      ],
+      "prints": [
+        "System.out.println(\"Holat: \" + cw.getStatus() + \" | Sabab: \" + cw.getRejectReason());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ContractWorkflow cw = new ContractWorkflow();`",
+          "Metodlarni chaqirish / amallar: `cw.submitForReview();`, `cw.reject(\"Imzo yetishmaydi\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Holat: \" + cw.getStatus() + \" | Sabab: \" + cw.getRejectReason());`"
+        ],
+        "en": [
+          "Instantiate object: `ContractWorkflow cw = new ContractWorkflow();`",
+          "Invoke methods / operations: `cw.submitForReview();`, `cw.reject(\"Imzo yetishmaydi\");`",
+          "Print result to console: `System.out.println(\"Holat: \" + cw.getStatus() + \" | Sabab: \" + cw.getRejectReason());`"
+        ],
+        "ru": [
+          "Создание объекта: `ContractWorkflow cw = new ContractWorkflow();`",
+          "Вызовы методов / операции: `cw.submitForReview();`, `cw.reject(\"Imzo yetishmaydi\");`",
+          "Вывод результата в консоль: `System.out.println(\"Holat: \" + cw.getStatus() + \" | Sabab: \" + cw.getRejectReason());`"
+        ]
+      },
+      "expectedOutput": "Holat: REJECTED | Sabab: Imzo yetishmaydi"
+    }
   },
   {
     "id": 114,
@@ -11798,7 +15546,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "AudioTrackPlayer player = new AudioTrackPlayer();",
+        "player.play();",
+        "player.pause();",
+        "System.out.println(\"Pauzadagi vaqt: \" + player.getPosition());"
+      ],
+      "instantiations": [
+        "AudioTrackPlayer player = new AudioTrackPlayer();"
+      ],
+      "methodCalls": [
+        "player.play();",
+        "player.pause();"
+      ],
+      "prints": [
+        "System.out.println(\"Pauzadagi vaqt: \" + player.getPosition());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AudioTrackPlayer player = new AudioTrackPlayer();`",
+          "Metodlarni chaqirish / amallar: `player.play();`, `player.pause();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Pauzadagi vaqt: \" + player.getPosition());`"
+        ],
+        "en": [
+          "Instantiate object: `AudioTrackPlayer player = new AudioTrackPlayer();`",
+          "Invoke methods / operations: `player.play();`, `player.pause();`",
+          "Print result to console: `System.out.println(\"Pauzadagi vaqt: \" + player.getPosition());`"
+        ],
+        "ru": [
+          "Создание объекта: `AudioTrackPlayer player = new AudioTrackPlayer();`",
+          "Вызовы методов / операции: `player.play();`, `player.pause();`",
+          "Вывод результата в консоль: `System.out.println(\"Pauzadagi vaqt: \" + player.getPosition());`"
+        ]
+      },
+      "expectedOutput": "Pauzadagi vaqt: 45"
+    }
   },
   {
     "id": 115,
@@ -11927,7 +15711,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "BankAccountState acc = new BankAccountState();",
+        "acc.deposit(100000.0);",
+        "acc.freeze();",
+        "boolean w1 = acc.withdraw(20000.0);",
+        "System.out.println(\"Muzlatilganda yechish: \" + w1);"
+      ],
+      "instantiations": [
+        "BankAccountState acc = new BankAccountState();"
+      ],
+      "methodCalls": [
+        "acc.deposit(100000.0);",
+        "acc.freeze();",
+        "boolean w1 = acc.withdraw(20000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Muzlatilganda yechish: \" + w1);"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `BankAccountState acc = new BankAccountState();`",
+          "Metodlarni chaqirish / amallar: `acc.deposit(100000.0);`, `acc.freeze();`, `boolean w1 = acc.withdraw(20000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Muzlatilganda yechish: \" + w1);`"
+        ],
+        "en": [
+          "Instantiate object: `BankAccountState acc = new BankAccountState();`",
+          "Invoke methods / operations: `acc.deposit(100000.0);`, `acc.freeze();`, `boolean w1 = acc.withdraw(20000.0);`",
+          "Print result to console: `System.out.println(\"Muzlatilganda yechish: \" + w1);`"
+        ],
+        "ru": [
+          "Создание объекта: `BankAccountState acc = new BankAccountState();`",
+          "Вызовы методов / операции: `acc.deposit(100000.0);`, `acc.freeze();`, `boolean w1 = acc.withdraw(20000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Muzlatilganda yechish: \" + w1);`"
+        ]
+      },
+      "expectedOutput": "Muzlatilganda yechish: false"
+    }
   },
   {
     "id": 116,
@@ -12015,7 +15837,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "TrafficSignal ts = new TrafficSignal();",
+        "ts.nextPhase();",
+        "ts.nextPhase();",
+        "System.out.println(\"Svetofor rangi: \" + ts.getColor());"
+      ],
+      "instantiations": [
+        "TrafficSignal ts = new TrafficSignal();"
+      ],
+      "methodCalls": [
+        "ts.nextPhase();",
+        "ts.nextPhase();"
+      ],
+      "prints": [
+        "System.out.println(\"Svetofor rangi: \" + ts.getColor());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TrafficSignal ts = new TrafficSignal();`",
+          "Metodlarni chaqirish / amallar: `ts.nextPhase();`, `ts.nextPhase();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Svetofor rangi: \" + ts.getColor());`"
+        ],
+        "en": [
+          "Instantiate object: `TrafficSignal ts = new TrafficSignal();`",
+          "Invoke methods / operations: `ts.nextPhase();`, `ts.nextPhase();`",
+          "Print result to console: `System.out.println(\"Svetofor rangi: \" + ts.getColor());`"
+        ],
+        "ru": [
+          "Создание объекта: `TrafficSignal ts = new TrafficSignal();`",
+          "Вызовы методов / операции: `ts.nextPhase();`, `ts.nextPhase();`",
+          "Вывод результата в консоль: `System.out.println(\"Svetofor rangi: \" + ts.getColor());`"
+        ]
+      },
+      "expectedOutput": "Svetofor rangi: YELLOW"
+    }
   },
   {
     "id": 117,
@@ -12123,7 +15981,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "UserRoleManager rm = new UserRoleManager();",
+        "rm.promoteToUser();",
+        "boolean ok = rm.upgradeToAdmin(\"MEDION_ROOT\");",
+        "System.out.println(\"Admin bo'ldimi: \" + ok + \" | Rol: \" + rm.getRole());"
+      ],
+      "instantiations": [
+        "UserRoleManager rm = new UserRoleManager();"
+      ],
+      "methodCalls": [
+        "rm.promoteToUser();",
+        "boolean ok = rm.upgradeToAdmin(\"MEDION_ROOT\");"
+      ],
+      "prints": [
+        "System.out.println(\"Admin bo'ldimi: \" + ok + \" | Rol: \" + rm.getRole());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UserRoleManager rm = new UserRoleManager();`",
+          "Metodlarni chaqirish / amallar: `rm.promoteToUser();`, `boolean ok = rm.upgradeToAdmin(\"MEDION_ROOT\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Admin bo'ldimi: \" + ok + \" | Rol: \" + rm.getRole());`"
+        ],
+        "en": [
+          "Instantiate object: `UserRoleManager rm = new UserRoleManager();`",
+          "Invoke methods / operations: `rm.promoteToUser();`, `boolean ok = rm.upgradeToAdmin(\"MEDION_ROOT\");`",
+          "Print result to console: `System.out.println(\"Admin bo'ldimi: \" + ok + \" | Rol: \" + rm.getRole());`"
+        ],
+        "ru": [
+          "Создание объекта: `UserRoleManager rm = new UserRoleManager();`",
+          "Вызовы методов / операции: `rm.promoteToUser();`, `boolean ok = rm.upgradeToAdmin(\"MEDION_ROOT\");`",
+          "Вывод результата в консоль: `System.out.println(\"Admin bo'ldimi: \" + ok + \" | Rol: \" + rm.getRole());`"
+        ]
+      },
+      "expectedOutput": "Admin bo'ldimi: true | Rol: ADMIN"
+    }
   },
   {
     "id": 118,
@@ -12231,7 +16125,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SubscriptionBilling sub = new SubscriptionBilling();",
+        "sub.activatePaidPlan();",
+        "sub.cancelSubscription();",
+        "System.out.println(\"Yakuniy obuna holati: \" + sub.getPlanState());"
+      ],
+      "instantiations": [
+        "SubscriptionBilling sub = new SubscriptionBilling();"
+      ],
+      "methodCalls": [
+        "sub.activatePaidPlan();",
+        "sub.cancelSubscription();"
+      ],
+      "prints": [
+        "System.out.println(\"Yakuniy obuna holati: \" + sub.getPlanState());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SubscriptionBilling sub = new SubscriptionBilling();`",
+          "Metodlarni chaqirish / amallar: `sub.activatePaidPlan();`, `sub.cancelSubscription();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yakuniy obuna holati: \" + sub.getPlanState());`"
+        ],
+        "en": [
+          "Instantiate object: `SubscriptionBilling sub = new SubscriptionBilling();`",
+          "Invoke methods / operations: `sub.activatePaidPlan();`, `sub.cancelSubscription();`",
+          "Print result to console: `System.out.println(\"Yakuniy obuna holati: \" + sub.getPlanState());`"
+        ],
+        "ru": [
+          "Создание объекта: `SubscriptionBilling sub = new SubscriptionBilling();`",
+          "Вызовы методов / операции: `sub.activatePaidPlan();`, `sub.cancelSubscription();`",
+          "Вывод результата в консоль: `System.out.println(\"Yakuniy obuna holati: \" + sub.getPlanState());`"
+        ]
+      },
+      "expectedOutput": "Yakuniy obuna holati: EXPIRED"
+    }
   },
   {
     "id": 119,
@@ -12339,7 +16269,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "TurnstileGate gate = new TurnstileGate();",
+        "gate.scanPass();",
+        "System.out.println(\"Skanerdan so'ng qulflanganmi: \" + gate.isLocked());",
+        "gate.pushGate();",
+        "System.out.println(\"O'tgandan so'ng qulflanganmi: \" + gate.isLocked());"
+      ],
+      "instantiations": [
+        "TurnstileGate gate = new TurnstileGate();"
+      ],
+      "methodCalls": [
+        "gate.scanPass();",
+        "gate.pushGate();"
+      ],
+      "prints": [
+        "System.out.println(\"Skanerdan so'ng qulflanganmi: \" + gate.isLocked());",
+        "System.out.println(\"O'tgandan so'ng qulflanganmi: \" + gate.isLocked());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TurnstileGate gate = new TurnstileGate();`",
+          "Metodlarni chaqirish / amallar: `gate.scanPass();`, `gate.pushGate();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Skanerdan so'ng qulflanganmi: \" + gate.isLocked());; System.out.println(\"O'tgandan so'ng qulflanganmi: \" + gate.isLocked());`"
+        ],
+        "en": [
+          "Instantiate object: `TurnstileGate gate = new TurnstileGate();`",
+          "Invoke methods / operations: `gate.scanPass();`, `gate.pushGate();`",
+          "Print result to console: `System.out.println(\"Skanerdan so'ng qulflanganmi: \" + gate.isLocked());; System.out.println(\"O'tgandan so'ng qulflanganmi: \" + gate.isLocked());`"
+        ],
+        "ru": [
+          "Создание объекта: `TurnstileGate gate = new TurnstileGate();`",
+          "Вызовы методов / операции: `gate.scanPass();`, `gate.pushGate();`",
+          "Вывод результата в консоль: `System.out.println(\"Skanerdan so'ng qulflanganmi: \" + gate.isLocked());; System.out.println(\"O'tgandan so'ng qulflanganmi: \" + gate.isLocked());`"
+        ]
+      },
+      "expectedOutput": "Skanerdan so'ng qulflanganmi: false\nO'tgandan so'ng qulflanganmi: true"
+    }
   },
   {
     "id": 120,
@@ -12448,7 +16416,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "ModuleEnrolment mod = new ModuleEnrolment();",
+        "mod.startStudy();",
+        "mod.gradeModule(72);",
+        "System.out.println(\"Modul yakuniy holati: \" + mod.getState());"
+      ],
+      "instantiations": [
+        "ModuleEnrolment mod = new ModuleEnrolment();"
+      ],
+      "methodCalls": [
+        "mod.startStudy();",
+        "mod.gradeModule(72);"
+      ],
+      "prints": [
+        "System.out.println(\"Modul yakuniy holati: \" + mod.getState());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ModuleEnrolment mod = new ModuleEnrolment();`",
+          "Metodlarni chaqirish / amallar: `mod.startStudy();`, `mod.gradeModule(72);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Modul yakuniy holati: \" + mod.getState());`"
+        ],
+        "en": [
+          "Instantiate object: `ModuleEnrolment mod = new ModuleEnrolment();`",
+          "Invoke methods / operations: `mod.startStudy();`, `mod.gradeModule(72);`",
+          "Print result to console: `System.out.println(\"Modul yakuniy holati: \" + mod.getState());`"
+        ],
+        "ru": [
+          "Создание объекта: `ModuleEnrolment mod = new ModuleEnrolment();`",
+          "Вызовы методов / операции: `mod.startStudy();`, `mod.gradeModule(72);`",
+          "Вывод результата в консоль: `System.out.println(\"Modul yakuniy holati: \" + mod.getState());`"
+        ]
+      },
+      "expectedOutput": "Modul yakuniy holati: PASSED"
+    }
   },
   {
     "id": 121,
@@ -12551,7 +16555,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "DeliveryCar car = new DeliveryCar(new Engine());",
+        "System.out.println(\"Mashina o't oldi: \" + car.startCar());"
+      ],
+      "instantiations": [
+        "DeliveryCar car = new DeliveryCar(new Engine());"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Mashina o't oldi: \" + car.startCar());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `DeliveryCar car = new DeliveryCar(new Engine());`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Mashina o't oldi: \" + car.startCar());`"
+        ],
+        "en": [
+          "Instantiate object: `DeliveryCar car = new DeliveryCar(new Engine());`",
+          "Print result to console: `System.out.println(\"Mashina o't oldi: \" + car.startCar());`"
+        ],
+        "ru": [
+          "Создание объекта: `DeliveryCar car = new DeliveryCar(new Engine());`",
+          "Вывод результата в консоль: `System.out.println(\"Mashina o't oldi: \" + car.startCar());`"
+        ]
+      },
+      "expectedOutput": "Mashina o't oldi: VROOM"
+    }
   },
   {
     "id": 122,
@@ -12654,7 +16686,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PosTerminal term = new PosTerminal(new PaymentProcessor());",
+        "System.out.println(\"To'lov: \" + term.charge(50000.0));"
+      ],
+      "instantiations": [
+        "PosTerminal term = new PosTerminal(new PaymentProcessor());"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"To'lov: \" + term.charge(50000.0));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PosTerminal term = new PosTerminal(new PaymentProcessor());`",
+          "Natijani konsolga chiqarish: `System.out.println(\"To'lov: \" + term.charge(50000.0));`"
+        ],
+        "en": [
+          "Instantiate object: `PosTerminal term = new PosTerminal(new PaymentProcessor());`",
+          "Print result to console: `System.out.println(\"To'lov: \" + term.charge(50000.0));`"
+        ],
+        "ru": [
+          "Создание объекта: `PosTerminal term = new PosTerminal(new PaymentProcessor());`",
+          "Вывод результата в консоль: `System.out.println(\"To'lov: \" + term.charge(50000.0));`"
+        ]
+      },
+      "expectedOutput": "To'lov: true"
+    }
   },
   {
     "id": 123,
@@ -12771,7 +16831,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Customer c = new Customer(new MembershipCard(450));",
+        "System.out.println(\"Mijoz ballari: \" + c.getLoyaltyPoints());"
+      ],
+      "instantiations": [
+        "Customer c = new Customer(new MembershipCard(450));"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Mijoz ballari: \" + c.getLoyaltyPoints());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Customer c = new Customer(new MembershipCard(450));`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Mijoz ballari: \" + c.getLoyaltyPoints());`"
+        ],
+        "en": [
+          "Instantiate object: `Customer c = new Customer(new MembershipCard(450));`",
+          "Print result to console: `System.out.println(\"Mijoz ballari: \" + c.getLoyaltyPoints());`"
+        ],
+        "ru": [
+          "Создание объекта: `Customer c = new Customer(new MembershipCard(450));`",
+          "Вывод результата в консоль: `System.out.println(\"Mijoz ballari: \" + c.getLoyaltyPoints());`"
+        ]
+      },
+      "expectedOutput": "Mijoz ballari: 450"
+    }
   },
   {
     "id": 124,
@@ -12919,7 +17007,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "Smartphone phone = new Smartphone();",
+        "phone.turnOnScreen();",
+        "System.out.println(\"Zaryad: \" + phone.getBatteryLevel() + \"%\");"
+      ],
+      "instantiations": [
+        "Smartphone phone = new Smartphone();"
+      ],
+      "methodCalls": [
+        "phone.turnOnScreen();"
+      ],
+      "prints": [
+        "System.out.println(\"Zaryad: \" + phone.getBatteryLevel() + \"%\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Smartphone phone = new Smartphone();`",
+          "Metodlarni chaqirish / amallar: `phone.turnOnScreen();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Zaryad: \" + phone.getBatteryLevel() + \"%\");`"
+        ],
+        "en": [
+          "Instantiate object: `Smartphone phone = new Smartphone();`",
+          "Invoke methods / operations: `phone.turnOnScreen();`",
+          "Print result to console: `System.out.println(\"Zaryad: \" + phone.getBatteryLevel() + \"%\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Smartphone phone = new Smartphone();`",
+          "Вызовы методов / операции: `phone.turnOnScreen();`",
+          "Вывод результата в консоль: `System.out.println(\"Zaryad: \" + phone.getBatteryLevel() + \"%\");`"
+        ]
+      },
+      "expectedOutput": "Zaryad: 95%"
+    }
   },
   {
     "id": 125,
@@ -13036,7 +17158,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "User u1 = new User(null);",
+        "User u2 = new User(new UserProfile(\"Rustam\"));",
+        "System.out.println(\"U1: \" + u1.getDisplayName() + \" | U2: \" + u2.getDisplayName());"
+      ],
+      "instantiations": [
+        "User u1 = new User(null);",
+        "User u2 = new User(new UserProfile(\"Rustam\"));"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"U1: \" + u1.getDisplayName() + \" | U2: \" + u2.getDisplayName());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `User u1 = new User(null);` va `User u2 = new User(new UserProfile(\"Rustam\"));`",
+          "Natijani konsolga chiqarish: `System.out.println(\"U1: \" + u1.getDisplayName() + \" | U2: \" + u2.getDisplayName());`"
+        ],
+        "en": [
+          "Instantiate objects: `User u1 = new User(null);` and `User u2 = new User(new UserProfile(\"Rustam\"));`",
+          "Print result to console: `System.out.println(\"U1: \" + u1.getDisplayName() + \" | U2: \" + u2.getDisplayName());`"
+        ],
+        "ru": [
+          "Создание объектов: `User u1 = new User(null);` и `User u2 = new User(new UserProfile(\"Rustam\"));`",
+          "Вывод результата в консоль: `System.out.println(\"U1: \" + u1.getDisplayName() + \" | U2: \" + u2.getDisplayName());`"
+        ]
+      },
+      "expectedOutput": "U1: Anonim | U2: Rustam"
+    }
   },
   {
     "id": 126,
@@ -13144,7 +17296,35 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "TaxiCompany tc = new TaxiCompany();",
+        "System.out.println(\"Faol model: \" + tc.getActiveCarModel());"
+      ],
+      "instantiations": [
+        "TaxiCompany tc = new TaxiCompany();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Faol model: \" + tc.getActiveCarModel());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TaxiCompany tc = new TaxiCompany();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Faol model: \" + tc.getActiveCarModel());`"
+        ],
+        "en": [
+          "Instantiate object: `TaxiCompany tc = new TaxiCompany();`",
+          "Print result to console: `System.out.println(\"Faol model: \" + tc.getActiveCarModel());`"
+        ],
+        "ru": [
+          "Создание объекта: `TaxiCompany tc = new TaxiCompany();`",
+          "Вывод результата в консоль: `System.out.println(\"Faol model: \" + tc.getActiveCarModel());`"
+        ]
+      },
+      "expectedOutput": "Faol model: BYD Song Plus"
+    }
   },
   {
     "id": 127,
@@ -13252,7 +17432,35 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "Order ord = new Order();",
+        "System.out.println(\"Yetkazish shahri: \" + ord.getDeliveryCity());"
+      ],
+      "instantiations": [
+        "Order ord = new Order();"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Yetkazish shahri: \" + ord.getDeliveryCity());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Order ord = new Order();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Yetkazish shahri: \" + ord.getDeliveryCity());`"
+        ],
+        "en": [
+          "Instantiate object: `Order ord = new Order();`",
+          "Print result to console: `System.out.println(\"Yetkazish shahri: \" + ord.getDeliveryCity());`"
+        ],
+        "ru": [
+          "Создание объекта: `Order ord = new Order();`",
+          "Вывод результата в консоль: `System.out.println(\"Yetkazish shahri: \" + ord.getDeliveryCity());`"
+        ]
+      },
+      "expectedOutput": "Yetkazish shahri: Toshkent"
+    }
   },
   {
     "id": 128,
@@ -13376,7 +17584,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PizzaOrder po = new PizzaOrder();",
+        "po.addItem(\"Pepperoni\", 65000.0);",
+        "po.addItem(\"Cola 1L\", 15000.0);",
+        "System.out.println(\"Jami buyurtma: \" + po.calculateTotal() + \" UZS\");"
+      ],
+      "instantiations": [
+        "PizzaOrder po = new PizzaOrder();"
+      ],
+      "methodCalls": [
+        "po.addItem(\"Pepperoni\", 65000.0);",
+        "po.addItem(\"Cola 1L\", 15000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Jami buyurtma: \" + po.calculateTotal() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PizzaOrder po = new PizzaOrder();`",
+          "Metodlarni chaqirish / amallar: `po.addItem(\"Pepperoni\", 65000.0);`, `po.addItem(\"Cola 1L\", 15000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Jami buyurtma: \" + po.calculateTotal() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `PizzaOrder po = new PizzaOrder();`",
+          "Invoke methods / operations: `po.addItem(\"Pepperoni\", 65000.0);`, `po.addItem(\"Cola 1L\", 15000.0);`",
+          "Print result to console: `System.out.println(\"Jami buyurtma: \" + po.calculateTotal() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `PizzaOrder po = new PizzaOrder();`",
+          "Вызовы методов / операции: `po.addItem(\"Pepperoni\", 65000.0);`, `po.addItem(\"Cola 1L\", 15000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Jami buyurtma: \" + po.calculateTotal() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Jami buyurtma: 80000.0 UZS"
+    }
   },
   {
     "id": 129,
@@ -13499,7 +17743,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Invoice inv = new Invoice();",
+        "inv.addLine(100000.0);",
+        "inv.addLine(50000.0);",
+        "System.out.println(\"Jami (QQS bilan): \" + inv.getGrandTotal() + \" UZS\");"
+      ],
+      "instantiations": [
+        "Invoice inv = new Invoice();"
+      ],
+      "methodCalls": [
+        "inv.addLine(100000.0);",
+        "inv.addLine(50000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Jami (QQS bilan): \" + inv.getGrandTotal() + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Invoice inv = new Invoice();`",
+          "Metodlarni chaqirish / amallar: `inv.addLine(100000.0);`, `inv.addLine(50000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Jami (QQS bilan): \" + inv.getGrandTotal() + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `Invoice inv = new Invoice();`",
+          "Invoke methods / operations: `inv.addLine(100000.0);`, `inv.addLine(50000.0);`",
+          "Print result to console: `System.out.println(\"Jami (QQS bilan): \" + inv.getGrandTotal() + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `Invoice inv = new Invoice();`",
+          "Вызовы методов / операции: `inv.addLine(100000.0);`, `inv.addLine(50000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Jami (QQS bilan): \" + inv.getGrandTotal() + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Jami (QQS bilan): 168000.0 UZS"
+    }
   },
   {
     "id": 130,
@@ -13608,7 +17888,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "DigitalWallet wallet = new DigitalWallet();",
+        "boolean p1 = wallet.pay(30000.0);",
+        "System.out.println(\"To'landi: \" + p1 + \" | Tranzaksiyalar: \" + wallet.getTxCount());"
+      ],
+      "instantiations": [
+        "DigitalWallet wallet = new DigitalWallet();"
+      ],
+      "methodCalls": [
+        "boolean p1 = wallet.pay(30000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"To'landi: \" + p1 + \" | Tranzaksiyalar: \" + wallet.getTxCount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `DigitalWallet wallet = new DigitalWallet();`",
+          "Metodlarni chaqirish / amallar: `boolean p1 = wallet.pay(30000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"To'landi: \" + p1 + \" | Tranzaksiyalar: \" + wallet.getTxCount());`"
+        ],
+        "en": [
+          "Instantiate object: `DigitalWallet wallet = new DigitalWallet();`",
+          "Invoke methods / operations: `boolean p1 = wallet.pay(30000.0);`",
+          "Print result to console: `System.out.println(\"To'landi: \" + p1 + \" | Tranzaksiyalar: \" + wallet.getTxCount());`"
+        ],
+        "ru": [
+          "Создание объекта: `DigitalWallet wallet = new DigitalWallet();`",
+          "Вызовы методов / операции: `boolean p1 = wallet.pay(30000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"To'landi: \" + p1 + \" | Tranzaksiyalar: \" + wallet.getTxCount());`"
+        ]
+      },
+      "expectedOutput": "To'landi: true | Tranzaksiyalar: 1"
+    }
   },
   {
     "id": 131,
@@ -13691,7 +18005,39 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "ArchiveFolder inner = new ArchiveFolder(null);",
+        "ArchiveFolder middle = new ArchiveFolder(inner);",
+        "ArchiveFolder root = new ArchiveFolder(middle);",
+        "System.out.println(\"Jild chuqurligi: \" + root.getDepth());"
+      ],
+      "instantiations": [
+        "ArchiveFolder inner = new ArchiveFolder(null);",
+        "ArchiveFolder middle = new ArchiveFolder(inner);",
+        "ArchiveFolder root = new ArchiveFolder(middle);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Jild chuqurligi: \" + root.getDepth());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `ArchiveFolder inner = new ArchiveFolder(null);` va `ArchiveFolder middle = new ArchiveFolder(inner);` va `ArchiveFolder root = new ArchiveFolder(middle);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Jild chuqurligi: \" + root.getDepth());`"
+        ],
+        "en": [
+          "Instantiate objects: `ArchiveFolder inner = new ArchiveFolder(null);` and `ArchiveFolder middle = new ArchiveFolder(inner);` and `ArchiveFolder root = new ArchiveFolder(middle);`",
+          "Print result to console: `System.out.println(\"Jild chuqurligi: \" + root.getDepth());`"
+        ],
+        "ru": [
+          "Создание объектов: `ArchiveFolder inner = new ArchiveFolder(null);` и `ArchiveFolder middle = new ArchiveFolder(inner);` и `ArchiveFolder root = new ArchiveFolder(middle);`",
+          "Вывод результата в консоль: `System.out.println(\"Jild chuqurligi: \" + root.getDepth());`"
+        ]
+      },
+      "expectedOutput": "Jild chuqurligi: 3"
+    }
   },
   {
     "id": 132,
@@ -13795,7 +18141,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TariffPlan tp = new TariffPlan();",
+        "tp.addOption(\"Cheksiz Telegram\", 10000.0);",
+        "tp.addOption(\"Tungi Rouming\", 25000.0);",
+        "System.out.println(\"Opsiyalar soni: \" + tp.getOptionCount());"
+      ],
+      "instantiations": [
+        "TariffPlan tp = new TariffPlan();"
+      ],
+      "methodCalls": [
+        "tp.addOption(\"Cheksiz Telegram\", 10000.0);",
+        "tp.addOption(\"Tungi Rouming\", 25000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Opsiyalar soni: \" + tp.getOptionCount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TariffPlan tp = new TariffPlan();`",
+          "Metodlarni chaqirish / amallar: `tp.addOption(\"Cheksiz Telegram\", 10000.0);`, `tp.addOption(\"Tungi Rouming\", 25000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Opsiyalar soni: \" + tp.getOptionCount());`"
+        ],
+        "en": [
+          "Instantiate object: `TariffPlan tp = new TariffPlan();`",
+          "Invoke methods / operations: `tp.addOption(\"Cheksiz Telegram\", 10000.0);`, `tp.addOption(\"Tungi Rouming\", 25000.0);`",
+          "Print result to console: `System.out.println(\"Opsiyalar soni: \" + tp.getOptionCount());`"
+        ],
+        "ru": [
+          "Создание объекта: `TariffPlan tp = new TariffPlan();`",
+          "Вызовы методов / операции: `tp.addOption(\"Cheksiz Telegram\", 10000.0);`, `tp.addOption(\"Tungi Rouming\", 25000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Opsiyalar soni: \" + tp.getOptionCount());`"
+        ]
+      },
+      "expectedOutput": "Opsiyalar soni: 2"
+    }
   },
   {
     "id": 133,
@@ -13922,7 +18304,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "ClientProfile cp = new ClientProfile();",
+        "cp.closeProfile();",
+        "System.out.println(\"Barcha kartalar to'xtatildimi: \" + cp.isAllDeactivated());"
+      ],
+      "instantiations": [
+        "ClientProfile cp = new ClientProfile();"
+      ],
+      "methodCalls": [
+        "cp.closeProfile();"
+      ],
+      "prints": [
+        "System.out.println(\"Barcha kartalar to'xtatildimi: \" + cp.isAllDeactivated());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `ClientProfile cp = new ClientProfile();`",
+          "Metodlarni chaqirish / amallar: `cp.closeProfile();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Barcha kartalar to'xtatildimi: \" + cp.isAllDeactivated());`"
+        ],
+        "en": [
+          "Instantiate object: `ClientProfile cp = new ClientProfile();`",
+          "Invoke methods / operations: `cp.closeProfile();`",
+          "Print result to console: `System.out.println(\"Barcha kartalar to'xtatildimi: \" + cp.isAllDeactivated());`"
+        ],
+        "ru": [
+          "Создание объекта: `ClientProfile cp = new ClientProfile();`",
+          "Вызовы методов / операции: `cp.closeProfile();`",
+          "Вывод результата в консоль: `System.out.println(\"Barcha kartalar to'xtatildimi: \" + cp.isAllDeactivated());`"
+        ]
+      },
+      "expectedOutput": "Barcha kartalar to'xtatildimi: true"
+    }
   },
   {
     "id": 134,
@@ -14046,7 +18462,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Flight f = new Flight(new Route(), new Crew());",
+        "System.out.println(f.getFlightSummary());"
+      ],
+      "instantiations": [
+        "Flight f = new Flight(new Route(), new Crew());"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(f.getFlightSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `Flight f = new Flight(new Route(), new Crew());`",
+          "Natijani konsolga chiqarish: `System.out.println(f.getFlightSummary());`"
+        ],
+        "en": [
+          "Instantiate object: `Flight f = new Flight(new Route(), new Crew());`",
+          "Print result to console: `System.out.println(f.getFlightSummary());`"
+        ],
+        "ru": [
+          "Создание объекта: `Flight f = new Flight(new Route(), new Crew());`",
+          "Вывод результата в консоль: `System.out.println(f.getFlightSummary());`"
+        ]
+      },
+      "expectedOutput": "Marshrut: TAS -> DXB | Uchuvchilar: 2"
+    }
   },
   {
     "id": 135,
@@ -14163,7 +18607,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "WIUTStudent s = new WIUTStudent(\"Zuhra\", new Transcript(3.92));",
+        "System.out.println(\"Talaba GPA: \" + s.getStudentGpa());"
+      ],
+      "instantiations": [
+        "WIUTStudent s = new WIUTStudent(\"Zuhra\", new Transcript(3.92));"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Talaba GPA: \" + s.getStudentGpa());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `WIUTStudent s = new WIUTStudent(\"Zuhra\", new Transcript(3.92));`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Talaba GPA: \" + s.getStudentGpa());`"
+        ],
+        "en": [
+          "Instantiate object: `WIUTStudent s = new WIUTStudent(\"Zuhra\", new Transcript(3.92));`",
+          "Print result to console: `System.out.println(\"Talaba GPA: \" + s.getStudentGpa());`"
+        ],
+        "ru": [
+          "Создание объекта: `WIUTStudent s = new WIUTStudent(\"Zuhra\", new Transcript(3.92));`",
+          "Вывод результата в консоль: `System.out.println(\"Talaba GPA: \" + s.getStudentGpa());`"
+        ]
+      },
+      "expectedOutput": "Talaba GPA: 3.92"
+    }
   },
   {
     "id": 136,
@@ -14267,7 +18739,43 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "String[] data = {\"Uzum1\", \"Uzum2\"};",
+        "DataStream ds = new DataStream(data);",
+        "while (ds.hasNext()) {",
+        "System.out.println(\"Oqim: \" + ds.next());"
+      ],
+      "instantiations": [
+        "DataStream ds = new DataStream(data);"
+      ],
+      "methodCalls": [
+        "String[] data = {\"Uzum1\", \"Uzum2\"};",
+        "while (ds.hasNext()) {"
+      ],
+      "prints": [
+        "System.out.println(\"Oqim: \" + ds.next());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `DataStream ds = new DataStream(data);`",
+          "Metodlarni chaqirish / amallar: `String[] data = {\"Uzum1\", \"Uzum2\"};`, `while (ds.hasNext()) {`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Oqim: \" + ds.next());`"
+        ],
+        "en": [
+          "Instantiate object: `DataStream ds = new DataStream(data);`",
+          "Invoke methods / operations: `String[] data = {\"Uzum1\", \"Uzum2\"};`, `while (ds.hasNext()) {`",
+          "Print result to console: `System.out.println(\"Oqim: \" + ds.next());`"
+        ],
+        "ru": [
+          "Создание объекта: `DataStream ds = new DataStream(data);`",
+          "Вызовы методов / операции: `String[] data = {\"Uzum1\", \"Uzum2\"};`, `while (ds.hasNext()) {`",
+          "Вывод результата в консоль: `System.out.println(\"Oqim: \" + ds.next());`"
+        ]
+      },
+      "expectedOutput": "Oqim: Uzum1\nOqim: Uzum2"
+    }
   },
   {
     "id": 137,
@@ -14427,7 +18935,45 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "UserProfile u = new UserProfile.Builder()",
+        ".setUsername(\"nodir_payme\")",
+        ".setEmail(\"nodir@payme.uz\")",
+        ".build();",
+        "System.out.println(\"Foydalanuvchi: \" + u.getUsername() + \" | \" + u.getEmail());"
+      ],
+      "instantiations": [
+        "UserProfile u = new UserProfile.Builder()"
+      ],
+      "methodCalls": [
+        ".setUsername(\"nodir_payme\")",
+        ".setEmail(\"nodir@payme.uz\")",
+        ".build();"
+      ],
+      "prints": [
+        "System.out.println(\"Foydalanuvchi: \" + u.getUsername() + \" | \" + u.getEmail());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UserProfile u = new UserProfile.Builder()`",
+          "Metodlarni chaqirish / amallar: `.setUsername(\"nodir_payme\")`, `.setEmail(\"nodir@payme.uz\")`, `.build();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Foydalanuvchi: \" + u.getUsername() + \" | \" + u.getEmail());`"
+        ],
+        "en": [
+          "Instantiate object: `UserProfile u = new UserProfile.Builder()`",
+          "Invoke methods / operations: `.setUsername(\"nodir_payme\")`, `.setEmail(\"nodir@payme.uz\")`, `.build();`",
+          "Print result to console: `System.out.println(\"Foydalanuvchi: \" + u.getUsername() + \" | \" + u.getEmail());`"
+        ],
+        "ru": [
+          "Создание объекта: `UserProfile u = new UserProfile.Builder()`",
+          "Вызовы методов / операции: `.setUsername(\"nodir_payme\")`, `.setEmail(\"nodir@payme.uz\")`, `.build();`",
+          "Вывод результата в консоль: `System.out.println(\"Foydalanuvchi: \" + u.getUsername() + \" | \" + u.getEmail());`"
+        ]
+      },
+      "expectedOutput": "Foydalanuvchi: nodir_payme | nodir@payme.uz"
+    }
   },
   {
     "id": 138,
@@ -14517,7 +19063,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "UserRepo repo = new UserRepo();",
+        "boolean s1 = repo.save(1, \"Ali\");",
+        "boolean s2 = repo.save(1, \"Takroriy\");",
+        "System.out.println(\"S1: \" + s1 + \" | S2: \" + s2 + \" | Topildi: \" + repo.findById(1));"
+      ],
+      "instantiations": [
+        "UserRepo repo = new UserRepo();"
+      ],
+      "methodCalls": [
+        "boolean s1 = repo.save(1, \"Ali\");",
+        "boolean s2 = repo.save(1, \"Takroriy\");"
+      ],
+      "prints": [
+        "System.out.println(\"S1: \" + s1 + \" | S2: \" + s2 + \" | Topildi: \" + repo.findById(1));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UserRepo repo = new UserRepo();`",
+          "Metodlarni chaqirish / amallar: `boolean s1 = repo.save(1, \"Ali\");`, `boolean s2 = repo.save(1, \"Takroriy\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"S1: \" + s1 + \" | S2: \" + s2 + \" | Topildi: \" + repo.findById(1));`"
+        ],
+        "en": [
+          "Instantiate object: `UserRepo repo = new UserRepo();`",
+          "Invoke methods / operations: `boolean s1 = repo.save(1, \"Ali\");`, `boolean s2 = repo.save(1, \"Takroriy\");`",
+          "Print result to console: `System.out.println(\"S1: \" + s1 + \" | S2: \" + s2 + \" | Topildi: \" + repo.findById(1));`"
+        ],
+        "ru": [
+          "Создание объекта: `UserRepo repo = new UserRepo();`",
+          "Вызовы методов / операции: `boolean s1 = repo.save(1, \"Ali\");`, `boolean s2 = repo.save(1, \"Takroriy\");`",
+          "Вывод результата в консоль: `System.out.println(\"S1: \" + s1 + \" | S2: \" + s2 + \" | Topildi: \" + repo.findById(1));`"
+        ]
+      },
+      "expectedOutput": "S1: true | S2: false | Topildi: Ali"
+    }
   },
   {
     "id": 139,
@@ -14621,7 +19203,39 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "TokenBucket tb = new TokenBucket(2);",
+        "System.out.println(\"So'rov 1: \" + tb.allowRequest());",
+        "System.out.println(\"So'rov 2: \" + tb.allowRequest());",
+        "System.out.println(\"So'rov 3: \" + tb.allowRequest());"
+      ],
+      "instantiations": [
+        "TokenBucket tb = new TokenBucket(2);"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"So'rov 1: \" + tb.allowRequest());",
+        "System.out.println(\"So'rov 2: \" + tb.allowRequest());",
+        "System.out.println(\"So'rov 3: \" + tb.allowRequest());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `TokenBucket tb = new TokenBucket(2);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"So'rov 1: \" + tb.allowRequest());; System.out.println(\"So'rov 2: \" + tb.allowRequest());; System.out.println(\"So'rov 3: \" + tb.allowRequest());`"
+        ],
+        "en": [
+          "Instantiate object: `TokenBucket tb = new TokenBucket(2);`",
+          "Print result to console: `System.out.println(\"So'rov 1: \" + tb.allowRequest());; System.out.println(\"So'rov 2: \" + tb.allowRequest());; System.out.println(\"So'rov 3: \" + tb.allowRequest());`"
+        ],
+        "ru": [
+          "Создание объекта: `TokenBucket tb = new TokenBucket(2);`",
+          "Вывод результата в консоль: `System.out.println(\"So'rov 1: \" + tb.allowRequest());; System.out.println(\"So'rov 2: \" + tb.allowRequest());; System.out.println(\"So'rov 3: \" + tb.allowRequest());`"
+        ]
+      },
+      "expectedOutput": "So'rov 1: true\nSo'rov 2: true\nSo'rov 3: false"
+    }
   },
   {
     "id": 140,
@@ -14710,7 +19324,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "SimpleCache sc = new SimpleCache();",
+        "sc.put(\"A\", \"Toshkent\");",
+        "sc.put(\"B\", \"Samarqand\");",
+        "sc.put(\"C\", \"Buxoro\");",
+        "System.out.println(\"A mavjudmi: \" + (sc.get(\"A\") != null) + \" | C: \" + sc.get(\"C\"));"
+      ],
+      "instantiations": [
+        "SimpleCache sc = new SimpleCache();"
+      ],
+      "methodCalls": [
+        "sc.put(\"A\", \"Toshkent\");",
+        "sc.put(\"B\", \"Samarqand\");",
+        "sc.put(\"C\", \"Buxoro\");"
+      ],
+      "prints": [
+        "System.out.println(\"A mavjudmi: \" + (sc.get(\"A\") != null) + \" | C: \" + sc.get(\"C\"));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SimpleCache sc = new SimpleCache();`",
+          "Metodlarni chaqirish / amallar: `sc.put(\"A\", \"Toshkent\");`, `sc.put(\"B\", \"Samarqand\");`, `sc.put(\"C\", \"Buxoro\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"A mavjudmi: \" + (sc.get(\"A\") != null) + \" | C: \" + sc.get(\"C\"));`"
+        ],
+        "en": [
+          "Instantiate object: `SimpleCache sc = new SimpleCache();`",
+          "Invoke methods / operations: `sc.put(\"A\", \"Toshkent\");`, `sc.put(\"B\", \"Samarqand\");`, `sc.put(\"C\", \"Buxoro\");`",
+          "Print result to console: `System.out.println(\"A mavjudmi: \" + (sc.get(\"A\") != null) + \" | C: \" + sc.get(\"C\"));`"
+        ],
+        "ru": [
+          "Создание объекта: `SimpleCache sc = new SimpleCache();`",
+          "Вызовы методов / операции: `sc.put(\"A\", \"Toshkent\");`, `sc.put(\"B\", \"Samarqand\");`, `sc.put(\"C\", \"Buxoro\");`",
+          "Вывод результата в консоль: `System.out.println(\"A mavjudmi: \" + (sc.get(\"A\") != null) + \" | C: \" + sc.get(\"C\"));`"
+        ]
+      },
+      "expectedOutput": "A mavjudmi: false | C: Buxoro"
+    }
   },
   {
     "id": 141,
@@ -14871,7 +19523,47 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "PastryRecipe r = new PastryRecipe();",
+        "r.setSugar(100);",
+        "RecipeMemento snapshot = r.saveSnapshot();",
+        "r.setSugar(250);",
+        "r.restore(snapshot);",
+        "System.out.println(\"Tikланган shakar miqdori: \" + r.getSugar() + \"g\");"
+      ],
+      "instantiations": [
+        "PastryRecipe r = new PastryRecipe();"
+      ],
+      "methodCalls": [
+        "r.setSugar(100);",
+        "RecipeMemento snapshot = r.saveSnapshot();",
+        "r.setSugar(250);",
+        "r.restore(snapshot);"
+      ],
+      "prints": [
+        "System.out.println(\"Tikланган shakar miqdori: \" + r.getSugar() + \"g\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `PastryRecipe r = new PastryRecipe();`",
+          "Metodlarni chaqirish / amallar: `r.setSugar(100);`, `RecipeMemento snapshot = r.saveSnapshot();`, `r.setSugar(250);`, `r.restore(snapshot);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Tikланган shakar miqdori: \" + r.getSugar() + \"g\");`"
+        ],
+        "en": [
+          "Instantiate object: `PastryRecipe r = new PastryRecipe();`",
+          "Invoke methods / operations: `r.setSugar(100);`, `RecipeMemento snapshot = r.saveSnapshot();`, `r.setSugar(250);`, `r.restore(snapshot);`",
+          "Print result to console: `System.out.println(\"Tikланган shakar miqdori: \" + r.getSugar() + \"g\");`"
+        ],
+        "ru": [
+          "Создание объекта: `PastryRecipe r = new PastryRecipe();`",
+          "Вызовы методов / операции: `r.setSugar(100);`, `RecipeMemento snapshot = r.saveSnapshot();`, `r.setSugar(250);`, `r.restore(snapshot);`",
+          "Вывод результата в консоль: `System.out.println(\"Tikланган shakar miqdori: \" + r.getSugar() + \"g\");`"
+        ]
+      },
+      "expectedOutput": "Tikланган shakar miqdori: 100g"
+    }
   },
   {
     "id": 142,
@@ -14960,7 +19652,41 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "AtomicCheckout ac = new AtomicCheckout();",
+        "boolean res = ac.executeOrder(50000.0);",
+        "System.out.println(\"Natija: \" + res + \" | Balans o'zgarmadimi: \" + (ac.getBalance() == 100000.0));"
+      ],
+      "instantiations": [
+        "AtomicCheckout ac = new AtomicCheckout();"
+      ],
+      "methodCalls": [
+        "boolean res = ac.executeOrder(50000.0);"
+      ],
+      "prints": [
+        "System.out.println(\"Natija: \" + res + \" | Balans o'zgarmadimi: \" + (ac.getBalance() == 100000.0));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `AtomicCheckout ac = new AtomicCheckout();`",
+          "Metodlarni chaqirish / amallar: `boolean res = ac.executeOrder(50000.0);`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Natija: \" + res + \" | Balans o'zgarmadimi: \" + (ac.getBalance() == 100000.0));`"
+        ],
+        "en": [
+          "Instantiate object: `AtomicCheckout ac = new AtomicCheckout();`",
+          "Invoke methods / operations: `boolean res = ac.executeOrder(50000.0);`",
+          "Print result to console: `System.out.println(\"Natija: \" + res + \" | Balans o'zgarmadimi: \" + (ac.getBalance() == 100000.0));`"
+        ],
+        "ru": [
+          "Создание объекта: `AtomicCheckout ac = new AtomicCheckout();`",
+          "Вызовы методов / операции: `boolean res = ac.executeOrder(50000.0);`",
+          "Вывод результата в консоль: `System.out.println(\"Natija: \" + res + \" | Balans o'zgarmadimi: \" + (ac.getBalance() == 100000.0));`"
+        ]
+      },
+      "expectedOutput": "Natija: false | Balans o'zgarmadimi: true"
+    }
   },
   {
     "id": 143,
@@ -15070,7 +19796,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "UndoCalculator calc = new UndoCalculator();",
+        "calc.add(50);",
+        "calc.add(30);",
+        "calc.undo();",
+        "System.out.println(\"Undo-dan keyin: \" + calc.getValue());"
+      ],
+      "instantiations": [
+        "UndoCalculator calc = new UndoCalculator();"
+      ],
+      "methodCalls": [
+        "calc.add(50);",
+        "calc.add(30);",
+        "calc.undo();"
+      ],
+      "prints": [
+        "System.out.println(\"Undo-dan keyin: \" + calc.getValue());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UndoCalculator calc = new UndoCalculator();`",
+          "Metodlarni chaqirish / amallar: `calc.add(50);`, `calc.add(30);`, `calc.undo();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Undo-dan keyin: \" + calc.getValue());`"
+        ],
+        "en": [
+          "Instantiate object: `UndoCalculator calc = new UndoCalculator();`",
+          "Invoke methods / operations: `calc.add(50);`, `calc.add(30);`, `calc.undo();`",
+          "Print result to console: `System.out.println(\"Undo-dan keyin: \" + calc.getValue());`"
+        ],
+        "ru": [
+          "Создание объекта: `UndoCalculator calc = new UndoCalculator();`",
+          "Вызовы методов / операции: `calc.add(50);`, `calc.add(30);`, `calc.undo();`",
+          "Вывод результата в консоль: `System.out.println(\"Undo-dan keyin: \" + calc.getValue());`"
+        ]
+      },
+      "expectedOutput": "Undo-dan keyin: 50"
+    }
   },
   {
     "id": 144,
@@ -15159,7 +19923,37 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "OrderDispatcher d = new OrderDispatcher();",
+        "d.addListener(st -> System.out.println(\"Eshitildi: \" + st));",
+        "d.dispatchOrder(\"READY_FOR_DELIVERY\");"
+      ],
+      "instantiations": [
+        "OrderDispatcher d = new OrderDispatcher();"
+      ],
+      "methodCalls": [
+        "d.addListener(st -> System.out.println(\"Eshitildi: \" + st));",
+        "d.dispatchOrder(\"READY_FOR_DELIVERY\");"
+      ],
+      "prints": [],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `OrderDispatcher d = new OrderDispatcher();`",
+          "Metodlarni chaqirish / amallar: `d.addListener(st -> System.out.println(\"Eshitildi: \" + st));`, `d.dispatchOrder(\"READY_FOR_DELIVERY\");`"
+        ],
+        "en": [
+          "Instantiate object: `OrderDispatcher d = new OrderDispatcher();`",
+          "Invoke methods / operations: `d.addListener(st -> System.out.println(\"Eshitildi: \" + st));`, `d.dispatchOrder(\"READY_FOR_DELIVERY\");`"
+        ],
+        "ru": [
+          "Создание объекта: `OrderDispatcher d = new OrderDispatcher();`",
+          "Вызовы методов / операции: `d.addListener(st -> System.out.println(\"Eshitildi: \" + st));`, `d.dispatchOrder(\"READY_FOR_DELIVERY\");`"
+        ]
+      },
+      "expectedOutput": "Eshitildi: READY_FOR_DELIVERY"
+    }
   },
   {
     "id": 145,
@@ -15243,7 +20037,37 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "SaltedVerifier sv = new SaltedVerifier(\"mySecret\");",
+        "System.out.println(\"Mos keldimi 1: \" + sv.verifyPassword(\"wrong\"));",
+        "System.out.println(\"Mos keldimi 2: \" + sv.verifyPassword(\"mySecret\"));"
+      ],
+      "instantiations": [
+        "SaltedVerifier sv = new SaltedVerifier(\"mySecret\");"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Mos keldimi 1: \" + sv.verifyPassword(\"wrong\"));",
+        "System.out.println(\"Mos keldimi 2: \" + sv.verifyPassword(\"mySecret\"));"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `SaltedVerifier sv = new SaltedVerifier(\"mySecret\");`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Mos keldimi 1: \" + sv.verifyPassword(\"wrong\"));; System.out.println(\"Mos keldimi 2: \" + sv.verifyPassword(\"mySecret\"));`"
+        ],
+        "en": [
+          "Instantiate object: `SaltedVerifier sv = new SaltedVerifier(\"mySecret\");`",
+          "Print result to console: `System.out.println(\"Mos keldimi 1: \" + sv.verifyPassword(\"wrong\"));; System.out.println(\"Mos keldimi 2: \" + sv.verifyPassword(\"mySecret\"));`"
+        ],
+        "ru": [
+          "Создание объекта: `SaltedVerifier sv = new SaltedVerifier(\"mySecret\");`",
+          "Вывод результата в консоль: `System.out.println(\"Mos keldimi 1: \" + sv.verifyPassword(\"wrong\"));; System.out.println(\"Mos keldimi 2: \" + sv.verifyPassword(\"mySecret\"));`"
+        ]
+      },
+      "expectedOutput": "Mos keldimi 1: false\nMos keldimi 2: true"
+    }
   },
   {
     "id": 146,
@@ -15352,7 +20176,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "UnitOfWork uow = new UnitOfWork();",
+        "uow.stageAmount(100.0);",
+        "uow.stageAmount(200.0);",
+        "uow.commit();",
+        "System.out.println(\"Tasdiqlangan summa: \" + uow.getCommittedTotal());"
+      ],
+      "instantiations": [
+        "UnitOfWork uow = new UnitOfWork();"
+      ],
+      "methodCalls": [
+        "uow.stageAmount(100.0);",
+        "uow.stageAmount(200.0);",
+        "uow.commit();"
+      ],
+      "prints": [
+        "System.out.println(\"Tasdiqlangan summa: \" + uow.getCommittedTotal());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UnitOfWork uow = new UnitOfWork();`",
+          "Metodlarni chaqirish / amallar: `uow.stageAmount(100.0);`, `uow.stageAmount(200.0);`, `uow.commit();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Tasdiqlangan summa: \" + uow.getCommittedTotal());`"
+        ],
+        "en": [
+          "Instantiate object: `UnitOfWork uow = new UnitOfWork();`",
+          "Invoke methods / operations: `uow.stageAmount(100.0);`, `uow.stageAmount(200.0);`, `uow.commit();`",
+          "Print result to console: `System.out.println(\"Tasdiqlangan summa: \" + uow.getCommittedTotal());`"
+        ],
+        "ru": [
+          "Создание объекта: `UnitOfWork uow = new UnitOfWork();`",
+          "Вызовы методов / операции: `uow.stageAmount(100.0);`, `uow.stageAmount(200.0);`, `uow.commit();`",
+          "Вывод результата в консоль: `System.out.println(\"Tasdiqlangan summa: \" + uow.getCommittedTotal());`"
+        ]
+      },
+      "expectedOutput": "Tasdiqlangan summa: 300.0"
+    }
   },
   {
     "id": 147,
@@ -15455,7 +20317,35 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "BillingService bs = new BillingService(new DiscountPolicy());",
+        "System.out.println(\"Chegirmali to'lov: \" + bs.calculateFinal(100000.0, 6) + \" UZS\");"
+      ],
+      "instantiations": [
+        "BillingService bs = new BillingService(new DiscountPolicy());"
+      ],
+      "methodCalls": [],
+      "prints": [
+        "System.out.println(\"Chegirmali to'lov: \" + bs.calculateFinal(100000.0, 6) + \" UZS\");"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `BillingService bs = new BillingService(new DiscountPolicy());`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Chegirmali to'lov: \" + bs.calculateFinal(100000.0, 6) + \" UZS\");`"
+        ],
+        "en": [
+          "Instantiate object: `BillingService bs = new BillingService(new DiscountPolicy());`",
+          "Print result to console: `System.out.println(\"Chegirmali to'lov: \" + bs.calculateFinal(100000.0, 6) + \" UZS\");`"
+        ],
+        "ru": [
+          "Создание объекта: `BillingService bs = new BillingService(new DiscountPolicy());`",
+          "Вывод результата в консоль: `System.out.println(\"Chegirmali to'lov: \" + bs.calculateFinal(100000.0, 6) + \" UZS\");`"
+        ]
+      },
+      "expectedOutput": "Chegirmali to'lov: 80000.0 UZS"
+    }
   },
   {
     "id": 148,
@@ -15564,7 +20454,45 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "UserSession s = new UserSession();",
+        "s.startSession(\"SESS-991\");",
+        "System.out.println(\"Faolmi: \" + s.isValid());",
+        "s.invalidate();",
+        "System.out.println(\"Yopilgach faolmi: \" + s.isValid());"
+      ],
+      "instantiations": [
+        "UserSession s = new UserSession();"
+      ],
+      "methodCalls": [
+        "s.startSession(\"SESS-991\");",
+        "s.invalidate();"
+      ],
+      "prints": [
+        "System.out.println(\"Faolmi: \" + s.isValid());",
+        "System.out.println(\"Yopilgach faolmi: \" + s.isValid());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `UserSession s = new UserSession();`",
+          "Metodlarni chaqirish / amallar: `s.startSession(\"SESS-991\");`, `s.invalidate();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Faolmi: \" + s.isValid());; System.out.println(\"Yopilgach faolmi: \" + s.isValid());`"
+        ],
+        "en": [
+          "Instantiate object: `UserSession s = new UserSession();`",
+          "Invoke methods / operations: `s.startSession(\"SESS-991\");`, `s.invalidate();`",
+          "Print result to console: `System.out.println(\"Faolmi: \" + s.isValid());; System.out.println(\"Yopilgach faolmi: \" + s.isValid());`"
+        ],
+        "ru": [
+          "Создание объекта: `UserSession s = new UserSession();`",
+          "Вызовы методов / операции: `s.startSession(\"SESS-991\");`, `s.invalidate();`",
+          "Вывод результата в консоль: `System.out.println(\"Faolmi: \" + s.isValid());; System.out.println(\"Yopilgach faolmi: \" + s.isValid());`"
+        ]
+      },
+      "expectedOutput": "Faolmi: true\nYopilgach faolmi: false"
+    }
   },
   {
     "id": 149,
@@ -15653,7 +20581,43 @@
         }
       }
     ],
-    "constructorSpecs": []
+    "constructorSpecs": [],
+    "mainTask": {
+      "rawLines": [
+        "FlightManifest fm = new FlightManifest();",
+        "fm.bookSeat();",
+        "fm.bookSeat();",
+        "System.out.println(\"Band o'rinlar: \" + fm.getPassengerCount());"
+      ],
+      "instantiations": [
+        "FlightManifest fm = new FlightManifest();"
+      ],
+      "methodCalls": [
+        "fm.bookSeat();",
+        "fm.bookSeat();"
+      ],
+      "prints": [
+        "System.out.println(\"Band o'rinlar: \" + fm.getPassengerCount());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yekt yaratish: `FlightManifest fm = new FlightManifest();`",
+          "Metodlarni chaqirish / amallar: `fm.bookSeat();`, `fm.bookSeat();`",
+          "Natijani konsolga chiqarish: `System.out.println(\"Band o'rinlar: \" + fm.getPassengerCount());`"
+        ],
+        "en": [
+          "Instantiate object: `FlightManifest fm = new FlightManifest();`",
+          "Invoke methods / operations: `fm.bookSeat();`, `fm.bookSeat();`",
+          "Print result to console: `System.out.println(\"Band o'rinlar: \" + fm.getPassengerCount());`"
+        ],
+        "ru": [
+          "Создание объекта: `FlightManifest fm = new FlightManifest();`",
+          "Вызовы методов / операции: `fm.bookSeat();`, `fm.bookSeat();`",
+          "Вывод результата в консоль: `System.out.println(\"Band o'rinlar: \" + fm.getPassengerCount());`"
+        ]
+      },
+      "expectedOutput": "Band o'rinlar: 2"
+    }
   },
   {
     "id": 150,
@@ -15886,6 +20850,48 @@
           "ru": "Инициализирует приватные поля переданными значениями."
         }
       }
-    ]
+    ],
+    "mainTask": {
+      "rawLines": [
+        "Customer c = new Customer(\"Ali Valiyev\");",
+        "Order order = new Order(c);",
+        "order.addItem(\"Java OOP Darsligi\", 120000.0);",
+        "order.addItem(\"WIUT Bloknot\", 30000.0);",
+        "order.confirm();",
+        "order.deliver();",
+        "System.out.println(order.getOrderSummary());"
+      ],
+      "instantiations": [
+        "Customer c = new Customer(\"Ali Valiyev\");",
+        "Order order = new Order(c);"
+      ],
+      "methodCalls": [
+        "order.addItem(\"Java OOP Darsligi\", 120000.0);",
+        "order.addItem(\"WIUT Bloknot\", 30000.0);",
+        "order.confirm();",
+        "order.deliver();"
+      ],
+      "prints": [
+        "System.out.println(order.getOrderSummary());"
+      ],
+      "steps": {
+        "uz": [
+          "Ob'yektlar yaratish: `Customer c = new Customer(\"Ali Valiyev\");` va `Order order = new Order(c);`",
+          "Metodlarni chaqirish / amallar: `order.addItem(\"Java OOP Darsligi\", 120000.0);`, `order.addItem(\"WIUT Bloknot\", 30000.0);`, `order.confirm();`, `order.deliver();`",
+          "Natijani konsolga chiqarish: `System.out.println(order.getOrderSummary());`"
+        ],
+        "en": [
+          "Instantiate objects: `Customer c = new Customer(\"Ali Valiyev\");` and `Order order = new Order(c);`",
+          "Invoke methods / operations: `order.addItem(\"Java OOP Darsligi\", 120000.0);`, `order.addItem(\"WIUT Bloknot\", 30000.0);`, `order.confirm();`, `order.deliver();`",
+          "Print result to console: `System.out.println(order.getOrderSummary());`"
+        ],
+        "ru": [
+          "Создание объектов: `Customer c = new Customer(\"Ali Valiyev\");` и `Order order = new Order(c);`",
+          "Вызовы методов / операции: `order.addItem(\"Java OOP Darsligi\", 120000.0);`, `order.addItem(\"WIUT Bloknot\", 30000.0);`, `order.confirm();`, `order.deliver();`",
+          "Вывод результата в консоль: `System.out.println(order.getOrderSummary());`"
+        ]
+      },
+      "expectedOutput": "Mijoz: Ali Valiyev | Holat: DELIVERED | Jami: 168000 UZS"
+    }
   }
 ];

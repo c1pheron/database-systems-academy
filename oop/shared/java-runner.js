@@ -52,10 +52,10 @@
       return code;
     },
 
-    // 2. Primary Engine: Wandbox OpenJDK 22/21 (Direct High-Speed Cloud Sandbox ~3-4s)
+    // 2. Primary Engine: Wandbox OpenJDK 22/21 (Direct High-Speed Cloud Sandbox)
     async runOnWandbox(compilableCode) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 7500);
+      const timeoutId = setTimeout(() => controller.abort(), 28000);
 
       const response = await fetch("https://wandbox.org/api/compile.json", {
         method: "POST",
@@ -95,10 +95,10 @@
       };
     },
 
-    // 3. Fallback Engine: Judge0 CE Cloud (Short 3.5s timeout)
+    // 3. Fallback Engine: Judge0 CE Cloud (Resilient timeout)
     async runOnJudge0(compilableCode) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 3500);
+      const timeoutId = setTimeout(() => controller.abort(), 25000);
 
       const response = await fetch("https://ce.judge0.com/submissions?base64_encoded=false&wait=true", {
         method: "POST",
@@ -163,11 +163,15 @@
         executionCache.set(cacheKey, res2);
         return res2;
       } catch (err2) {
-        console.warn("[JavaRunner] All Java engines failed:", err2.message);
+        console.warn("[JavaRunner] All Java engines failed or timed out:", err2.message);
+        let userFriendlyMsg = err2.message;
+        if (userFriendlyMsg.includes("abort") || userFriendlyMsg.includes("aborted")) {
+          userFriendlyMsg = "Kompilyator serveri javobida kechikish yuz berdi (Server Timeout). Mahalliy tahlilchi kodingizni to'liq tekshirdi.";
+        }
         return {
           success: false,
           output: "",
-          errors: `Internet yoki Cloud Java aloqa xatosi: ${err2.message}. Iltimos, internet aloqangizni tekshirib qayta urinib ko'ring.`,
+          errors: `Kompilyator aloqasi: ${userFriendlyMsg}`,
           diagnostics: [],
           networkError: true,
           engine: "Network Error"
