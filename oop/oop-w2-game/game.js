@@ -7,7 +7,7 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W2_PROGRESS";
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W2_CODE_";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W2_CODE_V3_";
   const LAST_Q_KEY = "WIUT_OOP_W2_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
@@ -354,14 +354,6 @@
       try {
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
-
-      // If saved code still has old boilerplate comments and student hasn't written their own implementation, upgrade to clean starterCode
-      if (saved && (saved.includes("// 1. private double price") || saved.includes("// age (int) maydoni") || saved.includes("// Konstruktor va updateOdometer") || saved.includes("// private final String tripId"))) {
-        saved = ch.starterCode;
-        try {
-          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, saved);
-        } catch (e) {}
-      }
 
       if (saved !== null && saved !== undefined && saved.trim().length > 0) {
         codeArea.value = saved;
@@ -872,6 +864,12 @@ class Main {
     }
   }
   document.addEventListener("DOMContentLoaded", () => {
+    // One-time cleanup of legacy dirty boilerplate from old localStorage keys
+    try {
+      for (let i = 1; i <= 150; i++) {
+        localStorage.removeItem("WIUT_OOP_W2_CODE_" + i);
+      }
+    } catch (e) {}
     loadSolved();
     try {
       const savedLastQ = parseInt(localStorage.getItem(LAST_Q_KEY), 10);
