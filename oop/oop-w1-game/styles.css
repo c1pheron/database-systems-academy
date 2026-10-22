@@ -1511,3 +1511,115 @@ input, textarea, select, [contenteditable="true"] {
 }
 
 
+
+/* ============================================================================
+   METHOD SPECIFICATIONS & YANGI BILIM (NEW KNOWLEDGE) SHARED STYLES
+   ============================================================================ */
+.method-specs-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
+}
+.method-spec-card {
+  background: rgba(13, 10, 28, 0.75) !important;
+  border: 1px solid rgba(168, 85, 247, 0.4) !important;
+  border-left: 3px solid #a855f7 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+  transition: all 0.2s ease !important;
+}
+.method-spec-card:hover {
+  border-color: rgba(168, 85, 247, 0.7) !important;
+  background: rgba(22, 17, 45, 0.95) !important;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.2) !important;
+}
+.method-spec-sig {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 6px !important;
+  font-weight: 700 !important;
+}
+.method-spec-sig code {
+  background: rgba(168, 85, 247, 0.25) !important;
+  color: #e9d5ff !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  font-family: 'Consolas', 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+}
+.method-spec-line {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 6px !important;
+  line-height: 1.45 !important;
+  margin-top: 3px !important;
+  color: #cbd5e1 !important;
+}
+.spec-lbl {
+  color: #c084fc !important;
+  font-weight: 600 !important;
+  min-width: 90px !important;
+  flex-shrink: 0 !important;
+}
+.spec-val {
+  color: #f1f5f9 !important;
+}
+.spec-val code {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #38bdf8 !important;
+  padding: 1px 5px !important;
+  border-radius: 3px !important;
+  font-size: 12px !important;
+  font-family: 'Consolas', 'JetBrains Mono', monospace !important;
+}
+
+.new-knowledge-card {
+  margin: 16px 0 !important;
+  padding: 14px 18px !important;
+  background: linear-gradient(135deg, rgba(88, 28, 135, 0.35) 0%, rgba(20, 15, 38, 0.92) 100%) !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+  border-left: 4px solid #c084fc !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 18px rgba(168, 85, 247, 0.2) !important;
+  display: block !important;
+}
+.new-knowledge-header {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 8px !important;
+}
+.new-knowledge-icon {
+  font-size: 18px !important;
+}
+.new-knowledge-title {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #e9d5ff !important;
+  letter-spacing: 0.3px !important;
+  text-transform: uppercase !important;
+}
+.new-knowledge-text {
+  font-size: 13.5px !important;
+  line-height: 1.55 !important;
+  color: #f3e8ff !important;
+  margin-bottom: 10px !important;
+}
+.new-knowledge-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+}
+.new-knowledge-tag {
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  background: rgba(168, 85, 247, 0.3) !important;
+  color: #e9d5ff !important;
+  border: 1px solid rgba(168, 85, 247, 0.5) !important;
+  padding: 3px 9px !important;
+  border-radius: 12px !important;
+  letter-spacing: 0.2px !important;
+}

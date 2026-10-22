@@ -52,10 +52,53 @@
       return code;
     },
 
-    // 2. Primary Fast Engine: Judge0 CE Cloud (JDK 17)
+    // 2. Primary Engine: Wandbox OpenJDK 22/21 (Direct High-Speed Cloud Sandbox ~3-4s)
+    async runOnWandbox(compilableCode) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 7500);
+
+      const response = await fetch("https://wandbox.org/api/compile.json", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          compiler: "openjdk-jdk-21+35",
+          code: compilableCode
+        }),
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        throw new Error(`Wandbox HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      const isSuccess = data.status === "0";
+      const output = (data.program_output || data.program_message || "").trim();
+      const compilerErr = (data.compiler_error || data.compiler_message || "").trim();
+      const runtimeErr = (data.program_error || "").trim();
+      const fullErrors = compilerErr ? (runtimeErr ? compilerErr + "\n" + runtimeErr : compilerErr) : runtimeErr;
+
+      let parsedDiagnostics = [];
+      if (!isSuccess && global.JavaAnalyzer) {
+        parsedDiagnostics = global.JavaAnalyzer.formatCompilerDiagnostics(fullErrors || output);
+      }
+
+      return {
+        success: isSuccess,
+        output: output,
+        errors: fullErrors,
+        diagnostics: parsedDiagnostics,
+        engine: "OpenJDK 21 (High-Speed Cloud)",
+        raw: data
+      };
+    },
+
+    // 3. Fallback Engine: Judge0 CE Cloud (Short 3.5s timeout)
     async runOnJudge0(compilableCode) {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 9000);
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
 
       const response = await fetch("https://ce.judge0.com/submissions?base64_encoded=false&wait=true", {
         method: "POST",
@@ -91,55 +134,12 @@
         output: output,
         errors: fullErrors,
         diagnostics: parsedDiagnostics,
-        engine: "Judge0 JDK 17 (Fast Cloud)",
+        engine: "Judge0 JDK 17 (Fallback)",
         raw: data
       };
     },
 
-    // 3. Fallback Engine: Wandbox OpenJDK 21 (Japan Global Sandbox)
-    async runOnWandbox(compilableCode) {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 12000);
-
-      const response = await fetch("https://wandbox.org/api/compile.json", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          compiler: "openjdk-jdk-21+35",
-          code: compilableCode
-        }),
-        signal: controller.signal
-      });
-
-      clearTimeout(timeoutId);
-
-      if (!response.ok) {
-        throw new Error(`Wandbox HTTP ${response.status}`);
-      }
-
-      const data = await response.json();
-      const isSuccess = data.status === "0";
-      const output = (data.program_output || data.program_message || "").trim();
-      const compilerErr = (data.compiler_error || data.compiler_message || "").trim();
-      const runtimeErr = (data.program_error || "").trim();
-      const fullErrors = compilerErr ? (runtimeErr ? compilerErr + "\n" + runtimeErr : compilerErr) : runtimeErr;
-
-      let parsedDiagnostics = [];
-      if (!isSuccess && global.JavaAnalyzer) {
-        parsedDiagnostics = global.JavaAnalyzer.formatCompilerDiagnostics(fullErrors || output);
-      }
-
-      return {
-        success: isSuccess,
-        output: output,
-        errors: fullErrors,
-        diagnostics: parsedDiagnostics,
-        engine: "Wandbox OpenJDK 21",
-        raw: data
-      };
-    },
-
-    // 4. Main Multi-Tier Execution Method (Dual-Engine + Caching)
+    // 4. Main Multi-Tier Execution Method (High-Speed Direct + Fallback + Cache)
     async runOnOpenJDK21(rawCode) {
       const cacheKey = rawCode.trim();
       if (executionCache.has(cacheKey)) {
@@ -148,22 +148,22 @@
 
       const compilableCode = this.prepareCodeForCompilation(rawCode);
 
-      // Attempt 1: Fast Judge0 CE (~1.8s)
+      // Attempt 1: Direct High-Speed Wandbox OpenJDK (~3-4s, rock solid)
       try {
-        const res1 = await this.runOnJudge0(compilableCode);
+        const res1 = await this.runOnWandbox(compilableCode);
         executionCache.set(cacheKey, res1);
         return res1;
       } catch (err1) {
-        console.warn("[JavaRunner] Judge0 unreachable or timed out, falling back to Wandbox:", err1.message);
+        console.warn("[JavaRunner] Wandbox unreachable or timed out, trying Judge0 fallback:", err1.message);
       }
 
-      // Attempt 2: Wandbox OpenJDK 21 Fallback (~3.8s)
+      // Attempt 2: Judge0 CE Fallback (Short 3.5s timeout)
       try {
-        const res2 = await this.runOnWandbox(compilableCode);
+        const res2 = await this.runOnJudge0(compilableCode);
         executionCache.set(cacheKey, res2);
         return res2;
       } catch (err2) {
-        console.warn("[JavaRunner] Wandbox also failed:", err2.message);
+        console.warn("[JavaRunner] All Java engines failed:", err2.message);
         return {
           success: false,
           output: "",

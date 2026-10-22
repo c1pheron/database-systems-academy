@@ -111,9 +111,60 @@
     }
   }
 
+    function ensureChallengeSpecs(ch) {
+    if (!ch) return;
+    if (!ch.newKnowledge) {
+      const title = (ch.title && ch.title.uz) ? ch.title.uz : ("Topshiriq #" + ch.id);
+      const sector = ch.sector || ch.tierName || "Inkapsulyatsiya";
+      let tags = [];
+      const low = title.toLowerCase();
+      if (low.indexOf("getter") !== -1) tags.push("getter");
+      if (low.indexOf("setter") !== -1) tags.push("setter");
+      if (low.indexOf("konstruktor") !== -1 || low.indexOf("constructor") !== -1) tags.push("constructor");
+      if (low.indexOf("final") !== -1) tags.push("final");
+      if (low.indexOf("static") !== -1) tags.push("static");
+      if (low.indexOf("chaining") !== -1 || low.indexOf("this") !== -1) tags.push("this(...) chaining");
+      if (tags.length === 0) tags = ["inkapsulyatsiya", "xavfsizlik", "clean code"];
+      ch.newKnowledge = {
+        uz: ch.id + "-topshiriqda o'rganilgan yangi bilim: " + sector + " tamoyili, xususiy maydonlarni xavfsiz boshqarish va ob'yekt yaxlitligini ta'minlash.",
+        en: "Core concept mastered in Challenge " + ch.id + ": " + sector + " principles, safe field encapsulation and invariant protection.",
+        ru: "Ключевая концепция в задании " + ch.id + ": принципы " + sector + ", безопасное управление приватными полями и защита инвариантов."
+      };
+      ch.newKnowledgeTags = tags;
+    }
+    if (!ch.methodSpecs && ch.requirements && ch.requirements.methods && ch.requirements.methods.length > 0) {
+      ch.methodSpecs = ch.requirements.methods.map(function(m) {
+        const clean = m.replace(/\(\)/g, "");
+        const isGet = clean.startsWith("get");
+        const isSet = clean.startsWith("set");
+        const isIs = clean.startsWith("is");
+        return {
+          name: clean + "()",
+          signature: isSet ? ("public void " + clean + "(value)") : (isIs ? ("public boolean " + clean + "()") : ("public ... " + clean + "()")),
+          params: {
+            uz: isSet ? "O'zlashtiriluvchi yangi qiymat (to'g'ri toifada)" : "Parametr qabul qilmaydi",
+            en: isSet ? "New value to assign (proper type)" : "No parameters",
+            ru: isSet ? "Новое значение для записи" : "Без параметров"
+          },
+          returns: {
+            uz: isSet ? "void: qiymat qaytarmaydi" : (isIs ? "boolean: mantiqiy holat" : "Tegishli toifadagi qiymat"),
+            en: isSet ? "void: returns nothing" : (isIs ? "boolean: boolean state" : "Field value"),
+            ru: isSet ? "void: ничего не возвращает" : (isIs ? "boolean: логическое состояние" : "Значение поля")
+          },
+          desc: {
+            uz: isSet ? "Xususiy maydon qiymatini qat'iy biznes qoidalar asosida xavfsiz yangilaydi." : (isGet ? "Xususiy maydon qiymatini xavfsiz o'qib beradi." : "Belgilangan biznes vazifasini bajaradi."),
+            en: isSet ? "Safely mutates private field under strict business validation." : (isGet ? "Safely exposes private field value." : "Performs designated task."),
+            ru: isSet ? "Безопасно обновляет приватное поле с валидацией." : (isGet ? "Безопасно читает приватное поле." : "Выполняет задачу.")
+          }
+        };
+      });
+    }
+  }
+
   function renderChallenge() {
     const ch = CHALLENGES[currentQIndex];
     if (!ch) return;
+    ensureChallengeSpecs(ch);
 
     // Header badge & title
     const elBadge = document.getElementById("problemBadge");
@@ -229,20 +280,17 @@
       }
     }
     if (elNewKnowledge) {
-      if (ch.newKnowledge) {
-        const knowText = ch.newKnowledge[currentLang] || ch.newKnowledge.uz || "";
-        const tagsHtml = (ch.newKnowledgeTags || []).map(function(t) { return '<span class="new-knowledge-tag">' + t + '</span>'; }).join("");
-        const titleText = isRu ? "🎓 Новые знания и концепции в этом задании:" : (isEn ? "🎓 Mastered OOP Concepts & Principles:" : "🎓 Ushbu topshiriqda o'rganilgan yangi bilim:");
-        elNewKnowledge.innerHTML = '<div class="new-knowledge-header">' +
-          '<span class="new-knowledge-icon">🎓</span>' +
-          '<span class="new-knowledge-title">' + titleText + '</span>' +
-        '</div>' +
-        '<div class="new-knowledge-text">' + knowText + '</div>' +
-        (tagsHtml ? '<div class="new-knowledge-tags">' + tagsHtml + '</div>' : '');
-        elNewKnowledge.style.display = "block";
-      } else {
-        elNewKnowledge.style.display = "none";
-      }
+      ensureChallengeSpecs(ch);
+      const knowText = (ch.newKnowledge && (ch.newKnowledge[currentLang] || ch.newKnowledge.uz)) || "";
+      const tagsHtml = ((ch.newKnowledgeTags && ch.newKnowledgeTags.length) ? ch.newKnowledgeTags : ["inkapsulyatsiya", "xavfsizlik"]).map(function(t) { return '<span class="new-knowledge-tag">' + t + '</span>'; }).join("");
+      const titleText = isRu ? "🎓 Новые знания и концепции в этом задании:" : (isEn ? "🎓 Mastered OOP Concepts & Principles:" : "🎓 Ushbu topshiriqda o'rganilgan yangi bilim:");
+      elNewKnowledge.innerHTML = '<div class="new-knowledge-header">' +
+        '<span class="new-knowledge-icon">🎓</span>' +
+        '<span class="new-knowledge-title">' + titleText + '</span>' +
+      '</div>' +
+      '<div class="new-knowledge-text">' + knowText + '</div>' +
+      (tagsHtml ? '<div class="new-knowledge-tags">' + tagsHtml + '</div>' : '');
+      elNewKnowledge.style.display = "block";
     }
 
     // Set code editor
@@ -513,8 +561,8 @@ class Main {
     const isEn = currentLang === "en";
     consoleOut.className = "console-output";
     consoleOut.textContent = isEn
-      ? "⏳ Verifying code requirements and compiling on OpenJDK JVM..."
-      : "⏳ Barcha topshiriq detallari tekshirilmoqda va OpenJDK JVM da ishga tushirilmoqda...";
+      ? "⏳ [1/2] Verifying code rules... [2/2] Running on High-Speed OpenJDK 21 JVM..."
+      : "⏳ [1/2] OOP qoidalari tekshirilmoqda... [2/2] Yuqori tezlikdagi OpenJDK 21 JVM da ishga tushirilmoqda...";
 
     // 1. Static OOP and syntax verification
     const validation = window.JavaRunner.validateOOPRules(codeArea.value, ch.requirements, ch);
