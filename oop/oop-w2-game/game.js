@@ -7,6 +7,7 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W2_PROGRESS";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W2_CODE_";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -14,6 +15,7 @@
     currentLang = lang;
     renderHUD();
     renderChallenge();
+    window.addEventListener("beforeunload", saveCurrentCode);
     if (window.LeaderboardEngine) {
       window.LeaderboardEngine.init(2);
       window.LeaderboardEngine.setLanguage(currentLang);
@@ -190,7 +192,17 @@
     // Set code editor
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
-      codeArea.value = ch.starterCode || "";
+      let saved = null;
+      try {
+        saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
+      } catch (e) {}
+      if (saved !== null && saved !== undefined && saved.trim().length > 0) {
+        codeArea.value = saved;
+      } else {
+        codeArea.value = ch.starterCode || "";
+      }
+      codeArea.scrollTop = 0;
+      codeArea.scrollLeft = 0;
     }
 
     // Clear console output
@@ -214,7 +226,27 @@
     window.UMLRenderer.renderSVG(classes, "umlContainer");
   }
 
+  
+  function saveCurrentCode() {
+    const codeArea = document.getElementById("codeEditor");
+    if (!codeArea) return;
+    if (currentAppMode === "challenge") {
+      const ch = CHALLENGES[currentQIndex];
+      if (ch) {
+        try {
+          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, codeArea.value);
+        } catch (e) {}
+      }
+    } else if (currentAppMode === "playground") {
+      try {
+        localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+      } catch (e) {}
+    }
+  }
+
   function switchChallenge(idx) {
+    saveCurrentCode();
+    saveCurrentCode();
     if (idx < 0 || idx >= CHALLENGES.length) return;
     currentQIndex = idx;
 
@@ -739,6 +771,8 @@ class Main {
     const btnToggleSol = document.getElementById("btnToggleSolution");
     const elToggleHint = document.getElementById("solutionToggleHint");
 
+    const edArea = document.getElementById("codeEditor");
+    if (edArea) edArea.addEventListener("input", saveCurrentCode);
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
     if (btnReset) btnReset.addEventListener("click", () => {
@@ -746,6 +780,9 @@ class Main {
       const codeArea = document.getElementById("codeEditor");
       if (ch && codeArea) {
         codeArea.value = ch.starterCode || "";
+        try {
+          localStorage.removeItem(CODE_STORAGE_PREFIX + ch.id);
+        } catch (e) {}
         updateUML();
         if (window.JavaEditorEnhancer) {
           window.JavaEditorEnhancer.updateHighlighting();
