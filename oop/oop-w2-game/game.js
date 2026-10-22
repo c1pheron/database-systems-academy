@@ -164,17 +164,46 @@
           : (isEn ? "<li><strong>Encapsulation:</strong> Fields <code>" + ch.requirements.privateFields.join(", ") + "</code> must be <code>private</code>.</li>"
                   : "<li><strong>Inkapsulyatsiya:</strong> <code>" + ch.requirements.privateFields.join(", ") + "</code> maydonlari <code>private</code> bo'lsin.</li>");
       }
-      if (ch.requirements.methods && ch.requirements.methods.length > 0) {
-        reqHtml += isRu
-          ? "<li><strong>Методы:</strong> Реализуйте метод(ы) <code>" + ch.requirements.methods.join("(), ") + "()</code>.</li>"
-          : (isEn ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
-                  : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>");
-      }
-      if (ch.requirements.constructors) {
+      // Constructors with explicit parameters and purpose
+      if (ch.constructorSpecs && ch.constructorSpecs.length > 0) {
+        let ctorItems = ch.constructorSpecs.map(function(c) {
+          const p = c.params ? (c.params[currentLang] || c.params.uz) : "";
+          const d = c.desc ? (c.desc[currentLang] || c.desc.uz) : "";
+          return '<div class="method-spec-card">' +
+            '<div class="method-spec-sig"><code>' + (c.signature || c.name) + '</code></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">📥 ' + (isRu ? "Параметры:" : (isEn ? "Parameters:" : "Qabul qiladi:")) + '</span> <span class="spec-val">' + p + '</span></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">⚙️ ' + (isRu ? "Назначение:" : (isEn ? "Purpose:" : "Vazifasi:")) + '</span> <span class="spec-val">' + d + '</span></div>' +
+          '</div>';
+        }).join("");
+        reqHtml += '<li><strong>' + (isRu ? "Конструкторы:" : (isEn ? "Constructors & Signatures:" : "Konstruktorlar:")) + '</strong>' +
+          '<div class="method-specs-container">' + ctorItems + '</div></li>';
+      } else if (ch.requirements.constructors) {
         reqHtml += isRu
           ? "<li><strong>Конструктор:</strong> Создайте конструктор для <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
           : (isEn ? "<li><strong>Constructor:</strong> Create constructor for <code>" + ch.requirements.constructors.join(", ") + "</code>.</li>"
                   : "<li><strong>Konstruktor:</strong> <code>" + ch.requirements.constructors.join(", ") + "</code> klassi uchun konstruktor tuzilsin.</li>");
+      }
+
+      // Methods with explicit parameters, return types, and word-by-word purpose
+      if (ch.methodSpecs && ch.methodSpecs.length > 0) {
+        let mItems = ch.methodSpecs.map(function(m) {
+          const p = m.params ? (m.params[currentLang] || m.params.uz) : "";
+          const r = m.returns ? (m.returns[currentLang] || m.returns.uz) : "";
+          const d = m.desc ? (m.desc[currentLang] || m.desc.uz) : "";
+          return '<div class="method-spec-card">' +
+            '<div class="method-spec-sig"><code>' + (m.signature || m.name) + '</code></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">📥 ' + (isRu ? "Параметры:" : (isEn ? "Parameters:" : "Qabul qiladi:")) + '</span> <span class="spec-val">' + p + '</span></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">📤 ' + (isRu ? "Возвращает:" : (isEn ? "Returns:" : "Qaytaradi:")) + '</span> <span class="spec-val"><code>' + r + '</code></span></div>' +
+            '<div class="method-spec-line"><span class="spec-lbl">⚙️ ' + (isRu ? "Назначение:" : (isEn ? "Purpose:" : "Vazifasi:")) + '</span> <span class="spec-val">' + d + '</span></div>' +
+          '</div>';
+        }).join("");
+        reqHtml += '<li><strong>' + (isRu ? "Методы и их точные функции:" : (isEn ? "Methods & Detailed Specifications:" : "Metodlar va Ularning Vazifalari:")) + '</strong>' +
+          '<div class="method-specs-container">' + mItems + '</div></li>';
+      } else if (ch.requirements.methods && ch.requirements.methods.length > 0) {
+        reqHtml += isRu
+          ? "<li><strong>Методы:</strong> Реализуйте метод(ы) <code>" + ch.requirements.methods.join("(), ") + "()</code>.</li>"
+          : (isEn ? "<li><strong>Methods:</strong> Implement <code>" + ch.requirements.methods.join("(), ") + "()</code> method(s).</li>"
+                  : "<li><strong>Metodlar:</strong> <code>" + ch.requirements.methods.join("(), ") + "()</code> metodi yaratilsin.</li>");
       }
       if (ch.requirements.keywords) {
         reqHtml += isRu
@@ -187,6 +216,33 @@
         : (isEn ? "<li>Ensure zero syntax errors and follow Clean Code conventions.</li>"
                 : "<li>Sintaksis xatolarisiz va Clean Code qoidalariga mos yozing.</li>");
       reqList.innerHTML = reqHtml;
+    }
+    // Render Yangi bilim (New Knowledge) card at the bottom of the task section
+    let elNewKnowledge = document.getElementById("newKnowledgeCard");
+    if (!elNewKnowledge) {
+      const reqParent = document.querySelector(".task-requirements");
+      if (reqParent && reqParent.parentNode) {
+        elNewKnowledge = document.createElement("div");
+        elNewKnowledge.id = "newKnowledgeCard";
+        elNewKnowledge.className = "new-knowledge-card";
+        reqParent.parentNode.insertBefore(elNewKnowledge, reqParent.nextSibling);
+      }
+    }
+    if (elNewKnowledge) {
+      if (ch.newKnowledge) {
+        const knowText = ch.newKnowledge[currentLang] || ch.newKnowledge.uz || "";
+        const tagsHtml = (ch.newKnowledgeTags || []).map(function(t) { return '<span class="new-knowledge-tag">' + t + '</span>'; }).join("");
+        const titleText = isRu ? "🎓 Новые знания и концепции в этом задании:" : (isEn ? "🎓 Mastered OOP Concepts & Principles:" : "🎓 Ushbu topshiriqda o'rganilgan yangi bilim:");
+        elNewKnowledge.innerHTML = '<div class="new-knowledge-header">' +
+          '<span class="new-knowledge-icon">🎓</span>' +
+          '<span class="new-knowledge-title">' + titleText + '</span>' +
+        '</div>' +
+        '<div class="new-knowledge-text">' + knowText + '</div>' +
+        (tagsHtml ? '<div class="new-knowledge-tags">' + tagsHtml + '</div>' : '');
+        elNewKnowledge.style.display = "block";
+      } else {
+        elNewKnowledge.style.display = "none";
+      }
     }
 
     // Set code editor
