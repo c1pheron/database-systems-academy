@@ -7,7 +7,8 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W3_PROGRESS";
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_V2_";
+  const LAST_Q_KEY = "WIUT_OOP_W3_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -25,6 +26,15 @@
     }
   };
   let currentQIndex = 0;
+  try {
+    const savedLast = localStorage.getItem(LAST_Q_KEY);
+    if (savedLast !== null) {
+      const parsed = parseInt(savedLast, 10);
+      if (!isNaN(parsed) && parsed >= 0 && parsed < CHALLENGES.length) {
+        currentQIndex = parsed;
+      }
+    }
+  } catch (e) {}
   let currentSector = "1-30";
   let solvedQuestions = new Set();
 
@@ -196,6 +206,14 @@
       try {
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
+      // If saved code still has full solution from old version, reset to clean starterCode
+      if (saved && (saved.trim() === (ch.solution || "").trim() || saved.includes("// 'extends") || saved.includes("c.setFullName(\"Ali Valiyev\")") || saved.includes("sa.setTargetGoal(\"Yangi Noutbuk\")"))) {
+        saved = ch.starterCode;
+        try {
+          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, saved);
+        } catch (e) {}
+      }
+
       if (saved !== null && saved !== undefined && saved.trim().length > 0) {
         codeArea.value = saved;
       } else {
@@ -246,9 +264,11 @@
 
   function switchChallenge(idx) {
     saveCurrentCode();
-    saveCurrentCode();
     if (idx < 0 || idx >= CHALLENGES.length) return;
     currentQIndex = idx;
+    try {
+      localStorage.setItem(LAST_Q_KEY, String(idx));
+    } catch (e) {}
 
         // Auto-update sector filter to match current question
     const ch = CHALLENGES[idx];
@@ -772,7 +792,17 @@ class Main {
     const elToggleHint = document.getElementById("solutionToggleHint");
 
     const edArea = document.getElementById("codeEditor");
-    if (edArea) edArea.addEventListener("input", saveCurrentCode);
+    if (edArea) {
+      edArea.addEventListener("input", saveCurrentCode);
+      edArea.addEventListener("keyup", saveCurrentCode);
+      edArea.addEventListener("change", saveCurrentCode);
+      edArea.addEventListener("blur", saveCurrentCode);
+    }
+    window.addEventListener("beforeunload", saveCurrentCode);
+    window.addEventListener("pagehide", saveCurrentCode);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") saveCurrentCode();
+    });
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnRun) btnRun.addEventListener("click", handleCloudRun);
     if (btnReset) btnReset.addEventListener("click", () => {
