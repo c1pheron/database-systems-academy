@@ -7,7 +7,15 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W4_PROGRESS";
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W4_CODE_";
+  // AGGRESSIVE PURGE OF PRE-FILLED LOCALSTORAGE ENTRIES
+  try {
+    for (let k = 1; k <= 150; k++) {
+      localStorage.removeItem("WIUT_OOP_W4_CODE_" + k);
+      localStorage.removeItem("WIUT_OOP_W4_CODE_V1_" + k);
+    }
+  } catch (e) {}
+
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W4_CODE_V2_";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
