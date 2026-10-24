@@ -14,10 +14,11 @@
       localStorage.removeItem("WIUT_OOP_W3_CODE_V1_" + k);
       localStorage.removeItem("WIUT_OOP_W3_CODE_V2_" + k);
       localStorage.removeItem("WIUT_OOP_W3_CODE_V3_" + k);
+      localStorage.removeItem("WIUT_OOP_W3_CODE_V4_" + k);
     }
   } catch (e) {}
 
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_V4_";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_V5_";
   const LAST_Q_KEY = "WIUT_OOP_W3_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
