@@ -7,7 +7,17 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W3_PROGRESS";
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_V2_";
+  // AGGRESSIVE PURGE OF PRE-FILLED LOCALSTORAGE ENTRIES
+  try {
+    for (let k = 1; k <= 150; k++) {
+      localStorage.removeItem("WIUT_OOP_W3_CODE_" + k);
+      localStorage.removeItem("WIUT_OOP_W3_CODE_V1_" + k);
+      localStorage.removeItem("WIUT_OOP_W3_CODE_V2_" + k);
+      localStorage.removeItem("WIUT_OOP_W3_CODE_V3_" + k);
+    }
+  } catch (e) {}
+
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W3_CODE_V4_";
   const LAST_Q_KEY = "WIUT_OOP_W3_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
@@ -16,6 +26,7 @@
     currentLang = lang;
     renderHUD();
     renderChallenge();
+    initConsoleResizer();
     window.addEventListener("beforeunload", saveCurrentCode);
     if (window.LeaderboardEngine) {
       window.LeaderboardEngine.init(3);
@@ -206,11 +217,23 @@
       try {
         saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
       } catch (e) {}
-      // If saved code still has full solution from old version, reset to clean starterCode
-      if (saved && (saved.trim() === (ch.solution || "").trim() || saved.includes("// 'extends") || saved.includes("c.setFullName(\"Ali Valiyev\")") || saved.includes("sa.setTargetGoal(\"Yangi Noutbuk\")"))) {
-        saved = ch.starterCode;
+
+      // If saved code contains old pre-filled boilerplate, comments, or matches solution, ALWAYS force starterCode!
+      if (saved && (
+        saved.includes("// 'extends") ||
+        saved.includes("// 1.") ||
+        saved.includes("c.setEmployeeName") ||
+        saved.includes("c.setFullName") ||
+        saved.includes("sa.setTargetGoal") ||
+        saved.includes("c.setCustomerCode") ||
+        saved.includes("taxi.setPlateNumber") ||
+        saved.includes("humo.setCardNumber") ||
+        saved.includes("pi.setItemCode") ||
+        saved.trim() === (ch.solution || "").trim()
+      )) {
+        saved = null;
         try {
-          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, saved);
+          localStorage.removeItem(CODE_STORAGE_PREFIX + ch.id);
         } catch (e) {}
       }
 
@@ -469,6 +492,7 @@ class Main {
   // 4. Code Execution & Testing with Line-by-Line Diagnostics
     // 4. Code Execution & Testing with Real OpenJDK Engine & Line-by-Line Diagnostics
   async function handleInstantTest() {
+    if (typeof window.expandConsoleOutput === "function") window.expandConsoleOutput();
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
