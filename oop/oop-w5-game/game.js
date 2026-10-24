@@ -7,18 +7,7 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W5_PROGRESS";
-  try {
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k && k.startsWith("WIUT_OOP_W5_CODE_") && !k.startsWith("WIUT_OOP_W5_CODE_V5_")) {
-        localStorage.removeItem(k);
-        i--;
-      }
-    }
-  } catch (e) {}
-
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W5_CODE_V5_";
-  const LAST_Q_KEY = "WIUT_OOP_W5_LAST_Q";
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W5_CODE_";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -37,15 +26,6 @@
     }
   };
   let currentQIndex = 0;
-  try {
-    const savedLast = localStorage.getItem(LAST_Q_KEY);
-    if (savedLast !== null) {
-      const parsed = parseInt(savedLast, 10);
-      if (!isNaN(parsed) && parsed >= 0 && parsed < CHALLENGES.length) {
-        currentQIndex = parsed;
-      }
-    }
-  } catch (e) {}
   let currentSector = "1-30";
   let solvedQuestions = new Set();
 
@@ -213,20 +193,172 @@
     // Set code editor
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
-      ["input", "keyup", "change", "blur"].forEach(ev => {
-        codeArea.addEventListener(ev, saveCurrentCode);
+      let saved = null;
+      try {
+        saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
+      } catch (e) {}
+      if (saved !== null && saved !== undefined && saved.trim().length > 0) {
+        codeArea.value = saved;
+      } else {
+        codeArea.value = ch.starterCode || "";
+      }
+      codeArea.scrollTop = 0;
+      codeArea.scrollLeft = 0;
+    }
+
+    // Clear console output
+    const consoleOut = document.getElementById("consoleOutput");
+    if (consoleOut) {
+      consoleOut.className = "console-output";
+      consoleOut.textContent = "";
+    }
+
+    // Render UML preview
+    updateUML();
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.setChallenge(ch);
+    }
+  }
+
+  function updateUML() {
+    const codeArea = document.getElementById("codeEditor");
+    if (!codeArea || !window.UMLRenderer) return;
+    const classes = window.UMLRenderer.parseJavaToUML(codeArea.value);
+    window.UMLRenderer.renderSVG(classes, "umlContainer");
+  }
+
+  
+  function saveCurrentCode() {
+    const codeArea = document.getElementById("codeEditor");
+    if (!codeArea) return;
+    if (currentAppMode === "challenge") {
+      const ch = CHALLENGES[currentQIndex];
+      if (ch) {
+        try {
+          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, codeArea.value);
+        } catch (e) {}
+      }
+    } else if (currentAppMode === "playground") {
+      try {
+        localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+      } catch (e) {}
+    }
+  }
+
+  function switchChallenge(idx) {
+    saveCurrentCode();
+    saveCurrentCode();
+    if (idx < 0 || idx >= CHALLENGES.length) return;
+    currentQIndex = idx;
+
+        // Auto-update sector filter to match current question
+    const ch = CHALLENGES[idx];
+    const targetSector = (ch.id <= 30) ? "1-30" : (ch.id <= 60) ? "31-60" : (ch.id <= 90) ? "61-90" : (ch.id <= 120) ? "91-120" : "121-150";
+    if (currentSector !== targetSector) {
+      currentSector = targetSector;
+      document.querySelectorAll(".sector-tab-pill").forEach(p => {
+        if (p.getAttribute("data-range") === targetSector) p.classList.add("active");
+        else p.classList.remove("active");
       });
+    }
+
+    renderHUD();
+    renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(5);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
+  }
+
+  // 3. 150-Question Map Overview Modal
+    // =========================================================================
+  // APP MODES: MASALA REJIMI (CHALLENGE) VS ODDIY REJIM (PLAYGROUND SANDBOX)
+  // =========================================================================
+  let currentAppMode = "challenge"; // "challenge" | "playground"
+  const PLAYGROUND_STORAGE_KEY = "WIUT_OOP_W5_PLAYGROUND";
+  const DEFAULT_PLAYGROUND_CODE = `// ============================================================================
+// ERKIN JAVA SANDBOX (ODDIY REJIM) — OPENJDK 21
+// ============================================================================
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Salom, Java Sandbox!");
+        
+        // Istalgan kod yozib, 'Ishga tushirish (OpenJDK 21)' tugmasini bosing!
+    }
+}`;
+
+  function switchAppMode(newMode) {
+    if (currentAppMode === newMode) return;
+    const codeArea = document.getElementById("codeEditor");
+
+    if (currentAppMode === "playground" && codeArea) {
+      localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
+    }
+
+    currentAppMode = newMode;
+
+    const btnChal = document.getElementById("btnModeChallenge");
+    const btnPlay = document.getElementById("btnModePlayground");
+    const secTabs = document.getElementById("sectorTabsBar");
+    const qStrip = document.getElementById("qStrip");
+    const paneTabs = document.querySelector(".pane-tabs");
+    const contentProb = document.getElementById("contentProblem");
+    const contentUML = document.getElementById("contentUML");
+    const contentPlay = document.getElementById("contentPlayground");
+    const btnSol = document.getElementById("btnToolbarSolution");
+    const btnNext = document.getElementById("btnNextChallenge");
+
+    if (newMode === "playground") {
+      if (btnChal) btnChal.classList.remove("active");
+      if (btnPlay) btnPlay.classList.add("active");
+      if (secTabs) secTabs.style.display = "none";
+      if (qStrip) qStrip.style.display = "none";
+      if (paneTabs) paneTabs.style.display = "none";
+      if (contentProb) contentProb.style.display = "none";
+      if (contentUML) contentUML.style.display = "none";
+      if (contentPlay) contentPlay.style.display = "block";
+      if (btnSol) btnSol.style.display = "none";
+      if (btnNext) btnNext.style.display = "none";
+
+      const savedCode = localStorage.getItem(PLAYGROUND_STORAGE_KEY);
+      if (codeArea) {
+        codeArea.value = (savedCode !== null) ? savedCode : DEFAULT_PLAYGROUND_CODE;
+        codeArea.dispatchEvent(new Event("input", { bubbles: true }));
+      }
+    } else {
+      if (btnPlay) btnPlay.classList.remove("active");
+      if (btnChal) btnChal.classList.add("active");
+      if (secTabs) secTabs.style.display = "flex";
+      if (qStrip) qStrip.style.display = "flex";
+      if (paneTabs) paneTabs.style.display = "flex";
+      if (contentPlay) contentPlay.style.display = "none";
+      if (contentProb) contentProb.style.display = "block";
+      if (btnSol) btnSol.style.display = "inline-flex";
+      if (btnNext) btnNext.style.display = "inline-flex";
+
+      renderHUD();
+    renderChallenge();
+    if (window.LeaderboardEngine) {
+      window.LeaderboardEngine.init(5);
+      window.LeaderboardEngine.setLanguage(currentLang);
+    }
+    }
+  }
+
+  function initModeSwitcher() {
+    const btnChal = document.getElementById("btnModeChallenge");
+    const btnPlay = document.getElementById("btnModePlayground");
+    if (btnChal) btnChal.addEventListener("click", () => switchAppMode("challenge"));
+    if (btnPlay) btnPlay.addEventListener("click", () => switchAppMode("playground"));
+
+    const codeArea = document.getElementById("codeEditor");
+    if (codeArea) {
       codeArea.addEventListener("input", () => {
         if (currentAppMode === "playground") {
           localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
         }
       });
     }
-    window.addEventListener("pagehide", saveCurrentCode);
-    window.addEventListener("beforeunload", saveCurrentCode);
-    document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "hidden") saveCurrentCode();
-    });
   }
 
   function initSectorTabs() {
@@ -318,7 +450,6 @@
   // 4. Code Execution & Testing with Line-by-Line Diagnostics
     // 4. Code Execution & Testing with Real OpenJDK Engine & Line-by-Line Diagnostics
   async function handleInstantTest() {
-    if (typeof window.expandConsoleOutput === "function") window.expandConsoleOutput();
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
@@ -478,7 +609,6 @@
   }
 
   async function handleCloudRun() {
-    if (typeof window.expandConsoleOutput === "function") window.expandConsoleOutput();
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
     if (!codeArea || !consoleOut) return;
@@ -717,6 +847,7 @@
     initModeSwitcher();
     renderHUD();
     renderChallenge();
+    initConsoleResizer();
     if (window.LeaderboardEngine) {
       window.LeaderboardEngine.init(5);
       window.LeaderboardEngine.setLanguage(currentLang);
