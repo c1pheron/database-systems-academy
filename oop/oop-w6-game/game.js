@@ -7,7 +7,18 @@
   "use strict";
 
   const STORAGE_KEY = "WIUT_OOP_W6_PROGRESS";
-  const CODE_STORAGE_PREFIX = "WIUT_OOP_W6_CODE_";
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith("WIUT_OOP_W6_CODE_") && !k.startsWith("WIUT_OOP_W6_CODE_V5_")) {
+        localStorage.removeItem(k);
+        i--;
+      }
+    }
+  } catch (e) {}
+
+  const CODE_STORAGE_PREFIX = "WIUT_OOP_W6_CODE_V5_";
+  const LAST_Q_KEY = "WIUT_OOP_W6_LAST_Q";
   let currentLang = (window.OOP_I18N ? window.OOP_I18N.getLang() : (localStorage.getItem("OOP_LANG") || "uz"));
 
   window.onOopLanguageChange = function (lang) {
@@ -15,6 +26,7 @@
     currentLang = lang;
     renderHUD();
     renderChallenge();
+    initConsoleResizer();
     window.addEventListener("beforeunload", saveCurrentCode);
     if (window.LeaderboardEngine) {
       window.LeaderboardEngine.init(6);
@@ -25,6 +37,15 @@
     }
   };
   let currentQIndex = 0;
+  try {
+    const savedLast = localStorage.getItem(LAST_Q_KEY);
+    if (savedLast !== null) {
+      const parsed = parseInt(savedLast, 10);
+      if (!isNaN(parsed) && parsed >= 0 && parsed < CHALLENGES.length) {
+        currentQIndex = parsed;
+      }
+    }
+  } catch (e) {}
   let currentSector = "1-30";
   let solvedQuestions = new Set();
 
@@ -192,172 +213,20 @@
     // Set code editor
     const codeArea = document.getElementById("codeEditor");
     if (codeArea) {
-      let saved = null;
-      try {
-        saved = localStorage.getItem(CODE_STORAGE_PREFIX + ch.id);
-      } catch (e) {}
-      if (saved !== null && saved !== undefined && saved.trim().length > 0) {
-        codeArea.value = saved;
-      } else {
-        codeArea.value = ch.starterCode || "";
-      }
-      codeArea.scrollTop = 0;
-      codeArea.scrollLeft = 0;
-    }
-
-    // Clear console output
-    const consoleOut = document.getElementById("consoleOutput");
-    if (consoleOut) {
-      consoleOut.className = "console-output";
-      consoleOut.textContent = "";
-    }
-
-    // Render UML preview
-    updateUML();
-    if (window.JavaEditorEnhancer) {
-      window.JavaEditorEnhancer.setChallenge(ch);
-    }
-  }
-
-  function updateUML() {
-    const codeArea = document.getElementById("codeEditor");
-    if (!codeArea || !window.UMLRenderer) return;
-    const classes = window.UMLRenderer.parseJavaToUML(codeArea.value);
-    window.UMLRenderer.renderSVG(classes, "umlContainer");
-  }
-
-  
-  function saveCurrentCode() {
-    const codeArea = document.getElementById("codeEditor");
-    if (!codeArea) return;
-    if (currentAppMode === "challenge") {
-      const ch = CHALLENGES[currentQIndex];
-      if (ch) {
-        try {
-          localStorage.setItem(CODE_STORAGE_PREFIX + ch.id, codeArea.value);
-        } catch (e) {}
-      }
-    } else if (currentAppMode === "playground") {
-      try {
-        localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
-      } catch (e) {}
-    }
-  }
-
-  function switchChallenge(idx) {
-    saveCurrentCode();
-    saveCurrentCode();
-    if (idx < 0 || idx >= CHALLENGES.length) return;
-    currentQIndex = idx;
-
-        // Auto-update sector filter to match current question
-    const ch = CHALLENGES[idx];
-    const targetSector = (ch.id <= 30) ? "1-30" : (ch.id <= 60) ? "31-60" : (ch.id <= 90) ? "61-90" : (ch.id <= 120) ? "91-120" : "121-150";
-    if (currentSector !== targetSector) {
-      currentSector = targetSector;
-      document.querySelectorAll(".sector-tab-pill").forEach(p => {
-        if (p.getAttribute("data-range") === targetSector) p.classList.add("active");
-        else p.classList.remove("active");
+      ["input", "keyup", "change", "blur"].forEach(ev => {
+        codeArea.addEventListener(ev, saveCurrentCode);
       });
-    }
-
-    renderHUD();
-    renderChallenge();
-    if (window.LeaderboardEngine) {
-      window.LeaderboardEngine.init(6);
-      window.LeaderboardEngine.setLanguage(currentLang);
-    }
-  }
-
-  // 3. 150-Question Map Overview Modal
-    // =========================================================================
-  // APP MODES: MASALA REJIMI (CHALLENGE) VS ODDIY REJIM (PLAYGROUND SANDBOX)
-  // =========================================================================
-  let currentAppMode = "challenge"; // "challenge" | "playground"
-  const PLAYGROUND_STORAGE_KEY = "WIUT_OOP_W6_PLAYGROUND";
-  const DEFAULT_PLAYGROUND_CODE = `// ============================================================================
-// ERKIN JAVA SANDBOX (ODDIY REJIM) — OPENJDK 21
-// ============================================================================
-class Main {
-    public static void main(String[] args) {
-        System.out.println("Salom, Java Sandbox!");
-        
-        // Istalgan kod yozib, 'Ishga tushirish (OpenJDK 21)' tugmasini bosing!
-    }
-}`;
-
-  function switchAppMode(newMode) {
-    if (currentAppMode === newMode) return;
-    const codeArea = document.getElementById("codeEditor");
-
-    if (currentAppMode === "playground" && codeArea) {
-      localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
-    }
-
-    currentAppMode = newMode;
-
-    const btnChal = document.getElementById("btnModeChallenge");
-    const btnPlay = document.getElementById("btnModePlayground");
-    const secTabs = document.getElementById("sectorTabsBar");
-    const qStrip = document.getElementById("qStrip");
-    const paneTabs = document.querySelector(".pane-tabs");
-    const contentProb = document.getElementById("contentProblem");
-    const contentUML = document.getElementById("contentUML");
-    const contentPlay = document.getElementById("contentPlayground");
-    const btnSol = document.getElementById("btnToolbarSolution");
-    const btnNext = document.getElementById("btnNextChallenge");
-
-    if (newMode === "playground") {
-      if (btnChal) btnChal.classList.remove("active");
-      if (btnPlay) btnPlay.classList.add("active");
-      if (secTabs) secTabs.style.display = "none";
-      if (qStrip) qStrip.style.display = "none";
-      if (paneTabs) paneTabs.style.display = "none";
-      if (contentProb) contentProb.style.display = "none";
-      if (contentUML) contentUML.style.display = "none";
-      if (contentPlay) contentPlay.style.display = "block";
-      if (btnSol) btnSol.style.display = "none";
-      if (btnNext) btnNext.style.display = "none";
-
-      const savedCode = localStorage.getItem(PLAYGROUND_STORAGE_KEY);
-      if (codeArea) {
-        codeArea.value = (savedCode !== null) ? savedCode : DEFAULT_PLAYGROUND_CODE;
-        codeArea.dispatchEvent(new Event("input", { bubbles: true }));
-      }
-    } else {
-      if (btnPlay) btnPlay.classList.remove("active");
-      if (btnChal) btnChal.classList.add("active");
-      if (secTabs) secTabs.style.display = "flex";
-      if (qStrip) qStrip.style.display = "flex";
-      if (paneTabs) paneTabs.style.display = "flex";
-      if (contentPlay) contentPlay.style.display = "none";
-      if (contentProb) contentProb.style.display = "block";
-      if (btnSol) btnSol.style.display = "inline-flex";
-      if (btnNext) btnNext.style.display = "inline-flex";
-
-      renderHUD();
-    renderChallenge();
-    if (window.LeaderboardEngine) {
-      window.LeaderboardEngine.init(6);
-      window.LeaderboardEngine.setLanguage(currentLang);
-    }
-    }
-  }
-
-  function initModeSwitcher() {
-    const btnChal = document.getElementById("btnModeChallenge");
-    const btnPlay = document.getElementById("btnModePlayground");
-    if (btnChal) btnChal.addEventListener("click", () => switchAppMode("challenge"));
-    if (btnPlay) btnPlay.addEventListener("click", () => switchAppMode("playground"));
-
-    const codeArea = document.getElementById("codeEditor");
-    if (codeArea) {
       codeArea.addEventListener("input", () => {
         if (currentAppMode === "playground") {
           localStorage.setItem(PLAYGROUND_STORAGE_KEY, codeArea.value);
         }
       });
     }
+    window.addEventListener("pagehide", saveCurrentCode);
+    window.addEventListener("beforeunload", saveCurrentCode);
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") saveCurrentCode();
+    });
   }
 
   function initSectorTabs() {
@@ -449,6 +318,7 @@ class Main {
   // 4. Code Execution & Testing with Line-by-Line Diagnostics
     // 4. Code Execution & Testing with Real OpenJDK Engine & Line-by-Line Diagnostics
   async function handleInstantTest() {
+    if (typeof window.expandConsoleOutput === "function") window.expandConsoleOutput();
     const ch = CHALLENGES[currentQIndex];
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
@@ -608,6 +478,7 @@ class Main {
   }
 
   async function handleCloudRun() {
+    if (typeof window.expandConsoleOutput === "function") window.expandConsoleOutput();
     const codeArea = document.getElementById("codeEditor");
     const consoleOut = document.getElementById("consoleOutput");
     if (!codeArea || !consoleOut) return;
@@ -676,6 +547,170 @@ class Main {
       consoleOut.textContent = report;
     }
   }
+  
+  function initConsoleResizer() {
+    const resizer = document.getElementById("consoleResizer");
+    const consoleSection = document.getElementById("consoleSection");
+    const toggleBtn = document.getElementById("btnToggleConsole");
+    const toggleIcon = document.getElementById("consoleToggleIcon");
+    const consoleHeader = document.getElementById("consoleHeader");
+    const consoleTab = document.getElementById("btnConsoleTab");
+
+    if (!consoleSection) return;
+
+    const STORAGE_KEY_HEIGHT = "WIUT_OOP_CONSOLE_HEIGHT";
+    const STORAGE_KEY_COLLAPSED = "WIUT_OOP_CONSOLE_COLLAPSED";
+
+    let isCollapsed = false;
+    let savedHeight = 180;
+
+    try {
+      const sh = localStorage.getItem(STORAGE_KEY_HEIGHT);
+      if (sh) {
+        const parsedH = parseInt(sh, 10);
+        if (!isNaN(parsedH) && parsedH >= 80 && parsedH <= 700) {
+          savedHeight = parsedH;
+        }
+      }
+      const sc = localStorage.getItem(STORAGE_KEY_COLLAPSED);
+      if (sc === "true") {
+        isCollapsed = true;
+      }
+    } catch (e) {}
+
+    function applyState() {
+      if (isCollapsed) {
+        consoleSection.classList.add("collapsed");
+        consoleSection.style.setProperty("height", "34px", "important");
+        consoleSection.style.setProperty("min-height", "34px", "important");
+        consoleSection.style.setProperty("max-height", "34px", "important");
+        consoleSection.style.setProperty("flex", "0 0 34px", "important");
+        if (toggleIcon) toggleIcon.textContent = "▴";
+        if (toggleBtn) toggleBtn.title = "Konsolni chiqarish (Expand Console)";
+      } else {
+        consoleSection.classList.remove("collapsed");
+        consoleSection.style.setProperty("height", savedHeight + "px", "important");
+        consoleSection.style.setProperty("min-height", "80px", "important");
+        consoleSection.style.setProperty("max-height", "70vh", "important");
+        consoleSection.style.setProperty("flex", "0 0 " + savedHeight + "px", "important");
+        if (toggleIcon) toggleIcon.textContent = "▾";
+        if (toggleBtn) toggleBtn.title = "Konsolni tushirish (Collapse Console)";
+      }
+      if (window.JavaEditorEnhancer && typeof window.JavaEditorEnhancer.syncScroll === "function") {
+        window.JavaEditorEnhancer.syncScroll();
+      }
+    }
+
+    function toggleCollapse(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      isCollapsed = !isCollapsed;
+      try {
+        localStorage.setItem(STORAGE_KEY_COLLAPSED, String(isCollapsed));
+      } catch (err) {}
+      applyState();
+    }
+
+    window.expandConsoleOutput = function () {
+      if (isCollapsed) {
+        isCollapsed = false;
+        try {
+          localStorage.setItem(STORAGE_KEY_COLLAPSED, "false");
+        } catch (err) {}
+        applyState();
+      }
+    };
+
+    if (toggleBtn) {
+      toggleBtn.onclick = toggleCollapse;
+    }
+    if (consoleTab) {
+      consoleTab.onclick = function (e) {
+        if (isCollapsed) toggleCollapse(e);
+      };
+    }
+    if (consoleHeader) {
+      consoleHeader.ondblclick = toggleCollapse;
+    }
+
+    if (resizer) {
+      let isDragging = false;
+      let startY = 0;
+      let startH = 0;
+
+      const onPointerDown = function (e) {
+        isDragging = true;
+        startY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        startH = consoleSection.getBoundingClientRect().height;
+        if (isCollapsed) {
+          isCollapsed = false;
+          startH = savedHeight;
+        }
+        consoleSection.classList.add("resizing");
+        resizer.classList.add("dragging");
+        document.body.style.userSelect = "none";
+        document.body.style.cursor = "ns-resize";
+
+        window.addEventListener("mousemove", onPointerMove);
+        window.addEventListener("mouseup", onPointerUp);
+        window.addEventListener("touchmove", onPointerMove, { passive: false });
+        window.addEventListener("touchend", onPointerUp);
+        window.addEventListener("touchcancel", onPointerUp);
+      };
+
+      const onPointerMove = function (e) {
+        if (!isDragging) return;
+        if (e.cancelable) e.preventDefault();
+        const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : e.clientY;
+        const deltaY = curY - startY;
+        let newH = Math.round(startH - deltaY);
+
+        const maxH = Math.round(window.innerHeight * 0.7);
+        if (newH < 50) {
+          newH = 34;
+        } else if (newH < 80) {
+          newH = 80;
+        }
+        if (newH > maxH) newH = maxH;
+
+        if (newH === 34) {
+          isCollapsed = true;
+        } else {
+          isCollapsed = false;
+          savedHeight = newH;
+        }
+        applyState();
+      };
+
+      const onPointerUp = function () {
+        if (!isDragging) return;
+        isDragging = false;
+        consoleSection.classList.remove("resizing");
+        resizer.classList.remove("dragging");
+        document.body.style.userSelect = "";
+        document.body.style.cursor = "";
+
+        window.removeEventListener("mousemove", onPointerMove);
+        window.removeEventListener("mouseup", onPointerUp);
+        window.removeEventListener("touchmove", onPointerMove);
+        window.removeEventListener("touchend", onPointerUp);
+        window.removeEventListener("touchcancel", onPointerUp);
+
+        try {
+          localStorage.setItem(STORAGE_KEY_HEIGHT, String(savedHeight));
+          localStorage.setItem(STORAGE_KEY_COLLAPSED, String(isCollapsed));
+        } catch (err) {}
+      };
+
+      resizer.onmousedown = onPointerDown;
+      resizer.ontouchstart = onPointerDown;
+    }
+
+    applyState();
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     loadSolved();
     initSectorTabs();
