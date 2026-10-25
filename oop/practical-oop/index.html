@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM">
+  <link rel="stylesheet" href="styles.css?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE">
 </head>
 <body>
 
@@ -103,12 +103,22 @@
 
       <!-- CODE EDITOR CARD (IMAGE 3 + AUTOCOMPLETE & DARCULA DOSKA) -->
       <article class="editor-card" id="editorCard">
-        <div class="editor-header">
+        <div class="editor-header" id="editorHeader">
           <div class="editor-filename">
             <span>☕</span>
             <span>Solution.java (OpenJDK 21)</span>
           </div>
           <div class="editor-actions">
+            <!-- Enini keng / tor qilish (Wide / Narrow) -->
+            <button id="btnEditorWide" class="btn-icon btn-wide-toggle" type="button" title="Kod doskasini butun ekranga kengaytirish / toraytirish (Toggle full width)">
+              <span id="btnEditorWideIcon">↔</span> <span id="btnEditorWideText">Keng Ekran</span>
+            </button>
+            <!-- Bo'yini keng / tor qilish (Taller / Shorter) -->
+            <div class="editor-size-ctrls" title="Kod maydoni balandligi (Bo'yini tor / keng qilish)">
+              <button id="btnEditorHMin" class="btn-term-ctrl" type="button" title="Tor / Ixcham (170px)">−</button>
+              <button id="btnEditorHNorm" class="btn-term-ctrl active" type="button" title="Standart (260px)">◻</button>
+              <button id="btnEditorHMax" class="btn-term-ctrl" type="button" title="Keng / Baland (460px)">▲</button>
+            </div>
             <button id="btnReset" class="btn-icon" type="button" title="Kodni boshlang'ich holatga qaytarish">🔄 Boshlang'ich kod</button>
             <button id="btnSolution" class="btn-icon" type="button" title="Namunaviy yechimni ko'rish">💡 Yechim</button>
           </div>
@@ -124,6 +134,11 @@
             </div>
           </div>
           <div id="codeAutocompleteDropdown" class="code-autocomplete-dropdown" style="display:none;"></div>
+        </div>
+
+        <!-- Vertical Drag Handle for Code Wrapper Height -->
+        <div class="editor-resize-handle" id="editorResizeHandle" title="Kod doskasi balandligini erkin surish uchun torting (Drag to resize height)">
+          <span class="resize-grip-line"></span>
         </div>
 
         <!-- Quick-Keys & Smart Chips Bar -->
@@ -180,8 +195,13 @@
 
     </section>
 
+    <!-- COLUMN SPLITTER RESIZE BAR (ENINI KENG VA TOR QILISH UCHUN SURING) -->
+    <div class="column-splitter" id="columnSplitter" title="Chap va o'ng oynani kengaytirish / toraytirish uchun suring (Drag left/right to resize columns)">
+      <div class="splitter-line"></div>
+    </div>
+
     <!-- 2.2 RIGHT COLUMN: REALISTIC SMARTPHONE SIMULATOR (IMAGE 1 & 3) -->
-    <aside class="right-pane">
+    <aside class="right-pane" id="rightPane">
       <div id="phoneSimContainer"></div>
     </aside>
 
@@ -193,13 +213,13 @@
   <!-- =========================================================================
        3. SCRIPTS & DEPENDENCIES
        ========================================================================= -->
-  <script src="../shared/java-analyzer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="../shared/java-runner.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="../shared/uml-renderer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="../shared/solution-renderer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="challenges-practical-40.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="simulator-engine.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
-  <script src="game.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="../shared/java-analyzer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="../shared/java-runner.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="../shared/uml-renderer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="../shared/solution-renderer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="challenges-practical-40.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="simulator-engine.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="game.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
 </body>
 </html>

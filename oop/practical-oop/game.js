@@ -625,7 +625,191 @@
       });
     }
 
-    // 8. Initial Challenge Render
+    // 8. Code Editor Width & Height Controls (Keng va Tor Qilish)
+    const btnEditorWide = document.getElementById("btnEditorWide");
+    const btnEditorWideIcon = document.getElementById("btnEditorWideIcon");
+    const btnEditorWideText = document.getElementById("btnEditorWideText");
+    const workspace = document.querySelector(".workspace");
+    const columnSplitter = document.getElementById("columnSplitter");
+
+    // 8.1 Enini Keng / Tor Qilish (Full width toggle)
+    if (btnEditorWide && workspace) {
+      btnEditorWide.addEventListener("click", () => {
+        const isWide = workspace.classList.toggle("editor-wide-mode");
+        if (isWide) {
+          if (btnEditorWideIcon) btnEditorWideIcon.textContent = "⇆";
+          if (btnEditorWideText) btnEditorWideText.textContent = "Toraytirish (Split)";
+          btnEditorWide.classList.add("active");
+        } else {
+          if (btnEditorWideIcon) btnEditorWideIcon.textContent = "↔";
+          if (btnEditorWideText) btnEditorWideText.textContent = "Keng Ekran";
+          btnEditorWide.classList.remove("active");
+        }
+      });
+    }
+
+    // 8.2 Ustunlar Oralig'ini Sichqoncha Bilan Erkin Surish (Column Splitter Drag)
+    if (columnSplitter && workspace) {
+      let isSplitterDragging = false;
+      let startSplitterX = 0;
+      let initialRightW = 360;
+
+      function onSplitterStart(clientX) {
+        isSplitterDragging = true;
+        startSplitterX = clientX;
+        const rightPane = document.getElementById("rightPane");
+        if (rightPane) {
+          initialRightW = rightPane.getBoundingClientRect().width;
+        }
+        columnSplitter.classList.add("active");
+        document.body.style.cursor = "col-resize";
+        document.body.style.userSelect = "none";
+      }
+
+      function onSplitterMove(clientX) {
+        if (!isSplitterDragging) return;
+        const deltaX = clientX - startSplitterX;
+        const newRightW = Math.min(520, Math.max(220, initialRightW - deltaX));
+        workspace.style.gridTemplateColumns = `minmax(0, 1fr) 10px ${newRightW}px`;
+      }
+
+      function onSplitterEnd() {
+        if (!isSplitterDragging) return;
+        isSplitterDragging = false;
+        columnSplitter.classList.remove("active");
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
+      }
+
+      columnSplitter.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        onSplitterStart(e.clientX);
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        onSplitterMove(e.clientX);
+      });
+
+      window.addEventListener("mouseup", () => {
+        onSplitterEnd();
+      });
+
+      columnSplitter.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          onSplitterStart(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchmove", (e) => {
+        if (isSplitterDragging && e.touches.length === 1) {
+          onSplitterMove(e.touches[0].clientX);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchend", () => {
+        onSplitterEnd();
+      });
+    }
+
+    // 8.3 Bo'yini Keng / Tor Qilish (Height Controls & Drag Handle)
+    const codeWrapper = document.querySelector(".code-wrapper");
+    const btnEditorHMin = document.getElementById("btnEditorHMin");
+    const btnEditorHNorm = document.getElementById("btnEditorHNorm");
+    const btnEditorHMax = document.getElementById("btnEditorHMax");
+    const editorResizeHandle = document.getElementById("editorResizeHandle");
+
+    function setEditorHeight(h) {
+      if (!codeWrapper) return;
+      codeWrapper.style.height = `${h}px`;
+      if (btnEditorHMin) btnEditorHMin.classList.toggle("active", h <= 180);
+      if (btnEditorHNorm) btnEditorHNorm.classList.toggle("active", h > 180 && h < 380);
+      if (btnEditorHMax) btnEditorHMax.classList.toggle("active", h >= 380);
+      if (window.JavaEditorEnhancer) {
+        window.JavaEditorEnhancer.syncScroll();
+      }
+    }
+
+    if (btnEditorHMin) btnEditorHMin.addEventListener("click", () => setEditorHeight(170));
+    if (btnEditorHNorm) btnEditorHNorm.addEventListener("click", () => setEditorHeight(260));
+    if (btnEditorHMax) btnEditorHMax.addEventListener("click", () => setEditorHeight(460));
+
+    // Double-click editor header toggles between normal and tall
+    const editorHeader = document.getElementById("editorHeader");
+    if (editorHeader) {
+      editorHeader.addEventListener("dblclick", (e) => {
+        // Only if target is not a button
+        if (e.target.closest("button")) return;
+        if (!codeWrapper) return;
+        const currentH = codeWrapper.getBoundingClientRect().height;
+        if (currentH < 300) {
+          setEditorHeight(460);
+        } else {
+          setEditorHeight(260);
+        }
+      });
+    }
+
+    // Vertical Drag Handle for Code Wrapper
+    if (editorResizeHandle && codeWrapper) {
+      let isEditorResizing = false;
+      let startEditorY = 0;
+      let startEditorH = 260;
+
+      function onEditorResizeStart(clientY) {
+        isEditorResizing = true;
+        startEditorY = clientY;
+        startEditorH = codeWrapper.getBoundingClientRect().height;
+        editorResizeHandle.classList.add("active");
+        document.body.style.cursor = "ns-resize";
+        document.body.style.userSelect = "none";
+      }
+
+      function onEditorResizeMove(clientY) {
+        if (!isEditorResizing) return;
+        const deltaY = clientY - startEditorY;
+        const newH = Math.min(640, Math.max(140, startEditorH + deltaY));
+        setEditorHeight(newH);
+      }
+
+      function onEditorResizeEnd() {
+        if (!isEditorResizing) return;
+        isEditorResizing = false;
+        editorResizeHandle.classList.remove("active");
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
+      }
+
+      editorResizeHandle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        onEditorResizeStart(e.clientY);
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        onEditorResizeMove(e.clientY);
+      });
+
+      window.addEventListener("mouseup", () => {
+        onEditorResizeEnd();
+      });
+
+      editorResizeHandle.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          onEditorResizeStart(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchmove", (e) => {
+        if (isEditorResizing && e.touches.length === 1) {
+          onEditorResizeMove(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchend", () => {
+        onEditorResizeEnd();
+      });
+    }
+
+    // 9. Initial Challenge Render
     switchChallenge(currentQIndex);
   });
 })();
