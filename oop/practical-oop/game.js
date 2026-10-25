@@ -809,7 +809,101 @@
       });
     }
 
-    // 9. Initial Challenge Render
+    // 9. Task Scenario Box Width & Height Controls (Keng va Tor Qilish)
+    const taskScenario = document.getElementById("taskScenario");
+    const taskResizeHandle = document.getElementById("taskResizeHandle");
+    const taskTitleBar = document.getElementById("taskTitleBar");
+    const btnTaskHMin = document.getElementById("btnTaskHMin");
+    const btnTaskHNorm = document.getElementById("btnTaskHNorm");
+    const btnTaskHMax = document.getElementById("btnTaskHMax");
+
+    function setTaskHeight(h) {
+      if (!taskScenario) return;
+      taskScenario.style.height = `${h}px`;
+      if (btnTaskHMin) btnTaskHMin.classList.toggle("active", h <= 80);
+      if (btnTaskHNorm) btnTaskHNorm.classList.toggle("active", h > 80 && h < 240);
+      if (btnTaskHMax) btnTaskHMax.classList.toggle("active", h >= 240);
+    }
+
+    if (btnTaskHMin) btnTaskHMin.addEventListener("click", () => setTaskHeight(75));
+    if (btnTaskHNorm) btnTaskHNorm.addEventListener("click", () => setTaskHeight(140));
+    if (btnTaskHMax) btnTaskHMax.addEventListener("click", () => setTaskHeight(300));
+
+    // Double-click title bar toggles between normal and full task height
+    if (taskTitleBar) {
+      taskTitleBar.addEventListener("dblclick", (e) => {
+        if (e.target.closest("button")) return;
+        if (!taskScenario) return;
+        const currentH = taskScenario.getBoundingClientRect().height;
+        if (currentH < 180) {
+          setTaskHeight(300);
+        } else {
+          setTaskHeight(140);
+        }
+      });
+    }
+
+    // Vertical Drag Handle for Task Scenario Box
+    if (taskResizeHandle && taskScenario) {
+      let isTaskResizing = false;
+      let startTaskY = 0;
+      let startTaskH = 140;
+
+      function onTaskResizeStart(clientY) {
+        isTaskResizing = true;
+        startTaskY = clientY;
+        startTaskH = taskScenario.getBoundingClientRect().height;
+        taskResizeHandle.classList.add("active");
+        document.body.style.cursor = "ns-resize";
+        document.body.style.userSelect = "none";
+      }
+
+      function onTaskResizeMove(clientY) {
+        if (!isTaskResizing) return;
+        const deltaY = clientY - startTaskY;
+        const newH = Math.min(500, Math.max(60, startTaskH + deltaY));
+        setTaskHeight(newH);
+      }
+
+      function onTaskResizeEnd() {
+        if (!isTaskResizing) return;
+        isTaskResizing = false;
+        taskResizeHandle.classList.remove("active");
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
+      }
+
+      taskResizeHandle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        onTaskResizeStart(e.clientY);
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        onTaskResizeMove(e.clientY);
+      });
+
+      window.addEventListener("mouseup", () => {
+        onTaskResizeEnd();
+      });
+
+      taskResizeHandle.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          onTaskResizeStart(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchmove", (e) => {
+        if (isTaskResizing && e.touches.length === 1) {
+          onTaskResizeMove(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchend", () => {
+        onTaskResizeEnd();
+      });
+    }
+
+    // 10. Initial Challenge Render
     switchChallenge(currentQIndex);
   });
 })();

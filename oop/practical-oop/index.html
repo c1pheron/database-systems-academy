@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE">
+  <link rel="stylesheet" href="styles.css?v=20261026_V9_TASK_RESIZABLE_EXP">
 </head>
 <body>
 
@@ -51,9 +51,17 @@
     <section class="left-pane">
       
       <!-- TASK CARD (EXACT IMAGE 2 FORMAT + LIVE ER / UML TOGGLE) -->
-      <article class="task-card">
-        <div class="tier-title-bar">
-          <span class="tier-badge" id="tierBadge">1-Bosqich: Klasslar va Obyektlar</span>
+      <article class="task-card" id="taskCard">
+        <div class="tier-title-bar" id="taskTitleBar">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="tier-badge" id="tierBadge">1-Bosqich: Klasslar va Obyektlar</span>
+            <!-- Task Box Height Controls (Bo'yini Keng / Tor Qilish) -->
+            <div class="task-size-ctrls" id="taskSizeCtrls" title="Masala matni balandligi (Bo'yini keng / tor qilish)">
+              <button id="btnTaskHMin" class="btn-term-ctrl" type="button" title="Tor / Ixcham (75px)">−</button>
+              <button id="btnTaskHNorm" class="btn-term-ctrl active" type="button" title="Standart (140px)">◻</button>
+              <button id="btnTaskHMax" class="btn-term-ctrl" type="button" title="Keng / To'liq (300px)">▲</button>
+            </div>
+          </div>
 
           <!-- View Toggle: [ 📝 Masala ] | [ 📊 Jonli ER Diagramma ] -->
           <div class="view-toggle-group">
@@ -73,6 +81,10 @@
           <h1 class="task-title" id="taskTitle">Yuklanmoqda...</h1>
           <div class="task-scenario-box" id="taskScenario">
             Topshiriq yuklanmoqda...
+          </div>
+          <!-- Drag-to-resize handle for Task Box -->
+          <div class="task-resize-handle" id="taskResizeHandle" title="Masala matni balandligini erkin surish uchun torting (Drag to resize height)">
+            <span class="resize-grip-line"></span>
           </div>
         </div>
 
@@ -213,13 +225,13 @@
   <!-- =========================================================================
        3. SCRIPTS & DEPENDENCIES
        ========================================================================= -->
-  <script src="../shared/java-analyzer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="../shared/java-runner.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="../shared/uml-renderer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="../shared/solution-renderer.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="challenges-practical-40.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="simulator-engine.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
-  <script src="game.js?v=20261026_V8_EDITOR_WIDE_NARROW_RESIZABLE"></script>
+  <script src="../shared/java-analyzer.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="../shared/java-runner.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="../shared/uml-renderer.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="../shared/solution-renderer.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="challenges-practical-40.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="simulator-engine.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
+  <script src="game.js?v=20261026_V9_TASK_RESIZABLE_EXP"></script>
 </body>
 </html>
