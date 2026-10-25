@@ -1,6 +1,7 @@
 /**
  * ============================================================================
- * PRACTICAL OOP — 4 MASTER PILLARS GAME ENGINE
+ * PRACTICAL OOP — 4 MASTER PILLARS GAME ENGINE (PROFESSOR ADA)
+ * Complete IntelliJ Darcula Integration, JavaEditorEnhancer & Live FinTech Simulator
  * ============================================================================
  */
 
@@ -11,9 +12,12 @@
   let currentQIndex = 0;
   let activeTier = 1; // 1: Encapsulation, 2: Inheritance, 3: Polymorphism, 4: Abstraction
   const solvedQuestions = new Set();
+  let currentLang = "uz";
+
   const STORAGE_KEY_SOLVED = "oop_practical_solved_questions";
   const STORAGE_KEY_CURRENT = "oop_practical_current_q";
   const STORAGE_PREFIX_CODE = "oop_practical_code_q_";
+  const STORAGE_KEY_LANG = "OOP_LANG";
 
   function normalizeJavaCode(str) {
     return (str || "")
@@ -23,7 +27,16 @@
       .trim();
   }
 
+  function getSavedLang() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY_LANG) || localStorage.getItem("DS_ACADEMY_LANG");
+      if (saved === "ru" || saved === "en" || saved === "uz") return saved;
+    } catch (e) {}
+    return "uz";
+  }
+
   function loadState() {
+    currentLang = getSavedLang();
     try {
       const savedSolved = localStorage.getItem(STORAGE_KEY_SOLVED);
       if (savedSolved) {
@@ -46,6 +59,7 @@
     try {
       localStorage.setItem(STORAGE_KEY_SOLVED, JSON.stringify([...solvedQuestions]));
       localStorage.setItem(STORAGE_KEY_CURRENT, currentQIndex.toString());
+      localStorage.setItem(STORAGE_KEY_LANG, currentLang);
     } catch (e) {
       console.warn("Storage save error:", e);
     }
@@ -77,7 +91,7 @@
       dot.type = "button";
       dot.className = "q-dot";
       dot.textContent = ch.id;
-      dot.title = ch.title.uz;
+      dot.title = (ch.title && ch.title[currentLang]) || ch.title?.uz || `Topshiriq ${ch.id}`;
 
       if (idx === currentQIndex) dot.classList.add("active");
       if (solvedQuestions.has(ch.id)) dot.classList.add("solved");
@@ -124,21 +138,60 @@
     saveState();
 
     const tierBadge = document.getElementById("tierBadge");
-    const taskTitle = document.getElementById("taskTitle");
-    const taskScenario = document.getElementById("taskScenario");
+    const problemTitle = document.getElementById("problemTitle");
+    const problemScenario = document.getElementById("problemScenario");
+    const sampleDataBox = document.getElementById("sampleDataBox");
     const codeEditor = document.getElementById("codeEditor");
-    const terminalBody = document.getElementById("terminalOutput");
+    const consoleOutput = document.getElementById("consoleOutput");
 
     if (tierBadge) tierBadge.textContent = ch.tierName;
-    if (taskTitle) taskTitle.textContent = ch.title.uz;
-    if (taskScenario) taskScenario.textContent = ch.scenario.uz;
-    if (codeEditor) codeEditor.value = loadSavedCode(ch);
-
-    if (terminalBody) {
-      terminalBody.className = "terminal-body";
-      terminalBody.textContent = "Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
+    if (problemTitle) {
+      problemTitle.textContent = (ch.title && ch.title[currentLang]) || ch.title?.uz || "";
     }
 
+    // Format rich scenario using SolutionRenderer or fallback
+    if (problemScenario) {
+      if (window.SolutionRenderer && typeof window.SolutionRenderer.formatScenarioHTML === "function") {
+        problemScenario.innerHTML = window.SolutionRenderer.formatScenarioHTML(ch, currentLang);
+      } else {
+        const text = (ch.scenario && ch.scenario[currentLang]) || ch.scenario?.uz || ch.scenario || "";
+        problemScenario.textContent = text;
+      }
+    }
+
+    // Sample Data box
+    if (sampleDataBox) {
+      if (ch.sampleData && Array.isArray(ch.sampleData)) {
+        sampleDataBox.innerHTML = `<strong>📋 Boshlang'ich qiymatlar:</strong><br>` + ch.sampleData.map(d => `• ${d}`).join('<br>');
+        sampleDataBox.style.display = "block";
+      } else {
+        sampleDataBox.style.display = "none";
+      }
+    }
+
+    // Load code into editor
+    if (codeEditor) {
+      codeEditor.value = loadSavedCode(ch);
+    }
+
+    // Update JavaEditorEnhancer
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.setChallenge(ch);
+      window.JavaEditorEnhancer.updateHighlighting();
+      window.JavaEditorEnhancer.syncScroll();
+      window.JavaEditorEnhancer.scanCodeForClasses();
+      window.JavaEditorEnhancer.renderChipsBar();
+    }
+
+    // Reset console output
+    if (consoleOutput) {
+      consoleOutput.className = "console-output";
+      consoleOutput.textContent = currentLang === "ru" 
+        ? "Готов. Напишите код и нажмите 'Проверить' или 'Симуляция'."
+        : (currentLang === "en" ? "Ready. Write your code and click 'Check' or 'Simulate'." : "Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.");
+    }
+
+    // Update Virtual Smartphone Simulator
     if (window.SimulatorEngine) {
       window.SimulatorEngine.setChallenge(ch);
     }
@@ -149,27 +202,37 @@
   function handleSimulate() {
     const ch = CHALLENGES[currentQIndex];
     const editor = document.getElementById("codeEditor");
-    const terminal = document.getElementById("terminalOutput");
-    if (!ch || !editor || !terminal) return;
+    const consoleOut = document.getElementById("consoleOutput");
+    if (!ch || !editor) return;
 
-    terminal.className = "terminal-body";
-    terminal.textContent = "⚡ Kod asosida jonli simulyatsiya ishga tushirildi...";
-
-    if (window.SimulatorEngine) {
-      window.SimulatorEngine.triggerAction(editor.value, "", true);
+    if (consoleOut) {
+      consoleOut.className = "console-output";
+      consoleOut.textContent = "⚡ Kod asosida jonli FinTech simulyatsiyasi ishga tushirildi...";
     }
 
-    terminal.textContent = "✅ Jonli virtual ekranda obyekt holati aks ettirildi! Kodni tekshirish uchun 'Tekshirish' tugmasini bosing.";
+    if (window.SimulatorEngine) {
+      window.SimulatorEngine.triggerAction(editor.value, ch.expectedOutput || "", true);
+    }
+
+    if (consoleOut) {
+      consoleOut.textContent = "✅ Smartfon ekranida obyekt holati aks ettirildi! Natijani tasdiqlash uchun 'Tekshirish' tugmasini bosing.";
+    }
+
+    // Switch to simulator tab on mobile if available
+    const mobTabSim = document.querySelector('.btn-vtab[data-view="simulator"]');
+    if (mobTabSim && window.innerWidth <= 992) {
+      mobTabSim.click();
+    }
   }
 
   async function handleInstantTest() {
     const ch = CHALLENGES[currentQIndex];
     const editor = document.getElementById("codeEditor");
-    const terminal = document.getElementById("terminalOutput");
-    if (!ch || !editor || !terminal) return;
+    const consoleOut = document.getElementById("consoleOutput");
+    if (!ch || !editor || !consoleOut) return;
 
-    terminal.className = "terminal-body";
-    terminal.textContent = "⏳ OpenJDK JVM da kompilyatsiya qilinmoqda va barcha OOP qoidalari tekshirilmoqda...";
+    consoleOut.className = "console-output";
+    consoleOut.textContent = "⏳ OpenJDK JVM da kompilyatsiya qilinmoqda va barcha OOP qoidalari tekshirilmoqda...";
 
     // 1. Static OOP Verification
     const validation = window.JavaRunner ? window.JavaRunner.validateOOPRules(editor.value, ch.requirements, ch) : { passed: true };
@@ -183,14 +246,14 @@
 
     // Syntax pre-check
     if (!isExactSolution && validation.syntaxErrors && validation.syntaxErrors.length > 0) {
-      terminal.className = "terminal-body error";
-      let msg = "❌ SINTAKTIK XATOLIK ANIQLANDI:\n\n";
+      consoleOut.className = "console-output";
+      let msg = "❌ SINTAKTIK XATOLIK ANIQLANDI:\n==================================================\n\n";
       validation.syntaxErrors.forEach(err => {
         msg += `📍 [${err.line}-Qator]: ${err.message}\n`;
         if (err.snippet) msg += `   Kodingiz: ${err.snippet}\n`;
         if (err.fix) msg += `   💡 Tavsiya: ${err.fix}\n\n`;
       });
-      terminal.textContent = msg;
+      consoleOut.textContent = msg;
       return;
     }
 
@@ -203,7 +266,7 @@
                      (isExactSolution && (runResult.success || runResult.networkError));
 
     if (isPassed) {
-      terminal.className = "terminal-body success";
+      consoleOut.className = "console-output";
       solvedQuestions.add(ch.id);
       saveState();
       renderHUD();
@@ -221,16 +284,16 @@
       }
       report += "\n⭐ Reytingingizga +50 XP qo'shildi!";
 
-      terminal.textContent = report;
+      consoleOut.textContent = report;
 
-      // Auto-advance to next challenge after 1.8 seconds if not last
+      // Auto-advance to next challenge after 2 seconds if not last
       if (currentQIndex < CHALLENGES.length - 1) {
         setTimeout(() => {
           switchChallenge(currentQIndex + 1);
-        }, 1800);
+        }, 2000);
       }
     } else {
-      terminal.className = "terminal-body error";
+      consoleOut.className = "console-output";
       let report = "❌ TOPSHIRIQ TO'LIQ YAKUNLANMAGAN:\n==================================================\n\n";
 
       if (!runResult.success && runResult.errors) {
@@ -248,25 +311,43 @@
         report += "📍 Dastur konsolga hech narsa chop etmadi. 'System.out.println(...)' orqali natijani chiqaring!\n";
       }
 
-      terminal.textContent = report;
+      consoleOut.textContent = report;
+    }
+  }
+
+  async function handleCloudRun() {
+    const editor = document.getElementById("codeEditor");
+    const consoleOut = document.getElementById("consoleOutput");
+    if (!editor || !consoleOut) return;
+
+    consoleOut.textContent = "☕ Haqiqiy OpenJDK 21 muhitiga yuborilmoqda...";
+    if (window.JavaRunner && typeof window.JavaRunner.runOnOpenJDK21 === "function") {
+      const res = await window.JavaRunner.runOnOpenJDK21(editor.value);
+      if (res.success) {
+        consoleOut.textContent = `[OpenJDK 21 CHIQQAN NATIJA]:\n${res.output || "(chiqish yo'q)"}`;
+      } else {
+        consoleOut.textContent = `[OpenJDK 21 XATOLIK]:\n${res.errors || res.output || "Noma'lum xatolik"}`;
+      }
+    } else {
+      consoleOut.textContent = "OpenJDK runner mavjud emas.";
     }
   }
 
   function handleShowSolution() {
     const ch = CHALLENGES[currentQIndex];
-    const editor = document.getElementById("codeEditor");
-    const terminal = document.getElementById("terminalOutput");
-    if (!ch || !editor) return;
+    if (!ch) return;
 
-    if (confirm("Rasmiy namunaviy yechimni ko'rmoqchimisiz?")) {
-      editor.value = ch.solution;
-      saveCurrentCode();
-      if (window.SimulatorEngine) {
-        window.SimulatorEngine.triggerAction(ch.solution, ch.expectedOutput, true);
-      }
-      if (terminal) {
-        terminal.className = "terminal-body";
-        terminal.textContent = "💡 Namunaviy yechim joylashtirildi. Endi 'Tekshirish' tugmasini bosib tekshirib ko'rishingiz mumkin.";
+    if (window.SolutionRenderer && typeof window.SolutionRenderer.openModal === "function") {
+      window.SolutionRenderer.openModal(ch, currentLang);
+    } else {
+      const editor = document.getElementById("codeEditor");
+      if (editor && confirm("Namunaviy yechimni muharrirga joylashtirmoqchimisiz?")) {
+        editor.value = ch.solution;
+        saveCurrentCode();
+        if (window.JavaEditorEnhancer) {
+          window.JavaEditorEnhancer.updateHighlighting();
+          window.JavaEditorEnhancer.syncScroll();
+        }
       }
     }
   }
@@ -279,28 +360,94 @@
     if (confirm("Kodni boshlang'ich holatga qaytarmoqchimisiz?")) {
       editor.value = ch.starterCode;
       saveCurrentCode();
+      if (window.JavaEditorEnhancer) {
+        window.JavaEditorEnhancer.updateHighlighting();
+        window.JavaEditorEnhancer.syncScroll();
+      }
       if (window.SimulatorEngine) {
         window.SimulatorEngine.setChallenge(ch);
       }
     }
   }
 
+  function handleNextChallenge() {
+    if (currentQIndex < CHALLENGES.length - 1) {
+      saveCurrentCode();
+      switchChallenge(currentQIndex + 1);
+    } else {
+      alert("🎉 Tabriklaymiz! Siz barcha 40 ta amaliy FinTech topshiriqlarini yakunladingiz!");
+    }
+  }
+
+  function setLanguage(lang) {
+    if (lang !== "uz" && lang !== "ru" && lang !== "en") return;
+    currentLang = lang;
+    saveState();
+
+    // Update buttons active class
+    const btnUz = document.getElementById("btnLangUz");
+    const btnRu = document.getElementById("btnLangRu");
+    const btnEn = document.getElementById("btnLangEn");
+
+    if (btnUz) btnUz.className = lang === "uz" ? "btn-lang active" : "btn-lang";
+    if (btnRu) btnRu.className = lang === "ru" ? "btn-lang active" : "btn-lang";
+    if (btnEn) btnEn.className = lang === "en" ? "btn-lang active" : "btn-lang";
+
+    // Re-render current challenge in new language
+    switchChallenge(currentQIndex);
+  }
+
+  // Mobile view switching
+  function initMobileViews() {
+    const tabs = document.querySelectorAll(".btn-vtab");
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        const view = tab.dataset.view;
+
+        const paneTask = document.getElementById("paneTask");
+        const paneEditor = document.getElementById("paneEditor");
+        const paneSimulator = document.getElementById("paneSimulator");
+
+        if (paneTask) paneTask.classList.remove("active");
+        if (paneEditor) paneEditor.classList.remove("active");
+        if (paneSimulator) paneSimulator.classList.remove("active");
+
+        if (view === "task" && paneTask) paneTask.classList.add("active");
+        if (view === "editor" && paneEditor) {
+          paneEditor.classList.add("active");
+          if (window.JavaEditorEnhancer) {
+            window.JavaEditorEnhancer.syncScroll();
+            window.JavaEditorEnhancer.updateHighlighting();
+          }
+        }
+        if (view === "simulator" && paneSimulator) paneSimulator.classList.add("active");
+      });
+    });
+  }
+
   // --- INITIALIZATION ---
   document.addEventListener("DOMContentLoaded", () => {
     loadState();
 
+    // 1. Initialize Simulator Engine
     const simContainer = document.getElementById("phoneSimContainer");
     if (simContainer && window.SimulatorEngine) {
       window.SimulatorEngine.init(simContainer);
     }
 
-    // Bind Pillar Tabs
+    // 2. Initialize JavaEditorEnhancer
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.init("codeEditor", CHALLENGES[currentQIndex]);
+    }
+
+    // 3. Bind Pillar Category Tabs
     const tabs = document.querySelectorAll(".tier-tab-btn");
     tabs.forEach(tab => {
       tab.addEventListener("click", () => {
         const tier = parseInt(tab.dataset.tier, 10);
         activeTier = tier;
-        // Jump to first question of that tier
         const firstIdx = CHALLENGES.findIndex(c => c.tier === tier);
         if (firstIdx !== -1) {
           saveCurrentCode();
@@ -309,21 +456,37 @@
       });
     });
 
-    // Bind Buttons
+    // 4. Bind Toolbar Buttons
     const btnSimulate = document.getElementById("btnSimulate");
-    const btnTest = document.getElementById("btnTest");
-    const btnSolution = document.getElementById("btnSolution");
-    const btnReset = document.getElementById("btnReset");
+    const btnTest = document.getElementById("btnInstantTest");
+    const btnSolution = document.getElementById("btnToolbarSolution");
+    const btnReset = document.getElementById("btnResetCode");
+    const btnCloud = document.getElementById("btnCloudRun");
+    const btnNext = document.getElementById("btnNextChallenge");
 
     if (btnSimulate) btnSimulate.addEventListener("click", handleSimulate);
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnSolution) btnSolution.addEventListener("click", handleShowSolution);
     if (btnReset) btnReset.addEventListener("click", handleResetCode);
+    if (btnCloud) btnCloud.addEventListener("click", handleCloudRun);
+    if (btnNext) btnNext.addEventListener("click", handleNextChallenge);
 
-    // Initial render
+    // 5. Language Switchers
+    const btnUz = document.getElementById("btnLangUz");
+    const btnRu = document.getElementById("btnLangRu");
+    const btnEn = document.getElementById("btnLangEn");
+
+    if (btnUz) btnUz.addEventListener("click", () => setLanguage("uz"));
+    if (btnRu) btnRu.addEventListener("click", () => setLanguage("ru"));
+    if (btnEn) btnEn.addEventListener("click", () => setLanguage("en"));
+
+    // 6. Mobile View Switcher
+    initMobileViews();
+
+    // 7. Initial Challenge Render
     switchChallenge(currentQIndex);
 
-    // Auto-save code on typing
+    // 8. Auto-save code on typing
     const editor = document.getElementById("codeEditor");
     if (editor) {
       editor.addEventListener("input", () => {

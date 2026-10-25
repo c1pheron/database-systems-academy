@@ -137,6 +137,18 @@
         elVal.textContent = `${state.moduleProgress[w]} / 150`;
       }
     }
+
+    // Practical OOP Stat value
+    try {
+      const rawPractical = localStorage.getItem("oop_practical_solved_questions");
+      let pCount = 0;
+      if (rawPractical) {
+        const arr = JSON.parse(rawPractical);
+        if (Array.isArray(arr)) pCount = arr.length;
+      }
+      const elPractical = document.getElementById("practicalProgressVal");
+      if (elPractical) elPractical.textContent = `${pCount} / 40`;
+    } catch (e) {}
   }
 
   // Listen to Language Change

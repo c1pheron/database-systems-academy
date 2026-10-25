@@ -2,122 +2,14 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Practical OOP: 4 Ta Asosiy Ustun (The 4 Pillars) • Uzum &amp; Payme Ekosistemasi | SeventyOne+</title>
-
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261026_P1">
+  <meta http-equiv="refresh" content="0; url=../oop/practical-oop/index.html">
+  <title>Yo'naltirilmoqda... • Practical OOP</title>
+  <script>
+    window.location.replace('../oop/practical-oop/index.html');
+  </script>
 </head>
-<body>
-
-  <!-- TOP NAV BAR -->
-  <header class="top-nav">
-    <div class="nav-left">
-      <a href="../index.html" class="btn-nav" title="SeventyOne+ Bosh sahifasiga qaytish">← Asosiy Portal</a>
-      <div class="brand-badge" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2)); border-color: rgba(16, 185, 129, 0.4);">
-        <span>🚀 Practical OOP (4 Pillars)</span>
-        <span class="beta-tag" style="background: #10b981; color: #064e3b;">FINTECH MASTER</span>
-      </div>
-    </div>
-    <div class="nav-right">
-      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">O'zlashtirish: <strong id="hudProgress" style="color: #10b981;">0 / 40</strong></span>
-      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Reyting: <strong id="hudScore" style="color: #f59e0b;">0 XP</strong></span>
-      <a href="../oop/index.html" class="btn-nav" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">☕ OOP Moduli</a>
-    </div>
-  </header>
-
-  <!-- 4 PILLARS CATEGORY TABS -->
-  <div class="tier-tabs-bar">
-    <button class="tier-tab-btn active" data-tier="1" type="button">
-      <span>🔒</span> <span>1. Inkapsulyatsiya (1-10)</span>
-    </button>
-    <button class="tier-tab-btn" data-tier="2" type="button">
-      <span>🧬</span> <span>2. Vorislik (11-20)</span>
-    </button>
-    <button class="tier-tab-btn" data-tier="3" type="button">
-      <span>🎭</span> <span>3. Polimorfizm (21-30)</span>
-    </button>
-    <button class="tier-tab-btn" data-tier="4" type="button">
-      <span>🏛️</span> <span>4. Abstraksiya (31-40)</span>
-    </button>
-  </div>
-
-  <!-- PROGRESS 10 DOTS FOR CURRENT PILLAR -->
-  <nav class="progress-strip" id="progressStrip"></nav>
-
-  <!-- MAIN DUAL-PANE WORKSPACE -->
-  <main class="workspace">
-    <!-- LEFT: TASK & CODE EDITOR -->
-    <section class="left-pane">
-      <!-- TASK CARD -->
-      <article class="task-card">
-        <div class="tier-title-bar">
-          <span class="tier-badge" id="tierBadge">1-Ustun: INKAPSULYATSIYA</span>
-          <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono', monospace;">WIUT 5COSC018C • FinTech</span>
-        </div>
-        <h1 class="task-title" id="taskTitle">Yuklanmoqda...</h1>
-        <div class="task-scenario-box" id="taskScenario">
-          Topshiriq yuklanmoqda...
-        </div>
-      </article>
-
-      <!-- CODE EDITOR CARD -->
-      <article class="editor-card">
-        <div class="editor-header">
-          <div class="editor-filename">
-            <span>☕</span>
-            <span>Solution.java (OpenJDK 21)</span>
-          </div>
-          <div class="editor-actions">
-            <button id="btnReset" class="btn-icon" type="button" title="Kodni boshlang'ich holatga qaytarish">🔄 Boshlang'ich kod</button>
-            <button id="btnSolution" class="btn-icon" type="button" title="Namunaviy yechimni ko'rish">💡 Yechim</button>
-          </div>
-        </div>
-        <div class="code-wrapper">
-          <textarea id="codeEditor" spellcheck="false" placeholder="// Java kodingizni bu yerga yozing..."></textarea>
-        </div>
-        <div class="action-bar">
-          <div class="action-bar-left">
-            <button id="btnSimulate" class="btn-simulate" type="button" title="Virtual smartfonda natijani darhol ko'rish">
-              <span>⚡</span> Sinab Ko'rish (Simulate)
-            </button>
-            <button id="btnTest" class="btn-primary" type="button" title="OpenJDK da tekshirish va keyingi bosqichga o'tish">
-              <span>🚀</span> Tekshirish (Check & Next)
-            </button>
-          </div>
-          <span style="font-size:11px; color:#64748b;">Fast-Path & Dual OpenJDK Engine</span>
-        </div>
-      </article>
-
-      <!-- TERMINAL CONSOLE -->
-      <article class="terminal-card">
-        <div class="terminal-header">
-          <span>💻 OpenJDK Java Terminal / Tahlil</span>
-          <span style="font-size:10px; color:#64748b;">OpenJDK 21.0.4 Sandbox</span>
-        </div>
-        <div id="terminalOutput" class="terminal-body">
-          Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.
-        </div>
-      </article>
-    </section>
-
-    <!-- RIGHT: SMARTPHONE SIMULATOR -->
-    <aside class="right-pane">
-      <div id="phoneSimContainer"></div>
-    </aside>
-  </main>
-
-  <!-- DEPENDENCIES & SCRIPTS -->
-  <script src="../oop/shared/java-analyzer.js?v=20261025_W4_FIXED"></script>
-  <script src="../oop/shared/java-runner.js?v=20261025_W4_FIXED"></script>
-  <script src="challenges-practical-40.js?v=20261026_P1"></script>
-  <script src="simulator-engine.js?v=20261026_P1"></script>
-  <script src="game.js?v=20261026_P1"></script>
+<body style="background:#0b081d; color:#e2e8f0; font-family:sans-serif; text-align:center; padding-top:15vh;">
+  <h2>🚀 Practical OOP moduli OOP bo'limiga ko'chirildi...</h2>
+  <p><a href="../oop/practical-oop/index.html" style="color:#10b981; font-weight:bold;">Agar avtomatik o'tmasa, bu yerga bosing →</a></p>
 </body>
 </html>
