@@ -369,7 +369,7 @@ class Order {
 
       if (!isAlreadyInit) {
         container.innerHTML = `
-          <div class="uml-canvas-wrapper" style="position:relative; width:100%; height:100%; min-height:360px; background:#0c0a18; overflow:hidden; border-radius:8px; border:1px solid #221c40; display:flex; flex-direction:column; user-select:none; -webkit-user-select:none;">
+          <div class="uml-canvas-wrapper" style="position:relative; width:100%; height:100%; min-height:0; background:#0c0a18; overflow:hidden; border-radius:8px; border:1px solid #221c40; display:flex; flex-direction:column; user-select:none; -webkit-user-select:none;">
             <!-- Top Status Bar -->
             <div class="uml-status-bar" style="display:flex; align-items:center; justify-content:space-between; padding:8px 14px; background:#100d21; border-bottom:1px solid #221c40; font-size:11.5px; z-index:5; flex-shrink:0;">
               <div style="display:flex; align-items:center; gap:8px;">
@@ -769,17 +769,19 @@ class Order {
       const viewport = container.querySelector("#umlViewport");
       if (!viewport) return;
 
-      const vw = viewport.clientWidth || 400;
-      const vh = viewport.clientHeight || 340;
+      const vw = viewport.clientWidth || container.clientWidth || 400;
+      const vh = viewport.clientHeight || container.clientHeight || 200;
       const tw = this.state.totalWidth || 600;
-      const th = this.state.totalHeight || 400;
+      const th = this.state.totalHeight || 300;
 
-      const fitZoom = Math.min((vw - 40) / tw, (vh - 40) / th, 1.25);
-      const safeZoom = Math.max(0.35, fitZoom);
+      const zoomX = (vw - 24) / tw;
+      const zoomY = (vh - 24) / th;
+      const fitZoom = Math.min(zoomX, zoomY, 1.15);
+      const safeZoom = Math.min(1.15, Math.max(0.25, fitZoom));
 
       this.state.zoom = safeZoom;
-      this.state.panX = Math.max(10, (vw - tw * safeZoom) / 2);
-      this.state.panY = Math.max(10, (vh - th * safeZoom) / 2);
+      this.state.panX = Math.max(6, (vw - tw * safeZoom) / 2);
+      this.state.panY = Math.max(6, (vh - th * safeZoom) / 2);
       this.updateTransform(containerId);
     },
 

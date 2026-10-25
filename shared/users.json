@@ -1,0 +1,63 @@
+{
+  "users": {
+    "8715311673": {
+      "id": 8715311673,
+      "first_name": "Sardor Raimov",
+      "last_name": "",
+      "username": "@sardor_raimov",
+      "language_code": "en",
+      "first_seen": "2026-10-21T19:06:30.906Z",
+      "last_seen": "2026-10-21T19:45:59.284Z",
+      "interactions": 12,
+      "last_action": "/reyting",
+      "totalSolved": 45,
+      "totalScore": 2250,
+      "modules": {
+        "ds": {
+          "solved": 15,
+          "score": 750
+        },
+        "os": {
+          "solved": 12,
+          "score": 600
+        },
+        "oop": {
+          "solved": 18,
+          "score": 900
+        }
+      }
+    },
+    "7801207111": {
+      "id": 7801207111,
+      "first_name": "Infinite Vision",
+      "last_name": "",
+      "username": "@infinitevisionai_support",
+      "language_code": "en",
+      "first_seen": "2026-10-21T18:58:01.614Z",
+      "last_seen": "2026-10-21T19:45:59.284Z",
+      "interactions": 6,
+      "last_action": "/help",
+      "totalSolved": 38,
+      "totalScore": 1900,
+      "modules": {
+        "ds": {
+          "solved": 12,
+          "score": 600
+        },
+        "os": {
+          "solved": 11,
+          "score": 550
+        },
+        "oop": {
+          "solved": 15,
+          "score": 750
+        }
+      }
+    }
+  },
+  "stats": {
+    "total_users": 2,
+    "created_at": "2026-10-21T18:57:13.361Z",
+    "last_updated": "2026-10-21T19:45:59.284Z"
+  }
+}

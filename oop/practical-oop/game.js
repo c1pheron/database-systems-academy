@@ -436,7 +436,23 @@
         taskTextPanel.style.display = "none";
         taskUmlPanel.style.display = "flex";
         updateUMLDiagram();
+        setTimeout(() => {
+          if (window.UMLRenderer) {
+            window.UMLRenderer.fitToView("umlContainer");
+          }
+        }, 60);
       });
+    }
+
+    // Mouse wheel horizontal scroll on question dots strip
+    const progressStrip = document.getElementById("progressStrip");
+    if (progressStrip) {
+      progressStrip.addEventListener("wheel", (e) => {
+        if (e.deltaY !== 0) {
+          e.preventDefault();
+          progressStrip.scrollLeft += e.deltaY;
+        }
+      }, { passive: false });
     }
 
     // 4. Bind Final vs Topshiriq vs O'zimniki UML Buttons
@@ -450,6 +466,11 @@
       if (btnUmlTask) btnUmlTask.classList.toggle("active", mode === "task");
       if (btnUmlLive) btnUmlLive.classList.toggle("active", mode === "live");
       updateUMLDiagram();
+      setTimeout(() => {
+        if (window.UMLRenderer) {
+          window.UMLRenderer.fitToView("umlContainer");
+        }
+      }, 50);
     }
 
     if (btnUmlTarget) btnUmlTarget.addEventListener("click", () => setUmlMode("target"));

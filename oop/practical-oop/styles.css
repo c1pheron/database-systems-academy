@@ -131,27 +131,28 @@ body {
    PROGRESS STRIP (HORIZONTAL NUMBERED CIRCULAR DOTS)
    ========================================================================== */
 .progress-strip {
-  background: #090d1a;
-  border-bottom: 1px solid var(--panel-border);
-  padding: 8px 16px;
+  background: transparent;
+  padding: 0 10px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex: 1;
+  max-width: 640px;
+  margin: 0 10px;
 }
 .progress-strip::-webkit-scrollbar {
-  height: 4px;
-}
-.progress-strip::-webkit-scrollbar-thumb {
-  background: rgba(168, 85, 247, 0.3);
-  border-radius: 4px;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .q-dot {
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
   border-radius: 50%;
   background: #1e293b;
   border: 1px solid rgba(148, 163, 184, 0.2);
@@ -195,12 +196,13 @@ body {
 .workspace {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 16px;
-  padding: 16px;
-  max-width: 1560px;
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 26vw, 380px);
+  gap: 14px;
+  padding: 12px 16px;
+  max-width: 1600px;
   margin: 0 auto;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -208,6 +210,8 @@ body {
     grid-template-columns: 1fr;
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    gap: 12px;
   }
 }
 
@@ -215,9 +219,10 @@ body {
    LEFT COLUMN: TASK CARD, CODE EDITOR, TERMINAL
    ========================================================================== */
 .left-pane {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 /* 1. TASK CARD (EXACT IMAGE 2 FORMAT) */
@@ -226,28 +231,28 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--panel-border);
-  border-radius: 14px;
-  padding: 18px 20px;
+  border-radius: 12px;
+  padding: 12px 16px;
 }
 
 .tier-title-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .tier-badge {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--accent-cyan);
   background: rgba(6, 182, 212, 0.12);
-  padding: 3px 10px;
-  border-radius: 12px;
+  padding: 2.5px 8px;
+  border-radius: 10px;
   border: 1px solid rgba(6, 182, 212, 0.3);
 }
 
@@ -268,7 +273,7 @@ body {
   font-family: var(--font-main);
   font-size: 11px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 9px;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
@@ -286,22 +291,24 @@ body {
 }
 
 .task-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 800;
   color: #fff;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  margin-bottom: 8px;
+  line-height: 1.35;
 }
 
 .task-scenario-box {
   background: rgba(10, 15, 30, 0.6);
   border: 1px solid rgba(148, 163, 184, 0.1);
-  border-radius: 10px;
-  padding: 14px;
-  font-size: 13.5px;
-  line-height: 1.6;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  line-height: 1.55;
   color: #cbd5e1;
   white-space: pre-line;
+  max-height: 140px;
+  overflow-y: auto;
 }
 
 /* JONLI ER / UML DIAGRAMMA PANEL */
@@ -319,7 +326,7 @@ body {
   background: rgba(10, 15, 30, 0.6);
   border: 1px solid rgba(148, 163, 184, 0.1);
   border-radius: 8px;
-  padding: 6px 10px;
+  padding: 5px 8px;
 }
 .uml-mode-buttons {
   display: inline-flex;
@@ -333,7 +340,7 @@ body {
   font-family: var(--font-main);
   font-size: 11px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 6px;
   cursor: pointer;
   display: inline-flex;
@@ -348,7 +355,7 @@ body {
   background: linear-gradient(135deg, #10b981, #059669);
   color: #fff;
   border-color: #34d399;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 10px rgba(16 bag, 185, 129, 0.5);
 }
 .btn-uml-mode.active#btnUmlTask {
   background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -369,8 +376,8 @@ body {
 }
 .uml-display-box {
   width: 100%;
-  height: 270px;
-  min-height: 230px;
+  height: clamp(170px, 22vh, 230px);
+  min-height: 150px;
   background: #090d1a;
   border-radius: 10px;
   border: 1px solid rgba(168, 85, 247, 0.3);
@@ -546,8 +553,8 @@ body {
 .code-wrapper {
   position: relative;
   background: #0a0d18;
-  height: 320px;
-  min-height: 240px;
+  height: clamp(180px, 26vh, 280px);
+  min-height: 160px;
   display: flex;
   overflow: hidden;
 }
@@ -658,25 +665,27 @@ body {
 
 /* ACTION BUTTONS ROW */
 .action-bar {
-  padding: 12px 16px;
-  background: rgba(15, 23, 42, 0.9);
+  padding: 8px 14px;
+  background: rgba(15, 23, 42, 0.95);
   border-top: 1px solid var(--panel-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .action-bar-left {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .btn-primary {
   background: linear-gradient(135deg, var(--accent-purple), #9333ea);
   border: 1px solid #c084fc;
   color: #fff;
-  padding: 8px 16px;
+  padding: 6px 14px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
@@ -694,9 +703,9 @@ body {
   background: linear-gradient(135deg, #0284c7, #0369a1);
   border: 1px solid #38bdf8;
   color: #fff;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
@@ -712,13 +721,13 @@ body {
 .terminal-card {
   background: #090d1a;
   border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
 }
 .terminal-header {
-  background: rgba(15, 23, 42, 0.8);
-  padding: 8px 14px;
-  font-size: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 6px 12px;
+  font-size: 11.5px;
   font-weight: 600;
   color: #94a3b8;
   display: flex;
@@ -726,12 +735,12 @@ body {
   justify-content: space-between;
 }
 .terminal-body {
-  padding: 12px 14px;
+  padding: 8px 12px;
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: 12px;
+  line-height: 1.45;
   color: #cbd5e1;
-  max-height: 140px;
+  max-height: 90px;
   overflow-y: auto;
   white-space: pre-wrap;
 }
@@ -746,21 +755,32 @@ body {
    RIGHT COLUMN: REALISTIC SMARTPHONE SIMULATOR (EXACT IMAGE 1 & 3)
    ========================================================================== */
 .right-pane {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  position: sticky;
+  top: 64px;
 }
 
 .phone-frame {
   width: 100%;
-  max-width: 380px;
-  height: 640px;
+  max-width: 360px;
+  height: clamp(470px, calc(100vh - 84px), 600px);
   background: #0f172a;
-  border-radius: 44px;
-  border: 10px solid #1e293b;
+  border-radius: 36px;
+  border: 8px solid #1e293b;
   box-shadow: 
-    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 20px 50px rgba(0, 0, 0, 0.8),
     0 0 0 2px rgba(255, 255, 255, 0.08),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
     inset 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
