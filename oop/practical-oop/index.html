@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261026_V6_ADAPTIVE_RESPONSIVE">
+  <link rel="stylesheet" href="styles.css?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM">
 </head>
 <body>
 
@@ -90,14 +90,19 @@
                 <span>👨‍💻</span> <span>O'zimniki</span>
               </button>
             </div>
-            <span id="umlStatusHint" class="uml-status-hint">🏆 Final: Kutilayotgan klasslar ko'rsatilmoqda</span>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span id="umlStatusHint" class="uml-status-hint">🏆 Final: Kutilayotgan klasslar ko'rsatilmoqda</span>
+              <button id="btnReturnToEditor" class="btn-uml-return" type="button" title="Masala sharti va kod muharririga qaytish">
+                <span>📝</span> <span>Kodga Qaytish</span>
+              </button>
+            </div>
           </div>
           <div id="umlContainer" class="uml-display-box"></div>
         </div>
       </article>
 
       <!-- CODE EDITOR CARD (IMAGE 3 + AUTOCOMPLETE & DARCULA DOSKA) -->
-      <article class="editor-card">
+      <article class="editor-card" id="editorCard">
         <div class="editor-header">
           <div class="editor-filename">
             <span>☕</span>
@@ -151,11 +156,22 @@
         </div>
       </article>
 
-      <!-- TERMINAL CONSOLE CARD (IMAGE 3) -->
-      <article class="terminal-card">
-        <div class="terminal-header">
-          <span>💻 OpenJDK Java Terminal / Tahlil</span>
-          <span style="font-size:10px; color:#64748b;">OpenJDK 21.0.4 Sandbox</span>
+      <!-- TERMINAL CONSOLE CARD (IMAGE 3) WITH RESIZE CONTROLS -->
+      <article class="terminal-card" id="terminalCard">
+        <div class="terminal-resize-handle" id="terminalResizeHandle" title="Kattalashtirish yoki kichraytirish uchun suring (Drag to resize)">
+          <span class="resize-grip-line"></span>
+        </div>
+        <div class="terminal-header" id="terminalHeader">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span>💻 OpenJDK Java Terminal / Tahlil</span>
+            <span class="terminal-badge">OpenJDK 21.0.4 Sandbox</span>
+          </div>
+          <div class="terminal-ctrls">
+            <button id="btnTerminalMin" class="btn-term-ctrl" type="button" title="Kichraytirish (Collapse)">−</button>
+            <button id="btnTerminalNorm" class="btn-term-ctrl active" type="button" title="Normal o'lcham (100px)">◻</button>
+            <button id="btnTerminalMax" class="btn-term-ctrl" type="button" title="Kattalashtirish (Maximize / 300px)">▲</button>
+            <button id="btnTerminalClear" class="btn-term-ctrl" type="button" title="Tozalash (Clear)">🧹</button>
+          </div>
         </div>
         <div id="terminalOutput" class="terminal-body">
           Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.
@@ -177,13 +193,13 @@
   <!-- =========================================================================
        3. SCRIPTS & DEPENDENCIES
        ========================================================================= -->
-  <script src="../shared/java-analyzer.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="../shared/java-runner.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="../shared/uml-renderer.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="../shared/solution-renderer.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="challenges-practical-40.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="simulator-engine.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
-  <script src="game.js?v=20261026_V6_ADAPTIVE_RESPONSIVE"></script>
+  <script src="../shared/java-analyzer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="../shared/java-runner.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="../shared/uml-renderer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="../shared/solution-renderer.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="challenges-practical-40.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="simulator-engine.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
+  <script src="game.js?v=20261026_V7_UML_FOCUS_RESIZABLE_TERM"></script>
 </body>
 </html>

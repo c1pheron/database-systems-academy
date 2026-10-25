@@ -421,6 +421,7 @@
     const btnViewUml = document.getElementById("btnViewUml");
     const taskTextPanel = document.getElementById("taskTextPanel");
     const taskUmlPanel = document.getElementById("taskUmlPanel");
+    const leftPane = document.querySelector(".left-pane");
 
     if (btnViewTask && btnViewUml && taskTextPanel && taskUmlPanel) {
       btnViewTask.addEventListener("click", () => {
@@ -428,6 +429,7 @@
         btnViewUml.classList.remove("active");
         taskTextPanel.style.display = "block";
         taskUmlPanel.style.display = "none";
+        if (leftPane) leftPane.classList.remove("uml-focus-mode");
       });
 
       btnViewUml.addEventListener("click", () => {
@@ -435,6 +437,7 @@
         btnViewTask.classList.remove("active");
         taskTextPanel.style.display = "none";
         taskUmlPanel.style.display = "flex";
+        if (leftPane) leftPane.classList.add("uml-focus-mode");
         updateUMLDiagram();
         setTimeout(() => {
           if (window.UMLRenderer) {
@@ -442,6 +445,13 @@
           }
         }, 60);
       });
+
+      const btnReturnToEditor = document.getElementById("btnReturnToEditor");
+      if (btnReturnToEditor) {
+        btnReturnToEditor.addEventListener("click", () => {
+          btnViewTask.click();
+        });
+      }
     }
 
     // Mouse wheel horizontal scroll on question dots strip
@@ -506,7 +516,116 @@
       });
     }
 
-    // 7. Initial Challenge Render
+    // 7. Terminal Interactive Resize & Quick Control Handlers
+    const terminalBody = document.getElementById("terminalOutput");
+    const terminalResizeHandle = document.getElementById("terminalResizeHandle");
+    const terminalHeader = document.getElementById("terminalHeader");
+    const btnTerminalMin = document.getElementById("btnTerminalMin");
+    const btnTerminalNorm = document.getElementById("btnTerminalNorm");
+    const btnTerminalMax = document.getElementById("btnTerminalMax");
+    const btnTerminalClear = document.getElementById("btnTerminalClear");
+
+    function setTerminalHeight(h) {
+      if (!terminalBody) return;
+      terminalBody.style.height = `${h}px`;
+      if (btnTerminalMin) btnTerminalMin.classList.toggle("active", h <= 45);
+      if (btnTerminalNorm) btnTerminalNorm.classList.toggle("active", h > 45 && h < 220);
+      if (btnTerminalMax) btnTerminalMax.classList.toggle("active", h >= 220);
+    }
+
+    if (btnTerminalMin) {
+      btnTerminalMin.addEventListener("click", () => setTerminalHeight(34));
+    }
+    if (btnTerminalNorm) {
+      btnTerminalNorm.addEventListener("click", () => setTerminalHeight(95));
+    }
+    if (btnTerminalMax) {
+      btnTerminalMax.addEventListener("click", () => setTerminalHeight(300));
+    }
+    if (btnTerminalClear) {
+      btnTerminalClear.addEventListener("click", () => {
+        if (terminalBody) {
+          terminalBody.textContent = "Tozalandi. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
+          terminalBody.className = "terminal-body";
+        }
+      });
+    }
+
+    // Double-click header toggles between normal and expanded
+    if (terminalHeader) {
+      terminalHeader.addEventListener("dblclick", () => {
+        if (!terminalBody) return;
+        const currentH = terminalBody.getBoundingClientRect().height;
+        if (currentH < 180) {
+          setTerminalHeight(300);
+        } else {
+          setTerminalHeight(95);
+        }
+      });
+    }
+
+    // Drag-to-resize handle (mouse + touch)
+    if (terminalResizeHandle && terminalBody) {
+      let isDragging = false;
+      let startY = 0;
+      let startH = 0;
+
+      function onDragStart(clientY) {
+        isDragging = true;
+        startY = clientY;
+        startH = terminalBody.getBoundingClientRect().height;
+        terminalResizeHandle.classList.add("active");
+        document.body.style.cursor = "ns-resize";
+        document.body.style.userSelect = "none";
+      }
+
+      function onDragMove(clientY) {
+        if (!isDragging) return;
+        // Moving handle upwards increases terminal body height
+        const deltaY = startY - clientY;
+        const newH = Math.min(480, Math.max(34, startH + deltaY));
+        setTerminalHeight(newH);
+      }
+
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        terminalResizeHandle.classList.remove("active");
+        document.body.style.cursor = "";
+        document.body.style.userSelect = "";
+      }
+
+      terminalResizeHandle.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        onDragStart(e.clientY);
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        onDragMove(e.clientY);
+      });
+
+      window.addEventListener("mouseup", () => {
+        onDragEnd();
+      });
+
+      terminalResizeHandle.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1) {
+          onDragStart(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchmove", (e) => {
+        if (isDragging && e.touches.length === 1) {
+          onDragMove(e.touches[0].clientY);
+        }
+      }, { passive: true });
+
+      window.addEventListener("touchend", () => {
+        onDragEnd();
+      });
+    }
+
+    // 8. Initial Challenge Render
     switchChallenge(currentQIndex);
   });
 })();
