@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * OOP ACADEMY — LIVE VISUAL SIMULATOR (BETA: 20 MASALA) & ER DIAGRAM ENGINE
+ * PRACTICAL OOP — LIVE VISUAL SIMULATOR & ER DIAGRAM ENGINE
  * Author: Professor Ada • Level 5 • WIUT Computer Science
  * ============================================================================
  */
@@ -8,15 +8,15 @@
 (function () {
   "use strict";
 
-  const CHALLENGES = window.OOP_VISUAL_CHALLENGES || [];
+  const CHALLENGES = window.OOP_PRACTICAL_CHALLENGES || [];
   let currentQIndex = 0;
   const solvedQuestions = new Set();
   let currentLang = "uz";
   let umlMode = "target"; // "target" (Final) or "live" (O'zimniki)
 
-  const STORAGE_KEY_SOLVED = "oop_visual_solved_questions";
-  const STORAGE_KEY_CURRENT = "oop_visual_current_q";
-  const STORAGE_PREFIX_CODE = "oop_visual_code_q_";
+  const STORAGE_KEY_SOLVED = "oop_practical_solved_questions";
+  const STORAGE_KEY_CURRENT = "oop_practical_current_q";
+  const STORAGE_PREFIX_CODE = "oop_practical_code_q_";
 
   function normalizeJavaCode(str) {
     return (str || "")
@@ -103,8 +103,23 @@
     }
   }
 
-  function loadSavedCode(ch) {
-    return localStorage.getItem(STORAGE_PREFIX_CODE + ch.id) || ch.starterCode;
+  function loadSavedCode(ch, index) {
+    const saved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
+    if (saved !== null && saved.trim().length > 0) {
+      return saved;
+    }
+    // Agar joriy masalaga hali kod yozilmagan bo'lsa, oldingi masaladagi kodni davom ettirish uchun olib o'tamiz!
+    if (typeof index === "number" && index > 0) {
+      for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
+        const prevCh = CHALLENGES[prevIdx];
+        const prevCode = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
+        if (prevCode && prevCode.trim().length > 0) {
+          return prevCode;
+        }
+      }
+    }
+    // 1-masala yoki hech qanday oldingi kod bo'lmasa: bo'm-bo'sh turadi!
+    return "";
   }
 
   function updateMemoryDisplay(ch, code) {
@@ -112,7 +127,12 @@
     if (!memEl || !ch) return;
 
     if (ch.simKind === "card") {
-      memEl.textContent = "BankCard.balance = 50000.0;";
+      const hasObj = code && /\bnew\s+(BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard)\b/.test(code);
+      if (!hasObj) {
+        memEl.textContent = "null (heap xotirada karta obyekti mavjud emas)";
+      } else {
+        memEl.textContent = "BankCard@heap { balance: 50000.0, holder: 'SARDOR ALIYEV' };";
+      }
     } else if (ch.simKind === "atm" || ch.simKind === "pin") {
       memEl.textContent = "CardPin.pin = 1234; isUnlocked = true;";
     } else if (ch.simKind === "total" || ch.simKind === "receipt" || ch.simKind === "fullorder") {
@@ -203,7 +223,7 @@
     }
 
     if (codeEditor) {
-      codeEditor.value = loadSavedCode(ch);
+      codeEditor.value = loadSavedCode(ch, currentQIndex);
     }
 
     if (terminalBody) {
@@ -223,6 +243,7 @@
     // Update Live Simulator
     if (window.SimulatorEngine) {
       window.SimulatorEngine.setChallenge(ch);
+      window.SimulatorEngine.triggerAction(codeEditor ? codeEditor.value : "", "", false);
     }
 
     updateMemoryDisplay(ch, codeEditor ? codeEditor.value : "");
@@ -365,7 +386,7 @@
     if (!ch || !editor) return;
 
     if (confirm("Kodni boshlang'ich holatga qaytarmoqchimisiz?")) {
-      editor.value = ch.starterCode;
+      editor.value = ch.starterCode || "";
       saveCurrentCode();
       if (window.JavaEditorEnhancer) {
         window.JavaEditorEnhancer.updateHighlighting();
@@ -373,8 +394,9 @@
       }
       if (window.SimulatorEngine) {
         window.SimulatorEngine.setChallenge(ch);
+        window.SimulatorEngine.triggerAction(editor.value, "", false);
       }
-      updateMemoryDisplay(ch, ch.starterCode);
+      updateMemoryDisplay(ch, editor.value);
       if (umlMode === "live") updateUMLDiagram();
     }
   }
@@ -452,6 +474,13 @@
         saveCurrentCode();
         if (umlMode === "live" && taskUmlPanel && taskUmlPanel.style.display !== "none") {
           updateUMLDiagram();
+        }
+        if (window.SimulatorEngine) {
+          window.SimulatorEngine.triggerAction(editor.value, "", false);
+        }
+        const curCh = CHALLENGES[currentQIndex];
+        if (curCh) {
+          updateMemoryDisplay(curCh, editor.value);
         }
       });
     }

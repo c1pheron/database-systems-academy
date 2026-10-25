@@ -70,7 +70,7 @@
       "Amal: 1. 💳 Baza Bank Kartasi — Balansni Himoyalash",
       "Kutilayotgan natija: Balans: 75000.0"
     ],
-    "starterCode": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        \n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        System.out.println(\"Balans: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Balans: 75000.0",
     "detailedSolution": {
@@ -129,13 +129,13 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. SecureCard klassida private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nOldingi 1-bosqichda yaratgan 'BankCard' kodingizga endi pul yechish (withdraw) funksiyasini qo'shamiz! Bu metod hisobda yetarli mablag' borligini tekshirishi va overdraftdan (ortiqcha yechishdan) himoyalashi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassiga 'public boolean withdraw(double amount)' metodini qo'shing.\n2. Agar 'amount > 0' va 'amount <= this.balance' bo'lsa, balandlikdan ayirib 'true' qaytarsin.\n3. Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan 'false' qaytarsin.\n4. 'Main' metodida 80,000 so'mlik kartadan 30,000 so'm yeching ('card.withdraw(30000.0);') va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SecureCard in class private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SecureCard в классе private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "SecureCard",
+        "BankCard",
         "Main"
       ],
       "methods": [
@@ -143,7 +143,7 @@
         "getBalance"
       ],
       "constructors": [
-        "SecureCard"
+        "BankCard"
       ],
       "fields": [
         "balance"
@@ -154,8 +154,8 @@
       "Amal: 2. 🏧 Xavfsiz Pul Yechish — Overdraft Himoyasi",
       "Kutilayotgan natija: Qoldiq: 50000.0"
     ],
-    "starterCode": "class SecureCard {\n    private double balance;\n\n    public SecureCard(double balance) {\n        this.balance = balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
-    "solution": "class SecureCard {\n    private double balance;\n\n    public SecureCard(double balance) {\n        this.balance = balance;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SecureCard card = new SecureCard(80000.0);\n        card.withdraw(30000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
+    "starterCode": "",
+    "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(80000.0);\n        card.withdraw(30000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
@@ -213,13 +213,13 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKarta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. CardPin klassida private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank kartangizni yanada xavfsiz qilish uchun endi 4 xonali PIN kod himoyasini qo'shamiz!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassida 'private int pin;' maydonini e'lon qiling (boshlang'ich qiymati 1234).\n2. 'public boolean verifyPin(int inputPin)' metodi: agar kiritilgan PIN to'g'ri bo'lsa 'true', aks holda 'false' qaytarsin.\n3. 'public boolean changePin(int oldPin, int newPin)' metodi: eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va 'true' qaytarsin.\n4. 'Main'da 'BankCard card = new BankCard(50000.0);' ochib, PINni tekshiring va konsolga: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CardPin in class private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CardPin в классе private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "CardPin",
+        "BankCard",
         "Main"
       ],
       "methods": [
@@ -227,7 +227,7 @@
         "changePin"
       ],
       "constructors": [
-        "CardPin"
+        "BankCard"
       ],
       "fields": [
         "pin"
@@ -238,8 +238,8 @@
       "Amal: 3. 🔒 4-Xonali PIN Kod Xavfsizligi",
       "Kutilayotgan natija: PIN to'g'ri: true"
     ],
-    "starterCode": "class CardPin {\n    private int pin;\n\n    public CardPin(int pin) {\n        this.pin = pin;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
-    "solution": "class CardPin {\n    private int pin;\n\n    public CardPin(int pin) {\n        this.pin = pin;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CardPin cp = new CardPin(1234);\n        System.out.println(\"PIN to'g'ri: \" + cp.verifyPin(1234));\n    }\n}",
+    "starterCode": "",
+    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
     "expectedOutput": "PIN to'g'ri: true",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
@@ -300,13 +300,13 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFiribgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. LimitedCard klassida private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFiribgarlikdan saqlash uchun 'BankCard'ga kunlik xarid limiti 'private double dailyLimit;' kiritamiz.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private double dailyLimit = 50000.0;' maydonini qo'shing.\n2. 'public boolean spend(double amount)' metodi: agar 'amount > 0' va 'amount <= this.dailyLimit' hamda 'amount <= this.balance' bo'lsa, balansdan va limitdan ayirib 'true' qaytarsin.\n3. 'Main'da 200,000 balansli karta ochib, 30,000 sarflang ('card.spend(30000.0);') va konsolga: \"Qoldiq balans: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. LimitedCard in class private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. LimitedCard в классе private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "LimitedCard",
+        "BankCard",
         "Main"
       ],
       "methods": [
@@ -314,10 +314,9 @@
         "getBalance"
       ],
       "constructors": [
-        "LimitedCard"
+        "BankCard"
       ],
       "fields": [
-        "balance",
         "dailyLimit"
       ],
       "keywords": []
@@ -326,8 +325,8 @@
       "Amal: 4. 🛡️ Kunlik Xarid Limiti (Daily Limit)",
       "Kutilayotgan natija: Qoldiq balans: 170000.0"
     ],
-    "starterCode": "class LimitedCard {\n    private double balance;\n    private double dailyLimit;\n\n    public LimitedCard(double balance, double dailyLimit) {\n        this.balance = balance;\n        this.dailyLimit = dailyLimit;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
-    "solution": "class LimitedCard {\n    private double balance;\n    private double dailyLimit;\n\n    public LimitedCard(double balance, double dailyLimit) {\n        this.balance = balance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LimitedCard lc = new LimitedCard(200000.0, 50000.0);\n        lc.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + lc.getBalance());\n    }\n}",
+    "starterCode": "",
+    "solution": "class BankCard {\n    private double balance;\n    private double dailyLimit = 50000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(200000.0, 50000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Qoldiq balans: 170000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
@@ -411,7 +410,7 @@
       "Amal: 5. 👤 Foydalanuvchi Shaxsi va KYC (16+)",
       "Kutilayotgan natija: Mijoz: Anvar | Yoshi: 20"
     ],
-    "starterCode": "class UserProfile {\n    private String name;\n    private int age;\n\n    public UserProfile(String name, int age) {\n        this.name = name;\n        this.age = age >= 16 ? age : 16;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class UserProfile {\n    private String name;\n    private int age;\n\n    public UserProfile(String name, int age) {\n        this.name = name;\n        this.age = age >= 16 ? age : 16;\n    }\n\n    public boolean setAge(int age) {\n        if (age >= 16) {\n            this.age = age;\n            return true;\n        }\n        return false;\n    }\n\n    public int getAge() {\n        return this.age;\n    }\n\n    public String getName() {\n        return this.name;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserProfile up = new UserProfile(\"Anvar\", 20);\n        System.out.println(\"Mijoz: \" + up.getName() + \" | Yoshi: \" + up.getAge());\n    }\n}",
     "expectedOutput": "Mijoz: Anvar | Yoshi: 20",
     "detailedSolution": {
@@ -496,7 +495,7 @@
       "Amal: 6. 💱 Valyuta Hamyoni — So'm va Dollar",
       "Kutilayotgan natija: So'm balansi: 1280000.0"
     ],
-    "starterCode": "class Wallet {\n    private double uzs;\n    private double usd;\n\n    public Wallet(double uzs, double usd) {\n        this.uzs = uzs;\n        this.usd = usd;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Wallet {\n    private double uzs;\n    private double usd;\n\n    public Wallet(double uzs, double usd) {\n        this.uzs = uzs;\n        this.usd = usd;\n    }\n\n    public void convertUsdToUzs(double amountUsd, double rate) {\n        if (amountUsd > 0 && amountUsd <= this.usd) {\n            this.usd -= amountUsd;\n            this.uzs += amountUsd * rate;\n        }\n    }\n\n    public double getUzs() {\n        return this.uzs;\n    }\n\n    public double getUsd() {\n        return this.usd;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet(0.0, 100.0);\n        w.convertUsdToUzs(100.0, 12800.0);\n        System.out.println(\"So'm balansi: \" + w.getUzs());\n    }\n}",
     "expectedOutput": "So'm balansi: 1280000.0",
     "detailedSolution": {
@@ -578,7 +577,7 @@
       "Amal: 7. 🎁 Avtomatik Keshbek Hamyoni",
       "Kutilayotgan natija: Keshbek: 2000.0 so'm"
     ],
-    "starterCode": "class CashbackWallet {\n    private double cashback = 0.0;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class CashbackWallet {\n    private double cashback = 0.0;\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CashbackWallet cw = new CashbackWallet();\n        cw.earnCashback(100000.0);\n        System.out.println(\"Keshbek: \" + cw.getCashback() + \" so'm\");\n    }\n}",
     "expectedOutput": "Keshbek: 2000.0 so'm",
     "detailedSolution": {
@@ -661,7 +660,7 @@
       "Amal: 8. 🚫 Kartani Muzlatish va Qulflash",
       "Kutilayotgan natija: Karta bloklangan: true"
     ],
-    "starterCode": "class LockableCard {\n    private boolean isBlocked = false;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class LockableCard {\n    private boolean isBlocked = false;\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LockableCard card = new LockableCard();\n        card.lockCard();\n        System.out.println(\"Karta bloklangan: \" + card.isLocked());\n    }\n}",
     "expectedOutput": "Karta bloklangan: true",
     "detailedSolution": {
@@ -743,7 +742,7 @@
       "Amal: 9. 📱 Telefon Raqami Validatsiyasi",
       "Kutilayotgan natija: SMS raqami: +998901234567"
     ],
-    "starterCode": "class SmsProfile {\n    private String phoneNumber;\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class SmsProfile {\n    private String phoneNumber;\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\")) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SmsProfile p = new SmsProfile();\n        p.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"SMS raqami: \" + p.getPhoneNumber());\n    }\n}",
     "expectedOutput": "SMS raqami: +998901234567",
     "detailedSolution": {
@@ -831,7 +830,7 @@
       "Amal: 10. 🏦 To'liq Xavfsiz Bank Hisobi (Master)",
       "Kutilayotgan natija: Muvaffaqiyatli: true | Qoldiq: 60000.0"
     ],
-    "starterCode": "class MasterAccount {\n    private String owner;\n    private double balance;\n    private int pin;\n\n    public MasterAccount(String owner, double balance, int pin) {\n        this.owner = owner;\n        this.balance = balance;\n        this.pin = pin;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class MasterAccount {\n    private String owner;\n    private double balance;\n    private int pin;\n\n    public MasterAccount(String owner, double balance, int pin) {\n        this.owner = owner;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MasterAccount acc = new MasterAccount(\"Sardor\", 100000.0, 7777);\n        boolean ok = acc.pay(40000.0, 7777);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + acc.getBalance());\n    }\n}",
     "expectedOutput": "Muvaffaqiyatli: true | Qoldiq: 60000.0",
     "detailedSolution": {
@@ -913,7 +912,7 @@
       "Amal: 11. 🥇 GoldCard — Baza Kartasidan Keshbekli Kartaga",
       "Kutilayotgan natija: Gold Keshbek: 3000.0 so'm"
     ],
-    "starterCode": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass GoldCard extends BankCard {\n    public GoldCard(double balance) { super(balance); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass GoldCard extends BankCard {\n    public GoldCard(double balance) { super(balance); }\n    public double getCashback(double spend) {\n        return spend * 0.03;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GoldCard gc = new GoldCard(100000.0);\n        System.out.println(\"Gold Keshbek: \" + gc.getCashback(100000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Gold Keshbek: 3000.0 so'm",
     "detailedSolution": {
@@ -996,7 +995,7 @@
       "Amal: 12. 💎 PlatinumCard — VIP Imtiyozlar Qo'shish",
       "Kutilayotgan natija: Lounge imtiyozi: true"
     ],
-    "starterCode": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass PlatinumCard extends BankCard {\n    public PlatinumCard(double balance) { super(balance); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass PlatinumCard extends BankCard {\n    public PlatinumCard(double balance) { super(balance); }\n    public boolean hasLoungeAccess() {\n        return true;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PlatinumCard pc = new PlatinumCard(500000.0);\n        System.out.println(\"Lounge imtiyozi: \" + pc.hasLoungeAccess());\n    }\n}",
     "expectedOutput": "Lounge imtiyozi: true",
     "detailedSolution": {
@@ -1079,7 +1078,7 @@
       "Amal: 13. 🌐 VirtualCard — 1 Oylik Onlayn Karta",
       "Kutilayotgan natija: Amal qilish muddati: 1 oy"
     ],
-    "starterCode": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass VirtualCard extends BankCard {\n    public VirtualCard(double balance) { super(balance); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BankCard {\n    protected double balance;\n    public BankCard(double balance) { this.balance = balance; }\n}\n\nclass VirtualCard extends BankCard {\n    private int validMonths = 1;\n    public VirtualCard(double balance) { super(balance); }\n    public int getValidMonths() { return this.validMonths; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        VirtualCard vc = new VirtualCard(50000.0);\n        System.out.println(\"Amal qilish muddati: \" + vc.getValidMonths() + \" oy\");\n    }\n}",
     "expectedOutput": "Amal qilish muddati: 1 oy",
     "detailedSolution": {
@@ -1165,7 +1164,7 @@
       "Amal: 14. 🛵 Yetkazib Beruvchi (Courier) Iyerarxiyasi",
       "Kutilayotgan natija: Motokuryer raqami: 01 M777AA"
     ],
-    "starterCode": "class Courier {\n    protected String name;\n    public Courier(String name) { this.name = name; }\n}\n\nclass MotoCourier extends Courier {\n    private String motoNumber;\n    public MotoCourier(String name, String motoNumber) {\n        super(name);\n        this.motoNumber = motoNumber;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Courier {\n    protected String name;\n    public Courier(String name) { this.name = name; }\n}\n\nclass MotoCourier extends Courier {\n    private String motoNumber;\n    public MotoCourier(String name, String motoNumber) {\n        super(name);\n        this.motoNumber = motoNumber;\n    }\n    public String getMotoNumber() { return this.motoNumber; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MotoCourier mc = new MotoCourier(\"Jasur\", \"01 M777AA\");\n        System.out.println(\"Motokuryer raqami: \" + mc.getMotoNumber());\n    }\n}",
     "expectedOutput": "Motokuryer raqami: 01 M777AA",
     "detailedSolution": {
@@ -1248,7 +1247,7 @@
       "Amal: 15. 👑 VIP Mijoz Imtiyozlari",
       "Kutilayotgan natija: Chegirmali to'lov: 180000.0 so'm"
     ],
-    "starterCode": "class Customer {\n    protected String name;\n    public Customer(String name) { this.name = name; }\n}\n\nclass VIPCustomer extends Customer {\n    public VIPCustomer(String name) { super(name); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Customer {\n    protected String name;\n    public Customer(String name) { this.name = name; }\n}\n\nclass VIPCustomer extends Customer {\n    public VIPCustomer(String name) { super(name); }\n    public double applyDiscount(double total) {\n        return total * 0.90;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        VIPCustomer vc = new VIPCustomer(\"Madina\");\n        System.out.println(\"Chegirmali to'lov: \" + vc.applyDiscount(200000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Chegirmali to'lov: 180000.0 so'm",
     "detailedSolution": {
@@ -1334,7 +1333,7 @@
       "Amal: 16. 🏷️ Chegirilmali Tovar (DiscountedItem)",
       "Kutilayotgan natija: Oraliq summa: 45000.0 so'm"
     ],
-    "starterCode": "class OrderItem {\n    protected double price;\n    protected int quantity;\n    public OrderItem(double price, int quantity) { this.price = price; this.quantity = quantity; }\n    public double getSubtotal() { return price * quantity; }\n}\n\nclass DiscountedItem extends OrderItem {\n    private double discountPercent;\n    public DiscountedItem(double price, int quantity, double discountPercent) {\n        super(price, quantity);\n        this.discountPercent = discountPercent;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class OrderItem {\n    protected double price;\n    protected int quantity;\n    public OrderItem(double price, int quantity) { this.price = price; this.quantity = quantity; }\n    public double getSubtotal() { return price * quantity; }\n}\n\nclass DiscountedItem extends OrderItem {\n    private double discountPercent;\n    public DiscountedItem(double price, int quantity, double discountPercent) {\n        super(price, quantity);\n        this.discountPercent = discountPercent;\n    }\n    @Override\n    public double getSubtotal() {\n        return super.getSubtotal() * (1 - this.discountPercent / 100.0);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DiscountedItem di = new DiscountedItem(50000.0, 1, 10.0);\n        System.out.println(\"Oraliq summa: \" + di.getSubtotal() + \" so'm\");\n    }\n}",
     "expectedOutput": "Oraliq summa: 45000.0 so'm",
     "detailedSolution": {
@@ -1415,7 +1414,7 @@
       "Amal: 17. ⛓️ Ota Konstruktorini Chaqirish (super chaining)",
       "Kutilayotgan natija: Model: Labo | Yuk hajmi: 1000 kg"
     ],
-    "starterCode": "class Vehicle {\n    protected String brand;\n    public Vehicle(String brand) { this.brand = brand; }\n}\n\nclass DeliveryCar extends Vehicle {\n    private int capacityKg;\n    public DeliveryCar(String brand, int capacityKg) {\n        super(brand);\n        this.capacityKg = capacityKg;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Vehicle {\n    protected String brand;\n    public Vehicle(String brand) { this.brand = brand; }\n    public String getBrand() { return brand; }\n}\n\nclass DeliveryCar extends Vehicle {\n    private int capacityKg;\n    public DeliveryCar(String brand, int capacityKg) {\n        super(brand);\n        this.capacityKg = capacityKg;\n    }\n    public int getCapacityKg() { return capacityKg; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryCar dc = new DeliveryCar(\"Labo\", 1000);\n        System.out.println(\"Model: \" + dc.getBrand() + \" | Yuk hajmi: \" + dc.getCapacityKg() + \" kg\");\n    }\n}",
     "expectedOutput": "Model: Labo | Yuk hajmi: 1000 kg",
     "detailedSolution": {
@@ -1496,7 +1495,7 @@
       "Amal: 18. 🎯 Ota Metodini Bonus Bilan Boyitish",
       "Kutilayotgan natija: Yangi balans: 25000.0 so'm"
     ],
-    "starterCode": "class BaseCard {\n    protected double balance = 0.0;\n    public void deposit(double amount) { this.balance += amount; }\n    public double getBalance() { return balance; }\n}\n\nclass BonusCard extends BaseCard {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BaseCard {\n    protected double balance = 0.0;\n    public void deposit(double amount) { this.balance += amount; }\n    public double getBalance() { return balance; }\n}\n\nclass BonusCard extends BaseCard {\n    @Override\n    public void deposit(double amount) {\n        super.deposit(amount + 5000.0);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BonusCard bc = new BonusCard();\n        bc.deposit(20000.0);\n        System.out.println(\"Yangi balans: \" + bc.getBalance() + \" so'm\");\n    }\n}",
     "expectedOutput": "Yangi balans: 25000.0 so'm",
     "detailedSolution": {
@@ -1579,7 +1578,7 @@
       "Amal: 19. 👔 Bank Xodimlari Iyerarxiyasi",
       "Kutilayotgan natija: Jami maosh: 7000000.0 so'm"
     ],
-    "starterCode": "class BankEmployee {\n    protected double baseSalary;\n    public BankEmployee(double baseSalary) { this.baseSalary = baseSalary; }\n}\n\nclass BranchManager extends BankEmployee {\n    public BranchManager(double baseSalary) { super(baseSalary); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class BankEmployee {\n    protected double baseSalary;\n    public BankEmployee(double baseSalary) { this.baseSalary = baseSalary; }\n}\n\nclass BranchManager extends BankEmployee {\n    public BranchManager(double baseSalary) { super(baseSalary); }\n    public double getTotalSalary(double bonus) {\n        return this.baseSalary + bonus;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BranchManager bm = new BranchManager(5000000.0);\n        System.out.println(\"Jami maosh: \" + bm.getTotalSalary(2000000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Jami maosh: 7000000.0 so'm",
     "detailedSolution": {
@@ -1664,7 +1663,7 @@
       "Amal: 20. 🏛️ Ko'p Bosqichli Vorislik (Multilevel Inheritance)",
       "Kutilayotgan natija: Karta turi: VIP Platinum"
     ],
-    "starterCode": "class Account {\n    protected int id;\n    public Account(int id) { this.id = id; }\n}\n\nclass CardAccount extends Account {\n    protected String pan;\n    public CardAccount(int id, String pan) { super(id); this.pan = pan; }\n}\n\nclass VIPCardAccount extends CardAccount {\n    private String status;\n    public VIPCardAccount(int id, String pan, String status) {\n        super(id, pan);\n        this.status = status;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Account {\n    protected int id;\n    public Account(int id) { this.id = id; }\n}\n\nclass CardAccount extends Account {\n    protected String pan;\n    public CardAccount(int id, String pan) { super(id); this.pan = pan; }\n}\n\nclass VIPCardAccount extends CardAccount {\n    private String status;\n    public VIPCardAccount(int id, String pan, String status) {\n        super(id, pan);\n        this.status = status;\n    }\n    public String getSummary() {\n        return \"Karta turi: \" + this.status;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        VIPCardAccount vca = new VIPCardAccount(101, \"9860\", \"VIP Platinum\");\n        System.out.println(vca.getSummary());\n    }\n}",
     "expectedOutput": "Karta turi: VIP Platinum",
     "detailedSolution": {
@@ -1743,7 +1742,7 @@
       "Amal: 21. 💳 Universal To'lov — Humo va Uzcard Polimorfizmi",
       "Kutilayotgan natija: Humo orqali: 45000.0"
     ],
-    "starterCode": "class PaymentMethod {\n    public String pay(double amount) { return \"To'lov: \" + amount; }\n}\n\nclass HumoPayment extends PaymentMethod {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentMethod {\n    public String pay(double amount) { return \"To'lov: \" + amount; }\n}\n\nclass HumoPayment extends PaymentMethod {\n    @Override\n    public String pay(double amount) {\n        return \"Humo orqali: \" + amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod pm = new HumoPayment();\n        System.out.println(pm.pay(45000.0));\n    }\n}",
     "expectedOutput": "Humo orqali: 45000.0",
     "detailedSolution": {
@@ -1822,7 +1821,7 @@
       "Amal: 22. 📅 Uzum Nasiya — Muddatli To'lov Taqsimoti",
       "Kutilayotgan natija: Nasiya oylik: 100000.0"
     ],
-    "starterCode": "class Payment {\n    public String pay(double amount) { return \"Oddiy: \" + amount; }\n}\n\nclass NasiyaPayment extends Payment {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Payment {\n    public String pay(double amount) { return \"Oddiy: \" + amount; }\n}\n\nclass NasiyaPayment extends Payment {\n    @Override\n    public String pay(double amount) {\n        return \"Nasiya oylik: \" + (amount / 3.0);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Payment p = new NasiyaPayment();\n        System.out.println(p.pay(300000.0));\n    }\n}",
     "expectedOutput": "Nasiya oylik: 100000.0",
     "detailedSolution": {
@@ -1901,7 +1900,7 @@
       "Amal: 23. 📲 Click QR To'lov Polimorfizmi",
       "Kutilayotgan natija: Click QR to'landi: 25000.0"
     ],
-    "starterCode": "class PaymentOption {\n    public String pay(double amount) { return \"To'lov: \" + amount; }\n}\n\nclass ClickPayment extends PaymentOption {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentOption {\n    public String pay(double amount) { return \"To'lov: \" + amount; }\n}\n\nclass ClickPayment extends PaymentOption {\n    @Override\n    public String pay(double amount) {\n        return \"Click QR to'landi: \" + amount;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentOption opt = new ClickPayment();\n        System.out.println(opt.pay(25000.0));\n    }\n}",
     "expectedOutput": "Click QR to'landi: 25000.0",
     "detailedSolution": {
@@ -1979,7 +1978,7 @@
       "Amal: 24. ⚡ Dinamik Dispatch — Ota Ko'rsatkichi Bilan Boshqarish",
       "Kutilayotgan natija: Humo tasdiqlandi: 50000.0"
     ],
-    "starterCode": "class PaymentMethod {\n    public String pay(double amount) { return \"To'landi: \" + amount; }\n}\n\nclass HumoPayment extends PaymentMethod {\n    public String pay(double amount) { return \"Humo tasdiqlandi: \" + amount; }\n}\n\nclass Cashier {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentMethod {\n    public String pay(double amount) { return \"To'landi: \" + amount; }\n}\n\nclass HumoPayment extends PaymentMethod {\n    @Override\n    public String pay(double amount) {\n        return \"Humo tasdiqlandi: \" + amount;\n    }\n}\n\nclass Cashier {\n    public void process(PaymentMethod pm, double sum) {\n        System.out.println(pm.pay(sum));\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Cashier c = new Cashier();\n        c.process(new HumoPayment(), 50000.0);\n    }\n}",
     "expectedOutput": "Humo tasdiqlandi: 50000.0",
     "detailedSolution": {
@@ -2060,7 +2059,7 @@
       "Amal: 25. 🧺 Turli To'lovlar Ro'yxati (Heterogeneous List)",
       "Kutilayotgan natija: Karta: 10000.0 Naqd: 10000.0"
     ],
-    "starterCode": "class PaymentMethod {\n    public String pay(double a) { return \"\" + a; }\n}\n\nclass CardPay extends PaymentMethod {\n    public String pay(double a) { return \"Karta: \" + a; }\n}\n\nclass CashPay extends PaymentMethod {\n    public String pay(double a) { return \"Naqd: \" + a; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class PaymentMethod {\n    public String pay(double a) { return \"\" + a; }\n}\n\nclass CardPay extends PaymentMethod {\n    @Override\n    public String pay(double a) { return \"Karta: \" + a; }\n}\n\nclass CashPay extends PaymentMethod {\n    @Override\n    public String pay(double a) { return \"Naqd: \" + a; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod[] list = { new CardPay(), new CashPay() };\n        for (PaymentMethod pm : list) {\n            System.out.println(pm.pay(10000.0));\n        }\n    }\n}",
     "expectedOutput": "Karta: 10000.0\nNaqd: 10000.0",
     "detailedSolution": {
@@ -2136,7 +2135,7 @@
       "Amal: 26. 🧾 Kassa Cheki Chop Etish Polimorfizmi",
       "Kutilayotgan natija: Qog'oz Chek: 999"
     ],
-    "starterCode": "class Receipt {\n    public String print(int id) { return \"Chek: \" + id; }\n}\n\nclass PaperReceipt extends Receipt {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Receipt {\n    public String print(int id) { return \"Chek: \" + id; }\n}\n\nclass PaperReceipt extends Receipt {\n    @Override\n    public String print(int id) {\n        return \"Qog'oz Chek: \" + id;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Receipt r = new PaperReceipt();\n        System.out.println(r.print(999));\n    }\n}",
     "expectedOutput": "Qog'oz Chek: 999",
     "detailedSolution": {
@@ -2215,7 +2214,7 @@
       "Amal: 27. 💸 Bank Komissiyasini Hisoblash",
       "Kutilayotgan natija: Komissiya: 3000.0 so'm"
     ],
-    "starterCode": "class Transfer {\n    public double calculateFee(double amount) { return amount * 0.01; }\n}\n\nclass InternationalTransfer extends Transfer {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Transfer {\n    public double calculateFee(double amount) { return amount * 0.01; }\n}\n\nclass InternationalTransfer extends Transfer {\n    @Override\n    public double calculateFee(double amount) {\n        return amount * 0.03;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Transfer t = new InternationalTransfer();\n        System.out.println(\"Komissiya: \" + t.calculateFee(100000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Komissiya: 3000.0 so'm",
     "detailedSolution": {
@@ -2294,7 +2293,7 @@
       "Amal: 28. 🚚 Yetkazib Berish Narxi Polimorfizmi",
       "Kutilayotgan natija: Yetkazish narxi: 25000.0 so'm"
     ],
-    "starterCode": "class Delivery {\n    public double getCost() { return 10000.0; }\n}\n\nclass ExpressDelivery extends Delivery {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Delivery {\n    public double getCost() { return 10000.0; }\n}\n\nclass ExpressDelivery extends Delivery {\n    @Override\n    public double getCost() {\n        return 25000.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Delivery d = new ExpressDelivery();\n        System.out.println(\"Yetkazish narxi: \" + d.getCost() + \" so'm\");\n    }\n}",
     "expectedOutput": "Yetkazish narxi: 25000.0 so'm",
     "detailedSolution": {
@@ -2373,7 +2372,7 @@
       "Amal: 29. 🎟️ Chegirma Qoidalari Polimorfizmi",
       "Kutilayotgan natija: Bayramona narx: 85000.0 so'm"
     ],
-    "starterCode": "class DiscountRule {\n    public double apply(double total) { return total; }\n}\n\nclass HolidayDiscount extends DiscountRule {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class DiscountRule {\n    public double apply(double total) { return total; }\n}\n\nclass HolidayDiscount extends DiscountRule {\n    @Override\n    public double apply(double total) {\n        return total * 0.85;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DiscountRule dr = new HolidayDiscount();\n        System.out.println(\"Bayramona narx: \" + dr.apply(100000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Bayramona narx: 85000.0 so'm",
     "detailedSolution": {
@@ -2454,7 +2453,7 @@
       "Amal: 30. 📊 Tranzaksiyalar Auditi (Master Polimorfizm)",
       "Kutilayotgan natija: Auditor tekshiruvi: [KARTA TO'LOVI]"
     ],
-    "starterCode": "class Transaction {\n    public String logDetails() { return \"[TX]\"; }\n}\n\nclass CardTransaction extends Transaction {\n    public String logDetails() { return \"[KARTA TO'LOVI]\"; }\n}\n\nclass AuditLogger {\n    public void audit(Transaction t) {\n        System.out.println(\"Auditor tekshiruvi: \" + t.logDetails());\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "class Transaction {\n    public String logDetails() { return \"[TX]\"; }\n}\n\nclass CardTransaction extends Transaction {\n    @Override\n    public String logDetails() {\n        return \"[KARTA TO'LOVI]\";\n    }\n}\n\nclass AuditLogger {\n    public void audit(Transaction t) {\n        System.out.println(\"Auditor tekshiruvi: \" + t.logDetails());\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        AuditLogger logger = new AuditLogger();\n        logger.audit(new CardTransaction());\n    }\n}",
     "expectedOutput": "Auditor tekshiruvi: [KARTA TO'LOVI]",
     "detailedSolution": {
@@ -2534,7 +2533,7 @@
       "Amal: 31. 🏛️ Abstrakt Klass — abstract class Account",
       "Kutilayotgan natija: Omonat foizi: 18.0%"
     ],
-    "starterCode": "abstract class Account {\n    public abstract double getInterestRate();\n}\n\nclass SavingsAccount extends Account {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "abstract class Account {\n    public abstract double getInterestRate();\n}\n\nclass SavingsAccount extends Account {\n    @Override\n    public double getInterestRate() {\n        return 18.0;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Account acc = new SavingsAccount();\n        System.out.println(\"Omonat foizi: \" + acc.getInterestRate() + \"%\");\n    }\n}",
     "expectedOutput": "Omonat foizi: 18.0%",
     "detailedSolution": {
@@ -2614,7 +2613,7 @@
       "Amal: 32. 📜 interface Payable — To'lov Shartnomasi",
       "Kutilayotgan natija: Payable orqali to'landi: 50000.0"
     ],
-    "starterCode": "interface Payable {\n    void pay(double amount);\n}\n\nclass CardPayment implements Payable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Payable {\n    void pay(double amount);\n}\n\nclass CardPayment implements Payable {\n    @Override\n    public void pay(double amount) {\n        System.out.println(\"Payable orqali to'landi: \" + amount);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Payable p = new CardPayment();\n        p.pay(50000.0);\n    }\n}",
     "expectedOutput": "Payable orqali to'landi: 50000.0",
     "detailedSolution": {
@@ -2694,7 +2693,7 @@
       "Amal: 33. 🔄 interface Refundable — Pulni Qaytarish (Refund)",
       "Kutilayotgan natija: Mablag' qaytarildi: 20000.0 so'm"
     ],
-    "starterCode": "interface Refundable {\n    void refund(double amount);\n}\n\nclass OnlineStore implements Refundable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Refundable {\n    void refund(double amount);\n}\n\nclass OnlineStore implements Refundable {\n    @Override\n    public void refund(double amount) {\n        System.out.println(\"Mablag' qaytarildi: \" + amount + \" so'm\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Refundable ref = new OnlineStore();\n        ref.refund(20000.0);\n    }\n}",
     "expectedOutput": "Mablag' qaytarildi: 20000.0 so'm",
     "detailedSolution": {
@@ -2776,7 +2775,7 @@
       "Amal: 34. 🔀 Ko'p Interfeyslarni Qo'llash (Multiple Interfaces)",
       "Kutilayotgan natija: To'landi: 30000.0 Qaytarildi: 10000.0"
     ],
-    "starterCode": "interface Payable { void pay(double a); }\ninterface Refundable { void refund(double a); }\n\nclass ModernTerminal implements Payable, Refundable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Payable { void pay(double a); }\ninterface Refundable { void refund(double a); }\n\nclass ModernTerminal implements Payable, Refundable {\n    @Override\n    public void pay(double a) { System.out.println(\"To'landi: \" + a); }\n    @Override\n    public void refund(double a) { System.out.println(\"Qaytarildi: \" + a); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ModernTerminal mt = new ModernTerminal();\n        mt.pay(30000.0);\n        mt.refund(10000.0);\n    }\n}",
     "expectedOutput": "To'landi: 30000.0\nQaytarildi: 10000.0",
     "detailedSolution": {
@@ -2856,7 +2855,7 @@
       "Amal: 35. 🔔 interface Notifiable — Xabarnoma Standarti",
       "Kutilayotgan natija: ALERT: Parol o'zgartirildi"
     ],
-    "starterCode": "interface Notifiable {\n    void sendAlert(String msg);\n}\n\nclass PushService implements Notifiable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Notifiable {\n    void sendAlert(String msg);\n}\n\nclass PushService implements Notifiable {\n    @Override\n    public void sendAlert(String msg) {\n        System.out.println(\"ALERT: \" + msg);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Notifiable n = new PushService();\n        n.sendAlert(\"Parol o'zgartirildi\");\n    }\n}",
     "expectedOutput": "ALERT: Parol o'zgartirildi",
     "detailedSolution": {
@@ -2936,7 +2935,7 @@
       "Amal: 36. 🏷️ interface Discountable — Chegirma Modullari",
       "Kutilayotgan natija: Chegirma summasi: 20000.0 so'm"
     ],
-    "starterCode": "interface Discountable {\n    double calculateDiscount(double amount);\n}\n\nclass StudentDiscount implements Discountable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Discountable {\n    double calculateDiscount(double amount);\n}\n\nclass StudentDiscount implements Discountable {\n    @Override\n    public double calculateDiscount(double amount) {\n        return amount * 0.20;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Discountable d = new StudentDiscount();\n        System.out.println(\"Chegirma summasi: \" + d.calculateDiscount(100000.0) + \" so'm\");\n    }\n}",
     "expectedOutput": "Chegirma summasi: 20000.0 so'm",
     "detailedSolution": {
@@ -3015,7 +3014,7 @@
       "Amal: 37. 🔌 Loose Coupling — Bo'sh Bog'lanish Arxitekturasi",
       "Kutilayotgan natija: To'landi: 75000.0"
     ],
-    "starterCode": "interface Payable { void pay(double sum); }\n\nclass CardPay implements Payable {\n    public void pay(double sum) { System.out.println(\"To'landi: \" + sum); }\n}\n\nclass CheckoutService {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Payable { void pay(double sum); }\n\nclass CardPay implements Payable {\n    @Override\n    public void pay(double sum) { System.out.println(\"To'landi: \" + sum); }\n}\n\nclass CheckoutService {\n    public void checkout(Payable p, double sum) {\n        p.pay(sum);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CheckoutService cs = new CheckoutService();\n        cs.checkout(new CardPay(), 75000.0);\n    }\n}",
     "expectedOutput": "To'landi: 75000.0",
     "detailedSolution": {
@@ -3096,7 +3095,7 @@
       "Amal: 38. 📋 Template Method — abstract class BaseOrder",
       "Kutilayotgan natija: Tekshirildi Tezkor yetkazildi"
     ],
-    "starterCode": "abstract class BaseOrder {\n    public void validate() { System.out.println(\"Tekshirildi\"); }\n    public abstract void deliver();\n    public void process() { validate(); deliver(); }\n}\n\nclass FastOrder extends BaseOrder {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "abstract class BaseOrder {\n    public void validate() { System.out.println(\"Tekshirildi\"); }\n    public abstract void deliver();\n    public void process() { validate(); deliver(); }\n}\n\nclass FastOrder extends BaseOrder {\n    @Override\n    public void deliver() {\n        System.out.println(\"Tezkor yetkazildi\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FastOrder fo = new FastOrder();\n        fo.process();\n    }\n}",
     "expectedOutput": "Tekshirildi\nTezkor yetkazildi",
     "detailedSolution": {
@@ -3176,7 +3175,7 @@
       "Amal: 39. 👁️ interface BiometricVerifiable — FaceID Shartnomasi",
       "Kutilayotgan natija: FaceID tasdiqlandi: true"
     ],
-    "starterCode": "interface BiometricVerifiable {\n    boolean verifyFace(String faceData);\n}\n\nclass PhoneBiometrics implements BiometricVerifiable {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface BiometricVerifiable {\n    boolean verifyFace(String faceData);\n}\n\nclass PhoneBiometrics implements BiometricVerifiable {\n    @Override\n    public boolean verifyFace(String faceData) {\n        return true;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BiometricVerifiable bv = new PhoneBiometrics();\n        System.out.println(\"FaceID tasdiqlandi: \" + bv.verifyFace(\"user_face_hash\"));\n    }\n}",
     "expectedOutput": "FaceID tasdiqlandi: true",
     "detailedSolution": {
@@ -3268,7 +3267,7 @@
       "Amal: 40. 🌟 Birlashgan Grand FinTech Arxitekturasi (Master)",
       "Kutilayotgan natija: Mijoz: Sardor | Jami: 120000.0 Karta orqali to'landi: 120000.0"
     ],
-    "starterCode": "interface Payable {\n    void pay(double s);\n}\n\nclass Card implements Payable {\n    public void pay(double s) { System.out.println(\"Karta orqali to'landi: \" + s); }\n}\n\nclass Customer {\n    private String name;\n    public Customer(String name) { this.name = name; }\n    public String getName() { return name; }\n}\n\nclass Order {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
+    "starterCode": "",
     "solution": "interface Payable {\n    void pay(double s);\n}\n\nclass Card implements Payable {\n    @Override\n    public void pay(double s) {\n        System.out.println(\"Karta orqali to'landi: \" + s);\n    }\n}\n\nclass Customer {\n    private String name;\n    public Customer(String name) { this.name = name; }\n    public String getName() { return name; }\n}\n\nclass Order {\n    public void checkout(Customer c, Payable p, double total) {\n        System.out.println(\"Mijoz: \" + c.getName() + \" | Jami: \" + total);\n        p.pay(total);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customer c = new Customer(\"Sardor\");\n        Card card = new Card();\n        Order order = new Order();\n        order.checkout(c, card, 120000.0);\n    }\n}",
     "expectedOutput": "Mijoz: Sardor | Jami: 120000.0\nKarta orqali to'landi: 120000.0",
     "detailedSolution": {

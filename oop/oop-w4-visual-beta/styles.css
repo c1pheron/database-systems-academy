@@ -1018,13 +1018,68 @@ body {
   text-align: center;
 }
 
-/* HUMO BANK CARD */
-.humo-card {
+/* EMPTY CARD STATE */
+.empty-card-box {
+  width: 100%;
+  margin-bottom: 12px;
+}
+.dashed-card-frame {
   width: 100%;
   height: 180px;
+  border: 2px dashed rgba(148, 163, 184, 0.3);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.4);
+  box-sizing: border-box;
+}
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+.empty-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.empty-desc {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 8px;
+  max-width: 240px;
+  line-height: 1.4;
+}
+.empty-hint-code {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: #38bdf8;
+  background: rgba(6, 182, 212, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+/* HUMO BANK CARD */
+.animate-card-appear {
+  animation: card-appear 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes card-appear {
+  0% { transform: scale(0.9) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.humo-card {
+  width: 100%;
+  height: 185px;
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
   border-radius: 20px;
-  padding: 18px 20px;
+  padding: 16px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1039,6 +1094,17 @@ body {
   align-items: center;
 }
 
+.humo-top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contactless-wave {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
 .humo-logo {
   font-size: 18px;
   font-weight: 900;
@@ -1047,14 +1113,41 @@ body {
 }
 
 .chip-icon {
-  font-size: 26px;
+  font-size: 24px;
 }
 
-.card-num {
+.card-num-row {
+  margin: 4px 0 2px;
+}
+
+.card-num-full {
   font-family: var(--font-mono);
-  font-size: 15px;
+  font-size: 14.5px;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.card-mid-row {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 2px;
+}
+
+.card-tiny-lbl {
+  display: block;
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  letter-spacing: 0.5px;
+}
+
+.card-exp-val, .card-cvv-val {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .card-bottom {
@@ -1064,19 +1157,19 @@ body {
 }
 
 .card-lbl {
-  font-size: 9px;
+  font-size: 8.5px;
   color: rgba(255, 255, 255, 0.7);
   font-weight: 700;
 }
 
 .card-val {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 800;
   color: #fff;
 }
 
 .card-bal {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
   color: #fff;
 }

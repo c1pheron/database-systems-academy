@@ -39,7 +39,17 @@
         case "coffee":
           return { waterMl: 200, beansGrams: 50, brewed: 0 };
         case "card":
-          return { holder: "Jasur Aliyev", balance: 50000, deposited: 0 };
+          return {
+            hasObject: false,
+            holder: "SARDOR ALIYEV",
+            cardNumber: "9860 3201 4589 7721",
+            expiryDate: "12/28",
+            cvv: "777",
+            balance: 50000,
+            deposited: 0,
+            withdrawn: 0,
+            lastTxMsg: ""
+          };
         case "atm":
           return { balance: 100000, withdrawn: 0, lastSuccess: false };
         case "pin":
@@ -98,8 +108,32 @@
           this.currentState.brewed = 1;
           break;
         case "card":
-          this.currentState.balance = 80000;
-          this.currentState.deposited = 30000;
+          const hasCardInst = /\bnew\s+(BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard)\b/.test(code);
+          this.currentState.hasObject = hasCardInst;
+
+          const balM = code.match(/new\s+[A-Za-z0-9_]+\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
+          if (balM) {
+            this.currentState.balance = parseFloat(balM[1]);
+          }
+
+          const holderM = code.match(/new\s+[A-Za-z0-9_]+\s*\(\s*["']([^"']+)["']/);
+          if (holderM) {
+            this.currentState.holder = holderM[1].toUpperCase();
+          }
+
+          if (code.includes(".deposit(")) {
+            const depM = code.match(/\.deposit\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
+            const dep = depM ? parseFloat(depM[1]) : 25000;
+            this.currentState.deposited = dep;
+            this.currentState.balance += dep;
+            this.currentState.lastTxMsg = `+${dep.toLocaleString()} UZS Depozit qilindi!`;
+          } else if (code.includes(".withdraw(")) {
+            const wM = code.match(/\.withdraw\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
+            const w = wM ? parseFloat(wM[1]) : 30000;
+            this.currentState.withdrawn = w;
+            this.currentState.balance = Math.max(0, this.currentState.balance - w);
+            this.currentState.lastTxMsg = `-${w.toLocaleString()} UZS Yechildi!`;
+          }
           break;
         case "atm":
           this.currentState.balance = 60000;
@@ -371,29 +405,71 @@
 
     renderCard() {
       const s = this.currentState;
+      if (!s.hasObject) {
+        return `
+          <div class="sim-scene card-scene">
+            <div class="empty-card-box">
+              <div class="dashed-card-frame">
+                <span class="empty-icon">🪪</span>
+                <span class="empty-title">Karta Hali Ochilmagan</span>
+                <span class="empty-desc">Ilovada karta ko'rinishi uchun kodingizda yangi obyekt yarating:</span>
+                <div class="empty-hint-code">BankCard card = new BankCard(50000.0);</div>
+              </div>
+            </div>
+            <div class="live-inspect-box">
+              <span>🔍 Obyekt Xotirasi:</span>
+              <code>null (heap xotirada karta obyekti mavjud emas)</code>
+            </div>
+          </div>
+        `;
+      }
+
       return `
-        <div class="sim-scene card-scene">
+        <div class="sim-scene card-scene animate-card-appear">
           <div class="humo-card">
             <div class="humo-top">
               <span class="humo-logo">HUMO</span>
-              <span class="chip-icon">🪪</span>
-            </div>
-            <div class="card-num">9860 •••• •••• 4589</div>
-            <div class="card-bottom">
-              <div>
-                <div class="card-lbl">KARTA EGASI</div>
-                <div class="card-val">${s.holder}</div>
+              <div class="humo-top-right">
+                <span class="contactless-wave">📶</span>
+                <span class="chip-icon">🪪</span>
               </div>
-              <div style="text-align:right;">
+            </div>
+
+            <!-- To'liq 16 xonali karta raqami -->
+            <div class="card-num-row">
+              <span class="card-num-full">${s.cardNumber || '9860 3201 4589 7721'}</span>
+            </div>
+
+            <!-- Amal qilish muddati va CVV -->
+            <div class="card-mid-row">
+              <div class="card-exp-box">
+                <span class="card-tiny-lbl">VALID THRU</span>
+                <span class="card-exp-val">${s.expiryDate || '12/28'}</span>
+              </div>
+              <div class="card-cvv-box">
+                <span class="card-tiny-lbl">CVV/CVC</span>
+                <span class="card-cvv-val">${s.cvv || '777'}</span>
+              </div>
+            </div>
+
+            <!-- Karta egasi va Balans -->
+            <div class="card-bottom">
+              <div class="card-holder-box">
+                <div class="card-lbl">KARTA EGASI</div>
+                <div class="card-val">${s.holder || 'SARDOR ALIYEV'}</div>
+              </div>
+              <div class="card-bal-box" style="text-align:right;">
                 <div class="card-lbl">BALANS</div>
                 <div class="card-bal">${s.balance.toLocaleString()} UZS</div>
               </div>
             </div>
           </div>
-          ${s.deposited > 0 ? `<div class="tx-badge">+${s.deposited.toLocaleString()} UZS Depozit qilindi!</div>` : ''}
+
+          ${s.lastTxMsg ? `<div class="tx-badge">${s.lastTxMsg}</div>` : ''}
+
           <div class="live-inspect-box">
             <span>🔍 Obyekt Xotirasi:</span>
-            <code>BankCard.balance = ${s.balance}.0;</code>
+            <code>BankCard@heap { balance: ${s.balance}.0, holder: "${s.holder || 'SARDOR ALIYEV'}", exp: "${s.expiryDate || '12/28'}", cvv: ${s.cvv || 777} };</code>
           </div>
         </div>
       `;
