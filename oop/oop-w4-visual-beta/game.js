@@ -16,7 +16,7 @@
 
   const STORAGE_KEY_SOLVED = "oop_practical_solved_questions";
   const STORAGE_KEY_CURRENT = "oop_practical_current_q";
-  const STORAGE_PREFIX_CODE = "oop_practical_code_q_";
+  const STORAGE_PREFIX_CODE = "oop_practical_v3_code_q_";
 
   function normalizeJavaCode(str) {
     return (str || "")
@@ -108,17 +108,7 @@
     if (saved !== null && saved.trim().length > 0) {
       return saved;
     }
-    // Agar joriy masalaga hali kod yozilmagan bo'lsa, oldingi masaladagi kodni davom ettirish uchun olib o'tamiz!
-    if (typeof index === "number" && index > 0) {
-      for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
-        const prevCh = CHALLENGES[prevIdx];
-        const prevCode = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
-        if (prevCode && prevCode.trim().length > 0) {
-          return prevCode;
-        }
-      }
-    }
-    // 1-masala yoki hech qanday oldingi kod bo'lmasa: bo'm-bo'sh turadi!
+    // Talaba kodni o'zi yozadi — muharrir bo'm-bo'sh turadi!
     return "";
   }
 
@@ -385,19 +375,27 @@
     const editor = document.getElementById("codeEditor");
     if (!ch || !editor) return;
 
-    if (confirm("Kodni boshlang'ich holatga qaytarmoqchimisiz?")) {
-      editor.value = ch.starterCode || "";
+    if (confirm("Kodni tozalab, ushbu topshiriqni qaytadan boshlamoqchimisiz?")) {
+      editor.value = "";
+      localStorage.removeItem(STORAGE_PREFIX_CODE + ch.id);
       saveCurrentCode();
       if (window.JavaEditorEnhancer) {
         window.JavaEditorEnhancer.updateHighlighting();
         window.JavaEditorEnhancer.syncScroll();
+        window.JavaEditorEnhancer.scanCodeForClasses();
+        window.JavaEditorEnhancer.renderChipsBar();
       }
       if (window.SimulatorEngine) {
         window.SimulatorEngine.setChallenge(ch);
-        window.SimulatorEngine.triggerAction(editor.value, "", false);
+        window.SimulatorEngine.triggerAction("", "", false);
       }
-      updateMemoryDisplay(ch, editor.value);
+      updateMemoryDisplay(ch, "");
       if (umlMode === "live") updateUMLDiagram();
+      const terminal = document.getElementById("terminalOutput");
+      if (terminal) {
+        terminal.className = "terminal-body";
+        terminal.textContent = "Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
+      }
     }
   }
 
@@ -497,6 +495,26 @@
     if (btnTest) btnTest.addEventListener("click", handleInstantTest);
     if (btnSolution) btnSolution.addEventListener("click", handleShowSolution);
     if (btnReset) btnReset.addEventListener("click", handleResetCode);
+
+    const btnGlobalReset = document.getElementById("btnGlobalReset");
+    if (btnGlobalReset) {
+      btnGlobalReset.addEventListener("click", () => {
+        if (confirm("DIQQAT: Barcha 40 ta bosqichdagi yozilgan kodlar tozalanadi va 1-topshiriqdan boshlanadi. Barchasini qaytadan boshlaysizmi?")) {
+          for (let i = 1; i <= 40; i++) {
+            localStorage.removeItem("oop_practical_code_q_" + i);
+            localStorage.removeItem("oop_practical_v2_code_q_" + i);
+            localStorage.removeItem("oop_practical_v3_code_q_" + i);
+          }
+          localStorage.removeItem(STORAGE_KEY_SOLVED);
+          localStorage.removeItem(STORAGE_KEY_CURRENT);
+          solvedQuestions.clear();
+          const ed = document.getElementById("codeEditor");
+          if (ed) ed.value = "";
+          switchChallenge(0);
+          renderHUD();
+        }
+      });
+    }
 
     // 6. Live Diagram & Code update on typing
     const editor = document.getElementById("codeEditor");
