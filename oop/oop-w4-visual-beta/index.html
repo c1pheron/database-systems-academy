@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>OOP Visual Academy (Beta) • Uzum, Korzinka & Payme Jonli Simulyatori | SeventyOne+</title>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261026_V1">
+</head>
+<body>
+
+  <!-- TOP NAV BAR -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="btn-nav" title="OOP Bosh sahifasiga qaytish">← Portali</a>
+      <div class="brand-badge">
+        <span>☕ OOP Visual Simulator</span>
+        <span class="beta-tag">BETA</span>
+      </div>
+    </div>
+    <div class="nav-right">
+      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Reyting: <strong id="hudScore" style="color: #f59e0b;">0 XP</strong></span>
+      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Topshiriq: <strong id="hudProgress" style="color: #10b981;">0 / 20</strong></span>
+      <a href="../oop-w4-game/index.html" class="btn-nav" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🏛 150 Masalalik Versiya</a>
+    </div>
+  </header>
+
+  <!-- PROGRESS 20 DOTS -->
+  <nav class="progress-strip" id="progressStrip"></nav>
+
+  <!-- MAIN DUAL-PANE WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT: TASK & CODE EDITOR -->
+    <section class="left-pane">
+      <!-- TASK CARD -->
+      <article class="task-card">
+        <div class="tier-title-bar">
+          <span class="tier-badge" id="tierBadge">1-Bosqich: Klasslar va Obyektlar</span>
+          <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono', monospace;">WIUT 5COSC018C</span>
+        </div>
+        <h1 class="task-title" id="taskTitle">Yuklanmoqda...</h1>
+        <div class="task-scenario-box" id="taskScenario">
+          Topshiriq yuklanmoqda...
+        </div>
+      </article>
+
+      <!-- CODE EDITOR CARD -->
+      <article class="editor-card">
+        <div class="editor-header">
+          <div class="editor-filename">
+            <span>☕</span>
+            <span>Solution.java (OpenJDK 21)</span>
+          </div>
+          <div class="editor-actions">
+            <button id="btnReset" class="btn-icon" type="button" title="Kodni boshlang'ich holatga qaytarish">🔄 Boshlang'ich kod</button>
+            <button id="btnSolution" class="btn-icon" type="button" title="Namunaviy yechimni ko'rish">💡 Yechim</button>
+          </div>
+        </div>
+        <div class="code-wrapper">
+          <textarea id="codeEditor" spellcheck="false" placeholder="// Java kodingizni bu yerga yozing..."></textarea>
+        </div>
+        <div class="action-bar">
+          <div class="action-bar-left">
+            <button id="btnSimulate" class="btn-simulate" type="button" title="Virtual smartfonda natijani darhol ko'rish">
+              <span>⚡</span> Sinab Ko'rish (Simulate)
+            </button>
+            <button id="btnTest" class="btn-primary" type="button" title="OpenJDK da tekshirish va keyingi bosqichga o'tish">
+              <span>🚀</span> Tekshirish (Check & Next)
+            </button>
+          </div>
+          <span style="font-size:11px; color:#64748b;">Fast-Path & Dual OpenJDK Engine</span>
+        </div>
+      </article>
+
+      <!-- TERMINAL CONSOLE -->
+      <article class="terminal-card">
+        <div class="terminal-header">
+          <span>💻 OpenJDK Java Terminal / Tahlil</span>
+          <span style="font-size:10px; color:#64748b;">OpenJDK 21.0.4 Sandbox</span>
+        </div>
+        <div id="terminalOutput" class="terminal-body">
+          Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.
+        </div>
+      </article>
+    </section>
+
+    <!-- RIGHT: SMARTPHONE SIMULATOR -->
+    <aside class="right-pane">
+      <div id="phoneSimContainer"></div>
+    </aside>
+  </main>
+
+  <!-- DEPENDENCIES & SCRIPTS -->
+  <script src="../shared/java-analyzer.js?v=20261025_W4_FIXED"></script>
+  <script src="../shared/java-runner.js?v=20261025_W4_FIXED"></script>
+  <script src="challenges-visual-20.js?v=20261026_V1"></script>
+  <script src="simulator-engine.js?v=20261026_V1"></script>
+  <script src="game.js?v=20261026_V1"></script>
+</body>
+</html>
