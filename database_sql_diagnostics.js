@@ -132,6 +132,23 @@
       const lines = rawSql.split('\n');
       const cleanText = rawSql.trim();
 
+      // FAST PATH: If user SQL matches any official solution, pass immediately!
+      if (rawSql && question && question.solutions && question.solutions.length > 0) {
+        const uNorm = rawSql.replace(/--.*$/gm, '').replace(/;+\s*$/, '').replace(/\s+/g, ' ').trim().toLowerCase();
+        for (const sol of question.solutions) {
+          const sNorm = sol.replace(/--.*$/gm, '').replace(/;+\s*$/, '').replace(/\s+/g, ' ').trim().toLowerCase();
+          if (uNorm === sNorm) {
+            return {
+              passed: true,
+              errors: [],
+              passedItems: [{ name: isEn ? "Exact Solution Match" : "Relyatsion Standart Mosligi", detail: "✓" }],
+              formattedReport: isEn ? "✓ DDL verified successfully!" : "✓ DDL muvaffaqiyatli tekshirildi!",
+              formattedHTML: '<div style="color:#86efac; font-weight:600;">✓ ' + (isEn ? "DDL command verified successfully!" : "DDL kodi standart talablarga to'liq mos keldi!") + '</div>'
+            };
+          }
+        }
+      }
+
       // Determine mode
       let effectiveMode = mode;
       if (effectiveMode === 'auto') {
@@ -442,20 +459,9 @@
         }
       });
 
-      // 4. Missing trailing semicolon
+      // 4. Trailing semicolon - lenient: accept with or without trailing semicolon
       const noCommentsAll = cleanText.replace(/--.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '').trim();
-      if (noCommentsAll && !noCommentsAll.endsWith(';')) {
-        errors.push({
-          line: lines.length,
-          message: isEn 
-            ? "Missing trailing semicolon (;) at the end of SQL command."
-            : "SQL buyrug'i oxirida ';' (nuqta-vergul) belgisi qolib ketgan.",
-          snippet: lines[lines.length - 1].trim(),
-          fix: isEn 
-            ? "Add ';' at the very end of your SQL statement."
-            : "SQL buyrug'ini qat'iy standartga binoan oxirida ';' (nuqta-vergul) bilan yakunlang."
-        });
-      }
+      // Informational only, does not push blocking error
     },
 
     // 6. KEYWORD TYPOS
@@ -488,8 +494,13 @@
 
     // 7. DDL SPECIFIC CHECKS
     checkDDLSpecifics(lines, cleanText, question, errors, passedItems, isEn) {
-      // Must start with DDL command
-      if (!/^\s*(CREATE|ALTER|DROP|SET|COMMENT|TRUNCATE)\b/i.test(cleanText)) {
+      const expOp = question.expectedSchema ? question.expectedSchema.operation : '';
+      const isRelAlg = expOp === 'RELATIONAL_ALGEBRA' || /^\s*SELECT\b/i.test(cleanText);
+      const isSet = expOp === 'SET_SEARCH_PATH' || /^\s*SET\b/i.test(cleanText);
+      const isSchema = expOp === 'SCHEMA' || /^\s*CREATE\s+SCHEMA\b/i.test(cleanText);
+
+      // Must start with DDL command OR SELECT for relational algebra
+      if (!isRelAlg && !isSet && !isSchema && !/^\s*(CREATE|ALTER|DROP|SET|COMMENT|TRUNCATE)\b/i.test(cleanText)) {
         errors.push({
           line: 1,
           message: isEn 
@@ -557,44 +568,64 @@
         const exp = question.expectedSchema;
         const normClean = cleanText.toLowerCase();
 
-        // Check Table Name
-        if (exp.tableName) {
-          const tNorm = exp.tableName.toLowerCase();
-          if (!normClean.includes(tNorm)) {
-            errors.push({
-              line: 1,
-              message: isEn 
-                ? `Expected table name '${exp.tableName}' not found.`
-                : `Kutilgan '${exp.tableName}' jadval nomi topilmadi.`,
-              snippet: lines[0].trim(),
-              fix: isEn 
-                ? `Create table with name '${exp.tableName}'.`
-                : `Jadval nomini '${exp.tableName}' deb belgilang.`
-            });
-          } else {
-            passedItems.push({ name: isEn ? "Table Name" : "Jadval Nomi", detail: exp.tableName });
-          }
-        }
-
-        // Check Columns
-        if (exp.columns && Array.isArray(exp.columns)) {
-          exp.columns.forEach(col => {
-            const cNorm = col.name.toLowerCase();
-            if (!normClean.includes(cNorm)) {
+        if (exp.operation === 'CREATE_TABLE') {
+          // Check Table Name
+          if (exp.tableName) {
+            const tNorm = exp.tableName.toLowerCase();
+            if (!normClean.includes(tNorm)) {
               errors.push({
-                line: 2,
+                line: 1,
                 message: isEn 
-                  ? `Required column '${col.name}' is missing.`
-                  : `Talab qilingan '${col.name}' ustuni kiritilmagan.`,
-                snippet: "",
+                  ? `Expected table name '${exp.tableName}' not found.`
+                  : `Kutilgan '${exp.tableName}' jadval nomi topilmadi.`,
+                snippet: lines[0].trim(),
                 fix: isEn 
-                  ? `Add column: ${col.name} ${col.type || 'integer'}`
-                  : `'${col.name}' ustunini qo'shing: ${col.name} ${col.type || 'integer'}`
+                  ? `Create table with name '${exp.tableName}'.`
+                  : `Jadval nomini '${exp.tableName}' deb belgilang.`
               });
             } else {
-              passedItems.push({ name: isEn ? "Column" : "Ustun", detail: col.name });
+              passedItems.push({ name: isEn ? "Table Name" : "Jadval Nomi", detail: exp.tableName });
             }
-          });
+          }
+
+          // Check Columns
+          if (exp.columns && Array.isArray(exp.columns)) {
+            exp.columns.forEach(col => {
+              const cNorm = col.name.toLowerCase();
+              if (!normClean.includes(cNorm)) {
+                errors.push({
+                  line: 2,
+                  message: isEn 
+                    ? `Required column '${col.name}' is missing.`
+                    : `Talab qilingan '${col.name}' ustuni kiritilmagan.`,
+                  snippet: "",
+                  fix: isEn 
+                    ? `Add column: ${col.name} ${col.type || 'integer'}`
+                    : `'${col.name}' ustunini qo'shing: ${col.name} ${col.type || 'integer'}`
+                });
+              } else {
+                passedItems.push({ name: isEn ? "Column" : "Ustun", detail: col.name });
+              }
+            });
+          }
+        } else if (exp.operation === 'ALTER_TABLE' || exp.operation === 'DROP_TABLE') {
+          if (exp.tableName && !normClean.includes(exp.tableName.toLowerCase())) {
+            errors.push({
+              line: 1,
+              message: isEn ? `Target table '${exp.tableName}' not found in command.` : `Buyruqda maqsadli '${exp.tableName}' jadvali ko'rsatilmagan.`,
+              snippet: lines[0].trim(),
+              fix: `${exp.operation === 'DROP_TABLE' ? 'DROP TABLE' : 'ALTER TABLE'} ${exp.tableName} ...`
+            });
+          }
+        } else if (exp.operation === 'RELATIONAL_ALGEBRA') {
+          if (!/^\s*SELECT\b/i.test(cleanText)) {
+            errors.push({
+              line: 1,
+              message: isEn ? "Relational algebra query must be written as a SQL SELECT statement." : "Relyatsion algebra so'rovi SQL da SELECT bilan yozilishi kerak.",
+              snippet: lines[0].trim(),
+              fix: "SELECT ..."
+            });
+          }
         }
       }
     },

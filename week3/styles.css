@@ -255,6 +255,158 @@ input, textarea, select, [contenteditable="true"] {
   color: var(--accent-gold);
 }
 
+.floor-btn.completed {
+  border-color: #10b981;
+  color: #34d399;
+}
+
+.floor-btn.completed .floor-badge {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+/* 15-Question Dots Navigation Strip */
+.floor-q-strip-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.floor-q-strip-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.floor-question-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.q-dot-btn {
+  min-width: 32px;
+  height: 27px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  background: #1e1915;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.q-dot-btn:hover {
+  border-color: var(--accent-gold);
+  color: var(--text-primary);
+  background: #2a221d;
+  transform: translateY(-1px);
+}
+
+.q-dot-btn.active {
+  background: var(--bg-walnut);
+  border-color: var(--accent-gold);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 8px rgba(200, 169, 110, 0.4);
+}
+
+.q-dot-btn.completed {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #10b981;
+  color: #34d399;
+  font-weight: 700;
+}
+
+.q-dot-btn.completed::after {
+  content: " ✓";
+  font-size: 9px;
+  margin-left: 2px;
+}
+
+.q-dot-btn.completed.active {
+  background: rgba(16, 185, 129, 0.35);
+  border-color: #34d399;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.5);
+}
+
+/* Extra Blueprint Badges */
+.badge-identity {
+  background: #2c2519;
+  border: 1px solid #d4af37;
+  color: #facc15;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.badge-def {
+  background: #182622;
+  border: 1px solid #2dd4bf;
+  color: #5eead4;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.badge-alter {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid #f59e0b;
+  color: #fbbf24;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.badge-drop {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.badge-env {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid #38bdf8;
+  color: #7dd3fc;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.badge-algebra {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid #a855f7;
+  color: #d8b4fe;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
 /* ----------------------------------------------------------------------------
    3. MAIN WORKSPACE CONTAINER (2 COLUMNS)
    ---------------------------------------------------------------------------- */

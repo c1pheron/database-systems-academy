@@ -13,27 +13,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))` .",
     "solutions": [
       "CREATE TABLE order_status (id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')))",
-      "CREATE TABLE order_status (\n  id integer PRIMARY KEY,\n  status varchar(20),\n  CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))\n)"
+      "CREATE TABLE order_status (id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')));",
+      "CREATE TABLE order_status (\n  id integer PRIMARY KEY,\n  status varchar(20),\n  CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))\n)",
+      "CREATE TABLE order_status (\n  id integer PRIMARY KEY,\n  status varchar(20),\n  CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))\n);",
+      "CREATE TABLE order_status ( id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')) )",
+      "CREATE TABLE order_status ( id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_order_status ro'yxat tekshiruvi cheklovi muvaffaqiyatli o'rnatildi.",
     "task": "Create a table named `order_status`: `id` (integer PRIMARY KEY), `status` (varchar(20)) ustunlari and named `CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "order_status",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "status",
           "type": "varchar(20)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -50,27 +65,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)` dan foydalaning.",
     "solutions": [
       "CREATE TABLE discount_rate (id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100))",
-      "CREATE TABLE discount_rate (\n  id integer PRIMARY KEY,\n  rate numeric(5,2),\n  CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)\n)"
+      "CREATE TABLE discount_rate (id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100));",
+      "CREATE TABLE discount_rate (\n  id integer PRIMARY KEY,\n  rate numeric(5,2),\n  CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)\n)",
+      "CREATE TABLE discount_rate (\n  id integer PRIMARY KEY,\n  rate numeric(5,2),\n  CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)\n);",
+      "CREATE TABLE discount_rate ( id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100) )",
+      "CREATE TABLE discount_rate ( id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_discount_rate foiz chegarasi o'rnatildi.",
     "task": "Create a table named `discount_rate`: `id` (integer PRIMARY KEY), `rate` (numeric(5,2)) ustunlari and named `CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "discount_rate",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "rate",
-          "type": "numeric(5",
+          "type": "numeric(5,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -87,34 +117,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_project_dates CHECK (end_date >= start_date)` yozing.",
     "solutions": [
       "CREATE TABLE project_dates (id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date))",
-      "CREATE TABLE project_dates (\n  id integer PRIMARY KEY,\n  start_date date,\n  end_date date,\n  CONSTRAINT ck_project_dates CHECK (end_date >= start_date)\n)"
+      "CREATE TABLE project_dates (id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date));",
+      "CREATE TABLE project_dates (\n  id integer PRIMARY KEY,\n  start_date date,\n  end_date date,\n  CONSTRAINT ck_project_dates CHECK (end_date >= start_date)\n)",
+      "CREATE TABLE project_dates (\n  id integer PRIMARY KEY,\n  start_date date,\n  end_date date,\n  CONSTRAINT ck_project_dates CHECK (end_date >= start_date)\n);",
+      "CREATE TABLE project_dates ( id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date) )",
+      "CREATE TABLE project_dates ( id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_project_dates sanalar mantiqiy tartibi cheklovi barpo etildi.",
     "task": "Create a table named `project_dates`: `id` (integer PRIMARY KEY), `start_date` (date), `end_date` (date) ustunlari and named `CONSTRAINT ck_project_dates CHECK (end_date >= start_date)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "project_dates",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "start_date",
           "type": "date",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         },
         {
           "name": "end_date",
           "type": "date",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -131,27 +181,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)` yordamida bajaring.",
     "solutions": [
       "CREATE TABLE feedback (id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5))",
-      "CREATE TABLE feedback (\n  id integer PRIMARY KEY,\n  rating integer,\n  CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)\n)"
+      "CREATE TABLE feedback (id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5));",
+      "CREATE TABLE feedback (\n  id integer PRIMARY KEY,\n  rating integer,\n  CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)\n)",
+      "CREATE TABLE feedback (\n  id integer PRIMARY KEY,\n  rating integer,\n  CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)\n);",
+      "CREATE TABLE feedback ( id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5) )",
+      "CREATE TABLE feedback ( id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_feedback_rating reyting cheklovi o'rnatildi.",
     "task": "Create a table named `feedback`: `id` (integer PRIMARY KEY), `rating` (integer) ustunlari and named `CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "feedback",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "rating",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -168,27 +233,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CHECK (length(password_hash) >= 8)` funksiyasini named constraint ichida ishlating.",
     "solutions": [
       "CREATE TABLE user_security (id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8))",
-      "CREATE TABLE user_security (\n  id integer PRIMARY KEY,\n  password_hash varchar(100),\n  CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)\n)"
+      "CREATE TABLE user_security (id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8));",
+      "CREATE TABLE user_security (\n  id integer PRIMARY KEY,\n  password_hash varchar(100),\n  CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)\n)",
+      "CREATE TABLE user_security (\n  id integer PRIMARY KEY,\n  password_hash varchar(100),\n  CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)\n);",
+      "CREATE TABLE user_security ( id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8) )",
+      "CREATE TABLE user_security ( id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_password_length parol uzunligi cheklovi o'rnatildi.",
     "task": "Create a table named `user_security`: `id` (integer PRIMARY KEY), `password_hash` (varchar(100)) ustunlari and named `CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "user_security",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "password_hash",
           "type": "varchar(100)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -205,27 +285,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_stock_qty CHECK (qty >= 0)` .",
     "solutions": [
       "CREATE TABLE warehouse_stock (id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0))",
-      "CREATE TABLE warehouse_stock (\n  id integer PRIMARY KEY,\n  qty integer,\n  CONSTRAINT ck_stock_qty CHECK (qty >= 0)\n)"
+      "CREATE TABLE warehouse_stock (id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0));",
+      "CREATE TABLE warehouse_stock (\n  id integer PRIMARY KEY,\n  qty integer,\n  CONSTRAINT ck_stock_qty CHECK (qty >= 0)\n)",
+      "CREATE TABLE warehouse_stock (\n  id integer PRIMARY KEY,\n  qty integer,\n  CONSTRAINT ck_stock_qty CHECK (qty >= 0)\n);",
+      "CREATE TABLE warehouse_stock ( id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0) )",
+      "CREATE TABLE warehouse_stock ( id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_stock_qty tovar miqdori qoidasi o'rnatildi.",
     "task": "Create a table named `warehouse_stock`: `id` (integer PRIMARY KEY), `qty` (integer) ustunlari and named `CONSTRAINT ck_stock_qty CHECK (qty >= 0)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "warehouse_stock",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "qty",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -242,34 +337,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Ikkita alohida `CONSTRAINT ... CHECK (...)` qatorini yozing.",
     "solutions": [
       "CREATE TABLE retail_item (id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0))",
-      "CREATE TABLE retail_item (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  qty integer,\n  CONSTRAINT ck_retail_price CHECK (price > 0),\n  CONSTRAINT ck_retail_qty CHECK (qty >= 0)\n)"
+      "CREATE TABLE retail_item (id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0));",
+      "CREATE TABLE retail_item (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  qty integer,\n  CONSTRAINT ck_retail_price CHECK (price > 0),\n  CONSTRAINT ck_retail_qty CHECK (qty >= 0)\n)",
+      "CREATE TABLE retail_item (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  qty integer,\n  CONSTRAINT ck_retail_price CHECK (price > 0),\n  CONSTRAINT ck_retail_qty CHECK (qty >= 0)\n);",
+      "CREATE TABLE retail_item ( id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0) )",
+      "CREATE TABLE retail_item ( id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0) );"
     ],
     "requiredPatterns": [],
     "explanation": "retail_item jadvalida ikkita mustaqil biznes qoida o'rnatildi.",
     "task": "Create a table named `retail_item`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)), `qty` (integer) ustunlari and `CONSTRAINT ck_retail_price CHECK (price > 0)` and `CONSTRAINT ck_retail_qty CHECK (qty >= 0)` cheklovlari bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "retail_item",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "price",
-          "type": "numeric(8",
+          "type": "numeric(8,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         },
         {
           "name": "qty",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -286,27 +401,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_currency_code CHECK (length(code) = 3)` dan foydalaning.",
     "solutions": [
       "CREATE TABLE currency (id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3))",
-      "CREATE TABLE currency (\n  id integer PRIMARY KEY,\n  code varchar(3),\n  CONSTRAINT ck_currency_code CHECK (length(code) = 3)\n)"
+      "CREATE TABLE currency (id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3));",
+      "CREATE TABLE currency (\n  id integer PRIMARY KEY,\n  code varchar(3),\n  CONSTRAINT ck_currency_code CHECK (length(code) = 3)\n)",
+      "CREATE TABLE currency (\n  id integer PRIMARY KEY,\n  code varchar(3),\n  CONSTRAINT ck_currency_code CHECK (length(code) = 3)\n);",
+      "CREATE TABLE currency ( id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3) )",
+      "CREATE TABLE currency ( id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_currency_code valyuta formati cheklovi o'rnatildi.",
     "task": "Create a table named `currency`: `id` (integer PRIMARY KEY), `code` (varchar(3)) ustunlari and named `CONSTRAINT ck_currency_code CHECK (length(code) = 3)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "currency",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "code",
           "type": "varchar(3)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -323,27 +453,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT ck_min_wage CHECK (salary >= 800)` .",
     "solutions": [
       "CREATE TABLE contract (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800))",
-      "CREATE TABLE contract (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_min_wage CHECK (salary >= 800)\n)"
+      "CREATE TABLE contract (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800));",
+      "CREATE TABLE contract (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_min_wage CHECK (salary >= 800)\n)",
+      "CREATE TABLE contract (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_min_wage CHECK (salary >= 800)\n);",
+      "CREATE TABLE contract ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800) )",
+      "CREATE TABLE contract ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800) );"
     ],
     "requiredPatterns": [],
     "explanation": "ck_min_wage qonuniy me'yor cheklovi yaratildi.",
     "task": "Create a table named `contract`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_min_wage CHECK (salary >= 800)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "contract",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "salary",
-          "type": "numeric(10",
+          "type": "numeric(10,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
       ]
     }
@@ -360,38 +505,65 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Uchala named cheklovni ham jadval oxirida vergul bilan ketma-ket e'lon qiling.",
     "solutions": [
       "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0))",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100) NOT NULL,\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id),\n  CONSTRAINT uq_department_title UNIQUE (title),\n  CONSTRAINT ck_department_budget CHECK (budget >= 0)\n)"
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0));",
+      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100) NOT NULL,\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id),\n  CONSTRAINT uq_department_title UNIQUE (title),\n  CONSTRAINT ck_department_budget CHECK (budget >= 0)\n)",
+      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100) NOT NULL,\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id),\n  CONSTRAINT uq_department_title UNIQUE (title),\n  CONSTRAINT ck_department_budget CHECK (budget >= 0)\n);",
+      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0) )",
+      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0) );"
     ],
     "requiredPatterns": [],
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "hasIdentity": true
+          "isIdentity": true,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "title",
           "type": "varchar(100)",
+          "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": true
+          "isUQ": true,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "location",
-          "type": "varchar(50)"
+          "type": "varchar(50)",
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "budget",
           "type": "numeric(12,2)",
-          "hasCheck": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": true,
+          "hasDefault": false
         }
-      ],
-      "requiredConstraints": [
-        "pk_department_id",
-        "uq_department_title",
-        "ck_department_budget"
       ]
     },
     "explanation": "4-Qavat Bossi zabt etildi! Seminar 3 ning to'liq mukammal department jadvali arxitekturasi barpo etildi.",
@@ -409,34 +581,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`active boolean NOT NULL DEFAULT true` .",
     "solutions": [
       "CREATE TABLE app_user (id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true)",
-      "CREATE TABLE app_user (\n  id integer PRIMARY KEY,\n  username varchar(50) NOT NULL,\n  active boolean NOT NULL DEFAULT true\n)"
+      "CREATE TABLE app_user (id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true);",
+      "CREATE TABLE app_user (\n  id integer PRIMARY KEY,\n  username varchar(50) NOT NULL,\n  active boolean NOT NULL DEFAULT true\n)",
+      "CREATE TABLE app_user (\n  id integer PRIMARY KEY,\n  username varchar(50) NOT NULL,\n  active boolean NOT NULL DEFAULT true\n);",
+      "CREATE TABLE app_user ( id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true )",
+      "CREATE TABLE app_user ( id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true );"
     ],
     "requiredPatterns": [],
     "explanation": "active boolean NOT NULL DEFAULT true standart qiymati o'rnatildi.",
     "task": "Create a table named `app_user` with columns: `id` (integer PRIMARY KEY), `username` (varchar(50) NOT NULL) and `active` (boolean NOT NULL DEFAULT true).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "app_user",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "username",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "active",
           "type": "boolean",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -453,34 +645,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP` sintaksisini qo'llang.",
     "solutions": [
       "CREATE TABLE worker (id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
-      "CREATE TABLE worker (\n  id integer PRIMARY KEY,\n  name varchar(50) NOT NULL,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)"
+      "CREATE TABLE worker (id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "CREATE TABLE worker (\n  id integer PRIMARY KEY,\n  name varchar(50) NOT NULL,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
+      "CREATE TABLE worker (\n  id integer PRIMARY KEY,\n  name varchar(50) NOT NULL,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
+      "CREATE TABLE worker ( id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP )",
+      "CREATE TABLE worker ( id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP );"
     ],
     "requiredPatterns": [],
     "explanation": "hired_at ustuniga CURRENT_TIMESTAMP standart vaqti o'rnatildi.",
     "task": "Create a table named `worker` with columns: `id` (integer PRIMARY KEY), `name` (varchar(50) NOT NULL) and `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "worker",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "name",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "hired_at",
           "type": "timestamp",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -497,34 +709,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`salary numeric(10,2) DEFAULT 1000` .",
     "solutions": [
       "CREATE TABLE payroll (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000)",
-      "CREATE TABLE payroll (\n  id integer PRIMARY KEY,\n  salary numeric(10,2) DEFAULT 1000\n)"
+      "CREATE TABLE payroll (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000);",
+      "CREATE TABLE payroll (\n  id integer PRIMARY KEY,\n  salary numeric(10,2) DEFAULT 1000\n)",
+      "CREATE TABLE payroll (\n  id integer PRIMARY KEY,\n  salary numeric(10,2) DEFAULT 1000\n);",
+      "CREATE TABLE payroll ( id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000 )",
+      "CREATE TABLE payroll ( id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000 );"
     ],
     "requiredPatterns": [],
     "explanation": "salary maydoniga DEFAULT 1000 standart qiymati berildi.",
     "task": "Create a table named `payroll` with columns: `id` (integer PRIMARY KEY) and `salary` (numeric(10,2) DEFAULT 1000).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "payroll",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "salary",
-          "type": "numeric(10",
+          "type": "numeric(10,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
-        },
-        {
-          "name": "2)",
-          "type": "DEFAULT",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -541,27 +761,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`status varchar(20) NOT NULL DEFAULT 'Pending'` yozing.",
     "solutions": [
       "CREATE TABLE service_order (id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending')",
-      "CREATE TABLE service_order (\n  id integer PRIMARY KEY,\n  status varchar(20) NOT NULL DEFAULT 'Pending'\n)"
+      "CREATE TABLE service_order (id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending');",
+      "CREATE TABLE service_order (\n  id integer PRIMARY KEY,\n  status varchar(20) NOT NULL DEFAULT 'Pending'\n)",
+      "CREATE TABLE service_order (\n  id integer PRIMARY KEY,\n  status varchar(20) NOT NULL DEFAULT 'Pending'\n);",
+      "CREATE TABLE service_order ( id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending' )",
+      "CREATE TABLE service_order ( id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending' );"
     ],
     "requiredPatterns": [],
     "explanation": "status maydoniga 'Pending' matnli standart qiymati o'rnatildi.",
     "task": "Create a table named `service_order` with columns: `id` (integer PRIMARY KEY) and `status` (varchar(20) NOT NULL DEFAULT 'Pending').",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "service_order",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "status",
           "type": "varchar(20)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -578,25 +813,41 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT pk_department2 PRIMARY KEY (title, location)` ko'rinishida ikkita ustun nomini qavs ichida vergul bilan bering.",
     "solutions": [
       "CREATE TABLE department2 (title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location))",
-      "CREATE TABLE department2 (\n  title varchar(100),\n  location varchar(50),\n  CONSTRAINT pk_department2 PRIMARY KEY (title, location)\n)"
+      "CREATE TABLE department2 (title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location));",
+      "CREATE TABLE department2 (\n  title varchar(100),\n  location varchar(50),\n  CONSTRAINT pk_department2 PRIMARY KEY (title, location)\n)",
+      "CREATE TABLE department2 (\n  title varchar(100),\n  location varchar(50),\n  CONSTRAINT pk_department2 PRIMARY KEY (title, location)\n);",
+      "CREATE TABLE department2 ( title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location) )",
+      "CREATE TABLE department2 ( title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location) );"
     ],
     "requiredPatterns": [],
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "department2",
       "columns": [
         {
           "name": "title",
           "type": "varchar(100)",
-          "isPK": true
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "location",
           "type": "varchar(50)",
-          "isPK": true
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
-      ],
-      "requiredConstraints": [
-        "pk_department2"
       ]
     },
     "explanation": "department2 jadvalida ikkita ustunli kompozit birlamchi kalit o'rnatildi.",
@@ -614,25 +865,41 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)` .",
     "solutions": [
       "CREATE TABLE department_phone (dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone))",
-      "CREATE TABLE department_phone (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)\n)"
+      "CREATE TABLE department_phone (dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone));",
+      "CREATE TABLE department_phone (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)\n)",
+      "CREATE TABLE department_phone (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)\n);",
+      "CREATE TABLE department_phone ( dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone) )",
+      "CREATE TABLE department_phone ( dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone) );"
     ],
     "requiredPatterns": [],
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "department_phone",
       "columns": [
         {
           "name": "dept_id",
           "type": "integer",
-          "isPK": true
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "phone",
           "type": "varchar(20)",
-          "isPK": true
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
-      ],
-      "requiredConstraints": [
-        "pk_department_phone"
       ]
     },
     "explanation": "department_phone kompozit kalitli relyatsion jadvali yaratildi.",
@@ -650,34 +917,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)` and `quantity integer NOT NULL DEFAULT 1`.",
     "solutions": [
       "CREATE TABLE order_item (order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id))",
-      "CREATE TABLE order_item (\n  order_id integer,\n  item_id integer,\n  quantity integer NOT NULL DEFAULT 1,\n  CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)\n)"
+      "CREATE TABLE order_item (order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id));",
+      "CREATE TABLE order_item (\n  order_id integer,\n  item_id integer,\n  quantity integer NOT NULL DEFAULT 1,\n  CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)\n)",
+      "CREATE TABLE order_item (\n  order_id integer,\n  item_id integer,\n  quantity integer NOT NULL DEFAULT 1,\n  CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)\n);",
+      "CREATE TABLE order_item ( order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id) )",
+      "CREATE TABLE order_item ( order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id) );"
     ],
     "requiredPatterns": [],
     "explanation": "order_item ko'pga-ko'p bog'lovchi kompozit jadvali barpo etildi.",
     "task": "Create a table named `order_item`: `order_id` (integer), `item_id` (integer), `quantity` (integer NOT NULL DEFAULT 1) ustunlari and `CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "order_item",
       "columns": [
         {
           "name": "order_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "item_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "quantity",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -694,34 +981,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)` declared.",
     "solutions": [
       "CREATE TABLE child (parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name))",
-      "CREATE TABLE child (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  dob date,\n  CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)\n)"
+      "CREATE TABLE child (parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name));",
+      "CREATE TABLE child (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  dob date,\n  CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)\n)",
+      "CREATE TABLE child (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  dob date,\n  CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)\n);",
+      "CREATE TABLE child ( parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name) )",
+      "CREATE TABLE child ( parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name) );"
     ],
     "requiredPatterns": [],
     "explanation": "child relyatsion kompozit kaliti muvaffaqiyatli o'rnatildi.",
     "task": "Create a table named `child`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `dob` (date) ustunlari and `CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "child",
       "columns": [
         {
           "name": "parent_passport_no",
           "type": "varchar(20)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "child_name",
           "type": "varchar(50)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dob",
           "type": "date",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -738,34 +1045,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)` .",
     "solutions": [
       "CREATE TABLE enrollment (student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id))",
-      "CREATE TABLE enrollment (\n  student_id integer,\n  course_id integer,\n  enrolled_date date DEFAULT CURRENT_DATE,\n  CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)\n)"
+      "CREATE TABLE enrollment (student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id));",
+      "CREATE TABLE enrollment (\n  student_id integer,\n  course_id integer,\n  enrolled_date date DEFAULT CURRENT_DATE,\n  CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)\n)",
+      "CREATE TABLE enrollment (\n  student_id integer,\n  course_id integer,\n  enrolled_date date DEFAULT CURRENT_DATE,\n  CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)\n);",
+      "CREATE TABLE enrollment ( student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id) )",
+      "CREATE TABLE enrollment ( student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id) );"
     ],
     "requiredPatterns": [],
     "explanation": "enrollment kompozit kalitli jadvali tasdiqlandi.",
     "task": "Create a table named `enrollment`: `student_id` (integer), `course_id` (integer), `enrolled_date` (date DEFAULT CURRENT_DATE) ustunlari and `CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "enrollment",
       "columns": [
         {
           "name": "student_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "course_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "enrolled_date",
           "type": "date",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -782,34 +1109,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`views_count integer NOT NULL DEFAULT 0` syntax..",
     "solutions": [
       "CREATE TABLE post (id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0)",
-      "CREATE TABLE post (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  views_count integer NOT NULL DEFAULT 0\n)"
+      "CREATE TABLE post (id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0);",
+      "CREATE TABLE post (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  views_count integer NOT NULL DEFAULT 0\n)",
+      "CREATE TABLE post (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  views_count integer NOT NULL DEFAULT 0\n);",
+      "CREATE TABLE post ( id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0 )",
+      "CREATE TABLE post ( id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0 );"
     ],
     "requiredPatterns": [],
     "explanation": "DEFAULT 0 hisoblagichi o'rnatildi.",
     "task": "Create a table named `post` with columns: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) and `views_count` (integer NOT NULL DEFAULT 0).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "post",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "title",
           "type": "varchar(100)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "views_count",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -826,25 +1173,20 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ALTER TABLE department2 RENAME TO department3` .",
     "solutions": [
       "ALTER TABLE department2 RENAME TO department3",
-      "ALTER TABLE department2\nRENAME TO department3"
+      "ALTER TABLE department2 RENAME TO department3;",
+      "ALTER TABLE department2\nRENAME TO department3",
+      "ALTER TABLE department2\nRENAME TO department3;"
     ],
     "requiredPatterns": [],
     "explanation": "Jadval nomi department3 ga muvaffaqiyatli o'zgartirildi.",
     "task": "`department2` jadvalining nomini `department3` ga o'zgartiring (`ALTER TABLE ... RENAME TO ...`).",
     "expectedSchema": {
+      "operation": "ALTER_TABLE",
+      "action": "RENAME TABLE",
       "tableName": "department2",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "mod_status",
-          "type": "varchar(50)",
-          "isNotNull": false
-        }
-      ]
+      "newTableName": "department3",
+      "detail": "department2 ➔ department3",
+      "description": "Jadval nomini department2 dan department3 ga o'zgartirish."
     }
   },
   {
@@ -859,25 +1201,21 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ALTER TABLE department3 RENAME COLUMN location TO loc` sintaksisini qo'llang.",
     "solutions": [
       "ALTER TABLE department3 RENAME COLUMN location TO loc",
-      "ALTER TABLE department3\nRENAME COLUMN location TO loc"
+      "ALTER TABLE department3 RENAME COLUMN location TO loc;",
+      "ALTER TABLE department3\nRENAME COLUMN location TO loc",
+      "ALTER TABLE department3\nRENAME COLUMN location TO loc;"
     ],
     "requiredPatterns": [],
     "explanation": "location column nomlanishi loc ga o'zgartirildi.",
     "task": "`department3` jadvalining `location` column nomini `loc` ga o'zgartiring.",
     "expectedSchema": {
+      "operation": "ALTER_TABLE",
+      "action": "RENAME COLUMN",
       "tableName": "department3",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true
-        },
-        {
-          "name": "mod_status",
-          "type": "varchar(50)",
-          "isNotNull": false
-        }
-      ]
+      "columnName": "location",
+      "newColumnName": "loc",
+      "detail": "location ➔ loc",
+      "description": "'location' ustuni nomini 'loc' ga qisqartirish."
     }
   },
   {
@@ -892,20 +1230,18 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`DROP TABLE department3` yoki `DROP TABLE IF EXISTS department3` .",
     "solutions": [
       "DROP TABLE department3",
-      "DROP TABLE IF EXISTS department3"
+      "DROP TABLE department3;",
+      "DROP TABLE IF EXISTS department3",
+      "DROP TABLE IF EXISTS department3;"
     ],
     "requiredPatterns": [],
     "explanation": "department3 jadvali xavfsiz o'chirildi.",
     "task": "`department3` jadvalini bazadan butunlay o'chiring.",
     "expectedSchema": {
-      "tableName": "ddl_entity",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true
-        }
-      ]
+      "operation": "DROP_TABLE",
+      "tableName": "department3",
+      "ifExists": false,
+      "description": "'department3' sinov jadvalini bazadan butunlay o'chirib tashlash."
     }
   },
   {
@@ -920,41 +1256,66 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`is_archived boolean NOT NULL DEFAULT false` and `archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP`.",
     "solutions": [
       "CREATE TABLE doc_archive (id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
-      "CREATE TABLE doc_archive (\n  id integer PRIMARY KEY,\n  doc_name varchar(100) NOT NULL,\n  is_archived boolean NOT NULL DEFAULT false,\n  archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)"
+      "CREATE TABLE doc_archive (id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "CREATE TABLE doc_archive (\n  id integer PRIMARY KEY,\n  doc_name varchar(100) NOT NULL,\n  is_archived boolean NOT NULL DEFAULT false,\n  archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
+      "CREATE TABLE doc_archive (\n  id integer PRIMARY KEY,\n  doc_name varchar(100) NOT NULL,\n  is_archived boolean NOT NULL DEFAULT false,\n  archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
+      "CREATE TABLE doc_archive ( id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP )",
+      "CREATE TABLE doc_archive ( id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP );"
     ],
     "requiredPatterns": [],
     "explanation": "doc_archive jadvali ikkita standart qiymat bilan birga yaratildi.",
     "task": "Create a table named `doc_archive` with columns: `id` (integer PRIMARY KEY), `doc_name` (varchar(100) NOT NULL), `is_archived` (boolean NOT NULL DEFAULT false) and `archived_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "doc_archive",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "doc_name",
           "type": "varchar(100)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "is_archived",
           "type": "boolean",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         },
         {
           "name": "archived_at",
           "type": "timestamp",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         }
       ]
     }
@@ -971,64 +1332,137 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Barcha 10 ta ustunni and jadval oxirida `pk_employee_id` and `uq_employee_email` cheklovlarini to'liq yozing.",
     "solutions": [
       "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email))",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  dob date,\n  email varchar(100) NOT NULL,\n  phone varchar(20),\n  salary numeric(10,2),\n  active boolean NOT NULL DEFAULT true,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  department_id integer,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)"
+      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email));",
+      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  dob date,\n  email varchar(100) NOT NULL,\n  phone varchar(20),\n  salary numeric(10,2),\n  active boolean NOT NULL DEFAULT true,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  department_id integer,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)",
+      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  dob date,\n  email varchar(100) NOT NULL,\n  phone varchar(20),\n  salary numeric(10,2),\n  active boolean NOT NULL DEFAULT true,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  department_id integer,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n);",
+      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) )",
+      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) );"
     ],
     "requiredPatterns": [],
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "hasIdentity": true
+          "isIdentity": true,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "first_name",
           "type": "varchar(25)",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "last_name",
           "type": "varchar(25)",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dob",
-          "type": "date"
+          "type": "date",
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "email",
           "type": "varchar(100)",
+          "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": true
+          "isUQ": true,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "phone",
-          "type": "varchar(20)"
+          "type": "varchar(20)",
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "salary",
-          "type": "numeric(10,2)"
+          "type": "numeric(10,2)",
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "active",
           "type": "boolean",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         },
         {
           "name": "hired_at",
           "type": "timestamp",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": true
         },
         {
           "name": "department_id",
-          "type": "integer"
+          "type": "integer",
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": false,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
-      ],
-      "requiredConstraints": [
-        "pk_employee_id",
-        "uq_employee_email"
       ]
     },
     "explanation": "5-Qavat Bossi tasdiqlandi! Seminar 3 dagi employee jadvali to'liq parametrlar bilan shakllantirildi.",
@@ -1046,34 +1480,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`dept_id integer REFERENCES department(id)` .",
     "solutions": [
       "CREATE TABLE staff_dept (id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id))",
-      "CREATE TABLE staff_dept (\n  id integer PRIMARY KEY,\n  full_name varchar(50),\n  dept_id integer REFERENCES department(id)\n)"
+      "CREATE TABLE staff_dept (id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id));",
+      "CREATE TABLE staff_dept (\n  id integer PRIMARY KEY,\n  full_name varchar(50),\n  dept_id integer REFERENCES department(id)\n)",
+      "CREATE TABLE staff_dept (\n  id integer PRIMARY KEY,\n  full_name varchar(50),\n  dept_id integer REFERENCES department(id)\n);",
+      "CREATE TABLE staff_dept ( id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id) )",
+      "CREATE TABLE staff_dept ( id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "staff_dept jadvalida ustun darajasidagi REFERENCES kaliti o'rnatildi.",
     "task": "Create a table named `staff_dept` with columns: `id` (integer PRIMARY KEY), `full_name` (varchar(50)) and ustun darajasida `department(id)` ga bog'langan `dept_id` (integer REFERENCES department(id)).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_dept",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "full_name",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1090,27 +1544,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)` yozing.",
     "solutions": [
       "CREATE TABLE emp_assignment (id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id))",
-      "CREATE TABLE emp_assignment (\n  id integer PRIMARY KEY,\n  department_id integer NOT NULL,\n  CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)\n)"
+      "CREATE TABLE emp_assignment (id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id));",
+      "CREATE TABLE emp_assignment (\n  id integer PRIMARY KEY,\n  department_id integer NOT NULL,\n  CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)\n)",
+      "CREATE TABLE emp_assignment (\n  id integer PRIMARY KEY,\n  department_id integer NOT NULL,\n  CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)\n);",
+      "CREATE TABLE emp_assignment ( id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id) )",
+      "CREATE TABLE emp_assignment ( id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "fk_emp_dept named tashqi kaliti yaratildi.",
     "task": "Create a table named `emp_assignment`: `id` (integer PRIMARY KEY), `department_id` (integer NOT NULL) and named `CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)` with constraint.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "emp_assignment",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "department_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1127,27 +1596,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Ikkala cheklovni ketma-ket yozing: avval PRIMARY KEY, so'ng FOREIGN KEY.",
     "solutions": [
       "CREATE TABLE dept_phone_rel (dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE dept_phone_rel (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)"
+      "CREATE TABLE dept_phone_rel (dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
+      "CREATE TABLE dept_phone_rel (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
+      "CREATE TABLE dept_phone_rel (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
+      "CREATE TABLE dept_phone_rel ( dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
+      "CREATE TABLE dept_phone_rel ( dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "dept_phone_rel jadvalida kompozit PK and FK birgalikda o'rnatildi.",
     "task": "Create a table named `dept_phone_rel`: `dept_id` (integer), `phone` (varchar(20)), primary key `CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone)` and foreign key `CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "dept_phone_rel",
       "columns": [
         {
           "name": "dept_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "phone",
           "type": "varchar(20)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1164,34 +1648,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)` deb o'z jadvalining birlamchi kalitiga yo'naltiring.",
     "solutions": [
       "CREATE TABLE staff_hierarchy (emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id))",
-      "CREATE TABLE staff_hierarchy (\n  emp_id integer PRIMARY KEY,\n  full_name varchar(50),\n  manager_id integer,\n  CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)\n)"
+      "CREATE TABLE staff_hierarchy (emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id));",
+      "CREATE TABLE staff_hierarchy (\n  emp_id integer PRIMARY KEY,\n  full_name varchar(50),\n  manager_id integer,\n  CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)\n)",
+      "CREATE TABLE staff_hierarchy (\n  emp_id integer PRIMARY KEY,\n  full_name varchar(50),\n  manager_id integer,\n  CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)\n);",
+      "CREATE TABLE staff_hierarchy ( emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id) )",
+      "CREATE TABLE staff_hierarchy ( emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id) );"
     ],
     "requiredPatterns": [],
     "explanation": "O'z-o'ziga murojaat qiluvchi (self-referencing) iyerarxik tashqi kalit yaratildi.",
     "task": "Create a table named `staff_hierarchy`: `emp_id` (integer PRIMARY KEY), `full_name` (varchar(50)), `manager_id` (integer) and `CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_hierarchy",
       "columns": [
         {
           "name": "emp_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "full_name",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "manager_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "staff_hierarchy(emp_id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1208,27 +1712,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)` yozing.",
     "solutions": [
       "CREATE TABLE child_record (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no))",
-      "CREATE TABLE child_record (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)\n)"
+      "CREATE TABLE child_record (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no));",
+      "CREATE TABLE child_record (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)\n)",
+      "CREATE TABLE child_record (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)\n);",
+      "CREATE TABLE child_record ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) )",
+      "CREATE TABLE child_record ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) );"
     ],
     "requiredPatterns": [],
     "explanation": "child_record tashqi kaliti person jadvali bilan mustahkamlandi.",
     "task": "Create a table named `child_record`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "child_record",
       "columns": [
         {
           "name": "parent_passport_no",
           "type": "varchar(20)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "person(passport_no)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "child_name",
           "type": "varchar(50)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1245,34 +1764,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)` dan foydalaning.",
     "solutions": [
       "CREATE TABLE sales_order (order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id))",
-      "CREATE TABLE sales_order (\n  order_id integer PRIMARY KEY,\n  client_id integer NOT NULL,\n  total numeric(10,2),\n  CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)\n)"
+      "CREATE TABLE sales_order (order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id));",
+      "CREATE TABLE sales_order (\n  order_id integer PRIMARY KEY,\n  client_id integer NOT NULL,\n  total numeric(10,2),\n  CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)\n)",
+      "CREATE TABLE sales_order (\n  order_id integer PRIMARY KEY,\n  client_id integer NOT NULL,\n  total numeric(10,2),\n  CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)\n);",
+      "CREATE TABLE sales_order ( order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id) )",
+      "CREATE TABLE sales_order ( order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id) );"
     ],
     "requiredPatterns": [],
     "explanation": "sales_order tashqi kaliti mijozlar table ulandi.",
     "task": "Create a table named `sales_order`: `order_id` (integer PRIMARY KEY), `client_id` (integer NOT NULL), `total` (numeric(10,2)) and `CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "sales_order",
       "columns": [
         {
           "name": "order_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "client_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "client(client_id)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "total",
-          "type": "numeric(10",
+          "type": "numeric(10,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1289,27 +1828,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL)` yozing.",
     "solutions": [
       "CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL)",
-      "CREATE TABLE category (\n  cat_id integer PRIMARY KEY,\n  cat_name varchar(50) NOT NULL\n)"
+      "CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL);",
+      "CREATE TABLE category (\n  cat_id integer PRIMARY KEY,\n  cat_name varchar(50) NOT NULL\n)",
+      "CREATE TABLE category (\n  cat_id integer PRIMARY KEY,\n  cat_name varchar(50) NOT NULL\n);",
+      "CREATE TABLE category ( cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL )",
+      "CREATE TABLE category ( cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL );"
     ],
     "requiredPatterns": [],
     "explanation": "Ota jadval sifatida category yaratildi.",
     "task": "Create a table named `category` with columns: `cat_id` (integer PRIMARY KEY) and `cat_name` (varchar(50) NOT NULL).",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "category",
       "columns": [
         {
           "name": "cat_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "cat_name",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1326,34 +1880,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)` .",
     "solutions": [
       "CREATE TABLE catalog_item (item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id))",
-      "CREATE TABLE catalog_item (\n  item_id integer PRIMARY KEY,\n  title varchar(80),\n  cat_id integer NOT NULL,\n  CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)\n)"
+      "CREATE TABLE catalog_item (item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id));",
+      "CREATE TABLE catalog_item (\n  item_id integer PRIMARY KEY,\n  title varchar(80),\n  cat_id integer NOT NULL,\n  CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)\n)",
+      "CREATE TABLE catalog_item (\n  item_id integer PRIMARY KEY,\n  title varchar(80),\n  cat_id integer NOT NULL,\n  CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)\n);",
+      "CREATE TABLE catalog_item ( item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id) )",
+      "CREATE TABLE catalog_item ( item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id) );"
     ],
     "requiredPatterns": [],
     "explanation": "catalog_item jadvali category ga bog'landi.",
     "task": "Create a table named `catalog_item`: `item_id` (integer PRIMARY KEY), `title` (varchar(80)), `cat_id` (integer NOT NULL) and `CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "catalog_item",
       "columns": [
         {
           "name": "item_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "title",
           "type": "varchar(80)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "cat_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "category(cat_id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1370,27 +1944,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)` yozing.",
     "solutions": [
       "CREATE TABLE project_work (proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE project_work (\n  proj_id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)"
+      "CREATE TABLE project_work (proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
+      "CREATE TABLE project_work (\n  proj_id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
+      "CREATE TABLE project_work (\n  proj_id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
+      "CREATE TABLE project_work ( proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
+      "CREATE TABLE project_work ( proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "project_work bo'limlar table ulandi.",
     "task": "Create a table named `project_work`: `proj_id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "project_work",
       "columns": [
         {
           "name": "proj_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1407,34 +1996,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Ikkita `CONSTRAINT ... FOREIGN KEY ... REFERENCES ...` e'lon qiling.",
     "solutions": [
       "CREATE TABLE emp_proj (emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id))",
-      "CREATE TABLE emp_proj (\n  emp_id integer,\n  proj_id integer,\n  hours numeric(5,2),\n  CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id),\n  CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id),\n  CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)\n)"
+      "CREATE TABLE emp_proj (emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id));",
+      "CREATE TABLE emp_proj (\n  emp_id integer,\n  proj_id integer,\n  hours numeric(5,2),\n  CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id),\n  CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id),\n  CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)\n)",
+      "CREATE TABLE emp_proj (\n  emp_id integer,\n  proj_id integer,\n  hours numeric(5,2),\n  CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id),\n  CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id),\n  CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)\n);",
+      "CREATE TABLE emp_proj ( emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id) )",
+      "CREATE TABLE emp_proj ( emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "emp_proj ko'pga-ko'p bog'lovchi jadvalida ikkita mustaqil FK o'rnatildi.",
     "task": "Create a table named `emp_proj`: `emp_id` (integer), `proj_id` (integer), `hours` (numeric(5,2)), `CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id)`, `CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id)`, `CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "emp_proj",
       "columns": [
         {
           "name": "emp_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "employee(id)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "proj_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "project(id)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "hours",
-          "type": "numeric(5",
+          "type": "numeric(5,2)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1451,34 +2060,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)` yozing.",
     "solutions": [
       "CREATE TABLE employee_v2 (id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE employee_v2 (\n  id integer PRIMARY KEY,\n  name varchar(50),\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)"
+      "CREATE TABLE employee_v2 (id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
+      "CREATE TABLE employee_v2 (\n  id integer PRIMARY KEY,\n  name varchar(50),\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
+      "CREATE TABLE employee_v2 (\n  id integer PRIMARY KEY,\n  name varchar(50),\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
+      "CREATE TABLE employee_v2 ( id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
+      "CREATE TABLE employee_v2 ( id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "employee_v2 jadvali tashqi kalit bilan yaratildi.",
     "task": "Create a table named `employee_v2`: `id` (integer PRIMARY KEY), `name` (varchar(50)), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "employee_v2",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "name",
           "type": "varchar(50)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1495,27 +2124,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)` .",
     "solutions": [
       "CREATE TABLE student_fac (stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id))",
-      "CREATE TABLE student_fac (\n  stud_id integer PRIMARY KEY,\n  fac_id integer NOT NULL,\n  CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)\n)"
+      "CREATE TABLE student_fac (stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id));",
+      "CREATE TABLE student_fac (\n  stud_id integer PRIMARY KEY,\n  fac_id integer NOT NULL,\n  CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)\n)",
+      "CREATE TABLE student_fac (\n  stud_id integer PRIMARY KEY,\n  fac_id integer NOT NULL,\n  CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)\n);",
+      "CREATE TABLE student_fac ( stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id) )",
+      "CREATE TABLE student_fac ( stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "fk_stud_fac tashqi kaliti bog'landi.",
     "task": "Create a table named `student_fac`: `stud_id` (integer PRIMARY KEY), `fac_id` (integer NOT NULL) and `CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "student_fac",
       "columns": [
         {
           "name": "stud_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "fac_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1532,34 +2176,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)` yozing.",
     "solutions": [
       "CREATE TABLE city (city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id))",
-      "CREATE TABLE city (\n  city_id integer PRIMARY KEY,\n  city_name varchar(60),\n  country_id integer NOT NULL,\n  CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)\n)"
+      "CREATE TABLE city (city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id));",
+      "CREATE TABLE city (\n  city_id integer PRIMARY KEY,\n  city_name varchar(60),\n  country_id integer NOT NULL,\n  CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)\n)",
+      "CREATE TABLE city (\n  city_id integer PRIMARY KEY,\n  city_name varchar(60),\n  country_id integer NOT NULL,\n  CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)\n);",
+      "CREATE TABLE city ( city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id) )",
+      "CREATE TABLE city ( city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "city jadvalida region ga tashqi kalit ulandi.",
     "task": "Create a table named `city`: `city_id` (integer PRIMARY KEY), `city_name` (varchar(60)), `country_id` (integer NOT NULL) and `CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "city",
       "columns": [
         {
           "name": "city_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "city_name",
           "type": "varchar(60)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "country_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "region(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1576,34 +2240,54 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)` .",
     "solutions": [
       "CREATE TABLE project_task (task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id))",
-      "CREATE TABLE project_task (\n  task_id integer PRIMARY KEY,\n  task_name varchar(80),\n  assigned_to integer,\n  CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)\n)"
+      "CREATE TABLE project_task (task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id));",
+      "CREATE TABLE project_task (\n  task_id integer PRIMARY KEY,\n  task_name varchar(80),\n  assigned_to integer,\n  CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)\n)",
+      "CREATE TABLE project_task (\n  task_id integer PRIMARY KEY,\n  task_name varchar(80),\n  assigned_to integer,\n  CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)\n);",
+      "CREATE TABLE project_task ( task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id) )",
+      "CREATE TABLE project_task ( task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id) );"
     ],
     "requiredPatterns": [],
     "explanation": "project_task vazifalar jadvali xodimga bog'landi.",
     "task": "Create a table named `project_task`: `task_id` (integer PRIMARY KEY), `task_name` (varchar(80)), `assigned_to` (integer) and `CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "project_task",
       "columns": [
         {
           "name": "task_id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "task_name",
           "type": "varchar(80)",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "assigned_to",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "employee(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1620,32 +2304,53 @@ _scope.QUESTIONS_51_100 = [
     "hint": "Avval `CONSTRAINT pk_team_id PRIMARY KEY (team_id)`, so'ng `CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)` yozing.",
     "solutions": [
       "CREATE TABLE team (team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id))",
-      "CREATE TABLE team (\n  team_id integer GENERATED ALWAYS AS IDENTITY,\n  team_name varchar(50) NOT NULL,\n  department_id integer NOT NULL,\n  CONSTRAINT pk_team_id PRIMARY KEY (team_id),\n  CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)\n)"
+      "CREATE TABLE team (team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id));",
+      "CREATE TABLE team (\n  team_id integer GENERATED ALWAYS AS IDENTITY,\n  team_name varchar(50) NOT NULL,\n  department_id integer NOT NULL,\n  CONSTRAINT pk_team_id PRIMARY KEY (team_id),\n  CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)\n)",
+      "CREATE TABLE team (\n  team_id integer GENERATED ALWAYS AS IDENTITY,\n  team_name varchar(50) NOT NULL,\n  department_id integer NOT NULL,\n  CONSTRAINT pk_team_id PRIMARY KEY (team_id),\n  CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)\n);",
+      "CREATE TABLE team ( team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id) )",
+      "CREATE TABLE team ( team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id) );"
     ],
     "requiredPatterns": [],
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "team",
       "columns": [
         {
           "name": "team_id",
           "type": "integer",
           "isPK": true,
-          "hasIdentity": true
+          "isIdentity": true,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "team_name",
           "type": "varchar(50)",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "department_id",
           "type": "integer",
-          "isNotNull": true
+          "isPK": false,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
-      ],
-      "requiredConstraints": [
-        "pk_team_id",
-        "fk_team_department"
       ]
     },
     "explanation": "6-Qavat Bossi tasdiqlandi! Relyatsion ota-bola cheklovi muvaffaqiyatli qurildi.",
@@ -1663,27 +2368,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`REFERENCES department(id) ON DELETE CASCADE` deb oxiriga qo'shing.",
     "solutions": [
       "CREATE TABLE branch_audit (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE)",
-      "CREATE TABLE branch_audit (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)"
+      "CREATE TABLE branch_audit (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE);",
+      "CREATE TABLE branch_audit (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)",
+      "CREATE TABLE branch_audit (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n);",
+      "CREATE TABLE branch_audit ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE )",
+      "CREATE TABLE branch_audit ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "ON DELETE CASCADE kaskadli o'chirish qoidasi o'rnatildi.",
     "task": "Create a table named `branch_audit`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "branch_audit",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1700,27 +2420,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`REFERENCES department(id) ON DELETE SET NULL` .",
     "solutions": [
       "CREATE TABLE staff_flexible (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL)",
-      "CREATE TABLE staff_flexible (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL\n)"
+      "CREATE TABLE staff_flexible (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL);",
+      "CREATE TABLE staff_flexible (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL\n)",
+      "CREATE TABLE staff_flexible (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL\n);",
+      "CREATE TABLE staff_flexible ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL )",
+      "CREATE TABLE staff_flexible ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL );"
     ],
     "requiredPatterns": [],
     "explanation": "ON DELETE SET NULL xavfsiz neytrallash qoidasi o'rnatildi.",
     "task": "Create a table named `staff_flexible`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_flexible",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1737,27 +2472,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`REFERENCES department(id) ON DELETE RESTRICT` deb qo'shing.",
     "solutions": [
       "CREATE TABLE staff_protected (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT)",
-      "CREATE TABLE staff_protected (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT\n)"
+      "CREATE TABLE staff_protected (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT);",
+      "CREATE TABLE staff_protected (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT\n)",
+      "CREATE TABLE staff_protected (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT\n);",
+      "CREATE TABLE staff_protected ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT )",
+      "CREATE TABLE staff_protected ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT );"
     ],
     "requiredPatterns": [],
     "explanation": "ON DELETE RESTRICT taqiqlovchi xavfsizlik cheklovi barpo etildi.",
     "task": "Create a table named `staff_protected`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_protected",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1774,27 +2524,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON DELETE NO ACTION ON UPDATE NO ACTION` sintaksisini qo'llang.",
     "solutions": [
       "CREATE TABLE staff_na (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION)",
-      "CREATE TABLE staff_na (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION\n)"
+      "CREATE TABLE staff_na (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION);",
+      "CREATE TABLE staff_na (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION\n)",
+      "CREATE TABLE staff_na (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION\n);",
+      "CREATE TABLE staff_na ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION )",
+      "CREATE TABLE staff_na ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION );"
     ],
     "requiredPatterns": [],
     "explanation": "ON DELETE NO ACTION ON UPDATE NO ACTION standarti tasdiqlandi.",
     "task": "Create a table named `staff_na`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_na",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1811,27 +2576,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON UPDATE CASCADE` dan foydalaning.",
     "solutions": [
       "CREATE TABLE staff_cascade_up (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE)",
-      "CREATE TABLE staff_cascade_up (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE\n)"
+      "CREATE TABLE staff_cascade_up (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE);",
+      "CREATE TABLE staff_cascade_up (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE\n)",
+      "CREATE TABLE staff_cascade_up (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE\n);",
+      "CREATE TABLE staff_cascade_up ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE )",
+      "CREATE TABLE staff_cascade_up ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "ON UPDATE CASCADE yangilanish kaskadi o'rnatildi.",
     "task": "Create a table named `staff_cascade_up`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "staff_cascade_up",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1848,27 +2628,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON DELETE CASCADE ON UPDATE CASCADE` .",
     "solutions": [
       "CREATE TABLE dept_item_casc (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE)",
-      "CREATE TABLE dept_item_casc (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE\n)"
+      "CREATE TABLE dept_item_casc (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE);",
+      "CREATE TABLE dept_item_casc (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE\n)",
+      "CREATE TABLE dept_item_casc (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE\n);",
+      "CREATE TABLE dept_item_casc ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE )",
+      "CREATE TABLE dept_item_casc ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "Ikkala yo'nalishda ham CASCADE o'rnatildi.",
     "task": "Create a table named `dept_item_casc`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "dept_item_casc",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1885,27 +2680,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON DELETE SET NULL ON UPDATE CASCADE` .",
     "solutions": [
       "CREATE TABLE dept_emp_hybrid (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE)",
-      "CREATE TABLE dept_emp_hybrid (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE\n)"
+      "CREATE TABLE dept_emp_hybrid (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE);",
+      "CREATE TABLE dept_emp_hybrid (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE\n)",
+      "CREATE TABLE dept_emp_hybrid (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE\n);",
+      "CREATE TABLE dept_emp_hybrid ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE )",
+      "CREATE TABLE dept_emp_hybrid ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "ON DELETE SET NULL ON UPDATE CASCADE kombinatsiyasi o'rnatildi.",
     "task": "Create a table named `dept_emp_hybrid`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "dept_emp_hybrid",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": false,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1922,27 +2732,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON DELETE RESTRICT ON UPDATE CASCADE` yozing.",
     "solutions": [
       "CREATE TABLE dept_emp_restrict (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE)",
-      "CREATE TABLE dept_emp_restrict (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE\n)"
+      "CREATE TABLE dept_emp_restrict (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE);",
+      "CREATE TABLE dept_emp_restrict (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE\n)",
+      "CREATE TABLE dept_emp_restrict (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE\n);",
+      "CREATE TABLE dept_emp_restrict ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE )",
+      "CREATE TABLE dept_emp_restrict ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "RESTRICT and CASCADE qoidalari uyg'unlashtirildi.",
     "task": "Create a table named `dept_emp_restrict`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "dept_emp_restrict",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "dept_id",
           "type": "integer",
           "isPK": false,
+          "isIdentity": false,
           "isNotNull": true,
-          "isUnique": false
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1959,27 +2784,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE` .",
     "solutions": [
       "CREATE TABLE child_cascade (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE)",
-      "CREATE TABLE child_cascade (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE\n)"
+      "CREATE TABLE child_cascade (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE);",
+      "CREATE TABLE child_cascade (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE\n)",
+      "CREATE TABLE child_cascade (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE\n);",
+      "CREATE TABLE child_cascade ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE )",
+      "CREATE TABLE child_cascade ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "Zaif sub'ektlar uchun ON DELETE CASCADE muvaffaqiyatli o'rnatildi.",
     "task": "Create a table named `child_cascade`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "child_cascade",
       "columns": [
         {
           "name": "parent_passport_no",
           "type": "varchar(20)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "person(passport_no)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "child_name",
           "type": "varchar(50)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }
@@ -1996,27 +2836,42 @@ _scope.QUESTIONS_51_100 = [
     "hint": "`ON DELETE CASCADE` bilan tashqi kalit bog'lang.",
     "solutions": [
       "CREATE TABLE phone_casc (dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE)",
-      "CREATE TABLE phone_casc (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)"
+      "CREATE TABLE phone_casc (dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE);",
+      "CREATE TABLE phone_casc (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)",
+      "CREATE TABLE phone_casc (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n);",
+      "CREATE TABLE phone_casc ( dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE )",
+      "CREATE TABLE phone_casc ( dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE );"
     ],
     "requiredPatterns": [],
     "explanation": "Bo'lim telefonlari uchun ON DELETE CASCADE o'rnatildi.",
     "task": "Create a table named `phone_casc`: `dept_id` (integer), `phone` (varchar(20)), `CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone)` and `CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
     "expectedSchema": {
+      "operation": "CREATE_TABLE",
       "tableName": "phone_casc",
       "columns": [
         {
           "name": "dept_id",
           "type": "integer",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": true,
+          "references": "department(id)",
+          "hasCheck": false,
+          "hasDefault": false
         },
         {
           "name": "phone",
           "type": "varchar(20)",
-          "isPK": false,
-          "isNotNull": false,
-          "isUnique": false
+          "isPK": true,
+          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": false,
+          "isFK": false,
+          "references": null,
+          "hasCheck": false,
+          "hasDefault": false
         }
       ]
     }

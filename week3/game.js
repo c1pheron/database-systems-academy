@@ -148,6 +148,8 @@
   const hudProgressBar = document.getElementById('hudProgressBar');
   const hudXpText = document.getElementById('hudXpText');
   const floorRail = document.getElementById('floorRail');
+  const floorQuestionStrip = document.getElementById('floorQuestionStrip');
+  const floorQStripLabel = document.getElementById('floorQStripLabel');
 
   const dossierSector = document.getElementById('dossierSector');
   const dossierDiff = document.getElementById('dossierDiff');
@@ -235,18 +237,21 @@
 
     catalog.sectors.forEach((sec) => {
       const btn = document.createElement('button');
-      btn.className = `floor-btn ${sec.id === currentFloorId ? 'active' : ''}`;
 
       // Count solved in this sector
       let secSolved = 0;
+      const secTotal = sec.floorRange[1] - sec.floorRange[0] + 1;
       for (let id = sec.floorRange[0]; id <= sec.floorRange[1]; id++) {
         if (state.solvedIds.includes(id)) secSolved++;
       }
+      const isComplete = secSolved === secTotal;
+
+      btn.className = `floor-btn ${sec.id === currentFloorId ? 'active' : ''} ${isComplete ? 'completed' : ''}`;
 
       btn.innerHTML = `
-        <span class="floor-badge">${sec.badge || `${sec.id}F`}</span>
+        <span class="floor-badge">${sec.badge ? sec.badge.split('•')[0].trim() : `${sec.id}F`}</span>
         <span>${sec.name.split(':')[1] || sec.name}</span>
-        <span style="font-size: 10px; opacity: 0.8;">(${secSolved}/${sec.floorRange[1] - sec.floorRange[0] + 1})</span>
+        <span style="font-size: 10px; opacity: 0.85; font-family: var(--font-mono, monospace);">(${secSolved}/${secTotal})</span>
       `;
 
       btn.addEventListener('click', () => {
@@ -256,6 +261,45 @@
 
       floorRail.appendChild(btn);
     });
+
+    renderFloorQuestionStrip(currentFloorId, currentQ);
+  }
+
+  function renderFloorQuestionStrip(floorId, currentQ) {
+    if (!floorQuestionStrip) return;
+    floorQuestionStrip.innerHTML = '';
+
+    const activeSec = (catalog.sectors || []).find(s => s.id === floorId) || { floorRange: [1, 15] };
+    const startQ = activeSec.floorRange[0];
+    const endQ = activeSec.floorRange[1];
+    const secTotal = endQ - startQ + 1;
+
+    let secSolved = 0;
+    for (let id = startQ; id <= endQ; id++) {
+      if (state.solvedIds.includes(id)) secSolved++;
+    }
+
+    if (floorQStripLabel) {
+      floorQStripLabel.textContent = `${floorId}-QAVAT TOPSHIRIQLARI (${secSolved}/${secTotal}):`;
+    }
+
+    for (let id = startQ; id <= endQ; id++) {
+      const qBtn = document.createElement('button');
+      qBtn.type = 'button';
+      const isSolved = state.solvedIds.includes(id);
+      const isActive = id === currentQ.id;
+
+      qBtn.className = `q-dot-btn ${isActive ? 'active' : ''} ${isSolved ? 'completed' : ''}`;
+      qBtn.textContent = id;
+      qBtn.title = `Topshiriq #${id}: ${allQuestions[id - 1] ? allQuestions[id - 1].title : ''} ${isSolved ? '(Bajarilgan ✓)' : ''}`;
+
+      qBtn.addEventListener('click', () => {
+        audio.playClick();
+        jumpToQuestion(id - 1);
+      });
+
+      floorQuestionStrip.appendChild(qBtn);
+    }
   }
 
   function renderQuestion() {
@@ -322,14 +366,7 @@
 
   function renderSchemaBlueprint(question, isSolved) {
     schemaGrid.innerHTML = '';
-
-    const schema = question.expectedSchema || {
-      tableName: "database_entity",
-      columns: [
-        { name: "id", type: "integer", isPK: true },
-        { name: "name", type: "varchar(50)", isNotNull: true }
-      ]
-    };
+    const exp = question.expectedSchema || {};
 
     const card = document.createElement('div');
     card.className = 'schema-table-card';
@@ -337,30 +374,162 @@
       card.style.borderColor = 'var(--accent-sage)';
     }
 
-    // Header
+    // 1. SET SEARCH PATH / ENVIRONMENT
+    if (exp.operation === 'SET_SEARCH_PATH') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#38bdf8;">⚙️ ${exp.title || 'PostgreSQL Session'}</span>
+        <span class="badge-env">${isSolved ? '✓ Active' : 'Session Config'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>search_path:</strong> <span style="color:#fde047;">${exp.target || exp.searchPath || 'ddl_lab, public'}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'PostgreSQL jadvallarni qidirish ketma-ketligi'}
+        </div>
+      `;
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 2. CREATE SCHEMA
+    if (exp.operation === 'SCHEMA') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#a855f7;">📁 Schema: ${exp.target || 'company_lab'}</span>
+        <span class="badge-env">${isSolved ? '✓ Created' : 'New Schema'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>Target Schema:</strong> <span style="color:#fde047;">${exp.target || 'company_lab'}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Mustaqil ma\'lumotlar sxemasi'}
+        </div>
+      `;
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 3. DROP TABLE
+    if (exp.operation === 'DROP_TABLE') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#f87171; text-decoration: line-through;">🗑️ ${exp.tableName}</span>
+        <span class="badge-drop">${isSolved ? '✓ Dropped' : 'Drop Target'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#fca5a5; margin-bottom:4px;">
+          <strong>Harakat:</strong> DROP TABLE ${exp.ifExists ? 'IF EXISTS ' : ''}${exp.tableName}
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Jadval va uning barcha metama\'lumotlari bazadan butunlay o\'chiriladi.'}
+        </div>
+      `;
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 4. ALTER TABLE
+    if (exp.operation === 'ALTER_TABLE') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#fbbf24;">🔧 ${exp.tableName}</span>
+        <span class="badge-alter">${exp.action || 'ALTER TABLE'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>O\'zgartirish:</strong> <span style="color:#fde047;">${exp.detail || exp.action || 'Modifikatsiya'}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Mavjud jadval strukturasini kengaytirish yoki cheklovlarini yangilash.'}
+        </div>
+      `;
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 5. RELATIONAL ALGEBRA
+    if (exp.operation === 'RELATIONAL_ALGEBRA') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#c084fc;">📐 ${exp.algebraSymbol || 'Relyatsion Algebra'}</span>
+        <span class="badge-algebra">${isSolved ? '✓ Verified' : 'Algebraic Expression'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:13px; font-family:var(--font-mono); color:#a855f7; margin-bottom:6px; font-weight:700;">
+          ${exp.expression || ''}
+        </div>
+        <div style="font-size:11.5px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>Manba Jadval(lar):</strong> <span style="color:#38bdf8;">${(exp.sourceTables || []).join(', ')}</span>
+        </div>
+        <div style="font-size:11.5px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>Proyeksiya:</strong> <span style="color:#fde047;">${(exp.resultColumns || []).join(', ')}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Relyatsion algebra operatorining SQL SELECT ekvivalenti'}
+        </div>
+      `;
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 6. CREATE TABLE (Default & standard)
+    const tableName = exp.tableName || 'database_entity';
     const head = document.createElement('div');
     head.className = 'table-card-head';
     head.innerHTML = `
-      <span class="table-card-name">${schema.tableName}</span>
+      <span class="table-card-name">${tableName}</span>
       <span class="table-card-tag">${isSolved ? '✓ Active' : 'Blueprint'}</span>
     `;
     card.appendChild(head);
 
-    // Columns
     const body = document.createElement('div');
     body.className = 'table-card-body';
 
-    if (schema.columns && schema.columns.length > 0) {
-      schema.columns.forEach((col) => {
+    if (exp.columns && exp.columns.length > 0) {
+      exp.columns.forEach((col) => {
         const row = document.createElement('div');
         row.className = 'column-row';
 
         let badges = '';
         if (col.isPK) badges += '<span class="badge-pk">PK</span> ';
-        if (col.isIdentity) badges += '<span class="badge-pk">IDENTITY</span> ';
+        if (col.isIdentity) badges += '<span class="badge-identity">IDENTITY</span> ';
         if (col.isFK) badges += `<span class="badge-fk">FK ➔ ${col.references || ''}</span> `;
         if (col.isUQ) badges += '<span class="badge-uq">UQ</span> ';
         if (col.hasCheck) badges += '<span class="badge-chk">CHECK</span> ';
+        if (col.hasDefault) badges += '<span class="badge-def">DEFAULT</span> ';
         if (col.isNotNull && !col.isPK) badges += '<span class="badge-nn">NN</span> ';
 
         row.innerHTML = `
@@ -375,7 +544,7 @@
         body.appendChild(row);
       });
     } else {
-      body.innerHTML = `<div style="font-size: 11px; color: var(--text-muted); padding: 4px;">Konfiguratsion buyruq yoki relying algebra operatori</div>`;
+      body.innerHTML = `<div style="font-size: 11px; color: var(--text-muted); padding: 4px;">Sxema parametrlari yuklanmoqda...</div>`;
     }
 
     card.appendChild(body);
