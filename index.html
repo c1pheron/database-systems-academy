@@ -298,7 +298,7 @@
 
     .gateways-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
 
@@ -355,6 +355,16 @@
       transform: translateY(-4px);
     }
 
+    /* Practical OOP specific card */
+    .card-practical-oop::before {
+      background: linear-gradient(90deg, #10b981, #06b6d4);
+    }
+    .card-practical-oop:hover {
+      border-color: #10b981;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(16, 185, 129, 0.35);
+      transform: translateY(-4px);
+    }
+
     .gateway-topbar {
       display: flex;
       justify-content: space-between;
@@ -385,6 +395,7 @@
     .tag-ds { background: rgba(200, 169, 110, 0.15); color: #dfc288; border: 1px solid rgba(200, 169, 110, 0.3); }
     .tag-os { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.35); }
     .tag-oop { background: rgba(192, 132, 252, 0.15); color: #c084fc; border: 1px solid rgba(192, 132, 252, 0.3); }
+    .tag-practical-oop { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.35); }
 
     .gateway-title {
       font-size: 20px;
@@ -462,6 +473,17 @@
       background: #c084fc;
       color: #1e1b4b;
       box-shadow: 0 0 16px rgba(192, 132, 252, 0.5);
+    }
+
+    .btn-gateway-practical-oop {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      border: 1px solid #6ee7b7;
+    }
+    .btn-gateway-practical-oop:hover {
+      background: #10b981;
+      color: #064e3b;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.6);
     }
 
     @media (max-width: 1024px) {
@@ -626,6 +648,30 @@
 
         <a href="oop/index.html" class="btn-gateway btn-gateway-oop" data-i18n="portal_oop_btn">
           ☕ OOP Moduliga Kirish →
+        </a>
+      </article>
+
+      <!-- 4. PRACTICAL OOP (THE 4 PILLARS) -->
+      <article class="gateway-card card-practical-oop">
+        <div>
+          <div class="gateway-topbar">
+            <div class="gateway-emblem">🚀</div>
+            <span class="mentor-tag tag-practical-oop">Prof. Ada • 4 Asosiy Ustun</span>
+          </div>
+          <h3 class="gateway-title">Practical OOP</h3>
+          <div class="gateway-code" style="color: #10b981; font-weight: 700;">Uzum &amp; Payme FinTech Ekosistemasi (BETA)</div>
+          <p class="gateway-desc">
+            OOPning 4 ta ustuni: Inkapsulyatsiya (xavfsizlik), Vorislik (kodni tejash), Polimorfizm (universal to'lov) va Abstraksiya (tizim shartnomalari) jonli simulyatorda!
+          </p>
+
+          <div class="gateway-stats-box">
+            <span style="font-size:12px; color:var(--text-muted);">O'zlashtirish:</span>
+            <span id="practicalOopGrandStat" style="font-weight:700; color:#10b981; font-family:'JetBrains Mono', monospace;">0 / 40</span>
+          </div>
+        </div>
+
+        <a href="practical-oop/index.html" class="btn-gateway btn-gateway-practical-oop">
+          🚀 Practical OOPga Kirish →
         </a>
       </article>
 
@@ -814,6 +860,18 @@
           } catch (e) {}
         }
 
+        // 4. Practical OOP (40 masalalar)
+        let practicalOopTotal = 0;
+        try {
+          const rawPractical = localStorage.getItem("oop_practical_solved_questions");
+          if (rawPractical) {
+            const arr = JSON.parse(rawPractical);
+            if (Array.isArray(arr)) {
+              practicalOopTotal = arr.length;
+            }
+          }
+        } catch (e) {}
+
         // Render
         const grandTotal = dsTotal + osTotal + oopTotal;
         const grandTotalPossible = 2700;
@@ -821,6 +879,7 @@
         const dsEl = document.getElementById("dsGrandStat");
         const osEl = document.getElementById("osGrandStat");
         const oopEl = document.getElementById("oopGrandStat");
+        const practicalOopEl = document.getElementById("practicalOopGrandStat");
         const grandSolvedEl = document.getElementById("grandSolvedTotal");
         const grandCapitalEl = document.getElementById("grandCapitalTotal");
         const progressBar = document.getElementById("grandProgressBar");
@@ -829,6 +888,7 @@
         if (dsEl) dsEl.textContent = `${dsTotal} / 900`;
         if (osEl) osEl.textContent = `${osTotal} / 900`;
         if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
+        if (practicalOopEl) practicalOopEl.textContent = `${practicalOopTotal} / 40`;
         if (grandSolvedEl) grandSolvedEl.textContent = `${grandTotal} / ${grandTotalPossible}`;
         const ballSuffix = (window.I18N && window.I18N.t('salary_suffix')) || ' Ball';
         if (grandCapitalEl) grandCapitalEl.textContent = `${totalCapital.toLocaleString()}${ballSuffix}`;
