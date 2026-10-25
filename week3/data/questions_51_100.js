@@ -1,1346 +1,24 @@
-var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
-_scope.QUESTIONS_51_100 = [
+// WIUT Database Systems (5BUIS009C) Week 3 - QUESTIONS_51_100
+// Auto-generated comprehensive curriculum (150 Challenges)
+window.QUESTIONS_51_100 = [
   {
     "id": 51,
     "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 21 • Ro'yxatdan Tanlash (IN ro'yxat)",
-    "title": "Cheklangan Qiymatlar Ro'yxati (CHECK IN)",
-    "story": "Buyurtma holati faqat belgilangan 3 ta so'zdan biri bo'lishi mumkin: 'NEW', 'SHIPPED' yoki 'DELIVERED'.",
-    "taskUz": "Create a table named `order_status`: `id` (integer PRIMARY KEY), `status` (varchar(20)) ustunlari and named `CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))` .",
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3.5 • Explicit DEFAULT Kalit So'zi",
+    "title": "Aniq DEFAULT Kalit So'zidan Foydalanish",
+    "story": "Seminar 3 3.5: Ba'zan so'rovda barcha ustunlar ro'yxatga olinib, ayrimlariga ochiqcha `DEFAULT` kalit so'zi beriladi.",
+    "taskUz": "`employee` jadvaliga `first_name`, `last_name`, `email`, `salary` va `active` ustunlarini ko'rsatib qator qo'shing:\n• `first_name`: 'Bobur'\n• `last_name`: 'Azizov'\n• `email`: 'bobur@wiut.uz'\n• `salary`: DEFAULT\n• `active`: DEFAULT\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email, salary, active) VALUES ('Bobur', 'Azizov', 'bobur@wiut.uz', DEFAULT, DEFAULT);`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email, salary, active) VALUES ('Bobur', 'Azizov', 'bobur@wiut.uz', DEFAULT, DEFAULT);`",
     "solutions": [
-      "CREATE TABLE order_status (id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')))",
-      "CREATE TABLE order_status (id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')));",
-      "CREATE TABLE order_status (\n  id integer PRIMARY KEY,\n  status varchar(20),\n  CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))\n)",
-      "CREATE TABLE order_status (\n  id integer PRIMARY KEY,\n  status varchar(20),\n  CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))\n);",
-      "CREATE TABLE order_status ( id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')) )",
-      "CREATE TABLE order_status ( id integer PRIMARY KEY, status varchar(20), CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED')) );"
+      "INSERT INTO employee (first_name, last_name, email, salary, active) VALUES ('Bobur', 'Azizov', 'bobur@wiut.uz', DEFAULT, DEFAULT)",
+      "INSERT INTO employee (first_name, last_name, email, salary, active) VALUES ('Bobur', 'Azizov', 'bobur@wiut.uz', DEFAULT, DEFAULT);",
+      "insert into employee (first_name, last_name, email, salary, active) values ('bobur', 'azizov', 'bobur@wiut.uz', default, default)",
+      "insert into employee (first_name, last_name, email, salary, active) values ('bobur', 'azizov', 'bobur@wiut.uz', default, default);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_order_status ro'yxat tekshiruvi cheklovi muvaffaqiyatli o'rnatildi.",
-    "task": "Create a table named `order_status`: `id` (integer PRIMARY KEY), `status` (varchar(20)) ustunlari and named `CONSTRAINT ck_order_status CHECK (status IN ('NEW', 'SHIPPED', 'DELIVERED'))` with constraint.",
+    "explanation": "VALUES qatorida aniq DEFAULT kalit so'zi ishlatildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "order_status",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "status",
-          "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 52,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 21 • Foiz Oralig'i (0 dan 100 gacha)",
-    "title": "Foiz Oralig'i Constrainti (Discount 0–100)",
-    "story": "Mijozga beriladigan chegirma foizi 0 dan kichik yoki 100 dan katta bo'lishi mumkin emas.",
-    "taskUz": "Create a table named `discount_rate`: `id` (integer PRIMARY KEY), `rate` (numeric(5,2)) ustunlari and named `CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)` dan foydalaning.",
-    "solutions": [
-      "CREATE TABLE discount_rate (id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100))",
-      "CREATE TABLE discount_rate (id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100));",
-      "CREATE TABLE discount_rate (\n  id integer PRIMARY KEY,\n  rate numeric(5,2),\n  CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)\n)",
-      "CREATE TABLE discount_rate (\n  id integer PRIMARY KEY,\n  rate numeric(5,2),\n  CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)\n);",
-      "CREATE TABLE discount_rate ( id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100) )",
-      "CREATE TABLE discount_rate ( id integer PRIMARY KEY, rate numeric(5,2), CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_discount_rate foiz chegarasi o'rnatildi.",
-    "task": "Create a table named `discount_rate`: `id` (integer PRIMARY KEY), `rate` (numeric(5,2)) ustunlari and named `CONSTRAINT ck_discount_rate CHECK (rate >= 0 AND rate <= 100)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "discount_rate",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "rate",
-          "type": "numeric(5,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 53,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 22 • Sanalar Solishtiruvi (End >= Start)",
-    "title": "Tugash Sanasi Boshlanishidan Keyin Bo'lishi",
-    "story": "Loyihaning tugash sanasi hech qachon uning boshlanish sanasidan oldin bo'lishi mumkin emas (`end_date >= start_date`).",
-    "taskUz": "Create a table named `project_dates`: `id` (integer PRIMARY KEY), `start_date` (date), `end_date` (date) ustunlari and named `CONSTRAINT ck_project_dates CHECK (end_date >= start_date)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_project_dates CHECK (end_date >= start_date)` yozing.",
-    "solutions": [
-      "CREATE TABLE project_dates (id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date))",
-      "CREATE TABLE project_dates (id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date));",
-      "CREATE TABLE project_dates (\n  id integer PRIMARY KEY,\n  start_date date,\n  end_date date,\n  CONSTRAINT ck_project_dates CHECK (end_date >= start_date)\n)",
-      "CREATE TABLE project_dates (\n  id integer PRIMARY KEY,\n  start_date date,\n  end_date date,\n  CONSTRAINT ck_project_dates CHECK (end_date >= start_date)\n);",
-      "CREATE TABLE project_dates ( id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date) )",
-      "CREATE TABLE project_dates ( id integer PRIMARY KEY, start_date date, end_date date, CONSTRAINT ck_project_dates CHECK (end_date >= start_date) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_project_dates sanalar mantiqiy tartibi cheklovi barpo etildi.",
-    "task": "Create a table named `project_dates`: `id` (integer PRIMARY KEY), `start_date` (date), `end_date` (date) ustunlari and named `CONSTRAINT ck_project_dates CHECK (end_date >= start_date)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "project_dates",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "start_date",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        },
-        {
-          "name": "end_date",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 54,
-    "sector": 4,
-    "difficulty": "Floor 4 • Easy",
-    "source": "L03 Slide 21 • Reyting Cheklovi (Rating 1–5)",
-    "title": "Xizmat Reytingi Constrainti (1 dan 5 gacha)",
-    "story": "Mijoz xizmatga 1 dan 5 gacha baho qo'yishi mumkin.",
-    "taskUz": "Create a table named `feedback`: `id` (integer PRIMARY KEY), `rating` (integer) ustunlari and named `CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)` yordamida bajaring.",
-    "solutions": [
-      "CREATE TABLE feedback (id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5))",
-      "CREATE TABLE feedback (id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5));",
-      "CREATE TABLE feedback (\n  id integer PRIMARY KEY,\n  rating integer,\n  CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)\n)",
-      "CREATE TABLE feedback (\n  id integer PRIMARY KEY,\n  rating integer,\n  CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)\n);",
-      "CREATE TABLE feedback ( id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5) )",
-      "CREATE TABLE feedback ( id integer PRIMARY KEY, rating integer, CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_feedback_rating reyting cheklovi o'rnatildi.",
-    "task": "Create a table named `feedback`: `id` (integer PRIMARY KEY), `rating` (integer) ustunlari and named `CONSTRAINT ck_feedback_rating CHECK (rating >= 1 AND rating <= 5)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "feedback",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "rating",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 55,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 21 • Matn Uzunligi Cheklovi (Length)",
-    "title": "Parol Minimal Uzunligi Constrainti (LENGTH >= 8)",
-    "story": "Foydalanuvchi paroli xavfsizlik talabiga ko'ra kamida 8 ta belgidan iborat bo'lishi lozim.",
-    "taskUz": "Create a table named `user_security`: `id` (integer PRIMARY KEY), `password_hash` (varchar(100)) ustunlari and named `CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)` with constraint.",
-    "starterCode": "",
-    "hint": "`CHECK (length(password_hash) >= 8)` funksiyasini named constraint ichida ishlating.",
-    "solutions": [
-      "CREATE TABLE user_security (id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8))",
-      "CREATE TABLE user_security (id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8));",
-      "CREATE TABLE user_security (\n  id integer PRIMARY KEY,\n  password_hash varchar(100),\n  CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)\n)",
-      "CREATE TABLE user_security (\n  id integer PRIMARY KEY,\n  password_hash varchar(100),\n  CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)\n);",
-      "CREATE TABLE user_security ( id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8) )",
-      "CREATE TABLE user_security ( id integer PRIMARY KEY, password_hash varchar(100), CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_password_length parol uzunligi cheklovi o'rnatildi.",
-    "task": "Create a table named `user_security`: `id` (integer PRIMARY KEY), `password_hash` (varchar(100)) ustunlari and named `CONSTRAINT ck_password_length CHECK (length(password_hash) >= 8)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "user_security",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "password_hash",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 56,
-    "sector": 4,
-    "difficulty": "Floor 4 • Easy",
-    "source": "L03 Slide 21 • Musbat Miqdor (Quantity > 0)",
-    "title": "Ombor Miqdori Musbatligi (Qty >= 0)",
-    "story": "Ombordagi qoldiq tovar soni hech qachon manfiy bo'lishi mumkin emas.",
-    "taskUz": "Create a table named `warehouse_stock`: `id` (integer PRIMARY KEY), `qty` (integer) ustunlari and named `CONSTRAINT ck_stock_qty CHECK (qty >= 0)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_stock_qty CHECK (qty >= 0)` .",
-    "solutions": [
-      "CREATE TABLE warehouse_stock (id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0))",
-      "CREATE TABLE warehouse_stock (id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0));",
-      "CREATE TABLE warehouse_stock (\n  id integer PRIMARY KEY,\n  qty integer,\n  CONSTRAINT ck_stock_qty CHECK (qty >= 0)\n)",
-      "CREATE TABLE warehouse_stock (\n  id integer PRIMARY KEY,\n  qty integer,\n  CONSTRAINT ck_stock_qty CHECK (qty >= 0)\n);",
-      "CREATE TABLE warehouse_stock ( id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0) )",
-      "CREATE TABLE warehouse_stock ( id integer PRIMARY KEY, qty integer, CONSTRAINT ck_stock_qty CHECK (qty >= 0) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_stock_qty tovar miqdori qoidasi o'rnatildi.",
-    "task": "Create a table named `warehouse_stock`: `id` (integer PRIMARY KEY), `qty` (integer) ustunlari and named `CONSTRAINT ck_stock_qty CHECK (qty >= 0)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "warehouse_stock",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "qty",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 57,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 21 • Ikkita Cheklov Birgalikda",
-    "title": "Narx va Qoldiq Constraintlari Bir Jadvalda",
-    "story": "Mahsulot narxi musbat (`price > 0`) and qoldig'i manfiy bo'lmasligi (`qty >= 0`) kerak.",
-    "taskUz": "Create a table named `retail_item`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)), `qty` (integer) ustunlari and `CONSTRAINT ck_retail_price CHECK (price > 0)` and `CONSTRAINT ck_retail_qty CHECK (qty >= 0)` cheklovlari bilan.",
-    "starterCode": "",
-    "hint": "Ikkita alohida `CONSTRAINT ... CHECK (...)` qatorini yozing.",
-    "solutions": [
-      "CREATE TABLE retail_item (id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0))",
-      "CREATE TABLE retail_item (id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0));",
-      "CREATE TABLE retail_item (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  qty integer,\n  CONSTRAINT ck_retail_price CHECK (price > 0),\n  CONSTRAINT ck_retail_qty CHECK (qty >= 0)\n)",
-      "CREATE TABLE retail_item (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  qty integer,\n  CONSTRAINT ck_retail_price CHECK (price > 0),\n  CONSTRAINT ck_retail_qty CHECK (qty >= 0)\n);",
-      "CREATE TABLE retail_item ( id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0) )",
-      "CREATE TABLE retail_item ( id integer PRIMARY KEY, price numeric(8,2), qty integer, CONSTRAINT ck_retail_price CHECK (price > 0), CONSTRAINT ck_retail_qty CHECK (qty >= 0) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "retail_item jadvalida ikkita mustaqil biznes qoida o'rnatildi.",
-    "task": "Create a table named `retail_item`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)), `qty` (integer) ustunlari and `CONSTRAINT ck_retail_price CHECK (price > 0)` and `CONSTRAINT ck_retail_qty CHECK (qty >= 0)` cheklovlari bilan.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "retail_item",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "price",
-          "type": "numeric(8,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        },
-        {
-          "name": "qty",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 58,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 22 • Shartli Cheklov (Valyuta Kodlari)",
-    "title": "Valyuta Kodi Format Constrainti (3 ta Harf)",
-    "story": "Xalqaro standartda (ISO 4217) valyuta kodi doimo roppa-rosa 3 ta belgidan iborat bo'ladi (masalan USD, EUR, UZS).",
-    "taskUz": "Create a table named `currency`: `id` (integer PRIMARY KEY), `code` (varchar(3)) ustunlari and named `CONSTRAINT ck_currency_code CHECK (length(code) = 3)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_currency_code CHECK (length(code) = 3)` dan foydalaning.",
-    "solutions": [
-      "CREATE TABLE currency (id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3))",
-      "CREATE TABLE currency (id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3));",
-      "CREATE TABLE currency (\n  id integer PRIMARY KEY,\n  code varchar(3),\n  CONSTRAINT ck_currency_code CHECK (length(code) = 3)\n)",
-      "CREATE TABLE currency (\n  id integer PRIMARY KEY,\n  code varchar(3),\n  CONSTRAINT ck_currency_code CHECK (length(code) = 3)\n);",
-      "CREATE TABLE currency ( id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3) )",
-      "CREATE TABLE currency ( id integer PRIMARY KEY, code varchar(3), CONSTRAINT ck_currency_code CHECK (length(code) = 3) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_currency_code valyuta formati cheklovi o'rnatildi.",
-    "task": "Create a table named `currency`: `id` (integer PRIMARY KEY), `code` (varchar(3)) ustunlari and named `CONSTRAINT ck_currency_code CHECK (length(code) = 3)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "currency",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "code",
-          "type": "varchar(3)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 59,
-    "sector": 4,
-    "difficulty": "Floor 4 • Intermediate",
-    "source": "L03 Slide 22 • Imtiyoz va Minimal Maosh",
-    "title": "Eng Kam Oylik Ish Haqi Constrainti (Min Wage)",
-    "story": "Qonunchilikka binoan, xodimning oylik maoshi belgilangan eng kam miqdordan (masalan $800) kam bo'lishi taqiqlanadi.",
-    "taskUz": "Create a table named `contract`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_min_wage CHECK (salary >= 800)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_min_wage CHECK (salary >= 800)` .",
-    "solutions": [
-      "CREATE TABLE contract (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800))",
-      "CREATE TABLE contract (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800));",
-      "CREATE TABLE contract (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_min_wage CHECK (salary >= 800)\n)",
-      "CREATE TABLE contract (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_min_wage CHECK (salary >= 800)\n);",
-      "CREATE TABLE contract ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800) )",
-      "CREATE TABLE contract ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_min_wage CHECK (salary >= 800) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "ck_min_wage qonuniy me'yor cheklovi yaratildi.",
-    "task": "Create a table named `contract`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_min_wage CHECK (salary >= 800)` with constraint.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "contract",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "salary",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 60,
-    "sector": 4,
-    "difficulty": "Floor 4 • Master Architect",
-    "source": "T03 Task 1 & Task 2 • 4-Qavat Yakuni",
-    "title": "4-Qavat Bossi: Bo'limlar Jadvalining Byudjet Constrainti",
-    "story": "4-qavatning buyuk yakuni! Seminar 3 dagi `department` jadvalini to'liq arxitekturasini quring: Identity orqali avtomatik ID (1 dan 10 qadam bilan), named birlamchi kalit (`pk_department_id`), named unikal nom (`uq_department_title`) and named ijobiy byudjet cheklovi (`ck_department_budget`).",
-    "taskUz": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100) NOT NULL), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and `CONSTRAINT pk_department_id PRIMARY KEY (id)`, `CONSTRAINT uq_department_title UNIQUE (title)`, `CONSTRAINT ck_department_budget CHECK (budget >= 0)` cheklovlari bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` [NOT NULL] (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2))\n• Cheklovlar: `pk_department_id`, `uq_department_title`, `ck_department_budget`",
-    "starterCode": "",
-    "hint": "Uchala named cheklovni ham jadval oxirida vergul bilan ketma-ket e'lon qiling.",
-    "solutions": [
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0))",
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0));",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100) NOT NULL,\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id),\n  CONSTRAINT uq_department_title UNIQUE (title),\n  CONSTRAINT ck_department_budget CHECK (budget >= 0)\n)",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100) NOT NULL,\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id),\n  CONSTRAINT uq_department_title UNIQUE (title),\n  CONSTRAINT ck_department_budget CHECK (budget >= 0)\n);",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0) )",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id), CONSTRAINT uq_department_title UNIQUE (title), CONSTRAINT ck_department_budget CHECK (budget >= 0) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "department",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "location",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "budget",
-          "type": "numeric(12,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "4-Qavat Bossi zabt etildi! Seminar 3 ning to'liq mukammal department jadvali arxitekturasi barpo etildi.",
-    "task": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100) NOT NULL), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and `CONSTRAINT pk_department_id PRIMARY KEY (id)`, `CONSTRAINT uq_department_title UNIQUE (title)`, `CONSTRAINT ck_department_budget CHECK (budget >= 0)` cheklovlari bilan."
-  },
-  {
-    "id": 61,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 1 Employee • DEFAULT true",
-    "title": "Mantiqiy Standart Qiymat (DEFAULT true)",
-    "story": "Seminar 3 qoidasi: yangi qo'shilgan xodim avtomatik tarzda faol (`active boolean NOT NULL DEFAULT true`) hisoblanadi.",
-    "taskUz": "Create a table named `app_user` with columns: `id` (integer PRIMARY KEY), `username` (varchar(50) NOT NULL) and `active` (boolean NOT NULL DEFAULT true).",
-    "starterCode": "",
-    "hint": "`active boolean NOT NULL DEFAULT true` .",
-    "solutions": [
-      "CREATE TABLE app_user (id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true)",
-      "CREATE TABLE app_user (id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true);",
-      "CREATE TABLE app_user (\n  id integer PRIMARY KEY,\n  username varchar(50) NOT NULL,\n  active boolean NOT NULL DEFAULT true\n)",
-      "CREATE TABLE app_user (\n  id integer PRIMARY KEY,\n  username varchar(50) NOT NULL,\n  active boolean NOT NULL DEFAULT true\n);",
-      "CREATE TABLE app_user ( id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true )",
-      "CREATE TABLE app_user ( id integer PRIMARY KEY, username varchar(50) NOT NULL, active boolean NOT NULL DEFAULT true );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "active boolean NOT NULL DEFAULT true standart qiymati o'rnatildi.",
-    "task": "Create a table named `app_user` with columns: `id` (integer PRIMARY KEY), `username` (varchar(50) NOT NULL) and `active` (boolean NOT NULL DEFAULT true).",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "app_user",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "username",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "active",
-          "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 62,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 1 Employee • DEFAULT CURRENT_TIMESTAMP",
-    "title": "Avtomatik Vaqt Tamg'asi (DEFAULT CURRENT_TIMESTAMP)",
-    "story": "Qator qachon kiritilganini avtomatik belgilash uchun `DEFAULT CURRENT_TIMESTAMP` dan foydalaniladi.",
-    "taskUz": "Create a table named `worker` with columns: `id` (integer PRIMARY KEY), `name` (varchar(50) NOT NULL) and `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
-    "starterCode": "",
-    "hint": "`hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP` sintaksisini qo'llang.",
-    "solutions": [
-      "CREATE TABLE worker (id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
-      "CREATE TABLE worker (id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
-      "CREATE TABLE worker (\n  id integer PRIMARY KEY,\n  name varchar(50) NOT NULL,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
-      "CREATE TABLE worker (\n  id integer PRIMARY KEY,\n  name varchar(50) NOT NULL,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
-      "CREATE TABLE worker ( id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP )",
-      "CREATE TABLE worker ( id integer PRIMARY KEY, name varchar(50) NOT NULL, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "hired_at ustuniga CURRENT_TIMESTAMP standart vaqti o'rnatildi.",
-    "task": "Create a table named `worker` with columns: `id` (integer PRIMARY KEY), `name` (varchar(50) NOT NULL) and `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "worker",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "hired_at",
-          "type": "timestamp",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 63,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 2 Step 5 • DEFAULT 1000",
-    "title": "Standart Maosh Qiymati (DEFAULT 1000)",
-    "story": "Seminar 3 qoidasi: agar xodim maoshi ko'rsatilmasa, unga avtomatik tarzda 1000 dollar standart qiymat biriktiriladi.",
-    "taskUz": "Create a table named `payroll` with columns: `id` (integer PRIMARY KEY) and `salary` (numeric(10,2) DEFAULT 1000).",
-    "starterCode": "",
-    "hint": "`salary numeric(10,2) DEFAULT 1000` .",
-    "solutions": [
-      "CREATE TABLE payroll (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000)",
-      "CREATE TABLE payroll (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000);",
-      "CREATE TABLE payroll (\n  id integer PRIMARY KEY,\n  salary numeric(10,2) DEFAULT 1000\n)",
-      "CREATE TABLE payroll (\n  id integer PRIMARY KEY,\n  salary numeric(10,2) DEFAULT 1000\n);",
-      "CREATE TABLE payroll ( id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000 )",
-      "CREATE TABLE payroll ( id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000 );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "salary maydoniga DEFAULT 1000 standart qiymati berildi.",
-    "task": "Create a table named `payroll` with columns: `id` (integer PRIMARY KEY) and `salary` (numeric(10,2) DEFAULT 1000).",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "payroll",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "salary",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 64,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "L03 Slide 23 • Standart Matnli Qiymat",
-    "title": "Standart Matnli Holat (DEFAULT 'Pending')",
-    "story": "Buyurtmalar dastlab kiritilganda ularning holati avtomatik ravishda 'Pending' (Kutilmoqda) bo'lishi kerak.",
-    "taskUz": "Create a table named `service_order` with columns: `id` (integer PRIMARY KEY) and `status` (varchar(20) NOT NULL DEFAULT 'Pending').",
-    "starterCode": "",
-    "hint": "`status varchar(20) NOT NULL DEFAULT 'Pending'` yozing.",
-    "solutions": [
-      "CREATE TABLE service_order (id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending')",
-      "CREATE TABLE service_order (id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending');",
-      "CREATE TABLE service_order (\n  id integer PRIMARY KEY,\n  status varchar(20) NOT NULL DEFAULT 'Pending'\n)",
-      "CREATE TABLE service_order (\n  id integer PRIMARY KEY,\n  status varchar(20) NOT NULL DEFAULT 'Pending'\n);",
-      "CREATE TABLE service_order ( id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending' )",
-      "CREATE TABLE service_order ( id integer PRIMARY KEY, status varchar(20) NOT NULL DEFAULT 'Pending' );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "status maydoniga 'Pending' matnli standart qiymati o'rnatildi.",
-    "task": "Create a table named `service_order` with columns: `id` (integer PRIMARY KEY) and `status` (varchar(20) NOT NULL DEFAULT 'Pending').",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "service_order",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "status",
-          "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 65,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "T03 Task 1 Step 1 • Kompozit Birlamchi Kalit (Department2)",
-    "title": "Kompozit Kalit: Nomi va Shahri Juftligi",
-    "story": "Seminar 3 ning 1-qadami: bitta shaharda faqat bitta nomli bo'lim bo'lishi mumkin. Ya'ni bo'lim nomi (`title`) and joylashgan shahri (`location`) birgalikda kompozit (juft) birlamchi kalitni hosil qiladi.",
-    "taskUz": "Create a table named `department2`: `title` (varchar(100)), `location` (varchar(50)) ustunlari and named kompozit primary key (`CONSTRAINT pk_department2 PRIMARY KEY (title, location)`) bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department2**\n• Ustunlar: `title` [PK] (varchar(100)), `location` [PK] (varchar(50))\n• Cheklovlar: `pk_department2`",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_department2 PRIMARY KEY (title, location)` ko'rinishida ikkita ustun nomini qavs ichida vergul bilan bering.",
-    "solutions": [
-      "CREATE TABLE department2 (title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location))",
-      "CREATE TABLE department2 (title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location));",
-      "CREATE TABLE department2 (\n  title varchar(100),\n  location varchar(50),\n  CONSTRAINT pk_department2 PRIMARY KEY (title, location)\n)",
-      "CREATE TABLE department2 (\n  title varchar(100),\n  location varchar(50),\n  CONSTRAINT pk_department2 PRIMARY KEY (title, location)\n);",
-      "CREATE TABLE department2 ( title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location) )",
-      "CREATE TABLE department2 ( title varchar(100), location varchar(50), CONSTRAINT pk_department2 PRIMARY KEY (title, location) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "department2",
-      "columns": [
-        {
-          "name": "title",
-          "type": "varchar(100)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "location",
-          "type": "varchar(50)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "department2 jadvalida ikkita ustunli kompozit birlamchi kalit o'rnatildi.",
-    "task": "Create a table named `department2`: `title` (varchar(100)), `location` (varchar(50)) ustunlari and named kompozit primary key (`CONSTRAINT pk_department2 PRIMARY KEY (title, location)`) bilan."
-  },
-  {
-    "id": 66,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "T03 Task 4 • Bo'lim Telefoni Kompozit Kaliti",
-    "title": "Bo'lim Telefoni Juftlik Kaliti (dept_id + phone)",
-    "story": "Seminar 2 and 3 dagi `department_phone` jadvalida: bitta bo'lim bir nechta telefonga ega bo'lishi mumkin. Shu sababli `dept_id` and `phone` birgalikda kompozit birlamchi kalit bo'ladi.",
-    "taskUz": "Create a table named `department_phone`: `dept_id` (integer), `phone` (varchar(20)) ustunlari and named `CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)` kaliti bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department_phone**\n• Ustunlar: `dept_id` [PK] (integer), `phone` [PK] (varchar(20))\n• Cheklovlar: `pk_department_phone`",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)` .",
-    "solutions": [
-      "CREATE TABLE department_phone (dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone))",
-      "CREATE TABLE department_phone (dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone));",
-      "CREATE TABLE department_phone (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)\n)",
-      "CREATE TABLE department_phone (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)\n);",
-      "CREATE TABLE department_phone ( dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone) )",
-      "CREATE TABLE department_phone ( dept_id integer, phone varchar(20), CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "department_phone",
-      "columns": [
-        {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "phone",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "department_phone kompozit kalitli relyatsion jadvali yaratildi.",
-    "task": "Create a table named `department_phone`: `dept_id` (integer), `phone` (varchar(20)) ustunlari and named `CONSTRAINT pk_department_phone PRIMARY KEY (dept_id, phone)` kaliti bilan."
-  },
-  {
-    "id": 67,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "L03 Slide 24 • Buyurtma va Mahsulot Bog'lovchi Kalit",
-    "title": "Buyurtma Tarkibi Kompozit Kaliti (order_id + item_id)",
-    "story": "Ko'pga-ko'p (M:N) aloqada buyurtma tarkibi jadvalida buyurtma raqami and mahsulot raqami juftligi yagona kalit hisoblanadi.",
-    "taskUz": "Create a table named `order_item`: `order_id` (integer), `item_id` (integer), `quantity` (integer NOT NULL DEFAULT 1) ustunlari and `CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)` and `quantity integer NOT NULL DEFAULT 1`.",
-    "solutions": [
-      "CREATE TABLE order_item (order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id))",
-      "CREATE TABLE order_item (order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id));",
-      "CREATE TABLE order_item (\n  order_id integer,\n  item_id integer,\n  quantity integer NOT NULL DEFAULT 1,\n  CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)\n)",
-      "CREATE TABLE order_item (\n  order_id integer,\n  item_id integer,\n  quantity integer NOT NULL DEFAULT 1,\n  CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)\n);",
-      "CREATE TABLE order_item ( order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id) )",
-      "CREATE TABLE order_item ( order_id integer, item_id integer, quantity integer NOT NULL DEFAULT 1, CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "order_item ko'pga-ko'p bog'lovchi kompozit jadvali barpo etildi.",
-    "task": "Create a table named `order_item`: `order_id` (integer), `item_id` (integer), `quantity` (integer NOT NULL DEFAULT 1) ustunlari and `CONSTRAINT pk_order_item PRIMARY KEY (order_id, item_id)` bilan.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "order_item",
-      "columns": [
-        {
-          "name": "order_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "item_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "quantity",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 68,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "T03 Task 4 Child • Farzandlar Kompozit Kaliti",
-    "title": "Xodim Farzandlari Kompozit Kaliti (parent + name)",
-    "story": "Seminar 2 and 3 kompaniya sxemasida: `child` zaif (weak) sub'ekt bo'lib, uning birlamchi kaliti ota-onaning pasporti and farzandning ismidan iborat.",
-    "taskUz": "Create a table named `child`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `dob` (date) ustunlari and `CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)` declared.",
-    "solutions": [
-      "CREATE TABLE child (parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name))",
-      "CREATE TABLE child (parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name));",
-      "CREATE TABLE child (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  dob date,\n  CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)\n)",
-      "CREATE TABLE child (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  dob date,\n  CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)\n);",
-      "CREATE TABLE child ( parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name) )",
-      "CREATE TABLE child ( parent_passport_no varchar(20), child_name varchar(50), dob date, CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "child relyatsion kompozit kaliti muvaffaqiyatli o'rnatildi.",
-    "task": "Create a table named `child`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `dob` (date) ustunlari and `CONSTRAINT pk_child PRIMARY KEY (parent_passport_no, child_name)` bilan.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "child",
-      "columns": [
-        {
-          "name": "parent_passport_no",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "child_name",
-          "type": "varchar(50)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dob",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    }
-  },
-  {
-    "id": 69,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "L03 Slide 24 • Talaba va Fan Ro'yxati",
-    "title": "Talabaning Fanlarga Yozilishi (student_id + course_id)",
-    "story": "Bitta talaba bitta fanga faqat bir marta yozilishi mumkin. Shu sababli ikkala ustun birgalikda Primary Key bo'ladi.",
-    "taskUz": "Create a table named `enrollment`: `student_id` (integer), `course_id` (integer), `enrolled_date` (date DEFAULT CURRENT_DATE) ustunlari and `CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)` .",
-    "solutions": [
-      "CREATE TABLE enrollment (student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id))",
-      "CREATE TABLE enrollment (student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id));",
-      "CREATE TABLE enrollment (\n  student_id integer,\n  course_id integer,\n  enrolled_date date DEFAULT CURRENT_DATE,\n  CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)\n)",
-      "CREATE TABLE enrollment (\n  student_id integer,\n  course_id integer,\n  enrolled_date date DEFAULT CURRENT_DATE,\n  CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)\n);",
-      "CREATE TABLE enrollment ( student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id) )",
-      "CREATE TABLE enrollment ( student_id integer, course_id integer, enrolled_date date DEFAULT CURRENT_DATE, CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "enrollment kompozit kalitli jadvali tasdiqlandi.",
-    "task": "Create a table named `enrollment`: `student_id` (integer), `course_id` (integer), `enrolled_date` (date DEFAULT CURRENT_DATE) ustunlari and `CONSTRAINT pk_enrollment PRIMARY KEY (student_id, course_id)` bilan.",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "enrollment",
-      "columns": [
-        {
-          "name": "student_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "course_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "enrolled_date",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 70,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "L03 Slide 23 • Standart Nol (DEFAULT 0)",
-    "title": "Ko'rishlar Soni Standart Qiymati (DEFAULT 0)",
-    "story": "Maqola yangi e'lon qilinganda uning ko'rishlar soni (`views_count`) avtomatik tarzda 0 bo'lishi kerak.",
-    "taskUz": "Create a table named `post` with columns: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) and `views_count` (integer NOT NULL DEFAULT 0).",
-    "starterCode": "",
-    "hint": "`views_count integer NOT NULL DEFAULT 0` syntax..",
-    "solutions": [
-      "CREATE TABLE post (id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0)",
-      "CREATE TABLE post (id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0);",
-      "CREATE TABLE post (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  views_count integer NOT NULL DEFAULT 0\n)",
-      "CREATE TABLE post (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  views_count integer NOT NULL DEFAULT 0\n);",
-      "CREATE TABLE post ( id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0 )",
-      "CREATE TABLE post ( id integer PRIMARY KEY, title varchar(100) NOT NULL, views_count integer NOT NULL DEFAULT 0 );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "DEFAULT 0 hisoblagichi o'rnatildi.",
-    "task": "Create a table named `post` with columns: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) and `views_count` (integer NOT NULL DEFAULT 0).",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "post",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "views_count",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 71,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 1 Step 2 • Department2 Nomini O'zgartirish",
-    "title": "Jadval Nomini O'zgartirish (RENAME TO)",
-    "story": "Seminar 3 vazifasiga ko'ra, `department2` jadvalining nomini `department3` ga o'zgartirish talab etiladi.",
-    "taskUz": "`department2` jadvalining nomini `department3` ga o'zgartiring (`ALTER TABLE ... RENAME TO ...`).",
-    "starterCode": "",
-    "hint": "`ALTER TABLE department2 RENAME TO department3` .",
-    "solutions": [
-      "ALTER TABLE department2 RENAME TO department3",
-      "ALTER TABLE department2 RENAME TO department3;",
-      "ALTER TABLE department2\nRENAME TO department3",
-      "ALTER TABLE department2\nRENAME TO department3;"
-    ],
-    "requiredPatterns": [],
-    "explanation": "Jadval nomi department3 ga muvaffaqiyatli o'zgartirildi.",
-    "task": "`department2` jadvalining nomini `department3` ga o'zgartiring (`ALTER TABLE ... RENAME TO ...`).",
-    "expectedSchema": {
-      "operation": "ALTER_TABLE",
-      "action": "RENAME TABLE",
-      "tableName": "department2",
-      "newTableName": "department3",
-      "detail": "department2 ➔ department3",
-      "description": "Jadval nomini department2 dan department3 ga o'zgartirish."
-    }
-  },
-  {
-    "id": 72,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 1 Step 2 • Ustun Nomini O'zgartirish",
-    "title": "Ustun Nomini Qisqartirish (RENAME COLUMN)",
-    "story": "Seminar 3 ning navbatdagi qadami: `department3` jadvalidagi `location` column nomini qisqartirib `loc` deb o'zgartirish kerak.",
-    "taskUz": "`department3` jadvalining `location` column nomini `loc` ga o'zgartiring.",
-    "starterCode": "",
-    "hint": "`ALTER TABLE department3 RENAME COLUMN location TO loc` sintaksisini qo'llang.",
-    "solutions": [
-      "ALTER TABLE department3 RENAME COLUMN location TO loc",
-      "ALTER TABLE department3 RENAME COLUMN location TO loc;",
-      "ALTER TABLE department3\nRENAME COLUMN location TO loc",
-      "ALTER TABLE department3\nRENAME COLUMN location TO loc;"
-    ],
-    "requiredPatterns": [],
-    "explanation": "location column nomlanishi loc ga o'zgartirildi.",
-    "task": "`department3` jadvalining `location` column nomini `loc` ga o'zgartiring.",
-    "expectedSchema": {
-      "operation": "ALTER_TABLE",
-      "action": "RENAME COLUMN",
-      "tableName": "department3",
-      "columnName": "location",
-      "newColumnName": "loc",
-      "detail": "location ➔ loc",
-      "description": "'location' ustuni nomini 'loc' ga qisqartirish."
-    }
-  },
-  {
-    "id": 73,
-    "sector": 5,
-    "difficulty": "Floor 5 • Easy",
-    "source": "T03 Task 1 Step 2 • Department3 ni O'chirish",
-    "title": "Sinov Jadvalini O'chirib Tashlash (DROP)",
-    "story": "Seminar 3 ning 1-topshiriq sinovi tugadi: `department3` jadvalini butunlay o'chirib tashlash lozim.",
-    "taskUz": "`department3` jadvalini bazadan butunlay o'chiring.",
-    "starterCode": "",
-    "hint": "`DROP TABLE department3` yoki `DROP TABLE IF EXISTS department3` .",
-    "solutions": [
-      "DROP TABLE department3",
-      "DROP TABLE department3;",
-      "DROP TABLE IF EXISTS department3",
-      "DROP TABLE IF EXISTS department3;"
-    ],
-    "requiredPatterns": [],
-    "explanation": "department3 jadvali xavfsiz o'chirildi.",
-    "task": "`department3` jadvalini bazadan butunlay o'chiring.",
-    "expectedSchema": {
-      "operation": "DROP_TABLE",
-      "tableName": "department3",
-      "ifExists": false,
-      "description": "'department3' sinov jadvalini bazadan butunlay o'chirib tashlash."
-    }
-  },
-  {
-    "id": 74,
-    "sector": 5,
-    "difficulty": "Floor 5 • Intermediate",
-    "source": "L03 Slide 24 • Standart Sanalar Kombinatsiyasi",
-    "title": "Standart Qiymatli Hujjatlar Reyestri",
-    "story": "Kompaniya hujjatlar jadvalida har bir faylga yuklangan vaqt avtomatik yozilib, ko'rilganlik holati `false` bo'lishi kerak.",
-    "taskUz": "Create a table named `doc_archive` with columns: `id` (integer PRIMARY KEY), `doc_name` (varchar(100) NOT NULL), `is_archived` (boolean NOT NULL DEFAULT false) and `archived_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
-    "starterCode": "",
-    "hint": "`is_archived boolean NOT NULL DEFAULT false` and `archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP`.",
-    "solutions": [
-      "CREATE TABLE doc_archive (id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
-      "CREATE TABLE doc_archive (id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
-      "CREATE TABLE doc_archive (\n  id integer PRIMARY KEY,\n  doc_name varchar(100) NOT NULL,\n  is_archived boolean NOT NULL DEFAULT false,\n  archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n)",
-      "CREATE TABLE doc_archive (\n  id integer PRIMARY KEY,\n  doc_name varchar(100) NOT NULL,\n  is_archived boolean NOT NULL DEFAULT false,\n  archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP\n);",
-      "CREATE TABLE doc_archive ( id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP )",
-      "CREATE TABLE doc_archive ( id integer PRIMARY KEY, doc_name varchar(100) NOT NULL, is_archived boolean NOT NULL DEFAULT false, archived_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "doc_archive jadvali ikkita standart qiymat bilan birga yaratildi.",
-    "task": "Create a table named `doc_archive` with columns: `id` (integer PRIMARY KEY), `doc_name` (varchar(100) NOT NULL), `is_archived` (boolean NOT NULL DEFAULT false) and `archived_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).",
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "doc_archive",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "doc_name",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "is_archived",
-          "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        },
-        {
-          "name": "archived_at",
-          "type": "timestamp",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": true
-        }
-      ]
-    }
-  },
-  {
-    "id": 75,
-    "sector": 5,
-    "difficulty": "Floor 5 • Master Architect",
-    "source": "T03 Task 1 Complete Employee • 5-Qavat Yakuni",
-    "title": "5-Qavat Bossi: Xodimlar Jadvalining Barcha Standart Maydonlari",
-    "story": "5-qavatning eng mas'uliyatli sinovi! Seminar 3 dagi `employee` jadvalining barcha standart qiymatli maydonlarini e'lon qiling: Identity ID, majburiy ism-familiya, unikal email, `active boolean NOT NULL DEFAULT true`, `hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP` and `department_id integer`.",
-    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `dob` (date), `email` (varchar(100) NOT NULL), `phone` (varchar(20)), `salary` (numeric(10,2)), `active` (boolean NOT NULL DEFAULT true), `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP), `department_id` (integer), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `first_name` [NOT NULL] (varchar(25)), `last_name` [NOT NULL] (varchar(25)), `dob` (date), `email` [NOT NULL] (varchar(100)), `phone` (varchar(20)), `salary` (numeric(10,2)), `active` [NOT NULL] (boolean), `hired_at` [NOT NULL] (timestamp), `department_id` (integer)\n• Cheklovlar: `pk_employee_id`, `uq_employee_email`",
-    "starterCode": "",
-    "hint": "Barcha 10 ta ustunni and jadval oxirida `pk_employee_id` and `uq_employee_email` cheklovlarini to'liq yozing.",
-    "solutions": [
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email))",
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email));",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  dob date,\n  email varchar(100) NOT NULL,\n  phone varchar(20),\n  salary numeric(10,2),\n  active boolean NOT NULL DEFAULT true,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  department_id integer,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  dob date,\n  email varchar(100) NOT NULL,\n  phone varchar(20),\n  salary numeric(10,2),\n  active boolean NOT NULL DEFAULT true,\n  hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  department_id integer,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n);",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) )",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL, phone varchar(20), salary numeric(10,2), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, department_id integer, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
+      "operation": "INSERT_INTO",
       "tableName": "employee",
       "columns": [
         {
@@ -1348,186 +26,1774 @@ _scope.QUESTIONS_51_100 = [
           "type": "integer",
           "isPK": true,
           "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
         },
         {
           "name": "first_name",
           "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
         },
         {
           "name": "last_name",
           "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
         },
         {
           "name": "dob",
           "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": false
         },
         {
           "name": "email",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
         },
         {
           "name": "phone",
           "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": false
         },
         {
           "name": "salary",
           "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "hasDefault": true
         },
         {
           "name": "active",
           "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
           "hasDefault": true
         },
         {
           "name": "hired_at",
           "type": "timestamp",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
           "hasDefault": true
         },
         {
           "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isFK": true,
+          "references": "department(id)"
         }
-      ]
-    },
-    "explanation": "5-Qavat Bossi tasdiqlandi! Seminar 3 dagi employee jadvali to'liq parametrlar bilan shakllantirildi.",
-    "task": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `dob` (date), `email` (varchar(100) NOT NULL), `phone` (varchar(20)), `salary` (numeric(10,2)), `active` (boolean NOT NULL DEFAULT true), `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP), `department_id` (integer), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan."
+      ],
+      "description": "Xodim Bobur Azizov explicit DEFAULT kalit so'zi bilan qo'shildi."
+    }
   },
   {
-    "id": 76,
-    "sector": 6,
-    "difficulty": "Floor 6 • Easy",
-    "source": "L03 Slide 25 • Ustun Darajasidagi References",
-    "title": "Ustun Darajasida Foreign Key (REFERENCES)",
-    "story": "Filialdagi xodim qaysi bo'limda ishlashini ko'rsatish uchun uning `dept_id` column `department(id)` ga bog'lanishi shart.",
-    "taskUz": "Create a table named `staff_dept` with columns: `id` (integer PRIMARY KEY), `full_name` (varchar(50)) and ustun darajasida `department(id)` ga bog'langan `dept_id` (integer REFERENCES department(id)).",
-    "starterCode": "",
-    "hint": "`dept_id integer REFERENCES department(id)` .",
+    "id": 52,
+    "sector": 4,
+    "difficulty": "Floor 4 • Hard",
+    "source": "T03 Task 3.2 • OVERRIDING SYSTEM VALUE",
+    "title": "OVERRIDING SYSTEM VALUE bilan Majburiy ID Kiritish",
+    "story": "Seminar 3 3.2: `GENERATED ALWAYS AS IDENTITY` ustuniga qo'lda ID kiritmoqchi bo'lsak, xatolik chiqadi. Buni chetlab o'tish uchun `OVERRIDING SYSTEM VALUE` qo'llanadi.",
+    "taskUz": "`department` jadvaliga majburiy `id = 99` qiymati bilan 'Executive' bo'limini qo'shing:\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000.00);`",
+    "hint": "`INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000.00);`",
     "solutions": [
-      "CREATE TABLE staff_dept (id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id))",
-      "CREATE TABLE staff_dept (id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id));",
-      "CREATE TABLE staff_dept (\n  id integer PRIMARY KEY,\n  full_name varchar(50),\n  dept_id integer REFERENCES department(id)\n)",
-      "CREATE TABLE staff_dept (\n  id integer PRIMARY KEY,\n  full_name varchar(50),\n  dept_id integer REFERENCES department(id)\n);",
-      "CREATE TABLE staff_dept ( id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id) )",
-      "CREATE TABLE staff_dept ( id integer PRIMARY KEY, full_name varchar(50), dept_id integer REFERENCES department(id) );"
+      "INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000.00)",
+      "INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000.00);",
+      "insert into department (id, title, budget) overriding system value values (99, 'executive', 500000.00)",
+      "insert into department (id, title, budget) overriding system value values (99, 'executive', 500000.00);",
+      "INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000)",
+      "INSERT INTO department (id, title, budget) OVERRIDING SYSTEM VALUE VALUES (99, 'Executive', 500000);",
+      "insert into department (id, title, budget) overriding system value values (99, 'executive', 500000)",
+      "insert into department (id, title, budget) overriding system value values (99, 'executive', 500000);"
     ],
-    "requiredPatterns": [],
-    "explanation": "staff_dept jadvalida ustun darajasidagi REFERENCES kaliti o'rnatildi.",
-    "task": "Create a table named `staff_dept` with columns: `id` (integer PRIMARY KEY), `full_name` (varchar(50)) and ustun darajasida `department(id)` ga bog'langan `dept_id` (integer REFERENCES department(id)).",
+    "explanation": "OVERRIDING SYSTEM VALUE orqali GENERATED ALWAYS ustuniga 99 raqami muvaffaqiyatli yozildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_dept",
+      "operation": "INSERT_INTO",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
           "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
         },
         {
-          "name": "full_name",
+          "name": "location",
           "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": false
         },
         {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "budget",
+          "type": "numeric(12,2)",
           "isNotNull": false,
-          "isUQ": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "OVERRIDING SYSTEM VALUE yordamida id=99 kiritildi."
+    }
+  },
+  {
+    "id": 53,
+    "sector": 4,
+    "difficulty": "Floor 4 • Hard",
+    "source": "T03 Task 3.2 • OVERRIDING USER VALUE",
+    "title": "OVERRIDING USER VALUE Bilan Tizim Kalitini Tiklash",
+    "story": "Agar jadval `GENERATED BY DEFAULT` bo'lsa va foydalanuvchi bergan qiymatni rad etib, tizim avtomatik qiymat berishini xohlasak, `OVERRIDING USER VALUE` qo'llaniladi.",
+    "taskUz": "`department` jadvaliga `OVERRIDING USER VALUE` bilan 'Logistics' bo'limini qo'shing:\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (id, title) OVERRIDING USER VALUE VALUES (5, 'Logistics');`",
+    "hint": "`INSERT INTO department (id, title) OVERRIDING USER VALUE VALUES (5, 'Logistics');`",
+    "solutions": [
+      "INSERT INTO department (id, title) OVERRIDING USER VALUE VALUES (5, 'Logistics')",
+      "INSERT INTO department (id, title) OVERRIDING USER VALUE VALUES (5, 'Logistics');",
+      "insert into department (id, title) overriding user value values (5, 'logistics')",
+      "insert into department (id, title) overriding user value values (5, 'logistics');"
+    ],
+    "explanation": "OVERRIDING USER VALUE orqali foydalanuvchi kiritgan id inkor etilib, sequence ishga tushdi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "OVERRIDING USER VALUE bilan ketma-ketlik himoyalandi."
+    }
+  },
+  {
+    "id": 54,
+    "sector": 4,
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3 • RETURNING Id Mexanizmi",
+    "title": "INSERT RETURNING id: Yangi Kalitni Darhol Qaytarish",
+    "story": "Backend dasturchilar qator qo'shgandan so'ng avtomatik hosil bo'lgan ID ni olish uchun alohida so'rov yubormasdan `RETURNING id` dan foydalanadilar.",
+    "taskUz": "`department` jadvaliga 'Research' bo'limini (byudjet 400000.00) qo'shing va hosil bo'lgan `id` ni qaytaring:\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (title, budget) VALUES ('Research', 400000.00) RETURNING id;`",
+    "hint": "`INSERT INTO department (title, budget) VALUES ('Research', 400000.00) RETURNING id;`",
+    "solutions": [
+      "INSERT INTO department (title, budget) VALUES ('Research', 400000.00) RETURNING id",
+      "INSERT INTO department (title, budget) VALUES ('Research', 400000.00) RETURNING id;",
+      "insert into department (title, budget) values ('research', 400000.00) returning id",
+      "insert into department (title, budget) values ('research', 400000.00) returning id;",
+      "INSERT INTO department (title, budget) VALUES ('Research', 400000) RETURNING id",
+      "INSERT INTO department (title, budget) VALUES ('Research', 400000) RETURNING id;",
+      "insert into department (title, budget) values ('research', 400000) returning id",
+      "insert into department (title, budget) values ('research', 400000) returning id;"
+    ],
+    "explanation": "RETURNING id orqali yangi hosil bo'lgan identifikator o'qib olindi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "Research bo'limi qo'shildi va RETURNING id bilan qaytarildi."
+    }
+  },
+  {
+    "id": 55,
+    "sector": 4,
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3 • RETURNING * bilan Audit",
+    "title": "INSERT RETURNING * bilan Butun Qatorni Olish",
+    "story": "Yangi xodim qo'shilganda uning barcha sukut bo'yicha to'ldirilgan ustunlarini (id, active, hired_at) to'liq ko'rish uchun `RETURNING *` beriladi.",
+    "taskUz": "`employee` jadvaliga 'Sherzod', 'Tursunov', 'sherzod@wiut.uz' xodimini qo'shing va butun qatorni qaytaring (`RETURNING *`):\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email) VALUES ('Sherzod', 'Tursunov', 'sherzod@wiut.uz') RETURNING *;`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email) VALUES ('Sherzod', 'Tursunov', 'sherzod@wiut.uz') RETURNING *;`",
+    "solutions": [
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Sherzod', 'Tursunov', 'sherzod@wiut.uz') RETURNING *",
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Sherzod', 'Tursunov', 'sherzod@wiut.uz') RETURNING *;",
+      "insert into employee (first_name, last_name, email) values ('sherzod', 'tursunov', 'sherzod@wiut.uz') returning *",
+      "insert into employee (first_name, last_name, email) values ('sherzod', 'tursunov', 'sherzod@wiut.uz') returning *;"
+    ],
+    "explanation": "RETURNING * yordamida yangi xodimning to'liq profilingi qaytarildi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
+        }
+      ],
+      "description": "Xodim qo'shildi va RETURNING * orqali barcha atributlar ko'rsatildi."
+    }
+  },
+  {
+    "id": 56,
+    "sector": 4,
+    "difficulty": "Floor 4 • Hard",
+    "source": "L03 Slide 28 • INSERT INTO ... SELECT",
+    "title": "Subquery bilan Ko'chirish (INSERT INTO ... SELECT)",
+    "story": "Arxivlash jarayoni: byudjeti 300000 dan oshiq bo'lgan barcha bo'limlarni `department_archive` jadvaliga ko'chiring.",
+    "taskUz": "`department_archive` jadvaliga `department` dan `budget > 300000` bo'lgan bo'limlarning `id`, `title`, `budget` ustunlarini ko'chirib yozing.\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000;`",
+    "hint": "`INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000;`",
+    "solutions": [
+      "INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000",
+      "INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000;",
+      "insert into department_archive (id, title, budget) select id, title, budget from department where budget > 300000",
+      "insert into department_archive (id, title, budget) select id, title, budget from department where budget > 300000;",
+      "INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000.00",
+      "INSERT INTO department_archive (id, title, budget) SELECT id, title, budget FROM department WHERE budget > 300000.00;",
+      "insert into department_archive (id, title, budget) select id, title, budget from department where budget > 300000.00",
+      "insert into department_archive (id, title, budget) select id, title, budget from department where budget > 300000.00;"
+    ],
+    "explanation": "INSERT INTO ... SELECT subquery orqali katta byudjetli bo'limlar arxivlandi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "department_archive",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "Mavjud department jadvalidan ma'lumotlar arxiv jadvaliga ko'chirildi."
+    }
+  },
+  {
+    "id": 57,
+    "sector": 4,
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3 • Sana va Vaqt Literal Formatlari",
+    "title": "Sana va Vaqt Tamg'asi Literallari bilan INSERT",
+    "story": "PostgreSQL da ISO 8601 standartidagi sana ('YYYY-MM-DD') va vaqt ('YYYY-MM-DD HH:MI:SS') literallari qabul qilinadi.",
+    "taskUz": "`employee` jadvaliga quyidagi ma'lumotlarni kiriting:\n• `first_name`: 'Nodira'\n• `last_name`: 'Ergasheva'\n• `email`: 'nodira@wiut.uz'\n• `dob`: '1998-11-20'\n• `hired_at`: '2023-09-01 09:00:00'\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email, dob, hired_at) VALUES ('Nodira', 'Ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00');`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email, dob, hired_at) VALUES ('Nodira', 'Ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00');`",
+    "solutions": [
+      "INSERT INTO employee (first_name, last_name, email, dob, hired_at) VALUES ('Nodira', 'Ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00')",
+      "INSERT INTO employee (first_name, last_name, email, dob, hired_at) VALUES ('Nodira', 'Ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00');",
+      "insert into employee (first_name, last_name, email, dob, hired_at) values ('nodira', 'ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00')",
+      "insert into employee (first_name, last_name, email, dob, hired_at) values ('nodira', 'ergasheva', 'nodira@wiut.uz', '1998-11-20', '2023-09-01 09:00:00');"
+    ],
+    "explanation": "ISO sana va vaqt literallari muvaffaqiyatli saqlandi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Xodim aniq dob va hired_at sanalari bilan kiritildi."
+    }
+  },
+  {
+    "id": 58,
+    "sector": 4,
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3.4 • CHECK Chegarasidagi Qiymatni Kiritish",
+    "title": "CHECK Chegarasidagi Qiymat (salary = 5000.00)",
+    "story": "Seminar 3 3.4: Xodimning maksimal ruxsat etilgan oyligi 5000.00. Chegara qiymatini sinovdan o'tkazamiz.",
+    "taskUz": "`employee` jadvaliga maksimal chegaraviy oylik bilan xodim qo'shing:\n• `first_name`: 'Zafar'\n• `last_name`: 'Saidov'\n• `email`: 'zafar@wiut.uz'\n• `salary`: 5000.00\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000.00);`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000.00);`",
+    "solutions": [
+      "INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000.00)",
+      "INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000.00);",
+      "insert into employee (first_name, last_name, email, salary) values ('zafar', 'saidov', 'zafar@wiut.uz', 5000.00)",
+      "insert into employee (first_name, last_name, email, salary) values ('zafar', 'saidov', 'zafar@wiut.uz', 5000.00);",
+      "INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000)",
+      "INSERT INTO employee (first_name, last_name, email, salary) VALUES ('Zafar', 'Saidov', 'zafar@wiut.uz', 5000);",
+      "insert into employee (first_name, last_name, email, salary) values ('zafar', 'saidov', 'zafar@wiut.uz', 5000)",
+      "insert into employee (first_name, last_name, email, salary) values ('zafar', 'saidov', 'zafar@wiut.uz', 5000);"
+    ],
+    "explanation": "CHECK cheklovining yuqori chegarasi muvaffaqiyatli qabul qilindi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Maksimal ruxsat etilgan 5000.00 oylik bilan xodim kiritildi."
+    }
+  },
+  {
+    "id": 59,
+    "sector": 4,
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3 • NULL Bo'lmagan Aloqa Ma'lumotlari",
+    "title": "Telefon Raqami bilan Xodim Qo'shish",
+    "story": "Xodimning aloqa raqami xalqaro formatda kiritilishi talab etiladi.",
+    "taskUz": "`employee` jadvaliga 'Madina', 'Usmonova', 'madina@wiut.uz', '+998931112233' ma'lumotlarini qo'shing:\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email, phone) VALUES ('Madina', 'Usmonova', 'madina@wiut.uz', '+998931112233');`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email, phone) VALUES ('Madina', 'Usmonova', 'madina@wiut.uz', '+998931112233');`",
+    "solutions": [
+      "INSERT INTO employee (first_name, last_name, email, phone) VALUES ('Madina', 'Usmonova', 'madina@wiut.uz', '+998931112233')",
+      "INSERT INTO employee (first_name, last_name, email, phone) VALUES ('Madina', 'Usmonova', 'madina@wiut.uz', '+998931112233');",
+      "insert into employee (first_name, last_name, email, phone) values ('madina', 'usmonova', 'madina@wiut.uz', '+998931112233')",
+      "insert into employee (first_name, last_name, email, phone) values ('madina', 'usmonova', 'madina@wiut.uz', '+998931112233');"
+    ],
+    "explanation": "Telefon raqamli yangi xodim yozuvi muvaffaqiyatli saqlandi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Xodim shaxsiy telefon raqami bilan ro'yxatga olindi."
+    }
+  },
+  {
+    "id": 60,
+    "sector": 4,
+    "difficulty": "Floor 4 • Boss Challenge",
+    "source": "4-Qavat Bossi • Korporativ Batch INSERT va RETURNING",
+    "title": "4-Qavat Bossi: Enterprise Batch INSERT va RETURNING id, title",
+    "story": "4-qavatning buyuk bossi: Kompaniyaning ikkita yangi yuqori texnologik bo'limini bir so'rovda qo'shing va ularning hosil bo'lgan `id` hamda `title` ustunlarini qaytaring!\n1) 'AI Lab', 'Tashkent', 750000.00\n2) 'Cyber Security', 'London', 850000.00",
+    "taskUz": "`department` jadvaliga yuqoridagi 2 ta bo'limni bir vaqtda qo'shib, `RETURNING id, title` orqali natijani qaytaring.\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000.00), ('Cyber Security', 'London', 850000.00) RETURNING id, title;`",
+    "hint": "`INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000.00), ('Cyber Security', 'London', 850000.00) RETURNING id, title;`",
+    "solutions": [
+      "INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000.00), ('Cyber Security', 'London', 850000.00) RETURNING id, title",
+      "INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000.00), ('Cyber Security', 'London', 850000.00) RETURNING id, title;",
+      "insert into department (title, location, budget) values ('ai lab', 'tashkent', 750000.00), ('cyber security', 'london', 850000.00) returning id, title",
+      "insert into department (title, location, budget) values ('ai lab', 'tashkent', 750000.00), ('cyber security', 'london', 850000.00) returning id, title;",
+      "INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000), ('Cyber Security', 'London', 850000) RETURNING id, title",
+      "INSERT INTO department (title, location, budget) VALUES ('AI Lab', 'Tashkent', 750000), ('Cyber Security', 'London', 850000) RETURNING id, title;",
+      "insert into department (title, location, budget) values ('ai lab', 'tashkent', 750000), ('cyber security', 'london', 850000) returning id, title",
+      "insert into department (title, location, budget) values ('ai lab', 'tashkent', 750000), ('cyber security', 'london', 850000) returning id, title;"
+    ],
+    "explanation": "4-Qavat Bossi zabt etildi! DML INSERT mexanizmlari, DEFAULT, OVERRIDING va RETURNING mukammal o'zlashtirildi.",
+    "expectedSchema": {
+      "operation": "INSERT_INTO",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "AI Lab va Cyber Security bo'limlari qo'shildi va RETURNING id, title bilan tasdiqlandi."
+    }
+  },
+  {
+    "id": 61,
+    "sector": 5,
+    "difficulty": "Floor 5 • Easy",
+    "source": "T03 Task 3 • UPDATE Bitta Ustunni Yangilash",
+    "title": "Bitta Ustun Qiymatini Yangilash (UPDATE)",
+    "story": "Moliya bo'limi byudjeti oshirildi. `id = 1` bo'lgan bo'limning byudjetini 350000.00 ga tenglashtiring.",
+    "taskUz": "`department` jadvalida `id = 1` bo'lgan satrning `budget` qiymatini 350000.00 ga yangilang.\n\n📋 **Kutilayotgan DML:**\n`UPDATE department SET budget = 350000.00 WHERE id = 1;`",
+    "hint": "`UPDATE department SET budget = 350000.00 WHERE id = 1;`",
+    "solutions": [
+      "UPDATE department SET budget = 350000.00 WHERE id = 1",
+      "UPDATE department SET budget = 350000.00 WHERE id = 1;",
+      "update department set budget = 350000.00 where id = 1",
+      "update department set budget = 350000.00 where id = 1;",
+      "UPDATE department SET budget = 350000 WHERE id = 1",
+      "UPDATE department SET budget = 350000 WHERE id = 1;",
+      "update department set budget = 350000 where id = 1",
+      "update department set budget = 350000 where id = 1;"
+    ],
+    "explanation": "Bo'lim byudjeti muvaffaqiyatli yangilandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "id=1 bo'lgan bo'lim byudjeti 350000 ga ko'tarildi."
+    }
+  },
+  {
+    "id": 62,
+    "sector": 5,
+    "difficulty": "Floor 5 • Easy",
+    "source": "T03 Task 3 • Matn Ustunini Yangilash",
+    "title": "Bo'lim Joylashuvini Ko'chirish (location Yangilash)",
+    "story": "'Finance' bo'limi yangi Toshkent binosiga ko'chib o'tdi. Joylashuvni yangilash lozim.",
+    "taskUz": "`department` jadvalida `title = 'Finance'` bo'lgan qatorning `location` qiymatini 'Tashkent' ga o'zgartiring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE department SET location = 'Tashkent' WHERE title = 'Finance';`",
+    "hint": "`UPDATE department SET location = 'Tashkent' WHERE title = 'Finance';`",
+    "solutions": [
+      "UPDATE department SET location = 'Tashkent' WHERE title = 'Finance'",
+      "UPDATE department SET location = 'Tashkent' WHERE title = 'Finance';",
+      "update department set location = 'tashkent' where title = 'finance'",
+      "update department set location = 'tashkent' where title = 'finance';"
+    ],
+    "explanation": "Finance bo'limi joylashuvi Toshkentga o'zgartirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "Finance bo'limi location ustuni 'Tashkent' ga o'zgartirildi."
+    }
+  },
+  {
+    "id": 63,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Bir Nechta Ustunni Yangilash",
+    "title": "Bir Nechta Ustunni Bir Vaqtda Yangilash",
+    "story": "2-raqamli bo'lim yangi shahar filialiga aylantirildi: uning byudjeti 280000.00, joylashuvi esa 'Samarkand' bo'lishi kerak.",
+    "taskUz": "`department` jadvalida `id = 2` bo'lgan bo'limning `budget = 280000.00` va `location = 'Samarkand'` qilib yangilang.\n\n📋 **Kutilayotgan DML:**\n`UPDATE department SET budget = 280000.00, location = 'Samarkand' WHERE id = 2;`",
+    "hint": "`UPDATE department SET budget = 280000.00, location = 'Samarkand' WHERE id = 2;`",
+    "solutions": [
+      "UPDATE department SET budget = 280000.00, location = 'Samarkand' WHERE id = 2",
+      "UPDATE department SET budget = 280000.00, location = 'Samarkand' WHERE id = 2;",
+      "update department set budget = 280000.00, location = 'samarkand' where id = 2",
+      "update department set budget = 280000.00, location = 'samarkand' where id = 2;",
+      "UPDATE department SET budget = 280000, location = 'Samarkand' WHERE id = 2",
+      "UPDATE department SET budget = 280000, location = 'Samarkand' WHERE id = 2;",
+      "update department set budget = 280000, location = 'samarkand' where id = 2",
+      "update department set budget = 280000, location = 'samarkand' where id = 2;",
+      "UPDATE department SET location = 'Samarkand', budget = 280000.00 WHERE id = 2",
+      "UPDATE department SET location = 'Samarkand', budget = 280000.00 WHERE id = 2;",
+      "update department set location = 'samarkand', budget = 280000.00 where id = 2",
+      "update department set location = 'samarkand', budget = 280000.00 where id = 2;"
+    ],
+    "explanation": "Bir vaqtning o'zida byudjet va joylashuv yangilandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "id=2 bo'limining budget va location ustunlari yangilandi."
+    }
+  },
+  {
+    "id": 64,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Ifodali Yangilash (Expressions)",
+    "title": "Hisob-Kitobli Yangilash: 10% Oylik Oshirish",
+    "story": "Inflyatsiya kompensatsiyasi: 1-bo'limdagi barcha xodimlarning maoshini 10% ga oshirish lozim (`salary = salary * 1.10`).",
+    "taskUz": "`employee` jadvalida `department_id = 1` bo'lgan barcha xodimlarning oyligini 10% ga oshiring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET salary = salary * 1.10 WHERE department_id = 1;`",
+    "hint": "`UPDATE employee SET salary = salary * 1.10 WHERE department_id = 1;`",
+    "solutions": [
+      "UPDATE employee SET salary = salary * 1.10 WHERE department_id = 1",
+      "UPDATE employee SET salary = salary * 1.10 WHERE department_id = 1;",
+      "update employee set salary = salary * 1.10 where department_id = 1",
+      "update employee set salary = salary * 1.10 where department_id = 1;",
+      "UPDATE employee SET salary = salary * 1.1 WHERE department_id = 1",
+      "UPDATE employee SET salary = salary * 1.1 WHERE department_id = 1;",
+      "update employee set salary = salary * 1.1 where department_id = 1",
+      "update employee set salary = salary * 1.1 where department_id = 1;"
+    ],
+    "explanation": "1-bo'lim xodimlarining barchasiga 10% qo'shildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "1-bo'lim xodimlarining maoshi 1.1 baravarga oshirildi."
+    }
+  },
+  {
+    "id": 65,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3.5 • Standart Qiymatni Tiklash (SET col = DEFAULT)",
+    "title": "Standart Qiymatni Tiklash (SET salary = DEFAULT)",
+    "story": "Xodim oyligi xato hisoblangan edi. Uni qayta boshlang'ich standart oylikka (1000.00) tenglashtirish uchun `DEFAULT` dan foydalaning.",
+    "taskUz": "`employee` jadvalida `id = 3` bo'lgan xodimning oyligini standart qiymatga tiklang (`SET salary = DEFAULT`).\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET salary = DEFAULT WHERE id = 3;`",
+    "hint": "`UPDATE employee SET salary = DEFAULT WHERE id = 3;`",
+    "solutions": [
+      "UPDATE employee SET salary = DEFAULT WHERE id = 3",
+      "UPDATE employee SET salary = DEFAULT WHERE id = 3;",
+      "update employee set salary = default where id = 3",
+      "update employee set salary = default where id = 3;"
+    ],
+    "explanation": "salary ustuni o'zining DEFAULT qiymatiga tiklandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "id=3 bo'lgan xodim maoshi standart 1000.00 ga qaytarildi."
+    }
+  },
+  {
+    "id": 66,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Shartli Deaktivatsiya (WHERE hired_at)",
+    "title": "Shartli Deaktivatsiya (active = false)",
+    "story": "Eski xodimlar auditdan o'tmoqda: 2020-yil 1-yanvardan oldin ishga kirgan xodimlarning holatini `active = false` qiling.",
+    "taskUz": "`employee` jadvalida `hired_at < '2020-01-01'` bo'lgan barcha xodimlarning `active` holatini `false` ga o'zgartiring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET active = false WHERE hired_at < '2020-01-01';`",
+    "hint": "`UPDATE employee SET active = false WHERE hired_at < '2020-01-01';`",
+    "solutions": [
+      "UPDATE employee SET active = false WHERE hired_at < '2020-01-01'",
+      "UPDATE employee SET active = false WHERE hired_at < '2020-01-01';",
+      "update employee set active = false where hired_at < '2020-01-01'",
+      "update employee set active = false where hired_at < '2020-01-01';"
+    ],
+    "explanation": "2020-yildan oldingi yozuvlar faolsizlantirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Eski xodimlar active=false holatiga o'tkazildi."
+    }
+  },
+  {
+    "id": 67,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Aloqa Ma'lumotlarini Yangilash",
+    "title": "Xodim Telefon va Emailini Yangilash",
+    "story": "1-raqamli xodim aloqa ma'lumotlarini o'zgartirdi: `phone = '+998909876543'`, `email = 'ali.new@wiut.uz'`.",
+    "taskUz": "`employee` jadvalida `id = 1` bo'lgan xodimning `phone` va `email` ustunlarini yuqoridagi qiymatlar bilan yangilang.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET phone = '+998909876543', email = 'ali.new@wiut.uz' WHERE id = 1;`",
+    "hint": "`UPDATE employee SET phone = '+998909876543', email = 'ali.new@wiut.uz' WHERE id = 1;`",
+    "solutions": [
+      "UPDATE employee SET phone = '+998909876543', email = 'ali.new@wiut.uz' WHERE id = 1",
+      "UPDATE employee SET phone = '+998909876543', email = 'ali.new@wiut.uz' WHERE id = 1;",
+      "update employee set phone = '+998909876543', email = 'ali.new@wiut.uz' where id = 1",
+      "update employee set phone = '+998909876543', email = 'ali.new@wiut.uz' where id = 1;",
+      "UPDATE employee SET email = 'ali.new@wiut.uz', phone = '+998909876543' WHERE id = 1",
+      "UPDATE employee SET email = 'ali.new@wiut.uz', phone = '+998909876543' WHERE id = 1;",
+      "update employee set email = 'ali.new@wiut.uz', phone = '+998909876543' where id = 1",
+      "update employee set email = 'ali.new@wiut.uz', phone = '+998909876543' where id = 1;"
+    ],
+    "explanation": "Telefon va elektron pochta manzillari unikal talablar asosida yangilandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "id=1 bo'lgan xodimning telefon va emaillari yangilandi."
+    }
+  },
+  {
+    "id": 68,
+    "sector": 5,
+    "difficulty": "Floor 5 • Hard",
+    "source": "T03 Task 3 • UPDATE RETURNING",
+    "title": "UPDATE bilan Yangilangan Natijani Qaytarish (RETURNING)",
+    "story": "Byudjetga 50000 qo'shildi va dastur yangilangan byudjet miqdorini darhol o'qib olishi lozim.",
+    "taskUz": "`department` jadvalida `id = 1` bo'lgan bo'lim byudjetiga 50000 qo'shing va `RETURNING id, budget` orqali yangi qiymatni qaytaring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE department SET budget = budget + 50000 WHERE id = 1 RETURNING id, budget;`",
+    "hint": "`UPDATE department SET budget = budget + 50000 WHERE id = 1 RETURNING id, budget;`",
+    "solutions": [
+      "UPDATE department SET budget = budget + 50000 WHERE id = 1 RETURNING id, budget",
+      "UPDATE department SET budget = budget + 50000 WHERE id = 1 RETURNING id, budget;",
+      "update department set budget = budget + 50000 where id = 1 returning id, budget",
+      "update department set budget = budget + 50000 where id = 1 returning id, budget;",
+      "UPDATE department SET budget = budget + 50000.00 WHERE id = 1 RETURNING id, budget",
+      "UPDATE department SET budget = budget + 50000.00 WHERE id = 1 RETURNING id, budget;",
+      "update department set budget = budget + 50000.00 where id = 1 returning id, budget",
+      "update department set budget = budget + 50000.00 where id = 1 returning id, budget;"
+    ],
+    "explanation": "Byudjet oshirildi va RETURNING bilan yangi ko'rsatkich ekranga chiqarildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "Byudjetga 50000 qo'shildi va RETURNING id, budget qaytarildi."
+    }
+  },
+  {
+    "id": 69,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3.4 • CHECK Cheklovini Hurmat Qilish",
+    "title": "CHECK Chekloviga Mos Oylik Yangilash",
+    "story": "Seminar 3 3.4: Xodim oyligini ko'tarayotganda 5000.00 dan oshib ketmaslik kerak. 2-xodimning maoshini 4999.99 ga tenglashtiring.",
+    "taskUz": "`employee` jadvalida `id = 2` bo'lgan xodimning `salary` ustunini 4999.99 qiling.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET salary = 4999.99 WHERE id = 2;`",
+    "hint": "`UPDATE employee SET salary = 4999.99 WHERE id = 2;`",
+    "solutions": [
+      "UPDATE employee SET salary = 4999.99 WHERE id = 2",
+      "UPDATE employee SET salary = 4999.99 WHERE id = 2;",
+      "update employee set salary = 4999.99 where id = 2",
+      "update employee set salary = 4999.99 where id = 2;"
+    ],
+    "explanation": "CHECK chegarasini buzmagan holda maosh yangilandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "id=2 bo'lgan xodim maoshi 4999.99 ga o'zgartirildi."
+    }
+  },
+  {
+    "id": 70,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Bir Nechta Bo'lim Xodimlarini Faollashtirish",
+    "title": "IN Predikati bilan Guruhli Yangilash",
+    "story": "1 va 2-bo'limdagi barcha xodimlarni birdaniga faol holatga (`active = true`) keltirish lozim.",
+    "taskUz": "`employee` jadvalida `department_id IN (1, 2)` bo'lgan barcha xodimlarning `active = true` qiling.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET active = true WHERE department_id IN (1, 2);`",
+    "hint": "`UPDATE employee SET active = true WHERE department_id IN (1, 2);`",
+    "solutions": [
+      "UPDATE employee SET active = true WHERE department_id IN (1, 2)",
+      "UPDATE employee SET active = true WHERE department_id IN (1, 2);",
+      "update employee set active = true where department_id in (1, 2)",
+      "update employee set active = true where department_id in (1, 2);",
+      "UPDATE employee SET active = true WHERE department_id IN (1,2)",
+      "UPDATE employee SET active = true WHERE department_id IN (1,2);",
+      "update employee set active = true where department_id in (1,2)",
+      "update employee set active = true where department_id in (1,2);"
+    ],
+    "explanation": "1 va 2-bo'lim xodimlari bitta so'rovda faollashtirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "1 va 2-bo'lim xodimlari active=true holatiga keltirildi."
+    }
+  },
+  {
+    "id": 71,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 2 & 3 • Tug'ilgan Sanani (dob) Yangilash",
+    "title": "Tug'ilgan Sana (dob) Qiymatini Kiritish",
+    "story": "1-raqamli xodimning shaxsiy ish jildiga tug'ilgan sanasi (`dob = '1992-04-15'`) kiritilmoqda.",
+    "taskUz": "`employee` jadvalida `id = 1` bo'lgan xodimning `dob` ustunini '1992-04-15' ga yangilang.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET dob = '1992-04-15' WHERE id = 1;`",
+    "hint": "`UPDATE employee SET dob = '1992-04-15' WHERE id = 1;`",
+    "solutions": [
+      "UPDATE employee SET dob = '1992-04-15' WHERE id = 1",
+      "UPDATE employee SET dob = '1992-04-15' WHERE id = 1;",
+      "update employee set dob = '1992-04-15' where id = 1",
+      "update employee set dob = '1992-04-15' where id = 1;"
+    ],
+    "explanation": "Xodimning dob ustuni muvaffaqiyatli to'ldirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "id=1 bo'lgan xodimning tug'ilgan sanasi kiritildi."
+    }
+  },
+  {
+    "id": 72,
+    "sector": 5,
+    "difficulty": "Floor 5 • Hard",
+    "source": "L03 Slide 28 • Subquery bilan UPDATE",
+    "title": "Subquery Asosida Oylik Qo'shish",
+    "story": "'Finance' bo'limida ishlaydigan xodimlarga qo'shimcha 200.00 mukofot puli qo'shing (`department_id = (SELECT id FROM department WHERE title = 'Finance')`).",
+    "taskUz": "`employee` jadvalida 'Finance' bo'limi xodimlarining oyligiga 200 qo'shing (`salary = salary + 200`).\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET salary = salary + 200 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance');`",
+    "hint": "`UPDATE employee SET salary = salary + 200 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance');`",
+    "solutions": [
+      "UPDATE employee SET salary = salary + 200 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance')",
+      "UPDATE employee SET salary = salary + 200 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance');",
+      "update employee set salary = salary + 200 where department_id = (select id from department where title = 'finance')",
+      "update employee set salary = salary + 200 where department_id = (select id from department where title = 'finance');",
+      "UPDATE employee SET salary = salary + 200.00 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance')",
+      "UPDATE employee SET salary = salary + 200.00 WHERE department_id = (SELECT id FROM department WHERE title = 'Finance');",
+      "update employee set salary = salary + 200.00 where department_id = (select id from department where title = 'finance')",
+      "update employee set salary = salary + 200.00 where department_id = (select id from department where title = 'finance');"
+    ],
+    "explanation": "Subquery orqali dinamik topilgan bo'lim xodimlarining oyligi oshirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Finance bo'limidagi barcha xodimlarga 200 qo'shildi."
+    }
+  },
+  {
+    "id": 73,
+    "sector": 5,
+    "difficulty": "Floor 5 • Easy",
+    "source": "T03 Task 3 • Qiymatni NULL ga Tenglashtirish",
+    "title": "Ixtiyoriy Maydonni Bo'shatish (SET phone = NULL)",
+    "story": "Xodim shaxsiy telefon raqamini tizimdan o'chirishni so'radi. Ustun nullable bo'lgani sababli uni `NULL` ga tenglashtiramiz.",
+    "taskUz": "`employee` jadvalida `id = 4` bo'lgan xodimning `phone` ustunini `NULL` ga o'zgartiring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET phone = NULL WHERE id = 4;`",
+    "hint": "`UPDATE employee SET phone = NULL WHERE id = 4;`",
+    "solutions": [
+      "UPDATE employee SET phone = NULL WHERE id = 4",
+      "UPDATE employee SET phone = NULL WHERE id = 4;",
+      "update employee set phone = null where id = 4",
+      "update employee set phone = null where id = 4;"
+    ],
+    "explanation": "phone ustuni bo'shatildi (NULL holatiga keltirildi).",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "id=4 bo'lgan xodim telefoni NULL qilindi."
+    }
+  },
+  {
+    "id": 74,
+    "sector": 5,
+    "difficulty": "Floor 5 • Medium",
+    "source": "T03 Task 3 • Ko'p Qirrali Yangilash",
+    "title": "Byudjetni 5% ga Oshirish va Joylashuvni O'zgartirish",
+    "story": "Bosh qarorgoh (HQ) modernizatsiyasi: 1-bo'lim byudjetini 5% ga oshiring (`budget = budget * 1.05`) va joylashuvini 'Tashkent HQ' deb belgilang.",
+    "taskUz": "`department` jadvalida `id = 1` bo'lgan bo'lim uchun `budget = budget * 1.05, location = 'Tashkent HQ'` ni bajaring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE department SET budget = budget * 1.05, location = 'Tashkent HQ' WHERE id = 1;`",
+    "hint": "`UPDATE department SET budget = budget * 1.05, location = 'Tashkent HQ' WHERE id = 1;`",
+    "solutions": [
+      "UPDATE department SET budget = budget * 1.05, location = 'Tashkent HQ' WHERE id = 1",
+      "UPDATE department SET budget = budget * 1.05, location = 'Tashkent HQ' WHERE id = 1;",
+      "update department set budget = budget * 1.05, location = 'tashkent hq' where id = 1",
+      "update department set budget = budget * 1.05, location = 'tashkent hq' where id = 1;",
+      "UPDATE department SET location = 'Tashkent HQ', budget = budget * 1.05 WHERE id = 1",
+      "UPDATE department SET location = 'Tashkent HQ', budget = budget * 1.05 WHERE id = 1;",
+      "update department set location = 'tashkent hq', budget = budget * 1.05 where id = 1",
+      "update department set location = 'tashkent hq', budget = budget * 1.05 where id = 1;"
+    ],
+    "explanation": "Byudjet foizi va joylashuv nomi bitta buyruqda yangilandi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "isNotNull": false,
+          "hasCheck": true
+        }
+      ],
+      "description": "Bosh boshqarma byudjeti 5% ga oshirildi va lokatsiyasi yangilandi."
+    }
+  },
+  {
+    "id": 75,
+    "sector": 5,
+    "difficulty": "Floor 5 • Boss Challenge",
+    "source": "5-Qavat Bossi • Xodimlarni Tiklash va Oylik Qayta Hisobi",
+    "title": "5-Qavat Bossi: Yillik Qayta Tiklash va RETURNING id, salary, active",
+    "story": "5-qavatning buyuk bossi: Nofaol bo'lib turgan (`active = false`) barcha xodimlarni faollashtiring (`active = true`), ularning maoshini 15% ga oshiring (`salary = salary * 1.15`) va natijani `RETURNING id, salary, active` orqali qaytaring!",
+    "taskUz": "`employee` jadvalida `WHERE active = false` bo'lgan xodimlar uchun `SET salary = salary * 1.15, active = true RETURNING id, salary, active;` ni bajaring.\n\n📋 **Kutilayotgan DML:**\n`UPDATE employee SET salary = salary * 1.15, active = true WHERE active = false RETURNING id, salary, active;`",
+    "hint": "`UPDATE employee SET salary = salary * 1.15, active = true WHERE active = false RETURNING id, salary, active;`",
+    "solutions": [
+      "UPDATE employee SET salary = salary * 1.15, active = true WHERE active = false RETURNING id, salary, active",
+      "UPDATE employee SET salary = salary * 1.15, active = true WHERE active = false RETURNING id, salary, active;",
+      "update employee set salary = salary * 1.15, active = true where active = false returning id, salary, active",
+      "update employee set salary = salary * 1.15, active = true where active = false returning id, salary, active;",
+      "UPDATE employee SET active = true, salary = salary * 1.15 WHERE active = false RETURNING id, salary, active",
+      "UPDATE employee SET active = true, salary = salary * 1.15 WHERE active = false RETURNING id, salary, active;",
+      "update employee set active = true, salary = salary * 1.15 where active = false returning id, salary, active",
+      "update employee set active = true, salary = salary * 1.15 where active = false returning id, salary, active;"
+    ],
+    "explanation": "5-Qavat Bossi muvaffaqiyatli zabt etildi! DML UPDATE imkoniyatlari, matematik ifodalar va RETURNING mukammal o'zlashtirildi.",
+    "expectedSchema": {
+      "operation": "UPDATE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
+        }
+      ],
+      "description": "Nofaol xodimlar faollashtirildi, 15% bonus qo'shildi va natijalar qaytarildi."
+    }
+  },
+  {
+    "id": 76,
+    "sector": 6,
+    "difficulty": "Floor 6 • Easy",
+    "source": "T03 Task 4 • Ustun Darajasidagi Tashqi Kalit (Inline FK)",
+    "title": "Inline Tashqi Kalit (REFERENCES department(id))",
+    "story": "Seminar 3 4-topshiriq: Xodimlarni bo'limlarga biriktirish uchun `employee` jadvalida ustun darajasidagi tashqi kalit belgilaymiz.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `first_name` (varchar(25)), `department_id` (integer REFERENCES department(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `first_name varchar(25)`, `department_id integer REFERENCES department(id)`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer REFERENCES department(id));`",
+    "solutions": [
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer REFERENCES department(id))",
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer REFERENCES department(id));",
+      "create table employee (id integer primary key, first_name varchar(25), department_id integer references department(id))",
+      "create table employee (id integer primary key, first_name varchar(25), department_id integer references department(id));",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25), department_id int REFERENCES department(id))",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25), department_id int REFERENCES department(id));",
+      "create table employee (id int primary key, first_name varchar(25), department_id int references department(id))",
+      "create table employee (id int primary key, first_name varchar(25), department_id int references department(id));"
+    ],
+    "explanation": "department_id ustuni department jadvaliga inline FK orqali bog'landi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "employee",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)"
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
         }
       ]
     }
@@ -1536,50 +1802,40 @@ _scope.QUESTIONS_51_100 = [
     "id": 77,
     "sector": 6,
     "difficulty": "Floor 6 • Easy",
-    "source": "T03 Task 2 Step 4 • Nomlangan FOREIGN KEY Cheklovi",
-    "title": "Nomlangan Foreign Key (Named Foreign Key)",
-    "story": "Seminar 3 qoidasi: barcha tashqi kalitlar rasmiy nomga (`fk_bola_ota_ustun`) ega bo'lishi lozim.",
-    "taskUz": "Create a table named `emp_assignment`: `id` (integer PRIMARY KEY), `department_id` (integer NOT NULL) and named `CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)` yozing.",
+    "source": "T03 Task 4 • Jadval Darajasidagi Tashqi Kalit",
+    "title": "Nomlangan Tashqi Kalit (CONSTRAINT fk_employee_department)",
+    "story": "Katta ma'lumotlar bazalarida tashqi kalitlarga aniq nom beriladi (`CONSTRAINT fk_... FOREIGN KEY (...) REFERENCES ...`).",
+    "taskUz": "`employee` jadvalini yarating: `id` (integer PRIMARY KEY), `first_name` (varchar(25)), `department_id` (integer) va `CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id)`.\n\n📋 **Kutilayotgan Sxema:**\n• Cheklov: `CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id)`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer, CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id));`",
     "solutions": [
-      "CREATE TABLE emp_assignment (id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id))",
-      "CREATE TABLE emp_assignment (id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id));",
-      "CREATE TABLE emp_assignment (\n  id integer PRIMARY KEY,\n  department_id integer NOT NULL,\n  CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)\n)",
-      "CREATE TABLE emp_assignment (\n  id integer PRIMARY KEY,\n  department_id integer NOT NULL,\n  CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)\n);",
-      "CREATE TABLE emp_assignment ( id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id) )",
-      "CREATE TABLE emp_assignment ( id integer PRIMARY KEY, department_id integer NOT NULL, CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer, CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id))",
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25), department_id integer, CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id));",
+      "create table employee (id integer primary key, first_name varchar(25), department_id integer, constraint fk_employee_department foreign key (department_id) references department(id))",
+      "create table employee (id integer primary key, first_name varchar(25), department_id integer, constraint fk_employee_department foreign key (department_id) references department(id));",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25), department_id int, CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id))",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25), department_id int, CONSTRAINT fk_employee_department FOREIGN KEY (department_id) REFERENCES department(id));",
+      "create table employee (id int primary key, first_name varchar(25), department_id int, constraint fk_employee_department foreign key (department_id) references department(id))",
+      "create table employee (id int primary key, first_name varchar(25), department_id int, constraint fk_employee_department foreign key (department_id) references department(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "fk_emp_dept named tashqi kaliti yaratildi.",
-    "task": "Create a table named `emp_assignment`: `id` (integer PRIMARY KEY), `department_id` (integer NOT NULL) and named `CONSTRAINT fk_emp_dept FOREIGN KEY (department_id) REFERENCES department(id)` with constraint.",
+    "explanation": "Nomlangan fk_employee_department tashqi kaliti o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "emp_assignment",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
+        },
+        {
+          "name": "first_name",
+          "type": "varchar(25)"
         },
         {
           "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
         }
       ]
     }
@@ -1587,51 +1843,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 78,
     "sector": 6,
-    "difficulty": "Floor 6 • Easy",
-    "source": "T03 Task 4 • Bo'lim Telefonining Tashqi Kaliti",
-    "title": "Bo'lim Telefonini Bog'lovchi Foreign Key",
-    "story": "Seminar 3 ning 4-topshirig'i: `department_phone` jadvalidagi `dept_id` column `department(id)` ota table bog'lanishi shart.",
-    "taskUz": "Create a table named `dept_phone_rel`: `dept_id` (integer), `phone` (varchar(20)), primary key `CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone)` and foreign key `CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
-    "starterCode": "",
-    "hint": "Ikkala cheklovni ketma-ket yozing: avval PRIMARY KEY, so'ng FOREIGN KEY.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "L03 Slide 23 • Muqobil Kalitga Tashqi Kalit Bog'lash",
+    "title": "Alternate Key (UNIQUE) Ustuniga Tashqi Kalit Bog'lash",
+    "story": "Tashqi kalit nafaqat PK ga, balki UNIQUE bo'lgan ixtiyoriy maydonga ham bog'lanishi mumkin (masalan, `manager_email`).",
+    "taskUz": "`project` nomli jadval yarating: `proj_id` (integer PRIMARY KEY), `title` (varchar(100)), `lead_email` (varchar(100) REFERENCES employee(email)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `proj_id integer PRIMARY KEY`, `title varchar(100)`, `lead_email varchar(100) REFERENCES employee(email)`",
+    "hint": "`CREATE TABLE project (proj_id integer PRIMARY KEY, title varchar(100), lead_email varchar(100) REFERENCES employee(email));`",
     "solutions": [
-      "CREATE TABLE dept_phone_rel (dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE dept_phone_rel (dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
-      "CREATE TABLE dept_phone_rel (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
-      "CREATE TABLE dept_phone_rel (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
-      "CREATE TABLE dept_phone_rel ( dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
-      "CREATE TABLE dept_phone_rel ( dept_id integer, phone varchar(20), CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone), CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
+      "CREATE TABLE project (proj_id integer PRIMARY KEY, title varchar(100), lead_email varchar(100) REFERENCES employee(email))",
+      "CREATE TABLE project (proj_id integer PRIMARY KEY, title varchar(100), lead_email varchar(100) REFERENCES employee(email));",
+      "create table project (proj_id integer primary key, title varchar(100), lead_email varchar(100) references employee(email))",
+      "create table project (proj_id integer primary key, title varchar(100), lead_email varchar(100) references employee(email));",
+      "CREATE TABLE project (proj_id int PRIMARY KEY, title varchar(100), lead_email varchar(100) REFERENCES employee(email))",
+      "CREATE TABLE project (proj_id int PRIMARY KEY, title varchar(100), lead_email varchar(100) REFERENCES employee(email));",
+      "create table project (proj_id int primary key, title varchar(100), lead_email varchar(100) references employee(email))",
+      "create table project (proj_id int primary key, title varchar(100), lead_email varchar(100) references employee(email));"
     ],
-    "requiredPatterns": [],
-    "explanation": "dept_phone_rel jadvalida kompozit PK and FK birgalikda o'rnatildi.",
-    "task": "Create a table named `dept_phone_rel`: `dept_id` (integer), `phone` (varchar(20)), primary key `CONSTRAINT pk_dept_phone PRIMARY KEY (dept_id, phone)` and foreign key `CONSTRAINT fk_phone_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
+    "explanation": "employee jadvalining unikal email ustuniga tashqi kalit ulandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "dept_phone_rel",
+      "tableName": "project",
       "columns": [
         {
-          "name": "dept_id",
+          "name": "proj_id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "phone",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "title",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "lead_email",
+          "type": "varchar(100)",
+          "isFK": true,
+          "references": "employee(email)"
         }
       ]
     }
@@ -1639,63 +1885,44 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 79,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 26 • Rekursiv / O'z-o'ziga Bog'langan FK (Self-referencing)",
-    "title": "Rahbar (Supervisor / Manager) Foreign Keyi",
-    "story": "Xodimning boshlig'i (supervisor) ham xodimlar jadvalidagi boshqa bir xodimdir. Bu o'z-o'ziga bog'lanish (self-referencing FK) deyiladi.",
-    "taskUz": "Create a table named `staff_hierarchy`: `emp_id` (integer PRIMARY KEY), `full_name` (varchar(50)), `manager_id` (integer) and `CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)` bilan.",
-    "starterCode": "",
-    "hint": "`FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)` deb o'z jadvalining birlamchi kalitiga yo'naltiring.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 1 & 4 • Bog'lovchi Jadvalda Ikkita Tashqi Kalit",
+    "title": "M:N Bog'lovchi Jadval Tashqi Kalitlari (assigned)",
+    "story": "Seminar 3 1 va 4-topshiriqlar: `assigned` jadvali ham `employee(id)` ga, ham `project(id)` ga tayanadi.",
+    "taskUz": "`assigned` nomli jadval yarating: `emp_id` (integer REFERENCES employee(id)), `proj_id` (integer REFERENCES project(id)), `role` (varchar(50)), va `PRIMARY KEY (emp_id, proj_id)`.\n\n📋 **Kutilayotgan Sxema:**\n• Birlamchi kalit: `PRIMARY KEY (emp_id, proj_id)`\n• Tashqi kalitlar: `REFERENCES employee(id)`, `REFERENCES project(id)`",
+    "hint": "`CREATE TABLE assigned (emp_id integer REFERENCES employee(id), proj_id integer REFERENCES project(id), role varchar(50), PRIMARY KEY (emp_id, proj_id));`",
     "solutions": [
-      "CREATE TABLE staff_hierarchy (emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id))",
-      "CREATE TABLE staff_hierarchy (emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id));",
-      "CREATE TABLE staff_hierarchy (\n  emp_id integer PRIMARY KEY,\n  full_name varchar(50),\n  manager_id integer,\n  CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)\n)",
-      "CREATE TABLE staff_hierarchy (\n  emp_id integer PRIMARY KEY,\n  full_name varchar(50),\n  manager_id integer,\n  CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)\n);",
-      "CREATE TABLE staff_hierarchy ( emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id) )",
-      "CREATE TABLE staff_hierarchy ( emp_id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id) );"
+      "CREATE TABLE assigned (emp_id integer REFERENCES employee(id), proj_id integer REFERENCES project(id), role varchar(50), PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id integer REFERENCES employee(id), proj_id integer REFERENCES project(id), role varchar(50), PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id integer references employee(id), proj_id integer references project(id), role varchar(50), primary key (emp_id, proj_id))",
+      "create table assigned (emp_id integer references employee(id), proj_id integer references project(id), role varchar(50), primary key (emp_id, proj_id));",
+      "CREATE TABLE assigned (emp_id int REFERENCES employee(id), proj_id int REFERENCES project(id), role varchar(50), PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id int REFERENCES employee(id), proj_id int REFERENCES project(id), role varchar(50), PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id int references employee(id), proj_id int references project(id), role varchar(50), primary key (emp_id, proj_id))",
+      "create table assigned (emp_id int references employee(id), proj_id int references project(id), role varchar(50), primary key (emp_id, proj_id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "O'z-o'ziga murojaat qiluvchi (self-referencing) iyerarxik tashqi kalit yaratildi.",
-    "task": "Create a table named `staff_hierarchy`: `emp_id` (integer PRIMARY KEY), `full_name` (varchar(50)), `manager_id` (integer) and `CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_hierarchy(emp_id)` bilan.",
+    "explanation": "assigned relyatsion ko'prigi ikkita tashqi kalit bilan hosil qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "staff_hierarchy",
+      "tableName": "assigned",
       "columns": [
         {
           "name": "emp_id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "full_name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "manager_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
           "isFK": true,
-          "references": "staff_hierarchy(emp_id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "employee(id)"
+        },
+        {
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": true,
+          "isFK": true,
+          "references": "project(id)"
+        },
+        {
+          "name": "role",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1703,51 +1930,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 80,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "T03 Task 4 Child • Farzandni Xodimga Bog'lash",
-    "title": "Farzand Jadvalini Ota-onaga Bog'lash",
-    "story": "Seminar 3 ning 4-topshirig'i: `child` jadvalidagi `parent_passport_no` column `employee(passport_no)` ga bog'lanishi shart.",
-    "taskUz": "Create a table named `child_record`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)` yozing.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "L03 Slide 24 • O'z-O'ziga Bog'langan Tashqi Kalit (Self-Referencing FK)",
+    "title": "O'z-O'ziga Bog'lanish: Boshliq-Xodim Ierarxiyasi",
+    "story": "Kompaniya ierarxiyasida xodimning boshlig'i ham aynan shu jadvaldagi boshqa bir xodimdir (`manager_id REFERENCES employee(id)`).",
+    "taskUz": "`staff_tree` nomli jadval yarating: `id` (integer PRIMARY KEY), `full_name` (varchar(50)), `manager_id` (integer REFERENCES staff_tree(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `full_name varchar(50)`, `manager_id integer REFERENCES staff_tree(id)`",
+    "hint": "`CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer REFERENCES staff_tree(id));`",
     "solutions": [
-      "CREATE TABLE child_record (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no))",
-      "CREATE TABLE child_record (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no));",
-      "CREATE TABLE child_record (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)\n)",
-      "CREATE TABLE child_record (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)\n);",
-      "CREATE TABLE child_record ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) )",
-      "CREATE TABLE child_record ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) );"
+      "CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer REFERENCES staff_tree(id))",
+      "CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer REFERENCES staff_tree(id));",
+      "create table staff_tree (id integer primary key, full_name varchar(50), manager_id integer references staff_tree(id))",
+      "create table staff_tree (id integer primary key, full_name varchar(50), manager_id integer references staff_tree(id));",
+      "CREATE TABLE staff_tree (id int PRIMARY KEY, full_name varchar(50), manager_id int REFERENCES staff_tree(id))",
+      "CREATE TABLE staff_tree (id int PRIMARY KEY, full_name varchar(50), manager_id int REFERENCES staff_tree(id));",
+      "create table staff_tree (id int primary key, full_name varchar(50), manager_id int references staff_tree(id))",
+      "create table staff_tree (id int primary key, full_name varchar(50), manager_id int references staff_tree(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "child_record tashqi kaliti person jadvali bilan mustahkamlandi.",
-    "task": "Create a table named `child_record`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_child_rec PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_child_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no)` bilan.",
+    "explanation": "Self-referencing kalit orqali tashkiliy daraxt shakllantirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "child_record",
+      "tableName": "staff_tree",
       "columns": [
         {
-          "name": "parent_passport_no",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "person(passport_no)",
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "child_name",
-          "type": "varchar(50)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "full_name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "manager_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "staff_tree(id)"
         }
       ]
     }
@@ -1755,63 +1972,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 81,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 27 • Buyurtmani Mijozga Bog'lash",
-    "title": "Buyurtmalar va Mijozlar Bog'liqligi",
-    "story": "Har bir buyurtma mavjud mijozga tegishli bo'lishi shart (`client_id` -> `client(client_id)`).",
-    "taskUz": "Create a table named `sales_order`: `order_id` (integer PRIMARY KEY), `client_id` (integer NOT NULL), `total` (numeric(10,2)) and `CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)` dan foydalaning.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 4 • Nomlangan Self-Referencing FK",
+    "title": "Nomlangan Self-Referencing FK Cheklovi",
+    "story": "Xodimlar jadvalida boshliq cheklovini `CONSTRAINT fk_staff_manager` deb nomlab jadval oxirida e'lon qilamiz.",
+    "taskUz": "`staff_tree` jadvalini yarating va `CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id)` cheklovini qo'shing.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `full_name varchar(50)`, `manager_id integer`\n• Cheklov: `CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id)`",
+    "hint": "`CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id));`",
     "solutions": [
-      "CREATE TABLE sales_order (order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id))",
-      "CREATE TABLE sales_order (order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id));",
-      "CREATE TABLE sales_order (\n  order_id integer PRIMARY KEY,\n  client_id integer NOT NULL,\n  total numeric(10,2),\n  CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)\n)",
-      "CREATE TABLE sales_order (\n  order_id integer PRIMARY KEY,\n  client_id integer NOT NULL,\n  total numeric(10,2),\n  CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)\n);",
-      "CREATE TABLE sales_order ( order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id) )",
-      "CREATE TABLE sales_order ( order_id integer PRIMARY KEY, client_id integer NOT NULL, total numeric(10,2), CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id) );"
+      "CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id))",
+      "CREATE TABLE staff_tree (id integer PRIMARY KEY, full_name varchar(50), manager_id integer, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id));",
+      "create table staff_tree (id integer primary key, full_name varchar(50), manager_id integer, constraint fk_staff_manager foreign key (manager_id) references staff_tree(id))",
+      "create table staff_tree (id integer primary key, full_name varchar(50), manager_id integer, constraint fk_staff_manager foreign key (manager_id) references staff_tree(id));",
+      "CREATE TABLE staff_tree (id int PRIMARY KEY, full_name varchar(50), manager_id int, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id))",
+      "CREATE TABLE staff_tree (id int PRIMARY KEY, full_name varchar(50), manager_id int, CONSTRAINT fk_staff_manager FOREIGN KEY (manager_id) REFERENCES staff_tree(id));",
+      "create table staff_tree (id int primary key, full_name varchar(50), manager_id int, constraint fk_staff_manager foreign key (manager_id) references staff_tree(id))",
+      "create table staff_tree (id int primary key, full_name varchar(50), manager_id int, constraint fk_staff_manager foreign key (manager_id) references staff_tree(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "sales_order tashqi kaliti mijozlar table ulandi.",
-    "task": "Create a table named `sales_order`: `order_id` (integer PRIMARY KEY), `client_id` (integer NOT NULL), `total` (numeric(10,2)) and `CONSTRAINT fk_order_client FOREIGN KEY (client_id) REFERENCES client(client_id)` bilan.",
+    "explanation": "fk_staff_manager nomli ierarxik tashqi kalit biriktirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "sales_order",
+      "tableName": "staff_tree",
       "columns": [
         {
-          "name": "order_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "client_id",
+          "name": "full_name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "manager_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "client(client_id)",
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "total",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "staff_tree(id)"
         }
       ]
     }
@@ -1819,51 +2014,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 82,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 27 • Mahsulot Turini Kategoriyaga Bog'lash",
-    "title": "Mahsulotlar va Kategoriyalar Aloqasi",
-    "story": "Mahsulotlar katalogida har bir tovar o'z toifasiga (`category_id`) ega bo'lishi kerak.",
-    "taskUz": "Create a table named `category` with columns: `cat_id` (integer PRIMARY KEY) and `cat_name` (varchar(50) NOT NULL).",
-    "starterCode": "",
-    "hint": "`CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL)` yozing.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 5 • Sotuv Guruhi (sales_team) Bog'liqligi",
+    "title": "Sotuv Guruhi (sales_team) va Bo'limga Bog'lanish",
+    "story": "Seminar 3 5-topshiriq: Har bir savdo jamoasi bitta bo'limga qarashli bo'ladi (`dept_id REFERENCES department(id)`).",
+    "taskUz": "`sales_team` nomli jadval yarating: `team_id` (integer PRIMARY KEY), `team_name` (varchar(50)), `dept_id` (integer REFERENCES department(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `team_id integer PRIMARY KEY`, `team_name varchar(50)`, `dept_id integer REFERENCES department(id)`",
+    "hint": "`CREATE TABLE sales_team (team_id integer PRIMARY KEY, team_name varchar(50), dept_id integer REFERENCES department(id));`",
     "solutions": [
-      "CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL)",
-      "CREATE TABLE category (cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL);",
-      "CREATE TABLE category (\n  cat_id integer PRIMARY KEY,\n  cat_name varchar(50) NOT NULL\n)",
-      "CREATE TABLE category (\n  cat_id integer PRIMARY KEY,\n  cat_name varchar(50) NOT NULL\n);",
-      "CREATE TABLE category ( cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL )",
-      "CREATE TABLE category ( cat_id integer PRIMARY KEY, cat_name varchar(50) NOT NULL );"
+      "CREATE TABLE sales_team (team_id integer PRIMARY KEY, team_name varchar(50), dept_id integer REFERENCES department(id))",
+      "CREATE TABLE sales_team (team_id integer PRIMARY KEY, team_name varchar(50), dept_id integer REFERENCES department(id));",
+      "create table sales_team (team_id integer primary key, team_name varchar(50), dept_id integer references department(id))",
+      "create table sales_team (team_id integer primary key, team_name varchar(50), dept_id integer references department(id));",
+      "CREATE TABLE sales_team (team_id int PRIMARY KEY, team_name varchar(50), dept_id int REFERENCES department(id))",
+      "CREATE TABLE sales_team (team_id int PRIMARY KEY, team_name varchar(50), dept_id int REFERENCES department(id));",
+      "create table sales_team (team_id int primary key, team_name varchar(50), dept_id int references department(id))",
+      "create table sales_team (team_id int primary key, team_name varchar(50), dept_id int references department(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "Ota jadval sifatida category yaratildi.",
-    "task": "Create a table named `category` with columns: `cat_id` (integer PRIMARY KEY) and `cat_name` (varchar(50) NOT NULL).",
+    "explanation": "sales_team jadvali department ga muvaffaqiyatli bog'landi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "category",
+      "tableName": "sales_team",
       "columns": [
         {
-          "name": "cat_id",
+          "name": "team_id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "cat_name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "team_name",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "dept_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
         }
       ]
     }
@@ -1871,63 +2056,47 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 83,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 27 • Tovar-Kategoriya FK",
-    "title": "Tovarni Kategoriyaga Foreign Key Bilan Bog'lash",
-    "story": "Oldingi bosqichda yaratilgan `category` table `catalog_item` tovarlarini tashqi kalit orqali bog'lash kerak.",
-    "taskUz": "Create a table named `catalog_item`: `item_id` (integer PRIMARY KEY), `title` (varchar(80)), `cat_id` (integer NOT NULL) and `CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)` .",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 5 • Sotuv Xodimi (sales_rep) Bog'liqligi",
+    "title": "Savdo Vakili (sales_rep) va Xodim Jadvali Bog'liqligi",
+    "story": "Seminar 3 5-topshiriq: Savdo vakili qaysi jamoada (`team_id`) va qaysi xodim (`emp_id`) ekanligini ifodalaydi.",
+    "taskUz": "`sales_rep` nomli jadval yarating: `id` (integer PRIMARY KEY), `team_id` (integer REFERENCES sales_team(team_id)), `emp_id` (integer REFERENCES employee(id)), `quota` (numeric(10,2)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `team_id`, `emp_id`, `quota`",
+    "hint": "`CREATE TABLE sales_rep (id integer PRIMARY KEY, team_id integer REFERENCES sales_team(team_id), emp_id integer REFERENCES employee(id), quota numeric(10,2));`",
     "solutions": [
-      "CREATE TABLE catalog_item (item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id))",
-      "CREATE TABLE catalog_item (item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id));",
-      "CREATE TABLE catalog_item (\n  item_id integer PRIMARY KEY,\n  title varchar(80),\n  cat_id integer NOT NULL,\n  CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)\n)",
-      "CREATE TABLE catalog_item (\n  item_id integer PRIMARY KEY,\n  title varchar(80),\n  cat_id integer NOT NULL,\n  CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)\n);",
-      "CREATE TABLE catalog_item ( item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id) )",
-      "CREATE TABLE catalog_item ( item_id integer PRIMARY KEY, title varchar(80), cat_id integer NOT NULL, CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id) );"
+      "CREATE TABLE sales_rep (id integer PRIMARY KEY, team_id integer REFERENCES sales_team(team_id), emp_id integer REFERENCES employee(id), quota numeric(10,2))",
+      "CREATE TABLE sales_rep (id integer PRIMARY KEY, team_id integer REFERENCES sales_team(team_id), emp_id integer REFERENCES employee(id), quota numeric(10,2));",
+      "create table sales_rep (id integer primary key, team_id integer references sales_team(team_id), emp_id integer references employee(id), quota numeric(10,2))",
+      "create table sales_rep (id integer primary key, team_id integer references sales_team(team_id), emp_id integer references employee(id), quota numeric(10,2));",
+      "CREATE TABLE sales_rep (id int PRIMARY KEY, team_id int REFERENCES sales_team(team_id), emp_id int REFERENCES employee(id), quota numeric(10,2))",
+      "CREATE TABLE sales_rep (id int PRIMARY KEY, team_id int REFERENCES sales_team(team_id), emp_id int REFERENCES employee(id), quota numeric(10,2));",
+      "create table sales_rep (id int primary key, team_id int references sales_team(team_id), emp_id int references employee(id), quota numeric(10,2))",
+      "create table sales_rep (id int primary key, team_id int references sales_team(team_id), emp_id int references employee(id), quota numeric(10,2));"
     ],
-    "requiredPatterns": [],
-    "explanation": "catalog_item jadvali category ga bog'landi.",
-    "task": "Create a table named `catalog_item`: `item_id` (integer PRIMARY KEY), `title` (varchar(80)), `cat_id` (integer NOT NULL) and `CONSTRAINT fk_item_category FOREIGN KEY (cat_id) REFERENCES category(cat_id)` bilan.",
+    "explanation": "sales_rep jadvali sales_team va employee ga muvaffaqiyatli bog'landi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "catalog_item",
+      "tableName": "sales_rep",
       "columns": [
         {
-          "name": "item_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "title",
-          "type": "varchar(80)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "cat_id",
+          "name": "team_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "category(cat_id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "sales_team(team_id)"
+        },
+        {
+          "name": "emp_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "employee(id)"
+        },
+        {
+          "name": "quota",
+          "type": "numeric(10,2)"
         }
       ]
     }
@@ -1935,51 +2104,42 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 84,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "T03 Task 4 Project • Loyiha va Departament",
-    "title": "Loyihani Boshqaruvchi Bo'limga Bog'lash",
-    "story": "Kompaniya loyihasini qaysi bo'lim moliyalashtirayotganini aniqlash uchun `dept_id` tashqi kaliti kerak.",
-    "taskUz": "Create a table named `project_work`: `proj_id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)` yozing.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 4 • Loyihalar va Bo'lim Bog'liqligi",
+    "title": "Loyihalar Jadvali (project) va Bo'lim Tashqi Kaliti",
+    "story": "Har bir loyiha o'ziga mas'ul bo'lgan bo'lim tomonidan moliyalashtiriladi (`department_id REFERENCES department(id)`).",
+    "taskUz": "`project` nomli jadval yarating: `id` (integer PRIMARY KEY), `name` (varchar(100) NOT NULL), `department_id` (integer REFERENCES department(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `name varchar(100) NOT NULL`, `department_id integer REFERENCES department(id)`",
+    "hint": "`CREATE TABLE project (id integer PRIMARY KEY, name varchar(100) NOT NULL, department_id integer REFERENCES department(id));`",
     "solutions": [
-      "CREATE TABLE project_work (proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE project_work (proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
-      "CREATE TABLE project_work (\n  proj_id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
-      "CREATE TABLE project_work (\n  proj_id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
-      "CREATE TABLE project_work ( proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
-      "CREATE TABLE project_work ( proj_id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
+      "CREATE TABLE project (id integer PRIMARY KEY, name varchar(100) NOT NULL, department_id integer REFERENCES department(id))",
+      "CREATE TABLE project (id integer PRIMARY KEY, name varchar(100) NOT NULL, department_id integer REFERENCES department(id));",
+      "create table project (id integer primary key, name varchar(100) not null, department_id integer references department(id))",
+      "create table project (id integer primary key, name varchar(100) not null, department_id integer references department(id));",
+      "CREATE TABLE project (id int PRIMARY KEY, name varchar(100) NOT NULL, department_id int REFERENCES department(id))",
+      "CREATE TABLE project (id int PRIMARY KEY, name varchar(100) NOT NULL, department_id int REFERENCES department(id));",
+      "create table project (id int primary key, name varchar(100) not null, department_id int references department(id))",
+      "create table project (id int primary key, name varchar(100) not null, department_id int references department(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "project_work bo'limlar table ulandi.",
-    "task": "Create a table named `project_work`: `proj_id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_proj_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
+    "explanation": "project jadvali department ga ulandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "project_work",
+      "tableName": "project",
       "columns": [
         {
-          "name": "proj_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "dept_id",
+          "name": "name",
+          "type": "varchar(100)",
+          "isNotNull": true
+        },
+        {
+          "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
         }
       ]
     }
@@ -1987,63 +2147,47 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 85,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 28 • Ikkita Tashqi Kalitli M:N Bog'lovchi",
-    "title": "Xodim va Loyiha Bog'lovchi Jadvali (2 ta FK)",
-    "story": "Xodim bir nechta loyihada, loyiha bir nechta xodimga ega bo'lishi mumkin. Bog'lovchi jadvalda ikkita alohida tashqi kalit kerak.",
-    "taskUz": "Create a table named `emp_proj`: `emp_id` (integer), `proj_id` (integer), `hours` (numeric(5,2)), `CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id)`, `CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id)`, `CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)` bilan.",
-    "starterCode": "",
-    "hint": "Ikkita `CONSTRAINT ... FOREIGN KEY ... REFERENCES ...` e'lon qiling.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 4 • Vazifalar (task) Jadvali",
+    "title": "Vazifalar Jadvali (task) va Bog'liqliklar",
+    "story": "Har bir topshiriq ma'lum bir loyihaga (`project_id`) tegishli bo'ladi va ma'sul xodimga (`assignee_id`) yuklatiladi.",
+    "taskUz": "`task` nomli jadval yarating: `id` (integer PRIMARY KEY), `summary` (varchar(120)), `project_id` (integer REFERENCES project(id)), `assignee_id` (integer REFERENCES employee(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id`, `summary`, `project_id`, `assignee_id`",
+    "hint": "`CREATE TABLE task (id integer PRIMARY KEY, summary varchar(120), project_id integer REFERENCES project(id), assignee_id integer REFERENCES employee(id));`",
     "solutions": [
-      "CREATE TABLE emp_proj (emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id))",
-      "CREATE TABLE emp_proj (emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id));",
-      "CREATE TABLE emp_proj (\n  emp_id integer,\n  proj_id integer,\n  hours numeric(5,2),\n  CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id),\n  CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id),\n  CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)\n)",
-      "CREATE TABLE emp_proj (\n  emp_id integer,\n  proj_id integer,\n  hours numeric(5,2),\n  CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id),\n  CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id),\n  CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)\n);",
-      "CREATE TABLE emp_proj ( emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id) )",
-      "CREATE TABLE emp_proj ( emp_id integer, proj_id integer, hours numeric(5,2), CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id) );"
+      "CREATE TABLE task (id integer PRIMARY KEY, summary varchar(120), project_id integer REFERENCES project(id), assignee_id integer REFERENCES employee(id))",
+      "CREATE TABLE task (id integer PRIMARY KEY, summary varchar(120), project_id integer REFERENCES project(id), assignee_id integer REFERENCES employee(id));",
+      "create table task (id integer primary key, summary varchar(120), project_id integer references project(id), assignee_id integer references employee(id))",
+      "create table task (id integer primary key, summary varchar(120), project_id integer references project(id), assignee_id integer references employee(id));",
+      "CREATE TABLE task (id int PRIMARY KEY, summary varchar(120), project_id int REFERENCES project(id), assignee_id int REFERENCES employee(id))",
+      "CREATE TABLE task (id int PRIMARY KEY, summary varchar(120), project_id int REFERENCES project(id), assignee_id int REFERENCES employee(id));",
+      "create table task (id int primary key, summary varchar(120), project_id int references project(id), assignee_id int references employee(id))",
+      "create table task (id int primary key, summary varchar(120), project_id int references project(id), assignee_id int references employee(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "emp_proj ko'pga-ko'p bog'lovchi jadvalida ikkita mustaqil FK o'rnatildi.",
-    "task": "Create a table named `emp_proj`: `emp_id` (integer), `proj_id` (integer), `hours` (numeric(5,2)), `CONSTRAINT pk_emp_proj PRIMARY KEY (emp_id, proj_id)`, `CONSTRAINT fk_ep_emp FOREIGN KEY (emp_id) REFERENCES employee(id)`, `CONSTRAINT fk_ep_proj FOREIGN KEY (proj_id) REFERENCES project(id)` bilan.",
+    "explanation": "task jadvali loyihalar va xodimlar bilan integratsiya qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "emp_proj",
+      "tableName": "task",
       "columns": [
         {
-          "name": "emp_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "employee(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "proj_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "project(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "summary",
+          "type": "varchar(120)"
         },
         {
-          "name": "hours",
-          "type": "numeric(5,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "project_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "project(id)"
+        },
+        {
+          "name": "assignee_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "employee(id)"
         }
       ]
     }
@@ -2051,63 +2195,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 86,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "T03 Task 5 • Tashqi Kalitli Xodimlar Jadvali",
-    "title": "Xodimlar Jadvaliga Bo'lim FK ni Bog'lash",
-    "story": "Seminar 3 ning 5-topshirig'i: `employee_v2` jadvali o'zining `department_id` column `department(id)` ga named cheklov orqali bog'lashi kerak.",
-    "taskUz": "Create a table named `employee_v2`: `id` (integer PRIMARY KEY), `name` (varchar(50)), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)` yozing.",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 1 & 4 • Mijoz Shartnomalari (client_contract)",
+    "title": "Mijoz Shartnomalari va client_id Tashqi Kaliti",
+    "story": "Shartnomalar mijoz identifikatoriga tayanadi (`client_id REFERENCES client(client_id)`).",
+    "taskUz": "`client_contract` nomli jadval yarating: `contract_no` (integer PRIMARY KEY), `client_id` (integer REFERENCES client(client_id)), `amount` (numeric(14,2)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `contract_no integer PRIMARY KEY`, `client_id integer REFERENCES client(client_id)`, `amount numeric(14,2)`",
+    "hint": "`CREATE TABLE client_contract (contract_no integer PRIMARY KEY, client_id integer REFERENCES client(client_id), amount numeric(14,2));`",
     "solutions": [
-      "CREATE TABLE employee_v2 (id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id))",
-      "CREATE TABLE employee_v2 (id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id));",
-      "CREATE TABLE employee_v2 (\n  id integer PRIMARY KEY,\n  name varchar(50),\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n)",
-      "CREATE TABLE employee_v2 (\n  id integer PRIMARY KEY,\n  name varchar(50),\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)\n);",
-      "CREATE TABLE employee_v2 ( id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id) )",
-      "CREATE TABLE employee_v2 ( id integer PRIMARY KEY, name varchar(50), dept_id integer NOT NULL, CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id) );"
+      "CREATE TABLE client_contract (contract_no integer PRIMARY KEY, client_id integer REFERENCES client(client_id), amount numeric(14,2))",
+      "CREATE TABLE client_contract (contract_no integer PRIMARY KEY, client_id integer REFERENCES client(client_id), amount numeric(14,2));",
+      "create table client_contract (contract_no integer primary key, client_id integer references client(client_id), amount numeric(14,2))",
+      "create table client_contract (contract_no integer primary key, client_id integer references client(client_id), amount numeric(14,2));",
+      "CREATE TABLE client_contract (contract_no int PRIMARY KEY, client_id int REFERENCES client(client_id), amount numeric(14,2))",
+      "CREATE TABLE client_contract (contract_no int PRIMARY KEY, client_id int REFERENCES client(client_id), amount numeric(14,2));",
+      "create table client_contract (contract_no int primary key, client_id int references client(client_id), amount numeric(14,2))",
+      "create table client_contract (contract_no int primary key, client_id int references client(client_id), amount numeric(14,2));"
     ],
-    "requiredPatterns": [],
-    "explanation": "employee_v2 jadvali tashqi kalit bilan yaratildi.",
-    "task": "Create a table named `employee_v2`: `id` (integer PRIMARY KEY), `name` (varchar(50)), `dept_id` (integer NOT NULL) and `CONSTRAINT fk_emp2_dept FOREIGN KEY (dept_id) REFERENCES department(id)` bilan.",
+    "explanation": "Mijoz shartnomalari relyatsion munosabati barpo etildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "employee_v2",
+      "tableName": "client_contract",
       "columns": [
         {
-          "name": "id",
+          "name": "contract_no",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dept_id",
+          "name": "client_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "client(client_id)"
+        },
+        {
+          "name": "amount",
+          "type": "numeric(14,2)"
         }
       ]
     }
@@ -2115,51 +2237,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 87,
     "sector": 6,
-    "difficulty": "Floor 6 • Easy",
-    "source": "L03 Slide 28 • Talaba-Fakultet Bog'liqligi",
-    "title": "Talaba va Fakultet Bog'liqligi",
-    "story": "Har bir talaba ma'lum bir fakultetga tegishli bo'lishi uchun tashqi kalit qo'yiladi.",
-    "taskUz": "Create a table named `student_fac`: `stud_id` (integer PRIMARY KEY), `fac_id` (integer NOT NULL) and `CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)` .",
+    "difficulty": "Floor 6 • Hard",
+    "source": "T03 Task 4 • Siklik Bog'liqlik (Circular Dependency)",
+    "title": "Bo'lim Boshlig'i Ustuni (dept_head_id)",
+    "story": "Klassik muammo: `department` xodimlariga ega, lekin uning boshlig'i `dept_head_id` ham aynan bitta xodimga ishora qiladi.",
+    "taskUz": "`department` jadvaliga `dept_head_id integer` qo'shib, uni xodimlar jadvaliga bog'lang: `REFERENCES employee(id)`.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `title varchar(100)`, `dept_head_id integer REFERENCES employee(id)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), dept_head_id integer REFERENCES employee(id));`",
     "solutions": [
-      "CREATE TABLE student_fac (stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id))",
-      "CREATE TABLE student_fac (stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id));",
-      "CREATE TABLE student_fac (\n  stud_id integer PRIMARY KEY,\n  fac_id integer NOT NULL,\n  CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)\n)",
-      "CREATE TABLE student_fac (\n  stud_id integer PRIMARY KEY,\n  fac_id integer NOT NULL,\n  CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)\n);",
-      "CREATE TABLE student_fac ( stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id) )",
-      "CREATE TABLE student_fac ( stud_id integer PRIMARY KEY, fac_id integer NOT NULL, CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id) );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), dept_head_id integer REFERENCES employee(id))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), dept_head_id integer REFERENCES employee(id));",
+      "create table department (id integer primary key, title varchar(100), dept_head_id integer references employee(id))",
+      "create table department (id integer primary key, title varchar(100), dept_head_id integer references employee(id));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100), dept_head_id int REFERENCES employee(id))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100), dept_head_id int REFERENCES employee(id));",
+      "create table department (id int primary key, title varchar(100), dept_head_id int references employee(id))",
+      "create table department (id int primary key, title varchar(100), dept_head_id int references employee(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "fk_stud_fac tashqi kaliti bog'landi.",
-    "task": "Create a table named `student_fac`: `stud_id` (integer PRIMARY KEY), `fac_id` (integer NOT NULL) and `CONSTRAINT fk_stud_fac FOREIGN KEY (fac_id) REFERENCES department(id)` bilan.",
+    "explanation": "Bo'lim boshlig'i tashqi kaliti o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "student_fac",
+      "tableName": "department",
       "columns": [
         {
-          "name": "stud_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "fac_id",
+          "name": "title",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "dept_head_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "employee(id)"
         }
       ]
     }
@@ -2167,63 +2279,43 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 88,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "L03 Slide 28 • Shaharlar va Davlatlar Bog'liqligi",
-    "title": "Shahar va Davlatlar Relyatsion Aloqasi",
-    "story": "Geografik ma'lumotlar bazasida shahar o'zining davlat kodiga (`country_code`) murojaat qiladi.",
-    "taskUz": "Create a table named `city`: `city_id` (integer PRIMARY KEY), `city_name` (varchar(60)), `country_id` (integer NOT NULL) and `CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)` yozing.",
+    "difficulty": "Floor 6 • Hard",
+    "source": "L03 Slide 24 • Murakkab Composite Kalitga Tashqi Kalit",
+    "title": "Composite Primary Key ga Bog'langan Tashqi Kalit",
+    "story": "Agar ota jadvalning birlamchi kaliti (title, location) bo'lsa, unga bog'lanuvchi tashqi kalit ham ikkita ustundan iborat bo'ladi.",
+    "taskUz": "`office_expense` nomli jadval yarating: `id` (integer PRIMARY KEY), `dept_title` (varchar(100)), `dept_loc` (varchar(50)), `amount` (numeric(10,2)), va `FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location)`.\n\n📋 **Kutilayotgan Sxema:**\n• Cheklov: `FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location)`",
+    "hint": "`CREATE TABLE office_expense (id integer PRIMARY KEY, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location));`",
     "solutions": [
-      "CREATE TABLE city (city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id))",
-      "CREATE TABLE city (city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id));",
-      "CREATE TABLE city (\n  city_id integer PRIMARY KEY,\n  city_name varchar(60),\n  country_id integer NOT NULL,\n  CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)\n)",
-      "CREATE TABLE city (\n  city_id integer PRIMARY KEY,\n  city_name varchar(60),\n  country_id integer NOT NULL,\n  CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)\n);",
-      "CREATE TABLE city ( city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id) )",
-      "CREATE TABLE city ( city_id integer PRIMARY KEY, city_name varchar(60), country_id integer NOT NULL, CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id) );"
+      "CREATE TABLE office_expense (id integer PRIMARY KEY, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location))",
+      "CREATE TABLE office_expense (id integer PRIMARY KEY, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location));",
+      "create table office_expense (id integer primary key, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), foreign key (dept_title, dept_loc) references department(title, location))",
+      "create table office_expense (id integer primary key, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), foreign key (dept_title, dept_loc) references department(title, location));",
+      "CREATE TABLE office_expense (id int PRIMARY KEY, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location))",
+      "CREATE TABLE office_expense (id int PRIMARY KEY, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), FOREIGN KEY (dept_title, dept_loc) REFERENCES department(title, location));",
+      "create table office_expense (id int primary key, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), foreign key (dept_title, dept_loc) references department(title, location))",
+      "create table office_expense (id int primary key, dept_title varchar(100), dept_loc varchar(50), amount numeric(10,2), foreign key (dept_title, dept_loc) references department(title, location));"
     ],
-    "requiredPatterns": [],
-    "explanation": "city jadvalida region ga tashqi kalit ulandi.",
-    "task": "Create a table named `city`: `city_id` (integer PRIMARY KEY), `city_name` (varchar(60)), `country_id` (integer NOT NULL) and `CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES region(id)` bilan.",
+    "explanation": "Murakkab composite PK ga mos composite FK yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "city",
+      "tableName": "office_expense",
       "columns": [
         {
-          "name": "city_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "city_name",
-          "type": "varchar(60)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "dept_title",
+          "type": "varchar(100)"
         },
         {
-          "name": "country_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "region(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "dept_loc",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "amount",
+          "type": "numeric(10,2)"
         }
       ]
     }
@@ -2231,63 +2323,41 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 89,
     "sector": 6,
-    "difficulty": "Floor 6 • Intermediate",
-    "source": "T03 Task 4 • Vazifalar va Xodimlar FK",
-    "title": "Vazifalar (Task) va Xodimlar Aloqasi",
-    "story": "Loyiha vazifasi bajaruvchi xodimga biriktiriladi (`assigned_to` -> `employee(id)`).",
-    "taskUz": "Create a table named `project_task`: `task_id` (integer PRIMARY KEY), `task_name` (varchar(80)), `assigned_to` (integer) and `CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)` bilan.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)` .",
+    "difficulty": "Floor 6 • Medium",
+    "source": "T03 Task 4 • Kompaniya Filiali Bog'liqligi",
+    "title": "Filial va Hududiy Boshqaruv Bog'lanishi",
+    "story": "Kompaniya filiali hududiy bo'limga tashqi kalit bilan biriktiriladi (`head_dept_id REFERENCES department(id)`).",
+    "taskUz": "`regional_branch` nomli jadval yarating: `branch_id` (integer PRIMARY KEY), `city` (varchar(50)), `head_dept_id` (integer REFERENCES department(id)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `branch_id integer PRIMARY KEY`, `city varchar(50)`, `head_dept_id integer REFERENCES department(id)`",
+    "hint": "`CREATE TABLE regional_branch (branch_id integer PRIMARY KEY, city varchar(50), head_dept_id integer REFERENCES department(id));`",
     "solutions": [
-      "CREATE TABLE project_task (task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id))",
-      "CREATE TABLE project_task (task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id));",
-      "CREATE TABLE project_task (\n  task_id integer PRIMARY KEY,\n  task_name varchar(80),\n  assigned_to integer,\n  CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)\n)",
-      "CREATE TABLE project_task (\n  task_id integer PRIMARY KEY,\n  task_name varchar(80),\n  assigned_to integer,\n  CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)\n);",
-      "CREATE TABLE project_task ( task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id) )",
-      "CREATE TABLE project_task ( task_id integer PRIMARY KEY, task_name varchar(80), assigned_to integer, CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id) );"
+      "CREATE TABLE regional_branch (branch_id integer PRIMARY KEY, city varchar(50), head_dept_id integer REFERENCES department(id))",
+      "CREATE TABLE regional_branch (branch_id integer PRIMARY KEY, city varchar(50), head_dept_id integer REFERENCES department(id));",
+      "create table regional_branch (branch_id integer primary key, city varchar(50), head_dept_id integer references department(id))",
+      "create table regional_branch (branch_id integer primary key, city varchar(50), head_dept_id integer references department(id));",
+      "CREATE TABLE regional_branch (branch_id int PRIMARY KEY, city varchar(50), head_dept_id int REFERENCES department(id))",
+      "CREATE TABLE regional_branch (branch_id int PRIMARY KEY, city varchar(50), head_dept_id int REFERENCES department(id));",
+      "create table regional_branch (branch_id int primary key, city varchar(50), head_dept_id int references department(id))",
+      "create table regional_branch (branch_id int primary key, city varchar(50), head_dept_id int references department(id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "project_task vazifalar jadvali xodimga bog'landi.",
-    "task": "Create a table named `project_task`: `task_id` (integer PRIMARY KEY), `task_name` (varchar(80)), `assigned_to` (integer) and `CONSTRAINT fk_task_employee FOREIGN KEY (assigned_to) REFERENCES employee(id)` bilan.",
+    "explanation": "Filial jadvali boshqaruv bo'limi bilan mustahkamlandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "project_task",
+      "tableName": "regional_branch",
       "columns": [
         {
-          "name": "task_id",
+          "name": "branch_id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "task_name",
-          "type": "varchar(80)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "city",
+          "type": "varchar(50)"
         },
         {
-          "name": "assigned_to",
+          "name": "head_dept_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
           "isFK": true,
-          "references": "employee(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
         }
       ]
     }
@@ -2295,375 +2365,344 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 90,
     "sector": 6,
-    "difficulty": "Floor 6 • Master Architect",
-    "source": "T03 Task 5 Setup Complete • 6-Qavat Yakuni",
-    "title": "6-Qavat Bossi: Bo'lim va Xodim Bog'liqlik Karkasi",
-    "story": "6-qavatning bosh topshirig'i! Seminar 3 ning to'liq reliesion ota-bola aloqasini quring: `team` jadvalini yarating, uning `department_id` maydoni `department(id)` ota table named `CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)` cheklovi orqali mustahkam bog'lansin.",
-    "taskUz": "Create a table named `team`: `team_id` (integer GENERATED ALWAYS AS IDENTITY), `team_name` (varchar(50) NOT NULL), `department_id` (integer NOT NULL), `CONSTRAINT pk_team_id PRIMARY KEY (team_id)` and `CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)` bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **team**\n• Ustunlar: `team_id` [PK] (integer), `team_name` [NOT NULL] (varchar(50)), `department_id` [NOT NULL] (integer)\n• Cheklovlar: `pk_team_id`, `fk_team_department`",
-    "starterCode": "",
-    "hint": "Avval `CONSTRAINT pk_team_id PRIMARY KEY (team_id)`, so'ng `CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)` yozing.",
+    "difficulty": "Floor 6 • Boss Challenge",
+    "source": "6-Qavat Bossi • To'liq Relyatsion Integretet Arxitekturasi",
+    "title": "6-Qavat Bossi: Loyihalar Taqsimoti Relyatsion Arxitekturasi",
+    "story": "6-qavatning buyuk bossi: Xodimlarni loyihalarga bog'lovchi `project_assignment` jadvalini nomlangan birlamchi kalit (`CONSTRAINT pk_proj_assign`) va ikkita alohida nomlangan tashqi kalit (`CONSTRAINT fk_assign_employee`, `CONSTRAINT fk_assign_project`) bilan barpo eting!",
+    "taskUz": "`project_assignment` jadvalini yarating:\n• `emp_id integer`\n• `proj_id integer`\n• `hours_allocated numeric(5,2)`\n• `CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id)`\n• `CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id)`\n• `CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id)`\n\n📋 **Kutilayotgan DDL:**\n`CREATE TABLE project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id));`",
+    "hint": "`CREATE TABLE project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id));`",
     "solutions": [
-      "CREATE TABLE team (team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id))",
-      "CREATE TABLE team (team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id));",
-      "CREATE TABLE team (\n  team_id integer GENERATED ALWAYS AS IDENTITY,\n  team_name varchar(50) NOT NULL,\n  department_id integer NOT NULL,\n  CONSTRAINT pk_team_id PRIMARY KEY (team_id),\n  CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)\n)",
-      "CREATE TABLE team (\n  team_id integer GENERATED ALWAYS AS IDENTITY,\n  team_name varchar(50) NOT NULL,\n  department_id integer NOT NULL,\n  CONSTRAINT pk_team_id PRIMARY KEY (team_id),\n  CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)\n);",
-      "CREATE TABLE team ( team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id) )",
-      "CREATE TABLE team ( team_id integer GENERATED ALWAYS AS IDENTITY, team_name varchar(50) NOT NULL, department_id integer NOT NULL, CONSTRAINT pk_team_id PRIMARY KEY (team_id), CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id) );"
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id))",
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id));",
+      "create table project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), constraint pk_proj_assign primary key (emp_id, proj_id), constraint fk_assign_employee foreign key (emp_id) references employee(id), constraint fk_assign_project foreign key (proj_id) references project(id))",
+      "create table project_assignment (emp_id integer, proj_id integer, hours_allocated numeric(5,2), constraint pk_proj_assign primary key (emp_id, proj_id), constraint fk_assign_employee foreign key (emp_id) references employee(id), constraint fk_assign_project foreign key (proj_id) references project(id));",
+      "CREATE TABLE project_assignment (emp_id int, proj_id int, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id))",
+      "CREATE TABLE project_assignment (emp_id int, proj_id int, hours_allocated numeric(5,2), CONSTRAINT pk_proj_assign PRIMARY KEY (emp_id, proj_id), CONSTRAINT fk_assign_employee FOREIGN KEY (emp_id) REFERENCES employee(id), CONSTRAINT fk_assign_project FOREIGN KEY (proj_id) REFERENCES project(id));",
+      "create table project_assignment (emp_id int, proj_id int, hours_allocated numeric(5,2), constraint pk_proj_assign primary key (emp_id, proj_id), constraint fk_assign_employee foreign key (emp_id) references employee(id), constraint fk_assign_project foreign key (proj_id) references project(id))",
+      "create table project_assignment (emp_id int, proj_id int, hours_allocated numeric(5,2), constraint pk_proj_assign primary key (emp_id, proj_id), constraint fk_assign_employee foreign key (emp_id) references employee(id), constraint fk_assign_project foreign key (proj_id) references project(id));"
     ],
-    "requiredPatterns": [],
+    "explanation": "6-Qavat Bossi zabt etildi! Tashqi kalitlar, relyatsion yaxlitlik (referential integrity) va bog'lovchi jadvallar mukammal o'zlashtirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "team",
+      "tableName": "project_assignment",
       "columns": [
         {
-          "name": "team_id",
+          "name": "emp_id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "team_name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "department_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "employee(id)"
+        },
+        {
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": true,
+          "isFK": true,
+          "references": "project(id)"
+        },
+        {
+          "name": "hours_allocated",
+          "type": "numeric(5,2)"
         }
       ]
-    },
-    "explanation": "6-Qavat Bossi tasdiqlandi! Relyatsion ota-bola cheklovi muvaffaqiyatli qurildi.",
-    "task": "Create a table named `team`: `team_id` (integer GENERATED ALWAYS AS IDENTITY), `team_name` (varchar(50) NOT NULL), `department_id` (integer NOT NULL), `CONSTRAINT pk_team_id PRIMARY KEY (team_id)` and `CONSTRAINT fk_team_department FOREIGN KEY (department_id) REFERENCES department(id)` bilan."
+    }
   },
   {
     "id": 91,
     "sector": 7,
     "difficulty": "Floor 7 • Easy",
-    "source": "T03 Task 5 • ON DELETE CASCADE",
-    "title": "Cascade Delete (ON DELETE CASCADE)",
-    "story": "Seminar 3 qoidasi: agar ota jadvaldagi qator o'chirilsa, unga tegishli barcha bola qatorlar ham avtomatik o'chirilishi kerak bo'lsa `ON DELETE CASCADE` qo'llanadi.",
-    "taskUz": "Create a table named `branch_audit`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`REFERENCES department(id) ON DELETE CASCADE` deb oxiriga qo'shing.",
+    "source": "T03 Task 4 • Qator O'chirish (DELETE)",
+    "title": "Bitta Qatorni O'chirish (DELETE FROM WHERE id)",
+    "story": "Eski 5-raqamli bo'lim o'z faoliyatini tugatdi. Uni jadvaldan xavfsiz o'chiring.",
+    "taskUz": "`department` jadvalidan `id = 5` bo'lgan bo'limni o'chirib tashlang.\n\n📋 **Kutilayotgan DML:**\n`DELETE FROM department WHERE id = 5;`",
+    "hint": "`DELETE FROM department WHERE id = 5;`",
     "solutions": [
-      "CREATE TABLE branch_audit (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE)",
-      "CREATE TABLE branch_audit (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE);",
-      "CREATE TABLE branch_audit (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)",
-      "CREATE TABLE branch_audit (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n);",
-      "CREATE TABLE branch_audit ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE )",
-      "CREATE TABLE branch_audit ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE );"
+      "DELETE FROM department WHERE id = 5",
+      "DELETE FROM department WHERE id = 5;",
+      "delete from department where id = 5",
+      "delete from department where id = 5;"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON DELETE CASCADE kaskadli o'chirish qoidasi o'rnatildi.",
-    "task": "Create a table named `branch_audit`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_audit_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
+    "explanation": "5-bo'lim bazadan o'chirildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "branch_audit",
+      "operation": "DELETE",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "hasCheck": true
         }
-      ]
+      ],
+      "description": "id=5 bo'lgan bo'lim o'chirildi."
     }
   },
   {
     "id": 92,
     "sector": 7,
     "difficulty": "Floor 7 • Easy",
-    "source": "T03 Task 5 • ON DELETE SET NULL",
-    "title": "Bo'shatish (ON DELETE SET NULL)",
-    "story": "Agar ota bo'lim tugatilsa, xodim o'chib ketmasin, balki uning bo'limi bo'sh (NULL) bo'lib qolsin (`ON DELETE SET NULL`).",
-    "taskUz": "Create a table named `staff_flexible`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL` bilan.",
-    "starterCode": "",
-    "hint": "`REFERENCES department(id) ON DELETE SET NULL` .",
+    "source": "T03 Task 4 • Shartli O'chirish (WHERE active = false)",
+    "title": "Nofaol Xodimlarni Tozalash (DELETE)",
+    "story": "Tizim ma'lumotlar bazasini tozalash: barcha faolsiz (`active = false`) xodimlarni o'chiring.",
+    "taskUz": "`employee` jadvalidan `active = false` bo'lgan xodimlarni o'chiring.\n\n📋 **Kutilayotgan DML:**\n`DELETE FROM employee WHERE active = false;`",
+    "hint": "`DELETE FROM employee WHERE active = false;`",
     "solutions": [
-      "CREATE TABLE staff_flexible (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL)",
-      "CREATE TABLE staff_flexible (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL);",
-      "CREATE TABLE staff_flexible (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL\n)",
-      "CREATE TABLE staff_flexible (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL\n);",
-      "CREATE TABLE staff_flexible ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL )",
-      "CREATE TABLE staff_flexible ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL );"
+      "DELETE FROM employee WHERE active = false",
+      "DELETE FROM employee WHERE active = false;",
+      "delete from employee where active = false",
+      "delete from employee where active = false;"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON DELETE SET NULL xavfsiz neytrallash qoidasi o'rnatildi.",
-    "task": "Create a table named `staff_flexible`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_sf_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL` bilan.",
+    "explanation": "Nofaol xodimlar jadvaldan tozalandi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_flexible",
+      "operation": "DELETE",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
           "isNotNull": false,
-          "isUQ": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
         }
-      ]
+      ],
+      "description": "active=false bo'lgan barcha xodimlar o'chirildi."
     }
   },
   {
     "id": 93,
     "sector": 7,
-    "difficulty": "Floor 7 • Easy",
-    "source": "T03 Task 5 • ON DELETE RESTRICT",
-    "title": "O'chirishni Taqiqlash (ON DELETE RESTRICT)",
-    "story": "Agar bo'limda xodimlar ishlayotgan bo'lsa, ota bo'limni o'chirishga ruxsat berilmasin (`ON DELETE RESTRICT`).",
-    "taskUz": "Create a table named `staff_protected`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT` bilan.",
-    "starterCode": "",
-    "hint": "`REFERENCES department(id) ON DELETE RESTRICT` deb qo'shing.",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 4 • DELETE RETURNING Mexanizmi",
+    "title": "O'chirilgan Qator Ma'lumotlarini Qaytarish (RETURNING)",
+    "story": "10-raqamli xodim o'chirilayotganda, audit jurnali uchun uning `id` va `email` manzillarini qaytarib olish lozim.",
+    "taskUz": "`employee` jadvalidan `id = 10` bo'lgan xodimni o'chiring va `RETURNING id, email` qiling.\n\n📋 **Kutilayotgan DML:**\n`DELETE FROM employee WHERE id = 10 RETURNING id, email;`",
+    "hint": "`DELETE FROM employee WHERE id = 10 RETURNING id, email;`",
     "solutions": [
-      "CREATE TABLE staff_protected (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT)",
-      "CREATE TABLE staff_protected (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT);",
-      "CREATE TABLE staff_protected (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT\n)",
-      "CREATE TABLE staff_protected (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT\n);",
-      "CREATE TABLE staff_protected ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT )",
-      "CREATE TABLE staff_protected ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT );"
+      "DELETE FROM employee WHERE id = 10 RETURNING id, email",
+      "DELETE FROM employee WHERE id = 10 RETURNING id, email;",
+      "delete from employee where id = 10 returning id, email",
+      "delete from employee where id = 10 returning id, email;"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON DELETE RESTRICT taqiqlovchi xavfsizlik cheklovi barpo etildi.",
-    "task": "Create a table named `staff_protected`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sp_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT` bilan.",
+    "explanation": "O'chirilgan satr identifikatori va emaili qaytarildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_protected",
+      "operation": "DELETE",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
           "isNotNull": true,
-          "isUQ": false,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "isNotNull": false,
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id)"
         }
-      ]
+      ],
+      "description": "id=10 xodimi o'chirildi va RETURNING id, email qilindi."
     }
   },
   {
     "id": 94,
     "sector": 7,
-    "difficulty": "Floor 7 • Easy",
-    "source": "T03 Task 2 Step 4 • ON DELETE NO ACTION & ON UPDATE NO ACTION",
-    "title": "Standart Harakat (NO ACTION)",
-    "story": "Seminar 3 ning 2-topshirig'i: hech qanday maxsus avtomatik o'zgarish bo'lmasin, standart PostgreSQL xatosi berilsin (`ON DELETE NO ACTION ON UPDATE NO ACTION`).",
-    "taskUz": "Create a table named `staff_na`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION` bilan.",
-    "starterCode": "",
-    "hint": "`ON DELETE NO ACTION ON UPDATE NO ACTION` sintaksisini qo'llang.",
+    "difficulty": "Floor 7 • Medium",
+    "source": "L03 Slide 25 • Jadvalni Tezkor Bo'shatish (TRUNCATE)",
+    "title": "Jadvalni Tezkor Bo'shatish: TRUNCATE TABLE",
+    "story": "Loglar yoki vaqtinchalik ma'lumotlarni qatorma-qator emas, balki bir zumda tozalash uchun `TRUNCATE` qo'llanadi.",
+    "taskUz": "`temp_cache` jadvalining barcha satrlarini `TRUNCATE` yordamida tozalang.\n\n📋 **Kutilayotgan DDL:**\n`TRUNCATE TABLE temp_cache;`",
+    "hint": "`TRUNCATE TABLE temp_cache;` deb yozing.",
     "solutions": [
-      "CREATE TABLE staff_na (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION)",
-      "CREATE TABLE staff_na (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION);",
-      "CREATE TABLE staff_na (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION\n)",
-      "CREATE TABLE staff_na (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION\n);",
-      "CREATE TABLE staff_na ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION )",
-      "CREATE TABLE staff_na ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION );"
+      "TRUNCATE TABLE temp_cache",
+      "TRUNCATE TABLE temp_cache;",
+      "truncate table temp_cache",
+      "truncate table temp_cache;",
+      "TRUNCATE temp_cache",
+      "TRUNCATE temp_cache;",
+      "truncate temp_cache",
+      "truncate temp_cache;"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON DELETE NO ACTION ON UPDATE NO ACTION standarti tasdiqlandi.",
-    "task": "Create a table named `staff_na`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_sna_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE NO ACTION ON UPDATE NO ACTION` bilan.",
+    "explanation": "temp_cache jadvali bir zumda bo'shatildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_na",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
+      "operation": "DELETE",
+      "tableName": "temp_cache",
+      "description": "TRUNCATE TABLE yordamida kesh jadvali bo'shatildi."
     }
   },
   {
     "id": 95,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "L03 Slide 29 • ON UPDATE CASCADE",
-    "title": "Yangilanishlarni Kaskadli O'tkazish (ON UPDATE CASCADE)",
-    "story": "Agar ota jadvaldagi ID o'zgarsa, bola jadvallardagi bog'langan barcha ID lar ham avtomatik birga yangilanishi lozim.",
-    "taskUz": "Create a table named `staff_cascade_up`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`ON UPDATE CASCADE` dan foydalaning.",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 6 • TRUNCATE RESTART IDENTITY",
+    "title": "TRUNCATE RESTART IDENTITY: Hisoblagichni 1 ga Qaytarish",
+    "story": "Seminar 3 6-topshiriq: Jadval tozalanayotganda avtomatik `IDENTITY` (sequence) hisoblagichini ham boshlang'ich 1 ga tushirish lozim.",
+    "taskUz": "`audit_log` jadvalini barcha ma'lumotlardan tozalab, hisoblagichini 1 ga qaytaring (`TRUNCATE TABLE audit_log RESTART IDENTITY;`).\n\n📋 **Kutilayotgan DDL:**\n`TRUNCATE TABLE audit_log RESTART IDENTITY;`",
+    "hint": "`TRUNCATE TABLE audit_log RESTART IDENTITY;`",
     "solutions": [
-      "CREATE TABLE staff_cascade_up (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE)",
-      "CREATE TABLE staff_cascade_up (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE);",
-      "CREATE TABLE staff_cascade_up (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE\n)",
-      "CREATE TABLE staff_cascade_up (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE\n);",
-      "CREATE TABLE staff_cascade_up ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE )",
-      "CREATE TABLE staff_cascade_up ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE );"
+      "TRUNCATE TABLE audit_log RESTART IDENTITY",
+      "TRUNCATE TABLE audit_log RESTART IDENTITY;",
+      "truncate table audit_log restart identity",
+      "truncate table audit_log restart identity;",
+      "TRUNCATE audit_log RESTART IDENTITY",
+      "TRUNCATE audit_log RESTART IDENTITY;",
+      "truncate audit_log restart identity",
+      "truncate audit_log restart identity;"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON UPDATE CASCADE yangilanish kaskadi o'rnatildi.",
-    "task": "Create a table named `staff_cascade_up`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_scu_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON UPDATE CASCADE` bilan.",
+    "explanation": "Jadval tozalandi va sequence hisoblagichi qayta ishga tushirildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_cascade_up",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dept_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
+      "operation": "DELETE",
+      "tableName": "audit_log",
+      "description": "audit_log jadvali tozalandi va RESTART IDENTITY bilan hisoblagich 1 ga qaytarildi."
     }
   },
   {
     "id": 96,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "T03 Task 5 Compare • CASCADE + CASCADE",
-    "title": "O'chirish va Yangilashda Kaskad (DELETE CASCADE & UPDATE CASCADE)",
-    "story": "Seminar 3 qoidasi: ota yozuv o'chsa bola ham o'chadi, ota yozuv yangilansa bola ham yangilanadi.",
-    "taskUz": "Create a table named `dept_item_casc`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`ON DELETE CASCADE ON UPDATE CASCADE` .",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 5 • ON DELETE CASCADE Harakati",
+    "title": "Kaskadli O'chirish: ON DELETE CASCADE",
+    "story": "Seminar 3 5-topshiriq: Ota bo'lim o'chirilganda, unga qarashli barcha xodimlar ham avtomatik o'chib ketishi shart (`ON DELETE CASCADE`).",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer REFERENCES department(id) ON DELETE CASCADE).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `department_id integer REFERENCES department(id) ON DELETE CASCADE`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE CASCADE);`",
     "solutions": [
-      "CREATE TABLE dept_item_casc (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE)",
-      "CREATE TABLE dept_item_casc (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE);",
-      "CREATE TABLE dept_item_casc (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE\n)",
-      "CREATE TABLE dept_item_casc (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE\n);",
-      "CREATE TABLE dept_item_casc ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE )",
-      "CREATE TABLE dept_item_casc ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE CASCADE)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE CASCADE);",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete cascade)",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete cascade);",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE CASCADE)",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE CASCADE);",
+      "create table employee (id int primary key, department_id int references department(id) on delete cascade)",
+      "create table employee (id int primary key, department_id int references department(id) on delete cascade);"
     ],
-    "requiredPatterns": [],
-    "explanation": "Ikkala yo'nalishda ham CASCADE o'rnatildi.",
-    "task": "Create a table named `dept_item_casc`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_dic_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE ON UPDATE CASCADE` bilan.",
+    "explanation": "ON DELETE CASCADE kaskad harakati o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "dept_item_casc",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "dept_id",
+          "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id) ON DELETE CASCADE"
         }
       ]
     }
@@ -2671,51 +2710,37 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 97,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "T03 Task 5 Compare • SET NULL + CASCADE",
-    "title": "O'chirishda SET NULL, Yangilashda CASCADE",
-    "story": "Kompaniya xavfsizlik standarti: ota bo'lim o'chirilganda xodim bo'shatiladi (`ON DELETE SET NULL`), lekin bo'lim ID si o'zgarsa xodimda ham o'zgaradi (`ON UPDATE CASCADE`).",
-    "taskUz": "Create a table named `dept_emp_hybrid`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`ON DELETE SET NULL ON UPDATE CASCADE` .",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 5 • ON DELETE SET NULL Harakati",
+    "title": "Yetim Qatorlarni Saqlab Qolish: ON DELETE SET NULL",
+    "story": "Seminar 3 5-topshiriq: Bo'lim yopilganda, xodimlar ishdan bo'shatilmasin, faqat ularning `department_id` ustuni `NULL` bo'lib qolsin.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer REFERENCES department(id) ON DELETE SET NULL).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `department_id integer REFERENCES department(id) ON DELETE SET NULL`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE SET NULL);`",
     "solutions": [
-      "CREATE TABLE dept_emp_hybrid (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE)",
-      "CREATE TABLE dept_emp_hybrid (id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE);",
-      "CREATE TABLE dept_emp_hybrid (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE\n)",
-      "CREATE TABLE dept_emp_hybrid (\n  id integer PRIMARY KEY,\n  dept_id integer,\n  CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE\n);",
-      "CREATE TABLE dept_emp_hybrid ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE )",
-      "CREATE TABLE dept_emp_hybrid ( id integer PRIMARY KEY, dept_id integer, CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE SET NULL)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE SET NULL);",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete set null)",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete set null);",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE SET NULL)",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE SET NULL);",
+      "create table employee (id int primary key, department_id int references department(id) on delete set null)",
+      "create table employee (id int primary key, department_id int references department(id) on delete set null);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ON DELETE SET NULL ON UPDATE CASCADE kombinatsiyasi o'rnatildi.",
-    "task": "Create a table named `dept_emp_hybrid`: `id` (integer PRIMARY KEY), `dept_id` (integer), and `CONSTRAINT fk_deh_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE SET NULL ON UPDATE CASCADE` bilan.",
+    "explanation": "ON DELETE SET NULL xavfsiz neytrallashtirish harakati qo'yildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "dept_emp_hybrid",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "dept_id",
+          "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id) ON DELETE SET NULL"
         }
       ]
     }
@@ -2723,51 +2748,37 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 98,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "L03 Slide 29 • RESTRICT + CASCADE",
-    "title": "O'chirishda RESTRICT, Yangilashda CASCADE",
-    "story": "Ota bo'limni xodimlari bor paytda o'chirish qat'iy taqiqlanadi (`ON DELETE RESTRICT`), lekin uning ID si rebrendingda o'zgarsa avtomatik o'tadi (`ON UPDATE CASCADE`).",
-    "taskUz": "Create a table named `dept_emp_restrict`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`ON DELETE RESTRICT ON UPDATE CASCADE` yozing.",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 5 • ON DELETE RESTRICT Harakati",
+    "title": "O'chirishni Qat'iy Taqiqlash: ON DELETE RESTRICT",
+    "story": "Agar bo'limda hech bo'lmaganda 1 ta xodim bo'lsa, o'sha bo'limni o'chirishga ruxsat berilmasin (`ON DELETE RESTRICT`).",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer REFERENCES department(id) ON DELETE RESTRICT).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `department_id integer REFERENCES department(id) ON DELETE RESTRICT`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE RESTRICT);`",
     "solutions": [
-      "CREATE TABLE dept_emp_restrict (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE)",
-      "CREATE TABLE dept_emp_restrict (id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE);",
-      "CREATE TABLE dept_emp_restrict (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE\n)",
-      "CREATE TABLE dept_emp_restrict (\n  id integer PRIMARY KEY,\n  dept_id integer NOT NULL,\n  CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE\n);",
-      "CREATE TABLE dept_emp_restrict ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE )",
-      "CREATE TABLE dept_emp_restrict ( id integer PRIMARY KEY, dept_id integer NOT NULL, CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE RESTRICT)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE RESTRICT);",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete restrict)",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete restrict);",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE RESTRICT)",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE RESTRICT);",
+      "create table employee (id int primary key, department_id int references department(id) on delete restrict)",
+      "create table employee (id int primary key, department_id int references department(id) on delete restrict);"
     ],
-    "requiredPatterns": [],
-    "explanation": "RESTRICT and CASCADE qoidalari uyg'unlashtirildi.",
-    "task": "Create a table named `dept_emp_restrict`: `id` (integer PRIMARY KEY), `dept_id` (integer NOT NULL), and `CONSTRAINT fk_der_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE RESTRICT ON UPDATE CASCADE` bilan.",
+    "explanation": "ON DELETE RESTRICT bilan o'chirish taqiqlandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "dept_emp_restrict",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "dept_id",
+          "name": "department_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
           "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "references": "department(id) ON DELETE RESTRICT"
         }
       ]
     }
@@ -2775,51 +2786,37 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 99,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "T03 Task 5 • Farzandlar Kaskadli O'chishi",
-    "title": "Farzandlar Rekordi Kaskadi (CASCADE)",
-    "story": "Xodim korporatsiyadan butunlay ketsa, unga bog'liq farzandlar ro'yxati ham o'chib ketishi kerak.",
-    "taskUz": "Create a table named `child_cascade`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE` .",
+    "difficulty": "Floor 7 • Medium",
+    "source": "L03 Slide 23 • ON DELETE NO ACTION (Sukut Bo'yicha)",
+    "title": "Sukut Bo'yicha Qoida: ON DELETE NO ACTION",
+    "story": "PostgreSQL da referensial harakat ko'rsatilmaganda, sukut bo'yicha `NO ACTION` (tranzaksiya oxirida yaxlitlikni tekshirish) ishlaydi.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer REFERENCES department(id) ON DELETE NO ACTION).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `department_id integer REFERENCES department(id) ON DELETE NO ACTION`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE NO ACTION);`",
     "solutions": [
-      "CREATE TABLE child_cascade (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE)",
-      "CREATE TABLE child_cascade (parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE);",
-      "CREATE TABLE child_cascade (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE\n)",
-      "CREATE TABLE child_cascade (\n  parent_passport_no varchar(20),\n  child_name varchar(50),\n  CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name),\n  CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE\n);",
-      "CREATE TABLE child_cascade ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE )",
-      "CREATE TABLE child_cascade ( parent_passport_no varchar(20), child_name varchar(50), CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name), CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE NO ACTION)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON DELETE NO ACTION);",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete no action)",
+      "create table employee (id integer primary key, department_id integer references department(id) on delete no action);",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE NO ACTION)",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON DELETE NO ACTION);",
+      "create table employee (id int primary key, department_id int references department(id) on delete no action)",
+      "create table employee (id int primary key, department_id int references department(id) on delete no action);"
     ],
-    "requiredPatterns": [],
-    "explanation": "Zaif sub'ektlar uchun ON DELETE CASCADE muvaffaqiyatli o'rnatildi.",
-    "task": "Create a table named `child_cascade`: `parent_passport_no` (varchar(20)), `child_name` (varchar(50)), `CONSTRAINT pk_cc PRIMARY KEY (parent_passport_no, child_name)` and `CONSTRAINT fk_cc_parent FOREIGN KEY (parent_passport_no) REFERENCES person(passport_no) ON DELETE CASCADE` bilan.",
+    "explanation": "ON DELETE NO ACTION qoidasi o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "child_cascade",
+      "tableName": "employee",
       "columns": [
         {
-          "name": "parent_passport_no",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "person(passport_no)",
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "child_name",
-          "type": "varchar(50)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id) ON DELETE NO ACTION"
         }
       ]
     }
@@ -2827,51 +2824,37 @@ _scope.QUESTIONS_51_100 = [
   {
     "id": 100,
     "sector": 7,
-    "difficulty": "Floor 7 • Intermediate",
-    "source": "T03 Task 5 • Telefonlar Kaskadi",
-    "title": "Bo'lim Telefonlari Kaskadli O'chishi",
-    "story": "Bo'lim yopilsa, unga tegishli barcha telefonlar bazadan birga o'chib ketadi.",
-    "taskUz": "Create a table named `phone_casc`: `dept_id` (integer), `phone` (varchar(20)), `CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone)` and `CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
-    "starterCode": "",
-    "hint": "`ON DELETE CASCADE` bilan tashqi kalit bog'lang.",
+    "difficulty": "Floor 7 • Medium",
+    "source": "T03 Task 5 • ON UPDATE CASCADE Harakati",
+    "title": "Ota Kalit O'zgarganda Kaskad: ON UPDATE CASCADE",
+    "story": "Seminar 3 5-topshiriq: Agar bo'limning `id` si o'zgartirilsa, xodimlar jadvalidagi `department_id` ham avtomatik sinxron yangilansin.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer REFERENCES department(id) ON UPDATE CASCADE).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `department_id integer REFERENCES department(id) ON UPDATE CASCADE`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON UPDATE CASCADE);`",
     "solutions": [
-      "CREATE TABLE phone_casc (dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE)",
-      "CREATE TABLE phone_casc (dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE);",
-      "CREATE TABLE phone_casc (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n)",
-      "CREATE TABLE phone_casc (\n  dept_id integer,\n  phone varchar(20),\n  CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone),\n  CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE\n);",
-      "CREATE TABLE phone_casc ( dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE )",
-      "CREATE TABLE phone_casc ( dept_id integer, phone varchar(20), CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone), CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON UPDATE CASCADE)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, department_id integer REFERENCES department(id) ON UPDATE CASCADE);",
+      "create table employee (id integer primary key, department_id integer references department(id) on update cascade)",
+      "create table employee (id integer primary key, department_id integer references department(id) on update cascade);",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON UPDATE CASCADE)",
+      "CREATE TABLE employee (id int PRIMARY KEY, department_id int REFERENCES department(id) ON UPDATE CASCADE);",
+      "create table employee (id int primary key, department_id int references department(id) on update cascade)",
+      "create table employee (id int primary key, department_id int references department(id) on update cascade);"
     ],
-    "requiredPatterns": [],
-    "explanation": "Bo'lim telefonlari uchun ON DELETE CASCADE o'rnatildi.",
-    "task": "Create a table named `phone_casc`: `dept_id` (integer), `phone` (varchar(20)), `CONSTRAINT pk_pc PRIMARY KEY (dept_id, phone)` and `CONSTRAINT fk_pc_dept FOREIGN KEY (dept_id) REFERENCES department(id) ON DELETE CASCADE` bilan.",
+    "explanation": "ON UPDATE CASCADE sinxronizatsiya mexanizmi o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "phone_casc",
+      "tableName": "employee",
       "columns": [
         {
-          "name": "dept_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": true,
-          "references": "department(id)",
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "phone",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id) ON UPDATE CASCADE"
         }
       ]
     }

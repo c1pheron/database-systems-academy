@@ -21,7 +21,7 @@
   const grader = window.DDL_GRADER || {};
 
   // 2. STATE MANAGEMENT & LOCAL STORAGE
-  const STORAGE_KEY = 'ACADEMY_DS_W3_PROGRESS_V1';
+  const STORAGE_KEY = 'ACADEMY_DS_W3_PROGRESS_V3_MASTER';
 
   let state = {
     currentIndex: 0,
@@ -33,7 +33,7 @@
 
   function loadState() {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('ACADEMY_DS_W3_DDL_PROGRESS_V2');
+      const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
         state = {
@@ -463,12 +463,238 @@
       body.className = 'table-card-body';
       body.innerHTML = `
         <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
-          <strong>O\'zgartirish:</strong> <span style="color:#fde047;">${exp.detail || exp.action || 'Modifikatsiya'}</span>
+          <strong>O'zgartirish:</strong> <span style="color:#fde047;">${exp.detail || exp.action || 'Modifikatsiya'}</span>
         </div>
         <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
           ${exp.description || 'Mavjud jadval strukturasini kengaytirish yoki cheklovlarini yangilash.'}
         </div>
       `;
+
+      if (exp.columns && exp.columns.length > 0) {
+        const divider = document.createElement('div');
+        divider.style.borderTop = '1px solid rgba(255,255,255,0.08)';
+        divider.style.marginTop = '8px';
+        divider.style.paddingTop = '6px';
+        divider.innerHTML = `<div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Jadval Ustunlari va Holati:</div>`;
+        body.appendChild(divider);
+
+        exp.columns.forEach((col) => {
+          const row = document.createElement('div');
+          row.className = 'column-row';
+          if (col.isHighlighted) {
+            row.style.background = 'rgba(251, 191, 36, 0.14)';
+            row.style.borderRadius = '4px';
+            row.style.borderLeft = '3px solid #fbbf24';
+            row.style.paddingLeft = '6px';
+          }
+
+          let badges = '';
+          if (col.isPK) badges += '<span class="badge-pk">PK</span> ';
+          if (col.isIdentity) badges += '<span class="badge-identity">IDENTITY</span> ';
+          if (col.isFK) badges += `<span class="badge-fk">FK ➔ ${col.references || ''}</span> `;
+          if (col.isUQ) badges += '<span class="badge-uq">UQ</span> ';
+          if (col.hasCheck) badges += '<span class="badge-chk">CHECK</span> ';
+          if (col.hasDefault) badges += '<span class="badge-def">DEFAULT</span> ';
+          if (col.isNotNull && !col.isPK) badges += '<span class="badge-nn">NN</span> ';
+          if (col.customBadge) badges += `<span class="badge-alter">${col.customBadge}</span> `;
+
+          row.innerHTML = `
+            <div class="col-left">
+              <span ${col.isHighlighted ? 'style="color:#fde047; font-weight:700;"' : ''}>${col.name}</span>
+            </div>
+            <div class="col-right">
+              <span class="col-type">${col.type || ''}</span>
+              ${badges}
+            </div>
+          `;
+          body.appendChild(row);
+        });
+      }
+
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 4.1. INSERT INTO
+    if (exp.operation === 'INSERT_INTO') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#34d399;">📥 ${exp.tableName}</span>
+        <span class="badge-env">${isSolved ? '✓ Inserted' : 'DML INSERT'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>Amal:</strong> <span style="color:#6ee7b7;">INSERT INTO ${exp.tableName}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Yangi qator qo\'shish va cheklovlar mosligini tekshirish.'}
+        </div>
+      `;
+
+      if (exp.columns && exp.columns.length > 0) {
+        const divider = document.createElement('div');
+        divider.style.borderTop = '1px solid rgba(255,255,255,0.08)';
+        divider.style.marginTop = '8px';
+        divider.style.paddingTop = '6px';
+        divider.innerHTML = `<div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Maqsad Jadval Ustunlari:</div>`;
+        body.appendChild(divider);
+
+        exp.columns.forEach((col) => {
+          const row = document.createElement('div');
+          row.className = 'column-row';
+          let badges = '';
+          if (col.isPK) badges += '<span class="badge-pk">PK</span> ';
+          if (col.isIdentity) badges += '<span class="badge-identity">IDENTITY</span> ';
+          if (col.isFK) badges += `<span class="badge-fk">FK</span> `;
+          if (col.isUQ) badges += '<span class="badge-uq">UQ</span> ';
+          if (col.hasCheck) badges += '<span class="badge-chk">CHECK</span> ';
+          if (col.hasDefault) badges += '<span class="badge-def">DEFAULT</span> ';
+          if (col.isNotNull && !col.isPK) badges += '<span class="badge-nn">NN</span> ';
+
+          row.innerHTML = `
+            <div class="col-left">
+              <span>${col.name}</span>
+            </div>
+            <div class="col-right">
+              <span class="col-type">${col.type || ''}</span>
+              ${badges}
+            </div>
+          `;
+          body.appendChild(row);
+        });
+      }
+
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 4.2. UPDATE
+    if (exp.operation === 'UPDATE') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#60a5fa;">✏️ ${exp.tableName}</span>
+        <span class="badge-env" style="background:rgba(96,165,250,0.15); border-color:#60a5fa; color:#60a5fa;">${isSolved ? '✓ Updated' : 'DML UPDATE'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#e2e8f0; margin-bottom:4px;">
+          <strong>Amal:</strong> <span style="color:#93c5fd;">UPDATE ${exp.tableName}</span>
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Satrlarni yangilash va biznes qoidalarini tasdiqlash.'}
+        </div>
+      `;
+
+      if (exp.columns && exp.columns.length > 0) {
+        const divider = document.createElement('div');
+        divider.style.borderTop = '1px solid rgba(255,255,255,0.08)';
+        divider.style.marginTop = '8px';
+        divider.style.paddingTop = '6px';
+        divider.innerHTML = `<div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Modifikatsiya Qilinayotgan Ustunlar:</div>`;
+        body.appendChild(divider);
+
+        exp.columns.forEach((col) => {
+          const row = document.createElement('div');
+          row.className = 'column-row';
+          if (col.isHighlighted) {
+            row.style.background = 'rgba(96, 165, 250, 0.14)';
+            row.style.borderRadius = '4px';
+            row.style.borderLeft = '3px solid #60a5fa';
+            row.style.paddingLeft = '6px';
+          }
+
+          let badges = '';
+          if (col.isPK) badges += '<span class="badge-pk">PK</span> ';
+          if (col.isIdentity) badges += '<span class="badge-identity">IDENTITY</span> ';
+          if (col.isFK) badges += `<span class="badge-fk">FK</span> `;
+          if (col.isUQ) badges += '<span class="badge-uq">UQ</span> ';
+          if (col.hasCheck) badges += '<span class="badge-chk">CHECK</span> ';
+          if (col.hasDefault) badges += '<span class="badge-def">DEFAULT</span> ';
+          if (col.isNotNull && !col.isPK) badges += '<span class="badge-nn">NN</span> ';
+
+          row.innerHTML = `
+            <div class="col-left">
+              <span ${col.isHighlighted ? 'style="color:#93c5fd; font-weight:700;"' : ''}>${col.name}</span>
+            </div>
+            <div class="col-right">
+              <span class="col-type">${col.type || ''}</span>
+              ${badges}
+            </div>
+          `;
+          body.appendChild(row);
+        });
+      }
+
+      card.appendChild(body);
+      schemaGrid.appendChild(card);
+      return;
+    }
+
+    // 4.3. DELETE
+    if (exp.operation === 'DELETE') {
+      const head = document.createElement('div');
+      head.className = 'table-card-head';
+      head.innerHTML = `
+        <span class="table-card-name" style="color:#f87171;">🗑️ ${exp.tableName}</span>
+        <span class="badge-drop">${isSolved ? '✓ Deleted' : 'DML DELETE'}</span>
+      `;
+      card.appendChild(head);
+
+      const body = document.createElement('div');
+      body.className = 'table-card-body';
+      body.innerHTML = `
+        <div style="font-size:12px; font-family:var(--font-mono); color:#fca5a5; margin-bottom:4px;">
+          <strong>Amal:</strong> DELETE FROM ${exp.tableName}
+        </div>
+        <div style="font-size:11px; color:var(--text-muted); line-height:1.4;">
+          ${exp.description || 'Satrlarni o\'chirish va relyatsion bog\'liqliklarni (referential integrity) tekshirish.'}
+        </div>
+      `;
+
+      if (exp.columns && exp.columns.length > 0) {
+        const divider = document.createElement('div');
+        divider.style.borderTop = '1px solid rgba(255,255,255,0.08)';
+        divider.style.marginTop = '8px';
+        divider.style.paddingTop = '6px';
+        divider.innerHTML = `<div style="font-size:10px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">Jadval Tuzilishi:</div>`;
+        body.appendChild(divider);
+
+        exp.columns.forEach((col) => {
+          const row = document.createElement('div');
+          row.className = 'column-row';
+          let badges = '';
+          if (col.isPK) badges += '<span class="badge-pk">PK</span> ';
+          if (col.isIdentity) badges += '<span class="badge-identity">IDENTITY</span> ';
+          if (col.isFK) badges += `<span class="badge-fk">FK</span> `;
+          if (col.isUQ) badges += '<span class="badge-uq">UQ</span> ';
+          if (col.hasCheck) badges += '<span class="badge-chk">CHECK</span> ';
+          if (col.hasDefault) badges += '<span class="badge-def">DEFAULT</span> ';
+          if (col.isNotNull && !col.isPK) badges += '<span class="badge-nn">NN</span> ';
+
+          row.innerHTML = `
+            <div class="col-left">
+              <span>${col.name}</span>
+            </div>
+            <div class="col-right">
+              <span class="col-type">${col.type || ''}</span>
+              ${badges}
+            </div>
+          `;
+          body.appendChild(row);
+        });
+      }
+
       card.appendChild(body);
       schemaGrid.appendChild(card);
       return;

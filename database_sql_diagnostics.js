@@ -633,6 +633,86 @@
     // 8. DML SPECIFIC CHECKS
     checkDMLSpecifics(lines, cleanText, question, errors, passedItems, isEn) {
       const normClean = cleanText.toLowerCase();
+      const expOp = question && question.expectedSchema && question.expectedSchema.operation;
+
+      // Handle Week 3 DML operations: INSERT_INTO, UPDATE, DELETE, SET_SEARCH_PATH, SYSTEM_QUERY, RELATIONAL_ALGEBRA
+      if (expOp === 'INSERT_INTO') {
+        if (!/^\s*INSERT\s+INTO\b/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Command must begin with 'INSERT INTO'." : "Buyruq 'INSERT INTO' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "INSERT INTO " + (question.expectedSchema.tableName || 'table_name') + " ..."
+          });
+        }
+        return;
+      }
+
+      if (expOp === 'UPDATE') {
+        if (!/^\s*UPDATE\b/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Command must begin with 'UPDATE'." : "Buyruq 'UPDATE' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "UPDATE " + (question.expectedSchema.tableName || 'table_name') + " SET ..."
+          });
+        }
+        return;
+      }
+
+      if (expOp === 'DELETE') {
+        if (!/^\s*(DELETE\s+FROM|TRUNCATE\b)/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Command must begin with 'DELETE FROM' or 'TRUNCATE'." : "Buyruq 'DELETE FROM' yoki 'TRUNCATE' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "DELETE FROM " + (question.expectedSchema.tableName || 'table_name') + " WHERE ..."
+          });
+        }
+        return;
+      }
+
+      if (expOp === 'SET_SEARCH_PATH') {
+        if (!/^\s*SET\s+search_path\b/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Command must begin with 'SET search_path'." : "Buyruq 'SET search_path' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "SET search_path TO ..."
+          });
+        }
+        return;
+      }
+
+      if (expOp === 'SYSTEM_QUERY') {
+        if (!/^\s*SELECT\b/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Diagnostic query must begin with 'SELECT'." : "Tizim so'rovi 'SELECT' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "SELECT current_database(), current_user, version();"
+          });
+        }
+        return;
+      }
+
+      if (expOp === 'RELATIONAL_ALGEBRA') {
+        if (!/^\s*SELECT\b/i.test(cleanText)) {
+          errors.push({
+            line: 1,
+            message: isEn ? "Relational algebra query must begin with 'SELECT'." : "Relyatsion algebra so'rovi 'SELECT' bilan boshlanishi kerak.",
+            snippet: lines[0].trim(),
+            fix: "SELECT ..."
+          });
+        }
+        return;
+      }
+
+      // If Week 3 challenge (has Floor / Sector metadata), bypass Scott/Tiger typo checkers
+      const isWeek3 = question && (question.sector || (question.difficulty && question.difficulty.includes('Floor')));
+      if (isWeek3) {
+        return;
+      }
 
       // Must start with SELECT or WITH
       if (!/^\s*(SELECT|WITH)\b/i.test(cleanText)) {

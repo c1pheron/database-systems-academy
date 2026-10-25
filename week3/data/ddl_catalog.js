@@ -280,9 +280,9 @@ window.DDL_GRADER = {
       return `Syntax error: Unbalanced parentheses — ${pCount} unclosed '('.`;
     }
 
-    // 3. Must start with DDL command
-    if (!/^\s*(CREATE|ALTER|DROP|SET|SELECT)\b/i.test(trimmed)) {
-      return "Syntax error: SQL DDL statement must begin with 'CREATE TABLE', 'ALTER TABLE', or 'DROP TABLE'.";
+    // 3. Must start with SQL DDL / DML command
+    if (!/^\s*(CREATE|ALTER|DROP|TRUNCATE|INSERT|UPDATE|DELETE|SET|SELECT)\b/i.test(trimmed)) {
+      return "Syntax error: SQL statement must begin with a valid command (CREATE, ALTER, DROP, TRUNCATE, INSERT, UPDATE, DELETE, SET, or SELECT).";
     }
 
     // 4. Common Typos in Data Types

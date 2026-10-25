@@ -1,27 +1,34 @@
-var _scope = typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this);
-
-_scope.QUESTIONS_1_50 = [
+// WIUT Database Systems (5BUIS009C) Week 3 - QUESTIONS_1_50
+// Auto-generated comprehensive curriculum (150 Challenges)
+window.QUESTIONS_1_50 = [
   {
     "id": 1,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
     "source": "T03 Prepare Workspace • Schema va Qidiruv Yo'li",
-    "title": "Set Working Schema",
-    "story": "Laboratoriya serverida yangi DDL amaliyotini boshlayapmiz. Tizim jadvallarni to'g'ri izlashi uchun qidiruv yo'lini `ddl_lab` and `public` ga yo'naltirish lozim.",
-    "taskUz": "Set the PostgreSQL search path (`search_path`) to `ddl_lab` and `public` schemas in the current session.",
-    "starterCode": "",
-    "hint": "`SET search_path TO ...` syntax. and ikkala sxema nomini vergul bilan ajrating.",
+    "title": "Set Working Schema (search_path)",
+    "story": "Laboratoriya serverida yangi DDL amaliyotini boshlayapmiz. Tizim jadvallarni to'g'ri izlashi uchun qidiruv yo'lini `ddl_lab` va `public` ga yo'naltirish lozim.",
+    "taskUz": "PostgreSQL qidiruv yo'lini (`search_path`) joriy sessiya uchun `ddl_lab` va `public` sxemalariga o'rnating.\n\n📋 **Kutilayotgan DDL:**\n`SET search_path TO ddl_lab, public;`",
+    "hint": "`SET search_path TO ddl_lab, public;` deb yozing.",
     "solutions": [
       "SET search_path TO ddl_lab, public",
       "SET search_path TO ddl_lab, public;",
+      "set search_path to ddl_lab, public",
+      "set search_path to ddl_lab, public;",
       "SET search_path = ddl_lab, public",
       "SET search_path = ddl_lab, public;",
+      "set search_path = ddl_lab, public",
+      "set search_path = ddl_lab, public;",
       "SET search_path TO ddl_lab,public",
-      "SET search_path TO ddl_lab,public;"
+      "SET search_path TO ddl_lab,public;",
+      "set search_path to ddl_lab,public",
+      "set search_path to ddl_lab,public;",
+      "SET search_path = ddl_lab,public",
+      "SET search_path = ddl_lab,public;",
+      "set search_path = ddl_lab,public",
+      "set search_path = ddl_lab,public;"
     ],
-    "requiredPatterns": [],
     "explanation": "PostgreSQL qidiruv sxemasi muvaffaqiyatli ddl_lab ga yo'naltirildi.",
-    "task": "Set the PostgreSQL search path (`search_path`) to `ddl_lab` and `public` schemas in the current session.",
     "expectedSchema": {
       "operation": "SET_SEARCH_PATH",
       "action": "SET search_path",
@@ -34,935 +41,616 @@ _scope.QUESTIONS_1_50 = [
     "id": 2,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
+    "source": "T03 Prepare Workspace • Tizim Holatini Tekshirish",
+    "title": "Check System Information",
+    "story": "Dastlabki ulanishda joriy ma'lumotlar bazasi nomi, tizim foydalanuvchisi va PostgreSQL versiyasini so'rov orqali aniqlang.",
+    "taskUz": "Joriy ma'lumotlar bazasi, foydalanuvchi va server versiyasini chiqaruvchi standart PostgreSQL funksiyalarini chaqiring: `SELECT current_database(), current_user, version();`",
+    "hint": "`SELECT current_database(), current_user, version();` ni kiriting.",
+    "solutions": [
+      "SELECT current_database(), current_user, version()",
+      "SELECT current_database(), current_user, version();",
+      "select current_database(), current_user, version()",
+      "select current_database(), current_user, version();"
+    ],
+    "explanation": "PostgreSQL server tizim axborotlari muvaffaqiyatli olindi.",
+    "expectedSchema": {
+      "operation": "SYSTEM_QUERY",
+      "title": "PostgreSQL Diagnostic Query",
+      "description": "Sessiya metama'lumotlari: current_database(), current_user, version()."
+    }
+  },
+  {
+    "id": 3,
+    "sector": 1,
+    "difficulty": "Floor 1 • Easy",
+    "source": "T03 Prepare Workspace • Sxema Yaratish",
+    "title": "Create ddl_lab Schema",
+    "story": "O'quv laboratoriyasi uchun alohida nom maydoni (namespace) yaratish talab qilinadi.",
+    "taskUz": "`ddl_lab` nomli yangi PostgreSQL sxemasini yarating.\n\n📋 **Kutilayotgan DDL:**\n`CREATE SCHEMA ddl_lab;`",
+    "hint": "`CREATE SCHEMA ddl_lab;` deb yozing.",
+    "solutions": [
+      "CREATE SCHEMA ddl_lab",
+      "CREATE SCHEMA ddl_lab;",
+      "create schema ddl_lab",
+      "create schema ddl_lab;"
+    ],
+    "explanation": "ddl_lab nomli yangi sxema muvaffaqiyatli yaratildi.",
+    "expectedSchema": {
+      "operation": "SCHEMA",
+      "action": "CREATE SCHEMA",
+      "target": "ddl_lab",
+      "title": "Schema Namespace Foundry",
+      "description": "ddl_lab nomli ma'lumotlar sxemasi yaratildi."
+    }
+  },
+  {
+    "id": 4,
+    "sector": 1,
+    "difficulty": "Floor 1 • Easy",
     "source": "T03 Task 1 Intro • Oddiy Filial Jadvali",
     "title": "Core Branch Table",
-    "story": "Kompaniya filiallarni ro'yxatga olish uchun eng sodda jadval yaratmoqchi. with filial kodi and nomi bo'lishi kifoya.",
-    "taskUz": "Create a table named `branch`: with `id` (integer) and `name` (varchar(50)) columns.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **branch**\n• Ustunlar: `id` (integer), `name` (varchar(50))",
-    "starterCode": "",
-    "hint": "`CREATE TABLE branch (...)` yozib, qavs ichida ustun nomi and uning tipini ko'rsating.",
+    "story": "Kompaniya filiallarni ro'yxatga olish uchun eng sodda jadval yaratmoqchi. Filial kodi (id) va nomi (name) bo'lishi kifoya.",
+    "taskUz": "`branch` nomli jadval yarating: ustunlari `id` (integer) va `name` (varchar(50)).\n\n📋 **Kutilayotgan Relyatsion Sxema:**\n• Jadval: **branch**\n• Ustunlar: `id integer`, `name varchar(50)`",
+    "hint": "`CREATE TABLE branch (id integer, name varchar(50));`",
     "solutions": [
       "CREATE TABLE branch (id integer, name varchar(50))",
       "CREATE TABLE branch (id integer, name varchar(50));",
+      "create table branch (id integer, name varchar(50))",
+      "create table branch (id integer, name varchar(50));",
+      "CREATE TABLE branch (id int, name varchar(50))",
+      "CREATE TABLE branch (id int, name varchar(50));",
+      "create table branch (id int, name varchar(50))",
+      "create table branch (id int, name varchar(50));",
       "CREATE TABLE branch (\n  id integer,\n  name varchar(50)\n)",
       "CREATE TABLE branch (\n  id integer,\n  name varchar(50)\n);",
       "CREATE TABLE branch ( id integer, name varchar(50) )",
       "CREATE TABLE branch ( id integer, name varchar(50) );",
-      "CREATE TABLE branch (id int, name varchar(50))",
-      "CREATE TABLE branch (id int, name varchar(50));"
+      "create table branch (\n  id integer,\n  name varchar(50)\n)",
+      "create table branch (\n  id integer,\n  name varchar(50)\n);"
     ],
-    "requiredPatterns": [],
+    "explanation": "branch jadvali oddiy integer va varchar turlari bilan yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "branch",
       "columns": [
         {
           "name": "id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(50)"
         }
       ]
-    },
-    "explanation": "branch jadvali created successfully.",
-    "task": "Create a table named `branch`: with `id` (integer) and `name` (varchar(50)) columns."
+    }
   },
   {
-    "id": 3,
+    "id": 5,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 12 • Sana Maydoni",
+    "source": "T03 Task 1 Intro • Sana Ma'lumot Turi",
     "title": "Staff Registry Table va Qabul Sanasi",
-    "story": "Kadrlar bo'limi xodimlarning ismi and ishga qabul qilingan sanasini qayd etuvchi oddiy struktura so'radi.",
-    "taskUz": "Create a table named `staff` with columns: `id` (integer), `full_name` (varchar(100)) and `hire_date` (date).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **staff**\n• Ustunlar: `id` (integer), `full_name` (varchar(100)), `hire_date` (date)",
-    "starterCode": "",
-    "hint": "Sana turi uchun `date` kalit so'zidan foydalaning.",
+    "story": "Kadrlar bo'limi xodimlarning ismi va ishga qabul qilingan sanasini (hire_date) qayd etuvchi oddiy struktura so'radi.",
+    "taskUz": "`staff` nomli jadval yarating: ustunlari `id` (integer), `full_name` (varchar(100)) va `hire_date` (date).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **staff**\n• Ustunlar: `id integer`, `full_name varchar(100)`, `hire_date date`",
+    "hint": "`CREATE TABLE staff (id integer, full_name varchar(100), hire_date date);`",
     "solutions": [
       "CREATE TABLE staff (id integer, full_name varchar(100), hire_date date)",
       "CREATE TABLE staff (id integer, full_name varchar(100), hire_date date);",
+      "create table staff (id integer, full_name varchar(100), hire_date date)",
+      "create table staff (id integer, full_name varchar(100), hire_date date);",
+      "CREATE TABLE staff (id int, full_name varchar(100), hire_date date)",
+      "CREATE TABLE staff (id int, full_name varchar(100), hire_date date);",
+      "create table staff (id int, full_name varchar(100), hire_date date)",
+      "create table staff (id int, full_name varchar(100), hire_date date);",
       "CREATE TABLE staff (\n  id integer,\n  full_name varchar(100),\n  hire_date date\n)",
       "CREATE TABLE staff (\n  id integer,\n  full_name varchar(100),\n  hire_date date\n);",
       "CREATE TABLE staff ( id integer, full_name varchar(100), hire_date date )",
-      "CREATE TABLE staff ( id integer, full_name varchar(100), hire_date date );"
+      "CREATE TABLE staff ( id integer, full_name varchar(100), hire_date date );",
+      "create table staff (\n  id integer,\n  full_name varchar(100),\n  hire_date date\n)",
+      "create table staff (\n  id integer,\n  full_name varchar(100),\n  hire_date date\n);"
     ],
-    "requiredPatterns": [],
+    "explanation": "staff jadvali date turi bilan muvaffaqiyatli shakllantirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "staff",
       "columns": [
         {
           "name": "id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "full_name",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(100)"
         },
         {
           "name": "hire_date",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "date"
         }
       ]
-    },
-    "explanation": "staff jadvali date turi bilan birga shakllantirildi.",
-    "task": "Create a table named `staff` with columns: `id` (integer), `full_name` (varchar(100)) and `hire_date` (date)."
+    }
   },
   {
-    "id": 4,
+    "id": 6,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 14 • Aniq Son (Numeric/Decimal)",
-    "title": "Mahsulotlar va Narx Maydoni",
-    "story": "Omborxona uchun mahsulotlar jadvali kerak. Mahsulot narxi tiyingacha aniq bo'lishi lozim.",
-    "taskUz": "Create a table named `product` with columns: `item_no` (integer), `title` (varchar(80)) and `price` (10 xonali, 2 tasi kasr — numeric(10,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **product**\n• Ustunlar: `item_no` (integer), `title` (varchar(80)), `price` (numeric(10,2))",
-    "starterCode": "",
-    "hint": "Kasrli aniq pul qiymati uchun `numeric(10,2)` tipidan foydalaning.",
+    "source": "L03 Slide 16 • Aniq Moliyaviy Numeric Turi",
+    "title": "Mahsulotlar va Aniq Narx Maydoni",
+    "story": "Omborxona uchun mahsulotlar jadvali kerak. Moliyaviy hisob-kitoblar uchun narx tiyingacha aniq saqlanishi shart (numeric(10,2)).",
+    "taskUz": "`product` nomli jadval yarating: `item_no` (integer), `title` (varchar(80)) va `price` (numeric(10,2)).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **product**\n• Ustunlar: `item_no integer`, `title varchar(80)`, `price numeric(10,2)`",
+    "hint": "`CREATE TABLE product (item_no integer, title varchar(80), price numeric(10,2));`",
     "solutions": [
       "CREATE TABLE product (item_no integer, title varchar(80), price numeric(10,2))",
       "CREATE TABLE product (item_no integer, title varchar(80), price numeric(10,2));",
+      "create table product (item_no integer, title varchar(80), price numeric(10,2))",
+      "create table product (item_no integer, title varchar(80), price numeric(10,2));",
+      "CREATE TABLE product (item_no int, title varchar(80), price numeric(10,2))",
+      "CREATE TABLE product (item_no int, title varchar(80), price numeric(10,2));",
+      "create table product (item_no int, title varchar(80), price numeric(10,2))",
+      "create table product (item_no int, title varchar(80), price numeric(10,2));",
       "CREATE TABLE product (\n  item_no integer,\n  title varchar(80),\n  price numeric(10,2)\n)",
       "CREATE TABLE product (\n  item_no integer,\n  title varchar(80),\n  price numeric(10,2)\n);",
       "CREATE TABLE product ( item_no integer, title varchar(80), price numeric(10,2) )",
-      "CREATE TABLE product ( item_no integer, title varchar(80), price numeric(10,2) );"
+      "CREATE TABLE product ( item_no integer, title varchar(80), price numeric(10,2) );",
+      "create table product (\n  item_no integer,\n  title varchar(80),\n  price numeric(10,2)\n)",
+      "create table product (\n  item_no integer,\n  title varchar(80),\n  price numeric(10,2)\n);"
     ],
-    "requiredPatterns": [],
+    "explanation": "product jadvali aniq numeric(10,2) turi bilan barpo etildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "product",
       "columns": [
         {
           "name": "item_no",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "title",
-          "type": "varchar(80)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(80)"
         },
         {
           "name": "price",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "numeric(10,2)"
         }
       ]
-    },
-    "explanation": "product jadvali numeric(10,2) narx column. barpo etildi.",
-    "task": "Create a table named `product` with columns: `item_no` (integer), `title` (varchar(80)) and `price` (10 xonali, 2 tasi kasr — numeric(10,2))."
+    }
   },
   {
-    "id": 5,
+    "id": 7,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "T03 Task 1 • Bo'limlar Asosiy Tuzilmasi",
-    "title": "Bo'limlar Boshlang'ich Sxemasi",
-    "story": "Seminar 3 ning 1-topshirig'i boshlanmoqda. Kompaniya bo'limlari uchun asosiy jadval strukturasi talab qilinmoqda.",
-    "taskUz": "Create a table named `department` with columns: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) and `budget` (numeric(12,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` (integer), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2))",
-    "starterCode": "",
-    "hint": "To'rtta ustun nomini ketma-ket ko'rsatilgan turlar bilan e'lon qiling.",
+    "source": "T03 Task 1 • Bo'limlar Boshlang'ich Sxemasi",
+    "title": "Department Boshlang'ich Jadvali",
+    "story": "Seminar 3 ning 1-topshirig'i boshlanmoqda. Kompaniya bo'limlari uchun boshlang'ich jadval strukturasi talab qilinmoqda.",
+    "taskUz": "`department` nomli jadval yarating: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) va `budget` (numeric(12,2)).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **department**\n• Ustunlar: `id integer`, `title varchar(100)`, `location varchar(50)`, `budget numeric(12,2)`",
+    "hint": "`CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2));`",
     "solutions": [
       "CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2))",
       "CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2));",
-      "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2)\n)",
-      "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2)\n);",
-      "CREATE TABLE department ( id integer, title varchar(100), location varchar(50), budget numeric(12,2) )",
-      "CREATE TABLE department ( id integer, title varchar(100), location varchar(50), budget numeric(12,2) );"
+      "create table department (id integer, title varchar(100), location varchar(50), budget numeric(12,2))",
+      "create table department (id integer, title varchar(100), location varchar(50), budget numeric(12,2));",
+      "CREATE TABLE department (id int, title varchar(100), location varchar(50), budget numeric(12,2))",
+      "CREATE TABLE department (id int, title varchar(100), location varchar(50), budget numeric(12,2));",
+      "create table department (id int, title varchar(100), location varchar(50), budget numeric(12,2))",
+      "create table department (id int, title varchar(100), location varchar(50), budget numeric(12,2));"
     ],
-    "requiredPatterns": [],
+    "explanation": "department boshlang'ich relyatsion jadvali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "department",
       "columns": [
         {
           "name": "id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(100)"
         },
         {
           "name": "location",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(50)"
         },
         {
           "name": "budget",
-          "type": "numeric(12,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "numeric(12,2)"
         }
       ]
-    },
-    "explanation": "department jadvali to'rtta asosiy ustun bilan yaratildi.",
-    "task": "Create a table named `department` with columns: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) and `budget` (numeric(12,2))."
+    }
   },
   {
-    "id": 6,
+    "id": 8,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 15 • Boolean Maydoni",
-    "title": "Loyiha Holatlari va Mantiqiy Bayroqcha",
-    "story": "Loyihalarning faol yoki to'xtatilganligini kuzatish uchun mantiqiy (ha/yo'q) ustun zarur.",
-    "taskUz": "Create a table named `project_status` with columns: `code` (varchar(10)) and `is_active` (boolean).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **project_status**\n• Ustunlar: `code` (varchar(10)), `is_active` (boolean)",
-    "starterCode": "",
-    "hint": "Mantiqiy haqiqat/yolg'on qiymatlari uchun `boolean` turini yozing.",
+    "source": "L03 Slide 15 • Boolean Mantiqiy Turi",
+    "title": "Project Status va Boolean Bayrog'i",
+    "story": "Loyihalar holatini faol yoki nofaol ekanligini ifodalash uchun mantiqiy boolean turidan foydalaniladi.",
+    "taskUz": "`project_status` nomli jadval yarating: `code` (varchar(10)) va `is_active` (boolean).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **project_status**\n• Ustunlar: `code varchar(10)`, `is_active boolean`",
+    "hint": "`CREATE TABLE project_status (code varchar(10), is_active boolean);`",
     "solutions": [
       "CREATE TABLE project_status (code varchar(10), is_active boolean)",
       "CREATE TABLE project_status (code varchar(10), is_active boolean);",
-      "CREATE TABLE project_status (\n  code varchar(10),\n  is_active boolean\n)",
-      "CREATE TABLE project_status (\n  code varchar(10),\n  is_active boolean\n);",
-      "CREATE TABLE project_status ( code varchar(10), is_active boolean )",
-      "CREATE TABLE project_status ( code varchar(10), is_active boolean );"
+      "create table project_status (code varchar(10), is_active boolean)",
+      "create table project_status (code varchar(10), is_active boolean);",
+      "CREATE TABLE project_status (code varchar(10), is_active bool)",
+      "CREATE TABLE project_status (code varchar(10), is_active bool);",
+      "create table project_status (code varchar(10), is_active bool)",
+      "create table project_status (code varchar(10), is_active bool);"
     ],
-    "requiredPatterns": [],
+    "explanation": "boolean mantiqiy maydonli jadval tuzildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "project_status",
       "columns": [
         {
           "name": "code",
-          "type": "varchar(10)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(10)"
         },
         {
           "name": "is_active",
-          "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "boolean"
         }
       ]
-    },
-    "explanation": "project_status jadvali boolean turi bilan barpo etildi.",
-    "task": "Create a table named `project_status` with columns: `code` (varchar(10)) and `is_active` (boolean)."
+    }
   },
   {
-    "id": 7,
+    "id": 9,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 13 • Timestamp Maydoni",
-    "title": "Audit Jurnali va Vaqt Tamg'asi",
-    "story": "Xavfsizlik tizimi har bir amaliyotning aniq sekundigacha being vaqtini saqlashi lozim.",
-    "taskUz": "Create a table named `audit_log` with columns: `log_id` (integer), `action` (varchar(50)) and `occurred_at` (sana and vaqt — timestamp).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **audit_log**\n• Ustunlar: `log_id` (integer), `action` (varchar(50)), `occurred_at` (timestamp)",
-    "starterCode": "",
-    "hint": "Sana and soat/minut/sekundni birlashtiruvchi tur `timestamp` deb ataladi.",
+    "source": "L03 Slide 16 • Timestamp Vaqt Tamg'asi",
+    "title": "Audit Log va Timestamp Turi",
+    "story": "Xavfsizlik audit jurnali hodisa yuz bergan aniq vaqtni (yil, oy, kun, soat, daqiqa, soniya) saqlashi lozim.",
+    "taskUz": "`audit_log` nomli jadval yarating: `log_id` (integer), `action` (varchar(50)) va `occurred_at` (timestamp).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **audit_log**\n• Ustunlar: `log_id integer`, `action varchar(50)`, `occurred_at timestamp`",
+    "hint": "`CREATE TABLE audit_log (log_id integer, action varchar(50), occurred_at timestamp);`",
     "solutions": [
       "CREATE TABLE audit_log (log_id integer, action varchar(50), occurred_at timestamp)",
       "CREATE TABLE audit_log (log_id integer, action varchar(50), occurred_at timestamp);",
-      "CREATE TABLE audit_log (\n  log_id integer,\n  action varchar(50),\n  occurred_at timestamp\n)",
-      "CREATE TABLE audit_log (\n  log_id integer,\n  action varchar(50),\n  occurred_at timestamp\n);",
-      "CREATE TABLE audit_log ( log_id integer, action varchar(50), occurred_at timestamp )",
-      "CREATE TABLE audit_log ( log_id integer, action varchar(50), occurred_at timestamp );"
+      "create table audit_log (log_id integer, action varchar(50), occurred_at timestamp)",
+      "create table audit_log (log_id integer, action varchar(50), occurred_at timestamp);",
+      "CREATE TABLE audit_log (log_id int, action varchar(50), occurred_at timestamp)",
+      "CREATE TABLE audit_log (log_id int, action varchar(50), occurred_at timestamp);",
+      "create table audit_log (log_id int, action varchar(50), occurred_at timestamp)",
+      "create table audit_log (log_id int, action varchar(50), occurred_at timestamp);"
     ],
-    "requiredPatterns": [],
+    "explanation": "timestamp vaqt tamg'asi maydoni bilan audit jurnali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "audit_log",
       "columns": [
         {
           "name": "log_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "action",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(50)"
         },
         {
           "name": "occurred_at",
-          "type": "timestamp",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "timestamp"
         }
       ]
-    },
-    "explanation": "audit_log jadvali timestamp vaqt tamg'asi bilan yaratildi.",
-    "task": "Create a table named `audit_log` with columns: `log_id` (integer), `action` (varchar(50)) and `occurred_at` (sana and vaqt — timestamp)."
-  },
-  {
-    "id": 8,
-    "sector": 1,
-    "difficulty": "Floor 1 • Easy",
-    "source": "T03 Task 1 • Telefon Raqamlari",
-    "title": "Aloqa Ma'lumotlari Jadvali",
-    "story": "Xodimlarning telefon raqamlarini saqlash uchun alohida sodda struktura talab etiladi.",
-    "taskUz": "Create a table named `contact_info` with columns: `staff_id` (integer) and `phone_number` (varchar(20)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **contact_info**\n• Ustunlar: `staff_id` (integer), `phone_number` (varchar(20))",
-    "starterCode": "",
-    "hint": "Telefon raqami simvollarni o'z ichiga olishi uchun varchar(20) turini qo'llang.",
-    "solutions": [
-      "CREATE TABLE contact_info (staff_id integer, phone_number varchar(20))",
-      "CREATE TABLE contact_info (staff_id integer, phone_number varchar(20));",
-      "CREATE TABLE contact_info (\n  staff_id integer,\n  phone_number varchar(20)\n)",
-      "CREATE TABLE contact_info (\n  staff_id integer,\n  phone_number varchar(20)\n);",
-      "CREATE TABLE contact_info ( staff_id integer, phone_number varchar(20) )",
-      "CREATE TABLE contact_info ( staff_id integer, phone_number varchar(20) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "contact_info",
-      "columns": [
-        {
-          "name": "staff_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "phone_number",
-          "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "contact_info jadvali shakllantirildi.",
-    "task": "Create a table named `contact_info` with columns: `staff_id` (integer) and `phone_number` (varchar(20))."
-  },
-  {
-    "id": 9,
-    "sector": 1,
-    "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 14 • Katta Balans va Mijozlar",
-    "title": "Mijozlar Balansi Jadvali",
-    "story": "Korporativ mijozlar uchun hisob balansi katta miqdorlarni (14 xona, 2 tasi tiyin) sig'dira olishi kerak.",
-    "taskUz": "Create a table named `client` with columns: `client_id` (integer), `company_name` (varchar(120)) and `balance` (numeric(14,2)).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **client**\n• Ustunlar: `client_id` (integer), `company_name` (varchar(120)), `balance` (numeric(14,2))",
-    "starterCode": "",
-    "hint": "`numeric(14,2)` yozuvi umumiy 14 xona, verguldan keyin 2 ta kasr xonasini bildiradi.",
-    "solutions": [
-      "CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2))",
-      "CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2));",
-      "CREATE TABLE client (\n  client_id integer,\n  company_name varchar(120),\n  balance numeric(14,2)\n)",
-      "CREATE TABLE client (\n  client_id integer,\n  company_name varchar(120),\n  balance numeric(14,2)\n);",
-      "CREATE TABLE client ( client_id integer, company_name varchar(120), balance numeric(14,2) )",
-      "CREATE TABLE client ( client_id integer, company_name varchar(120), balance numeric(14,2) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "client",
-      "columns": [
-        {
-          "name": "client_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "company_name",
-          "type": "varchar(120)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "balance",
-          "type": "numeric(14,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "client jadvali numeric(14,2) balansi bilan yaratildi.",
-    "task": "Create a table named `client` with columns: `client_id` (integer), `company_name` (varchar(120)) and `balance` (numeric(14,2))."
+    }
   },
   {
     "id": 10,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 11 • Text Turi",
-    "title": "Katta Hajmli Kesh Jadvali",
-    "story": "Cheklanmagan uzunlikdagi matnli ma'lumotlarni saqlash uchun PostgreSQL da `text` turi qulay.",
-    "taskUz": "Create a table named `temp_cache` with columns: `cache_key` (varchar(50)) and `cache_val` (cheklanmagan matn — text).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **temp_cache**\n• Ustunlar: `cache_key` (varchar(50)), `cache_val` (text)",
-    "starterCode": "",
-    "hint": "Uzunligi cheklanmagan erkin matn turi `text` deb yoziladi.",
-    "solutions": [
-      "CREATE TABLE temp_cache (cache_key varchar(50), cache_val text)",
-      "CREATE TABLE temp_cache (cache_key varchar(50), cache_val text);",
-      "CREATE TABLE temp_cache (\n  cache_key varchar(50),\n  cache_val text\n)",
-      "CREATE TABLE temp_cache (\n  cache_key varchar(50),\n  cache_val text\n);",
-      "CREATE TABLE temp_cache ( cache_key varchar(50), cache_val text )",
-      "CREATE TABLE temp_cache ( cache_key varchar(50), cache_val text );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "temp_cache",
-      "columns": [
-        {
-          "name": "cache_key",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "cache_val",
-          "type": "text",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "temp_cache jadvali text turi bilan barpo etildi.",
-    "task": "Create a table named `temp_cache` with columns: `cache_key` (varchar(50)) and `cache_val` (cheklanmagan matn — text)."
-  },
-  {
-    "id": 11,
-    "sector": 1,
-    "difficulty": "Floor 1 • Easy",
-    "source": "T03 Task 1 • DROP TABLE Xavfsizligi",
-    "title": "Vaqtinchalik Jadvalni O'chirish (DROP)",
-    "story": "Oldingi bosqichda yaratilgan vaqtinchalik `temp_cache` jadvali o'z vazifasini bajardi. Uni xavfsiz o'chirish kerak.",
-    "taskUz": "Safely drop table `temp_cache` if it exists (using `IF EXISTS`).",
-    "starterCode": "",
-    "hint": "`DROP TABLE IF EXISTS jadval_nomi` buyrug'idan foydalaning.",
-    "solutions": [
-      "DROP TABLE IF EXISTS temp_cache",
-      "DROP TABLE IF EXISTS temp_cache;",
-      "DROP TABLE temp_cache",
-      "DROP TABLE temp_cache;"
-    ],
-    "requiredPatterns": [],
-    "explanation": "temp_cache jadvali bazadan o'chirildi.",
-    "task": "Safely drop table `temp_cache` if it exists (using `IF EXISTS`).",
-    "expectedSchema": {
-      "operation": "DROP_TABLE",
-      "tableName": "temp_cache",
-      "ifExists": true,
-      "description": "Vaqtinchalik 'temp_cache' jadvalini bazadan xavfsiz o'chirish (IF EXISTS)."
-    }
-  },
-  {
-    "id": 12,
-    "sector": 1,
-    "difficulty": "Floor 1 • Easy",
-    "source": "T03 Task 1 Step 2 • Qayta Yaratish Oldidan Tozalash",
-    "title": "Bo'limlar Jadvalini O'chirish",
-    "story": "Seminar 3 vazifasiga binoan, bo'sh `department` jadvalini cheklovlar bilan qayta qurishdan oldin o'chirib tashlash lozim.",
-    "taskUz": "`department` nomli jadvalni butunlay o'chirib tashlang.",
-    "starterCode": "",
-    "hint": "`DROP TABLE department` buyrug'ini kiriting.",
-    "solutions": [
-      "DROP TABLE department",
-      "DROP TABLE department;",
-      "DROP TABLE IF EXISTS department",
-      "DROP TABLE IF EXISTS department;"
-    ],
-    "requiredPatterns": [],
-    "explanation": "department jadvali tozalab tashlandi.",
-    "task": "`department` nomli jadvalni butunlay o'chirib tashlang.",
-    "expectedSchema": {
-      "operation": "DROP_TABLE",
-      "tableName": "department",
-      "ifExists": false,
-      "description": "'department' jadvalini bazadan to'liq o'chirib tashlash."
-    }
-  },
-  {
-    "id": 13,
-    "sector": 1,
-    "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 12 • Profil va Bio",
-    "title": "Xodim Tarjimai Holi Jadvali",
-    "story": "Kompaniya xodimlarining qisqacha tarjimai holi and qo'shilgan sanasini saqlamoqchi.",
-    "taskUz": "Create a table named `employee_profile` with columns: `emp_id` (integer), `bio` (text) and `joined_on` (date).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee_profile**\n• Ustunlar: `emp_id` (integer), `bio` (text), `joined_on` (date)",
-    "starterCode": "",
-    "hint": "`integer`, `text` and `date` turlarini ketma-ket qo'llang.",
+    "source": "L03 Slide 16 • Text Katta Matn Turi",
+    "title": "Employee Profile va Cheklanmagan Text Turi",
+    "story": "Xodimlarning erkin tarjimai holi (bio) varchar bilan cheklanmasligi, katta hajmda yozilishi mumkin bo'lishi kerak.",
+    "taskUz": "`employee_profile` nomli jadval yarating: `emp_id` (integer), `bio` (text) va `joined_on` (date).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **employee_profile**\n• Ustunlar: `emp_id integer`, `bio text`, `joined_on date`",
+    "hint": "`CREATE TABLE employee_profile (emp_id integer, bio text, joined_on date);`",
     "solutions": [
       "CREATE TABLE employee_profile (emp_id integer, bio text, joined_on date)",
       "CREATE TABLE employee_profile (emp_id integer, bio text, joined_on date);",
-      "CREATE TABLE employee_profile (\n  emp_id integer,\n  bio text,\n  joined_on date\n)",
-      "CREATE TABLE employee_profile (\n  emp_id integer,\n  bio text,\n  joined_on date\n);",
-      "CREATE TABLE employee_profile ( emp_id integer, bio text, joined_on date )",
-      "CREATE TABLE employee_profile ( emp_id integer, bio text, joined_on date );"
+      "create table employee_profile (emp_id integer, bio text, joined_on date)",
+      "create table employee_profile (emp_id integer, bio text, joined_on date);",
+      "CREATE TABLE employee_profile (emp_id int, bio text, joined_on date)",
+      "CREATE TABLE employee_profile (emp_id int, bio text, joined_on date);",
+      "create table employee_profile (emp_id int, bio text, joined_on date)",
+      "create table employee_profile (emp_id int, bio text, joined_on date);"
     ],
-    "requiredPatterns": [],
+    "explanation": "Cheklanmagan text turi bilan tarjimai hol maydoni yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "employee_profile",
       "columns": [
         {
           "name": "emp_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "bio",
-          "type": "text",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "text"
         },
         {
           "name": "joined_on",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "date"
         }
       ]
-    },
-    "explanation": "employee_profile jadvali text and date bilan birga yaratildi.",
-    "task": "Create a table named `employee_profile` with columns: `emp_id` (integer), `bio` (text) and `joined_on` (date)."
+    }
   },
   {
-    "id": 14,
+    "id": 11,
     "sector": 1,
     "difficulty": "Floor 1 • Easy",
-    "source": "L03 Slide 15 • Invoyslar va To'lov Holati",
-    "title": "Invoyslar va To'lov Holati",
-    "story": "Buxgalteriya bo'limi har bir hisob-faktura raqami, jami summasi and to'langanlik holatini saqlashni so'radi.",
-    "taskUz": "Create a table named `invoice` with columns: `inv_no` (integer), `total_amount` (numeric(12,2)) and `paid` (boolean).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **invoice**\n• Ustunlar: `inv_no` (integer), `total_amount` (numeric(12,2)), `paid` (boolean)",
-    "starterCode": "",
-    "hint": "`integer`, `numeric(12,2)` and `boolean` turlarini ishlating.",
+    "source": "T03 Task 1 • Invoyslar Jadvali",
+    "title": "Invoices va To'lov Holati",
+    "story": "Hisob-kitob bo'limi invoys raqami, jami summa va to'langanlik bayrog'ini saqlovchi jadval so'ramoqda.",
+    "taskUz": "`invoice` nomli jadval yarating: `inv_no` (integer), `total_amount` (numeric(12,2)) va `paid` (boolean).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **invoice**\n• Ustunlar: `inv_no integer`, `total_amount numeric(12,2)`, `paid boolean`",
+    "hint": "`CREATE TABLE invoice (inv_no integer, total_amount numeric(12,2), paid boolean);`",
     "solutions": [
       "CREATE TABLE invoice (inv_no integer, total_amount numeric(12,2), paid boolean)",
       "CREATE TABLE invoice (inv_no integer, total_amount numeric(12,2), paid boolean);",
-      "CREATE TABLE invoice (\n  inv_no integer,\n  total_amount numeric(12,2),\n  paid boolean\n)",
-      "CREATE TABLE invoice (\n  inv_no integer,\n  total_amount numeric(12,2),\n  paid boolean\n);",
-      "CREATE TABLE invoice ( inv_no integer, total_amount numeric(12,2), paid boolean )",
-      "CREATE TABLE invoice ( inv_no integer, total_amount numeric(12,2), paid boolean );"
+      "create table invoice (inv_no integer, total_amount numeric(12,2), paid boolean)",
+      "create table invoice (inv_no integer, total_amount numeric(12,2), paid boolean);",
+      "CREATE TABLE invoice (inv_no int, total_amount numeric(12,2), paid boolean)",
+      "CREATE TABLE invoice (inv_no int, total_amount numeric(12,2), paid boolean);",
+      "create table invoice (inv_no int, total_amount numeric(12,2), paid boolean)",
+      "create table invoice (inv_no int, total_amount numeric(12,2), paid boolean);"
     ],
-    "requiredPatterns": [],
+    "explanation": "invoice jadvali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "invoice",
       "columns": [
         {
           "name": "inv_no",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "total_amount",
-          "type": "numeric(12,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "numeric(12,2)"
         },
         {
           "name": "paid",
-          "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "boolean"
         }
       ]
-    },
-    "explanation": "invoice moliyaviy jadvali yaratildi.",
-    "task": "Create a table named `invoice` with columns: `inv_no` (integer), `total_amount` (numeric(12,2)) and `paid` (boolean)."
+    }
+  },
+  {
+    "id": 12,
+    "sector": 1,
+    "difficulty": "Floor 1 • Easy",
+    "source": "L03 Slide 16 • Kesh Jadvali",
+    "title": "Katta Hajmli Kesh Jadvali (temp_cache)",
+    "story": "Tizim tezkor qidiruv uchun vaqtinchalik kalit-qiymat kesh jadvalini hosil qilmoqda.",
+    "taskUz": "`temp_cache` nomli jadval yarating: `cache_key` (varchar(50)) va `cache_val` (text).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **temp_cache**\n• Ustunlar: `cache_key varchar(50)`, `cache_val text`",
+    "hint": "`CREATE TABLE temp_cache (cache_key varchar(50), cache_val text);`",
+    "solutions": [
+      "CREATE TABLE temp_cache (cache_key varchar(50), cache_val text)",
+      "CREATE TABLE temp_cache (cache_key varchar(50), cache_val text);",
+      "create table temp_cache (cache_key varchar(50), cache_val text)",
+      "create table temp_cache (cache_key varchar(50), cache_val text);"
+    ],
+    "explanation": "temp_cache jadvali barpo etildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "temp_cache",
+      "columns": [
+        {
+          "name": "cache_key",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "cache_val",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "sector": 1,
+    "difficulty": "Floor 1 • Easy",
+    "source": "L03 Slide 25 • DROP TABLE IF EXISTS",
+    "title": "Vaqtinchalik Jadvalni O'chirish (DROP)",
+    "story": "Kesh muddati tugadi. Endi `temp_cache` jadvalini mavjud bo'lsa xatoliksiz xavfsiz o'chirish lozim.",
+    "taskUz": "`temp_cache` jadvalini agar mavjud bo'lsa o'chiring (`DROP TABLE IF EXISTS ...`).\n\n📋 **Kutilayotgan DDL:**\n`DROP TABLE IF EXISTS temp_cache;`",
+    "hint": "`DROP TABLE IF EXISTS temp_cache;` deb yozing.",
+    "solutions": [
+      "DROP TABLE IF EXISTS temp_cache",
+      "DROP TABLE IF EXISTS temp_cache;",
+      "drop table if exists temp_cache",
+      "drop table if exists temp_cache;"
+    ],
+    "explanation": "temp_cache jadvali bazadan xavfsiz o'chirildi.",
+    "expectedSchema": {
+      "operation": "DROP_TABLE",
+      "tableName": "temp_cache",
+      "ifExists": true,
+      "description": "Vaqtinchalik 'temp_cache' jadvali xavfsiz o'chirildi."
+    }
+  },
+  {
+    "id": 14,
+    "sector": 1,
+    "difficulty": "Floor 1 • Easy",
+    "source": "T03 Task 1 • Mijozlar Balansi",
+    "title": "Client Balans Jadvali",
+    "story": "Katta korporativ mijozlar balansi 14 xonali va 2 xonasi tiyin bo'lgan yuqori aniqlikdagi numeric turini talab qiladi.",
+    "taskUz": "`client` nomli jadval yarating: `client_id` (integer), `company_name` (varchar(120)) va `balance` (numeric(14,2)).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **client**\n• Ustunlar: `client_id integer`, `company_name varchar(120)`, `balance numeric(14,2)`",
+    "hint": "`CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2));`",
+    "solutions": [
+      "CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2))",
+      "CREATE TABLE client (client_id integer, company_name varchar(120), balance numeric(14,2));",
+      "create table client (client_id integer, company_name varchar(120), balance numeric(14,2))",
+      "create table client (client_id integer, company_name varchar(120), balance numeric(14,2));",
+      "CREATE TABLE client (client_id int, company_name varchar(120), balance numeric(14,2))",
+      "CREATE TABLE client (client_id int, company_name varchar(120), balance numeric(14,2));",
+      "create table client (client_id int, company_name varchar(120), balance numeric(14,2))",
+      "create table client (client_id int, company_name varchar(120), balance numeric(14,2));"
+    ],
+    "explanation": "client jadvali numeric(14,2) bilan yaratildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "client",
+      "columns": [
+        {
+          "name": "client_id",
+          "type": "integer"
+        },
+        {
+          "name": "company_name",
+          "type": "varchar(120)"
+        },
+        {
+          "name": "balance",
+          "type": "numeric(14,2)"
+        }
+      ]
+    }
   },
   {
     "id": 15,
     "sector": 1,
-    "difficulty": "Floor 1 • Master Architect",
-    "source": "T03 Core Preparation • 1-Qavat Yakuni",
+    "difficulty": "Floor 1 • Boss Challenge",
+    "source": "1-Qavat Bossi • Barcha Boshlang'ich Turlar Sintezi",
     "title": "1-Qavat Bossi: Tashkiliy Birlik Arxitekturasi",
-    "story": "1-qavatning yakuniy sinovi! Korporatsiyaning barcha tashkiliy birliklari (unit) uchun barcha 5 ta asosiy ma'lumot turlarini o'zida jamlagan mukammal jadval talab qilinmoqda.",
-    "taskUz": "Create a table named `organization_unit` with columns: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean) and `created_at` (timestamp).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **organization_unit**\n• Ustunlar: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean), `created_at` (timestamp)",
-    "starterCode": "",
-    "hint": "Barcha 5 ustunni ko'rsatilgan turlar bilan bitta CREATE TABLE ichida e'lon qiling.",
+    "story": "1-qavatning yakuniy sinov vazifasi: integer, varchar, numeric, boolean va timestamp ma'lumot turlarini yagona jadvalda sintez qiling.",
+    "taskUz": "`organization_unit` nomli jadval yarating: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean) va `created_at` (timestamp).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **organization_unit**\n• Ustunlar: `unit_id integer`, `unit_name varchar(100)`, `operational_budget numeric(15,2)`, `active boolean`, `created_at timestamp`",
+    "hint": "`CREATE TABLE organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp);`",
     "solutions": [
       "CREATE TABLE organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp)",
       "CREATE TABLE organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp);",
-      "CREATE TABLE organization_unit (\n  unit_id integer,\n  unit_name varchar(100),\n  operational_budget numeric(15,2),\n  active boolean,\n  created_at timestamp\n)",
-      "CREATE TABLE organization_unit (\n  unit_id integer,\n  unit_name varchar(100),\n  operational_budget numeric(15,2),\n  active boolean,\n  created_at timestamp\n);",
-      "CREATE TABLE organization_unit ( unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp )",
-      "CREATE TABLE organization_unit ( unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp );"
+      "create table organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp)",
+      "create table organization_unit (unit_id integer, unit_name varchar(100), operational_budget numeric(15,2), active boolean, created_at timestamp);",
+      "CREATE TABLE organization_unit (unit_id int, unit_name varchar(100), operational_budget numeric(15,2), active bool, created_at timestamp)",
+      "CREATE TABLE organization_unit (unit_id int, unit_name varchar(100), operational_budget numeric(15,2), active bool, created_at timestamp);",
+      "create table organization_unit (unit_id int, unit_name varchar(100), operational_budget numeric(15,2), active bool, created_at timestamp)",
+      "create table organization_unit (unit_id int, unit_name varchar(100), operational_budget numeric(15,2), active bool, created_at timestamp);"
     ],
-    "requiredPatterns": [],
+    "explanation": "1-Qavat Bossi muvaffaqiyatli bajarildi! Barcha asosiy ma'lumot turlari o'zlashtirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "organization_unit",
       "columns": [
         {
           "name": "unit_id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "integer"
         },
         {
           "name": "unit_name",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(100)"
         },
         {
           "name": "operational_budget",
-          "type": "numeric(15,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "numeric(15,2)"
         },
         {
           "name": "active",
-          "type": "boolean",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "boolean"
         },
         {
           "name": "created_at",
-          "type": "timestamp",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "timestamp"
         }
       ]
-    },
-    "explanation": "1-Qavat Bossi zabt etildi! Barcha asosiy ma'lumot turlari to'g'ri bog'landi.",
-    "task": "Create a table named `organization_unit` with columns: `unit_id` (integer), `unit_name` (varchar(100)), `operational_budget` (numeric(15,2)), `active` (boolean) and `created_at` (timestamp)."
+    }
   },
   {
     "id": 16,
     "sector": 2,
     "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 • Ustun Darajasidagi Primary Key",
-    "title": "Ustun Darajasida Primary Key",
-    "story": "Jadvalda har bir qatorni bir qiymatli aniqlash uchun birlamchi kalit (PK) shart. Eng oddiy usul — uni ustun yonida e'lon qilish.",
-    "taskUz": "Create a table named `warehouse`: `id` (integer) column bevosita ustun darajasida `PRIMARY KEY` qilib belgilang, second column esa `city` (varchar(50)) bo'lsin.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **warehouse**\n• Ustunlar: `id` [PK] (integer), `city` (varchar(50))",
-    "starterCode": "",
-    "hint": "`id integer PRIMARY KEY, city varchar(50)` .",
+    "source": "T03 Task 1 • Ustun Darajasidagi Birlamchi Kalit",
+    "title": "Column-level Primary Key",
+    "story": "Jadvaldagi har bir satr takrorlanmas unikal identifikatorga ega bo'lishi shart. Buni ustun darajasidagi `PRIMARY KEY` orqali ta'minlaymiz.",
+    "taskUz": "`department` nomli jadval yarating: `id` (integer PRIMARY KEY), `title` (varchar(100)) va `location` (varchar(50)).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **department**\n• Ustunlar: `id integer PRIMARY KEY`, `title varchar(100)`, `location varchar(50)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), location varchar(50));`",
     "solutions": [
-      "CREATE TABLE warehouse (id integer PRIMARY KEY, city varchar(50))",
-      "CREATE TABLE warehouse (id integer PRIMARY KEY, city varchar(50));",
-      "CREATE TABLE warehouse (\n  id integer PRIMARY KEY,\n  city varchar(50)\n)",
-      "CREATE TABLE warehouse (\n  id integer PRIMARY KEY,\n  city varchar(50)\n);",
-      "CREATE TABLE warehouse ( id integer PRIMARY KEY, city varchar(50) )",
-      "CREATE TABLE warehouse ( id integer PRIMARY KEY, city varchar(50) );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), location varchar(50))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100), location varchar(50));",
+      "create table department (id integer primary key, title varchar(100), location varchar(50))",
+      "create table department (id integer primary key, title varchar(100), location varchar(50));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100), location varchar(50))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100), location varchar(50));",
+      "create table department (id int primary key, title varchar(100), location varchar(50))",
+      "create table department (id int primary key, title varchar(100), location varchar(50));",
+      "CREATE TABLE department (\n  id integer PRIMARY KEY,\n  title varchar(100),\n  location varchar(50)\n)",
+      "CREATE TABLE department (\n  id integer PRIMARY KEY,\n  title varchar(100),\n  location varchar(50)\n);",
+      "CREATE TABLE department ( id integer PRIMARY KEY, title varchar(100), location varchar(50) )",
+      "CREATE TABLE department ( id integer PRIMARY KEY, title varchar(100), location varchar(50) );",
+      "create table department (\n  id integer primary key,\n  title varchar(100),\n  location varchar(50)\n)",
+      "create table department (\n  id integer primary key,\n  title varchar(100),\n  location varchar(50)\n);"
     ],
-    "requiredPatterns": [],
+    "explanation": "Ustun darajasidagi PRIMARY KEY bilan department jadvali tuzildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "warehouse",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "city",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "title",
+          "type": "varchar(100)"
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)"
         }
       ]
-    },
-    "explanation": "warehouse jadvali ustun darajasidagi PRIMARY KEY bilan yaratildi.",
-    "task": "Create a table named `warehouse`: `id` (integer) column bevosita ustun darajasida `PRIMARY KEY` qilib belgilang, second column esa `city` (varchar(50)) bo'lsin."
+    }
   },
   {
     "id": 17,
     "sector": 2,
     "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 • Jadval Darajasidagi Primary Key",
-    "title": "Jadval Darajasida Primary Key",
-    "story": "Ko'pincha arxitekturada kalitlar alohida qatorda yoziladi. Bu kodni o'qishni and boshqarishni osonlashtiradi.",
-    "taskUz": "Create a table named `supplier` with columns: `id` (integer) and `company` (varchar(80)). primary keyni jadval darajasida `PRIMARY KEY (id)` declared.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **supplier**\n• Ustunlar: `id` [PK] (integer), `company` (varchar(80))",
-    "starterCode": "",
-    "hint": "Ustunlardan so'ng vergul qo'yib, `PRIMARY KEY (id)` .",
+    "source": "L03 Slide 20 • Jadval Darajasidagi Birlamchi Kalit",
+    "title": "Table-level Named Primary Key",
+    "story": "Katta loyihalarda cheklovlarga aniq nom berish yaxshi amaliyot sanaladi (`CONSTRAINT pk_... PRIMARY KEY`).",
+    "taskUz": "`department` nomli jadval yarating va `pk_department` nomli jadval darajasidagi birlamchi kalit belgilang.\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **department**\n• Ustunlar: `id integer`, `title varchar(100)`\n• Cheklov: `CONSTRAINT pk_department PRIMARY KEY (id)`",
+    "hint": "`CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department PRIMARY KEY (id));`",
     "solutions": [
-      "CREATE TABLE supplier (id integer, company varchar(80), PRIMARY KEY (id))",
-      "CREATE TABLE supplier (id integer, company varchar(80), PRIMARY KEY (id));",
-      "CREATE TABLE supplier (\n  id integer,\n  company varchar(80),\n  PRIMARY KEY (id)\n)",
-      "CREATE TABLE supplier (\n  id integer,\n  company varchar(80),\n  PRIMARY KEY (id)\n);",
-      "CREATE TABLE supplier ( id integer, company varchar(80), PRIMARY KEY (id) )",
-      "CREATE TABLE supplier ( id integer, company varchar(80), PRIMARY KEY (id) );"
+      "CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department PRIMARY KEY (id))",
+      "CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department PRIMARY KEY (id));",
+      "create table department (id integer, title varchar(100), constraint pk_department primary key (id))",
+      "create table department (id integer, title varchar(100), constraint pk_department primary key (id));",
+      "CREATE TABLE department (id int, title varchar(100), CONSTRAINT pk_department PRIMARY KEY (id))",
+      "CREATE TABLE department (id int, title varchar(100), CONSTRAINT pk_department PRIMARY KEY (id));",
+      "create table department (id int, title varchar(100), constraint pk_department primary key (id))",
+      "create table department (id int, title varchar(100), constraint pk_department primary key (id));"
     ],
-    "requiredPatterns": [],
+    "explanation": "Aniq nomlangan pk_department birlamchi kaliti yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "supplier",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "company",
-          "type": "varchar(80)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "title",
+          "type": "varchar(100)"
         }
       ]
-    },
-    "explanation": "supplier jadvali jadval darajasidagi PRIMARY KEY bilan yaratildi.",
-    "task": "Create a table named `supplier` with columns: `id` (integer) and `company` (varchar(80)). primary keyni jadval darajasida `PRIMARY KEY (id)` declared."
+    }
   },
   {
     "id": 18,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 Rules • Nomlangan Birlamchi Kalit",
-    "title": "Nomlangan Primary Key (Named Constraint)",
-    "story": "Academy and professional enterprise qoidalariga ko'ra, har bir cheklov o'z rasmiy nomiga (`pk_jadval_ustun`) ega bo'lishi shart.",
-    "taskUz": "Create a table named `department` with columns: `id` (integer) and `title` (varchar(100)). primary keyga `pk_department_id` deb nom bering (`CONSTRAINT pk_department_id PRIMARY KEY (id)`).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100))\n• Cheklovlar: `pk_department_id`",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_department_id PRIMARY KEY (id)` sintaksisini jadval oxirida qo'llang.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "T03 Task 1 • GENERATED ALWAYS AS IDENTITY",
+    "title": "SQL Standard GENERATED ALWAYS AS IDENTITY",
+    "story": "PostgreSQL 10+ versiyalarida SQL standartidagi `GENERATED ALWAYS AS IDENTITY` xavfsiz avtomatik inkrementni kafolatlaydi.",
+    "taskUz": "`department` jadvalini yarating: `id` (integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY) va `title` (varchar(100)).\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **department**\n• Ustunlar: `id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY`, `title varchar(100)`",
+    "hint": "`CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100));`",
     "solutions": [
-      "CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department_id PRIMARY KEY (id))",
-      "CREATE TABLE department (id integer, title varchar(100), CONSTRAINT pk_department_id PRIMARY KEY (id));",
-      "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n)",
-      "CREATE TABLE department (\n  id integer,\n  title varchar(100),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n);",
-      "CREATE TABLE department ( id integer, title varchar(100), CONSTRAINT pk_department_id PRIMARY KEY (id) )",
-      "CREATE TABLE department ( id integer, title varchar(100), CONSTRAINT pk_department_id PRIMARY KEY (id) );"
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100));",
+      "create table department (id integer generated always as identity primary key, title varchar(100))",
+      "create table department (id integer generated always as identity primary key, title varchar(100));",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100));",
+      "create table department (id int generated always as identity primary key, title varchar(100))",
+      "create table department (id int generated always as identity primary key, title varchar(100));"
     ],
-    "requiredPatterns": [],
+    "explanation": "SQL standartidagi GENERATED ALWAYS identity kaliti muvaffaqiyatli tatbiq etildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "department",
@@ -971,156 +659,35 @@ _scope.QUESTIONS_1_50 = [
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true
         },
         {
           "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "type": "varchar(100)"
         }
       ]
-    },
-    "explanation": "named pk_department_id birlamchi kaliti o'rnatildi.",
-    "task": "Create a table named `department` with columns: `id` (integer) and `title` (varchar(100)). primary keyga `pk_department_id` deb nom bering (`CONSTRAINT pk_department_id PRIMARY KEY (id)`)."
+    }
   },
   {
     "id": 19,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 • GENERATED ALWAYS AS IDENTITY",
-    "title": "Avto-inkrement (Identity) Mexanizmi",
-    "story": "Baza har bir yangi qator kiritilganda unikal ID raqamini o'zi avtomatik generatsiya qilishi kerak.",
-    "taskUz": "Create a table named `customer`: `id` (integer) ustuniga `GENERATED ALWAYS AS IDENTITY` xususiyatini bering, second column esa `fullname` (varchar(70)) bo'lsin.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **customer**\n• Ustunlar: `id` (integer), `fullname` (varchar(70))",
-    "starterCode": "",
-    "hint": "`id integer GENERATED ALWAYS AS IDENTITY` .",
+    "difficulty": "Floor 2 • Medium",
+    "source": "L03 Slide 21 • GENERATED BY DEFAULT AS IDENTITY",
+    "title": "GENERATED BY DEFAULT AS IDENTITY Moslashuvchanligi",
+    "story": "Foydalanuvchi o'zi id kiritishini ham istisno hollarda qo'llab-quvvatlash uchun `BY DEFAULT` ishlatiladi.",
+    "taskUz": "`department` jadvalini `id` ustuni `GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY` bo'lgan holda yarating.\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **department**\n• Ustunlar: `id integer GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY`, `title varchar(100)`",
+    "hint": "`CREATE TABLE department (id integer GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, title varchar(100));`",
     "solutions": [
-      "CREATE TABLE customer (id integer GENERATED ALWAYS AS IDENTITY, fullname varchar(70))",
-      "CREATE TABLE customer (id integer GENERATED ALWAYS AS IDENTITY, fullname varchar(70));",
-      "CREATE TABLE customer (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  fullname varchar(70)\n)",
-      "CREATE TABLE customer (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  fullname varchar(70)\n);",
-      "CREATE TABLE customer ( id integer GENERATED ALWAYS AS IDENTITY, fullname varchar(70) )",
-      "CREATE TABLE customer ( id integer GENERATED ALWAYS AS IDENTITY, fullname varchar(70) );"
+      "CREATE TABLE department (id integer GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id integer GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, title varchar(100));",
+      "create table department (id integer generated by default as identity primary key, title varchar(100))",
+      "create table department (id integer generated by default as identity primary key, title varchar(100));",
+      "CREATE TABLE department (id int GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id int GENERATED BY DEFAULT AS IDENTITY PRIMARY KEY, title varchar(100));",
+      "create table department (id int generated by default as identity primary key, title varchar(100))",
+      "create table department (id int generated by default as identity primary key, title varchar(100));"
     ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "customer",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": true,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "fullname",
-          "type": "varchar(70)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "SQL:2003 standarti bo'yicha GENERATED ALWAYS AS IDENTITY muvaffaqiyatli o'rnatildi.",
-    "task": "Create a table named `customer`: `id` (integer) ustuniga `GENERATED ALWAYS AS IDENTITY` xususiyatini bering, second column esa `fullname` (varchar(70)) bo'lsin."
-  },
-  {
-    "id": 20,
-    "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 • Identity va PK Kombinatsiyasi",
-    "title": "Identity va Nomlangan PK Birgalikda",
-    "story": "Seminar 3 qoidasi: Identity qiymat yetkazib beradi (supply), Primary Key esa uning takrorlanmasligini qat'iy kafolatlaydi (enforce).",
-    "taskUz": "Create a table named `project` with columns: `id` (integer GENERATED ALWAYS AS IDENTITY) and `title` (varchar(100)). primary key nomini `pk_project_id` deb belgilang.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **project**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100))\n• Cheklovlar: `pk_project_id`",
-    "starterCode": "",
-    "hint": "`id integer GENERATED ALWAYS AS IDENTITY`, keyin `title varchar(100)`, oxirida `CONSTRAINT pk_project_id PRIMARY KEY (id)` yozing.",
-    "solutions": [
-      "CREATE TABLE project (id integer GENERATED ALWAYS AS IDENTITY, title varchar(100), CONSTRAINT pk_project_id PRIMARY KEY (id))",
-      "CREATE TABLE project (id integer GENERATED ALWAYS AS IDENTITY, title varchar(100), CONSTRAINT pk_project_id PRIMARY KEY (id));",
-      "CREATE TABLE project (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  title varchar(100),\n  CONSTRAINT pk_project_id PRIMARY KEY (id)\n)",
-      "CREATE TABLE project (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  title varchar(100),\n  CONSTRAINT pk_project_id PRIMARY KEY (id)\n);",
-      "CREATE TABLE project ( id integer GENERATED ALWAYS AS IDENTITY, title varchar(100), CONSTRAINT pk_project_id PRIMARY KEY (id) )",
-      "CREATE TABLE project ( id integer GENERATED ALWAYS AS IDENTITY, title varchar(100), CONSTRAINT pk_project_id PRIMARY KEY (id) );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "project",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "Identity and named Primary Key kombinatsiyasi to'liq bajarildi.",
-    "task": "Create a table named `project` with columns: `id` (integer GENERATED ALWAYS AS IDENTITY) and `title` (varchar(100)). primary key nomini `pk_project_id` deb belgilang."
-  },
-  {
-    "id": 21,
-    "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "source": "T03 Task 1 Step 3 • Identity Parametrlari",
-    "title": "Identity: 1 dan Boshlanib 10 tadan Oshish",
-    "story": "Tizim raqamlar oraliqlarini guruhlarga ajratish uchun ID ni 1 dan boshlab 10 tadan oshirib borishni (`START WITH 1 INCREMENT BY 10`) talab qilmoqda.",
-    "taskUz": "Create a table named `department`: `id` column `integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)` declared, second column `title` (varchar(100)) bo'lsin.",
-    "starterCode": "",
-    "hint": "`IDENTITY` so'zidan keyin qavs ichida `(START WITH 1 INCREMENT BY 10)` parametrlarini bering.",
-    "solutions": [
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100))",
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100));",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100)\n)",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100)\n);",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) )",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100) );"
-    ],
-    "requiredPatterns": [],
-    "explanation": "Identity sequence parametrlari (1 dan 10 qadam bilan) to'g'ri sozlandi.",
-    "task": "Create a table named `department`: `id` column `integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)` declared, second column `title` (varchar(100)) bo'lsin.",
+    "explanation": "GENERATED BY DEFAULT AS IDENTITY bilan moslashuvchan kalit hosil qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "department",
@@ -1128,26 +695,94 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": true,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true,
+          "isIdentity": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)"
+        }
+      ]
+    }
+  },
+  {
+    "id": 20,
+    "sector": 2,
+    "difficulty": "Floor 2 • Medium",
+    "source": "T03 Task 6 • Sequence Parametrlari (START WITH / INCREMENT)",
+    "title": "Identity Sequence Parametrlari",
+    "story": "Tashkilot bo'lim raqamlari 100 dan boshlanib, 10 qadam bilan oshishi talab etiladi.",
+    "taskUz": "`department` jadvalini yarating: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY) va `title` (varchar(100)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY`",
+    "hint": "`CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY, title varchar(100));`",
+    "solutions": [
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY, title varchar(100));",
+      "create table department (id integer generated always as identity (start with 100 increment by 10) primary key, title varchar(100))",
+      "create table department (id integer generated always as identity (start with 100 increment by 10) primary key, title varchar(100));",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY, title varchar(100))",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 10) PRIMARY KEY, title varchar(100));",
+      "create table department (id int generated always as identity (start with 100 increment by 10) primary key, title varchar(100))",
+      "create table department (id int generated always as identity (start with 100 increment by 10) primary key, title varchar(100));"
+    ],
+    "explanation": "Ketma-ketlik (sequence) maxsus parametrlar bilan ishga tushirildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true,
+          "isIdentity": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)"
+        }
+      ]
+    }
+  },
+  {
+    "id": 21,
+    "sector": 2,
+    "difficulty": "Floor 2 • Medium",
+    "source": "T03 Task 1 • Composite Primary Key (title, location)",
+    "title": "Bo'limlar uchun Murakkab Birlamchi Kalit (Composite PK)",
+    "story": "Seminar 3 1-topshirig'i: Bir xil nomli bo'lim faqat boshqa shaharda ochilishi mumkin. Shuning uchun (title, location) birgalikda unikal bo'lishi kerak.",
+    "taskUz": "`department` nomli jadval yarating: `id` (integer), `title` (varchar(100)), `location` (varchar(50)) va `budget` (numeric(12,2)). Birlamchi kalit: `PRIMARY KEY (title, location)`.\n\n📋 **Kutilayotgan Sxema:**\n• Birlamchi kalit: `PRIMARY KEY (title, location)`",
+    "hint": "`CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2), PRIMARY KEY (title, location));`",
+    "solutions": [
+      "CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2), PRIMARY KEY (title, location))",
+      "CREATE TABLE department (id integer, title varchar(100), location varchar(50), budget numeric(12,2), PRIMARY KEY (title, location));",
+      "create table department (id integer, title varchar(100), location varchar(50), budget numeric(12,2), primary key (title, location))",
+      "create table department (id integer, title varchar(100), location varchar(50), budget numeric(12,2), primary key (title, location));",
+      "CREATE TABLE department (id int, title varchar(100), location varchar(50), budget numeric(12,2), PRIMARY KEY (title, location))",
+      "CREATE TABLE department (id int, title varchar(100), location varchar(50), budget numeric(12,2), PRIMARY KEY (title, location));",
+      "create table department (id int, title varchar(100), location varchar(50), budget numeric(12,2), primary key (title, location))",
+      "create table department (id int, title varchar(100), location varchar(50), budget numeric(12,2), primary key (title, location));"
+    ],
+    "explanation": "Murakkab (composite) birlamchi kalit (title, location) muvaffaqiyatli o'rnatildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer"
         },
         {
           "name": "title",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isPK": true
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)"
         }
       ]
     }
@@ -1155,51 +790,40 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 22,
     "sector": 2,
-    "difficulty": "Floor 2 • Intermediate",
-    "source": "T03 Appendix A • Katta Qadamli Sequence",
-    "title": "Yirik Qadamli Identity Parametrlari",
-    "story": "Kompaniya filiallariga 100 dan boshlanib 50 tadan oshuvchi blokli ID larni ajratmoqda (100, 150, 200...).",
-    "taskUz": "Create a table named `region` with columns: `id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50)` and `region_name varchar(60)`.",
-    "starterCode": "",
-    "hint": "`START WITH 100 INCREMENT BY 50` variantini IDENTITY qavsi ichida yozing.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "T03 Task 1 • Loyihaga Biriktirish (assigned Jadvali)",
+    "title": "Loyihaga Biriktirish (assigned) va Composite PK",
+    "story": "Seminar 3 ning klassik ko'pga-ko'p (M:N) bog'lovchi `assigned` jadvali: xodim bitta loyihaga faqat bir marta biriktiriladi.",
+    "taskUz": "`assigned` nomli jadval yarating: `emp_id` (integer), `proj_id` (integer), `role` (varchar(50)) va `PRIMARY KEY (emp_id, proj_id)`.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `emp_id integer`, `proj_id integer`, `role varchar(50)`\n• Birlamchi kalit: `PRIMARY KEY (emp_id, proj_id)`",
+    "hint": "`CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), PRIMARY KEY (emp_id, proj_id));`",
     "solutions": [
-      "CREATE TABLE region (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50), region_name varchar(60))",
-      "CREATE TABLE region (id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50), region_name varchar(60));",
-      "CREATE TABLE region (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50),\n  region_name varchar(60)\n)",
-      "CREATE TABLE region (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50),\n  region_name varchar(60)\n);",
-      "CREATE TABLE region ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50), region_name varchar(60) )",
-      "CREATE TABLE region ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50), region_name varchar(60) );"
+      "CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id integer, proj_id integer, role varchar(50), primary key (emp_id, proj_id))",
+      "create table assigned (emp_id integer, proj_id integer, role varchar(50), primary key (emp_id, proj_id));",
+      "CREATE TABLE assigned (emp_id int, proj_id int, role varchar(50), PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id int, proj_id int, role varchar(50), PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id int, proj_id int, role varchar(50), primary key (emp_id, proj_id))",
+      "create table assigned (emp_id int, proj_id int, role varchar(50), primary key (emp_id, proj_id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "Yirik oraliqli identity parametrli jadval shakllantirildi.",
-    "task": "Create a table named `region` with columns: `id integer GENERATED ALWAYS AS IDENTITY (START WITH 100 INCREMENT BY 50)` and `region_name varchar(60)`.",
+    "explanation": "assigned ko'pga-ko'p bog'lovchi jadvali composite PK bilan barpo etildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "region",
+      "tableName": "assigned",
       "columns": [
         {
-          "name": "id",
+          "name": "emp_id",
           "type": "integer",
-          "isPK": false,
-          "isIdentity": true,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "region_name",
-          "type": "varchar(60)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "role",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1207,103 +831,77 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 23,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 4 • Tabiiy Kalit (Natural Primary Key)",
-    "title": "Tabiiy Primary Key (Pasport Raqami)",
-    "story": "Seminar 2 and 3 kompaniya sxemasida: `passport_no` tabiiy birlamchi kalit hisoblanadi (surrogate sonli id emas, balki real hayotiy unikal kod).",
-    "taskUz": "Create a table named `person`: `passport_no` (varchar(20)) column named primary key (`CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)`) qiling and `name` (varchar(50)) column qo'shing.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **person**\n• Ustunlar: `passport_no` [PK] (varchar(20)), `name` (varchar(50))\n• Cheklovlar: `pk_person_passport`",
-    "starterCode": "",
-    "hint": "`passport_no` matnli column `CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)` orqali asosiy kalit qiling.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "L03 Slide 20 • Ko'p Qiymatli Atribut Jadvali",
+    "title": "Department Telefonlari (department_phone)",
+    "story": "Bo'limning bir nechta telefon raqamlari bo'lishi mumkin. 1NF qoidasiga ko'ra har bir telefon alohida satrda saqlanadi.",
+    "taskUz": "`department_phone` jadvalini yarating: `dept_id` (integer), `phone_number` (varchar(20)) va `PRIMARY KEY (dept_id, phone_number)`.\n\n📋 **Kutilayotgan Sxema:**\n• Birlamchi kalit: `PRIMARY KEY (dept_id, phone_number)`",
+    "hint": "`CREATE TABLE department_phone (dept_id integer, phone_number varchar(20), PRIMARY KEY (dept_id, phone_number));`",
     "solutions": [
-      "CREATE TABLE person (passport_no varchar(20), name varchar(50), CONSTRAINT pk_person_passport PRIMARY KEY (passport_no))",
-      "CREATE TABLE person (passport_no varchar(20), name varchar(50), CONSTRAINT pk_person_passport PRIMARY KEY (passport_no));",
-      "CREATE TABLE person (\n  passport_no varchar(20),\n  name varchar(50),\n  CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)\n)",
-      "CREATE TABLE person (\n  passport_no varchar(20),\n  name varchar(50),\n  CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)\n);",
-      "CREATE TABLE person ( passport_no varchar(20), name varchar(50), CONSTRAINT pk_person_passport PRIMARY KEY (passport_no) )",
-      "CREATE TABLE person ( passport_no varchar(20), name varchar(50), CONSTRAINT pk_person_passport PRIMARY KEY (passport_no) );"
+      "CREATE TABLE department_phone (dept_id integer, phone_number varchar(20), PRIMARY KEY (dept_id, phone_number))",
+      "CREATE TABLE department_phone (dept_id integer, phone_number varchar(20), PRIMARY KEY (dept_id, phone_number));",
+      "create table department_phone (dept_id integer, phone_number varchar(20), primary key (dept_id, phone_number))",
+      "create table department_phone (dept_id integer, phone_number varchar(20), primary key (dept_id, phone_number));",
+      "CREATE TABLE department_phone (dept_id int, phone_number varchar(20), PRIMARY KEY (dept_id, phone_number))",
+      "CREATE TABLE department_phone (dept_id int, phone_number varchar(20), PRIMARY KEY (dept_id, phone_number));",
+      "create table department_phone (dept_id int, phone_number varchar(20), primary key (dept_id, phone_number))",
+      "create table department_phone (dept_id int, phone_number varchar(20), primary key (dept_id, phone_number));"
     ],
-    "requiredPatterns": [],
+    "explanation": "Bo'lim telefonlari jadvali composite PK bilan hosil qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "person",
+      "tableName": "department_phone",
       "columns": [
         {
-          "name": "passport_no",
-          "type": "varchar(20)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "dept_id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "name",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "phone_number",
+          "type": "varchar(20)",
+          "isPK": true
         }
       ]
-    },
-    "explanation": "passport_no tabiiy birlamchi kaliti barpo etildi.",
-    "task": "Create a table named `person`: `passport_no` (varchar(20)) column named primary key (`CONSTRAINT pk_person_passport PRIMARY KEY (passport_no)`) qiling and `name` (varchar(50)) column qo'shing."
+    }
   },
   {
     "id": 24,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "L03 Slide 18 • Matnli Buyurtma Kategoriya Klyuchi",
-    "title": "Buyurtmalar Koddagi Primary Key",
-    "story": "Elektron do'konda buyurtma kodi (masalan, `ORD-2026-X`) matn shaklida birlamchi kalit bo'lishi belgilangan.",
-    "taskUz": "Create a table named `orders`: `order_code` (varchar(30)) column named primary key (`CONSTRAINT pk_orders_code PRIMARY KEY (order_code)`) qilib, `order_date` (date) column qo'shing.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_orders_code PRIMARY KEY (order_code)` yordamida nomlang.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "T03 Task 1 • Nomlangan Composite Birlamchi Kalit",
+    "title": "Nomlangan Composite PK Cheklovi",
+    "story": "Relyatsion arxitekturada cheklovni aniq nomlash audit va kelajakdagi o'zgarishlar uchun qulaylik yaratadi.",
+    "taskUz": "`assigned` jadvalini yarating va `CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id)` shaklida nomlangan birlamchi kalit o'rnating.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `emp_id integer`, `proj_id integer`, `role varchar(50)`\n• Cheklov: `CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id)`",
+    "hint": "`CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id));`",
     "solutions": [
-      "CREATE TABLE orders (order_code varchar(30), order_date date, CONSTRAINT pk_orders_code PRIMARY KEY (order_code))",
-      "CREATE TABLE orders (order_code varchar(30), order_date date, CONSTRAINT pk_orders_code PRIMARY KEY (order_code));",
-      "CREATE TABLE orders (\n  order_code varchar(30),\n  order_date date,\n  CONSTRAINT pk_orders_code PRIMARY KEY (order_code)\n)",
-      "CREATE TABLE orders (\n  order_code varchar(30),\n  order_date date,\n  CONSTRAINT pk_orders_code PRIMARY KEY (order_code)\n);",
-      "CREATE TABLE orders ( order_code varchar(30), order_date date, CONSTRAINT pk_orders_code PRIMARY KEY (order_code) )",
-      "CREATE TABLE orders ( order_code varchar(30), order_date date, CONSTRAINT pk_orders_code PRIMARY KEY (order_code) );"
+      "CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id integer, proj_id integer, role varchar(50), CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id integer, proj_id integer, role varchar(50), constraint pk_assigned primary key (emp_id, proj_id))",
+      "create table assigned (emp_id integer, proj_id integer, role varchar(50), constraint pk_assigned primary key (emp_id, proj_id));",
+      "CREATE TABLE assigned (emp_id int, proj_id int, role varchar(50), CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE assigned (emp_id int, proj_id int, role varchar(50), CONSTRAINT pk_assigned PRIMARY KEY (emp_id, proj_id));",
+      "create table assigned (emp_id int, proj_id int, role varchar(50), constraint pk_assigned primary key (emp_id, proj_id))",
+      "create table assigned (emp_id int, proj_id int, role varchar(50), constraint pk_assigned primary key (emp_id, proj_id));"
     ],
-    "requiredPatterns": [],
-    "explanation": "Matnli birlamchi kalit muvaffaqiyatli bog'landi.",
-    "task": "Create a table named `orders`: `order_code` (varchar(30)) column named primary key (`CONSTRAINT pk_orders_code PRIMARY KEY (order_code)`) qilib, `order_date` (date) column qo'shing.",
+    "explanation": "pk_assigned nomli murakkab birlamchi kalit yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "orders",
+      "tableName": "assigned",
       "columns": [
         {
-          "name": "order_code",
-          "type": "varchar(30)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "emp_id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "order_date",
-          "type": "date",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "role",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1311,103 +909,61 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 25,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 1 • Xodimlar Jadvalining Birlamchi Kaliti",
-    "title": "Xodimlar Jadvali va Identity PK",
-    "story": "Kompaniya xodimlarining har biriga tizim tomonidan doimiy avtomatik xodim raqami berilishi shart.",
-    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25)) ustunlari and named primary key (`CONSTRAINT pk_employee_id PRIMARY KEY (id)`) bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `first_name` (varchar(25))\n• Cheklovlar: `pk_employee_id`",
-    "starterCode": "",
-    "hint": "`id integer GENERATED ALWAYS AS IDENTITY`, so'ng ustunlar and `CONSTRAINT pk_employee_id PRIMARY KEY (id)`.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "L03 Slide 25 • Jadvalni Qayta Yaratish Oldidan O'chirish",
+    "title": "Eski Jadvalni O'chirish (DROP TABLE)",
+    "story": "Sxemani yangilashdan oldin eski `department` jadvalini o'chirib tashlash lozim.",
+    "taskUz": "`department` jadvalini agar u mavjud bo'lsa o'chiring (`DROP TABLE IF EXISTS ...`).\n\n📋 **Kutilayotgan DDL:**\n`DROP TABLE IF EXISTS department;`",
+    "hint": "`DROP TABLE IF EXISTS department;` deb yozing.",
     "solutions": [
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25), CONSTRAINT pk_employee_id PRIMARY KEY (id))",
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25), CONSTRAINT pk_employee_id PRIMARY KEY (id));",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25),\n  CONSTRAINT pk_employee_id PRIMARY KEY (id)\n)",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25),\n  CONSTRAINT pk_employee_id PRIMARY KEY (id)\n);",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25), CONSTRAINT pk_employee_id PRIMARY KEY (id) )",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25), CONSTRAINT pk_employee_id PRIMARY KEY (id) );"
+      "DROP TABLE IF EXISTS department",
+      "DROP TABLE IF EXISTS department;",
+      "drop table if exists department",
+      "drop table if exists department;"
     ],
-    "requiredPatterns": [],
+    "explanation": "department jadvali muvaffaqiyatli o'chirildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "employee",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "first_name",
-          "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "employee jadvali Identity and pk_employee_id bilan qurildi.",
-    "task": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25)) ustunlari and named primary key (`CONSTRAINT pk_employee_id PRIMARY KEY (id)`) bilan."
+      "operation": "DROP_TABLE",
+      "tableName": "department",
+      "ifExists": true,
+      "description": "department jadvali xavfsiz o'chirildi."
+    }
   },
   {
     "id": 26,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "L03 Slide 17 • Talabalar Birlamchi Kaliti",
-    "title": "Talabalar Reyestri va Talaba ID",
-    "story": "Universitet tizimida har bir talabaning o'z talaba guvohnomasi raqami birlamchi kalit hisoblanadi.",
-    "taskUz": "Create a table named `student`: `student_id` (integer) column `CONSTRAINT pk_student PRIMARY KEY (student_id)` deb nomlang and `full_name` (varchar(90)) column e'lon qiling.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_student PRIMARY KEY (student_id)` dan foydalaning.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "L03 Slide 21 • SERIAL Sun'iy Kalit Mexanizmi",
+    "title": "SERIAL Sun'iy Kaliti (PostgreSQL Klassik Usuli)",
+    "story": "PostgreSQL tarixan avtomatik o'suvchi ketma-ketliklar uchun qisqa `SERIAL` psevdo-turini qo'llab kelgan.",
+    "taskUz": "`warehouse` nomli jadval yarating: `wh_id SERIAL PRIMARY KEY` va `city varchar(50)`.\n\n📋 **Kutilayotgan Sxema:**\n• Jadval: **warehouse**\n• Ustunlar: `wh_id SERIAL PRIMARY KEY`, `city varchar(50)`",
+    "hint": "`CREATE TABLE warehouse (wh_id SERIAL PRIMARY KEY, city varchar(50));`",
     "solutions": [
-      "CREATE TABLE student (student_id integer, full_name varchar(90), CONSTRAINT pk_student PRIMARY KEY (student_id))",
-      "CREATE TABLE student (student_id integer, full_name varchar(90), CONSTRAINT pk_student PRIMARY KEY (student_id));",
-      "CREATE TABLE student (\n  student_id integer,\n  full_name varchar(90),\n  CONSTRAINT pk_student PRIMARY KEY (student_id)\n)",
-      "CREATE TABLE student (\n  student_id integer,\n  full_name varchar(90),\n  CONSTRAINT pk_student PRIMARY KEY (student_id)\n);",
-      "CREATE TABLE student ( student_id integer, full_name varchar(90), CONSTRAINT pk_student PRIMARY KEY (student_id) )",
-      "CREATE TABLE student ( student_id integer, full_name varchar(90), CONSTRAINT pk_student PRIMARY KEY (student_id) );"
+      "CREATE TABLE warehouse (wh_id SERIAL PRIMARY KEY, city varchar(50))",
+      "CREATE TABLE warehouse (wh_id SERIAL PRIMARY KEY, city varchar(50));",
+      "create table warehouse (wh_id serial primary key, city varchar(50))",
+      "create table warehouse (wh_id serial primary key, city varchar(50));",
+      "CREATE TABLE warehouse (\n  wh_id SERIAL PRIMARY KEY,\n  city varchar(50)\n)",
+      "CREATE TABLE warehouse (\n  wh_id SERIAL PRIMARY KEY,\n  city varchar(50)\n);",
+      "CREATE TABLE warehouse ( wh_id SERIAL PRIMARY KEY, city varchar(50) )",
+      "CREATE TABLE warehouse ( wh_id SERIAL PRIMARY KEY, city varchar(50) );",
+      "create table warehouse (\n  wh_id serial primary key,\n  city varchar(50)\n)",
+      "create table warehouse (\n  wh_id serial primary key,\n  city varchar(50)\n);"
     ],
-    "requiredPatterns": [],
-    "explanation": "student jadvali named birlamchi kalit bilan yaratildi.",
-    "task": "Create a table named `student`: `student_id` (integer) column `CONSTRAINT pk_student PRIMARY KEY (student_id)` deb nomlang and `full_name` (varchar(90)) column e'lon qiling.",
+    "explanation": "SERIAL turi bilan avtomatik ketma-ketlik kaliti hosil qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "student",
+      "tableName": "warehouse",
       "columns": [
         {
-          "name": "student_id",
+          "name": "wh_id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true
         },
         {
-          "name": "full_name",
-          "type": "varchar(90)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "city",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1415,51 +971,32 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 27,
     "sector": 2,
-    "difficulty": "Floor 2 • Easy",
-    "source": "L03 Slide 18 • Avtomobillar VIN Klyuchi",
-    "title": "Avtomobillar Reyestri va VIN Klyuchi",
-    "story": "Avtomobil xalqaro 17 xonali VIN raqamiga ega bo'lib, u takrorlanmas tabiiy birlamchi kalit hisoblanadi.",
-    "taskUz": "Create a table named `vehicle`: `vin` (varchar(17)) column named primary key (`CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)`) qiling and `model` (varchar(50)) column qo'shing.",
-    "starterCode": "",
-    "hint": "`vin varchar(17)` ustuniga `CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)` cheklovini qo'ying.",
+    "difficulty": "Floor 2 • Medium",
+    "source": "L03 Slide 16 • Katta Ma'lumotlar uchun BIGINT Identity",
+    "title": "BIGINT GENERATED ALWAYS AS IDENTITY",
+    "story": "Yuqori chastotali tranzaksiyalar (millionlab qatorlar) uchun 4 baytli integer yetmaydi, 8 baytli bigint talab etiladi.",
+    "taskUz": "`event_stream` nomli jadval yarating: `event_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY` va `event_type varchar(50)`.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `event_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY`, `event_type varchar(50)`",
+    "hint": "`CREATE TABLE event_stream (event_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY, event_type varchar(50));`",
     "solutions": [
-      "CREATE TABLE vehicle (vin varchar(17), model varchar(50), CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin))",
-      "CREATE TABLE vehicle (vin varchar(17), model varchar(50), CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin));",
-      "CREATE TABLE vehicle (\n  vin varchar(17),\n  model varchar(50),\n  CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)\n)",
-      "CREATE TABLE vehicle (\n  vin varchar(17),\n  model varchar(50),\n  CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)\n);",
-      "CREATE TABLE vehicle ( vin varchar(17), model varchar(50), CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin) )",
-      "CREATE TABLE vehicle ( vin varchar(17), model varchar(50), CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin) );"
+      "CREATE TABLE event_stream (event_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY, event_type varchar(50))",
+      "CREATE TABLE event_stream (event_id bigint GENERATED ALWAYS AS IDENTITY PRIMARY KEY, event_type varchar(50));",
+      "create table event_stream (event_id bigint generated always as identity primary key, event_type varchar(50))",
+      "create table event_stream (event_id bigint generated always as identity primary key, event_type varchar(50));"
     ],
-    "requiredPatterns": [],
-    "explanation": "vehicle jadvali xalqaro VIN birlamchi kaliti bilan tasdiqlandi.",
-    "task": "Create a table named `vehicle`: `vin` (varchar(17)) column named primary key (`CONSTRAINT pk_vehicle_vin PRIMARY KEY (vin)`) qiling and `model` (varchar(50)) column qo'shing.",
+    "explanation": "Katta hajmli jadvallar uchun 64-bitli bigint identity kaliti yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "vehicle",
+      "tableName": "event_stream",
       "columns": [
         {
-          "name": "vin",
-          "type": "varchar(17)",
+          "name": "event_id",
+          "type": "bigint",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true
         },
         {
-          "name": "model",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "event_type",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1468,50 +1005,34 @@ _scope.QUESTIONS_1_50 = [
     "id": 28,
     "sector": 2,
     "difficulty": "Floor 2 • Easy",
-    "source": "T03 Task 6 • Avtomatik Cheklar Jadvali",
-    "title": "Avtomatik Kassa Cheklari",
-    "story": "Kassadan output har bir chek uchun avtomatik ketma-ketlikda o'suvchi chek raqami kerak.",
-    "taskUz": "Create a table named `receipt` with columns: `receipt_id` (integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY) and `amount` (numeric(10,2)).",
-    "starterCode": "",
-    "hint": "Ustun darajasida `receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY` deb yozishingiz mumkin.",
+    "source": "L03 Slide 19 • Tabiiy Kalit (Natural Key)",
+    "title": "Mamlakatlar va Tabiiy Birlamchi Kalit",
+    "story": "Dunyo standartida ISO davlat kodlari allaqachon mavjud (UZB, USA, GBR). Bu tabiiy kalit (natural key) hisoblanadi.",
+    "taskUz": "`country` nomli jadval yarating: `country_code varchar(3) PRIMARY KEY` va `country_name varchar(80)`.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `country_code varchar(3) PRIMARY KEY`, `country_name varchar(80)`",
+    "hint": "`CREATE TABLE country (country_code varchar(3) PRIMARY KEY, country_name varchar(80));`",
     "solutions": [
-      "CREATE TABLE receipt (receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, amount numeric(10,2))",
-      "CREATE TABLE receipt (receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, amount numeric(10,2));",
-      "CREATE TABLE receipt (\n  receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n  amount numeric(10,2)\n)",
-      "CREATE TABLE receipt (\n  receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,\n  amount numeric(10,2)\n);",
-      "CREATE TABLE receipt ( receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, amount numeric(10,2) )",
-      "CREATE TABLE receipt ( receipt_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, amount numeric(10,2) );"
+      "CREATE TABLE country (country_code varchar(3) PRIMARY KEY, country_name varchar(80))",
+      "CREATE TABLE country (country_code varchar(3) PRIMARY KEY, country_name varchar(80));",
+      "create table country (country_code varchar(3) primary key, country_name varchar(80))",
+      "create table country (country_code varchar(3) primary key, country_name varchar(80));",
+      "CREATE TABLE country (country_code char(3) PRIMARY KEY, country_name varchar(80))",
+      "CREATE TABLE country (country_code char(3) PRIMARY KEY, country_name varchar(80));",
+      "create table country (country_code char(3) primary key, country_name varchar(80))",
+      "create table country (country_code char(3) primary key, country_name varchar(80));"
     ],
-    "requiredPatterns": [],
-    "explanation": "receipt jadvali identity primary key bilan barpo etildi.",
-    "task": "Create a table named `receipt` with columns: `receipt_id` (integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY) and `amount` (numeric(10,2)).",
+    "explanation": "Tabiiy birlamchi kalitli davlatlar jadvali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "receipt",
+      "tableName": "country",
       "columns": [
         {
-          "name": "receipt_id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "country_code",
+          "type": "varchar(3)",
+          "isPK": true
         },
         {
-          "name": "amount",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "country_name",
+          "type": "varchar(80)"
         }
       ]
     }
@@ -1520,50 +1041,34 @@ _scope.QUESTIONS_1_50 = [
     "id": 29,
     "sector": 2,
     "difficulty": "Floor 2 • Easy",
-    "source": "L03 Slide 18 • Ombor Mahsulot Kodi (SKU)",
-    "title": "Ombor Mahsulot Kodi (SKU Klyuchi)",
-    "story": "Logistikada har bir mahsulot unikal SKU kodiga (masalan `SKU-EL-902`) ega.",
-    "taskUz": "Create a table named `inventory_item`: `sku` (varchar(25)) column `CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)` qilib, `stock_qty` (integer) column qo'shing.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)` yozuvi orqali bajaring.",
+    "source": "L03 Slide 19 • Valyuta Kodlari (char(3))",
+    "title": "Valyuta Kurslari va Belgilangan Matn Kaliti",
+    "story": "Valyuta kodi doimo qat'iy 3 ta belgidan iborat (USD, EUR, UZS). Shuning uchun `char(3)` qulay.",
+    "taskUz": "`currency` nomli jadval yarating: `iso_code char(3) PRIMARY KEY` va `exchange_rate numeric(10,4)`.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `iso_code char(3) PRIMARY KEY`, `exchange_rate numeric(10,4)`",
+    "hint": "`CREATE TABLE currency (iso_code char(3) PRIMARY KEY, exchange_rate numeric(10,4));`",
     "solutions": [
-      "CREATE TABLE inventory_item (sku varchar(25), stock_qty integer, CONSTRAINT pk_inventory_sku PRIMARY KEY (sku))",
-      "CREATE TABLE inventory_item (sku varchar(25), stock_qty integer, CONSTRAINT pk_inventory_sku PRIMARY KEY (sku));",
-      "CREATE TABLE inventory_item (\n  sku varchar(25),\n  stock_qty integer,\n  CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)\n)",
-      "CREATE TABLE inventory_item (\n  sku varchar(25),\n  stock_qty integer,\n  CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)\n);",
-      "CREATE TABLE inventory_item ( sku varchar(25), stock_qty integer, CONSTRAINT pk_inventory_sku PRIMARY KEY (sku) )",
-      "CREATE TABLE inventory_item ( sku varchar(25), stock_qty integer, CONSTRAINT pk_inventory_sku PRIMARY KEY (sku) );"
+      "CREATE TABLE currency (iso_code char(3) PRIMARY KEY, exchange_rate numeric(10,4))",
+      "CREATE TABLE currency (iso_code char(3) PRIMARY KEY, exchange_rate numeric(10,4));",
+      "create table currency (iso_code char(3) primary key, exchange_rate numeric(10,4))",
+      "create table currency (iso_code char(3) primary key, exchange_rate numeric(10,4));",
+      "CREATE TABLE currency (iso_code varchar(3) PRIMARY KEY, exchange_rate numeric(10,4))",
+      "CREATE TABLE currency (iso_code varchar(3) PRIMARY KEY, exchange_rate numeric(10,4));",
+      "create table currency (iso_code varchar(3) primary key, exchange_rate numeric(10,4))",
+      "create table currency (iso_code varchar(3) primary key, exchange_rate numeric(10,4));"
     ],
-    "requiredPatterns": [],
-    "explanation": "inventory_item jadvali SKU klyuchi bilan yaratildi.",
-    "task": "Create a table named `inventory_item`: `sku` (varchar(25)) column `CONSTRAINT pk_inventory_sku PRIMARY KEY (sku)` qilib, `stock_qty` (integer) column qo'shing.",
+    "explanation": "char(3) tabiiy kalitli valyutalar jadvali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "inventory_item",
+      "tableName": "currency",
       "columns": [
         {
-          "name": "sku",
-          "type": "varchar(25)",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "iso_code",
+          "type": "char(3)",
+          "isPK": true
         },
         {
-          "name": "stock_qty",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "exchange_rate",
+          "type": "numeric(10,4)"
         }
       ]
     }
@@ -1571,214 +1076,72 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 30,
     "sector": 2,
-    "difficulty": "Floor 2 • Master Architect",
-    "source": "T03 Task 1 Final • 2-Qavat Yakuni",
-    "title": "2-Qavat Bossi: Bo'limlar To'liq Primary Key Standarti",
-    "story": "2-qavatning eng mas'uliyatli topshirig'i! Seminar 3 talabiga muvofiq, `department` jadvali 1 dan boshlanib 10 tadan oshuvchi Identity column and rasmiy named birlamchi kalit bilan qayta qurilishi lozim.",
-    "taskUz": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and named primary key (`CONSTRAINT pk_department_id PRIMARY KEY (id)`) bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2))\n• Cheklovlar: `pk_department_id`",
-    "starterCode": "",
-    "hint": "`id` ustuniga `GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)` bering, so'ng qolgan 3 ustunni yozib, oxirida `CONSTRAINT pk_department_id PRIMARY KEY (id)` qo'shing.",
+    "difficulty": "Floor 2 • Boss Challenge",
+    "source": "2-Qavat Bossi • M:N Biriktirish Arxitekturasi",
+    "title": "2-Qavat Bossi: Loyiha Taqsimoti (project_assignment)",
+    "story": "2-qavatning eng katta sinovi: Xodimlarni loyihalarga bandlik foizi (allocation_pct) va sanasi bilan biriktiruvchi to'liq relyatsion ko'prik jadvalini yarating.",
+    "taskUz": "`project_assignment` nomli jadval yarating: `emp_id` (integer), `proj_id` (integer), `allocation_pct` (numeric(5,2)), `assigned_at` (date) va `CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id)`.\n\n📋 **Kutilayotgan Sxema:**\n• Cheklov: `CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id)`",
+    "hint": "`CREATE TABLE project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id));`",
     "solutions": [
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100), location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id))",
-      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100), location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id));",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n)",
-      "CREATE TABLE department (\n  id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10),\n  title varchar(100),\n  location varchar(50),\n  budget numeric(12,2),\n  CONSTRAINT pk_department_id PRIMARY KEY (id)\n);",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100), location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id) )",
-      "CREATE TABLE department ( id integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10), title varchar(100), location varchar(50), budget numeric(12,2), CONSTRAINT pk_department_id PRIMARY KEY (id) );"
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id));",
+      "create table project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, constraint pk_project_assignment primary key (emp_id, proj_id))",
+      "create table project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, constraint pk_project_assignment primary key (emp_id, proj_id));",
+      "CREATE TABLE project_assignment (emp_id int, proj_id int, allocation_pct numeric(5,2), assigned_at date, CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE project_assignment (emp_id int, proj_id int, allocation_pct numeric(5,2), assigned_at date, CONSTRAINT pk_project_assignment PRIMARY KEY (emp_id, proj_id));",
+      "create table project_assignment (emp_id int, proj_id int, allocation_pct numeric(5,2), assigned_at date, constraint pk_project_assignment primary key (emp_id, proj_id))",
+      "create table project_assignment (emp_id int, proj_id int, allocation_pct numeric(5,2), assigned_at date, constraint pk_project_assignment primary key (emp_id, proj_id));",
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, PRIMARY KEY (emp_id, proj_id))",
+      "CREATE TABLE project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, PRIMARY KEY (emp_id, proj_id));",
+      "create table project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, primary key (emp_id, proj_id))",
+      "create table project_assignment (emp_id integer, proj_id integer, allocation_pct numeric(5,2), assigned_at date, primary key (emp_id, proj_id));"
     ],
-    "requiredPatterns": [],
+    "explanation": "2-Qavat Bossi zabt etildi! Birlamchi kalitlar va relyatsion bog'lovchi jadvallar to'liq o'zlashtirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "department",
+      "tableName": "project_assignment",
       "columns": [
         {
-          "name": "id",
+          "name": "emp_id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "title",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "proj_id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "location",
-          "type": "varchar(50)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "allocation_pct",
+          "type": "numeric(5,2)"
         },
         {
-          "name": "budget",
-          "type": "numeric(12,2)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "assigned_at",
+          "type": "date"
         }
       ]
-    },
-    "explanation": "2-Qavat Bossi tasdiqlandi! Identity start/increment and named PK standarti to'liq bajarildi.",
-    "task": "Create a table named `department`: `id` (integer GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 10)), `title` (varchar(100)), `location` (varchar(50)), `budget` (numeric(12,2)) ustunlari and named primary key (`CONSTRAINT pk_department_id PRIMARY KEY (id)`) bilan."
+    }
   },
   {
     "id": 31,
     "sector": 3,
     "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 • Ustun Darajasidagi NOT NULL",
-    "title": "Majburiy Ism va Familiya (NOT NULL)",
-    "story": "Xodimlar jadvalida xodimning ismi and familiyasi hech qachon bo'sh (NULL) qolmasligi shart.",
-    "taskUz": "Create a table named `staff_member` with columns: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL) and `last_name` (varchar(25) NOT NULL).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **staff_member**\n• Ustunlar: `id` [PK] (integer), `first_name` [NOT NULL] (varchar(25)), `last_name` [NOT NULL] (varchar(25))",
-    "starterCode": "",
-    "hint": "Har bir majburiy ustun turidan keyin `NOT NULL` .",
+    "source": "T03 Task 1 • NOT NULL Cheklovi",
+    "title": "Majburiy Maydon (NOT NULL)",
+    "story": "Bo'lim nomi bo'sh (NULL) bo'lishi mutlaqo mumkin emas. Buning uchun `NOT NULL` cheklovidan foydalanamiz.",
+    "taskUz": "`department` nomli jadval yarating: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) va `location` (varchar(50)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `title varchar(100) NOT NULL`, `location varchar(50)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50));`",
     "solutions": [
-      "CREATE TABLE staff_member (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL)",
-      "CREATE TABLE staff_member (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL);",
-      "CREATE TABLE staff_member (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL\n)",
-      "CREATE TABLE staff_member (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL\n);",
-      "CREATE TABLE staff_member ( id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL )",
-      "CREATE TABLE staff_member ( id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50));",
+      "create table department (id integer primary key, title varchar(100) not null, location varchar(50))",
+      "create table department (id integer primary key, title varchar(100) not null, location varchar(50));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50));",
+      "create table department (id int primary key, title varchar(100) not null, location varchar(50))",
+      "create table department (id int primary key, title varchar(100) not null, location varchar(50));"
     ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_member",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "first_name",
-          "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "last_name",
-          "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "staff_member jadvali NOT NULL qoidalari bilan yaratildi.",
-    "task": "Create a table named `staff_member` with columns: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL) and `last_name` (varchar(25) NOT NULL)."
-  },
-  {
-    "id": 32,
-    "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 • Ustun Darajasidagi UNIQUE",
-    "title": "Ustun Darajasida Unikallik (UNIQUE)",
-    "story": "Elektron pochta manzillari tizimda takrorlanmasligi kerak. Eng sodda usul — ustun yoniga `UNIQUE` yozish.",
-    "taskUz": "Create a table named `user_account` with columns: `id` (integer PRIMARY KEY) and `email` (varchar(100) NOT NULL UNIQUE).\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **user_account**\n• Ustunlar: `id` [PK] (integer), `email` [NOT NULL] (varchar(100))",
-    "starterCode": "",
-    "hint": "`email varchar(100) NOT NULL UNIQUE` .",
-    "solutions": [
-      "CREATE TABLE user_account (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE)",
-      "CREATE TABLE user_account (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE);",
-      "CREATE TABLE user_account (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL UNIQUE\n)",
-      "CREATE TABLE user_account (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL UNIQUE\n);",
-      "CREATE TABLE user_account ( id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE )",
-      "CREATE TABLE user_account ( id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE );"
-    ],
-    "requiredPatterns": [],
-    "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "user_account",
-      "columns": [
-        {
-          "name": "id",
-          "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "email",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        }
-      ]
-    },
-    "explanation": "email ustuniga NOT NULL UNIQUE cheklovi o'rnatildi.",
-    "task": "Create a table named `user_account` with columns: `id` (integer PRIMARY KEY) and `email` (varchar(100) NOT NULL UNIQUE)."
-  },
-  {
-    "id": 33,
-    "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 • Nomlangan UNIQUE Cheklovi",
-    "title": "Nomlangan UNIQUE Constrainti (Constraint)",
-    "story": "Bo'lim nomlari takrorlanmasligi shart. Xatolik sodir bo'lganda aniq nom chiqishi uchun cheklovni `uq_department_title` deb nomlash zarur.",
-    "taskUz": "Create a table named `department`: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) ustunlari and named `CONSTRAINT uq_department_title UNIQUE (title)` with constraint.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **department**\n• Ustunlar: `id` [PK] (integer), `title` [NOT NULL] (varchar(100))\n• Cheklovlar: `uq_department_title`",
-    "starterCode": "",
-    "hint": "Jadval darajasida `CONSTRAINT uq_department_title UNIQUE (title)` declared.",
-    "solutions": [
-      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title))",
-      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title));",
-      "CREATE TABLE department (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  CONSTRAINT uq_department_title UNIQUE (title)\n)",
-      "CREATE TABLE department (\n  id integer PRIMARY KEY,\n  title varchar(100) NOT NULL,\n  CONSTRAINT uq_department_title UNIQUE (title)\n);",
-      "CREATE TABLE department ( id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title) )",
-      "CREATE TABLE department ( id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title) );"
-    ],
-    "requiredPatterns": [],
+    "explanation": "NOT NULL cheklovi bilan title ustuni majburiy etib belgilandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "department",
@@ -1786,51 +1149,40 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
           "name": "title",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)"
         }
       ]
-    },
-    "explanation": "uq_department_title named cheklovi o'rnatildi.",
-    "task": "Create a table named `department`: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL) ustunlari and named `CONSTRAINT uq_department_title UNIQUE (title)` with constraint."
+    }
   },
   {
-    "id": 34,
+    "id": 32,
     "sector": 3,
     "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 Employee • Nomlangan Email UNIQUE",
-    "title": "Xodimning Nomlangan Email Constrainti",
-    "story": "Seminar 3 ning employee jadvalida xodimning pochtasi unikal bo'lishi and `uq_employee_email` deb nomlanishi belgilangan.",
-    "taskUz": "Create a table named `employee`: `id` (integer PRIMARY KEY), `email` (varchar(100) NOT NULL) and `CONSTRAINT uq_employee_email UNIQUE (email)` with constraint.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `email` [NOT NULL] (varchar(100))\n• Cheklovlar: `uq_employee_email`",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_employee_email UNIQUE (email)` sintaksisini qo'shing.",
+    "source": "T03 Task 1 • Bir Nechta NOT NULL Maydonlar",
+    "title": "Xodim Ism va Familiyasi Majburiyligi",
+    "story": "Seminar 3 1-topshirig'i: Har bir xodimning ismi (`first_name`) va familiyasi (`last_name`) kiritilishi shart.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL) va `last_name` (varchar(25) NOT NULL).\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `first_name varchar(25) NOT NULL`, `last_name varchar(25) NOT NULL`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL);`",
     "solutions": [
-      "CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL, CONSTRAINT uq_employee_email UNIQUE (email))",
-      "CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL, CONSTRAINT uq_employee_email UNIQUE (email));",
-      "CREATE TABLE employee (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL,\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)",
-      "CREATE TABLE employee (\n  id integer PRIMARY KEY,\n  email varchar(100) NOT NULL,\n  CONSTRAINT uq_employee_email UNIQUE (email)\n);",
-      "CREATE TABLE employee ( id integer PRIMARY KEY, email varchar(100) NOT NULL, CONSTRAINT uq_employee_email UNIQUE (email) )",
-      "CREATE TABLE employee ( id integer PRIMARY KEY, email varchar(100) NOT NULL, CONSTRAINT uq_employee_email UNIQUE (email) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL);",
+      "create table employee (id integer primary key, first_name varchar(25) not null, last_name varchar(25) not null)",
+      "create table employee (id integer primary key, first_name varchar(25) not null, last_name varchar(25) not null);",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL)",
+      "CREATE TABLE employee (id int PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL);",
+      "create table employee (id int primary key, first_name varchar(25) not null, last_name varchar(25) not null)",
+      "create table employee (id int primary key, first_name varchar(25) not null, last_name varchar(25) not null);"
     ],
-    "requiredPatterns": [],
+    "explanation": "Xodimlar jadvalida ism va familiya maydonlari NOT NULL qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "employee",
@@ -1838,92 +1190,133 @@ _scope.QUESTIONS_1_50 = [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "email",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
         }
       ]
-    },
-    "explanation": "uq_employee_email unikal cheklovi tasdiqlandi.",
-    "task": "Create a table named `employee`: `id` (integer PRIMARY KEY), `email` (varchar(100) NOT NULL) and `CONSTRAINT uq_employee_email UNIQUE (email)` with constraint."
+    }
   },
   {
-    "id": 35,
+    "id": 33,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "source": "L03 Slide 19 • Ikkita Mustaqil UNIQUE Ustun",
-    "title": "Ikkita Mustaqil Unikal Constraint",
-    "story": "Xavfsizlik tizimida ham telefon raqami, ham login bir-biriga bog'liq bo'lmagan holda mustaqil unikal bo'lishi talab etiladi.",
-    "taskUz": "Create a table named `member`: `id` (integer PRIMARY KEY), `phone` (varchar(20) NOT NULL), `username` (varchar(40) NOT NULL) and ikkita named cheklov: `CONSTRAINT uq_member_phone UNIQUE (phone)` and `CONSTRAINT uq_member_username UNIQUE (username)` bilan.",
-    "starterCode": "",
-    "hint": "Ikkita alohida `CONSTRAINT ... UNIQUE (...)` qatorini vergul bilan ajratib yozing.",
+    "difficulty": "Floor 3 • Easy",
+    "source": "L03 Slide 20 • UNIQUE Cheklovi",
+    "title": "Ustun Darajasidagi UNIQUE Cheklovi",
+    "story": "Tashkilotda ikkita bo'lim bir xil nomga ega bo'lishi mumkin emas. Ustunda `UNIQUE` qoidasini qo'llaymiz.",
+    "taskUz": "`department` jadvalini yarating: `id` (integer PRIMARY KEY) va `title` (varchar(100) NOT NULL UNIQUE).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `title varchar(100) NOT NULL UNIQUE`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL UNIQUE);`",
     "solutions": [
-      "CREATE TABLE member (id integer PRIMARY KEY, phone varchar(20) NOT NULL, username varchar(40) NOT NULL, CONSTRAINT uq_member_phone UNIQUE (phone), CONSTRAINT uq_member_username UNIQUE (username))",
-      "CREATE TABLE member (id integer PRIMARY KEY, phone varchar(20) NOT NULL, username varchar(40) NOT NULL, CONSTRAINT uq_member_phone UNIQUE (phone), CONSTRAINT uq_member_username UNIQUE (username));",
-      "CREATE TABLE member (\n  id integer PRIMARY KEY,\n  phone varchar(20) NOT NULL,\n  username varchar(40) NOT NULL,\n  CONSTRAINT uq_member_phone UNIQUE (phone),\n  CONSTRAINT uq_member_username UNIQUE (username)\n)",
-      "CREATE TABLE member (\n  id integer PRIMARY KEY,\n  phone varchar(20) NOT NULL,\n  username varchar(40) NOT NULL,\n  CONSTRAINT uq_member_phone UNIQUE (phone),\n  CONSTRAINT uq_member_username UNIQUE (username)\n);",
-      "CREATE TABLE member ( id integer PRIMARY KEY, phone varchar(20) NOT NULL, username varchar(40) NOT NULL, CONSTRAINT uq_member_phone UNIQUE (phone), CONSTRAINT uq_member_username UNIQUE (username) )",
-      "CREATE TABLE member ( id integer PRIMARY KEY, phone varchar(20) NOT NULL, username varchar(40) NOT NULL, CONSTRAINT uq_member_phone UNIQUE (phone), CONSTRAINT uq_member_username UNIQUE (username) );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL UNIQUE)",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL UNIQUE);",
+      "create table department (id integer primary key, title varchar(100) not null unique)",
+      "create table department (id integer primary key, title varchar(100) not null unique);",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL UNIQUE)",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL UNIQUE);",
+      "create table department (id int primary key, title varchar(100) not null unique)",
+      "create table department (id int primary key, title varchar(100) not null unique);"
     ],
-    "requiredPatterns": [],
-    "explanation": "Ikkita mustaqil named UNIQUE cheklovlari muvaffaqiyatli bog'landi.",
-    "task": "Create a table named `member`: `id` (integer PRIMARY KEY), `phone` (varchar(20) NOT NULL), `username` (varchar(40) NOT NULL) and ikkita named cheklov: `CONSTRAINT uq_member_phone UNIQUE (phone)` and `CONSTRAINT uq_member_username UNIQUE (username)` bilan.",
+    "explanation": "title ustuni unikal etib belgilandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "member",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "phone",
-          "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "title",
+          "type": "varchar(100)",
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 34,
+    "sector": 3,
+    "difficulty": "Floor 3 • Easy",
+    "source": "T03 Task 1 • Jadval Darajasidagi UNIQUE Cheklovi",
+    "title": "Nomlangan UNIQUE Cheklovi",
+    "story": "Xatolik ro'y berganda aniq tushunish uchun unikal cheklovga `uq_department_title` nomini beramiz.",
+    "taskUz": "`department` nomli jadval yarating va `CONSTRAINT uq_department_title UNIQUE (title)` cheklovini qo'shing.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `title varchar(100) NOT NULL`\n• Cheklov: `CONSTRAINT uq_department_title UNIQUE (title)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title));`",
+    "solutions": [
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title));",
+      "create table department (id integer primary key, title varchar(100) not null, constraint uq_department_title unique (title))",
+      "create table department (id integer primary key, title varchar(100) not null, constraint uq_department_title unique (title));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, CONSTRAINT uq_department_title UNIQUE (title));",
+      "create table department (id int primary key, title varchar(100) not null, constraint uq_department_title unique (title))",
+      "create table department (id int primary key, title varchar(100) not null, constraint uq_department_title unique (title));"
+    ],
+    "explanation": "Nomlangan unikal cheklov uq_department_title o'rnatildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "department",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
         },
         {
-          "name": "username",
-          "type": "varchar(40)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "title",
+          "type": "varchar(100)",
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
+        }
+      ]
+    }
+  },
+  {
+    "id": 35,
+    "sector": 3,
+    "difficulty": "Floor 3 • Medium",
+    "source": "L03 Slide 20 • Composite UNIQUE Cheklovi",
+    "title": "Murakkab (Composite) UNIQUE Cheklovi",
+    "story": "Bitta bo'limda bir xil lavozimda faqat bitta boshliq bo'lishi mumkin. Ya'ni (department_id, position) birgalikda unikal bo'lishi shart.",
+    "taskUz": "`dept_role` nomli jadval yarating: `id` (integer PRIMARY KEY), `department_id` (integer), `position` (varchar(50)) va `CONSTRAINT uq_dept_pos UNIQUE (department_id, position)`.\n\n📋 **Kutilayotgan Sxema:**\n• Cheklov: `CONSTRAINT uq_dept_pos UNIQUE (department_id, position)`",
+    "hint": "`CREATE TABLE dept_role (id integer PRIMARY KEY, department_id integer, position varchar(50), CONSTRAINT uq_dept_pos UNIQUE (department_id, position));`",
+    "solutions": [
+      "CREATE TABLE dept_role (id integer PRIMARY KEY, department_id integer, position varchar(50), CONSTRAINT uq_dept_pos UNIQUE (department_id, position))",
+      "CREATE TABLE dept_role (id integer PRIMARY KEY, department_id integer, position varchar(50), CONSTRAINT uq_dept_pos UNIQUE (department_id, position));",
+      "create table dept_role (id integer primary key, department_id integer, position varchar(50), constraint uq_dept_pos unique (department_id, position))",
+      "create table dept_role (id integer primary key, department_id integer, position varchar(50), constraint uq_dept_pos unique (department_id, position));",
+      "CREATE TABLE dept_role (id int PRIMARY KEY, department_id int, position varchar(50), CONSTRAINT uq_dept_pos UNIQUE (department_id, position))",
+      "CREATE TABLE dept_role (id int PRIMARY KEY, department_id int, position varchar(50), CONSTRAINT uq_dept_pos UNIQUE (department_id, position));",
+      "create table dept_role (id int primary key, department_id int, position varchar(50), constraint uq_dept_pos unique (department_id, position))",
+      "create table dept_role (id int primary key, department_id int, position varchar(50), constraint uq_dept_pos unique (department_id, position));"
+    ],
+    "explanation": "department_id va position ustunlariga birgalikda UNIQUE o'rnatildi.",
+    "expectedSchema": {
+      "operation": "CREATE_TABLE",
+      "tableName": "dept_role",
+      "columns": [
+        {
+          "name": "id",
+          "type": "integer",
+          "isPK": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer"
+        },
+        {
+          "name": "position",
+          "type": "varchar(50)"
         }
       ]
     }
@@ -1931,51 +1324,41 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 36,
     "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 19 • Shtrix-kod Unikalligi",
-    "title": "Shtrix-kod Unikal Constrainti",
-    "story": "Savdo markazidagi mahsulotlar shtrix-kodi takrorlanishi mumkin emas.",
-    "taskUz": "Create a table named `inventory`: `id` (integer PRIMARY KEY), `barcode` (varchar(30) NOT NULL) and `CONSTRAINT uq_inventory_barcode UNIQUE (barcode)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_inventory_barcode UNIQUE (barcode)` dan foydalaning.",
+    "difficulty": "Floor 3 • Medium",
+    "source": "T03 Task 1 • CHECK Cheklovi (budget >= 0)",
+    "title": "Musbat Byudjet uchun CHECK Cheklovi",
+    "story": "Seminar 3 1-topshirig'i talabi: Bo'lim byudjeti (`budget`) hech qachon manfiy bo'lmasligi kerak (`budget >= 0`).",
+    "taskUz": "`department` jadvalini yarating: `id` (integer PRIMARY KEY), `title` (varchar(100) NOT NULL), `budget` (numeric(12,2) CHECK (budget >= 0)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `budget numeric(12,2) CHECK (budget >= 0)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2) CHECK (budget >= 0));`",
     "solutions": [
-      "CREATE TABLE inventory (id integer PRIMARY KEY, barcode varchar(30) NOT NULL, CONSTRAINT uq_inventory_barcode UNIQUE (barcode))",
-      "CREATE TABLE inventory (id integer PRIMARY KEY, barcode varchar(30) NOT NULL, CONSTRAINT uq_inventory_barcode UNIQUE (barcode));",
-      "CREATE TABLE inventory (\n  id integer PRIMARY KEY,\n  barcode varchar(30) NOT NULL,\n  CONSTRAINT uq_inventory_barcode UNIQUE (barcode)\n)",
-      "CREATE TABLE inventory (\n  id integer PRIMARY KEY,\n  barcode varchar(30) NOT NULL,\n  CONSTRAINT uq_inventory_barcode UNIQUE (barcode)\n);",
-      "CREATE TABLE inventory ( id integer PRIMARY KEY, barcode varchar(30) NOT NULL, CONSTRAINT uq_inventory_barcode UNIQUE (barcode) )",
-      "CREATE TABLE inventory ( id integer PRIMARY KEY, barcode varchar(30) NOT NULL, CONSTRAINT uq_inventory_barcode UNIQUE (barcode) );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2) CHECK (budget >= 0))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2) CHECK (budget >= 0));",
+      "create table department (id integer primary key, title varchar(100) not null, budget numeric(12,2) check (budget >= 0))",
+      "create table department (id integer primary key, title varchar(100) not null, budget numeric(12,2) check (budget >= 0));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2) CHECK (budget >= 0))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2) CHECK (budget >= 0));",
+      "create table department (id int primary key, title varchar(100) not null, budget numeric(12,2) check (budget >= 0))",
+      "create table department (id int primary key, title varchar(100) not null, budget numeric(12,2) check (budget >= 0));"
     ],
-    "requiredPatterns": [],
-    "explanation": "uq_inventory_barcode cheklovi barpo etildi.",
-    "task": "Create a table named `inventory`: `id` (integer PRIMARY KEY), `barcode` (varchar(30) NOT NULL) and `CONSTRAINT uq_inventory_barcode UNIQUE (barcode)` with constraint.",
+    "explanation": "budget ustuniga CHECK (budget >= 0) qoidasi biriktirildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "inventory",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "barcode",
-          "type": "varchar(30)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "hasCheck": true
         }
       ]
     }
@@ -1983,51 +1366,41 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 37,
     "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 19 • Fuqaro Shaxsiy Raqami",
-    "title": "JShShIR / Milliy ID Unikalligi",
-    "story": "Davlat xizmatlarida fuqaroning 14 xonali shaxsiy identifikatsiya raqami (PINFL) yagona bo'lishi shart.",
-    "taskUz": "Create a table named `citizen`: `id` (integer PRIMARY KEY), `pinfl` (varchar(14) NOT NULL) and `CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)` sintaksisini yozing.",
+    "difficulty": "Floor 3 • Medium",
+    "source": "T03 Task 1 • Nomlangan CHECK Cheklovi",
+    "title": "Nomlangan CHECK Cheklovi (chk_department_budget)",
+    "story": "Seminar 3 da barcha biznes cheklovlar aniq nomlanadi: `CONSTRAINT chk_department_budget CHECK (budget >= 0)`.",
+    "taskUz": "`department` jadvalini yarating va jadval darajasida nomlangan CHECK cheklovini qo'shing.\n\n📋 **Kutilayotgan Sxema:**\n• Ustunlar: `id integer PRIMARY KEY`, `title varchar(100) NOT NULL`, `budget numeric(12,2)`\n• Cheklov: `CONSTRAINT chk_department_budget CHECK (budget >= 0)`",
+    "hint": "`CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2), CONSTRAINT chk_department_budget CHECK (budget >= 0));`",
     "solutions": [
-      "CREATE TABLE citizen (id integer PRIMARY KEY, pinfl varchar(14) NOT NULL, CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl))",
-      "CREATE TABLE citizen (id integer PRIMARY KEY, pinfl varchar(14) NOT NULL, CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl));",
-      "CREATE TABLE citizen (\n  id integer PRIMARY KEY,\n  pinfl varchar(14) NOT NULL,\n  CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)\n)",
-      "CREATE TABLE citizen (\n  id integer PRIMARY KEY,\n  pinfl varchar(14) NOT NULL,\n  CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)\n);",
-      "CREATE TABLE citizen ( id integer PRIMARY KEY, pinfl varchar(14) NOT NULL, CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl) )",
-      "CREATE TABLE citizen ( id integer PRIMARY KEY, pinfl varchar(14) NOT NULL, CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl) );"
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2), CONSTRAINT chk_department_budget CHECK (budget >= 0))",
+      "CREATE TABLE department (id integer PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2), CONSTRAINT chk_department_budget CHECK (budget >= 0));",
+      "create table department (id integer primary key, title varchar(100) not null, budget numeric(12,2), constraint chk_department_budget check (budget >= 0))",
+      "create table department (id integer primary key, title varchar(100) not null, budget numeric(12,2), constraint chk_department_budget check (budget >= 0));",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2), CONSTRAINT chk_department_budget CHECK (budget >= 0))",
+      "CREATE TABLE department (id int PRIMARY KEY, title varchar(100) NOT NULL, budget numeric(12,2), CONSTRAINT chk_department_budget CHECK (budget >= 0));",
+      "create table department (id int primary key, title varchar(100) not null, budget numeric(12,2), constraint chk_department_budget check (budget >= 0))",
+      "create table department (id int primary key, title varchar(100) not null, budget numeric(12,2), constraint chk_department_budget check (budget >= 0));"
     ],
-    "requiredPatterns": [],
-    "explanation": "citizen jadvalida PINFL unikalligi o'rnatildi.",
-    "task": "Create a table named `citizen`: `id` (integer PRIMARY KEY), `pinfl` (varchar(14) NOT NULL) and `CONSTRAINT uq_citizen_pinfl UNIQUE (pinfl)` with constraint.",
+    "explanation": "chk_department_budget nomli tekshirish cheklovi muvaffaqiyatli o'rnatildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "citizen",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "pinfl",
-          "type": "varchar(14)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "hasCheck": true
         }
       ]
     }
@@ -2035,51 +1408,36 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 38,
     "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 20 • Domen Nomlari",
-    "title": "Internet Domen Nomlari Unikalligi",
-    "story": "Hosting provayderi bitta domenni ikki xil mijozga berib qo'ymasligi uchun jadval darajasida qat'iy cheklov o'rnatmoqda.",
-    "taskUz": "Create a table named `hosted_domain`: `id` (integer PRIMARY KEY), `domain_name` (varchar(100) NOT NULL) and `CONSTRAINT uq_domain_name UNIQUE (domain_name)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_domain_name UNIQUE (domain_name)` yordamida bajaring.",
+    "difficulty": "Floor 3 • Medium",
+    "source": "T03 Task 1 • Oylik Oralig'i CHECK Cheklovi",
+    "title": "Oylik Chegarasi CHECK (salary > 0 AND salary <= 5000)",
+    "story": "Seminar 3 1-topshirig'i: Xodimning oyligi 0 dan katta va 5000 dan oshmasligi qat'iy talab etiladi.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `salary` (numeric(10,2) CHECK (salary > 0 AND salary <= 5000)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000)`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000));`",
     "solutions": [
-      "CREATE TABLE hosted_domain (id integer PRIMARY KEY, domain_name varchar(100) NOT NULL, CONSTRAINT uq_domain_name UNIQUE (domain_name))",
-      "CREATE TABLE hosted_domain (id integer PRIMARY KEY, domain_name varchar(100) NOT NULL, CONSTRAINT uq_domain_name UNIQUE (domain_name));",
-      "CREATE TABLE hosted_domain (\n  id integer PRIMARY KEY,\n  domain_name varchar(100) NOT NULL,\n  CONSTRAINT uq_domain_name UNIQUE (domain_name)\n)",
-      "CREATE TABLE hosted_domain (\n  id integer PRIMARY KEY,\n  domain_name varchar(100) NOT NULL,\n  CONSTRAINT uq_domain_name UNIQUE (domain_name)\n);",
-      "CREATE TABLE hosted_domain ( id integer PRIMARY KEY, domain_name varchar(100) NOT NULL, CONSTRAINT uq_domain_name UNIQUE (domain_name) )",
-      "CREATE TABLE hosted_domain ( id integer PRIMARY KEY, domain_name varchar(100) NOT NULL, CONSTRAINT uq_domain_name UNIQUE (domain_name) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000))",
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000));",
+      "create table employee (id integer primary key, salary numeric(10,2) check (salary > 0 and salary <= 5000))",
+      "create table employee (id integer primary key, salary numeric(10,2) check (salary > 0 and salary <= 5000));",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000))",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) CHECK (salary > 0 AND salary <= 5000));",
+      "create table employee (id int primary key, salary numeric(10,2) check (salary > 0 and salary <= 5000))",
+      "create table employee (id int primary key, salary numeric(10,2) check (salary > 0 and salary <= 5000));"
     ],
-    "requiredPatterns": [],
-    "explanation": "uq_domain_name cheklovi yaratildi.",
-    "task": "Create a table named `hosted_domain`: `id` (integer PRIMARY KEY), `domain_name` (varchar(100) NOT NULL) and `CONSTRAINT uq_domain_name UNIQUE (domain_name)` with constraint.",
+    "explanation": "Xodim oyligi 1 dan 5000 gacha oraliqda cheklandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "hosted_domain",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "domain_name",
-          "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "hasCheck": true
         }
       ]
     }
@@ -2087,51 +1445,38 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 39,
     "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 Employee • Xodim Nishon Raqami",
-    "title": "Xodimning Ruxsatnoma Nishon Raqami (Badge)",
-    "story": "Bosh ofisga kirish uchun turniket nishonlari (badge) har bir xodim uchun unikal bo'lishi shart.",
-    "taskUz": "Create a table named `security_badge`: `id` (integer PRIMARY KEY), `badge_no` (varchar(15) NOT NULL) and `CONSTRAINT uq_badge_no UNIQUE (badge_no)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_badge_no UNIQUE (badge_no)` cheklovini e'lon qiling.",
+    "difficulty": "Floor 3 • Medium",
+    "source": "T03 Task 1 • Email Formati CHECK Cheklovi",
+    "title": "Email Formatini Tekshiruvchi CHECK Cheklovi",
+    "story": "Elektron pochta manzili ichida majburiy `@` belgisi bo'lishini ma'lumotlar bazasi darajasida kafolatlaymiz.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `email` (varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%')).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%')`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%'));`",
     "solutions": [
-      "CREATE TABLE security_badge (id integer PRIMARY KEY, badge_no varchar(15) NOT NULL, CONSTRAINT uq_badge_no UNIQUE (badge_no))",
-      "CREATE TABLE security_badge (id integer PRIMARY KEY, badge_no varchar(15) NOT NULL, CONSTRAINT uq_badge_no UNIQUE (badge_no));",
-      "CREATE TABLE security_badge (\n  id integer PRIMARY KEY,\n  badge_no varchar(15) NOT NULL,\n  CONSTRAINT uq_badge_no UNIQUE (badge_no)\n)",
-      "CREATE TABLE security_badge (\n  id integer PRIMARY KEY,\n  badge_no varchar(15) NOT NULL,\n  CONSTRAINT uq_badge_no UNIQUE (badge_no)\n);",
-      "CREATE TABLE security_badge ( id integer PRIMARY KEY, badge_no varchar(15) NOT NULL, CONSTRAINT uq_badge_no UNIQUE (badge_no) )",
-      "CREATE TABLE security_badge ( id integer PRIMARY KEY, badge_no varchar(15) NOT NULL, CONSTRAINT uq_badge_no UNIQUE (badge_no) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%'))",
+      "CREATE TABLE employee (id integer PRIMARY KEY, email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%'));",
+      "create table employee (id integer primary key, email varchar(100) not null unique check (email like '%@%'))",
+      "create table employee (id integer primary key, email varchar(100) not null unique check (email like '%@%'));",
+      "CREATE TABLE employee (id int PRIMARY KEY, email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%'))",
+      "CREATE TABLE employee (id int PRIMARY KEY, email varchar(100) NOT NULL UNIQUE CHECK (email LIKE '%@%'));",
+      "create table employee (id int primary key, email varchar(100) not null unique check (email like '%@%'))",
+      "create table employee (id int primary key, email varchar(100) not null unique check (email like '%@%'));"
     ],
-    "requiredPatterns": [],
-    "explanation": "security_badge jadvalida nishonlar unikalligi ta'minlandi.",
-    "task": "Create a table named `security_badge`: `id` (integer PRIMARY KEY), `badge_no` (varchar(15) NOT NULL) and `CONSTRAINT uq_badge_no UNIQUE (badge_no)` with constraint.",
+    "explanation": "Email ustuniga format tekshiruvchi CHECK qo'yildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "security_badge",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "badge_no",
-          "type": "varchar(15)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "email",
+          "type": "varchar(100)",
           "isNotNull": true,
           "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "hasCheck": true
         }
       ]
     }
@@ -2140,50 +1485,36 @@ _scope.QUESTIONS_1_50 = [
     "id": 40,
     "sector": 3,
     "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 19 • URL Slug Unikalligi",
-    "title": "Maqolalar URL Manzili (Slug)",
-    "story": "Yangiliklar portalida har bir maqolaning internetdagi qisqa URL manzili (`slug`) betakror bo'lishi kerak.",
-    "taskUz": "Create a table named `article`: `id` (integer PRIMARY KEY), `slug` (varchar(80) NOT NULL) and `CONSTRAINT uq_article_slug UNIQUE (slug)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_article_slug UNIQUE (slug)` .",
+    "source": "T03 Task 1 • DEFAULT Mantiqiy Qiymati",
+    "title": "Standart Holat (DEFAULT true)",
+    "story": "Yangi xodim qo'shilganda uning holati sukut bo'yicha darhol faol (`active = true`) bo'lishi lozim.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `active` (boolean NOT NULL DEFAULT true).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `active boolean NOT NULL DEFAULT true`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, active boolean NOT NULL DEFAULT true);`",
     "solutions": [
-      "CREATE TABLE article (id integer PRIMARY KEY, slug varchar(80) NOT NULL, CONSTRAINT uq_article_slug UNIQUE (slug))",
-      "CREATE TABLE article (id integer PRIMARY KEY, slug varchar(80) NOT NULL, CONSTRAINT uq_article_slug UNIQUE (slug));",
-      "CREATE TABLE article (\n  id integer PRIMARY KEY,\n  slug varchar(80) NOT NULL,\n  CONSTRAINT uq_article_slug UNIQUE (slug)\n)",
-      "CREATE TABLE article (\n  id integer PRIMARY KEY,\n  slug varchar(80) NOT NULL,\n  CONSTRAINT uq_article_slug UNIQUE (slug)\n);",
-      "CREATE TABLE article ( id integer PRIMARY KEY, slug varchar(80) NOT NULL, CONSTRAINT uq_article_slug UNIQUE (slug) )",
-      "CREATE TABLE article ( id integer PRIMARY KEY, slug varchar(80) NOT NULL, CONSTRAINT uq_article_slug UNIQUE (slug) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, active boolean NOT NULL DEFAULT true)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, active boolean NOT NULL DEFAULT true);",
+      "create table employee (id integer primary key, active boolean not null default true)",
+      "create table employee (id integer primary key, active boolean not null default true);",
+      "CREATE TABLE employee (id int PRIMARY KEY, active boolean NOT NULL DEFAULT true)",
+      "CREATE TABLE employee (id int PRIMARY KEY, active boolean NOT NULL DEFAULT true);",
+      "create table employee (id int primary key, active boolean not null default true)",
+      "create table employee (id int primary key, active boolean not null default true);"
     ],
-    "requiredPatterns": [],
-    "explanation": "uq_article_slug cheklovi o'rnatildi.",
-    "task": "Create a table named `article`: `id` (integer PRIMARY KEY), `slug` (varchar(80) NOT NULL) and `CONSTRAINT uq_article_slug UNIQUE (slug)` with constraint.",
+    "explanation": "active ustuni sukut bo'yicha true qiymatiga ega bo'ldi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "article",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "slug",
-          "type": "varchar(80)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "active",
+          "type": "boolean",
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "hasDefault": true
         }
       ]
     }
@@ -2192,50 +1523,40 @@ _scope.QUESTIONS_1_50 = [
     "id": 41,
     "sector": 3,
     "difficulty": "Floor 3 • Easy",
-    "source": "T03 Task 1 • Bo'lim Menejeri Pasporti",
-    "title": "Menejer Pasport Raqami Unikalligi (1:1 Aloqa)",
-    "story": "Seminar 2 da: har bir bo'limga faqat bitta menejer biriktiriladi and har bir menejer faqat bitta bo'limni boshqarishi mumkin (`1:1`). Buni ta'minlash uchun `manager_passport_no` unikal bo'lishi kerak.",
-    "taskUz": "Create a table named `dept_mgr`: `dept_id` (integer PRIMARY KEY), `manager_passport_no` (varchar(20) NOT NULL) and `CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)` cheklovini kiriting.",
+    "source": "T03 Task 1 • DEFAULT CURRENT_TIMESTAMP",
+    "title": "Avtomatik Vaqt Tamg'asi (DEFAULT CURRENT_TIMESTAMP)",
+    "story": "Seminar 3 1-topshirig'i: `hired_at` xodim qachon ro'yxatdan o'tgan bo'lsa, o'sha aniq tizim vaqtini avtomatik yozishi shart.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `hired_at` (timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);`",
     "solutions": [
-      "CREATE TABLE dept_mgr (dept_id integer PRIMARY KEY, manager_passport_no varchar(20) NOT NULL, CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no))",
-      "CREATE TABLE dept_mgr (dept_id integer PRIMARY KEY, manager_passport_no varchar(20) NOT NULL, CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no));",
-      "CREATE TABLE dept_mgr (\n  dept_id integer PRIMARY KEY,\n  manager_passport_no varchar(20) NOT NULL,\n  CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)\n)",
-      "CREATE TABLE dept_mgr (\n  dept_id integer PRIMARY KEY,\n  manager_passport_no varchar(20) NOT NULL,\n  CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)\n);",
-      "CREATE TABLE dept_mgr ( dept_id integer PRIMARY KEY, manager_passport_no varchar(20) NOT NULL, CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no) )",
-      "CREATE TABLE dept_mgr ( dept_id integer PRIMARY KEY, manager_passport_no varchar(20) NOT NULL, CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "create table employee (id integer primary key, hired_at timestamp not null default current_timestamp)",
+      "create table employee (id integer primary key, hired_at timestamp not null default current_timestamp);",
+      "CREATE TABLE employee (id int PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
+      "CREATE TABLE employee (id int PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "create table employee (id int primary key, hired_at timestamp not null default current_timestamp)",
+      "create table employee (id int primary key, hired_at timestamp not null default current_timestamp);",
+      "CREATE TABLE employee (id integer PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT now())",
+      "CREATE TABLE employee (id integer PRIMARY KEY, hired_at timestamp NOT NULL DEFAULT now());",
+      "create table employee (id integer primary key, hired_at timestamp not null default now())",
+      "create table employee (id integer primary key, hired_at timestamp not null default now());"
     ],
-    "requiredPatterns": [],
-    "explanation": "1:1 bog'liqlik uchun zarur being unikal menejer cheklovi o'rnatildi.",
-    "task": "Create a table named `dept_mgr`: `dept_id` (integer PRIMARY KEY), `manager_passport_no` (varchar(20) NOT NULL) and `CONSTRAINT uq_dept_manager UNIQUE (manager_passport_no)` with constraint.",
+    "explanation": "hired_at ustuniga avtomatik joriy vaqt tamg'asi DEFAULT qilib belgilandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "dept_mgr",
+      "tableName": "employee",
       "columns": [
         {
-          "name": "dept_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "manager_passport_no",
-          "type": "varchar(20)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "hired_at",
+          "type": "timestamp",
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "hasDefault": true
         }
       ]
     }
@@ -2244,50 +1565,39 @@ _scope.QUESTIONS_1_50 = [
     "id": 42,
     "sector": 3,
     "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 19 • Hisob Raqami (IBAN)",
-    "title": "Bank Hisob Raqami (IBAN) Unikalligi",
-    "story": "Bank hisob raqamlari xalqaro standartda (IBAN) takrorlanmas bo'lishi shart.",
-    "taskUz": "Create a table named `bank_account`: `account_id` (integer PRIMARY KEY), `iban` (varchar(34) NOT NULL) and `CONSTRAINT uq_account_iban UNIQUE (iban)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_account_iban UNIQUE (iban)` .",
+    "source": "T03 Task 1 • DEFAULT Oylik Standarti",
+    "title": "Standart Boshlang'ich Oylik (DEFAULT 1000.00)",
+    "story": "Seminar 3 qoidasi: Yangi xodim maoshi ko'rsatilmagan holda qo'shilsa, unga avtomatik 1000.00 belgilanadi.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `salary` (numeric(10,2) DEFAULT 1000.00).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `salary numeric(10,2) DEFAULT 1000.00`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00);`",
     "solutions": [
-      "CREATE TABLE bank_account (account_id integer PRIMARY KEY, iban varchar(34) NOT NULL, CONSTRAINT uq_account_iban UNIQUE (iban))",
-      "CREATE TABLE bank_account (account_id integer PRIMARY KEY, iban varchar(34) NOT NULL, CONSTRAINT uq_account_iban UNIQUE (iban));",
-      "CREATE TABLE bank_account (\n  account_id integer PRIMARY KEY,\n  iban varchar(34) NOT NULL,\n  CONSTRAINT uq_account_iban UNIQUE (iban)\n)",
-      "CREATE TABLE bank_account (\n  account_id integer PRIMARY KEY,\n  iban varchar(34) NOT NULL,\n  CONSTRAINT uq_account_iban UNIQUE (iban)\n);",
-      "CREATE TABLE bank_account ( account_id integer PRIMARY KEY, iban varchar(34) NOT NULL, CONSTRAINT uq_account_iban UNIQUE (iban) )",
-      "CREATE TABLE bank_account ( account_id integer PRIMARY KEY, iban varchar(34) NOT NULL, CONSTRAINT uq_account_iban UNIQUE (iban) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00);",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000.00)",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000.00);",
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000)",
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000);",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000)",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000);",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00)",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00);",
+      "create table employee (id int primary key, salary numeric(10,2) default 1000.00)",
+      "create table employee (id int primary key, salary numeric(10,2) default 1000.00);"
     ],
-    "requiredPatterns": [],
-    "explanation": "uq_account_iban cheklovi o'rnatildi.",
-    "task": "Create a table named `bank_account`: `account_id` (integer PRIMARY KEY), `iban` (varchar(34) NOT NULL) and `CONSTRAINT uq_account_iban UNIQUE (iban)` with constraint.",
+    "explanation": "salary ustuniga standart 1000.00 boshlang'ich qiymati ulandi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "bank_account",
+      "tableName": "employee",
       "columns": [
         {
-          "name": "account_id",
+          "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "iban",
-          "type": "varchar(34)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "hasDefault": true
         }
       ]
     }
@@ -2295,51 +1605,37 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 43,
     "sector": 3,
-    "difficulty": "Floor 3 • Easy",
-    "source": "L03 Slide 19 • Qurilma MAC Manzili",
-    "title": "Tarmoq Qurilmasi MAC Manzili",
-    "story": "IT xavfsizligi barcha kompyuterlarning 17 xonali fizik MAC manzilini (masalan `00:1A:2B:3C:4D:5E`) qat'iy unikal saqlashi kerak.",
-    "taskUz": "Create a table named `network_device`: `id` (integer PRIMARY KEY), `mac_address` (varchar(17) NOT NULL) and `CONSTRAINT uq_device_mac UNIQUE (mac_address)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT uq_device_mac UNIQUE (mac_address)` dan foydalaning.",
+    "difficulty": "Floor 3 • Medium",
+    "source": "T03 Task 1 • DEFAULT va CHECK Sintezi",
+    "title": "Oylik Ustunida DEFAULT va CHECK Birgalikda",
+    "story": "Kombinatsiya: `salary` ustuni bir vaqtning o'zida `DEFAULT 1000.00` ga ega bo'lishi va `CHECK (salary > 0 AND salary <= 5000)` qoidasiga bo'ysunishi shart.",
+    "taskUz": "`employee` nomli jadval yarating: `id` (integer PRIMARY KEY), `salary` (numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000)).\n\n📋 **Kutilayotgan Sxema:**\n• Ustun: `salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000)`",
+    "hint": "`CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000));`",
     "solutions": [
-      "CREATE TABLE network_device (id integer PRIMARY KEY, mac_address varchar(17) NOT NULL, CONSTRAINT uq_device_mac UNIQUE (mac_address))",
-      "CREATE TABLE network_device (id integer PRIMARY KEY, mac_address varchar(17) NOT NULL, CONSTRAINT uq_device_mac UNIQUE (mac_address));",
-      "CREATE TABLE network_device (\n  id integer PRIMARY KEY,\n  mac_address varchar(17) NOT NULL,\n  CONSTRAINT uq_device_mac UNIQUE (mac_address)\n)",
-      "CREATE TABLE network_device (\n  id integer PRIMARY KEY,\n  mac_address varchar(17) NOT NULL,\n  CONSTRAINT uq_device_mac UNIQUE (mac_address)\n);",
-      "CREATE TABLE network_device ( id integer PRIMARY KEY, mac_address varchar(17) NOT NULL, CONSTRAINT uq_device_mac UNIQUE (mac_address) )",
-      "CREATE TABLE network_device ( id integer PRIMARY KEY, mac_address varchar(17) NOT NULL, CONSTRAINT uq_device_mac UNIQUE (mac_address) );"
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000))",
+      "CREATE TABLE employee (id integer PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000));",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000))",
+      "create table employee (id integer primary key, salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000));",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000))",
+      "CREATE TABLE employee (id int PRIMARY KEY, salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000));",
+      "create table employee (id int primary key, salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000))",
+      "create table employee (id int primary key, salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000));"
     ],
-    "requiredPatterns": [],
-    "explanation": "uq_device_mac cheklovi yaratildi.",
-    "task": "Create a table named `network_device`: `id` (integer PRIMARY KEY), `mac_address` (varchar(17) NOT NULL) and `CONSTRAINT uq_device_mac UNIQUE (mac_address)` with constraint.",
+    "explanation": "DEFAULT va CHECK cheklovlari sinergiyasi hosil qilindi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "network_device",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
-          "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isPK": true
         },
         {
-          "name": "mac_address",
-          "type": "varchar(17)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "hasDefault": true,
+          "hasCheck": true
         }
       ]
     }
@@ -2347,75 +1643,46 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 44,
     "sector": 3,
-    "difficulty": "Floor 3 • Intermediate",
-    "source": "T03 Task 1 Employee Setup • Majburiy Maydonlar To'plami",
-    "title": "Xodimning To'liq Majburiy Maydonlari",
-    "story": "Seminar 3 ning employee jadvalida xodimning ismi, familiyasi and emaili qat'iy `NOT NULL` bo'lishi belgilangan.",
-    "taskUz": "Create a table named `emp_core`: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL) and `email` (varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE) bilan.",
-    "starterCode": "",
-    "hint": "`first_name` and `last_name` ga `NOT NULL`, `email` ga esa `NOT NULL CONSTRAINT uq_emp_core_email UNIQUE` bering.",
+    "difficulty": "Floor 3 • Hard",
+    "source": "T03 Task 1 • Department To'liq Cheklovlar Arxitekturasi",
+    "title": "To'liq Department Jadvali Cheklovlari",
+    "story": "Seminar 3 1-topshirig'idagi to'liq `department` jadvali: `id` (GENERATED ALWAYS), `title` (NOT NULL), `location` va `budget` (CHECK budget >= 0).",
+    "taskUz": "`department` nomli jadval yarating: `id` (integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY), `title` (varchar(100) NOT NULL), `location` (varchar(50)), `budget` (numeric(12,2) CHECK (budget >= 0)).\n\n📋 **Kutilayotgan Relyatsion Sxema:**\n• Jadval: **department**\n• Ustunlar: `id`, `title`, `location`, `budget`",
+    "hint": "`CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2) CHECK (budget >= 0));`",
     "solutions": [
-      "CREATE TABLE emp_core (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE)",
-      "CREATE TABLE emp_core (id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE);",
-      "CREATE TABLE emp_core (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE\n)",
-      "CREATE TABLE emp_core (\n  id integer PRIMARY KEY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE\n);",
-      "CREATE TABLE emp_core ( id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE )",
-      "CREATE TABLE emp_core ( id integer PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE );"
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2) CHECK (budget >= 0))",
+      "CREATE TABLE department (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2) CHECK (budget >= 0));",
+      "create table department (id integer generated always as identity primary key, title varchar(100) not null, location varchar(50), budget numeric(12,2) check (budget >= 0))",
+      "create table department (id integer generated always as identity primary key, title varchar(100) not null, location varchar(50), budget numeric(12,2) check (budget >= 0));",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2) CHECK (budget >= 0))",
+      "CREATE TABLE department (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, title varchar(100) NOT NULL, location varchar(50), budget numeric(12,2) CHECK (budget >= 0));",
+      "create table department (id int generated always as identity primary key, title varchar(100) not null, location varchar(50), budget numeric(12,2) check (budget >= 0))",
+      "create table department (id int generated always as identity primary key, title varchar(100) not null, location varchar(50), budget numeric(12,2) check (budget >= 0));"
     ],
-    "requiredPatterns": [],
-    "explanation": "emp_core jadvali barcha majburiy and unikal ustunlar bilan to'liq barpo etildi.",
-    "task": "Create a table named `emp_core`: `id` (integer PRIMARY KEY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL) and `email` (varchar(100) NOT NULL CONSTRAINT uq_emp_core_email UNIQUE) bilan.",
+    "explanation": "Seminar 3 ning to'liq department jadvali yaratildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
-      "tableName": "emp_core",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true
         },
         {
-          "name": "first_name",
-          "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "last_name",
-          "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
-        },
-        {
-          "name": "email",
+          "name": "title",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)"
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
+          "hasCheck": true
         }
       ]
     }
@@ -2423,22 +1690,23 @@ _scope.QUESTIONS_1_50 = [
   {
     "id": 45,
     "sector": 3,
-    "difficulty": "Floor 3 • Master Architect",
-    "source": "T03 Task 1 Employee Complete • 3-Qavat Yakuni",
-    "title": "3-Qavat Bossi: Xodimlar Jadvalining To'liq Constraintlari",
-    "story": "3-qavatning bosh sinovi! Seminar 3 dagi `employee` jadvalining asosiy karkasini quring: Identity orqali avtomatik ID, named birlamchi kalit (`pk_employee_id`), majburiy ism-familiya and named unikal email (`uq_employee_email`).",
-    "taskUz": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `email` (varchar(100) NOT NULL), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan.\n\n📋 **Kutilayotgan Relyatsion Sxema / DDL:**\n• Jadval: **employee**\n• Ustunlar: `id` [PK] (integer), `first_name` [NOT NULL] (varchar(25)), `last_name` [NOT NULL] (varchar(25)), `email` [NOT NULL] (varchar(100))\n• Cheklovlar: `pk_employee_id`, `uq_employee_email`",
-    "starterCode": "",
-    "hint": "Ikkala cheklovni ham jadval darajasida named holda e'lon qiling (`CONSTRAINT pk_employee_id ...` and `CONSTRAINT uq_employee_email ...`).",
+    "difficulty": "Floor 3 • Boss Challenge",
+    "source": "3-Qavat Bossi • Employee To'liq Boshlang'ich Sxemasi",
+    "title": "3-Qavat Bossi: Xodimlar Poydevor Arxitekturasi (employee)",
+    "story": "3-qavatning eng mas'uliyatli bossi: Seminar 3 Task 1 dagi to'liq `employee` jadvali! Barcha cheklovlar: GENERATED ALWAYS AS IDENTITY, NOT NULL, UNIQUE, CHECK, va DEFAULT larni birlashtiring.",
+    "taskUz": "`employee` nomli jadval yarating:\n• `id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY`\n• `first_name varchar(25) NOT NULL`\n• `last_name varchar(25) NOT NULL`\n• `dob date`\n• `email varchar(100) NOT NULL UNIQUE`\n• `phone varchar(20)`\n• `salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000)`\n• `active boolean NOT NULL DEFAULT true`\n• `hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP`\n\n📋 **Kutilayotgan Sxema:**\n• Barcha 9 ta ustun to'liq o'z turlari va cheklovlari bilan!",
+    "hint": "`CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL UNIQUE, phone varchar(20), salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);`",
     "solutions": [
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email))",
-      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email));",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n)",
-      "CREATE TABLE employee (\n  id integer GENERATED ALWAYS AS IDENTITY,\n  first_name varchar(25) NOT NULL,\n  last_name varchar(25) NOT NULL,\n  email varchar(100) NOT NULL,\n  CONSTRAINT pk_employee_id PRIMARY KEY (id),\n  CONSTRAINT uq_employee_email UNIQUE (email)\n);",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) )",
-      "CREATE TABLE employee ( id integer GENERATED ALWAYS AS IDENTITY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, email varchar(100) NOT NULL, CONSTRAINT pk_employee_id PRIMARY KEY (id), CONSTRAINT uq_employee_email UNIQUE (email) );"
+      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL UNIQUE, phone varchar(20), salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
+      "CREATE TABLE employee (id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL UNIQUE, phone varchar(20), salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "create table employee (id integer generated always as identity primary key, first_name varchar(25) not null, last_name varchar(25) not null, dob date, email varchar(100) not null unique, phone varchar(20), salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000), active boolean not null default true, hired_at timestamp not null default current_timestamp)",
+      "create table employee (id integer generated always as identity primary key, first_name varchar(25) not null, last_name varchar(25) not null, dob date, email varchar(100) not null unique, phone varchar(20), salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000), active boolean not null default true, hired_at timestamp not null default current_timestamp);",
+      "CREATE TABLE employee (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL UNIQUE, phone varchar(20), salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP)",
+      "CREATE TABLE employee (id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY, first_name varchar(25) NOT NULL, last_name varchar(25) NOT NULL, dob date, email varchar(100) NOT NULL UNIQUE, phone varchar(20), salary numeric(10,2) DEFAULT 1000.00 CHECK (salary > 0 AND salary <= 5000), active boolean NOT NULL DEFAULT true, hired_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP);",
+      "create table employee (id int generated always as identity primary key, first_name varchar(25) not null, last_name varchar(25) not null, dob date, email varchar(100) not null unique, phone varchar(20), salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000), active boolean not null default true, hired_at timestamp not null default current_timestamp)",
+      "create table employee (id int generated always as identity primary key, first_name varchar(25) not null, last_name varchar(25) not null, dob date, email varchar(100) not null unique, phone varchar(20), salary numeric(10,2) default 1000.00 check (salary > 0 and salary <= 5000), active boolean not null default true, hired_at timestamp not null default current_timestamp);"
     ],
-    "requiredPatterns": [],
+    "explanation": "3-Qavat Bossi zabt etildi! Seminar 3 dagi haqiqiy employee jadvali barcha cheklovlari bilan barpo etildi.",
     "expectedSchema": {
       "operation": "CREATE_TABLE",
       "tableName": "employee",
@@ -2448,312 +1716,381 @@ _scope.QUESTIONS_1_50 = [
           "type": "integer",
           "isPK": true,
           "isIdentity": true,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
         },
         {
           "name": "first_name",
           "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
         },
         {
           "name": "last_name",
           "type": "varchar(25)",
-          "isPK": false,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date"
         },
         {
           "name": "email",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": true,
-          "isUQ": true,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)"
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
+          "hasDefault": true,
+          "hasCheck": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
         }
       ]
-    },
-    "explanation": "3-Qavat Bossi tasdiqlandi! Identity, NOT NULL and named UNIQUE/PK to'liq o'rnatildi.",
-    "task": "Create a table named `employee`: `id` (integer GENERATED ALWAYS AS IDENTITY), `first_name` (varchar(25) NOT NULL), `last_name` (varchar(25) NOT NULL), `email` (varchar(100) NOT NULL), `CONSTRAINT pk_employee_id PRIMARY KEY (id)` and `CONSTRAINT uq_employee_email UNIQUE (email)` bilan."
+    }
   },
   {
     "id": 46,
     "sector": 4,
     "difficulty": "Floor 4 • Easy",
-    "source": "T03 Task 1 • CHECK Budget >= 0",
-    "title": "Ijobiy Byudjet Constrainti (CHECK)",
-    "story": "Seminar 3 qoidasi: kompaniya bo'limlarining byudjeti hech qachon manfiy bo'lishi mumkin emas (`budget >= 0`).",
-    "taskUz": "Create a table named `dept_budget`: `id` (integer PRIMARY KEY), `budget` (numeric(12,2)) ustunlari and named `CONSTRAINT ck_dept_budget CHECK (budget >= 0)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_dept_budget CHECK (budget >= 0)` .",
+    "source": "T03 Task 3.1 • To'liq Qator Qo'shish (INSERT)",
+    "title": "Bo'lim Qo'shish: Barcha Ustunlar Bilan",
+    "story": "Seminar 3 3.1-topshiriq: Yangi 'Finance' bo'limini barcha ustunlariga (title, location, budget) aniq qiymat berib jadvalga qo'shing.",
+    "taskUz": "`department` jadvaliga yangi bo'lim qo'shing:\n• `title`: 'Finance'\n• `location`: 'London'\n• `budget`: 250000.00\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.00);`",
+    "hint": "`INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.00);`",
     "solutions": [
-      "CREATE TABLE dept_budget (id integer PRIMARY KEY, budget numeric(12,2), CONSTRAINT ck_dept_budget CHECK (budget >= 0))",
-      "CREATE TABLE dept_budget (id integer PRIMARY KEY, budget numeric(12,2), CONSTRAINT ck_dept_budget CHECK (budget >= 0));",
-      "CREATE TABLE dept_budget (\n  id integer PRIMARY KEY,\n  budget numeric(12,2),\n  CONSTRAINT ck_dept_budget CHECK (budget >= 0)\n)",
-      "CREATE TABLE dept_budget (\n  id integer PRIMARY KEY,\n  budget numeric(12,2),\n  CONSTRAINT ck_dept_budget CHECK (budget >= 0)\n);",
-      "CREATE TABLE dept_budget ( id integer PRIMARY KEY, budget numeric(12,2), CONSTRAINT ck_dept_budget CHECK (budget >= 0) )",
-      "CREATE TABLE dept_budget ( id integer PRIMARY KEY, budget numeric(12,2), CONSTRAINT ck_dept_budget CHECK (budget >= 0) );"
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.00)",
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.00);",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000.00)",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000.00);",
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000)",
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000);",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000)",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000);",
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.0)",
+      "INSERT INTO department (title, location, budget) VALUES ('Finance', 'London', 250000.0);",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000.0)",
+      "insert into department (title, location, budget) values ('finance', 'london', 250000.0);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_dept_budget ijobiy byudjet cheklovi o'rnatildi.",
-    "task": "Create a table named `dept_budget`: `id` (integer PRIMARY KEY), `budget` (numeric(12,2)) ustunlari and named `CONSTRAINT ck_dept_budget CHECK (budget >= 0)` with constraint.",
+    "explanation": "Finance bo'limi barcha ustunlari bilan department jadvaliga muvaffaqiyatli kiritildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "dept_budget",
+      "operation": "INSERT_INTO",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
+          "isIdentity": true,
+          "isNotNull": true
+        },
+        {
+          "name": "title",
+          "type": "varchar(100)",
           "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
         },
         {
           "name": "budget",
           "type": "numeric(12,2)",
-          "isPK": false,
-          "isIdentity": false,
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
+          "hasCheck": true
         }
-      ]
+      ],
+      "description": "department jadvaliga Finance bo'limi kiritildi."
     }
   },
   {
     "id": 47,
     "sector": 4,
     "difficulty": "Floor 4 • Easy",
-    "source": "T03 Task 2 Step 5 • Maosh Oralig'i Cheklovi",
-    "title": "Maosh Diapazoni Constrainti (Salary Range)",
-    "story": "Kompaniyada xodim maoshi 0 dan qat'iy katta and 5000 dollardan oshmasligi lozim (`salary > 0 AND salary <= 5000`).",
-    "taskUz": "Create a table named `staff_salary`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)` sintaksisini kiriting.",
+    "source": "T03 Task 3.1 • Qisman Ustunlar va NULL Qiymat",
+    "title": "Qisman Ustunlar bilan Qator Qo'shish",
+    "story": "Seminar 3 3.1: Bo'lim joylashuvi hozircha noma'lum. Faqat `title` va `budget` ko'rsatiladi, `location` esa avtomatik NULL bo'ladi.",
+    "taskUz": "`department` jadvaliga faqat `title` va `budget` ustunlarini ko'rsatib qator qo'shing:\n• `title`: 'HR'\n• `budget`: 100000.00\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (title, budget) VALUES ('HR', 100000.00);`",
+    "hint": "`INSERT INTO department (title, budget) VALUES ('HR', 100000.00);`",
     "solutions": [
-      "CREATE TABLE staff_salary (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000))",
-      "CREATE TABLE staff_salary (id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000));",
-      "CREATE TABLE staff_salary (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)\n)",
-      "CREATE TABLE staff_salary (\n  id integer PRIMARY KEY,\n  salary numeric(10,2),\n  CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)\n);",
-      "CREATE TABLE staff_salary ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000) )",
-      "CREATE TABLE staff_salary ( id integer PRIMARY KEY, salary numeric(10,2), CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000) );"
+      "INSERT INTO department (title, budget) VALUES ('HR', 100000.00)",
+      "INSERT INTO department (title, budget) VALUES ('HR', 100000.00);",
+      "insert into department (title, budget) values ('hr', 100000.00)",
+      "insert into department (title, budget) values ('hr', 100000.00);",
+      "INSERT INTO department (title, budget) VALUES ('HR', 100000)",
+      "INSERT INTO department (title, budget) VALUES ('HR', 100000);",
+      "insert into department (title, budget) values ('hr', 100000)",
+      "insert into department (title, budget) values ('hr', 100000);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_staff_salary maosh oralig'i biznes qoidasi o'rnatildi.",
-    "task": "Create a table named `staff_salary`: `id` (integer PRIMARY KEY), `salary` (numeric(10,2)) ustunlari and named `CONSTRAINT ck_staff_salary CHECK (salary > 0 AND salary <= 5000)` with constraint.",
+    "explanation": "Faqat majburiy ustunlar kiritilib, qolganlari NULL holatda qoldirildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "staff_salary",
+      "operation": "INSERT_INTO",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "salary",
-          "type": "numeric(10,2)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "title",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
+          "hasCheck": true
         }
-      ]
+      ],
+      "description": "HR bo'limi qo'shildi (location = NULL)."
     }
   },
   {
     "id": 48,
     "sector": 4,
-    "difficulty": "Floor 4 • Easy",
-    "source": "T03 Task 2 Step 6 • Email Shablon Cheklovi",
-    "title": "Email Shabloni Constrainti (LIKE '@')",
-    "story": "Seminar 3 qoidasi: foydalanuvchi kiritgan elektron pochtada `@` belgisi bo'lishini ta'minlash uchun sinf shablon tekshiruvi kerak.",
-    "taskUz": "Create a table named `contact_email`: `id` (integer PRIMARY KEY), `email` (varchar(100)) ustunlari and named `CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')` syntax..",
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3.1 • Bir Nechta Satrni Bir So'rovda Kiritish",
+    "title": "Multi-Row INSERT: Bir Nechta Satr Kiritish",
+    "story": "Tizim tezligi va tranzaksiyalar samaradorligi uchun bir nechta satrlarni vergul bilan bitta `INSERT` so'rovida yozamiz.",
+    "taskUz": "`department` jadvaliga ikkita bo'limni bir vaqtda qo'shing:\n1) 'Marketing', 'Tashkent', 150000.00\n2) 'IT Support', 'London', 300000.00\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000.00), ('IT Support', 'London', 300000.00);`",
+    "hint": "`INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000.00), ('IT Support', 'London', 300000.00);`",
     "solutions": [
-      "CREATE TABLE contact_email (id integer PRIMARY KEY, email varchar(100), CONSTRAINT ck_contact_email CHECK (email LIKE '%@%'))",
-      "CREATE TABLE contact_email (id integer PRIMARY KEY, email varchar(100), CONSTRAINT ck_contact_email CHECK (email LIKE '%@%'));",
-      "CREATE TABLE contact_email (\n  id integer PRIMARY KEY,\n  email varchar(100),\n  CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')\n)",
-      "CREATE TABLE contact_email (\n  id integer PRIMARY KEY,\n  email varchar(100),\n  CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')\n);",
-      "CREATE TABLE contact_email ( id integer PRIMARY KEY, email varchar(100), CONSTRAINT ck_contact_email CHECK (email LIKE '%@%') )",
-      "CREATE TABLE contact_email ( id integer PRIMARY KEY, email varchar(100), CONSTRAINT ck_contact_email CHECK (email LIKE '%@%') );"
+      "INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000.00), ('IT Support', 'London', 300000.00)",
+      "INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000.00), ('IT Support', 'London', 300000.00);",
+      "insert into department (title, location, budget) values ('marketing', 'tashkent', 150000.00), ('it support', 'london', 300000.00)",
+      "insert into department (title, location, budget) values ('marketing', 'tashkent', 150000.00), ('it support', 'london', 300000.00);",
+      "INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000), ('IT Support', 'London', 300000)",
+      "INSERT INTO department (title, location, budget) VALUES ('Marketing', 'Tashkent', 150000), ('IT Support', 'London', 300000);",
+      "insert into department (title, location, budget) values ('marketing', 'tashkent', 150000), ('it support', 'london', 300000)",
+      "insert into department (title, location, budget) values ('marketing', 'tashkent', 150000), ('it support', 'london', 300000);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_contact_email shablon tekshiruvi muvaffaqiyatli o'rnatildi.",
-    "task": "Create a table named `contact_email`: `id` (integer PRIMARY KEY), `email` (varchar(100)) ustunlari and named `CONSTRAINT ck_contact_email CHECK (email LIKE '%@%')` with constraint.",
+    "explanation": "Multi-row INSERT orqali ikkita bo'lim bitta so'rovda yaratildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "contact_email",
+      "operation": "INSERT_INTO",
+      "tableName": "department",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "email",
+          "name": "title",
           "type": "varchar(100)",
-          "isPK": false,
-          "isIdentity": false,
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "location",
+          "type": "varchar(50)",
+          "isNotNull": false
+        },
+        {
+          "name": "budget",
+          "type": "numeric(12,2)",
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
+          "hasCheck": true
         }
-      ]
+      ],
+      "description": "Marketing va IT Support bo'limlari bitta buyruq bilan qo'shildi."
     }
   },
   {
     "id": 49,
     "sector": 4,
-    "difficulty": "Floor 4 • Easy",
-    "source": "L03 Slide 21 • Ijobiy Narx Cheklovi",
-    "title": "Mahsulot Narxi Ijobiyligi (Price > 0)",
-    "story": "Do'konda mahsulot narxi 0 dan katta bo'lishi shart (tekin yoki manfiy narxga yo'l qo'yilmaydi).",
-    "taskUz": "Create a table named `item_price`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)) ustunlari and named `CONSTRAINT ck_item_price CHECK (price > 0)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_item_price CHECK (price > 0)` .",
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3.1 • Xodimlar Jadvaliga To'liq Satr Kiritish",
+    "title": "Xodim Yaratish: Barcha Shaxsiy Ma'lumotlar Bilan",
+    "story": "Seminar 3 3.1: Yangi xodim 'Ali Valiyev' barcha shaxsiy ma'lumotlari (`dob`, `email`, `phone`, `salary`, `active`, `hired_at`) bilan qo'shilmoqda.",
+    "taskUz": "`employee` jadvaliga yangi xodim qo'shing:\n• `first_name`: 'Ali'\n• `last_name`: 'Valiyev'\n• `dob`: '1995-05-12'\n• `email`: 'ali@wiut.uz'\n• `phone`: '+998901234567'\n• `salary`: 3500.00\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00);`",
+    "hint": "`INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00);`",
     "solutions": [
-      "CREATE TABLE item_price (id integer PRIMARY KEY, price numeric(8,2), CONSTRAINT ck_item_price CHECK (price > 0))",
-      "CREATE TABLE item_price (id integer PRIMARY KEY, price numeric(8,2), CONSTRAINT ck_item_price CHECK (price > 0));",
-      "CREATE TABLE item_price (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  CONSTRAINT ck_item_price CHECK (price > 0)\n)",
-      "CREATE TABLE item_price (\n  id integer PRIMARY KEY,\n  price numeric(8,2),\n  CONSTRAINT ck_item_price CHECK (price > 0)\n);",
-      "CREATE TABLE item_price ( id integer PRIMARY KEY, price numeric(8,2), CONSTRAINT ck_item_price CHECK (price > 0) )",
-      "CREATE TABLE item_price ( id integer PRIMARY KEY, price numeric(8,2), CONSTRAINT ck_item_price CHECK (price > 0) );"
+      "INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00)",
+      "INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00);",
+      "insert into employee (first_name, last_name, dob, email, phone, salary) values ('ali', 'valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00)",
+      "insert into employee (first_name, last_name, dob, email, phone, salary) values ('ali', 'valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500.00);",
+      "INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500)",
+      "INSERT INTO employee (first_name, last_name, dob, email, phone, salary) VALUES ('Ali', 'Valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500);",
+      "insert into employee (first_name, last_name, dob, email, phone, salary) values ('ali', 'valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500)",
+      "insert into employee (first_name, last_name, dob, email, phone, salary) values ('ali', 'valiyev', '1995-05-12', 'ali@wiut.uz', '+998901234567', 3500);"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_item_price cheklovi o'rnatildi.",
-    "task": "Create a table named `item_price`: `id` (integer PRIMARY KEY), `price` (numeric(8,2)) ustunlari and named `CONSTRAINT ck_item_price CHECK (price > 0)` with constraint.",
+    "explanation": "Ali Valiyev haqidagi to'liq ma'lumotlar xodimlar jadvaliga kiritildi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "item_price",
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "price",
-          "type": "numeric(8,2)",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
         }
-      ]
+      ],
+      "description": "Xodim Ali Valiyev dob va kontaktlari bilan qo'shildi."
     }
   },
   {
     "id": 50,
     "sector": 4,
-    "difficulty": "Floor 4 • Easy",
-    "source": "L03 Slide 21 • Yosh Cheklovi (Age >= 18)",
-    "title": "Voyaga Yetganlik Constrainti (Age >= 18)",
-    "story": "Ishga qabul qilish qoidasiga ko'ra, xodimning yoshi kamida 18 yosh bo'lishi kerak.",
-    "taskUz": "Create a table named `applicant`: `id` (integer PRIMARY KEY), `age` (integer) ustunlari and named `CONSTRAINT ck_applicant_age CHECK (age >= 18)` with constraint.",
-    "starterCode": "",
-    "hint": "`CONSTRAINT ck_applicant_age CHECK (age >= 18)` cheklovini yozing.",
+    "difficulty": "Floor 4 • Medium",
+    "source": "T03 Task 3.1 • DEFAULT Qiymatlarga Tayanuvchi INSERT",
+    "title": "DEFAULT Qiymatlarga Tayanuvchi INSERT",
+    "story": "Seminar 3 3.1: Xodim qo'shilganda faqat ism, familiya va email beriladi. `salary` (1000.00), `active` (true) va `hired_at` (now) standart qiymatlarni oladi.",
+    "taskUz": "`employee` jadvaliga faqat `first_name`, `last_name` va `email` ustunlarini ko'rsatib yangi xodim qo'shing:\n• `first_name`: 'Malika'\n• `last_name`: 'Karimova'\n• `email`: 'malika@wiut.uz'\n\n📋 **Kutilayotgan DML:**\n`INSERT INTO employee (first_name, last_name, email) VALUES ('Malika', 'Karimova', 'malika@wiut.uz');`",
+    "hint": "`INSERT INTO employee (first_name, last_name, email) VALUES ('Malika', 'Karimova', 'malika@wiut.uz');`",
     "solutions": [
-      "CREATE TABLE applicant (id integer PRIMARY KEY, age integer, CONSTRAINT ck_applicant_age CHECK (age >= 18))",
-      "CREATE TABLE applicant (id integer PRIMARY KEY, age integer, CONSTRAINT ck_applicant_age CHECK (age >= 18));",
-      "CREATE TABLE applicant (\n  id integer PRIMARY KEY,\n  age integer,\n  CONSTRAINT ck_applicant_age CHECK (age >= 18)\n)",
-      "CREATE TABLE applicant (\n  id integer PRIMARY KEY,\n  age integer,\n  CONSTRAINT ck_applicant_age CHECK (age >= 18)\n);",
-      "CREATE TABLE applicant ( id integer PRIMARY KEY, age integer, CONSTRAINT ck_applicant_age CHECK (age >= 18) )",
-      "CREATE TABLE applicant ( id integer PRIMARY KEY, age integer, CONSTRAINT ck_applicant_age CHECK (age >= 18) );"
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Malika', 'Karimova', 'malika@wiut.uz')",
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Malika', 'Karimova', 'malika@wiut.uz');",
+      "insert into employee (first_name, last_name, email) values ('malika', 'karimova', 'malika@wiut.uz')",
+      "insert into employee (first_name, last_name, email) values ('malika', 'karimova', 'malika@wiut.uz');",
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Malika','Karimova','malika@wiut.uz')",
+      "INSERT INTO employee (first_name, last_name, email) VALUES ('Malika','Karimova','malika@wiut.uz');",
+      "insert into employee (first_name, last_name, email) values ('malika','karimova','malika@wiut.uz')",
+      "insert into employee (first_name, last_name, email) values ('malika','karimova','malika@wiut.uz');"
     ],
-    "requiredPatterns": [],
-    "explanation": "ck_applicant_age yosh cheklovi o'rnatildi.",
-    "task": "Create a table named `applicant`: `id` (integer PRIMARY KEY), `age` (integer) ustunlari and named `CONSTRAINT ck_applicant_age CHECK (age >= 18)` with constraint.",
+    "explanation": "Malika Karimova qo'shildi, sukut bo'yicha parametrlar avtomatik ishga tushdi.",
     "expectedSchema": {
-      "operation": "CREATE_TABLE",
-      "tableName": "applicant",
+      "operation": "INSERT_INTO",
+      "tableName": "employee",
       "columns": [
         {
           "name": "id",
           "type": "integer",
           "isPK": true,
-          "isIdentity": false,
-          "isNotNull": true,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": false,
-          "hasDefault": false
+          "isIdentity": true,
+          "isNotNull": true
         },
         {
-          "name": "age",
-          "type": "integer",
-          "isPK": false,
-          "isIdentity": false,
+          "name": "first_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "last_name",
+          "type": "varchar(25)",
+          "isNotNull": true
+        },
+        {
+          "name": "dob",
+          "type": "date",
+          "isNotNull": false
+        },
+        {
+          "name": "email",
+          "type": "varchar(100)",
+          "isNotNull": true,
+          "isUQ": true
+        },
+        {
+          "name": "phone",
+          "type": "varchar(20)",
+          "isNotNull": false
+        },
+        {
+          "name": "salary",
+          "type": "numeric(10,2)",
           "isNotNull": false,
-          "isUQ": false,
-          "isFK": false,
-          "references": null,
-          "hasCheck": true,
-          "hasDefault": false
+          "hasDefault": true
+        },
+        {
+          "name": "active",
+          "type": "boolean",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "hired_at",
+          "type": "timestamp",
+          "isNotNull": true,
+          "hasDefault": true
+        },
+        {
+          "name": "department_id",
+          "type": "integer",
+          "isFK": true,
+          "references": "department(id)"
         }
-      ]
+      ],
+      "description": "Xodim qo'shildi, salary=1000 va active=true sukut bo'yicha to'ldirildi."
     }
   }
 ];
