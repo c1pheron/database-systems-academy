@@ -65,8 +65,11 @@
           } else if (ch === "'" && prev !== "\\" && !inString) {
             inChar = !inChar;
           } else if (!inString && !inChar) {
-            if (ch === "{") braceStack.push({ line: lineNum, col: c + 1 });
-            else if (ch === "}") {
+            if (ch === "{") {
+              const beforeBrace = line.substring(0, c).trim();
+              const isArrayInit = /(=|\[\]|\{|\,)\s*$/.test(beforeBrace) || (beforeBrace === "" && i > 0 && /(=|\[\]|\{|\,)\s*$/.test(lines[i - 1].trim()));
+              braceStack.push({ line: lineNum, col: c + 1, isArrayInit });
+            } else if (ch === "}") {
               if (braceStack.length === 0) {
                 errors.push({
                   line: lineNum,
@@ -110,7 +113,10 @@
         const isAnnotation = trimmed.startsWith("@");
         const endsWithValid = /([{};,(\[.]|\+|&&|\|\||\-|\*|\/|=|\?|:)$/.test(trimmed);
 
-        if (parenStack.length === 0 && !isHeader && !isAnnotation && !endsWithValid) {
+        const currentBrace = braceStack.length > 0 ? braceStack[braceStack.length - 1] : null;
+        const isInsideArrayInit = currentBrace && currentBrace.isArrayInit;
+
+        if (parenStack.length === 0 && !isInsideArrayInit && !isHeader && !isAnnotation && !endsWithValid) {
           // If it looks like a variable declaration, assignment, method call, or return
           const isStatement = /^(return|this\.|super\.|System\.out\.|throw\s|import\s|package\s|[A-Za-z0-9_<>\[\]]+\s+[A-Za-z0-9_]+\s*(=|;|\())/.test(trimmed);
           if (isStatement) {
@@ -397,10 +403,23 @@
       // 6. Check Specific OOP Keywords
       if (requirements.keywords) {
         for (const kw of requirements.keywords) {
-          const kwRegex = kw.startsWith("@")
-            ? new RegExp(`${kw.replace("@", "\\@")}\\b`)
-            : new RegExp(`\\b${kw}\\b`);
-          const lineNum = findLineNumber(kwRegex);
+          let lineNum = null;
+          // First check plain substring match line by line
+          for (let i = 0; i < lines.length; i++) {
+            if (lines[i].includes(kw)) {
+              lineNum = i + 1;
+              break;
+            }
+          }
+          if (!lineNum) {
+            try {
+              const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const kwRegex = new RegExp(`\\b${escaped}\\b`);
+              lineNum = findLineNumber(kwRegex);
+            } catch (e) {
+              // Fallback silently if regex fails
+            }
+          }
 
           if (lineNum) {
             passedItems.push({

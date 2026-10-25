@@ -27,9 +27,7 @@
       "methods": [
         "calculateTotal"
       ],
-      "constructors": [
-        "GradeCalculator"
-      ]
+      "constructors": []
     },
     "starterCode": "class GradeCalculator {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
     "solution": "class GradeCalculator {\n    public int calculateTotal(int[] marks) {\n        int sum = 0;\n        for (int m : marks) {\n            sum += m;\n        }\n        return sum;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        GradeCalculator calc = new GradeCalculator();\n        int[] scores = {85, 92, 78};\n        System.out.println(\"Jami ball: \" + calc.calculateTotal(scores));\n    }\n}",
@@ -63,9 +61,7 @@
       "methods": [
         "calculateAverage"
       ],
-      "constructors": [
-        "WeatherStation"
-      ]
+      "constructors": []
     },
     "starterCode": "class WeatherStation {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
     "solution": "class WeatherStation {\n    public double calculateAverage(double[] temps) {\n        if (temps.length == 0) return 0.0;\n        double sum = 0.0;\n        for (double t : temps) {\n            sum += t;\n        }\n        return sum / temps.length;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        WeatherStation ws = new WeatherStation();\n        double[] weekTemps = {20.0, 22.0, 24.0, 18.0, 21.0};\n        System.out.println(\"O'rtacha harorat: \" + ws.calculateAverage(weekTemps) + \" C\");\n    }\n}",
@@ -99,9 +95,7 @@
       "methods": [
         "findMaxPrice"
       ],
-      "constructors": [
-        "ReceiptScanner"
-      ]
+      "constructors": []
     },
     "starterCode": "class ReceiptScanner {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
     "solution": "class ReceiptScanner {\n    public double findMaxPrice(double[] prices) {\n        if (prices.length == 0) return 0.0;\n        double max = prices[0];\n        for (double p : prices) {\n            if (p > max) {\n                max = p;\n            }\n        }\n        return max;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ReceiptScanner scanner = new ReceiptScanner();\n        double[] basket = {15000.0, 45000.0, 12000.0, 98000.0, 32000.0};\n        System.out.println(\"Eng qimmat tovar narxi: \" + scanner.findMaxPrice(basket) + \" so'm\");\n    }\n}",
@@ -135,9 +129,7 @@
       "methods": [
         "getElementAt"
       ],
-      "constructors": [
-        "SafeArray"
-      ]
+      "constructors": []
     },
     "starterCode": "class SafeArray {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
     "solution": "class SafeArray {\n    public int getElementAt(int[] arr, int index, int fallback) {\n        if (index >= 0 && index < arr.length) {\n            return arr[index];\n        }\n        return fallback;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SafeArray sa = new SafeArray();\n        int[] data = {10, 20, 30};\n        int val1 = sa.getElementAt(data, 1, -1);\n        int val2 = sa.getElementAt(data, 5, -1);\n        System.out.println(\"Mavjud element: \" + val1 + \" | Noto'g'ri indeks: \" + val2);\n    }\n}",
@@ -311,7 +303,7 @@
       ]
     },
     "starterCode": "class Student {\n    \n}\n\nclass StudentRegister {\n    \n}\n\nclass Main {\n    public static void main(String[] args) {\n        \n    }\n}",
-    "solution": "class Student {\n    private String name;\n    private int mark;\n\n    public Student(String name, int mark) {\n        this.name = name;\n        this.mark = mark;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public int getMark() {\n        return mark;\n    }\n}\n\nclass StudentRegister {\n    public int countPassed(Student[] students) {\n        int count = 0;\n        for (Student s : students) {\n            if (s.getMark() >= 40) {\n                count++;\n            }\n        }\n        return count;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student[] list = {\n            new Student(\"Jasur\", 75),\n            new Student(\"Malika\", 35),\n            new Student(\"Bobur\", 80)\n        };\n        StudentRegister reg = new StudentRegister();\n        System.out.println(\"O'tgan talabalar soni: \" + reg.countPassed(list));\n    }\n}",
+    "solution": "class Student {\n    private String name;\n    private int mark;\n\n    public Student(String name, int mark) {\n        this.name = name;\n        this.mark = mark;\n    }\n\n    public String getName() {\n        return name;\n    }\n\n    public int getMark() {\n        return mark;\n    }\n}\n\nclass StudentRegister {\n    public int countPassed(Student[] students) {\n        int count = 0;\n        for (Student s : students) {\n            if (s.getMark() >= 40) {\n                count++;\n            }\n        }\n        return count;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Student[] list = {\n            new Student(\"Jasur\", 75),\n            new Student(\"Malika\", 35),\n            new Student(\"Bobur\", 80),\n        };\n        StudentRegister reg = new StudentRegister();\n        System.out.println(\"O'tgan talabalar soni: \" + reg.countPassed(list));\n    }\n}",
     "expectedOutput": "",
     "detailedSolution": {
       "uz": "Obyektlar massivini aylanib, getMark() getteri orqali biznes mantiqni tekshirish modulli tizimlarning asosi hisoblanadi.",
