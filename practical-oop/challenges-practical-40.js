@@ -45,7 +45,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nBank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. BankCard klassida private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCard klassida private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. BankCard in class private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. BankCard в классе private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb выведите в консоль."
     },
@@ -129,7 +129,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. SecureCard klassida private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. SecureCard klassida private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SecureCard in class private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SecureCard в классе private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb выведите в консоль."
     },
@@ -213,7 +213,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nKarta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. CardPin klassida private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKarta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. CardPin klassida private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CardPin in class private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CardPin в классе private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb выведите в консоль."
     },
@@ -300,7 +300,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nFiribgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. LimitedCard klassida private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFiribgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. LimitedCard klassida private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. LimitedCard in class private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. LimitedCard в классе private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni выведите в консоль."
     },
@@ -385,7 +385,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nFoydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib chiqaring: \"Mijoz: Anvar | Yoshi: 20\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFoydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib chiqaring: \"Mijoz: Anvar | Yoshi: 20\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib print to console: \"Mijoz: Anvar | Yoshi: 20\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib выведите в консоль: \"Mijoz: Anvar | Yoshi: 20\"."
     },
@@ -470,7 +470,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb выведите в консоль."
     },
@@ -555,7 +555,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nHar bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nHar bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\"."
     },
@@ -637,7 +637,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nAgar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini chiqaring: \"Karta bloklangan: true\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nAgar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini chiqaring: \"Karta bloklangan: true\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini print to console: \"Karta bloklangan: true\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini выведите в консоль: \"Karta bloklangan: true\"."
     },
@@ -720,7 +720,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nTelefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nTelefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb выведите в консоль."
     },
@@ -805,7 +805,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nBalans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBalans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb выведите в консоль."
     },
@@ -887,7 +887,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'GoldCard' baza 'BankCard' klassidan meros oladi va o'ziga 'cashbackRate'  qo'shadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. BankCardda protected double balance;.\n2. GoldCard extends BankCard qilib public double getCashback(double spend) metodida spend * 0.03 qaytaring.\n3. Mainda 100,000 somlik GoldCard ochib, keshbekni chiqaring: \"Gold Keshbek: 3000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'GoldCard' baza 'BankCard' klassidan meros oladi va o'ziga 'cashbackRate'  qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCardda protected double balance;.\n2. GoldCard extends BankCard qilib public double getCashback(double spend) metodida spend * 0.03 qaytaring.\n3. Mainda 100,000 somlik GoldCard ochib, keshbekni chiqaring: \"Gold Keshbek: 3000.0 som\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'GoldCard' baza 'BankCard' klassidan meros oladi va o'ziga 'cashbackRate'  qo'shadi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. BankCardda protected double balance;.\n2. GoldCard extends BankCard qilib public double getCashback(double spend) metodida spend * 0.03 qaytaring.\n3. Mainda 100,000 somlik GoldCard ochib, keshbekni print to console: \"Gold Keshbek: 3000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'GoldCard' baza 'BankCard' klassidan meros oladi va o'ziga 'cashbackRate'  qo'shadi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. BankCardda protected double balance;.\n2. GoldCard extends BankCard qilib public double getCashback(double spend) metodida spend * 0.03 qaytaring.\n3. Mainda 100,000 somlik GoldCard ochib, keshbekni выведите в консоль: \"Gold Keshbek: 3000.0 som\"."
     },
@@ -969,7 +969,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'PlatinumCard' 'BankCard'dan meros olib, bepul aeroport Lounge xizmati imtiyozini qo'shadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. PlatinumCard extends BankCard.\n2. public boolean hasLoungeAccess() har doim true qaytarsin.\n3. Mainda tekshiring: \"Lounge imtiyozi: true\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'PlatinumCard' 'BankCard'dan meros olib, bepul aeroport Lounge xizmati imtiyozini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. PlatinumCard extends BankCard.\n2. public boolean hasLoungeAccess() har doim true qaytarsin.\n3. Mainda tekshiring: \"Lounge imtiyozi: true\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'PlatinumCard' 'BankCard'dan meros olib, bepul aeroport Lounge xizmati imtiyozini qo'shadi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. PlatinumCard extends BankCard.\n2. public boolean hasLoungeAccess() har doim true qaytarsin.\n3. Mainda tekshiring: \"Lounge imtiyozi: true\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'PlatinumCard' 'BankCard'dan meros olib, bepul aeroport Lounge xizmati imtiyozini qo'shadi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. PlatinumCard extends BankCard.\n2. public boolean hasLoungeAccess() har doim true qaytarsin.\n3. Mainda tekshiring: \"Lounge imtiyozi: true\"."
     },
@@ -1052,7 +1052,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nInternet xaridlari uchun 'VirtualCard' muddati 'validMonths' maydoni bilan 'BankCard'dan voris bo'ladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. VirtualCardda private int validMonths = 1;.\n2. public int getValidMonths().\n3. Mainda chop eting: \"Amal qilish muddati: 1 oy\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nInternet xaridlari uchun 'VirtualCard' muddati 'validMonths' maydoni bilan 'BankCard'dan voris bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. VirtualCardda private int validMonths = 1;.\n2. public int getValidMonths().\n3. Mainda chop eting: \"Amal qilish muddati: 1 oy\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Internet xaridlari uchun 'VirtualCard' muddati 'validMonths' maydoni bilan 'BankCard'dan voris bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. VirtualCardda private int validMonths = 1;.\n2. public int getValidMonths().\n3. Mainda chop eting: \"Amal qilish muddati: 1 oy\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Internet xaridlari uchun 'VirtualCard' muddati 'validMonths' maydoni bilan 'BankCard'dan voris bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. VirtualCardda private int validMonths = 1;.\n2. public int getValidMonths().\n3. Mainda chop eting: \"Amal qilish muddati: 1 oy\"."
     },
@@ -1138,7 +1138,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Courier' ota klassi 'name'ga ega, 'MotoCourier' voris klassi esa 'motoNumber' maydonini qo'shadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. Courierda protected String name;.\n2. MotoCourier extends Courierda private String motoNumber;.\n3. public String getMotoNumber().\n4. Mainda \"01 M777AA\" raqamli motokuryerni chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Courier' ota klassi 'name'ga ega, 'MotoCourier' voris klassi esa 'motoNumber' maydonini qo'shadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Courierda protected String name;.\n2. MotoCourier extends Courierda private String motoNumber;.\n3. public String getMotoNumber().\n4. Mainda \"01 M777AA\" raqamli motokuryerni chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Courier' ota klassi 'name'ga ega, 'MotoCourier' voris klassi esa 'motoNumber' maydonini qo'shadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. Courierda protected String name;.\n2. MotoCourier extends Courierda private String motoNumber;.\n3. public String getMotoNumber().\n4. Mainda \"01 M777AA\" raqamli motokuryerni print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Courier' ota klassi 'name'ga ega, 'MotoCourier' voris klassi esa 'motoNumber' maydonini qo'shadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. Courierda protected String name;.\n2. MotoCourier extends Courierda private String motoNumber;.\n3. public String getMotoNumber().\n4. Mainda \"01 M777AA\" raqamli motokuryerni выведите в консоль."
     },
@@ -1221,7 +1221,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Customer' oddiy mijoz, 'VIPCustomer' esa 10% chegirmaga ega bo'ladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Customerda name.\n2. VIPCustomer extends Customerda public double applyDiscount(double total) (total * 0.90 qaytaradi).\n3. Mainda 200,000 somga chegirma hisoblang: \"Chegirmali tolov: 180000.0 so'm\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Customer' oddiy mijoz, 'VIPCustomer' esa 10% chegirmaga ega bo'ladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Customerda name.\n2. VIPCustomer extends Customerda public double applyDiscount(double total) (total * 0.90 qaytaradi).\n3. Mainda 200,000 somga chegirma hisoblang: \"Chegirmali tolov: 180000.0 so'm\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Customer' oddiy mijoz, 'VIPCustomer' esa 10% chegirmaga ega bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Customerda name.\n2. VIPCustomer extends Customerda public double applyDiscount(double total) (total * 0.90 qaytaradi).\n3. Mainda 200,000 somga chegirma hisoblang: \"Chegirmali tolov: 180000.0 so'm\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Customer' oddiy mijoz, 'VIPCustomer' esa 10% chegirmaga ega bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Customerda name.\n2. VIPCustomer extends Customerda public double applyDiscount(double total) (total * 0.90 qaytaradi).\n3. Mainda 200,000 somga chegirma hisoblang: \"Chegirmali tolov: 180000.0 so'm\"."
     },
@@ -1307,7 +1307,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'OrderItem' oddiy narxni hisoblaydi, voris 'DiscountedItem' esa 'discountPercent' bo'yicha oraliq summani kamaytiradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 4 gacha)]\n1. OrderItemda price, quantity, public double getSubtotal() (price * quantity).\n2. DiscountedItem extends OrderItemda private double discountPercent;.\n3. DiscountedItemda getSubtotal()ni qayta yozing (Override): super.getSubtotal() * (1 - discountPercent / 100.0).\n4. Mainda 50,000 somlik tovarga 10% chegirma hisoblang: \"Oraliq summa: 45000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'OrderItem' oddiy narxni hisoblaydi, voris 'DiscountedItem' esa 'discountPercent' bo'yicha oraliq summani kamaytiradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. OrderItemda price, quantity, public double getSubtotal() (price * quantity).\n2. DiscountedItem extends OrderItemda private double discountPercent;.\n3. DiscountedItemda getSubtotal()ni qayta yozing (Override): super.getSubtotal() * (1 - discountPercent / 100.0).\n4. Mainda 50,000 somlik tovarga 10% chegirma hisoblang: \"Oraliq summa: 45000.0 som\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'OrderItem' oddiy narxni hisoblaydi, voris 'DiscountedItem' esa 'discountPercent' bo'yicha oraliq summani kamaytiradi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. OrderItemda price, quantity, public double getSubtotal() (price * quantity).\n2. DiscountedItem extends OrderItemda private double discountPercent;.\n3. DiscountedItemda getSubtotal()ni qayta yozing (Override): super.getSubtotal() * (1 - discountPercent / 100.0).\n4. Mainda 50,000 somlik tovarga 10% chegirma hisoblang: \"Oraliq summa: 45000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'OrderItem' oddiy narxni hisoblaydi, voris 'DiscountedItem' esa 'discountPercent' bo'yicha oraliq summani kamaytiradi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. OrderItemda price, quantity, public double getSubtotal() (price * quantity).\n2. DiscountedItem extends OrderItemda private double discountPercent;.\n3. DiscountedItemda getSubtotal()ni qayta yozing (Override): super.getSubtotal() * (1 - discountPercent / 100.0).\n4. Mainda 50,000 somlik tovarga 10% chegirma hisoblang: \"Oraliq summa: 45000.0 som\"."
     },
@@ -1390,7 +1390,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nBola sinf ota konstruktoriga 'super' orqali qiymat uzatishi shart.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Vehicleda brand.\n2. DeliveryCar extends Vehicleda capacityKg qoshib, super(brand)' chaqiring.\n3. Mainda \"Labo\" (1000 kg) e'lon qiling va konsolga: \"Model: Labo | Yuk hajmi: 1000 kg\" deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBola sinf ota konstruktoriga 'super' orqali qiymat uzatishi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Vehicleda brand.\n2. DeliveryCar extends Vehicleda capacityKg qoshib, super(brand)' chaqiring.\n3. Mainda \"Labo\" (1000 kg) e'lon qiling va konsolga: \"Model: Labo | Yuk hajmi: 1000 kg\" deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Bola sinf ota konstruktoriga 'super' orqali qiymat uzatishi shart.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Vehicleda brand.\n2. DeliveryCar extends Vehicleda capacityKg qoshib, super(brand)' chaqiring.\n3. Mainda \"Labo\" (1000 kg) e'lon qiling va konsolga: \"Model: Labo | Yuk hajmi: 1000 kg\" deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Bola sinf ota konstruktoriga 'super' orqali qiymat uzatishi shart.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Vehicleda brand.\n2. DeliveryCar extends Vehicleda capacityKg qoshib, super(brand)' chaqiring.\n3. Mainda \"Labo\" (1000 kg) e'lon qiling va konsolga: \"Model: Labo | Yuk hajmi: 1000 kg\" deb выведите в консоль."
     },
@@ -1471,7 +1471,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'BonusCard'da 'deposit' chaqirilganda, ota 'deposit'iga qo'shimcha 5,000 so'm xush kelibsiz bonusi qo'shiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. BaseCardda deposit(amount) (balance += amount).\n2. BonusCard extends BaseCardda deposit(amount)ni qayta yozing: super.deposit(amount + 5000.0);.\n3. Mainda 20,000 depozit qiling va balans 25,000 ekanini chiqaring: \"Yangi balans: 25000.0 so'm\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'BonusCard'da 'deposit' chaqirilganda, ota 'deposit'iga qo'shimcha 5,000 so'm xush kelibsiz bonusi qo'shiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BaseCardda deposit(amount) (balance += amount).\n2. BonusCard extends BaseCardda deposit(amount)ni qayta yozing: super.deposit(amount + 5000.0);.\n3. Mainda 20,000 depozit qiling va balans 25,000 ekanini chiqaring: \"Yangi balans: 25000.0 so'm\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'BonusCard'da 'deposit' chaqirilganda, ota 'deposit'iga qo'shimcha 5,000 so'm xush kelibsiz bonusi qo'shiladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. BaseCardda deposit(amount) (balance += amount).\n2. BonusCard extends BaseCardda deposit(amount)ni qayta yozing: super.deposit(amount + 5000.0);.\n3. Mainda 20,000 depozit qiling va balans 25,000 ekanini print to console: \"Yangi balans: 25000.0 so'm\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'BonusCard'da 'deposit' chaqirilganda, ota 'deposit'iga qo'shimcha 5,000 so'm xush kelibsiz bonusi qo'shiladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. BaseCardda deposit(amount) (balance += amount).\n2. BonusCard extends BaseCardda deposit(amount)ni qayta yozing: super.deposit(amount + 5000.0);.\n3. Mainda 20,000 depozit qiling va balans 25,000 ekanini выведите в консоль: \"Yangi balans: 25000.0 so'm\"."
     },
@@ -1485,10 +1485,7 @@
         "deposit",
         "getBalance"
       ],
-      "constructors": [
-        "BaseCard",
-        "BonusCard"
-      ],
+      "constructors": [],
       "fields": [],
       "keywords": [
         "extends",
@@ -1555,7 +1552,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'BankEmployee' maosh oladi, 'BranchManager' esa maoshga qo'shimcha bonus oladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. BankEmployeeda protected double baseSalary;.\n2. BranchManager extends BankEmployeeda public double getTotalSalary(double bonus) (baseSalary + bonus).\n3. Mainda 5,000,000 maosh va 2,000,000 bonusli menejerni chiqaring: \"Jami maosh: 7000000.0 so'm\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'BankEmployee' maosh oladi, 'BranchManager' esa maoshga qo'shimcha bonus oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankEmployeeda protected double baseSalary;.\n2. BranchManager extends BankEmployeeda public double getTotalSalary(double bonus) (baseSalary + bonus).\n3. Mainda 5,000,000 maosh va 2,000,000 bonusli menejerni chiqaring: \"Jami maosh: 7000000.0 so'm\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'BankEmployee' maosh oladi, 'BranchManager' esa maoshga qo'shimcha bonus oladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. BankEmployeeda protected double baseSalary;.\n2. BranchManager extends BankEmployeeda public double getTotalSalary(double bonus) (baseSalary + bonus).\n3. Mainda 5,000,000 maosh va 2,000,000 bonusli menejerni print to console: \"Jami maosh: 7000000.0 so'm\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'BankEmployee' maosh oladi, 'BranchManager' esa maoshga qo'shimcha bonus oladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. BankEmployeeda protected double baseSalary;.\n2. BranchManager extends BankEmployeeda public double getTotalSalary(double bonus) (baseSalary + bonus).\n3. Mainda 5,000,000 maosh va 2,000,000 bonusli menejerni выведите в консоль: \"Jami maosh: 7000000.0 so'm\"."
     },
@@ -1638,7 +1635,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Account' -> 'CardAccount' -> 'VIPCardAccount' ko'p bosqichli vorislik zanjiri.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Account (id) -> CardAccount (pan) -> VIPCardAccount (status).\n2. VIPCardAccountda public String getSummary() ma'lumotlarni jamlasin.\n3. Mainda e'lon qilib chiqaring: \"Karta turi: VIP Platinum\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Account' -> 'CardAccount' -> 'VIPCardAccount' ko'p bosqichli vorislik zanjiri.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Account (id) -> CardAccount (pan) -> VIPCardAccount (status).\n2. VIPCardAccountda public String getSummary() ma'lumotlarni jamlasin.\n3. Mainda e'lon qilib chiqaring: \"Karta turi: VIP Platinum\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Account' -> 'CardAccount' -> 'VIPCardAccount' ko'p bosqichli vorislik zanjiri.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Account (id) -> CardAccount (pan) -> VIPCardAccount (status).\n2. VIPCardAccountda public String getSummary() ma'lumotlarni jamlasin.\n3. Mainda e'lon qilib print to console: \"Karta turi: VIP Platinum\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Account' -> 'CardAccount' -> 'VIPCardAccount' ko'p bosqichli vorislik zanjiri.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Account (id) -> CardAccount (pan) -> VIPCardAccount (status).\n2. VIPCardAccountda public String getSummary() ma'lumotlarni jamlasin.\n3. Mainda e'lon qilib выведите в консоль: \"Karta turi: VIP Platinum\"."
     },
@@ -1723,7 +1720,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'PaymentMethod' ota klassi 'pay' metodiga ega. Voris 'Humo' va 'Uzcard' uni o'ziga mos ravishda to'laydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. PaymentMethodda public String pay(double amount) (\"To'lov: \" + amount).\n2. HumoPayment extends PaymentMethodda payni qayta yozing: \"Humo orqali: \" + amount.\n3. Mainda polimorfik havola oching: PaymentMethod pm = new HumoPayment(); va pm.pay(45000.0)ni chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'PaymentMethod' ota klassi 'pay' metodiga ega. Voris 'Humo' va 'Uzcard' uni o'ziga mos ravishda to'laydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. PaymentMethodda public String pay(double amount) (\"To'lov: \" + amount).\n2. HumoPayment extends PaymentMethodda payni qayta yozing: \"Humo orqali: \" + amount.\n3. Mainda polimorfik havola oching: PaymentMethod pm = new HumoPayment(); va pm.pay(45000.0)ni chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'PaymentMethod' ota klassi 'pay' metodiga ega. Voris 'Humo' va 'Uzcard' uni o'ziga mos ravishda to'laydi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. PaymentMethodda public String pay(double amount) (\"To'lov: \" + amount).\n2. HumoPayment extends PaymentMethodda payni qayta yozing: \"Humo orqali: \" + amount.\n3. Mainda polimorfik havola oching: PaymentMethod pm = new HumoPayment(); va pm.pay(45000.0)ni print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'PaymentMethod' ota klassi 'pay' metodiga ega. Voris 'Humo' va 'Uzcard' uni o'ziga mos ravishda to'laydi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. PaymentMethodda public String pay(double amount) (\"To'lov: \" + amount).\n2. HumoPayment extends PaymentMethodda payni qayta yozing: \"Humo orqali: \" + amount.\n3. Mainda polimorfik havola oching: PaymentMethod pm = new HumoPayment(); va pm.pay(45000.0)ni выведите в консоль."
     },
@@ -1802,7 +1799,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'UzumNasiya' to'lovni 3 oyga teng taqsimlab to'laydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Payment ota klassi pay(double amount) (\"Oddiy: \" + amount).\n2. NasiyaPayment extends Paymentda payni qayta yozing: \"Nasiya oylik: \" + (amount / 3.0).\n3. Mainda 300,000 som uchun Nasiya tolovini chiqaring: \"Nasiya oylik: 100000.0\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'UzumNasiya' to'lovni 3 oyga teng taqsimlab to'laydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Payment ota klassi pay(double amount) (\"Oddiy: \" + amount).\n2. NasiyaPayment extends Paymentda payni qayta yozing: \"Nasiya oylik: \" + (amount / 3.0).\n3. Mainda 300,000 som uchun Nasiya tolovini chiqaring: \"Nasiya oylik: 100000.0\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'UzumNasiya' to'lovni 3 oyga teng taqsimlab to'laydi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Payment ota klassi pay(double amount) (\"Oddiy: \" + amount).\n2. NasiyaPayment extends Paymentda payni qayta yozing: \"Nasiya oylik: \" + (amount / 3.0).\n3. Mainda 300,000 som uchun Nasiya tolovini print to console: \"Nasiya oylik: 100000.0\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'UzumNasiya' to'lovni 3 oyga teng taqsimlab to'laydi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Payment ota klassi pay(double amount) (\"Oddiy: \" + amount).\n2. NasiyaPayment extends Paymentda payni qayta yozing: \"Nasiya oylik: \" + (amount / 3.0).\n3. Mainda 300,000 som uchun Nasiya tolovini выведите в консоль: \"Nasiya oylik: 100000.0\"."
     },
@@ -1881,7 +1878,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'ClickPayment' QR kod formati bilan to'laydi: \"Click QR to'landi: \" + amount.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. PaymentOption ota klassi.\n2. ClickPayment extends PaymentOption.\n3. Mainda polimorfik chaqiruv: \"Click QR to'landi: 25000.0\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'ClickPayment' QR kod formati bilan to'laydi: \"Click QR to'landi: \" + amount.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. PaymentOption ota klassi.\n2. ClickPayment extends PaymentOption.\n3. Mainda polimorfik chaqiruv: \"Click QR to'landi: 25000.0\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'ClickPayment' QR kod formati bilan to'laydi: \"Click QR to'landi: \" + amount.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. PaymentOption ota klassi.\n2. ClickPayment extends PaymentOption.\n3. Mainda polimorfik chaqiruv: \"Click QR to'landi: 25000.0\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'ClickPayment' QR kod formati bilan to'laydi: \"Click QR to'landi: \" + amount.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. PaymentOption ota klassi.\n2. ClickPayment extends PaymentOption.\n3. Mainda polimorfik chaqiruv: \"Click QR to'landi: 25000.0\"."
     },
@@ -1957,7 +1954,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nKassa apparati qaysi karta kelishini bilmaydi, faqat 'PaymentMethod' ota turini qabul qiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 2 gacha)]\n1. Cashier sinfida public void process(PaymentMethod pm, double sum) metodini yozing, u konsolga pm.pay(sum) natijasini chiqarsin.\n2. Mainda kassirga HumoPayment uzating va to'lovni tasdiqlang.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKassa apparati qaysi karta kelishini bilmaydi, faqat 'PaymentMethod' ota turini qabul qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Cashier sinfida public void process(PaymentMethod pm, double sum) metodini yozing, u konsolga pm.pay(sum) natijasini chiqarsin.\n2. Mainda kassirga HumoPayment uzating va to'lovni tasdiqlang.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Kassa apparati qaysi karta kelishini bilmaydi, faqat 'PaymentMethod' ota turini qabul qiladi.\n\n[Step-by-Step Implementation Tasks (1 to 2)]\n1. Cashier sinfida public void process(PaymentMethod pm, double sum) method yozing, u konsolga pm.pay(sum) natijasini chiqarsin.\n2. Mainda kassirga HumoPayment uzating va to'lovni tasdiqlang.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Kassa apparati qaysi karta kelishini bilmaydi, faqat 'PaymentMethod' ota turini qabul qiladi.\n\n📋 Пошаговые задачи (от 1 до 2)\n1. Cashier sinfida public void process(PaymentMethod pm, double sum) метод yozing, u konsolga pm.pay(sum) natijasini chiqarsin.\n2. Mainda kassirga HumoPayment uzating va to'lovni tasdiqlang."
     },
@@ -2038,7 +2035,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'List<PaymentMethod>' ro'yxatida bir vaqtning o'zida Humo, Uzcard va Click obyektlari turadi. Bitta for siklida barchasi ishga tushadi!\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. PaymentMethod (pay).\n2. CardPay (\"Karta: \" + a) va CashPay (\"Naqd: \" + a).\n3. Mainda PaymentMethod[] list = { new CardPay(), new CashPay() }; ochib, for siklida 10000 to'lang.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'List<PaymentMethod>' ro'yxatida bir vaqtning o'zida Humo, Uzcard va Click obyektlari turadi. Bitta for siklida barchasi ishga tushadi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. PaymentMethod (pay).\n2. CardPay (\"Karta: \" + a) va CashPay (\"Naqd: \" + a).\n3. Mainda PaymentMethod[] list = { new CardPay(), new CashPay() }; ochib, for siklida 10000 to'lang.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'List<PaymentMethod>' ro'yxatida bir vaqtning o'zida Humo, Uzcard va Click obyektlari turadi. Bitta for siklida barchasi ishga tushadi!\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. PaymentMethod (pay).\n2. CardPay (\"Karta: \" + a) va CashPay (\"Naqd: \" + a).\n3. Mainda PaymentMethod[] list = { new CardPay(), new CashPay() }; ochib, for siklida 10000 to'lang.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'List<PaymentMethod>' ro'yxatida bir vaqtning o'zida Humo, Uzcard va Click obyektlari turadi. Bitta for siklida barchasi ishga tushadi!\n\n📋 Пошаговые задачи (от 1 до 3)\n1. PaymentMethod (pay).\n2. CardPay (\"Karta: \" + a) va CashPay (\"Naqd: \" + a).\n3. Mainda PaymentMethod[] list = { new CardPay(), new CashPay() }; ochib, for siklida 10000 to'lang."
     },
@@ -2116,7 +2113,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Receipt' ota sinf. 'PaperReceipt' .\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 2 gacha)]\n1. Receipt ota sinfi.\n2. PaperReceipt chop etishni qayta yozsin: \"Qog'oz Chek: 999\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Receipt' ota sinf. 'PaperReceipt' .\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Receipt ota sinfi.\n2. PaperReceipt chop etishni qayta yozsin: \"Qog'oz Chek: 999\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Receipt' ota sinf. 'PaperReceipt' .\n\n[Step-by-Step Implementation Tasks (1 to 2)]\n1. Receipt ota sinfi.\n2. PaperReceipt chop etishni qayta yozsin: \"Qog'oz Chek: 999\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Receipt' ota sinf. 'PaperReceipt' .\n\n📋 Пошаговые задачи (от 1 до 2)\n1. Receipt ota sinfi.\n2. PaperReceipt chop etishni qayta yozsin: \"Qog'oz Chek: 999\"."
     },
@@ -2195,7 +2192,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nOddiy o'tkazma 1% komissiya , xalqaro o'tkazma esa 3% komissiya oladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Transferda calculateFee(amount) (amount * 0.01).\n2. InternationalTransfer extends Transferda (amount * 0.03).\n3. Mainda 100,000 som uchun xalqaro komissiyani chiqaring: \"Komissiya: 3000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nOddiy o'tkazma 1% komissiya , xalqaro o'tkazma esa 3% komissiya oladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Transferda calculateFee(amount) (amount * 0.01).\n2. InternationalTransfer extends Transferda (amount * 0.03).\n3. Mainda 100,000 som uchun xalqaro komissiyani chiqaring: \"Komissiya: 3000.0 som\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Oddiy o'tkazma 1% komissiya , xalqaro o'tkazma esa 3% komissiya oladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Transferda calculateFee(amount) (amount * 0.01).\n2. InternationalTransfer extends Transferda (amount * 0.03).\n3. Mainda 100,000 som uchun xalqaro komissiyani print to console: \"Komissiya: 3000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Oddiy o'tkazma 1% komissiya , xalqaro o'tkazma esa 3% komissiya oladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Transferda calculateFee(amount) (amount * 0.01).\n2. InternationalTransfer extends Transferda (amount * 0.03).\n3. Mainda 100,000 som uchun xalqaro komissiyani выведите в консоль: \"Komissiya: 3000.0 som\"."
     },
@@ -2274,7 +2271,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'Delivery' 10,000 so'm baza narxiga ega, 'ExpressDelivery' esa 25,000 so'm narx chiqaradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Delivery (getCost -> 10000.0).\n2. ExpressDelivery (getCost -> 25000.0).\n3. Mainda chiqaring: \"Yetkazish narxi: 25000.0 so'm\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Delivery' 10,000 so'm baza narxiga ega, 'ExpressDelivery' esa 25,000 so'm narx chiqaradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Delivery (getCost -> 10000.0).\n2. ExpressDelivery (getCost -> 25000.0).\n3. Mainda chiqaring: \"Yetkazish narxi: 25000.0 so'm\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Delivery' 10,000 so'm baza narxiga ega, 'ExpressDelivery' esa 25,000 so'm narx chiqaradi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Delivery (getCost -> 10000.0).\n2. ExpressDelivery (getCost -> 25000.0).\n3. Mainda print to console: \"Yetkazish narxi: 25000.0 so'm\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Delivery' 10,000 so'm baza narxiga ega, 'ExpressDelivery' esa 25,000 so'm narx chiqaradi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Delivery (getCost -> 10000.0).\n2. ExpressDelivery (getCost -> 25000.0).\n3. Mainda выведите в консоль: \"Yetkazish narxi: 25000.0 so'm\"."
     },
@@ -2353,7 +2350,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'DiscountRule' ota sinf. 'HolidayDiscount' xariddan 15% chegirma beradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. DiscountRuleda apply(total) (total).\n2. HolidayDiscount extends DiscountRuleda (total * 0.85).\n3. Mainda 100,000 uchun chiqaring: \"Bayramona narx: 85000.0 so'm\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'DiscountRule' ota sinf. 'HolidayDiscount' xariddan 15% chegirma beradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. DiscountRuleda apply(total) (total).\n2. HolidayDiscount extends DiscountRuleda (total * 0.85).\n3. Mainda 100,000 uchun chiqaring: \"Bayramona narx: 85000.0 so'm\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'DiscountRule' ota sinf. 'HolidayDiscount' xariddan 15% chegirma beradi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. DiscountRuleda apply(total) (total).\n2. HolidayDiscount extends DiscountRuleda (total * 0.85).\n3. Mainda 100,000 uchun print to console: \"Bayramona narx: 85000.0 so'm\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'DiscountRule' ota sinf. 'HolidayDiscount' xariddan 15% chegirma beradi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. DiscountRuleda apply(total) (total).\n2. HolidayDiscount extends DiscountRuleda (total * 0.85).\n3. Mainda 100,000 uchun выведите в консоль: \"Bayramona narx: 85000.0 so'm\"."
     },
@@ -2432,7 +2429,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nAudit tizimi har qanday 'Transaction' turini bir xil qabul qilib, uning 'logDetails()'ini yozib boradi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. Transaction (logDetails -> \"[TX]\").\n2. CardTransaction (\"[KARTA TO'LOVI]\").\n3. AuditLogger.audit(Transaction t) chaqirib chiqaring: \"Auditor tekshiruvi: [KARTA TO'LOVI]\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nAudit tizimi har qanday 'Transaction' turini bir xil qabul qilib, uning 'logDetails()'ini yozib boradi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Transaction (logDetails -> \"[TX]\").\n2. CardTransaction (\"[KARTA TO'LOVI]\").\n3. AuditLogger.audit(Transaction t) chaqirib chiqaring: \"Auditor tekshiruvi: [KARTA TO'LOVI]\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Audit tizimi har qanday 'Transaction' turini bir xil qabul qilib, uning 'logDetails()'ini yozib boradi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. Transaction (logDetails -> \"[TX]\").\n2. CardTransaction (\"[KARTA TO'LOVI]\").\n3. AuditLogger.audit(Transaction t) chaqirib print to console: \"Auditor tekshiruvi: [KARTA TO'LOVI]\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Audit tizimi har qanday 'Transaction' turini bir xil qabul qilib, uning 'logDetails()'ini yozib boradi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. Transaction (logDetails -> \"[TX]\").\n2. CardTransaction (\"[KARTA TO'LOVI]\").\n3. AuditLogger.audit(Transaction t) chaqirib выведите в консоль: \"Auditor tekshiruvi: [KARTA TO'LOVI]\"."
     },
@@ -2513,7 +2510,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'abstract class Account' obyekt ochishga ruxsat bermaydi, faqat 'abstract double getInterestRate()' qoidasini belgilaydi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. abstract class Accountda abstract double getInterestRate();.\n2. SavingsAccount extends Accountda foiz stavkasini 18.0 deb qaytaring.\n3. Mainda chiqaring: \"Omonat foizi: 18.0%\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'abstract class Account' obyekt ochishga ruxsat bermaydi, faqat 'abstract double getInterestRate()' qoidasini belgilaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. abstract class Accountda abstract double getInterestRate();.\n2. SavingsAccount extends Accountda foiz stavkasini 18.0 deb qaytaring.\n3. Mainda chiqaring: \"Omonat foizi: 18.0%\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'abstract class Account' obyekt ochishga ruxsat bermaydi, faqat 'abstract double getInterestRate()' qoidasini belgilaydi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. abstract class Accountda abstract double getInterestRate();.\n2. SavingsAccount extends Accountda foiz stavkasini 18.0 deb qaytaring.\n3. Mainda print to console: \"Omonat foizi: 18.0%\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'abstract class Account' obyekt ochishga ruxsat bermaydi, faqat 'abstract double getInterestRate()' qoidasini belgilaydi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. abstract class Accountda abstract double getInterestRate();.\n2. SavingsAccount extends Accountda foiz stavkasini 18.0 deb qaytaring.\n3. Mainda выведите в консоль: \"Omonat foizi: 18.0%\"."
     },
@@ -2593,7 +2590,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'interface Payable' har qanday to'lov vositasi bajarishi shart bo'lgan 'void pay' metodini talab qiladi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. interface Payableda void pay(double amount);.\n2. CardPayment implements Payable.\n3. Mainda 50,000 tolang: \"Payable orqali tolandi: 50000.0\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'interface Payable' har qanday to'lov vositasi bajarishi shart bo'lgan 'void pay' metodini talab qiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface Payableda void pay(double amount);.\n2. CardPayment implements Payable.\n3. Mainda 50,000 tolang: \"Payable orqali tolandi: 50000.0\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'interface Payable' har qanday to'lov vositasi bajarishi shart bo'lgan 'void pay' metodini talab qiladi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. interface Payableda void pay(double amount);.\n2. CardPayment implements Payable.\n3. Mainda 50,000 tolang: \"Payable orqali tolandi: 50000.0\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'interface Payable' har qanday to'lov vositasi bajarishi shart bo'lgan 'void pay' metodini talab qiladi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. interface Payableda void pay(double amount);.\n2. CardPayment implements Payable.\n3. Mainda 50,000 tolang: \"Payable orqali tolandi: 50000.0\"."
     },
@@ -2673,7 +2670,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'interface Refundable' 'void refund;' shartnomasini taqdim etadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. interface Refundable.\n2. OnlineStore implements Refundable.\n3. Mainda 20,000 qaytaring: \"Mablag qaytarildi: 20000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'interface Refundable' 'void refund;' shartnomasini taqdim etadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface Refundable.\n2. OnlineStore implements Refundable.\n3. Mainda 20,000 qaytaring: \"Mablag qaytarildi: 20000.0 som\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'interface Refundable' 'void refund;' shartnomasini taqdim etadi.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. interface Refundable.\n2. OnlineStore implements Refundable.\n3. Mainda 20,000 qaytaring: \"Mablag qaytarildi: 20000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'interface Refundable' 'void refund;' shartnomasini taqdim etadi.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. interface Refundable.\n2. OnlineStore implements Refundable.\n3. Mainda 20,000 qaytaring: \"Mablag qaytarildi: 20000.0 som\"."
     },
@@ -2753,7 +2750,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nJava'da bitta klass bir vaqtning o'zida 'Payable' va 'Refundable' interfeyslarini qo'llashi mumkin!\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. class ModernTerminal implements Payable, Refundable.\n2. Ikkala metodni yozing.\n3. Mainda ikkalasini chaqirib chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nJava'da bitta klass bir vaqtning o'zida 'Payable' va 'Refundable' interfeyslarini qo'llashi mumkin!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. class ModernTerminal implements Payable, Refundable.\n2. Ikkala metodni yozing.\n3. Mainda ikkalasini chaqirib chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Java'da bitta klass bir vaqtning o'zida 'Payable' va 'Refundable' interfeyslarini qo'llashi mumkin!\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. class ModernTerminal implements Payable, Refundable.\n2. Ikkala metodni yozing.\n3. Mainda ikkalasini chaqirib print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Java'da bitta klass bir vaqtning o'zida 'Payable' va 'Refundable' interfeyslarini qo'llashi mumkin!\n\n📋 Пошаговые задачи (от 1 до 3)\n1. class ModernTerminal implements Payable, Refundable.\n2. Ikkala metodni yozing.\n3. Mainda ikkalasini chaqirib выведите в консоль."
     },
@@ -2835,7 +2832,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'interface Notifiable' har qanday xabarnoma tizimi uchun yagona shartnoma: 'void sendAlert;'.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. interface Notifiable.\n2. PushService implements Notifiable.\n3. Mainda chiqaring: \"ALERT: Parol o'zgartirildi\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'interface Notifiable' har qanday xabarnoma tizimi uchun yagona shartnoma: 'void sendAlert;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface Notifiable.\n2. PushService implements Notifiable.\n3. Mainda chiqaring: \"ALERT: Parol o'zgartirildi\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'interface Notifiable' har qanday xabarnoma tizimi uchun yagona shartnoma: 'void sendAlert;'.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. interface Notifiable.\n2. PushService implements Notifiable.\n3. Mainda print to console: \"ALERT: Parol o'zgartirildi\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'interface Notifiable' har qanday xabarnoma tizimi uchun yagona shartnoma: 'void sendAlert;'.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. interface Notifiable.\n2. PushService implements Notifiable.\n3. Mainda выведите в консоль: \"ALERT: Parol o'zgartirildi\"."
     },
@@ -2915,7 +2912,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'interface Discountable' xaridlarga chegirma berish qoidasini e'lon qiladi: 'double calculateDiscount;'.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. interface Discountable.\n2. StudentDiscount implements Discountable (amount * 0.20 qaytarsin).\n3. Mainda 100,000 dan 20,000 chegirma oling.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'interface Discountable' xaridlarga chegirma berish qoidasini e'lon qiladi: 'double calculateDiscount;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface Discountable.\n2. StudentDiscount implements Discountable (amount * 0.20 qaytarsin).\n3. Mainda 100,000 dan 20,000 chegirma oling.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'interface Discountable' xaridlarga chegirma berish qoidasini e'lon qiladi: 'double calculateDiscount;'.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. interface Discountable.\n2. StudentDiscount implements Discountable (amount * 0.20 qaytarsin).\n3. Mainda 100,000 dan 20,000 chegirma oling.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'interface Discountable' xaridlarga chegirma berish qoidasini e'lon qiladi: 'double calculateDiscount;'.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. interface Discountable.\n2. StudentDiscount implements Discountable (amount * 0.20 qaytarsin).\n3. Mainda 100,000 dan 20,000 chegirma oling."
     },
@@ -2992,7 +2989,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'CheckoutService' aniq kartaga emas, faqat 'Payable' interfeysiga bog'lanadi. Bu — arxitekturaning eng yuqori darajasi!\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 2 gacha)]\n1. CheckoutService ichida public void checkout(Payable p, double sum) { p.pay(sum); }.\n2. Mainda checkout chaqiring: \"To'landi: 75000.0\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'CheckoutService' aniq kartaga emas, faqat 'Payable' interfeysiga bog'lanadi. Bu — arxitekturaning eng yuqori darajasi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. CheckoutService ichida public void checkout(Payable p, double sum) { p.pay(sum); }.\n2. Mainda checkout chaqiring: \"To'landi: 75000.0\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'CheckoutService' aniq kartaga emas, faqat 'Payable' interfeysiga bog'lanadi. Bu — arxitekturaning eng yuqori darajasi!\n\n[Step-by-Step Implementation Tasks (1 to 2)]\n1. CheckoutService ichida public void checkout(Payable p, double sum) { p.pay(sum); }.\n2. Mainda checkout chaqiring: \"To'landi: 75000.0\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'CheckoutService' aniq kartaga emas, faqat 'Payable' interfeysiga bog'lanadi. Bu — arxitekturaning eng yuqori darajasi!\n\n📋 Пошаговые задачи (от 1 до 2)\n1. CheckoutService ichida public void checkout(Payable p, double sum) { p.pay(sum); }.\n2. Mainda checkout chaqiring: \"To'landi: 75000.0\"."
     },
@@ -3074,7 +3071,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\n'abstract class BaseOrder' buyurtma berish algoritmining qadamlarini belgilaydi: 'validate()', keyin 'abstract void deliver()'.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. abstract class BaseOrderda public void process() { validate(); deliver(); }, abstract void deliver();.\n2. FastOrder extends BaseOrderda deliverni \"Tezkor yetkazildi\" qilib yozing.\n3. Mainda process() chaqiring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'abstract class BaseOrder' buyurtma berish algoritmining qadamlarini belgilaydi: 'validate()', keyin 'abstract void deliver()'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. abstract class BaseOrderda public void process() { validate(); deliver(); }, abstract void deliver();.\n2. FastOrder extends BaseOrderda deliverni \"Tezkor yetkazildi\" qilib yozing.\n3. Mainda process() chaqiring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'abstract class BaseOrder' buyurtma berish algoritmining qadamlarini belgilaydi: 'validate()', keyin 'abstract void deliver()'.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. abstract class BaseOrderda public void process() { validate(); deliver(); }, abstract void deliver();.\n2. FastOrder extends BaseOrderda deliverni \"Tezkor yetkazildi\" qilib yozing.\n3. Mainda process() chaqiring.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'abstract class BaseOrder' buyurtma berish algoritmining qadamlarini belgilaydi: 'validate()', keyin 'abstract void deliver()'.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. abstract class BaseOrderda public void process() { validate(); deliver(); }, abstract void deliver();.\n2. FastOrder extends BaseOrderda deliverni \"Tezkor yetkazildi\" qilib yozing.\n3. Mainda process() chaqiring."
     },
@@ -3155,7 +3152,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nFaceID orqali shaxsni tasdiqlash uchun interfeys: 'boolean verifyFace;'.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 3 gacha)]\n1. interface BiometricVerifiable.\n2. PhoneBiometrics implements BiometricVerifiable (true qaytarsin).\n3. Mainda chiqaring: \"FaceID tasdiqlandi: true\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFaceID orqali shaxsni tasdiqlash uchun interfeys: 'boolean verifyFace;'.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface BiometricVerifiable.\n2. PhoneBiometrics implements BiometricVerifiable (true qaytarsin).\n3. Mainda chiqaring: \"FaceID tasdiqlandi: true\".",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: FaceID orqali shaxsni tasdiqlash uchun interfeys: 'boolean verifyFace;'.\n\n[Step-by-Step Implementation Tasks (1 to 3)]\n1. interface BiometricVerifiable.\n2. PhoneBiometrics implements BiometricVerifiable (true qaytarsin).\n3. Mainda print to console: \"FaceID tasdiqlandi: true\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: FaceID orqali shaxsni tasdiqlash uchun interfeys: 'boolean verifyFace;'.\n\n📋 Пошаговые задачи (от 1 до 3)\n1. interface BiometricVerifiable.\n2. PhoneBiometrics implements BiometricVerifiable (true qaytarsin).\n3. Mainda выведите в консоль: \"FaceID tasdiqlandi: true\"."
     },
@@ -3241,7 +3238,7 @@
       ]
     },
     "scenario": {
-      "uz": "[Hayotiy Voqealik & Kontekst]\nTabriklaymiz! Siz Inkapsulyatsiya, Vorislik, Polimorfizm va Abstraksiyani to'liq egalladingiz! Bu masalada 'interface Payable', 'Customer' va 'Order' bitta mukammal tizimga birlashadi.\n\n[Bajarilishi kerak bo'lgan vazifalar (1 dan 5 gacha)]\n1. interface Payable (void pay(double s);).\n2. Card implements Payable.\n3. Customer (name).\n4. Orderda public void checkout(Customer c, Payable p, double total) metodida:\n\"Mijoz: \" + c.getName() + \" | Jami: \" + total\nva p.pay(total) chaqirilsin.\n5. Mainda to'liq arxitekturani ishga tushiring!",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nTabriklaymiz! Siz Inkapsulyatsiya, Vorislik, Polimorfizm va Abstraksiyani to'liq egalladingiz! Bu masalada 'interface Payable', 'Customer' va 'Order' bitta mukammal tizimga birlashadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. interface Payable (void pay(double s);).\n2. Card implements Payable.\n3. Customer (name).\n4. Orderda public void checkout(Customer c, Payable p, double total) metodida:\n\"Mijoz: \" + c.getName() + \" | Jami: \" + total\nva p.pay(total) chaqirilsin.\n5. Mainda to'liq arxitekturani ishga tushiring!",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Tabriklaymiz! Siz Inkapsulyatsiya, Vorislik, Polimorfizm va Abstraksiyani to'liq egalladingiz! Bu masalada 'interface Payable', 'Customer' va 'Order' bitta mukammal tizimga birlashadi.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. interface Payable (void pay(double s);).\n2. Card implements Payable.\n3. Customer (name).\n4. Orderda public void checkout(Customer c, Payable p, double total) metodida:\n\"Mijoz: \" + c.getName() + \" | Jami: \" + total\nva p.pay(total) chaqirilsin.\n5. Mainda to'liq arxitekturani ishga tushiring!",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Tabriklaymiz! Siz Inkapsulyatsiya, Vorislik, Polimorfizm va Abstraksiyani to'liq egalladingiz! Bu masalada 'interface Payable', 'Customer' va 'Order' bitta mukammal tizimga birlashadi.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. interface Payable (void pay(double s);).\n2. Card implements Payable.\n3. Customer (name).\n4. Orderda public void checkout(Customer c, Payable p, double total) metodida:\n\"Mijoz: \" + c.getName() + \" | Jami: \" + total\nva p.pay(total) chaqirilsin.\n5. Mainda to'liq arxitekturani ishga tushiring!"
     },

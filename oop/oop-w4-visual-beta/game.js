@@ -1,6 +1,7 @@
 /**
  * ============================================================================
- * OOP ACADEMY — LIVE VISUAL SIMULATOR (BETA) GAME CONTROLLER
+ * OOP ACADEMY — LIVE VISUAL SIMULATOR (BETA: 20 MASALA) & ER DIAGRAM ENGINE
+ * Author: Professor Ada • Level 5 • WIUT Computer Science
  * ============================================================================
  */
 
@@ -10,6 +11,9 @@
   const CHALLENGES = window.OOP_VISUAL_CHALLENGES || [];
   let currentQIndex = 0;
   const solvedQuestions = new Set();
+  let currentLang = "uz";
+  let umlMode = "target"; // "target" (Final) or "live" (O'zimniki)
+
   const STORAGE_KEY_SOLVED = "oop_visual_solved_questions";
   const STORAGE_KEY_CURRENT = "oop_visual_current_q";
   const STORAGE_PREFIX_CODE = "oop_visual_code_q_";
@@ -59,7 +63,7 @@
       dot.type = "button";
       dot.className = "q-dot";
       dot.textContent = ch.id;
-      dot.title = ch.title.uz;
+      dot.title = (ch.title && ch.title.uz) || `Topshiriq ${ch.id}`;
 
       if (idx === currentQIndex) dot.classList.add("active");
       if (solvedQuestions.has(ch.id)) dot.classList.add("solved");
@@ -71,6 +75,12 @@
 
       strip.appendChild(dot);
     });
+
+    // Auto-scroll strip to keep current dot visible
+    const activeDot = strip.querySelector(".q-dot.active");
+    if (activeDot) {
+      activeDot.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
   }
 
   function renderHUD() {
@@ -97,6 +107,47 @@
     return localStorage.getItem(STORAGE_PREFIX_CODE + ch.id) || ch.starterCode;
   }
 
+  function updateMemoryDisplay(ch, code) {
+    const memEl = document.getElementById("memoryContentText") || document.querySelector(".live-inspect-box code");
+    if (!memEl || !ch) return;
+
+    if (ch.simKind === "card") {
+      memEl.textContent = "BankCard.balance = 50000.0;";
+    } else if (ch.simKind === "atm" || ch.simKind === "pin") {
+      memEl.textContent = "CardPin.pin = 1234; isUnlocked = true;";
+    } else if (ch.simKind === "total" || ch.simKind === "receipt" || ch.simKind === "fullorder") {
+      memEl.textContent = "OrderReceipt: Customer + Address + Total";
+    } else if (ch.requirements && ch.requirements.classes && ch.requirements.classes.length > 0) {
+      memEl.textContent = ch.requirements.classes.filter(c => c !== "Main").join(" • ");
+    } else if (ch.classes && ch.classes.length > 0) {
+      memEl.textContent = ch.classes.filter(c => c !== "Main").join(" • ");
+    }
+  }
+
+  function updateUMLDiagram() {
+    const ch = CHALLENGES[currentQIndex];
+    if (!ch || !window.UMLRenderer) return;
+
+    const editor = document.getElementById("codeEditor");
+    const code = (umlMode === "target") 
+      ? (ch.solution || "") 
+      : ((editor && editor.value) || "");
+
+    const classes = window.UMLRenderer.parseJavaToUML(code);
+    window.UMLRenderer.renderSVG(classes, "umlContainer");
+
+    const hint = document.getElementById("umlStatusHint");
+    if (hint) {
+      if (umlMode === "target") {
+        hint.innerHTML = `<span style="color:#10b981; font-weight:700;">🏆 Final:</span> ${classes.length} ta klass arxitekturasi ko'rsatilmoqda`;
+      } else {
+        const targetClasses = window.UMLRenderer.parseJavaToUML(ch.solution || "");
+        const isMatched = classes.length >= targetClasses.length;
+        hint.innerHTML = `<span style="color:#c084fc; font-weight:700;">👨‍💻 O'zingizniki:</span> ${classes.length} ta klass (${isMatched ? "✅ Mos kelmoqda" : "⏳ Kutilayotgan: " + targetClasses.length + " ta"})`;
+      }
+    }
+  }
+
   function switchChallenge(index) {
     if (index < 0 || index >= CHALLENGES.length) return;
     currentQIndex = index;
@@ -110,19 +161,39 @@
     const terminalBody = document.getElementById("terminalOutput");
 
     if (tierBadge) tierBadge.textContent = ch.tierName;
-    if (taskTitle) taskTitle.textContent = ch.title.uz;
-    if (taskScenario) taskScenario.textContent = ch.scenario.uz;
-    if (codeEditor) codeEditor.value = loadSavedCode(ch);
+    if (taskTitle) taskTitle.textContent = (ch.title && ch.title.uz) || ch.title || "";
+    
+    // Scenario text formatted cleanly with white-space: pre-line as in Image 2
+    if (taskScenario) {
+      const text = (ch.scenario && ch.scenario.uz) || ch.scenario || "";
+      taskScenario.textContent = text;
+    }
+
+    if (codeEditor) {
+      codeEditor.value = loadSavedCode(ch);
+    }
 
     if (terminalBody) {
       terminalBody.className = "terminal-body";
       terminalBody.textContent = "Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
     }
 
+    // JavaEditorEnhancer integration
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.setChallenge(ch);
+      window.JavaEditorEnhancer.updateHighlighting();
+      window.JavaEditorEnhancer.syncScroll();
+      window.JavaEditorEnhancer.scanCodeForClasses();
+      window.JavaEditorEnhancer.renderChipsBar();
+    }
+
+    // Update Live Simulator
     if (window.SimulatorEngine) {
       window.SimulatorEngine.setChallenge(ch);
     }
 
+    updateMemoryDisplay(ch, codeEditor ? codeEditor.value : "");
+    updateUMLDiagram();
     renderHUD();
   }
 
@@ -138,10 +209,11 @@
     terminal.textContent = "⚡ Kod asosida jonli simulyatsiya ishga tushirildi...";
 
     if (window.SimulatorEngine) {
-      window.SimulatorEngine.triggerAction(editor.value, "", true);
+      window.SimulatorEngine.triggerAction(editor.value, ch.expectedOutput || "", true);
     }
 
-    terminal.textContent = "✅ Jonli virtual smartfonda natija aks ettirildi! Kod to'liq tekshirilishi uchun 'Tekshirish' tugmasini bosing.";
+    updateMemoryDisplay(ch, editor.value);
+    terminal.textContent = "✅ Smartfon ekranida obyekt holati aks ettirildi! Kodni tekshirish uchun 'Tekshirish' tugmasini bosing.";
   }
 
   async function handleInstantTest() {
@@ -194,6 +266,7 @@
       if (window.SimulatorEngine) {
         window.SimulatorEngine.triggerAction(editor.value, runResult.output || ch.expectedOutput, true);
       }
+      updateMemoryDisplay(ch, editor.value);
 
       let report = "🎉 BARAKALLA! TOPSHIRIQ MUVAFFAQIYATLI BAJARILDI!\n==================================================\n\n";
       report += "✔️ Barcha OOP talablari va arxitekturasi to'liq tasdiqlandi\n";
@@ -209,7 +282,7 @@
       if (currentQIndex < CHALLENGES.length - 1) {
         setTimeout(() => {
           switchChallenge(currentQIndex + 1);
-        }, 1800);
+        }, 2000);
       }
     } else {
       terminal.className = "terminal-body error";
@@ -236,19 +309,19 @@
 
   function handleShowSolution() {
     const ch = CHALLENGES[currentQIndex];
-    const editor = document.getElementById("codeEditor");
-    const terminal = document.getElementById("terminalOutput");
-    if (!ch || !editor) return;
+    if (!ch) return;
 
-    if (confirm("Rasmiy namunaviy yechimni ko'rmoqchimisiz?")) {
-      editor.value = ch.solution;
-      saveCurrentCode();
-      if (window.SimulatorEngine) {
-        window.SimulatorEngine.triggerAction(ch.solution, ch.expectedOutput, true);
-      }
-      if (terminal) {
-        terminal.className = "terminal-body";
-        terminal.textContent = "💡 Namunaviy yechim joylashtirildi. Endi 'Tekshirish' tugmasini bosib tekshirib ko'rishingiz mumkin.";
+    if (window.SolutionRenderer && typeof window.SolutionRenderer.openModal === "function") {
+      window.SolutionRenderer.openModal(ch, currentLang);
+    } else {
+      const editor = document.getElementById("codeEditor");
+      if (editor && confirm("Namunaviy yechimni tahrirlovchiga joylashtirmoqchimisiz?")) {
+        editor.value = ch.solution;
+        saveCurrentCode();
+        if (window.JavaEditorEnhancer) {
+          window.JavaEditorEnhancer.updateHighlighting();
+          window.JavaEditorEnhancer.syncScroll();
+        }
       }
     }
   }
@@ -261,9 +334,15 @@
     if (confirm("Kodni boshlang'ich holatga qaytarmoqchimisiz?")) {
       editor.value = ch.starterCode;
       saveCurrentCode();
+      if (window.JavaEditorEnhancer) {
+        window.JavaEditorEnhancer.updateHighlighting();
+        window.JavaEditorEnhancer.syncScroll();
+      }
       if (window.SimulatorEngine) {
         window.SimulatorEngine.setChallenge(ch);
       }
+      updateMemoryDisplay(ch, ch.starterCode);
+      if (umlMode === "live") updateUMLDiagram();
     }
   }
 
@@ -271,12 +350,61 @@
   document.addEventListener("DOMContentLoaded", () => {
     loadState();
 
+    // 1. Initialize Smartphone Simulator Engine
     const simContainer = document.getElementById("phoneSimContainer");
     if (simContainer && window.SimulatorEngine) {
       window.SimulatorEngine.init(simContainer);
     }
 
-    // Bind Buttons
+    // 2. Initialize JavaEditorEnhancer
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.init("codeEditor", CHALLENGES[currentQIndex]);
+    }
+
+    // 3. Bind Problem / Diagram View Toggles
+    const btnViewTask = document.getElementById("btnViewTask");
+    const btnViewUml = document.getElementById("btnViewUml");
+    const taskTextPanel = document.getElementById("taskTextPanel");
+    const taskUmlPanel = document.getElementById("taskUmlPanel");
+
+    if (btnViewTask && btnViewUml && taskTextPanel && taskUmlPanel) {
+      btnViewTask.addEventListener("click", () => {
+        btnViewTask.classList.add("active");
+        btnViewUml.classList.remove("active");
+        taskTextPanel.style.display = "block";
+        taskUmlPanel.style.display = "none";
+      });
+
+      btnViewUml.addEventListener("click", () => {
+        btnViewUml.classList.add("active");
+        btnViewTask.classList.remove("active");
+        taskTextPanel.style.display = "none";
+        taskUmlPanel.style.display = "flex";
+        updateUMLDiagram();
+      });
+    }
+
+    // 4. Bind Final vs O'zimniki UML Buttons
+    const btnUmlTarget = document.getElementById("btnUmlTarget");
+    const btnUmlLive = document.getElementById("btnUmlLive");
+
+    if (btnUmlTarget && btnUmlLive) {
+      btnUmlTarget.addEventListener("click", () => {
+        umlMode = "target";
+        btnUmlTarget.classList.add("active");
+        btnUmlLive.classList.remove("active");
+        updateUMLDiagram();
+      });
+
+      btnUmlLive.addEventListener("click", () => {
+        umlMode = "live";
+        btnUmlLive.classList.add("active");
+        btnUmlTarget.classList.remove("active");
+        updateUMLDiagram();
+      });
+    }
+
+    // 5. Bind Editor Action Buttons
     const btnSimulate = document.getElementById("btnSimulate");
     const btnTest = document.getElementById("btnTest");
     const btnSolution = document.getElementById("btnSolution");
@@ -287,15 +415,18 @@
     if (btnSolution) btnSolution.addEventListener("click", handleShowSolution);
     if (btnReset) btnReset.addEventListener("click", handleResetCode);
 
-    // Initial render
-    switchChallenge(currentQIndex);
-
-    // Auto-save code on typing
+    // 6. Live Diagram & Code update on typing
     const editor = document.getElementById("codeEditor");
     if (editor) {
       editor.addEventListener("input", () => {
         saveCurrentCode();
+        if (umlMode === "live" && taskUmlPanel && taskUmlPanel.style.display !== "none") {
+          updateUMLDiagram();
+        }
       });
     }
+
+    // 7. Initial Challenge Render
+    switchChallenge(currentQIndex);
   });
 })();

@@ -247,8 +247,8 @@
       // 2. Check Specific Fields with Types and Actual Usage
       if (requirements.fields) {
         for (const reqField of requirements.fields) {
-          const fieldName = reqField.name;
-          const expectedType = reqField.type;
+          const fieldName = typeof reqField === "string" ? reqField : (reqField.name || reqField);
+          const expectedType = typeof reqField === "string" ? null : reqField.type;
 
           // Regex to locate the field declaration on any line
           const fieldDeclRegex = new RegExp(`\\b(?:(?:public|private|protected|final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${fieldName}\\s*(?:=[^;]+)?\\s*;`);

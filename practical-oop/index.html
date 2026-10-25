@@ -2,14 +2,185 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=../oop/practical-oop/index.html">
-  <title>Yo'naltirilmoqda... • Practical OOP</title>
-  <script>
-    window.location.replace('../oop/practical-oop/index.html');
-  </script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Practical OOP • Live Visual Simulator &amp; ER Diagramma | SeventyOne+</title>
+
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts: Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css?v=20261026_V4_IMAGE3_MATCH">
 </head>
-<body style="background:#0b081d; color:#e2e8f0; font-family:sans-serif; text-align:center; padding-top:15vh;">
-  <h2>🚀 Practical OOP moduli OOP bo'limiga ko'chirildi...</h2>
-  <p><a href="../oop/practical-oop/index.html" style="color:#10b981; font-weight:bold;">Agar avtomatik o'tmasa, bu yerga bosing →</a></p>
+<body>
+
+  <!-- =========================================================================
+       1. TOP APP BAR (EXACT IMAGE 3 HEADER)
+       ========================================================================= -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a href="../index.html" class="btn-nav" title="OOP Boshqaruv Markaziga qaytish">← Portali</a>
+      <div class="brand-badge">
+        <span>☕ OOP Visual Simulator</span>
+        <span class="beta-tag">BETA</span>
+      </div>
+    </div>
+
+    <!-- Progress Strip Dots (In Center / Header) -->
+    <nav class="progress-strip" id="progressStrip"></nav>
+
+    <div class="nav-right">
+      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Reyting: <strong id="hudScore" style="color: #f59e0b;">0 XP</strong></span>
+      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Topshiriq: <strong id="hudProgress" style="color: #10b981;">0 / 40</strong></span>
+      <a href="../oop-w4-game/index.html" class="btn-nav" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🏛 150 Masalalik Versiya</a>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       2. MAIN DUAL-PANE WORKSPACE (EXACT IMAGE 3 LAYOUT)
+       ========================================================================= -->
+  <main class="workspace">
+
+    <!-- 2.1 LEFT COLUMN: TASK CARD, CODE EDITOR & TERMINAL -->
+    <section class="left-pane">
+      
+      <!-- TASK CARD (EXACT IMAGE 2 FORMAT + LIVE ER / UML TOGGLE) -->
+      <article class="task-card">
+        <div class="tier-title-bar">
+          <span class="tier-badge" id="tierBadge">1-Bosqich: Klasslar va Obyektlar</span>
+
+          <!-- View Toggle: [ 📝 Masala ] | [ 📊 Jonli ER Diagramma ] -->
+          <div class="view-toggle-group">
+            <button id="btnViewTask" class="btn-view-toggle active" type="button">
+              <span>📝</span> <span>Masala</span>
+            </button>
+            <button id="btnViewUml" class="btn-view-toggle" type="button">
+              <span>📊</span> <span>Jonli ER Diagramma</span>
+            </button>
+          </div>
+
+          <span style="font-size:11px; color:#64748b; font-family:'JetBrains Mono', monospace;">WIUT 5COSC018C</span>
+        </div>
+
+        <!-- 1) Normal Problem Statement View (Image 2) -->
+        <div id="taskTextPanel">
+          <h1 class="task-title" id="taskTitle">Yuklanmoqda...</h1>
+          <div class="task-scenario-box" id="taskScenario">
+            Topshiriq yuklanmoqda...
+          </div>
+        </div>
+
+        <!-- 2) Live ER / UML Diagram View (Final vs O'zimniki) -->
+        <div id="taskUmlPanel" class="task-uml-panel" style="display: none;">
+          <div class="uml-actions-bar">
+            <div class="uml-mode-buttons">
+              <button id="btnUmlTarget" class="btn-uml-mode active" type="button" title="Kutilayotgan tayyor dastur arxitekturasi">
+                <span>🏆</span> <span>Final</span>
+              </button>
+              <button id="btnUmlLive" class="btn-uml-mode" type="button" title="Sizning hozir yozayotgan kodingiz diagrammasi">
+                <span>👨‍💻</span> <span>O'zimniki</span>
+              </button>
+            </div>
+            <span id="umlStatusHint" class="uml-status-hint">🏆 Final: Kutilayotgan klasslar ko'rsatilmoqda</span>
+          </div>
+          <div id="umlContainer" class="uml-display-box"></div>
+        </div>
+      </article>
+
+      <!-- CODE EDITOR CARD (IMAGE 3 + AUTOCOMPLETE & DARCULA DOSKA) -->
+      <article class="editor-card">
+        <div class="editor-header">
+          <div class="editor-filename">
+            <span>☕</span>
+            <span>Solution.java (OpenJDK 21)</span>
+          </div>
+          <div class="editor-actions">
+            <button id="btnReset" class="btn-icon" type="button" title="Kodni boshlang'ich holatga qaytarish">🔄 Boshlang'ich kod</button>
+            <button id="btnSolution" class="btn-icon" type="button" title="Namunaviy yechimni ko'rish">💡 Yechim</button>
+          </div>
+        </div>
+
+        <!-- Editor Surface with Autocomplete & Darcula Highlight -->
+        <div class="code-wrapper">
+          <div class="code-editor-surface" id="codeEditorSurface">
+            <div class="editor-gutter" id="editorGutter" aria-hidden="true"></div>
+            <div class="code-viewport" id="codeViewport">
+              <pre class="code-highlight-backdrop" id="codeHighlightBackdrop" aria-hidden="true"><code id="codeHighlightContent"></code></pre>
+              <textarea id="codeEditor" class="code-textarea" spellcheck="false" autocorrect="off" autocapitalize="off" autocomplete="off" placeholder="// Java kodingizni bu yerga yozing..."></textarea>
+            </div>
+          </div>
+          <div id="codeAutocompleteDropdown" class="code-autocomplete-dropdown" style="display:none;"></div>
+        </div>
+
+        <!-- Quick-Keys & Smart Chips Bar -->
+        <div class="editor-quick-keys">
+          <button type="button" class="quick-key-btn" data-insert="    ">Tab ⇥</button>
+          <button type="button" class="quick-key-btn" data-insert=";">;</button>
+          <button type="button" class="quick-key-btn" data-insert="{}">{ }</button>
+          <button type="button" class="quick-key-btn" data-insert="()">( )</button>
+          <button type="button" class="quick-key-btn" data-insert="&quot;&quot;">" "</button>
+          <button type="button" class="quick-key-btn" data-insert="System.out.println();">sout</button>
+          <button type="button" class="quick-key-btn" data-insert="public ">public</button>
+          <button type="button" class="quick-key-btn" data-insert="private ">private</button>
+          <button type="button" class="quick-key-btn" data-insert="class ">class</button>
+          <button type="button" class="quick-key-btn" data-insert="void ">void</button>
+          <button type="button" class="quick-key-btn" data-insert="return ">return</button>
+        </div>
+        <div id="smartSuggestionChipsBar" class="smart-suggestion-chips-bar"></div>
+
+        <!-- Action Buttons Row (Image 3) -->
+        <div class="action-bar">
+          <div class="action-bar-left">
+            <button id="btnSimulate" class="btn-simulate" type="button" title="Virtual smartfonda natijani darhol ko'rish">
+              <span>⚡</span> Sinab Ko'rish (Simulate)
+            </button>
+            <button id="btnTest" class="btn-primary" type="button" title="OpenJDK da tekshirish va keyingi bosqichga o'tish">
+              <span>🚀</span> Tekshirish (Check & Next)
+            </button>
+          </div>
+          <span style="font-size:11px; color:#64748b;">Fast-Path &amp; Dual OpenJDK Engine</span>
+        </div>
+      </article>
+
+      <!-- TERMINAL CONSOLE CARD (IMAGE 3) -->
+      <article class="terminal-card">
+        <div class="terminal-header">
+          <span>💻 OpenJDK Java Terminal / Tahlil</span>
+          <span style="font-size:10px; color:#64748b;">OpenJDK 21.0.4 Sandbox</span>
+        </div>
+        <div id="terminalOutput" class="terminal-body">
+          Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 2.2 RIGHT COLUMN: REALISTIC SMARTPHONE SIMULATOR (IMAGE 1 & 3) -->
+    <aside class="right-pane">
+      <div id="phoneSimContainer"></div>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">@seventyoneplus_bot</footer>
+
+  <!-- =========================================================================
+       3. SCRIPTS & DEPENDENCIES
+       ========================================================================= -->
+  <script src="../shared/java-analyzer.js?v=20261026_V1"></script>
+  <script src="../shared/java-runner.js?v=20261026_V1"></script>
+  <script src="../shared/uml-renderer.js?v=20261026_V1"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261026_V1"></script>
+  <script src="../shared/solution-renderer.js?v=20261026_V1"></script>
+  <script src="challenges-practical-40.js?v=20261026_V4"></script>
+  <script src="simulator-engine.js?v=20261026_V4"></script>
+  <script src="game.js?v=20261026_V4"></script>
 </body>
 </html>
