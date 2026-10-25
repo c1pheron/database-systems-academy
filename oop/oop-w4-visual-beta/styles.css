@@ -57,8 +57,8 @@ body {
    TOP APP BAR
    ========================================================================== */
 .top-nav {
-  height: 56px;
-  background: rgba(10, 15, 30, 0.9);
+  min-height: 52px;
+  background: rgba(10, 15, 30, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--panel-border);
@@ -69,12 +69,21 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .nav-left {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .brand-badge {
@@ -103,7 +112,7 @@ body {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .btn-nav {
@@ -127,12 +136,98 @@ body {
   border-color: var(--accent-purple);
 }
 
+.btn-module-restart {
+  background: rgba(239, 68, 68, 0.16) !important;
+  border: 1px solid rgba(239, 68, 68, 0.45) !important;
+  color: #fca5a5 !important;
+  font-weight: 700 !important;
+}
+.btn-module-restart:hover {
+  background: rgba(239, 68, 68, 0.35) !important;
+  color: #fff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* ==========================================================================
+   PROGRESS & QUESTION NAVIGATOR SUB-HEADER (DESKTOP + MOBILE)
+   ========================================================================== */
+.progress-nav-bar {
+  background: #090d1a;
+  border-bottom: 1px solid var(--panel-border);
+  padding: 6px 12px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prog-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.prog-nav-controls-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btn-step-nav {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid var(--panel-border);
+  color: #cbd5e1;
+  height: 28px;
+  min-width: 28px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+.btn-step-nav:hover {
+  background: var(--accent-purple);
+  color: #fff;
+  border-color: #c084fc;
+}
+.mobile-current-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.curr-q-badge {
+  background: linear-gradient(135deg, var(--accent-purple), #9333ea);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 6px;
+  border: 1px solid #c084fc;
+  white-space: nowrap;
+}
+.curr-tier-name {
+  font-size: 11px;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 /* ==========================================================================
    PROGRESS STRIP (HORIZONTAL NUMBERED CIRCULAR DOTS)
    ========================================================================== */
 .progress-strip {
   background: transparent;
-  padding: 0 10px;
+  padding: 0 4px;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -140,8 +235,7 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   flex: 1;
-  max-width: 640px;
-  margin: 0 10px;
+  max-width: 680px;
 }
 .progress-strip::-webkit-scrollbar {
   display: none !important;
@@ -225,6 +319,253 @@ body {
     gap: 12px;
   }
   .column-splitter {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE & SYMMETRICAL CENTERING (TELEFONDA SIMMETRIK O'RTADA TURISH)
+   ========================================================================== */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 1. TOP NAV - Symmetrically stacked & balanced */
+  .top-nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 6px 10px !important;
+    gap: 4px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    min-height: auto !important;
+  }
+  .nav-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .nav-left .brand-badge {
+    display: none !important;
+  }
+  .nav-left .btn-nav {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+  .nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .nav-right .btn-alt-game {
+    display: none !important;
+  }
+  .hud-stat-pill {
+    font-size: 11px !important;
+    padding: 2px 6px !important;
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(148, 163, 184, 0.15) !important;
+  }
+  .nav-center {
+    order: 3 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 2px 0 0 0 !important;
+  }
+  .nav-center .btn-module-restart {
+    width: 100% !important;
+    max-width: 340px !important;
+    justify-content: center !important;
+    padding: 5px 12px !important;
+    font-size: 11.5px !important;
+  }
+  .restart-btn-text {
+    font-size: 11.5px !important;
+  }
+
+  /* 2. PROGRESS SUB-HEADER - Crystal Clear Current Indicator & Centered Strip */
+  .progress-nav-bar {
+    padding: 6px 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .prog-nav-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+  .prog-nav-controls-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    gap: 6px !important;
+    box-sizing: border-box !important;
+  }
+  .btn-step-nav {
+    padding: 5px 10px !important;
+    width: auto !important;
+    min-width: 72px !important;
+    height: 32px !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    background: #1e293b !important;
+  }
+  .mobile-current-indicator {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    gap: 2px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+  }
+  .curr-q-badge {
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    padding: 3px 12px !important;
+    background: linear-gradient(135deg, #a855f7, #7c3aed) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4) !important;
+    white-space: nowrap !important;
+  }
+  .curr-tier-name {
+    font-size: 10px !important;
+    color: #38bdf8 !important;
+    max-width: 190px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .progress-strip {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 2px 2px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .q-dot {
+    width: 26px !important;
+    height: 26px !important;
+    min-width: 26px !important;
+    font-size: 10.5px !important;
+  }
+
+  /* 3. Symmetrically Centered Main Workspace on Phone */
+  .workspace {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 8px 10px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+
+  .left-pane {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .task-card, .editor-card, .terminal-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto 10px auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .tier-title-bar {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .editor-header {
+    padding: 6px 10px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .editor-actions {
+    width: 100% !important;
+    justify-content: flex-end !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+  }
+
+  .action-bar {
+    padding: 8px 10px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+  }
+  .action-bar-left {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .action-bar-left .btn-simulate,
+  .action-bar-left .btn-primary {
+    flex: 1 1 50% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 11.5px !important;
+    padding: 8px 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .right-pane {
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 10px auto 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+    position: static !important;
+  }
+
+  .phone-frame {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    height: 520px !important;
+  }
+
+  .column-splitter, .btn-wide-toggle, .terminal-badge {
     display: none !important;
   }
 }

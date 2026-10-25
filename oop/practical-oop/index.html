@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=20261026_V10_CLEAN_EMPTY_RESET">
+  <link rel="stylesheet" href="styles.css?v=20261026_V11_MOBILE_CENTER_NAV">
 </head>
 <body>
 
@@ -27,23 +27,39 @@
     <div class="nav-left">
       <a href="../index.html" class="btn-nav" title="OOP Boshqaruv Markaziga qaytish">← Portali</a>
       <div class="brand-badge">
-        <span>☕ OOP Visual Simulator</span>
+        <span>☕ Practical OOP</span>
         <span class="beta-tag">BETA</span>
       </div>
     </div>
 
-    <!-- Progress Strip Dots (In Center / Header) -->
-    <nav class="progress-strip" id="progressStrip"></nav>
+    <!-- Center Module Restart Button -->
+    <div class="nav-center">
+      <button id="btnGlobalReset" class="btn-nav btn-module-restart" type="button" title="Ushbu Practical OOP modulini 1-masaladan boshlab to'liq qaytadan boshlash">
+        <span>🔄</span> <span class="restart-btn-text">Modulni Qaytadan Boshlash</span>
+      </button>
+    </div>
 
     <div class="nav-right">
-      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Reyting: <strong id="hudScore" style="color: #f59e0b;">0 XP</strong></span>
-      <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Topshiriq: <strong id="hudProgress" style="color: #10b981;">0 / 40</strong></span>
-      <button id="btnGlobalReset" class="btn-nav btn-global-reset" type="button" title="Barcha topshiriqlarni boshidan tozalab boshlash">
-        <span>🔄</span> <span>Barchasini Qaytadan Boshlash</span>
-      </button>
-      <a href="../oop-w4-game/index.html" class="btn-nav" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🏛 150 Masalalik Versiya</a>
+      <span class="hud-stat-pill" style="font-size: 12px; color: #94a3b8; font-weight: 600;">Reyting: <strong id="hudScore" style="color: #f59e0b;">0 XP</strong></span>
+      <span class="hud-stat-pill" style="font-size: 12px; color: #94a3b8; font-weight: 600;">Topshiriq: <strong id="hudProgress" style="color: #10b981;">0 / 40</strong></span>
+      <a href="../oop-w4-game/index.html" class="btn-nav btn-alt-game" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc;">🏛 150 Masala</a>
     </div>
   </header>
+
+  <!-- SUB-HEADER: DEDICATED PROGRESS STRIP & QUESTION NAVIGATOR -->
+  <section class="progress-nav-bar">
+    <div class="prog-nav-inner">
+      <div class="prog-nav-controls-row">
+        <button id="btnPrevQ" class="btn-step-nav" type="button" title="Oldingi masala (Previous)">◀ Oldingi</button>
+        <div class="mobile-current-indicator">
+          <span class="curr-q-badge" id="currQBadge">📍 1-Masala / 40</span>
+          <span class="curr-tier-name" id="currTierName">1-Ustun: Inkapsulyatsiya</span>
+        </div>
+        <button id="btnNextQ" class="btn-step-nav" type="button" title="Keyingi masala (Next)">Keyingi ▶</button>
+      </div>
+      <nav class="progress-strip" id="progressStrip"></nav>
+    </div>
+  </section>
 
   <!-- =========================================================================
        2. MAIN DUAL-PANE WORKSPACE (EXACT IMAGE 3 LAYOUT)
@@ -134,8 +150,8 @@
               <button id="btnEditorHNorm" class="btn-term-ctrl active" type="button" title="Standart (260px)">◻</button>
               <button id="btnEditorHMax" class="btn-term-ctrl" type="button" title="Keng / Baland (460px)">▲</button>
             </div>
-            <button id="btnReset" class="btn-icon btn-reset-code" type="button" title="Kodni tozalab, qaytadan boshlash">
-              <span>🔄</span> <span>Qaytadan Boshlash</span>
+            <button id="btnReset" class="btn-icon btn-reset-code" type="button" title="Kodni tozalash">
+              <span>🗑️</span> <span>Kodni Tozalash</span>
             </button>
             <button id="btnSolution" class="btn-icon" type="button" title="Namunaviy yechimni ko'rish">💡 Yechim</button>
           </div>
@@ -230,13 +246,13 @@
   <!-- =========================================================================
        3. SCRIPTS & DEPENDENCIES
        ========================================================================= -->
-  <script src="../shared/java-analyzer.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="../shared/java-runner.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="../shared/uml-renderer.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="../shared/java-editor-enhancer.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="../shared/solution-renderer.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="challenges-practical-40.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="simulator-engine.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
-  <script src="game.js?v=20261026_V10_CLEAN_EMPTY_RESET"></script>
+  <script src="../shared/java-analyzer.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="../shared/java-runner.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="../shared/uml-renderer.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="../shared/java-editor-enhancer.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="../shared/solution-renderer.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="challenges-practical-40.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="simulator-engine.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
+  <script src="game.js?v=20261026_V11_MOBILE_CENTER_NAV"></script>
 </body>
 </html>

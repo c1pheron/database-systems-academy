@@ -108,7 +108,20 @@
     if (saved !== null && saved.trim().length > 0) {
       return saved;
     }
-    // Talaba kodni o'zi yozadi — muharrir bo'm-bo'sh turadi!
+    // 1-masala doimo bo'sh ochiladi — talaba noldan o'zi yozadi!
+    if (index === 0) {
+      return "";
+    }
+    // Keyingi masalalarda avvalgi masalalar kodi uzluksiz davom etadi
+    for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
+      const prevCh = CHALLENGES[prevIdx];
+      if (prevCh) {
+        const prevSaved = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
+        if (prevSaved && prevSaved.trim().length > 0) {
+          return prevSaved;
+        }
+      }
+    }
     return "";
   }
 
@@ -202,6 +215,25 @@
     const taskScenario = document.getElementById("taskScenario");
     const codeEditor = document.getElementById("codeEditor");
     const terminalBody = document.getElementById("terminalOutput");
+    const currQBadge = document.getElementById("currQBadge");
+    const currTierName = document.getElementById("currTierName");
+    const btnPrevQ = document.getElementById("btnPrevQ");
+    const btnNextQ = document.getElementById("btnNextQ");
+
+    if (currQBadge) {
+      currQBadge.textContent = `📍 ${currentQIndex + 1}-Masala / ${CHALLENGES.length}`;
+    }
+    if (currTierName) {
+      currTierName.textContent = ch.tierName || "";
+    }
+    if (btnPrevQ) {
+      btnPrevQ.disabled = (currentQIndex === 0);
+      btnPrevQ.style.opacity = (currentQIndex === 0) ? "0.4" : "1";
+    }
+    if (btnNextQ) {
+      btnNextQ.disabled = (currentQIndex === CHALLENGES.length - 1);
+      btnNextQ.style.opacity = (currentQIndex === CHALLENGES.length - 1) ? "0.4" : "1";
+    }
 
     if (tierBadge) tierBadge.textContent = ch.tierName;
     if (taskTitle) taskTitle.textContent = (ch.title && ch.title.uz) || ch.title || "";
@@ -496,18 +528,42 @@
     if (btnSolution) btnSolution.addEventListener("click", handleShowSolution);
     if (btnReset) btnReset.addEventListener("click", handleResetCode);
 
+    // Prev / Next Question buttons
+    const btnPrevQ = document.getElementById("btnPrevQ");
+    const btnNextQ = document.getElementById("btnNextQ");
+    if (btnPrevQ) {
+      btnPrevQ.addEventListener("click", () => {
+        if (currentQIndex > 0) {
+          saveCurrentCode();
+          switchChallenge(currentQIndex - 1);
+        }
+      });
+    }
+    if (btnNextQ) {
+      btnNextQ.addEventListener("click", () => {
+        if (currentQIndex < CHALLENGES.length - 1) {
+          saveCurrentCode();
+          switchChallenge(currentQIndex + 1);
+        }
+      });
+    }
+
+    // Global Module Restart (1-masaladan boshlab butun modulni tozalab yangilash)
     const btnGlobalReset = document.getElementById("btnGlobalReset");
     if (btnGlobalReset) {
       btnGlobalReset.addEventListener("click", () => {
-        if (confirm("DIQQAT: Barcha 40 ta bosqichdagi yozilgan kodlar tozalanadi va 1-topshiriqdan boshlanadi. Barchasini qaytadan boshlaysizmi?")) {
+        if (confirm("DIQQAT: Practical OOP modulini 1-masaladan boshlab to'liq qaytadan boshlaysizmi?\n\nBarcha 40 ta masaladagi saqlangan kodlar va yechimlar tozalanadi.")) {
           for (let i = 1; i <= 40; i++) {
             localStorage.removeItem("oop_practical_code_q_" + i);
             localStorage.removeItem("oop_practical_v2_code_q_" + i);
             localStorage.removeItem("oop_practical_v3_code_q_" + i);
+            localStorage.removeItem("oop_practical_v4_code_q_" + i);
           }
           localStorage.removeItem(STORAGE_KEY_SOLVED);
           localStorage.removeItem(STORAGE_KEY_CURRENT);
           solvedQuestions.clear();
+          currentQIndex = 0;
+          saveState();
           const ed = document.getElementById("codeEditor");
           if (ed) ed.value = "";
           switchChallenge(0);
