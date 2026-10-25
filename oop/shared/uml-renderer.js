@@ -160,8 +160,143 @@
       return methods;
     },
 
+    // Grand FinTech & E-Commerce System Architecture Specification
+    getGrandArchitecture(moduleName = "practical") {
+      return `
+// ==========================================
+// 1. Shartnomalar va Abstraksiyalar (4-Ustun)
+// ==========================================
+abstract class Account {
+    protected String accountNumber;
+    protected double balance;
+    public abstract void deposit(double amount);
+    public abstract boolean withdraw(double amount);
+    public double getBalance() { return balance; }
+}
+
+interface Payable {
+    void pay(double amount);
+}
+
+interface Refundable {
+    void refund(double amount);
+}
+
+interface Notifiable {
+    void sendNotification(String message);
+}
+
+// ==========================================
+// 2. FinTech va Kartalar (1- va 2-Ustun)
+// ==========================================
+class BankCard extends Account implements Payable, Refundable {
+    private int pin;
+    private double dailyLimit;
+    private boolean isFrozen;
+    public BankCard(double initialBalance) { }
+    public void deposit(double amount) { }
+    public boolean withdraw(double amount) { return true; }
+    public void pay(double amount) { }
+    public void refund(double amount) { }
+}
+
+class GoldCard extends BankCard {
+    private double cashbackRate;
+    public GoldCard(double balance) { super(balance); }
+    public double getCashback() { return 0.0; }
+}
+
+class PlatinumCard extends GoldCard {
+    private boolean vipLounge;
+    public PlatinumCard(double balance) { super(balance); }
+    public boolean hasVipAccess() { return true; }
+}
+
+class Customer implements Notifiable {
+    private String name;
+    private String phone;
+    private BankCard card;
+    public Customer(String name, String phone) { }
+    public String getName() { return name; }
+    public void sendNotification(String msg) { }
+}
+
+// ==========================================
+// 3. E-Commerce va Buyurtma Arxitekturasi (3- va 4-Ustun)
+// ==========================================
+class Product {
+    private String title;
+    private double price;
+    private int stock;
+    public Product(String title, double price, int stock) { }
+    public double getPrice() { return price; }
+}
+
+class Address {
+    private String city;
+    private String street;
+    public Address(String city, String street) { }
+    public String getFullAddress() { return ""; }
+}
+
+class OrderReceipt {
+    private Customer customer;
+    private Address address;
+    private double totalAmount;
+    public OrderReceipt(Customer c, Address a, double t) { }
+    public void printReceipt() { }
+}
+
+class Order {
+    private Customer customer;
+    private Payable paymentMethod;
+    private double total;
+    public void checkout(Customer c, Payable p, double total) { }
+}
+`;
+    },
+
+    computeConnector(boxA, boxB) {
+      const cxA = boxA.x + boxA.w / 2;
+      const cyA = boxA.y + boxA.h / 2;
+      const cxB = boxB.x + boxB.w / 2;
+      const cyB = boxB.y + boxB.h / 2;
+
+      if (boxA.row === boxB.row) {
+        if (boxB.col > boxA.col) {
+          const startX = boxA.x + boxA.w;
+          const startY = cyA;
+          const endX = boxB.x;
+          const endY = cyB;
+          const midX = (startX + endX) / 2;
+          return `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+        } else {
+          const startX = boxA.x;
+          const startY = cyA;
+          const endX = boxB.x + boxB.w;
+          const endY = cyB;
+          const midX = (startX + endX) / 2;
+          return `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`;
+        }
+      } else if (boxB.row < boxA.row) {
+        const startX = cxA;
+        const startY = boxA.y;
+        const endX = cxB;
+        const endY = boxB.y + boxB.h;
+        const midY = (startY + endY) / 2;
+        return `M ${startX} ${startY} C ${startX} ${midY}, ${endX} ${midY}, ${endX} ${endY}`;
+      } else {
+        const startX = cxA;
+        const startY = boxA.y + boxA.h;
+        const endX = cxB;
+        const endY = boxB.y;
+        const midY = (startY + endY) / 2;
+        return `M ${startX} ${startY} C ${startX} ${midY}, ${endX} ${midY}, ${endX} ${endY}`;
+      }
+    },
+
     // 2. Render SVG Diagram with Smooth Zoom & Pan Engine
-    renderSVG(classes, containerId) {
+    renderSVG(classes, containerId, options = {}) {
       const container = document.getElementById(containerId);
       if (!container) return;
 
@@ -184,23 +319,53 @@
         return;
       }
 
-      // Dimensions calculation
-      const cardWidth = 240;
-      const cardGap = 40;
-      const totalWidth = Math.max(540, classes.length * (cardWidth + cardGap) + 60);
-      let maxHeight = 300;
+      // Dimensions & 2D Grid Layout calculation
+      const numClasses = classes.length;
+      const isMultiRow = numClasses > 3;
+      const cols = isMultiRow ? (numClasses <= 8 ? 3 : 4) : Math.max(1, numClasses);
+      const rows = Math.ceil(numClasses / cols);
 
-      classes.forEach(c => {
-        const h = 55 + (c.fields.length * 20) + (c.methods.length * 20) + 30;
-        if (h > maxHeight) maxHeight = h;
+      const cardWidth = 240;
+      const cardGapX = 50;
+      const cardGapY = 65;
+
+      const cardLayouts = classes.map((c, idx) => {
+        const col = isMultiRow ? (idx % cols) : idx;
+        const row = isMultiRow ? Math.floor(idx / cols) : 0;
+        const headerH = c.kind === "interface" ? 44 : 38;
+        const fieldsH = Math.max(26, c.fields.length * 20 + 8);
+        const methodsH = Math.max(26, c.methods.length * 20 + 8);
+        const totalCardH = headerH + fieldsH + methodsH;
+        return { col, row, headerH, fieldsH, methodsH, totalCardH };
       });
-      const totalHeight = maxHeight + 80;
+
+      // Calculate row heights and cumulative Y coordinates
+      const rowHeights = [];
+      for (let r = 0; r < rows; r++) {
+        const inRow = cardLayouts.filter(l => l.row === r);
+        const maxH = inRow.length > 0 ? Math.max(...inRow.map(c => c.totalCardH)) : 160;
+        rowHeights.push(maxH);
+      }
+
+      const rowY = [];
+      let curY = 40;
+      for (let r = 0; r < rows; r++) {
+        rowY.push(curY);
+        curY += rowHeights[r] + cardGapY;
+      }
+
+      const totalWidth = Math.max(560, cols * (cardWidth + cardGapX) + 60);
+      const totalHeight = Math.max(340, curY + 40);
 
       this.state.totalWidth = totalWidth;
       this.state.totalHeight = totalHeight;
 
       // If container structure isn't initialized yet, build it once
       const isAlreadyInit = this.state.initializedContainerId === containerId && container.querySelector(".uml-viewport");
+
+      const badgeLabel = (options && options.badgeText) 
+        ? options.badgeText 
+        : `${classes.length} ta Klass/Interfeys`;
 
       if (!isAlreadyInit) {
         container.innerHTML = `
@@ -210,7 +375,7 @@
               <div style="display:flex; align-items:center; gap:8px;">
                 <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></span>
                 <span style="color:#f8fafc; font-weight:700;">Jonli UML Modeli:</span>
-                <span id="umlClassBadge" style="color:#c084fc; font-weight:600;">${classes.length} ta Klass/Interfeys</span>
+                <span id="umlClassBadge" style="color:#c084fc; font-weight:600;">${badgeLabel}</span>
               </div>
               <div class="uml-hint-text" style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:10px; display:flex; align-items:center; gap:6px;">
                 <span>🖱️ G'ildirak / Pinch: Zoom</span> • <span>Sudrab surish: Pan</span>
@@ -240,7 +405,7 @@
       } else {
         // Update badge and svg canvas size
         const badge = container.querySelector("#umlClassBadge");
-        if (badge) badge.textContent = `${classes.length} ta Klass/Interfeys`;
+        if (badge) badge.textContent = badgeLabel;
 
         const transformLayer = container.querySelector("#umlTransformLayer");
         if (transformLayer) {
@@ -265,28 +430,45 @@
           <filter id="umlShadow" x="-10%" y="-10%" width="120%" height="120%">
             <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.6"/>
           </filter>
+          <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#10b981" flood-opacity="0.6"/>
+          </filter>
           <marker id="arrowInherit" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
             <polygon points="0 0, 12 7, 0 14" fill="#181430" stroke="#c084fc" stroke-width="2"/>
           </marker>
           <marker id="arrowImplement" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
             <polygon points="0 0, 12 7, 0 14" fill="#181430" stroke="#34d399" stroke-width="2"/>
           </marker>
+          <marker id="arrowAssociate" markerWidth="14" markerHeight="14" refX="10" refY="7" orient="auto">
+            <path d="M 0 7 L 6 3 L 12 7 L 6 11 Z" fill="#38bdf8" stroke="#38bdf8" stroke-width="1.2"/>
+          </marker>
         </defs>`;
 
       // Draw class cards
       classes.forEach((c, idx) => {
-        const x = 30 + idx * (cardWidth + cardGap);
-        const y = 30;
-        const headerH = c.kind === "interface" ? 44 : 38;
-        const fieldsH = Math.max(26, c.fields.length * 20 + 8);
-        const methodsH = Math.max(26, c.methods.length * 20 + 8);
-        const totalCardH = headerH + fieldsH + methodsH;
+        const l = cardLayouts[idx];
+        const x = 35 + l.col * (cardWidth + cardGapX);
+        const y = rowY[l.row];
+        const headerH = l.headerH;
+        const fieldsH = l.fieldsH;
+        const methodsH = l.methodsH;
+        const totalCardH = l.totalCardH;
 
-        const borderColor = c.hasUnclosedBrace ? "#f59e0b" : "#7c3aed";
+        const isHighlighted = options && options.highlightClasses && options.highlightClasses.includes(c.name);
+        const borderColor = isHighlighted ? "#10b981" : (c.hasUnclosedBrace ? "#f59e0b" : "#7c3aed");
+        const borderWidth = isHighlighted ? "2.6" : "1.8";
 
         inner += `
         <g filter="url(#umlShadow)">
-          <rect x="${x}" y="${y}" width="${cardWidth}" height="${totalCardH}" rx="10" fill="#141129" stroke="${borderColor}" stroke-width="1.8"/>
+          ${isHighlighted ? `
+            <rect x="${x - 4}" y="${y - 4}" width="${cardWidth + 8}" height="${totalCardH + 8}" rx="14" fill="none" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5" filter="url(#glowGreen)"/>
+            <g transform="translate(${x + cardWidth - 118}, ${y - 12})">
+              <rect width="114" height="22" rx="11" fill="#10b981" filter="url(#umlShadow)"/>
+              <text x="57" y="15" fill="#022c22" font-size="10" text-anchor="middle" font-weight="900" font-family="'Inter', sans-serif">📍 JORIY BOSQICH</text>
+            </g>
+          ` : ""}
+
+          <rect x="${x}" y="${y}" width="${cardWidth}" height="${totalCardH}" rx="10" fill="#141129" stroke="${borderColor}" stroke-width="${borderWidth}"/>
           
           <!-- Header -->
           <rect x="${x}" y="${y}" width="${cardWidth}" height="${headerH}" rx="10" fill="#1e183a"/>
@@ -329,22 +511,32 @@
         inner += `</g>`;
       });
 
-      // Draw relationships
+      // Draw relationships between class cards
       classes.forEach((c, idx) => {
-        const x1 = 30 + idx * (cardWidth + cardGap) + cardWidth / 2;
-        const y1 = 30;
+        const boxA = {
+          x: 35 + cardLayouts[idx].col * (cardWidth + cardGapX),
+          y: rowY[cardLayouts[idx].row],
+          w: cardWidth,
+          h: cardLayouts[idx].totalCardH,
+          col: cardLayouts[idx].col,
+          row: cardLayouts[idx].row
+        };
 
         // Inheritance (extends)
         if (c.superclass) {
           const parentIdx = classes.findIndex(p => p.name === c.superclass);
           if (parentIdx !== -1) {
-            const x2 = 30 + parentIdx * (cardWidth + cardGap) + cardWidth / 2;
-            const y2 = 30;
-            const curveY = Math.min(y1, y2) - 20;
-
+            const boxB = {
+              x: 35 + cardLayouts[parentIdx].col * (cardWidth + cardGapX),
+              y: rowY[cardLayouts[parentIdx].row],
+              w: cardWidth,
+              h: cardLayouts[parentIdx].totalCardH,
+              col: cardLayouts[parentIdx].col,
+              row: cardLayouts[parentIdx].row
+            };
+            const pathD = this.computeConnector(boxA, boxB);
             inner += `
-              <path d="M ${x1} ${y1} Q ${(x1 + x2) / 2} ${curveY} ${x2} ${y2}" 
-                    fill="none" stroke="#c084fc" stroke-width="2" marker-end="url(#arrowInherit)"/>
+              <path d="${pathD}" fill="none" stroke="#c084fc" stroke-width="2.2" marker-end="url(#arrowInherit)"/>
             `;
           }
         }
@@ -354,21 +546,49 @@
           c.interfaces.forEach(iface => {
             const ifaceIdx = classes.findIndex(p => p.name === iface);
             if (ifaceIdx !== -1) {
-              const x2 = 30 + ifaceIdx * (cardWidth + cardGap) + cardWidth / 2;
-              const y2 = 30;
-              const curveY = Math.min(y1, y2) - 24;
-
+              const boxB = {
+                x: 35 + cardLayouts[ifaceIdx].col * (cardWidth + cardGapX),
+                y: rowY[cardLayouts[ifaceIdx].row],
+                w: cardWidth,
+                h: cardLayouts[ifaceIdx].totalCardH,
+                col: cardLayouts[ifaceIdx].col,
+                row: cardLayouts[ifaceIdx].row
+              };
+              const pathD = this.computeConnector(boxA, boxB);
               inner += `
-                <path d="M ${x1} ${y1} Q ${(x1 + x2) / 2} ${curveY} ${x2} ${y2}" 
-                      fill="none" stroke="#34d399" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowImplement)"/>
+                <path d="${pathD}" fill="none" stroke="#34d399" stroke-width="2.2" stroke-dasharray="6,4" marker-end="url(#arrowImplement)"/>
               `;
             }
           });
         }
+
+        // Associations (field type matching another class in diagram)
+        c.fields.forEach(f => {
+          const targetIdx = classes.findIndex(p => p.name === f.type);
+          if (targetIdx !== -1 && targetIdx !== idx) {
+            const boxB = {
+              x: 35 + cardLayouts[targetIdx].col * (cardWidth + cardGapX),
+              y: rowY[cardLayouts[targetIdx].row],
+              w: cardWidth,
+              h: cardLayouts[targetIdx].totalCardH,
+              col: cardLayouts[targetIdx].col,
+              row: cardLayouts[targetIdx].row
+            };
+            const pathD = this.computeConnector(boxA, boxB);
+            inner += `
+              <path d="${pathD}" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrowAssociate)"/>
+            `;
+          }
+        });
       });
 
       svgCanvas.innerHTML = inner;
-      this.updateTransform(containerId);
+
+      if (options && options.isGrand && !this.state.isUserInteracted) {
+        setTimeout(() => this.fitToView(containerId), 30);
+      } else {
+        this.updateTransform(containerId);
+      }
     },
 
     // 3. Attach Mouse & Mobile Touch Interaction Events

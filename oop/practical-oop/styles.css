@@ -350,6 +350,12 @@ body {
   border-color: #34d399;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
+.btn-uml-mode.active#btnUmlTask {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #fff;
+  border-color: #fbbf24;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
 .btn-uml-mode.active#btnUmlLive {
   background: linear-gradient(135deg, #a855f7, #7c3aed);
   color: #fff;

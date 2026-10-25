@@ -129,21 +129,54 @@
     if (!ch || !window.UMLRenderer) return;
 
     const editor = document.getElementById("codeEditor");
-    const code = (umlMode === "target") 
-      ? (ch.solution || "") 
-      : ((editor && editor.value) || "");
-
-    const classes = window.UMLRenderer.parseJavaToUML(code);
-    window.UMLRenderer.renderSVG(classes, "umlContainer");
-
     const hint = document.getElementById("umlStatusHint");
-    if (hint) {
-      if (umlMode === "target") {
-        hint.innerHTML = `<span style="color:#10b981; font-weight:700;">🏆 Final:</span> ${classes.length} ta klass arxitekturasi ko'rsatilmoqda`;
-      } else {
-        const targetClasses = window.UMLRenderer.parseJavaToUML(ch.solution || "");
-        const isMatched = classes.length >= targetClasses.length;
-        hint.innerHTML = `<span style="color:#c084fc; font-weight:700;">👨‍💻 O'zingizniki:</span> ${classes.length} ta klass (${isMatched ? "✅ Mos kelmoqda" : "⏳ Kutilayotgan: " + targetClasses.length + " ta"})`;
+    const currentClasses = (ch.requirements && ch.requirements.classes) || ch.classes || [];
+
+    if (umlMode === "target") {
+      // 🏆 FINAL (UMUMIY TIZIM): Barcha klasslar bir-biriga ulangan to'liq umumiy ER diagrammasi!
+      const grandCode = window.UMLRenderer.getGrandArchitecture();
+      const grandClasses = window.UMLRenderer.parseJavaToUML(grandCode);
+
+      window.UMLRenderer.renderSVG(grandClasses, "umlContainer", {
+        isGrand: true,
+        highlightClasses: currentClasses,
+        badgeText: `🏆 Butun Tizim Modeli (${grandClasses.length} ta Klass/Interfeys)`
+      });
+
+      if (hint) {
+        const curName = currentClasses.filter(c => c !== "Main").join(", ") || "Main";
+        hint.innerHTML = `<span style="color:#10b981; font-weight:700;">🏆 Final:</span> Umumiy dastur arxitekturasi (${grandClasses.length} ta bog'langan klass) • 📍 Joriy bosqich: <strong style="color:#38bdf8;">${curName}</strong>`;
+      }
+    } else if (umlMode === "task") {
+      // 🎯 TOPSHIRIQ YECHIMI: Faqat joriy masala arxitekturasi
+      const taskCode = ch.solution || "";
+      const taskClasses = window.UMLRenderer.parseJavaToUML(taskCode);
+
+      window.UMLRenderer.renderSVG(taskClasses, "umlContainer", {
+        isGrand: false,
+        highlightClasses: currentClasses,
+        badgeText: `🎯 Topshiriq Yechimi (${taskClasses.length} ta Klass)`
+      });
+
+      if (hint) {
+        hint.innerHTML = `<span style="color:#f59e0b; font-weight:700;">🎯 Topshiriq:</span> Ushbu topshiriq uchun kutilayotgan ${taskClasses.length} ta klass`;
+      }
+    } else {
+      // 👨‍💻 O'ZIMNIKI: O'quvchi yozayotgan kod real vaqtda chiziladi!
+      const userCode = (editor && editor.value) || "";
+      const userClasses = window.UMLRenderer.parseJavaToUML(userCode);
+
+      window.UMLRenderer.renderSVG(userClasses, "umlContainer", {
+        isGrand: false,
+        highlightClasses: [],
+        badgeText: `👨‍💻 O'zingizniki: ${userClasses.length} ta Klass (Jonli)`
+      });
+
+      if (hint) {
+        const targetCount = currentClasses.filter(c => c !== "Main").length;
+        const userCount = userClasses.filter(c => c.name !== "Main").length;
+        const isMatched = userCount >= targetCount && targetCount > 0;
+        hint.innerHTML = `<span style="color:#c084fc; font-weight:700;">👨‍💻 O'zingizniki:</span> ${userClasses.length} ta klass (${isMatched ? "✅ Joriy bosqichga mos" : "⏳ Yaratilmoqda..."})`;
       }
     }
   }
@@ -384,25 +417,22 @@
       });
     }
 
-    // 4. Bind Final vs O'zimniki UML Buttons
+    // 4. Bind Final vs Topshiriq vs O'zimniki UML Buttons
     const btnUmlTarget = document.getElementById("btnUmlTarget");
+    const btnUmlTask = document.getElementById("btnUmlTask");
     const btnUmlLive = document.getElementById("btnUmlLive");
 
-    if (btnUmlTarget && btnUmlLive) {
-      btnUmlTarget.addEventListener("click", () => {
-        umlMode = "target";
-        btnUmlTarget.classList.add("active");
-        btnUmlLive.classList.remove("active");
-        updateUMLDiagram();
-      });
-
-      btnUmlLive.addEventListener("click", () => {
-        umlMode = "live";
-        btnUmlLive.classList.add("active");
-        btnUmlTarget.classList.remove("active");
-        updateUMLDiagram();
-      });
+    function setUmlMode(mode) {
+      umlMode = mode;
+      if (btnUmlTarget) btnUmlTarget.classList.toggle("active", mode === "target");
+      if (btnUmlTask) btnUmlTask.classList.toggle("active", mode === "task");
+      if (btnUmlLive) btnUmlLive.classList.toggle("active", mode === "live");
+      updateUMLDiagram();
     }
+
+    if (btnUmlTarget) btnUmlTarget.addEventListener("click", () => setUmlMode("target"));
+    if (btnUmlTask) btnUmlTask.addEventListener("click", () => setUmlMode("task"));
+    if (btnUmlLive) btnUmlLive.addEventListener("click", () => setUmlMode("live"));
 
     // 5. Bind Editor Action Buttons
     const btnSimulate = document.getElementById("btnSimulate");
