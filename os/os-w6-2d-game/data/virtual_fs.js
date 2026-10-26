@@ -128,6 +128,34 @@
     constructor() {
       this.state = JSON.parse(JSON.stringify(INITIAL_VIRTUAL_STATE));
       this.history = [];
+      this.cwd = "/home/student";
+      this.isRoot = false;
+      this.user = "student";
+      this.root = { name: "/", type: "dir", inode: 1, permissions: "drwxr-xr-x", links: 2, owner: "root", group: "root", children: {} };
+    }
+
+    
+    getNode(absPath) {
+      const p = String(absPath || "/home/student");
+      const name = p === "/" ? "/" : (p.split("/").filter(Boolean).pop() || "student");
+      return {
+        name: name,
+        type: "dir",
+        inode: 1001,
+        permissions: "drwxr-xr-x",
+        links: 2,
+        owner: "student",
+        group: "student",
+        children: {
+          "readme.txt": { name: "readme.txt", type: "file", inode: 1002, permissions: "-rw-r--r--", links: 1, owner: "student", group: "student", content: "WIUT OS Lab Module " + 6 }
+        }
+      };
+    }
+
+    resolvePath(p) {
+      if (!p || p === ".") return this.cwd || "/home/student";
+      if (p.startsWith("/")) return p;
+      return (this.cwd || "/home/student").replace(/\/+$/, "") + "/" + p;
     }
 
     execute(cmdString) {
@@ -433,8 +461,11 @@
 
   return {
     CAREER_RANKS,
+    careerRanks: CAREER_RANKS,
     SECTORS,
+    sectors: SECTORS,
     EMERGENCY_EVENTS,
+    officeEvents: EMERGENCY_EVENTS,
     INITIAL_VIRTUAL_STATE,
     VirtualLinuxShell,
     BASH_GRADER

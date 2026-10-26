@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_51_100.JS
 // ============================================================================
 
-window.QUESTIONS_51_100_W3 = [
+window.QUESTIONS_51_100 = window.QUESTIONS_51_100_W3 = [
   {
     "id": 51,
     "title": "Pgrep Bilan Barcha Bash Jarayonlarini Topish",

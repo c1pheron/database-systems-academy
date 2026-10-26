@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_51_100.JS
 // ============================================================================
 
-window.QUESTIONS_51_100_W2 = [
+window.QUESTIONS_51_100 = window.QUESTIONS_51_100_W2 = [
   {
     "id": 51,
     "title": "Tmp Katalogiga 1777 Ruxsatini Berish",

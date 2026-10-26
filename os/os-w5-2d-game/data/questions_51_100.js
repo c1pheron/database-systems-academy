@@ -7,7 +7,7 @@
   if (typeof module === 'object' && module.exports) {
     module.exports = factory();
   } else {
-    root.QUESTIONS_W5_PART2 = factory();
+    window.QUESTIONS_51_100 = root.QUESTIONS_W5_PART2 = factory();
   }
 })(typeof self !== 'undefined' ? self : this, function () {
   return [

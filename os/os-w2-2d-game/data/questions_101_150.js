@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_101_150.JS
 // ============================================================================
 
-window.QUESTIONS_101_150_W2 = [
+window.QUESTIONS_101_150 = window.QUESTIONS_101_150_W2 = [
   {
     "id": 101,
     "title": "Fanlar Bo'yicha Saralash Va Takrorlarni O'chirish",

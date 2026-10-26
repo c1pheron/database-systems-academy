@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_101_150.JS
 // ============================================================================
 
-window.QUESTIONS_101_150_W3 = [
+window.QUESTIONS_101_150 = window.QUESTIONS_101_150_W3 = [
   {
     "id": 101,
     "title": "Darajaga Ko'tarish",

@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_51_100.JS
 // ============================================================================
 
-window.QUESTIONS_51_100_W4 = [
+window.QUESTIONS_51_100 = window.QUESTIONS_51_100_W4 = [
   {
     "id": 51,
     "title": "Mantiqiy YOKI Bilan .log va .txt Fayllarni Birlashtirish",

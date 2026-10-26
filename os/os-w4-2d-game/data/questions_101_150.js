@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_101_150.JS
 // ============================================================================
 
-window.QUESTIONS_101_150_W4 = [
+window.QUESTIONS_101_150 = window.QUESTIONS_101_150_W4 = [
   {
     "id": 101,
     "title": "Backup Papkasiga Ko'chgan Arxivni Ko'rish",

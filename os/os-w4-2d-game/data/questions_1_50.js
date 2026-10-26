@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W4 QUESTIONS_1_50.JS
 // ============================================================================
 
-window.QUESTIONS_1_50_W4 = [
+window.QUESTIONS_1_50 = window.QUESTIONS_1_50_W4 = [
   {
     "id": 1,
     "title": "Ishchi Katalogni Tayyorlash",

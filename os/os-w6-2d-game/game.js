@@ -99,12 +99,33 @@
     }
   };
 
-  // --- Assemble All 150 Questions ---
-  const allQuestions = [
-    ...(window.QUESTIONS_1_50 || []),
-    ...(window.QUESTIONS_51_100 || []),
-    ...(window.QUESTIONS_101_150 || [])
-  ];
+  // --- Assemble All 150 Questions with Universal Fallbacks ---
+  const rawQ1 = window.QUESTIONS_1_50 || window.QUESTIONS_1_50_W1 || window.QUESTIONS_1_50_W2 || window.QUESTIONS_1_50_W3 || window.QUESTIONS_1_50_W4 || window.QUESTIONS_W5_PART1 || window.QUESTIONS_W6_PART1 || [];
+  const rawQ2 = window.QUESTIONS_51_100 || window.QUESTIONS_51_100_W1 || window.QUESTIONS_51_100_W2 || window.QUESTIONS_51_100_W3 || window.QUESTIONS_51_100_W4 || window.QUESTIONS_W5_PART2 || window.QUESTIONS_W6_PART2 || [];
+  const rawQ3 = window.QUESTIONS_101_150 || window.QUESTIONS_101_150_W1 || window.QUESTIONS_101_150_W2 || window.QUESTIONS_101_150_W3 || window.QUESTIONS_101_150_W4 || window.QUESTIONS_W5_PART3 || window.QUESTIONS_W6_PART3 || [];
+
+  const allQuestions = [...rawQ1, ...rawQ2, ...rawQ3];
+
+  // Standardize question properties across all weeks
+  allQuestions.forEach((q, idx) => {
+    if (!q.id) q.id = idx + 1;
+    if (!q.taskUz) q.taskUz = q.task || q.instruction || (q.caseStudy && q.caseStudy.tasks ? q.caseStudy.tasks[0] : "");
+    if (!q.story) q.story = (q.caseStudy && q.caseStudy.paragraphs ? q.caseStudy.paragraphs.join("\n\n") : "") || q.description || "";
+    if (!q.expectedBash) q.expectedBash = q.canonical || q.expectedSql || (Array.isArray(q.solutions) ? q.solutions[0] : (Array.isArray(q.accepted) ? q.accepted[0] : ""));
+    if (!q.expectedSql) q.expectedSql = q.expectedBash;
+    if (!q.solutions) q.solutions = q.accepted || (q.expectedBash ? [q.expectedBash] : []);
+    if (!q.sector && q.sectorId) q.sector = q.sectorId;
+    if (!q.sector) q.sector = Math.ceil(q.id / 15);
+  });
+
+  // Resolve Virtual Linux for this week
+  const vLinux = window.VIRTUAL_LINUX_W6 || window.VIRTUAL_LINUX || window.VIRTUAL_LINUX_W1 || window.VIRTUAL_LINUX_W2 || window.VIRTUAL_LINUX_W3 || window.VIRTUAL_LINUX_W4 || window.VIRTUAL_LINUX_W5 || window.VIRTUAL_LINUX_W6;
+  if (vLinux) {
+    vLinux.careerRanks = vLinux.careerRanks || vLinux.CAREER_RANKS || [];
+    vLinux.sectors = vLinux.sectors || vLinux.SECTORS || [];
+    vLinux.officeEvents = vLinux.officeEvents || vLinux.EMERGENCY_EVENTS || [];
+    window.VIRTUAL_LINUX = vLinux;
+  }
 
   // --- Game State ---
   const STORAGE_KEY = "WIUT_OS_W6_PROGRESS";
@@ -519,12 +540,12 @@
     const elNarrative = document.getElementById("caseNarrativeBox");
     const elTasks = document.getElementById("caseTasksBox");
     if (elNarrative) {
-      const storyText = q.caseStudy && q.caseStudy.paragraphs ? q.caseStudy.paragraphs.join("\n\n") : (q.story || "");
+      const storyText = (q.caseStudy && q.caseStudy.paragraphs ? q.caseStudy.paragraphs.join("\n\n") : "") || q.story || q.title || "Debian 12 tizimida topshiriqni bajaring.";
       const paras = storyText.split("\n\n").filter(p => p.trim());
       elNarrative.innerHTML = paras.map(p => '<p>' + formatInlineMarkdown(p) + '</p>').join("");
     }
     if (elTasks) {
-      const taskText = q.instruction || (q.caseStudy && q.caseStudy.tasks ? q.caseStudy.tasks[0] : (q.taskUz ? q.taskUz : "Topshiriqni terminalda bajaring."));
+      const taskText = q.instruction || (q.caseStudy && q.caseStudy.tasks ? q.caseStudy.tasks[0] : "") || q.taskUz || q.task || "Topshiriqni terminalda bajaring.";
       elTasks.innerHTML = '<div class="case-instruction-pill"><span style="font-size:16px;">🎯</span><div><strong>Texnik Topshiriq:</strong> ' + formatInlineMarkdown(taskText) + '</div></div>';
     }
     if (el.qTask) el.qTask.innerHTML = q.taskUz || "";
@@ -633,8 +654,8 @@
   function updateTerminalPrompt() {
     if (!state.liveShell) return;
     const isRoot = state.liveShell && state.liveShell.isRoot;
-    const cwd = state.liveShell.cwd;
-    const displayPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+    const displayPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
     if (el.terminalPromptPath) {
       el.terminalPromptPath.textContent = `${displayPath}${isRoot ? "#" : "$"} `;
     }
@@ -686,8 +707,8 @@
     state.historyIndex = state.commandHistory.length;
 
     // Display command in terminal
-    const cwd = state.liveShell.cwd;
-    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
     appendTerminalOutput(`student@debian-server:${promptPath}$ ${rawCmd}`, "cmd");
 
     // Clear command in terminal
@@ -986,7 +1007,7 @@
     if (tab === "tmp") targetPath = "/tmp";
     if (tab === "dev") targetPath = "/dev";
 
-    const node = state.liveShell.getNode(targetPath);
+    const node = (state.liveShell && typeof state.liveShell.getNode === 'function') ? state.liveShell.getNode(targetPath) : null;
     if (!node || node.type !== "dir") {
       el.schemaTableDisplay.innerHTML = `<div style="padding:10px; color:#ef4444;">Katalog topilmadi: ${targetPath}</div>`;
       return;
@@ -1434,8 +1455,8 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
 
   function printWasmPrompt() {
     if (!wasmXtermInstance) return;
-    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
-    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
     wasmXtermInstance.write(`\x1b[1;32m┌──(\x1b[1;34muserland\x1b[1;37m💀\x1b[1;34mlocalhost\x1b[1;32m)-[\x1b[1;37m${promptPath}\x1b[1;32m]\r\n└─$ \x1b[0m`);
   }
 
@@ -1885,8 +1906,8 @@ Istalgan Linux buyruqlarini erkin sinashingiz mumkin: <code>pwd</code>, <code>ls
     } else if (action === "CtrlC") {
       SoundFX.playKey();
       const val = el.bashInput.value;
-      const cwd = state.liveShell.cwd;
-      const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+      const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+      const promptPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
       appendTerminalOutput(`student@debian-server:${promptPath}$ ${val}^C`, "normal");
       el.bashInput.value = "";
       el.bashInput.focus();
@@ -2006,7 +2027,7 @@ permitted by applicable law.
     card.id = "kaliCurrentTaskCard";
     card.className = "kali-meta-card";
 
-    const cleanTask = q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : (q.story || "Topshiriqni bajaring.");
+    const cleanTask = (q.taskUz ? q.taskUz.replace(/<[^>]*>/g, "") : "") || q.task || q.story || "Topshiriqni bajaring.";
     const cleanTitle = (q.title || "").replace(/\s*\([a-z0-9_ -./~*]+\)/gi, "").trim();
 
     card.innerHTML = `<div style="font-weight:700; font-size:12px; color:#38bdf8; display:flex; align-items:center; gap:5px; margin:0; padding:0; line-height:1.25;"><span>🎯</span><span>Topshiriq #${q.id}: ${escapeHtml(cleanTitle)}</span></div><div style="font-size:11.5px; color:#cbd5e1; margin-top:2px; margin-bottom:0; line-height:1.3; white-space:normal;"><b>Vazifa:</b> ${escapeHtml(cleanTask)}</div>`;
@@ -2421,8 +2442,8 @@ permitted by applicable law.
 
   function handleKaliCtrlC() {
     if (!el.kaliStream) return;
-    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
-    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
     const val = el.kaliHiddenInput ? el.kaliHiddenInput.value : "";
     appendKaliPromptHistory(val + "^C");
     if (el.kaliHiddenInput) el.kaliHiddenInput.value = "";
@@ -2472,8 +2493,8 @@ permitted by applicable law.
 
   function appendKaliPromptHistory(cmd) {
     if (!el.kaliStream) return;
-    const cwd = state.liveShell ? state.liveShell.cwd : "/home/student";
-    const promptPath = cwd === "/home/student" ? "~" : (cwd.startsWith("/home/student/") ? "~" + cwd.slice(13) : cwd);
+    const cwd = (state.liveShell && state.liveShell.cwd) ? state.liveShell.cwd : "/home/student";
+    const promptPath = cwd === "/home/student" ? "~" : ((cwd && typeof cwd.startsWith === "function" && cwd.startsWith("/home/student/")) ? "~" + cwd.slice(13) : (cwd || "~"));
 
     const div = document.createElement("div");
     div.className = "kali-history-entry";

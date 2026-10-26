@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W3 QUESTIONS_1_50.JS
 // ============================================================================
 
-window.QUESTIONS_1_50_W3 = [
+window.QUESTIONS_1_50 = window.QUESTIONS_1_50_W3 = [
   {
     "id": 1,
     "title": "Joriy Tizim Foydalanuvchisini Tekshirish",

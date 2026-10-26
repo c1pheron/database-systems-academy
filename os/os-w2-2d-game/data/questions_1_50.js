@@ -2,7 +2,7 @@
 // WIUT OPERATING SYSTEMS (5COSC041C) — W2 QUESTIONS_1_50.JS
 // ============================================================================
 
-window.QUESTIONS_1_50_W2 = [
+window.QUESTIONS_1_50 = window.QUESTIONS_1_50_W2 = [
   {
     "id": 1,
     "title": "Barcha Foydalanuvchilar Ro'yxatini Ko'rish",
