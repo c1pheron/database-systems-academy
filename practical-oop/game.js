@@ -275,21 +275,24 @@
 
   // --- ACTIONS ---
 
-  function handleSimulate() {
+  async function handleRunUnified() {
     const ch = CHALLENGES[currentQIndex];
     const editor = document.getElementById("codeEditor");
     const terminal = document.getElementById("terminalOutput");
     if (!ch || !editor || !terminal) return;
 
-    terminal.className = "terminal-body";
-    terminal.textContent = "⚡ Kod asosida jonli simulyatsiya ishga tushirildi...";
-
+    // 1. Instantly trigger visual action on virtual phone and memory heap
     if (window.SimulatorEngine) {
-      window.SimulatorEngine.triggerAction(editor.value, ch.expectedOutput || "", true);
+      window.SimulatorEngine.triggerAction(editor.value, "", false);
     }
-
     updateMemoryDisplay(ch, editor.value);
-    terminal.textContent = "✅ Smartfon ekranida obyekt holati aks ettirildi! Kodni tekshirish uchun 'Tekshirish' tugmasini bosing.";
+
+    // 2. Run instant OpenJDK compiler & test
+    await handleInstantTest();
+  }
+
+  function handleSimulate() {
+    return handleRunUnified();
   }
 
   async function handleInstantTest() {
@@ -379,6 +382,11 @@
         report += "📍 Dastur konsolga hech narsa chop etmadi. 'System.out.println(...)' orqali natijani chiqaring!\n";
       }
 
+      if (window.SimulatorEngine) {
+        window.SimulatorEngine.triggerAction(editor.value, runResult.output || "", false);
+      }
+      updateMemoryDisplay(ch, editor.value);
+
       terminal.textContent = report;
     }
   }
@@ -426,7 +434,7 @@
       const terminal = document.getElementById("terminalOutput");
       if (terminal) {
         terminal.className = "terminal-body";
-        terminal.textContent = "Tayyor. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
+        terminal.textContent = "Tayyor. Kodingizni yozib, 'Ishga Tushirish va Tekshirish' tugmasini bosing.";
       }
     }
   }
@@ -560,13 +568,15 @@
     if (btnUmlLive) btnUmlLive.addEventListener("click", () => setUmlMode("live"));
 
     // 5. Bind Editor Action Buttons
+    const btnRunUnified = document.getElementById("btnRunUnified");
     const btnSimulate = document.getElementById("btnSimulate");
     const btnTest = document.getElementById("btnTest");
     const btnSolution = document.getElementById("btnSolution");
     const btnReset = document.getElementById("btnReset");
 
-    if (btnSimulate) btnSimulate.addEventListener("click", handleSimulate);
-    if (btnTest) btnTest.addEventListener("click", handleInstantTest);
+    if (btnRunUnified) btnRunUnified.addEventListener("click", handleRunUnified);
+    if (btnSimulate) btnSimulate.addEventListener("click", handleRunUnified);
+    if (btnTest) btnTest.addEventListener("click", handleRunUnified);
     if (btnSolution) btnSolution.addEventListener("click", handleShowSolution);
     if (btnReset) btnReset.addEventListener("click", handleResetCode);
 
@@ -614,20 +624,13 @@
       });
     }
 
-    // 6. Live Diagram & Code update on typing
+    // 6. Live Diagram & Code update on typing (Simulator & Memory update only on Run/Test click to prevent flashing)
     const editor = document.getElementById("codeEditor");
     if (editor) {
       editor.addEventListener("input", () => {
         saveCurrentCode();
         if (umlMode === "live" && taskUmlPanel && taskUmlPanel.style.display !== "none") {
           updateUMLDiagram();
-        }
-        if (window.SimulatorEngine) {
-          window.SimulatorEngine.triggerAction(editor.value, "", false);
-        }
-        const curCh = CHALLENGES[currentQIndex];
-        if (curCh) {
-          updateMemoryDisplay(curCh, editor.value);
         }
       });
 
@@ -674,7 +677,7 @@
     if (btnTerminalClear) {
       btnTerminalClear.addEventListener("click", () => {
         if (terminalBody) {
-          terminalBody.textContent = "Tozalandi. Kodingizni yozib, 'Sinab Ko'rish' yoki 'Tekshirish' tugmasini bosing.";
+          terminalBody.textContent = "Tozalandi. Kodingizni yozib, 'Ishga Tushirish va Tekshirish' tugmasini bosing.";
           terminalBody.className = "terminal-body";
         }
       });

@@ -81,7 +81,7 @@
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>deposit, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Balans: 75000.0"
+        "<code>Kutilayotgan natija</code>: Balans: 75000.0"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
@@ -116,22 +116,22 @@
         "<code>Main</code>da 1-bosqichdagi kartani ochib (50,000), 25,000 to'ldiring va 25,000 yechib: \"Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
-        "<code>SecureCard</code> in class <code>private double balance;</code>.",
-        "<code>public boolean withdraw(double amount)</code> (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb print to console."
+        "Add <code>public boolean withdraw(double amount)</code> to your <code>BankCard</code> class from Step 1.",
+        "If <code>amount > 0 && amount <= this.balance</code>, deduct from balance and return <code>true</code>.",
+        "If insufficient funds, do not change balance and return <code>false</code>.",
+        "In <code>Main</code>, open the card from Step 1 (50,000), deposit 25,000, and withdraw 25,000: \"Qoldiq: \" + card.getBalance()"
       ],
       "ru": [
-        "<code>SecureCard</code> в классе <code>private double balance;</code>.",
-        "<code>public boolean withdraw(double amount)</code> (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb выведите в консоль."
+        "Добавьте метод <code>public boolean withdraw(double amount)</code> в класс <code>BankCard</code> из шага 1.",
+        "Если <code>amount > 0 && amount <= this.balance</code>, вычтите из баланса и верните <code>true</code>.",
+        "Если средств недостаточно, верните <code>false</code> без изменения баланса.",
+        "В <code>Main</code> откройте карту из шага 1 (50,000), внесите 25,000 и снимите 25,000: \"Qoldiq: \" + card.getBalance()"
       ]
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nOldingi 1-bosqichda ochilgan kartamizda 75,000 so'm bor. Endi yangi karta ochmasdan, aynan o'sha kartamizdan pul yechish (withdraw) funksiyasini qo'shamiz! Bu metod hisobda yetarli mablag' borligini tekshirishi va overdraftdan (ortiqcha yechishdan) himoyalashi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 1-bosqichdagi 'BankCard' kodingizga 'public boolean withdraw(double amount)' metodini qo'shing.\n2. Agar 'amount > 0' va 'amount <= this.balance' bo'lsa, balandlikdan ayirib 'true' qaytarsin.\n3. Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan 'false' qaytarsin.\n4. 'Main'da o'sha kartamizdan (50,000 ochib, 25,000 depozit qilingan) 25,000 yeching ('card.withdraw(25000.0);') va: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
-      "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SecureCard in class private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb print to console.",
-      "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SecureCard в классе private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb выведите в консоль."
+      "en": "[Real-World Story & Context]\nOur card opened in Step 1 has 75,000 UZS. Without creating a separate new card, we now add a safe withdraw method to protect against overdraft.\n\n[Step-by-Step Implementation Tasks]\n1. Add public boolean withdraw(double amount) to BankCard from Step 1.\n2. If amount > 0 and amount <= this.balance, deduct from balance and return true.\n3. If insufficient funds, return false without altering balance.\n4. In Main, using our card (50,000 opened, 25,000 deposited), withdraw 25,000 (card.withdraw(25000.0);) and print: \"Qoldiq: \" + card.getBalance()",
+      "ru": "📖 Контекст и описание задачи\nНа нашей карте из шага 1 имеется 75,000 сум. Не создавая новую постороннюю карту, мы добавляем функцию безопасного снятия средств (withdraw) с защитой от овердрафта.\n\n📋 Пошаговые задачи\n1. Добавьте в класс BankCard метод public boolean withdraw(double amount).\n2. Если amount > 0 и amount <= this.balance, спишите сумму и верните true.\n3. При нехватке средств верните false.\n4. В Main снимите 25,000 с карты (50,000 + 25,000 депозит) и выведите: \"Qoldiq: \" + card.getBalance()"
     },
     "requirements": {
       "classes": [
@@ -162,15 +162,15 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class SecureCard {\n    private double balance;\n\n    public SecureCard(double balance) {\n        this.balance = balance;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SecureCard card = new SecureCard(80000.0);\n        card.withdraw(30000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
-        "<code>SecureCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>withdraw, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Qoldiq: 50000.0"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>deposit, withdraw, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Qoldiq: 50000.0"
       ],
       "breakdownRu": [
-        "<code>SecureCard, Main</code>: Классы архитектуры задачи.",
-        "<code>withdraw, getBalance</code>: Бизнес-операции и методы.",
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>deposit, withdraw, getBalance</code>: Бизнес-операции и методы.",
         "<code>Результат</code>: Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
@@ -201,22 +201,22 @@
         "<code>Main</code>da o'sha kartamiz PIN kodini 1234 bilan tekshiring va: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring."
       ],
       "en": [
-        "<code>CardPin</code> in class <code>private int pin;</code>.",
-        "<code>public boolean verifyPin(int inputPin)</code>.",
-        "<code>public boolean changePin(int oldPin, int newPin)</code>.",
-        "<code>Main</code>da 1234 kodli karta ochib, tekshiring va konsolga: \"PIN to<code>g</code>ri: \" + cp.verifyPin(1234) deb print to console."
+        "In <code>BankCard</code> class, declare <code>private int pin = 1234;</code>.",
+        "<code>public boolean verifyPin(int inputPin)</code>: return true if entered PIN matches, false otherwise.",
+        "<code>public boolean changePin(int oldPin, int newPin)</code>: change PIN and return true only if oldPin is correct.",
+        "In <code>Main</code>, verify PIN with 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)"
       ],
       "ru": [
-        "<code>CardPin</code> в классе <code>private int pin;</code>.",
-        "<code>public boolean verifyPin(int inputPin)</code>.",
-        "<code>public boolean changePin(int oldPin, int newPin)</code>.",
-        "<code>Main</code>da 1234 kodli karta ochib, tekshiring va konsolga: \"PIN to<code>g</code>ri: \" + cp.verifyPin(1234) deb выведите в консоль."
+        "В классе <code>BankCard</code> объявите поле <code>private int pin = 1234;</code>.",
+        "<code>public boolean verifyPin(int inputPin)</code>: верните true если введенный PIN совпадает, иначе false.",
+        "<code>public boolean changePin(int oldPin, int newPin)</code>: меняйте PIN и возвращайте true только если старый PIN верен.",
+        "В <code>Main</code> проверьте PIN 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)"
       ]
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKartamizdan begona odamlar pul yecholmasligi uchun 'BankCard'ga 4 xonali PIN kod himoyasi qo'shiladi. Boshlang'ich PIN 1234 qilib o'rnatiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassida 'private int pin = 1234;' maydonini e'lon qiling.\n2. 'public boolean verifyPin(int inputPin)': agar kiritilgan PIN to'g'ri bo'lsa 'true', aks holda 'false' qaytarsin.\n3. 'public boolean changePin(int oldPin, int newPin)': eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va 'true' qaytarsin.\n4. 'Main'da o'sha kartamiz PIN kodini 1234 bilan tekshiring va konsolga: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring.",
-      "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CardPin in class private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb print to console.",
-      "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CardPin в классе private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb выведите в консоль."
+      "en": "[Real-World Story & Context]\nTo protect our BankCard from unauthorized withdrawals, we add a 4-digit PIN security layer initialized to 1234.\n\n[Step-by-Step Implementation Tasks]\n1. Declare private int pin = 1234; in BankCard.\n2. Implement verifyPin(int inputPin).\n3. Implement changePin(int oldPin, int newPin).\n4. In Main, verify the card PIN with 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)",
+      "ru": "📖 Контекст и описание задачи\nДля защиты карты от несанкционированного доступа добавляем 4-значный PIN-код со значением 1234.\n\n📋 Пошаговые задачи\n1. Объявите в BankCard поле private int pin = 1234;\n2. Реализуйте метод verifyPin(int inputPin).\n3. Реализуйте метод changePin(int oldPin, int newPin).\n4. В Main проверьте PIN 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)"
     },
     "requirements": {
       "classes": [
@@ -248,15 +248,15 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class CardPin {\n    private int pin;\n\n    public CardPin(int pin) {\n        this.pin = pin;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CardPin cp = new CardPin(1234);\n        System.out.println(\"PIN to'g'ri: \" + cp.verifyPin(1234));\n    }\n}",
+      "cleanCode": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
       "breakdown": [
-        "<code>CardPin, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>verifyPin, changePin</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: PIN to'g'ri: true"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>verifyPin, changePin, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: PIN to'g'ri: true"
       ],
       "breakdownRu": [
-        "<code>CardPin, Main</code>: Классы архитектуры задачи.",
-        "<code>verifyPin, changePin</code>: Бизнес-операции и методы.",
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>verifyPin, changePin, getBalance</code>: Бизнес-операции и методы.",
         "<code>Результат</code>: PIN to'g'ri: true"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
@@ -286,24 +286,20 @@
         "<code>Main</code>da 50,000 balansli kartaga 25,000 depozit qilib, 30,000 sarflang (spend) va qoldiq balansni chiqaring."
       ],
       "en": [
-        "<code>LimitedCard</code> in class <code>private double balance;</code>, <code>private double dailyLimit;</code>.",
-        "Konstruktor <code>public LimitedCard(double balance, double dailyLimit)</code>.",
-        "<code>public boolean spend(double amount)</code>.",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni print to console."
+        "In <code>BankCard</code>, add <code>private double dailyLimit = 100000.0;</code> and constructor <code>public BankCard(double initialBalance, double dailyLimit)</code>.",
+        "<code>public boolean spend(double amount)</code>: if amount > 0 and amount <= dailyLimit and amount <= balance, deduct from balance and dailyLimit and return true.",
+        "In <code>Main</code>, open card with 50,000 balance and 100,000 daily limit, deposit 25,000, spend 30,000, and print: \"Qoldiq balans: \" + card.getBalance()"
       ],
       "ru": [
-        "<code>LimitedCard</code> в классе <code>private double balance;</code>, <code>private double dailyLimit;</code>.",
-        "Konstruktor <code>public LimitedCard(double balance, double dailyLimit)</code>.",
-        "<code>public boolean spend(double amount)</code>.",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni выведите в консоль."
+        "В <code>BankCard</code> добавьте поле <code>private double dailyLimit = 100000.0;</code> и конструктор <code>public BankCard(double initialBalance, double dailyLimit)</code>.",
+        "<code>public boolean spend(double amount)</code>: если amount > 0 и amount <= dailyLimit и amount <= balance, спишите с баланса и лимита и верните true.",
+        "В <code>Main</code> создайте карту с балансом 50,000 и лимитом 100,000, внесите 25,000, потратьте 30,000 и выведите: \"Qoldiq balans: \" + card.getBalance()"
       ]
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKatta summadagi firibgarliklardan saqlash uchun 'BankCard'ga kunlik limit 'private double dailyLimit = 100000.0;' belgilanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private double dailyLimit = 100000.0;' maydoni va 'public BankCard(double initialBalance, double dailyLimit)' konstruktorini qo'shing.\n2. 'public boolean spend(double amount)': agar summa > 0 va dailyLimit hamda balance dan oshmasa, balandlikdan va limitdan ayirsin va true qaytarsin.\n3. 'Main'da 50,000 balansli kartaga 25,000 depozit qilib, 30,000 sarflang (spend) va qoldiq balansni chiqaring: \"Qoldiq balans: \" + card.getBalance().",
-      "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. LimitedCard in class private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni print to console.",
-      "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. LimitedCard в классе private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni выведите в консоль."
+      "en": "[Real-World Story & Context]\nTo protect against fraud, our card gets a daily spending limit.\n\n[Step-by-Step Implementation Tasks]\n1. Add private double dailyLimit and constructor public BankCard(double initialBalance, double dailyLimit).\n2. Implement public boolean spend(double amount).\n3. In Main, create card with 50,000 balance and 100,000 limit, deposit 25,000, spend 30,000, and print: \"Qoldiq balans: \" + card.getBalance()",
+      "ru": "📖 Контекст и описание задачи\nДля защиты от мошенничества карта получает дневной лимит расходов.\n\n📋 Пошаговые задачи\n1. Добавьте в BankCard поле dailyLimit и конструктор.\n2. Реализуйте метод spend(double amount).\n3. В Main создайте карту с балансом 50,000 и лимитом 100,000, внесите 25,000, потратьте 30,000 и выведите: \"Qoldiq balans: \" + card.getBalance()"
     },
     "requirements": {
       "classes": [
@@ -325,7 +321,7 @@
     },
     "sampleData": [
       "Amal: 4. 🛡️ Kunlik Xarid Limiti (Daily Limit)",
-      "Kutilayotgan natija: Qoldiq balans: 170000.0"
+      "Kutilayotgan natija: Qoldiq balans: 45000.0"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
@@ -334,16 +330,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class LimitedCard {\n    private double balance;\n    private double dailyLimit;\n\n    public LimitedCard(double balance, double dailyLimit) {\n        this.balance = balance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LimitedCard lc = new LimitedCard(200000.0, 50000.0);\n        lc.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + lc.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
       "breakdown": [
-        "<code>LimitedCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>spend, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Qoldiq balans: 170000.0"
+        "<code>Kutilayotgan natija</code>: Qoldiq balans: 45000.0"
       ],
       "breakdownRu": [
-        "<code>LimitedCard, Main</code>: Классы архитектуры задачи.",
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
         "<code>spend, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Qoldiq balans: 170000.0"
+        "<code>Результат</code>: Qoldiq balans: 45000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -373,22 +369,22 @@
         "<code>Main</code>da 'Ali Valiyev' nomiga karta ochib (50,000), 25,000 to'ldirib, 25,000 yeching va: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
-        "<code>UserProfile</code>da <code>private String name;</code>, <code>private int age;</code>.",
-        "<code>public boolean setAge(int age)</code>.",
-        "<code>public int getAge()</code>, <code>public String getName()</code>.",
-        "<code>Main</code>da 20 yoshli Anvarni e'lon qilib print to console: \"Mijoz: Anvar | Yoshi: 20\"."
+        "In <code>BankCard</code>, add <code>private String cardHolder;</code> field.",
+        "Constructor: <code>public BankCard(String cardHolder, double initialBalance)</code>.",
+        "<code>public String getCardHolder()</code> getter.",
+        "In <code>Main</code>, create card for Ali Valiyev (50,000), deposit 25,000, withdraw 25,000, and print: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()"
       ],
       "ru": [
-        "<code>UserProfile</code>da <code>private String name;</code>, <code>private int age;</code>.",
-        "<code>public boolean setAge(int age)</code>.",
-        "<code>public int getAge()</code>, <code>public String getName()</code>.",
-        "<code>Main</code>da 20 yoshli Anvarni e'lon qilib выведите в консоль: \"Mijoz: Anvar | Yoshi: 20\"."
+        "В <code>BankCard</code> добавьте поле <code>private String cardHolder;</code>.",
+        "Конструктор: <code>public BankCard(String cardHolder, double initialBalance)</code>.",
+        "Геттер <code>public String getCardHolder()</code>.",
+        "В <code>Main</code> создайте карту для Ali Valiyev (50,000), внесите 25,000, снимите 25,000 и выведите: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()"
       ]
     },
     "scenario": {
       "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank tizimida karta anonim bo'la olmaydi. Karta shaxsi tasdiqlangan mijoz 'Ali Valiyev' nomiga rasmiylashtiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private String cardHolder;' maydonini qo'shing.\n2. Konstruktor: 'public BankCard(String cardHolder, double initialBalance)' orqali mijoz nomini biriktiring.\n3. 'public String getCardHolder()' getteri.\n4. 'Main'da 'Ali Valiyev' nomiga karta ochib, 25,000 to'ldirib, 25,000 yeching va konsolga: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance() deb chiqaring.",
-      "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib print to console: \"Mijoz: Anvar | Yoshi: 20\".",
-      "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib выведите в консоль: \"Mijoz: Anvar | Yoshi: 20\"."
+      "en": "[Real-World Story & Context]\nA bank card cannot remain anonymous. It must be issued to a KYC-verified customer Ali Valiyev.\n\n[Step-by-Step Implementation Tasks]\n1. Add private String cardHolder; to BankCard.\n2. Constructor: public BankCard(String cardHolder, double initialBalance).\n3. Getter: public String getCardHolder().\n4. In Main, create card for Ali Valiyev (50,000), deposit 25,000, withdraw 25,000, and print: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()",
+      "ru": "📖 Контекст и описание задачи\nБанковская карта не может быть анонимной. Она регистрируется на верифицированного клиента Ali Valiyev.\n\n📋 Пошаговые задачи\n1. Добавьте в BankCard поле private String cardHolder;\n2. Конструктор: public BankCard(String cardHolder, double initialBalance).\n3. Геттер public String getCardHolder().\n4. В Main создайте карту для Ali Valiyev (50,000), внесите 25,000, снимите 25,000 и выведите: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()"
     },
     "requirements": {
       "classes": [
@@ -410,7 +406,7 @@
     },
     "sampleData": [
       "Amal: 5. 👤 Foydalanuvchi Shaxsi va KYC (16+)",
-      "Kutilayotgan natija: Mijoz: Anvar | Yoshi: 20"
+      "Kutilayotgan natija: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
@@ -419,16 +415,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class UserProfile {\n    private String name;\n    private int age;\n\n    public UserProfile(String name, int age) {\n        this.name = name;\n        this.age = age >= 16 ? age : 16;\n    }\n\n    public boolean setAge(int age) {\n        if (age >= 16) {\n            this.age = age;\n            return true;\n        }\n        return false;\n    }\n\n    public int getAge() {\n        return this.age;\n    }\n\n    public String getName() {\n        return this.name;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserProfile up = new UserProfile(\"Anvar\", 20);\n        System.out.println(\"Mijoz: \" + up.getName() + \" | Yoshi: \" + up.getAge());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
-        "<code>UserProfile, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>setAge, getAge, getName</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Mijoz: Anvar | Yoshi: 20"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>getCardHolder, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
       ],
       "breakdownRu": [
-        "<code>UserProfile, Main</code>: Классы архитектуры задачи.",
-        "<code>setAge, getAge, getName</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Mijoz: Anvar | Yoshi: 20"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>getCardHolder, getBalance</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -497,7 +493,7 @@
     },
     "sampleData": [
       "Amal: 6. 💱 Valyuta Hamyoni — So'm va Dollar",
-      "Kutilayotgan natija: So'm balansi: 1280000.0"
+      "Kutilayotgan natija: Karta bloklangan: true | Yechish: false"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
@@ -506,16 +502,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class Wallet {\n    private double uzs;\n    private double usd;\n\n    public Wallet(double uzs, double usd) {\n        this.uzs = uzs;\n        this.usd = usd;\n    }\n\n    public void convertUsdToUzs(double amountUsd, double rate) {\n        if (amountUsd > 0 && amountUsd <= this.usd) {\n            this.usd -= amountUsd;\n            this.uzs += amountUsd * rate;\n        }\n    }\n\n    public double getUzs() {\n        return this.uzs;\n    }\n\n    public double getUsd() {\n        return this.usd;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet(0.0, 100.0);\n        w.convertUsdToUzs(100.0, 12800.0);\n        System.out.println(\"So'm balansi: \" + w.getUzs());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
       "breakdown": [
-        "<code>Wallet, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>convertUsdToUzs, getUzs</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: So'm balansi: 1280000.0"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>lockCard, unlockCard, isLocked, withdraw</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Karta bloklangan: true | Yechish: false"
       ],
       "breakdownRu": [
-        "<code>Wallet, Main</code>: Классы архитектуры задачи.",
-        "<code>convertUsdToUzs, getUzs</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: So'm balansi: 1280000.0"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>lockCard, unlockCard, isLocked, withdraw</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Karta bloklangan: true | Yechish: false"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -584,7 +580,7 @@
     },
     "sampleData": [
       "Amal: 7. 🎁 Avtomatik Keshbek Hamyoni",
-      "Kutilayotgan natija: Keshbek: 2000.0 so'm"
+      "Kutilayotgan natija: Qoldiq: 50000.0 | Keshbek: 500.0"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
@@ -593,16 +589,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class CashbackWallet {\n    private double cashback = 0.0;\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CashbackWallet cw = new CashbackWallet();\n        cw.earnCashback(100000.0);\n        System.out.println(\"Keshbek: \" + cw.getCashback() + \" so'm\");\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
       "breakdown": [
-        "<code>CashbackWallet, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>earnCashback, getCashback</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Keshbek: 2000.0 so'm"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>earnCashback, getCashback, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Qoldiq: 50000.0 | Keshbek: 500.0"
       ],
       "breakdownRu": [
-        "<code>CashbackWallet, Main</code>: Классы архитектуры задачи.",
-        "<code>earnCashback, getCashback</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Keshbek: 2000.0 so'm"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>earnCashback, getCashback, getBalance</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Qoldiq: 50000.0 | Keshbek: 500.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -670,7 +666,7 @@
     },
     "sampleData": [
       "Amal: 8. 🚫 Kartani Muzlatish va Qulflash",
-      "Kutilayotgan natija: Karta bloklangan: true"
+      "Kutilayotgan natija: Mijoz: Ali Valiyev | SMS: +998901234567"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
@@ -679,16 +675,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class LockableCard {\n    private boolean isBlocked = false;\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LockableCard card = new LockableCard();\n        card.lockCard();\n        System.out.println(\"Karta bloklangan: \" + card.isLocked());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
       "breakdown": [
-        "<code>LockableCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>lockCard, unlockCard, isLocked</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Karta bloklangan: true"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>setPhoneNumber, getPhoneNumber, getCardHolder</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Mijoz: Ali Valiyev | SMS: +998901234567"
       ],
       "breakdownRu": [
-        "<code>LockableCard, Main</code>: Классы архитектуры задачи.",
-        "<code>lockCard, unlockCard, isLocked</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Karta bloklangan: true"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>setPhoneNumber, getPhoneNumber, getCardHolder</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Mijoz: Ali Valiyev | SMS: +998901234567"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -757,7 +753,7 @@
     },
     "sampleData": [
       "Amal: 9. 📱 Telefon Raqami Validatsiyasi",
-      "Kutilayotgan natija: SMS raqami: +998901234567"
+      "Kutilayotgan natija: Amallar: 2 | Qoldiq: 50000.0"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
@@ -766,16 +762,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class SmsProfile {\n    private String phoneNumber;\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\")) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SmsProfile p = new SmsProfile();\n        p.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"SMS raqami: \" + p.getPhoneNumber());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
-        "<code>SmsProfile, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>setPhoneNumber, getPhoneNumber</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: SMS raqami: +998901234567"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>deposit, withdraw, getTransactionCount, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Amallar: 2 | Qoldiq: 50000.0"
       ],
       "breakdownRu": [
-        "<code>SmsProfile, Main</code>: Классы архитектуры задачи.",
-        "<code>setPhoneNumber, getPhoneNumber</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: SMS raqami: +998901234567"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>deposit, withdraw, getTransactionCount, getBalance</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Amallar: 2 | Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -845,7 +841,7 @@
     },
     "sampleData": [
       "Amal: 10. 🏦 To'liq Xavfsiz Bank Hisobi (Master)",
-      "Kutilayotgan natija: Muvaffaqiyatli: true | Qoldiq: 60000.0"
+      "Kutilayotgan natija: Muvaffaqiyatli: true | Qoldiq: 50000.0"
     ],
     "starterCode": "",
     "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin;\n    private double cashback = 0.0;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double balance, int pin) {\n        this.cardHolder = cardHolder;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.cashback += amount * 0.02;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
@@ -854,16 +850,16 @@
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class MasterAccount {\n    private String owner;\n    private double balance;\n    private int pin;\n\n    public MasterAccount(String owner, double balance, int pin) {\n        this.owner = owner;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MasterAccount acc = new MasterAccount(\"Sardor\", 100000.0, 7777);\n        boolean ok = acc.pay(40000.0, 7777);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + acc.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin;\n    private double cashback = 0.0;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double balance, int pin) {\n        this.cardHolder = cardHolder;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.cashback += amount * 0.02;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
-        "<code>MasterAccount, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>pay, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Muvaffaqiyatli: true | Qoldiq: 60000.0"
+        "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
+        "<code>pay, getBalance, getCardHolder</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Muvaffaqiyatli: true | Qoldiq: 50000.0"
       ],
       "breakdownRu": [
-        "<code>MasterAccount, Main</code>: Классы архитектуры задачи.",
-        "<code>pay, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Muvaffaqiyatli: true | Qoldiq: 60000.0"
+        "<code>BankCard, Main</code>: Классы архитектуры задачи.",
+        "<code>pay, getBalance, getCardHolder</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Muvaffaqiyatli: true | Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -940,7 +936,7 @@
       "breakdown": [
         "<code>BankCard, GoldCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getCashback</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Gold Keshbek: 3000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Gold Keshbek: 3000.0 so'm"
       ],
       "breakdownRu": [
         "<code>BankCard, GoldCard, Main</code>: Классы архитектуры задачи.",
@@ -1023,7 +1019,7 @@
       "breakdown": [
         "<code>BankCard, PlatinumCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>hasLoungeAccess</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Lounge imtiyozi: true"
+        "<code>Kutilayotgan natija</code>: Lounge imtiyozi: true"
       ],
       "breakdownRu": [
         "<code>BankCard, PlatinumCard, Main</code>: Классы архитектуры задачи.",
@@ -1106,7 +1102,7 @@
       "breakdown": [
         "<code>BankCard, VirtualCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getValidMonths</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Amal qilish muddati: 1 oy"
+        "<code>Kutilayotgan natija</code>: Amal qilish muddati: 1 oy"
       ],
       "breakdownRu": [
         "<code>BankCard, VirtualCard, Main</code>: Классы архитектуры задачи.",
@@ -1192,7 +1188,7 @@
       "breakdown": [
         "<code>Courier, MotoCourier, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getMotoNumber</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Motokuryer raqami: 01 M777AA"
+        "<code>Kutilayotgan natija</code>: Motokuryer raqami: 01 M777AA"
       ],
       "breakdownRu": [
         "<code>Courier, MotoCourier, Main</code>: Классы архитектуры задачи.",
@@ -1275,7 +1271,7 @@
       "breakdown": [
         "<code>Customer, VIPCustomer, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>applyDiscount</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Chegirmali to'lov: 180000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Chegirmali to'lov: 180000.0 so'm"
       ],
       "breakdownRu": [
         "<code>Customer, VIPCustomer, Main</code>: Классы архитектуры задачи.",
@@ -1361,7 +1357,7 @@
       "breakdown": [
         "<code>OrderItem, DiscountedItem, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getSubtotal</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Oraliq summa: 45000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Oraliq summa: 45000.0 so'm"
       ],
       "breakdownRu": [
         "<code>OrderItem, DiscountedItem, Main</code>: Классы архитектуры задачи.",
@@ -1441,12 +1437,12 @@
       "cleanCode": "class Vehicle {\n    protected String brand;\n    public Vehicle(String brand) { this.brand = brand; }\n    public String getBrand() { return brand; }\n}\n\nclass DeliveryCar extends Vehicle {\n    private int capacityKg;\n    public DeliveryCar(String brand, int capacityKg) {\n        super(brand);\n        this.capacityKg = capacityKg;\n    }\n    public int getCapacityKg() { return capacityKg; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        DeliveryCar dc = new DeliveryCar(\"Labo\", 1000);\n        System.out.println(\"Model: \" + dc.getBrand() + \" | Yuk hajmi: \" + dc.getCapacityKg() + \" kg\");\n    }\n}",
       "breakdown": [
         "<code>Vehicle, DeliveryCar, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>Metodlar</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Model: Labo | Yuk hajmi: 1000 kg"
+        "<code></code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Model: Labo | Yuk hajmi: 1000 kg"
       ],
       "breakdownRu": [
         "<code>Vehicle, DeliveryCar, Main</code>: Классы архитектуры задачи.",
-        "<code>Методы</code>: Бизнес-операции и методы.",
+        "<code></code>: Бизнес-операции и методы.",
         "<code>Результат</code>: Model: Labo | Yuk hajmi: 1000 kg"
       ],
       "pitfalls": "Bola klass konstruktorida 'super()' chaqiruvini eng birinchi qatorda yozish shart, aks holda kompilyatsiya xatosi yuzaga keladi.",
@@ -1523,7 +1519,7 @@
       "breakdown": [
         "<code>BaseCard, BonusCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>deposit, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Yangi balans: 25000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Yangi balans: 25000.0 so'm"
       ],
       "breakdownRu": [
         "<code>BaseCard, BonusCard, Main</code>: Классы архитектуры задачи.",
@@ -1606,7 +1602,7 @@
       "breakdown": [
         "<code>BankEmployee, BranchManager, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getTotalSalary</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Jami maosh: 7000000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Jami maosh: 7000000.0 so'm"
       ],
       "breakdownRu": [
         "<code>BankEmployee, BranchManager, Main</code>: Классы архитектуры задачи.",
@@ -1691,7 +1687,7 @@
       "breakdown": [
         "<code>Account, CardAccount, VIPCardAccount, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getSummary</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Karta turi: VIP Platinum"
+        "<code>Kutilayotgan natija</code>: Karta turi: VIP Platinum"
       ],
       "breakdownRu": [
         "<code>Account, CardAccount, VIPCardAccount, Main</code>: Классы архитектуры задачи.",
@@ -1770,7 +1766,7 @@
       "breakdown": [
         "<code>PaymentMethod, HumoPayment, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Humo orqali: 45000.0"
+        "<code>Kutilayotgan natija</code>: Humo orqali: 45000.0"
       ],
       "breakdownRu": [
         "<code>PaymentMethod, HumoPayment, Main</code>: Классы архитектуры задачи.",
@@ -1849,7 +1845,7 @@
       "breakdown": [
         "<code>Payment, NasiyaPayment, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Nasiya oylik: 100000.0"
+        "<code>Kutilayotgan natija</code>: Nasiya oylik: 100000.0"
       ],
       "breakdownRu": [
         "<code>Payment, NasiyaPayment, Main</code>: Классы архитектуры задачи.",
@@ -1928,7 +1924,7 @@
       "breakdown": [
         "<code>PaymentOption, ClickPayment, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Click QR to'landi: 25000.0"
+        "<code>Kutilayotgan natija</code>: Click QR to'landi: 25000.0"
       ],
       "breakdownRu": [
         "<code>PaymentOption, ClickPayment, Main</code>: Классы архитектуры задачи.",
@@ -2006,7 +2002,7 @@
       "breakdown": [
         "<code>PaymentMethod, HumoPayment, Cashier, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay, process</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Humo tasdiqlandi: 50000.0"
+        "<code>Kutilayotgan natija</code>: Humo tasdiqlandi: 50000.0"
       ],
       "breakdownRu": [
         "<code>PaymentMethod, HumoPayment, Cashier, Main</code>: Классы архитектуры задачи.",
@@ -2074,7 +2070,7 @@
     },
     "sampleData": [
       "Amal: 25. 🧺 Turli To'lovlar Ro'yxati (Heterogeneous List)",
-      "Kutilayotgan natija: Karta: 10000.0 Naqd: 10000.0"
+      "Kutilayotgan natija: Karta: 10000.0\nNaqd: 10000.0"
     ],
     "starterCode": "",
     "solution": "class PaymentMethod {\n    public String pay(double a) { return \"\" + a; }\n}\n\nclass CardPay extends PaymentMethod {\n    @Override\n    public String pay(double a) { return \"Karta: \" + a; }\n}\n\nclass CashPay extends PaymentMethod {\n    @Override\n    public String pay(double a) { return \"Naqd: \" + a; }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        PaymentMethod[] list = { new CardPay(), new CashPay() };\n        for (PaymentMethod pm : list) {\n            System.out.println(pm.pay(10000.0));\n        }\n    }\n}",
@@ -2087,7 +2083,7 @@
       "breakdown": [
         "<code>PaymentMethod, CardPay, CashPay, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Karta: 10000.0\nNaqd: 10000.0"
+        "<code>Kutilayotgan natija</code>: Karta: 10000.0\nNaqd: 10000.0"
       ],
       "breakdownRu": [
         "<code>PaymentMethod, CardPay, CashPay, Main</code>: Классы архитектуры задачи.",
@@ -2163,7 +2159,7 @@
       "breakdown": [
         "<code>Receipt, PaperReceipt, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>print</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Qog'oz Chek: 999"
+        "<code>Kutilayotgan natija</code>: Qog'oz Chek: 999"
       ],
       "breakdownRu": [
         "<code>Receipt, PaperReceipt, Main</code>: Классы архитектуры задачи.",
@@ -2242,7 +2238,7 @@
       "breakdown": [
         "<code>Transfer, InternationalTransfer, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>calculateFee</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Komissiya: 3000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Komissiya: 3000.0 so'm"
       ],
       "breakdownRu": [
         "<code>Transfer, InternationalTransfer, Main</code>: Классы архитектуры задачи.",
@@ -2321,7 +2317,7 @@
       "breakdown": [
         "<code>Delivery, ExpressDelivery, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getCost</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Yetkazish narxi: 25000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Yetkazish narxi: 25000.0 so'm"
       ],
       "breakdownRu": [
         "<code>Delivery, ExpressDelivery, Main</code>: Классы архитектуры задачи.",
@@ -2400,7 +2396,7 @@
       "breakdown": [
         "<code>DiscountRule, HolidayDiscount, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>apply</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Bayramona narx: 85000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Bayramona narx: 85000.0 so'm"
       ],
       "breakdownRu": [
         "<code>DiscountRule, HolidayDiscount, Main</code>: Классы архитектуры задачи.",
@@ -2481,7 +2477,7 @@
       "breakdown": [
         "<code>Transaction, CardTransaction, AuditLogger, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>logDetails, audit</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Auditor tekshiruvi: [KARTA TO'LOVI]"
+        "<code>Kutilayotgan natija</code>: Auditor tekshiruvi: [KARTA TO'LOVI]"
       ],
       "breakdownRu": [
         "<code>Transaction, CardTransaction, AuditLogger, Main</code>: Классы архитектуры задачи.",
@@ -2561,7 +2557,7 @@
       "breakdown": [
         "<code>Account, SavingsAccount, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>getInterestRate</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Omonat foizi: 18.0%"
+        "<code>Kutilayotgan natija</code>: Omonat foizi: 18.0%"
       ],
       "breakdownRu": [
         "<code>Account, SavingsAccount, Main</code>: Классы архитектуры задачи.",
@@ -2641,7 +2637,7 @@
       "breakdown": [
         "<code>Payable, CardPayment, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Payable orqali to'landi: 50000.0"
+        "<code>Kutilayotgan natija</code>: Payable orqali to'landi: 50000.0"
       ],
       "breakdownRu": [
         "<code>Payable, CardPayment, Main</code>: Классы архитектуры задачи.",
@@ -2721,7 +2717,7 @@
       "breakdown": [
         "<code>Refundable, OnlineStore, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>refund</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Mablag' qaytarildi: 20000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Mablag' qaytarildi: 20000.0 so'm"
       ],
       "breakdownRu": [
         "<code>Refundable, OnlineStore, Main</code>: Классы архитектуры задачи.",
@@ -2790,7 +2786,7 @@
     },
     "sampleData": [
       "Amal: 34. 🔀 Ko'p Interfeyslarni Qo'llash (Multiple Interfaces)",
-      "Kutilayotgan natija: To'landi: 30000.0 Qaytarildi: 10000.0"
+      "Kutilayotgan natija: To'landi: 30000.0\nQaytarildi: 10000.0"
     ],
     "starterCode": "",
     "solution": "interface Payable { void pay(double a); }\ninterface Refundable { void refund(double a); }\n\nclass ModernTerminal implements Payable, Refundable {\n    @Override\n    public void pay(double a) { System.out.println(\"To'landi: \" + a); }\n    @Override\n    public void refund(double a) { System.out.println(\"Qaytarildi: \" + a); }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        ModernTerminal mt = new ModernTerminal();\n        mt.pay(30000.0);\n        mt.refund(10000.0);\n    }\n}",
@@ -2803,7 +2799,7 @@
       "breakdown": [
         "<code>Payable, Refundable, ModernTerminal, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay, refund</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: To'landi: 30000.0\nQaytarildi: 10000.0"
+        "<code>Kutilayotgan natija</code>: To'landi: 30000.0\nQaytarildi: 10000.0"
       ],
       "breakdownRu": [
         "<code>Payable, Refundable, ModernTerminal, Main</code>: Классы архитектуры задачи.",
@@ -2883,7 +2879,7 @@
       "breakdown": [
         "<code>Notifiable, PushService, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>sendAlert</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: ALERT: Parol o'zgartirildi"
+        "<code>Kutilayotgan natija</code>: ALERT: Parol o'zgartirildi"
       ],
       "breakdownRu": [
         "<code>Notifiable, PushService, Main</code>: Классы архитектуры задачи.",
@@ -2963,7 +2959,7 @@
       "breakdown": [
         "<code>Discountable, StudentDiscount, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>calculateDiscount</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Chegirma summasi: 20000.0 so'm"
+        "<code>Kutilayotgan natija</code>: Chegirma summasi: 20000.0 so'm"
       ],
       "breakdownRu": [
         "<code>Discountable, StudentDiscount, Main</code>: Классы архитектуры задачи.",
@@ -3042,7 +3038,7 @@
       "breakdown": [
         "<code>Payable, CardPay, CheckoutService, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay, checkout</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: To'landi: 75000.0"
+        "<code>Kutilayotgan natija</code>: To'landi: 75000.0"
       ],
       "breakdownRu": [
         "<code>Payable, CardPay, CheckoutService, Main</code>: Классы архитектуры задачи.",
@@ -3110,7 +3106,7 @@
     },
     "sampleData": [
       "Amal: 38. 📋 Template Method — abstract class BaseOrder",
-      "Kutilayotgan natija: Tekshirildi Tezkor yetkazildi"
+      "Kutilayotgan natija: Tekshirildi\nTezkor yetkazildi"
     ],
     "starterCode": "",
     "solution": "abstract class BaseOrder {\n    public void validate() { System.out.println(\"Tekshirildi\"); }\n    public abstract void deliver();\n    public void process() { validate(); deliver(); }\n}\n\nclass FastOrder extends BaseOrder {\n    @Override\n    public void deliver() {\n        System.out.println(\"Tezkor yetkazildi\");\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        FastOrder fo = new FastOrder();\n        fo.process();\n    }\n}",
@@ -3123,7 +3119,7 @@
       "breakdown": [
         "<code>BaseOrder, FastOrder, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>deliver, process</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Tekshirildi\nTezkor yetkazildi"
+        "<code>Kutilayotgan natija</code>: Tekshirildi\nTezkor yetkazildi"
       ],
       "breakdownRu": [
         "<code>BaseOrder, FastOrder, Main</code>: Классы архитектуры задачи.",
@@ -3203,7 +3199,7 @@
       "breakdown": [
         "<code>BiometricVerifiable, PhoneBiometrics, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>verifyFace</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: FaceID tasdiqlandi: true"
+        "<code>Kutilayotgan natija</code>: FaceID tasdiqlandi: true"
       ],
       "breakdownRu": [
         "<code>BiometricVerifiable, PhoneBiometrics, Main</code>: Классы архитектуры задачи.",
@@ -3282,7 +3278,7 @@
     },
     "sampleData": [
       "Amal: 40. 🌟 Birlashgan Grand FinTech Arxitekturasi (Master)",
-      "Kutilayotgan natija: Mijoz: Sardor | Jami: 120000.0 Karta orqali to'landi: 120000.0"
+      "Kutilayotgan natija: Mijoz: Sardor | Jami: 120000.0\nKarta orqali to'landi: 120000.0"
     ],
     "starterCode": "",
     "solution": "interface Payable {\n    void pay(double s);\n}\n\nclass Card implements Payable {\n    @Override\n    public void pay(double s) {\n        System.out.println(\"Karta orqali to'landi: \" + s);\n    }\n}\n\nclass Customer {\n    private String name;\n    public Customer(String name) { this.name = name; }\n    public String getName() { return name; }\n}\n\nclass Order {\n    public void checkout(Customer c, Payable p, double total) {\n        System.out.println(\"Mijoz: \" + c.getName() + \" | Jami: \" + total);\n        p.pay(total);\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Customer c = new Customer(\"Sardor\");\n        Card card = new Card();\n        Order order = new Order();\n        order.checkout(c, card, 120000.0);\n    }\n}",
@@ -3295,7 +3291,7 @@
       "breakdown": [
         "<code>Payable, Card, Customer, Order, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay, checkout, getName</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>expectedOutput</code>: Mijoz: Sardor | Jami: 120000.0\nKarta orqali to'landi: 120000.0"
+        "<code>Kutilayotgan natija</code>: Mijoz: Sardor | Jami: 120000.0\nKarta orqali to'landi: 120000.0"
       ],
       "breakdownRu": [
         "<code>Payable, Card, Customer, Order, Main</code>: Классы архитектуры задачи.",

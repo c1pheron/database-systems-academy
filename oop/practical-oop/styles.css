@@ -537,12 +537,14 @@ body {
     box-sizing: border-box !important;
   }
   .action-bar-left .btn-simulate,
-  .action-bar-left .btn-primary {
-    flex: 1 1 50% !important;
+  .action-bar-left .btn-primary,
+  .action-bar-left .btn-run-unified {
+    flex: 1 1 100% !important;
+    width: 100% !important;
     justify-content: center !important;
     text-align: center !important;
-    font-size: 11.5px !important;
-    padding: 8px 6px !important;
+    font-size: 13px !important;
+    padding: 10px 14px !important;
     box-sizing: border-box !important;
   }
 
@@ -1340,6 +1342,36 @@ body {
   filter: brightness(1.15);
 }
 
+.btn-run-unified {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  border: 1px solid #c084fc;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.4);
+  letter-spacing: 0.2px;
+}
+.btn-run-unified:hover {
+  background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(124, 58, 237, 0.6);
+}
+.btn-run-unified:active {
+  transform: translateY(1px);
+}
+.btn-run-unified .btn-run-icon {
+  font-size: 15px;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
+}
+
 /* TERMINAL OUTPUT & RESIZABLE CONSOLE */
 .terminal-card {
   position: relative;
@@ -1917,6 +1949,106 @@ body {
   0% { transform: scale(0.8); opacity: 0; }
   60% { transform: scale(1.05); }
   100% { transform: scale(1); opacity: 1; }
+}
+
+/* MULTI-CARD SELECTOR & DYNAMIC PLACEHOLDERS */
+.multi-card-bar {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.multi-card-lbl {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+.multi-card-pills {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.card-pill-btn {
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #cbd5e1;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.card-pill-btn:hover {
+  background: rgba(51, 65, 85, 0.9);
+  color: #fff;
+  border-color: rgba(56, 189, 248, 0.5);
+}
+.card-pill-btn.active {
+  background: linear-gradient(135deg, #0284c7, #2563eb);
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
+}
+
+.card-num-masked {
+  opacity: 0.45;
+  letter-spacing: 3px;
+  font-size: 13.5px;
+}
+
+.card-val-empty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.card-val-empty .dots-ph {
+  opacity: 0.4;
+  letter-spacing: 2px;
+  font-size: 11px;
+}
+.unassigned-chip {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #e2e8f0;
+  font-size: 8.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.card-var-badge {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 6px;
+}
+
+.card-locked {
+  filter: grayscale(0.65) brightness(0.85);
+  border: 2px solid #ef4444 !important;
+}
+
+.card-lock-badge {
+  background: rgba(239, 68, 68, 0.3);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 1px 6px;
+  border-radius: 6px;
 }
 
 /* KORZINKA FOOD CARD */

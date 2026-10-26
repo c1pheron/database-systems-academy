@@ -41,14 +41,17 @@
         case "card":
           return {
             hasObject: false,
-            holder: "SARDOR ALIYEV",
-            cardNumber: "9860 3201 4589 7721",
-            expiryDate: "12/28",
-            cvv: "777",
-            balance: 50000,
+            cards: [],
+            activeCardIdx: 0,
+            holder: "",
+            cardNumber: "",
+            expiryDate: "",
+            cvv: "",
+            balance: 0,
             deposited: 0,
             withdrawn: 0,
-            lastTxMsg: ""
+            lastTxMsg: "",
+            isLocked: false
           };
         case "atm":
           return { balance: 100000, withdrawn: 0, lastSuccess: false };
@@ -108,32 +111,20 @@
           this.currentState.brewed = 1;
           break;
         case "card":
-          const hasCardInst = /\bnew\s+(BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard)\b/.test(code);
-          this.currentState.hasObject = hasCardInst;
-
-          const balM = code.match(/new\s+[A-Za-z0-9_]+\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
-          if (balM) {
-            this.currentState.balance = parseFloat(balM[1]);
+          const parsed = this.parseCardsFromCode(code, stdout);
+          this.currentState.cards = parsed.cards;
+          this.currentState.hasObject = parsed.cards.length > 0;
+          if (this.currentState.activeCardIdx === undefined || this.currentState.activeCardIdx >= parsed.cards.length) {
+            this.currentState.activeCardIdx = 0;
           }
-
-          const holderM = code.match(/new\s+[A-Za-z0-9_]+\s*\(\s*["']([^"']+)["']/);
-          if (holderM) {
-            this.currentState.holder = holderM[1].toUpperCase();
-          }
-
-          if (code.includes(".deposit(")) {
-            const depM = code.match(/\.deposit\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
-            const dep = depM ? parseFloat(depM[1]) : 25000;
-            this.currentState.deposited = dep;
-            this.currentState.balance += dep;
-            this.currentState.lastTxMsg = `+${dep.toLocaleString()} UZS Depozit qilindi!`;
-          } else if (code.includes(".withdraw(")) {
-            const wM = code.match(/\.withdraw\s*\(\s*([0-9]+(?:\.[0-9]+)?)/);
-            const w = wM ? parseFloat(wM[1]) : 30000;
-            this.currentState.withdrawn = w;
-            this.currentState.balance = Math.max(0, this.currentState.balance - w);
-            this.currentState.lastTxMsg = `-${w.toLocaleString()} UZS Yechildi!`;
-          }
+          const activeCard = parsed.cards[this.currentState.activeCardIdx] || parsed.cards[0] || {};
+          this.currentState.balance = activeCard.balance !== undefined ? activeCard.balance : 0;
+          this.currentState.holder = activeCard.holder || "";
+          this.currentState.cardNumber = activeCard.cardNumber || "";
+          this.currentState.expiryDate = activeCard.expiryDate || "";
+          this.currentState.cvv = activeCard.cvv || "";
+          this.currentState.lastTxMsg = activeCard.lastTxMsg || "";
+          this.currentState.isLocked = Boolean(activeCard.isLocked);
           break;
         case "atm":
           this.currentState.balance = 60000;
@@ -403,9 +394,212 @@
       `;
     },
 
+    selectCard(idx) {
+      if (this.currentState.cards && this.currentState.cards[idx]) {
+        this.currentState.activeCardIdx = idx;
+        const c = this.currentState.cards[idx];
+        this.currentState.balance = c.balance;
+        this.currentState.holder = c.holder || "";
+        this.currentState.cardNumber = c.cardNumber || "";
+        this.currentState.expiryDate = c.expiryDate || "";
+        this.currentState.cvv = c.cvv || "";
+        this.currentState.lastTxMsg = c.lastTxMsg || "";
+        this.currentState.isLocked = Boolean(c.isLocked);
+        this.render();
+      }
+    },
+
+    parseCardsFromCode(code, stdout) {
+      if (!code || typeof code !== "string") {
+        return { cards: [] };
+      }
+
+      const cards = [];
+      const cardTypeRegex = /(?:BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard|CashbackCard|VipCard)/;
+
+      // 1. Match instantiated cards: e.g. "BankCard card = new BankCard(50000.0);" or "var card2 = new BankCard(...)"
+      const instRegex = /(?:([A-Za-z0-9_]+)\s+)?([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*new\s+([A-Za-z0-9_]+)\s*\(([^)]*)\)/g;
+      let m;
+      const seenVars = new Set();
+
+      while ((m = instRegex.exec(code)) !== null) {
+        const declaredType = m[1] || "";
+        const varName = m[2];
+        const constructedType = m[3];
+        const argsStr = m[4] || "";
+
+        if (cardTypeRegex.test(declaredType) || cardTypeRegex.test(constructedType) || varName.toLowerCase().includes("card")) {
+          seenVars.add(varName);
+
+          const card = {
+            varName: varName,
+            cardType: constructedType || declaredType || "BankCard",
+            balance: 0,
+            initialBalance: 0,
+            holder: "",
+            cardNumber: "",
+            expiryDate: "12/28",
+            cvv: "777",
+            lastTxMsg: "",
+            isLocked: false,
+            transactions: []
+          };
+
+          // Parse constructor arguments
+          const strMatches = Array.from(argsStr.matchAll(/["']([^"']+)["']/g)).map(x => x[1]);
+          strMatches.forEach(str => {
+            const cleanDigits = str.replace(/[^0-9]/g, "");
+            if (cleanDigits.length === 16) {
+              card.cardNumber = cleanDigits.replace(/(.{4})/g, "$1 ").trim();
+            } else if (cleanDigits.length === 12 || cleanDigits.length === 13) {
+              card.phone = str;
+            } else if (/[a-zA-Z]/.test(str)) {
+              card.holder = str.toUpperCase();
+            }
+          });
+
+          const numMatches = Array.from(argsStr.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
+          if (numMatches.length > 0) {
+            card.balance = numMatches[0];
+            card.initialBalance = numMatches[0];
+            if (numMatches.length > 1) {
+              card.dailyLimit = numMatches[1];
+            }
+          }
+
+          cards.push(card);
+        }
+      }
+
+      // If no explicit variable assignment was found, but "new BankCard(...)" exists:
+      if (cards.length === 0) {
+        const genericNew = /new\s+(BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard|CashbackCard|VipCard)\s*\(([^)]*)\)/.exec(code);
+        if (genericNew) {
+          const constructedType = genericNew[1];
+          const argsStr = genericNew[2] || "";
+          const card = {
+            varName: "card",
+            cardType: constructedType,
+            balance: 0,
+            initialBalance: 0,
+            holder: "",
+            cardNumber: "",
+            expiryDate: "12/28",
+            cvv: "777",
+            lastTxMsg: "",
+            isLocked: false,
+            transactions: []
+          };
+          const strMatches = Array.from(argsStr.matchAll(/["']([^"']+)["']/g)).map(x => x[1]);
+          strMatches.forEach(str => {
+            const cleanDigits = str.replace(/[^0-9]/g, "");
+            if (cleanDigits.length === 16) {
+              card.cardNumber = cleanDigits.replace(/(.{4})/g, "$1 ").trim();
+            } else if (/[a-zA-Z]/.test(str)) {
+              card.holder = str.toUpperCase();
+            }
+          });
+          const numMatches = Array.from(argsStr.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
+          if (numMatches.length > 0) {
+            card.balance = numMatches[0];
+            card.initialBalance = numMatches[0];
+          }
+          cards.push(card);
+          seenVars.add("card");
+        }
+      }
+
+      // 2. Sequential operations on each card variable
+      cards.forEach(card => {
+        const v = card.varName;
+
+        // Check holder assignment: card.setCardHolder("..."), card.setHolder("..."), or card.cardHolder = "..."
+        const holderAssign = new RegExp(v + "\\.(?:setCardHolder|setHolder)\\s*\\(\\s*[\"']([^\"']+)[\"']\\s*\\)|" + v + "\\.cardHolder\\s*=\\s*[\"']([^\"']+)[\"']");
+        const hm = code.match(holderAssign);
+        if (hm) {
+          card.holder = (hm[1] || hm[2]).toUpperCase();
+        }
+
+        // Check card number assignment: card.setCardNumber("...")
+        const numAssign = new RegExp(v + "\\.setCardNumber\\s*\\(\\s*[\"']([^\"']+)[\"']\\s*\\)");
+        const nm = code.match(numAssign);
+        if (nm) {
+          const clean = nm[1].replace(/[^0-9]/g, "");
+          card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
+        }
+
+        // Check lock/unlock
+        const lockRegex = new RegExp(v + "\\.lock(?:Card)?\\s*\\(\\s*\\)");
+        const unlockRegex = new RegExp(v + "\\.unlock(?:Card)?\\s*\\(\\s*\\)");
+        if (lockRegex.test(code)) card.isLocked = true;
+        if (unlockRegex.test(code)) card.isLocked = false;
+
+        // Sequential operations: deposit, withdraw, spend
+        const opRegex = new RegExp(v + "\\.(deposit|withdraw|spend|pay)\\s*\\(\\s*([0-9]+(?:\\.[0-9]+)?)\\s*\\)", "g");
+        let opM;
+        while ((opM = opRegex.exec(code)) !== null) {
+          const op = opM[1];
+          const amt = parseFloat(opM[2]);
+
+          if (op === "deposit") {
+            if (amt > 0) {
+              card.balance += amt;
+              card.lastTxMsg = `+${amt.toLocaleString()} UZS Depozit qilindi!`;
+              card.transactions.push({ type: "deposit", amount: amt, msg: `+${amt.toLocaleString()} UZS` });
+            }
+          } else if (op === "withdraw") {
+            if (!card.isLocked && amt > 0 && amt <= card.balance) {
+              card.balance -= amt;
+              card.lastTxMsg = `-${amt.toLocaleString()} UZS Yechildi!`;
+              card.transactions.push({ type: "withdraw", amount: amt, msg: `-${amt.toLocaleString()} UZS` });
+            } else if (card.isLocked) {
+              card.lastTxMsg = `❌ Karta bloklangan!`;
+            } else {
+              card.lastTxMsg = `❌ Mablag' yetarli emas!`;
+            }
+          } else if (op === "spend" || op === "pay") {
+            if (!card.isLocked && amt > 0 && amt <= card.balance) {
+              card.balance -= amt;
+              card.lastTxMsg = `-${amt.toLocaleString()} UZS Xarid qilindi!`;
+              card.transactions.push({ type: "spend", amount: amt, msg: `-${amt.toLocaleString()} UZS` });
+            }
+          }
+        }
+      });
+
+      // 3. Fallback for cardholder name if not explicitly set on card:
+      cards.forEach(card => {
+        if (!card.holder) {
+          const nameM = code.match(/(?:cardHolder|holder|name|mijoz|owner)\s*=\s*["']([^"']+)["']/i) ||
+                        code.match(/["']([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)["']/);
+          if (nameM && !nameM[1].toLowerCase().includes("bank") && !nameM[1].toLowerCase().includes("uzs")) {
+            card.holder = nameM[1].toUpperCase();
+          }
+        }
+        // Fallback for 16-digit card number if user wrote one in code
+        if (!card.cardNumber) {
+          const cardNumMatch = code.match(/["']?((?:8600|9860|4000|5400)\s*(?:[0-9]{4}\s*){3}[0-9]{4}|(?:8600|9860|4000|5400)[0-9]{12})["']?/);
+          if (cardNumMatch) {
+            const clean = cardNumMatch[1].replace(/[^0-9]/g, "");
+            card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
+          }
+        }
+      });
+
+      // 4. Sync balance with stdout if available
+      if (stdout && cards.length > 0) {
+        const outBalM = stdout.match(/(?:Balans|Qoldiq|Balance)[^0-9]*([0-9]+(?:\.[0-9]+)?)/i);
+        if (outBalM) {
+          cards[cards.length - 1].balance = parseFloat(outBalM[1]);
+        }
+      }
+
+      return { cards };
+    },
+
     renderCard() {
       const s = this.currentState;
-      if (!s.hasObject) {
+      if (!s.hasObject || !s.cards || s.cards.length === 0) {
         return `
           <div class="sim-scene card-scene">
             <div class="empty-card-box">
@@ -424,11 +618,32 @@
         `;
       }
 
+      const cards = s.cards;
+      const activeIdx = (s.activeCardIdx !== undefined && s.activeCardIdx < cards.length) ? s.activeCardIdx : 0;
+      const c = cards[activeIdx] || cards[0];
+
       return `
         <div class="sim-scene card-scene animate-card-appear">
-          <div class="humo-card">
+          ${cards.length > 1 ? `
+            <div class="multi-card-bar">
+              <span class="multi-card-lbl">KARTALAR (${cards.length} ta):</span>
+              <div class="multi-card-pills">
+                ${cards.map((item, idx) => `
+                  <button type="button" class="card-pill-btn ${idx === activeIdx ? 'active' : ''}" onclick="window.SimulatorEngine.selectCard(${idx})">
+                    💳 ${item.varName} • ${Number(item.balance).toLocaleString()} UZS
+                  </button>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="humo-card ${c.isLocked ? 'card-locked' : ''}">
             <div class="humo-top">
-              <span class="humo-logo">HUMO</span>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span class="humo-logo">${c.cardNumber && c.cardNumber.startsWith('8600') ? 'UZCARD' : 'HUMO'}</span>
+                <span class="card-var-badge">${c.varName || 'card'}</span>
+                ${c.isLocked ? '<span class="card-lock-badge">🔒 BLOKLANGAN</span>' : ''}
+              </div>
               <div class="humo-top-right">
                 <span class="contactless-wave">📶</span>
                 <span class="chip-icon">🪪</span>
@@ -437,18 +652,24 @@
 
             <!-- To'liq 16 xonali karta raqami -->
             <div class="card-num-row">
-              <span class="card-num-full">${s.cardNumber || '9860 3201 4589 7721'}</span>
+              ${c.cardNumber ? `
+                <span class="card-num-full">${c.cardNumber}</span>
+              ` : `
+                <span class="card-num-full card-num-masked" title="Karta raqami kodingizda biriktirilmagan">
+                  •••• &nbsp;•••• &nbsp;•••• &nbsp;••••
+                </span>
+              `}
             </div>
 
             <!-- Amal qilish muddati va CVV -->
             <div class="card-mid-row">
               <div class="card-exp-box">
                 <span class="card-tiny-lbl">VALID THRU</span>
-                <span class="card-exp-val">${s.expiryDate || '12/28'}</span>
+                <span class="card-exp-val">${c.expiryDate || '••/••'}</span>
               </div>
               <div class="card-cvv-box">
                 <span class="card-tiny-lbl">CVV/CVC</span>
-                <span class="card-cvv-val">${s.cvv || '777'}</span>
+                <span class="card-cvv-val">${c.cvv || '•••'}</span>
               </div>
             </div>
 
@@ -456,20 +677,27 @@
             <div class="card-bottom">
               <div class="card-holder-box">
                 <div class="card-lbl">KARTA EGASI</div>
-                <div class="card-val">${s.holder || 'SARDOR ALIYEV'}</div>
+                ${c.holder ? `
+                  <div class="card-val card-val-named">${c.holder}</div>
+                ` : `
+                  <div class="card-val card-val-empty">
+                    <span class="dots-ph">•••• ••••</span>
+                    <span class="unassigned-chip">Biriktirilmagan</span>
+                  </div>
+                `}
               </div>
               <div class="card-bal-box" style="text-align:right;">
                 <div class="card-lbl">BALANS</div>
-                <div class="card-bal">${s.balance.toLocaleString()} UZS</div>
+                <div class="card-bal">${Number(c.balance).toLocaleString()} UZS</div>
               </div>
             </div>
           </div>
 
-          ${s.lastTxMsg ? `<div class="tx-badge">${s.lastTxMsg}</div>` : ''}
+          ${c.lastTxMsg ? `<div class="tx-badge">${c.lastTxMsg}</div>` : ''}
 
           <div class="live-inspect-box">
             <span>🔍 Obyekt Xotirasi:</span>
-            <code>BankCard@heap { balance: ${s.balance}.0, holder: "${s.holder || 'SARDOR ALIYEV'}", exp: "${s.expiryDate || '12/28'}", cvv: ${s.cvv || 777} };</code>
+            <code>${c.cardType || 'BankCard'}@heap[${c.varName}] { balance: ${c.balance}.0, cardHolder: ${c.holder ? `"${c.holder}"` : 'null'}, pin: ${c.pin || 1234}, isLocked: ${c.isLocked ? 'true' : 'false'} };</code>
           </div>
         </div>
       `;
