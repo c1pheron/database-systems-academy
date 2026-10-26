@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
 
-  <link rel="stylesheet" href="../os_dictionary.css?v=20261026_os_cmds_v16">
-  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v16">
+  <link rel="stylesheet" href="../os_dictionary.css?v=20261026_os_cmds_v17">
+  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v17">
 </head>
 <body>
 
@@ -291,6 +291,32 @@
   <!-- Weekly Commands Encyclopedia Modal -->
   
   <!-- Command Detail Box Modal (Boxdan o'qib oladi) -->
+  
+
+  <div class="kali-modal" id="modalWeeklyCommands" style="display:none;">
+    <div class="kali-modal-content weekly-cmds-modal-content">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>⚡</span> <span id="weeklyCmdsModalTitle">6-Modul (Virtual Memory, Docker & DevOps Klasteri): Barcha Buyruqlar Ro'yxati</span>
+        </div>
+        <button class="kali-modal-close" id="btnCloseWeeklyCommands">✕</button>
+      </div>
+      <div class="weekly-cmds-subbar">
+        <div class="weekly-cmds-desc" id="weeklyCmdsModalDesc">
+          Ushbu modulda o'rganilishi shart bo'lgan barcha Linux buyruqlari. Har bir buyruq ustiga bosib, ensiklopediyada to'liq sintaksis, bayroqlar va amaliy misollarni o'rganing!
+        </div>
+        <div class="weekly-cmds-search-wrap">
+          <input type="text" id="weeklyCmdsSearchInput" class="weekly-cmds-search" placeholder="🔍 Buyruq nomi yoki tavsif bo'yicha qidirish..." autocomplete="off">
+          <span class="weekly-cmds-count-badge" id="weeklyCmdsCountBadge">0 ta buyruq</span>
+        </div>
+      </div>
+      <div class="kali-modal-body weekly-cmds-body">
+        <div id="weeklyCommandsGrid" class="weekly-commands-grid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Detail Box Modal (O'quvchi oldiga to'liq chiqishi uchun) -->
   <div class="kali-modal" id="modalCommandDetail" style="display:none;">
     <div class="kali-modal-content cmd-detail-modal-box">
       <div class="kali-modal-header cmd-detail-header">
@@ -347,29 +373,6 @@
     </div>
   </div>
 
-  <div class="kali-modal" id="modalWeeklyCommands" style="display:none;">
-    <div class="kali-modal-content weekly-cmds-modal-content">
-      <div class="kali-modal-header">
-        <div class="kali-modal-title">
-          <span>⚡</span> <span id="weeklyCmdsModalTitle">6-Modul (Virtual Memory, Docker & DevOps Klasteri): Barcha Buyruqlar Ro'yxati</span>
-        </div>
-        <button class="kali-modal-close" id="btnCloseWeeklyCommands">✕</button>
-      </div>
-      <div class="weekly-cmds-subbar">
-        <div class="weekly-cmds-desc" id="weeklyCmdsModalDesc">
-          Ushbu modulda o'rganilishi shart bo'lgan barcha Linux buyruqlari. Har bir buyruq ustiga bosib, ensiklopediyada to'liq sintaksis, bayroqlar va amaliy misollarni o'rganing!
-        </div>
-        <div class="weekly-cmds-search-wrap">
-          <input type="text" id="weeklyCmdsSearchInput" class="weekly-cmds-search" placeholder="🔍 Buyruq nomi yoki tavsif bo'yicha qidirish..." autocomplete="off">
-          <span class="weekly-cmds-count-badge" id="weeklyCmdsCountBadge">0 ta buyruq</span>
-        </div>
-      </div>
-      <div class="kali-modal-body weekly-cmds-body">
-        <div id="weeklyCommandsGrid" class="weekly-commands-grid"></div>
-      </div>
-    </div>
-  </div>
-
   <div class="kali-modal" id="modalOfficeEvent" style="display:none;">
     <div class="kali-modal-content">
       <div class="kali-modal-header">
@@ -407,14 +410,14 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/virtual_fs.js?v=20261026_os_cmds_v16"></script>
-  <script src="data/questions_1_50.js?v=20261026_os_cmds_v16"></script>
-  <script src="data/questions_51_100.js?v=20261026_os_cmds_v16"></script>
-  <script src="data/questions_101_150.js?v=20261026_os_cmds_v16"></script>
-  <script src="data/weekly_commands.js?v=20261026_os_cmds_v16"></script>
+  <script src="data/virtual_fs.js?v=20261026_os_cmds_v17"></script>
+  <script src="data/questions_1_50.js?v=20261026_os_cmds_v17"></script>
+  <script src="data/questions_51_100.js?v=20261026_os_cmds_v17"></script>
+  <script src="data/questions_101_150.js?v=20261026_os_cmds_v17"></script>
+  <script src="data/weekly_commands.js?v=20261026_os_cmds_v17"></script>
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
-  <script src="../os_dictionary.js?v=20261026_os_cmds_v16"></script>
-  <script src="game.js?v=20261026_os_cmds_v16"></script>
+  <script src="../os_dictionary.js?v=20261026_os_cmds_v17"></script>
+  <script src="game.js?v=20261026_os_cmds_v17"></script>
 </body>
 </html>

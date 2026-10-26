@@ -3116,6 +3116,7 @@ permitted by applicable law.
       }
     }
 
+    modal.style.zIndex = "20000005";
     modal.style.display = "flex";
     modal.classList.add("active");
   }
