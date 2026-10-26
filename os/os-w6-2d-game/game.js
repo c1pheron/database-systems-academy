@@ -3040,10 +3040,20 @@ permitted by applicable law.
   
   // --- Weekly Commands & Command Detail Box Logic ---
   let activeDetailCmd = null;
+  let returnToWeeklyCommandsOnClose = false;
 
-  function openCommandDetailBox(cmdName) {
+  function openCommandDetailBox(cmdName, fromWeekly = false) {
     const modal = document.getElementById("modalCommandDetail");
     if (!modal) return;
+
+    if (fromWeekly) {
+      returnToWeeklyCommandsOnClose = true;
+      const weeklyModal = document.getElementById("modalWeeklyCommands");
+      if (weeklyModal) {
+        weeklyModal.style.display = "none";
+        weeklyModal.classList.remove("active");
+      }
+    }
 
     // Search command in dictionary first, then weekly commands data
     const dictCmd = (typeof window.findDictionaryCommand === "function") ? window.findDictionaryCommand(cmdName) : null;
@@ -3127,6 +3137,15 @@ permitted by applicable law.
       modal.style.display = "none";
       modal.classList.remove("active");
     }
+
+    if (returnToWeeklyCommandsOnClose) {
+      returnToWeeklyCommandsOnClose = false;
+      const weeklyModal = document.getElementById("modalWeeklyCommands");
+      if (weeklyModal) {
+        weeklyModal.style.display = "flex";
+        weeklyModal.classList.add("active");
+      }
+    }
   }
 
   window.openCommandDetailBox = openCommandDetailBox;
@@ -3162,6 +3181,7 @@ permitted by applicable law.
     if (btnDetailInsert) {
       btnDetailInsert.addEventListener("click", () => {
         if (activeDetailCmd) {
+          returnToWeeklyCommandsOnClose = false;
           closeCommandDetailBox();
           closeModal();
           insertKaliToken(activeDetailCmd);
@@ -3233,7 +3253,7 @@ permitted by applicable law.
         `;
       }).join("");
 
-      // Bind clicks to cards -> Open Command Detail Box!
+      // Bind clicks to cards -> Open Command Detail Box smoothly!
       grid.querySelectorAll(".weekly-cmd-card").forEach(card => {
         card.addEventListener("click", (e) => {
           // If clicked insert button directly
@@ -3245,9 +3265,9 @@ permitted by applicable law.
             return;
           }
 
-          // Otherwise open the sleek Command Detail Box!
+          // Otherwise open the Command Detail Box, hiding weekly list seamlessly!
           const cmdName = card.dataset.cmd;
-          openCommandDetailBox(cmdName);
+          openCommandDetailBox(cmdName, true);
         });
       });
     }
