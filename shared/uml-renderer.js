@@ -321,22 +321,42 @@ class Order {
 
       // Dimensions & 2D Grid Layout calculation
       const numClasses = classes.length;
-      const isMultiRow = numClasses > 3;
-      const cols = isMultiRow ? (numClasses <= 8 ? 3 : 4) : Math.max(1, numClasses);
-      const rows = Math.ceil(numClasses / cols);
+      const containerWidth = container.clientWidth || (typeof window !== "undefined" ? window.innerWidth : 800);
+      const isNarrowMobile = containerWidth < 580 || (typeof window !== "undefined" && window.innerWidth <= 768);
 
-      const cardWidth = 240;
-      const cardGapX = 50;
-      const cardGapY = 65;
+      let cols, cardWidth, cardGapX, cardGapY;
+      if (isNarrowMobile) {
+        if (numClasses === 1) {
+          cols = 1;
+          cardWidth = Math.min(270, containerWidth - 36);
+          cardGapX = 16;
+          cardGapY = 32;
+        } else {
+          // On mobile, 2 tidy balanced columns instead of wide 4 columns
+          cols = 2;
+          cardWidth = 200;
+          cardGapX = 16;
+          cardGapY = 36;
+        }
+      } else {
+        const isMultiRow = numClasses > 3;
+        cols = isMultiRow ? (numClasses <= 8 ? 3 : 4) : Math.max(1, numClasses);
+        cardWidth = 240;
+        cardGapX = 50;
+        cardGapY = 65;
+      }
+      const rows = Math.ceil(numClasses / cols);
+      const offsetX = isNarrowMobile ? 15 : 35;
 
       const cardLayouts = classes.map((c, idx) => {
-        const col = isMultiRow ? (idx % cols) : idx;
-        const row = isMultiRow ? Math.floor(idx / cols) : 0;
-        const headerH = c.kind === "interface" ? 44 : 38;
-        const fieldsH = Math.max(26, c.fields.length * 20 + 8);
-        const methodsH = Math.max(26, c.methods.length * 20 + 8);
+        const col = idx % cols;
+        const row = Math.floor(idx / cols);
+        const headerH = c.kind === "interface" ? (isNarrowMobile ? 38 : 44) : (isNarrowMobile ? 32 : 38);
+        const lineH = isNarrowMobile ? 18 : 20;
+        const fieldsH = Math.max(22, c.fields.length * lineH + 6);
+        const methodsH = Math.max(22, c.methods.length * lineH + 6);
         const totalCardH = headerH + fieldsH + methodsH;
-        return { col, row, headerH, fieldsH, methodsH, totalCardH };
+        return { col, row, headerH, fieldsH, methodsH, totalCardH, lineH };
       });
 
       // Calculate row heights and cumulative Y coordinates
@@ -348,14 +368,16 @@ class Order {
       }
 
       const rowY = [];
-      let curY = 40;
+      let curY = isNarrowMobile ? 25 : 40;
       for (let r = 0; r < rows; r++) {
         rowY.push(curY);
         curY += rowHeights[r] + cardGapY;
       }
 
-      const totalWidth = Math.max(560, cols * (cardWidth + cardGapX) + 60);
-      const totalHeight = Math.max(340, curY + 40);
+      const totalWidth = isNarrowMobile
+        ? Math.max(containerWidth || 360, cols * (cardWidth + cardGapX) + offsetX * 2)
+        : Math.max(560, cols * (cardWidth + cardGapX) + 60);
+      const totalHeight = Math.max(280, curY + 30);
 
       this.state.totalWidth = totalWidth;
       this.state.totalHeight = totalHeight;
@@ -371,24 +393,24 @@ class Order {
         container.innerHTML = `
           <div class="uml-canvas-wrapper" style="position:relative; width:100%; height:100%; min-height:0; background:#0c0a18; overflow:hidden; border-radius:8px; border:1px solid #221c40; display:flex; flex-direction:column; user-select:none; -webkit-user-select:none;">
             <!-- Top Status Bar -->
-            <div class="uml-status-bar" style="display:flex; align-items:center; justify-content:space-between; padding:8px 14px; background:#100d21; border-bottom:1px solid #221c40; font-size:11.5px; z-index:5; flex-shrink:0;">
-              <div style="display:flex; align-items:center; gap:8px;">
-                <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></span>
-                <span style="color:#f8fafc; font-weight:700;">Jonli UML Modeli:</span>
+            <div class="uml-status-bar" style="display:flex; align-items:center; justify-content:space-between; padding:6px 10px; background:#100d21; border-bottom:1px solid #221c40; font-size:11px; z-index:5; flex-shrink:0;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#10b981; box-shadow:0 0 6px #10b981;"></span>
+                <span style="color:#f8fafc; font-weight:700;">UML:</span>
                 <span id="umlClassBadge" style="color:#c084fc; font-weight:600;">${badgeLabel}</span>
               </div>
-              <div class="uml-hint-text" style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:10px; display:flex; align-items:center; gap:6px;">
-                <span>🖱️ G'ildirak / Pinch: Zoom</span> • <span>Sudrab surish: Pan</span>
+              <div class="uml-hint-text" style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:9.5px; display:flex; align-items:center; gap:4px;">
+                <span>🤏 Pinch: Zoom</span> • <span>Surish: Pan</span>
               </div>
             </div>
 
             <!-- Floating Zoom Controls overlay -->
-            <div class="uml-zoom-controls" style="position:absolute; top:46px; right:12px; z-index:10; display:flex; align-items:center; gap:3px; background:rgba(18, 15, 36, 0.92); border:1px solid rgba(168, 85, 247, 0.4); border-radius:8px; padding:3px 6px; box-shadow:0 4px 16px rgba(0,0,0,0.6); backdrop-filter:blur(8px);">
-              <button type="button" class="btn-uml-zoom" id="btnUmlZoomOut" title="Kichraytirish (-)" style="background:transparent; border:none; color:#c084fc; font-weight:700; font-size:15px; width:26px; height:26px; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s;">−</button>
-              <span id="umlZoomLevelText" style="color:#f8fafc; font-size:11px; font-family:'JetBrains Mono', monospace; min-width:38px; text-align:center; font-weight:600;">100%</span>
-              <button type="button" class="btn-uml-zoom" id="btnUmlZoomIn" title="Kattalashtirish (+)" style="background:transparent; border:none; color:#c084fc; font-weight:700; font-size:15px; width:26px; height:26px; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s;">+</button>
-              <button type="button" class="btn-uml-zoom" id="btnUmlZoomReset" title="Asliga qaytarish (1:1)" style="background:#221c45; border:1px solid rgba(192, 132, 252, 0.3); color:#e2e8f0; font-size:10px; font-family:'JetBrains Mono', monospace; padding:2px 6px; border-radius:4px; cursor:pointer; margin-left:4px;">1:1</button>
-              <button type="button" class="btn-uml-zoom" id="btnUmlZoomFit" title="Ekranga sig'dirish (Fit)" style="background:#221c45; border:1px solid rgba(192, 132, 252, 0.3); color:#38bdf8; font-size:11px; padding:2px 6px; border-radius:4px; cursor:pointer; margin-left:2px;">⛶</button>
+            <div class="uml-zoom-controls" style="position:absolute; top:40px; right:8px; z-index:10; display:flex; align-items:center; gap:3px; background:rgba(18, 15, 36, 0.94); border:1px solid rgba(168, 85, 247, 0.45); border-radius:8px; padding:2px 5px; box-shadow:0 4px 16px rgba(0,0,0,0.6); backdrop-filter:blur(8px);">
+              <button type="button" class="btn-uml-zoom" id="btnUmlZoomOut" title="Kichraytirish (-)" style="background:transparent; border:none; color:#c084fc; font-weight:700; font-size:16px; width:28px; height:28px; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center;">−</button>
+              <span id="umlZoomLevelText" style="color:#f8fafc; font-size:11px; font-family:'JetBrains Mono', monospace; min-width:34px; text-align:center; font-weight:600;">100%</span>
+              <button type="button" class="btn-uml-zoom" id="btnUmlZoomIn" title="Kattalashtirish (+)" style="background:transparent; border:none; color:#c084fc; font-weight:700; font-size:16px; width:28px; height:28px; border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center;">+</button>
+              <button type="button" class="btn-uml-zoom" id="btnUmlZoomReset" title="Asliga qaytarish (1:1)" style="background:#221c45; border:1px solid rgba(192, 132, 252, 0.3); color:#e2e8f0; font-size:10px; font-family:'JetBrains Mono', monospace; padding:3px 6px; border-radius:4px; cursor:pointer; margin-left:2px;">1:1</button>
+              <button type="button" class="btn-uml-zoom" id="btnUmlZoomFit" title="Ekranga sig'dirish (Fit)" style="background:#221c45; border:1px solid rgba(192, 132, 252, 0.3); color:#38bdf8; font-size:11.5px; padding:3px 7px; border-radius:4px; cursor:pointer; margin-left:2px;">⛶</button>
             </div>
 
             <!-- Viewport & Transform Canvas Layer -->
@@ -447,12 +469,13 @@ class Order {
       // Draw class cards
       classes.forEach((c, idx) => {
         const l = cardLayouts[idx];
-        const x = 35 + l.col * (cardWidth + cardGapX);
+        const x = offsetX + l.col * (cardWidth + cardGapX);
         const y = rowY[l.row];
         const headerH = l.headerH;
         const fieldsH = l.fieldsH;
         const methodsH = l.methodsH;
         const totalCardH = l.totalCardH;
+        const lineH = l.lineH;
 
         const isHighlighted = options && options.highlightClasses && options.highlightClasses.includes(c.name);
         const borderColor = isHighlighted ? "#10b981" : (c.hasUnclosedBrace ? "#f59e0b" : "#7c3aed");
@@ -462,9 +485,9 @@ class Order {
         <g filter="url(#umlShadow)">
           ${isHighlighted ? `
             <rect x="${x - 4}" y="${y - 4}" width="${cardWidth + 8}" height="${totalCardH + 8}" rx="14" fill="none" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.5" filter="url(#glowGreen)"/>
-            <g transform="translate(${x + cardWidth - 118}, ${y - 12})">
-              <rect width="114" height="22" rx="11" fill="#10b981" filter="url(#umlShadow)"/>
-              <text x="57" y="15" fill="#022c22" font-size="10" text-anchor="middle" font-weight="900" font-family="'Inter', sans-serif">📍 JORIY BOSQICH</text>
+            <g transform="translate(${x + cardWidth - (isNarrowMobile ? 96 : 118)}, ${y - 10})">
+              <rect width="${isNarrowMobile ? 92 : 114}" height="20" rx="10" fill="#10b981" filter="url(#umlShadow)"/>
+              <text x="${isNarrowMobile ? 46 : 57}" y="14" fill="#022c22" font-size="${isNarrowMobile ? 9 : 10}" text-anchor="middle" font-weight="900" font-family="'Inter', sans-serif">📍 JORIY BOSQICH</text>
             </g>
           ` : ""}
 
@@ -475,22 +498,22 @@ class Order {
           <rect x="${x}" y="${y + headerH - 8}" width="${cardWidth}" height="8" fill="#1e183a"/>
           <line x1="${x}" y1="${y + headerH}" x2="${x + cardWidth}" y2="${y + headerH}" stroke="rgba(192,132,252,0.3)" stroke-width="1"/>
           
-          ${c.kind === "interface" ? `<text x="${x + cardWidth / 2}" y="${y + 16}" fill="#34d399" font-size="10" text-anchor="middle" font-weight="700">&lt;&lt;interface&gt;&gt;</text>` : ""}
-          <text x="${x + cardWidth / 2}" y="${y + (c.kind === "interface" ? 33 : 24)}" fill="#ffffff" font-size="13" text-anchor="middle" font-weight="800">${c.name}</text>
+          ${c.kind === "interface" ? `<text x="${x + cardWidth / 2}" y="${y + (isNarrowMobile ? 14 : 16)}" fill="#34d399" font-size="${isNarrowMobile ? 9 : 10}" text-anchor="middle" font-weight="700">&lt;&lt;interface&gt;&gt;</text>` : ""}
+          <text x="${x + cardWidth / 2}" y="${y + (c.kind === "interface" ? (isNarrowMobile ? 29 : 33) : (isNarrowMobile ? 21 : 24))}" fill="#ffffff" font-size="${isNarrowMobile ? 11.5 : 13}" text-anchor="middle" font-weight="800">${c.name}</text>
           
           ${c.hasUnclosedBrace ? `
-            <text x="${x + cardWidth - 10}" y="${y + 16}" fill="#f59e0b" font-size="11" text-anchor="end" font-weight="700" title="'}' qavs kutilmoqda">⚠️</text>
+            <text x="${x + cardWidth - 8}" y="${y + 14}" fill="#f59e0b" font-size="11" text-anchor="end" font-weight="700" title="'}' qavs kutilmoqda">⚠️</text>
           ` : ""}
 
           <!-- Fields Compartment -->
           <line x1="${x}" y1="${y + headerH + fieldsH}" x2="${x + cardWidth}" y2="${y + headerH + fieldsH}" stroke="rgba(192,132,252,0.2)" stroke-width="1"/>`;
 
         if (c.fields.length === 0) {
-          inner += `<text x="${x + 14}" y="${y + headerH + 18}" fill="#64748b" font-size="11" font-style="italic">(maydonlar yo'q)</text>`;
+          inner += `<text x="${x + 10}" y="${y + headerH + (isNarrowMobile ? 15 : 18)}" fill="#64748b" font-size="${isNarrowMobile ? 10 : 11}" font-style="italic">(maydonlar yo'q)</text>`;
         } else {
           c.fields.forEach((f, fIdx) => {
             const color = f.sign === "-" ? "#f43f5e" : (f.sign === "+" ? "#34d399" : "#fbbf24");
-            inner += `<text x="${x + 14}" y="${y + headerH + 18 + fIdx * 20}" fill="#e2e8f0" font-size="11.5">
+            inner += `<text x="${x + 10}" y="${y + headerH + (isNarrowMobile ? 15 : 18) + fIdx * lineH}" fill="#e2e8f0" font-size="${isNarrowMobile ? 10 : 11.5}">
               <tspan fill="${color}" font-weight="800">${f.sign}</tspan> ${f.name}: <tspan fill="#c084fc" font-weight="600">${f.type}</tspan>
             </text>`;
           });
@@ -498,11 +521,11 @@ class Order {
 
         // Methods Compartment
         if (c.methods.length === 0) {
-          inner += `<text x="${x + 14}" y="${y + headerH + fieldsH + 18}" fill="#64748b" font-size="11" font-style="italic">(metodlar yo'q)</text>`;
+          inner += `<text x="${x + 10}" y="${y + headerH + fieldsH + (isNarrowMobile ? 15 : 18)}" fill="#64748b" font-size="${isNarrowMobile ? 10 : 11}" font-style="italic">(metodlar yo'q)</text>`;
         } else {
           c.methods.forEach((m, mIdx) => {
             const color = m.sign === "+" ? "#34d399" : (m.sign === "-" ? "#f43f5e" : "#fbbf24");
-            inner += `<text x="${x + 14}" y="${y + headerH + fieldsH + 18 + mIdx * 20}" fill="#e2e8f0" font-size="11.5">
+            inner += `<text x="${x + 10}" y="${y + headerH + fieldsH + (isNarrowMobile ? 15 : 18) + mIdx * lineH}" fill="#e2e8f0" font-size="${isNarrowMobile ? 10 : 11.5}">
               <tspan fill="${color}" font-weight="800">${m.sign}</tspan> ${m.name}(): <tspan fill="#38bdf8" font-weight="600">${m.returnType}</tspan>
             </text>`;
           });
@@ -514,7 +537,7 @@ class Order {
       // Draw relationships between class cards
       classes.forEach((c, idx) => {
         const boxA = {
-          x: 35 + cardLayouts[idx].col * (cardWidth + cardGapX),
+          x: offsetX + cardLayouts[idx].col * (cardWidth + cardGapX),
           y: rowY[cardLayouts[idx].row],
           w: cardWidth,
           h: cardLayouts[idx].totalCardH,
@@ -527,7 +550,7 @@ class Order {
           const parentIdx = classes.findIndex(p => p.name === c.superclass);
           if (parentIdx !== -1) {
             const boxB = {
-              x: 35 + cardLayouts[parentIdx].col * (cardWidth + cardGapX),
+              x: offsetX + cardLayouts[parentIdx].col * (cardWidth + cardGapX),
               y: rowY[cardLayouts[parentIdx].row],
               w: cardWidth,
               h: cardLayouts[parentIdx].totalCardH,
@@ -547,7 +570,7 @@ class Order {
             const ifaceIdx = classes.findIndex(p => p.name === iface);
             if (ifaceIdx !== -1) {
               const boxB = {
-                x: 35 + cardLayouts[ifaceIdx].col * (cardWidth + cardGapX),
+                x: offsetX + cardLayouts[ifaceIdx].col * (cardWidth + cardGapX),
                 y: rowY[cardLayouts[ifaceIdx].row],
                 w: cardWidth,
                 h: cardLayouts[ifaceIdx].totalCardH,
@@ -567,7 +590,7 @@ class Order {
           const targetIdx = classes.findIndex(p => p.name === f.type);
           if (targetIdx !== -1 && targetIdx !== idx) {
             const boxB = {
-              x: 35 + cardLayouts[targetIdx].col * (cardWidth + cardGapX),
+              x: offsetX + cardLayouts[targetIdx].col * (cardWidth + cardGapX),
               y: rowY[cardLayouts[targetIdx].row],
               w: cardWidth,
               h: cardLayouts[targetIdx].totalCardH,
@@ -584,8 +607,8 @@ class Order {
 
       svgCanvas.innerHTML = inner;
 
-      if (options && options.isGrand && !this.state.isUserInteracted) {
-        setTimeout(() => this.fitToView(containerId), 30);
+      if (!this.state.isUserInteracted || (options && options.forceFit)) {
+        setTimeout(() => this.fitToView(containerId), 40);
       } else {
         this.updateTransform(containerId);
       }
@@ -750,14 +773,16 @@ class Order {
       if (btnReset) {
         btnReset.addEventListener("click", () => {
           self.state.zoom = 1;
-          self.state.panX = 20;
-          self.state.panY = 20;
+          self.state.panX = 16;
+          self.state.panY = 16;
+          self.state.isUserInteracted = true;
           self.updateTransform(containerId);
         });
       }
 
       if (btnFit) {
         btnFit.addEventListener("click", () => {
+          self.state.isUserInteracted = false;
           self.fitToView(containerId);
         });
       }
@@ -769,19 +794,29 @@ class Order {
       const viewport = container.querySelector("#umlViewport");
       if (!viewport) return;
 
-      const vw = viewport.clientWidth || container.clientWidth || 400;
-      const vh = viewport.clientHeight || container.clientHeight || 200;
-      const tw = this.state.totalWidth || 600;
-      const th = this.state.totalHeight || 300;
+      const vw = viewport.clientWidth || container.clientWidth || 360;
+      const vh = viewport.clientHeight || container.clientHeight || 300;
+      const tw = this.state.totalWidth || 480;
+      const th = this.state.totalHeight || 380;
 
-      const zoomX = (vw - 24) / tw;
-      const zoomY = (vh - 24) / th;
+      const zoomX = (vw - 16) / tw;
+      const zoomY = (vh - 16) / th;
       const fitZoom = Math.min(zoomX, zoomY, 1.15);
-      const safeZoom = Math.min(1.15, Math.max(0.25, fitZoom));
+      const safeZoom = Math.min(1.15, Math.max(0.18, fitZoom));
 
       this.state.zoom = safeZoom;
-      this.state.panX = Math.max(6, (vw - tw * safeZoom) / 2);
-      this.state.panY = Math.max(6, (vh - th * safeZoom) / 2);
+      // Center horizontally if diagram fits inside viewport, else left margin 8px
+      if (tw * safeZoom <= vw) {
+        this.state.panX = Math.round((vw - tw * safeZoom) / 2);
+      } else {
+        this.state.panX = 8;
+      }
+      // Center vertically if fits, else top margin 10px so top classes are completely visible
+      if (th * safeZoom <= vh) {
+        this.state.panY = Math.round((vh - th * safeZoom) / 2);
+      } else {
+        this.state.panY = 10;
+      }
       this.updateTransform(containerId);
     },
 

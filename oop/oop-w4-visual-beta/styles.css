@@ -568,6 +568,39 @@ body {
   .column-splitter, .btn-wide-toggle, .terminal-badge {
     display: none !important;
   }
+
+  /* Mobile UML Focus Mode: Full Screen Diagram, Phone Frame & Simulator Hidden */
+  .workspace.uml-focus-mode .right-pane,
+  .left-pane.uml-focus-mode ~ .right-pane {
+    display: none !important;
+  }
+  .workspace.uml-focus-mode .task-card,
+  .left-pane.uml-focus-mode .task-card {
+    height: calc(100vh - 110px) !important;
+    min-height: 520px !important;
+    max-height: 94vh !important;
+    padding: 6px 8px !important;
+    margin: 0 auto !important;
+  }
+  .workspace.uml-focus-mode .uml-display-box,
+  .left-pane.uml-focus-mode .uml-display-box {
+    min-height: 420px !important;
+  }
+  .uml-actions-bar {
+    padding: 4px 6px !important;
+    gap: 4px !important;
+  }
+  .btn-uml-mode {
+    font-size: 10px !important;
+    padding: 3px 6px !important;
+  }
+  .btn-uml-return {
+    font-size: 10.5px !important;
+    padding: 3px 8px !important;
+  }
+  .uml-status-hint {
+    font-size: 9.5px !important;
+  }
 }
 
 /* HORIZONTAL COLUMN SPLITTER (ENINI KENG VA TOR QILISH) */
@@ -780,7 +813,7 @@ body {
   background: linear-gradient(135deg, #10b981, #059669);
   color: #fff;
   border-color: #34d399;
-  box-shadow: 0 0 10px rgba(16 bag, 185, 129, 0.5);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 .btn-uml-mode.active#btnUmlTask {
   background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -835,30 +868,52 @@ body {
 /* ==========================================================================
    UML FOCUS MODE: DIAGRAM GIGANT FORMATDA KO'RINADI, REDAKTOR VA KONSOL YASHIRILADI
    ========================================================================== */
+.workspace.uml-focus-mode .right-pane,
+.workspace.uml-focus-mode .column-splitter,
+.workspace.uml-focus-mode #editorCard,
+.workspace.uml-focus-mode #terminalCard,
 .left-pane.uml-focus-mode #editorCard,
 .left-pane.uml-focus-mode #terminalCard {
   display: none !important;
 }
 
+.workspace.uml-focus-mode .left-pane,
+.left-pane.uml-focus-mode {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 1 !important;
+}
+
+.workspace.uml-focus-mode .task-card,
 .left-pane.uml-focus-mode .task-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: clamp(520px, calc(100vh - 90px), 820px);
-  padding: 14px 18px;
+  flex: 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: clamp(540px, calc(100vh - 110px), 920px) !important;
+  padding: 10px 14px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
 }
 
+.workspace.uml-focus-mode .task-uml-panel,
 .left-pane.uml-focus-mode .task-uml-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 
+.workspace.uml-focus-mode .uml-display-box,
 .left-pane.uml-focus-mode .uml-display-box {
-  flex: 1;
+  flex: 1 !important;
+  width: 100% !important;
   height: 100% !important;
-  min-height: 440px;
+  min-height: 440px !important;
+  display: flex !important;
+  flex-direction: column !important;
 }
 
 /* ==========================================================================

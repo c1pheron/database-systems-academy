@@ -460,6 +460,8 @@
         taskTextPanel.style.display = "block";
         taskUmlPanel.style.display = "none";
         if (leftPane) leftPane.classList.remove("uml-focus-mode");
+        const ws = document.querySelector(".workspace");
+        if (ws) ws.classList.remove("uml-focus-mode");
       });
 
       btnViewUml.addEventListener("click", () => {
@@ -468,12 +470,17 @@
         taskTextPanel.style.display = "none";
         taskUmlPanel.style.display = "flex";
         if (leftPane) leftPane.classList.add("uml-focus-mode");
+        const ws = document.querySelector(".workspace");
+        if (ws) ws.classList.add("uml-focus-mode");
+        if (window.UMLRenderer) {
+          window.UMLRenderer.state.isUserInteracted = false;
+        }
         updateUMLDiagram();
         setTimeout(() => {
           if (window.UMLRenderer) {
             window.UMLRenderer.fitToView("umlContainer");
           }
-        }, 60);
+        }, 80);
       });
 
       const btnReturnToEditor = document.getElementById("btnReturnToEditor");
@@ -483,6 +490,18 @@
         });
       }
     }
+
+    // Window resize (e.g. phone orientation portrait <-> landscape)
+    window.addEventListener("resize", () => {
+      if (taskUmlPanel && taskUmlPanel.style.display !== "none") {
+        updateUMLDiagram();
+        setTimeout(() => {
+          if (window.UMLRenderer) {
+            window.UMLRenderer.fitToView("umlContainer");
+          }
+        }, 100);
+      }
+    });
 
     // Mouse wheel horizontal scroll on question dots strip
     const progressStrip = document.getElementById("progressStrip");
@@ -505,6 +524,9 @@
       if (btnUmlTarget) btnUmlTarget.classList.toggle("active", mode === "target");
       if (btnUmlTask) btnUmlTask.classList.toggle("active", mode === "task");
       if (btnUmlLive) btnUmlLive.classList.toggle("active", mode === "live");
+      if (window.UMLRenderer) {
+        window.UMLRenderer.state.isUserInteracted = false;
+      }
       updateUMLDiagram();
       setTimeout(() => {
         if (window.UMLRenderer) {
