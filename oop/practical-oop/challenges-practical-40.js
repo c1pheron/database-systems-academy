@@ -12,40 +12,40 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "1. 💳 Baza Bank Kartasi — Balansni Himoyalash",
-      "en": "1. Base Card",
-      "ru": "1. Базовая карта"
+      "uz": "1. 💳 Baza Bank Kartasi — Karta Raqami, Egasi va Balans",
+      "en": "1. Base Bank Card — Card Number, Holder & Balance",
+      "ru": "1. Базовая банковская карта — Номер, Владелец и Баланс"
     },
     "story": {
-      "uz": "FinTech Uzum/Payme ekotizimida mijoz Ali Valiyev yangi bank kartasi ochmoqda. Balans 'private double balance;' bo'lib, uni faqat musbat summa bilan to'ldirish (deposit) mumkin.",
-      "en": "In Uzum & Payme FinTech ecosystem: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.",
-      "ru": "В экосистеме Uzum & Payme FinTech: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin."
+      "uz": "FinTech (Uzum Bank / Payme) ekotizimida mijoz Ali Valiyev yangi 16 xonali bank kartasi ochmoqda. Karta raqami ('cardNumber'), karta egasi ('cardHolder') va balansi ('balance') private modifikatori orqali himoyalanib, balansni faqat musbat summa bilan to'ldirish (deposit) mumkin.",
+      "en": "In the Uzum & Payme FinTech ecosystem, customer Ali Valiyev is opening a new 16-digit bank card. The card number ('cardNumber'), cardholder name ('cardHolder'), and balance ('balance') are protected with private fields, and deposit is required.",
+      "ru": "В экосистеме FinTech Uzum / Payme клиент Ali Valiyev открывает новую 16-значную карту. Номер карты ('cardNumber'), владелец ('cardHolder') и баланс ('balance') защищены модификатором private."
     },
     "steps": {
       "uz": [
-        "<code>BankCard</code> klassida <code>private double balance;</code> maydoni.",
-        "Konstruktor: <code>public BankCard(double initialBalance)</code>.",
+        "<code>BankCard</code> klassida 3 ta private maydon: <code>private String cardNumber;</code>, <code>private String cardHolder;</code>, <code>private double balance;</code>.",
+        "Konstruktor: <code>public BankCard(String cardNumber, String cardHolder, double initialBalance)</code>.",
         "<code>public void deposit(double amount)</code> (amount > 0 bo'lsa balansga qo'shadi).",
-        "<code>public double getBalance()</code> getteri.",
-        "<code>Main</code>da 50,000 so'mlik karta ochib, 25,000 depozit qiling va: \"Balans: \" + card.getBalance() deb chiqaring."
+        "Getters: <code>public String getCardNumber()</code>, <code>public String getCardHolder()</code>, <code>public double getBalance()</code>.",
+        "<code>Main</code>da '8600 1234 5678 9012' raqamli, 'Ali Valiyev' nomiga 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
-        "<code>BankCard</code> in class <code>private double balance;</code> maydoni.",
-        "Konstruktor <code>public BankCard(double initialBalance)</code>.",
-        "<code>public void deposit(double amount)</code> (amount > 0 bo<code>lsa qo</code>shadi).",
-        "<code>public double getBalance()</code> getteri.",
-        "<code>Main</code>da 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb print to console."
+        "In <code>BankCard</code>, declare 3 private fields: <code>private String cardNumber;</code>, <code>private String cardHolder;</code>, <code>private double balance;</code>.",
+        "Constructor: <code>public BankCard(String cardNumber, String cardHolder, double initialBalance)</code>.",
+        "<code>public void deposit(double amount)</code> (adds to balance if amount > 0).",
+        "Getters: <code>public String getCardNumber()</code>, <code>public String getCardHolder()</code>, <code>public double getBalance()</code>.",
+        "In <code>Main</code>, open card with '8600 1234 5678 9012' for 'Ali Valiyev' (50,000), deposit 25,000, and print: \"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance()"
       ],
       "ru": [
-        "<code>BankCard</code> в классе <code>private double balance;</code> maydoni.",
-        "Konstruktor <code>public BankCard(double initialBalance)</code>.",
-        "<code>public void deposit(double amount)</code> (amount > 0 bo<code>lsa qo</code>shadi).",
-        "<code>public double getBalance()</code> getteri.",
-        "<code>Main</code>da 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb выведите в консоль."
+        "В <code>BankCard</code> объявите 3 поля: <code>private String cardNumber;</code>, <code>private String cardHolder;</code>, <code>private double balance;</code>.",
+        "Конструктор: <code>public BankCard(String cardNumber, String cardHolder, double initialBalance)</code>.",
+        "<code>public void deposit(double amount)</code> (пополняет баланс если amount > 0).",
+        "Геттеры: <code>public String getCardNumber()</code>, <code>public String getCardHolder()</code>, <code>public double getBalance()</code>.",
+        "В <code>Main</code> откройте карту '8600 1234 5678 9012' на имя 'Ali Valiyev' (50,000), внесите 25,000 и выведите: \"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance()"
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFinTech Uzum/Payme ekotizimida mijoz Ali Valiyev yangi bank kartasi ochmoqda. Balans 'private double balance;' bo'lib, uni faqat musbat summa bilan to'ldirish (deposit) mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCard klassida private double balance; maydoni.\n2. Konstruktor: public BankCard(double initialBalance).\n3. public void deposit(double amount) metodi: agar amount > 0 bo'lsa, balansga qo'shadi.\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFinTech Uzum / Payme ekotizimida mijoz Ali Valiyev yangi bank kartasi ochmoqda. Karta raqami ('cardNumber'), karta egasi ('cardHolder') va balansi ('balance') qat'iy inkapsulyatsiya qilinishi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCard klassida private String cardNumber, cardHolder va private double balance maydonlari.\n2. Konstruktor: public BankCard(String cardNumber, String cardHolder, double initialBalance).\n3. public void deposit(double amount) metodi: agar amount > 0 bo'lsa, balansga qo'shadi.\n4. Getterlar: getCardNumber(), getCardHolder(), getBalance().\n5. Mainda '8600 1234 5678 9012' raqamli, 'Ali Valiyev' nomiga 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. BankCard in class private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. BankCard в классе private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb выведите в консоль."
     },
@@ -54,39 +54,43 @@
         "BankCard",
         "Main"
       ],
+      "fields": [
+        "cardNumber",
+        "cardHolder",
+        "balance"
+      ],
       "methods": [
         "deposit",
+        "getCardNumber",
+        "getCardHolder",
         "getBalance"
       ],
       "constructors": [
         "BankCard"
       ],
-      "fields": [
-        "balance"
-      ],
       "keywords": []
     },
     "sampleData": [
-      "Amal: 1. 💳 Baza Bank Kartasi — Balansni Himoyalash",
-      "Kutilayotgan natija: Balans: 75000.0"
+      "Amal: 1. 💳 Baza Bank Kartasi — Karta Raqami, Egasi va Balans",
+      "Kutilayotgan natija: Karta: 8600 1234 5678 9012 | Egasi: Ali Valiyev | Balans: 75000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        System.out.println(\"Balans: \" + card.getBalance());\n    }\n}",
-    "expectedOutput": "Balans: 75000.0",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        System.out.println(\"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Karta: 8600 1234 5678 9012 | Egasi: Ali Valiyev | Balans: 75000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        System.out.println(\"Balans: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        System.out.println(\"Karta: \" + card.getCardNumber() + \" | Egasi: \" + card.getCardHolder() + \" | Balans: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>deposit, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>Kutilayotgan natija</code>: Balans: 75000.0"
+        "<code>deposit, getCardNumber, getCardHolder, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Karta: 8600 1234 5678 9012 | Egasi: Ali Valiyev | Balans: 75000.0"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
-        "<code>deposit, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Balans: 75000.0"
+        "<code>deposit, getCardNumber, getCardHolder, getBalance</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Karta: 8600 1234 5678 9012 | Egasi: Ali Valiyev | Balans: 75000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -100,32 +104,32 @@
     "simKind": "card",
     "title": {
       "uz": "2. 🏧 Xavfsiz Pul Yechish — Overdraft Himoyasi",
-      "en": "2. Safe Withdraw",
-      "ru": "2. Безопасное снятие"
+      "en": "2. Safe Withdraw — Overdraft Protection",
+      "ru": "2. Безопасное снятие — Защита от овердрафта"
     },
     "story": {
-      "uz": "Oldingi 1-bosqichda ochilgan kartamizda 75,000 so'm bor. Endi yangi karta ochmasdan, aynan o'sha kartamizdan pul yechish (withdraw) funksiyasini qo'shamiz!",
-      "en": "In Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.",
-      "ru": "В экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak."
+      "uz": "Oldingi 1-bosqichda Ali Valiyev nomiga ochilgan kartamizda 75,000 so'm bor. Endi yangi karta ochmasdan, aynan o'sha kartamizdan pul yechish (withdraw) funksiyasini qo'shamiz!",
+      "en": "Our card opened in Step 1 for Ali Valiyev has 75,000 UZS. Without creating another card, we now add a safe withdraw method to protect against overdraft.",
+      "ru": "На нашей карте из шага 1 для Ali Valiyev имеется 75,000 сум. Не создавая новую карту, мы добавляем функцию безопасного снятия средств (withdraw)."
     },
     "steps": {
       "uz": [
         "1-bosqichdagi <code>BankCard</code> kodingizga <code>public boolean withdraw(double amount)</code> metodini qo'shing.",
-        "Agar <code>amount > 0 && amount <= this.balance</code> bo'lsa, balandlikdan ayirib <code>true</code> qaytarsin.",
+        "Agar <code>amount > 0 && amount <= this.balance</code> bo'lsa, balansdan ayirib <code>true</code> qaytarsin.",
         "Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan <code>false</code> qaytarsin.",
-        "<code>Main</code>da 1-bosqichdagi kartani ochib (50,000), 25,000 to'ldiring va 25,000 yechib: \"Qoldiq: \" + card.getBalance() deb chiqaring."
+        "<code>Main</code>da o'sha kartamizdan 25,000 so'm yeching (card.withdraw(25000.0);) va: \"Karta: \" + card.getCardNumber() + \" | Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "Add <code>public boolean withdraw(double amount)</code> to your <code>BankCard</code> class from Step 1.",
         "If <code>amount > 0 && amount <= this.balance</code>, deduct from balance and return <code>true</code>.",
         "If insufficient funds, do not change balance and return <code>false</code>.",
-        "In <code>Main</code>, open the card from Step 1 (50,000), deposit 25,000, and withdraw 25,000: \"Qoldiq: \" + card.getBalance()"
+        "In <code>Main</code>, withdraw 25,000 UZS from our card and print: \"Karta: \" + card.getCardNumber() + \" | Qoldiq: \" + card.getBalance()"
       ],
       "ru": [
         "Добавьте метод <code>public boolean withdraw(double amount)</code> в класс <code>BankCard</code> из шага 1.",
         "Если <code>amount > 0 && amount <= this.balance</code>, вычтите из баланса и верните <code>true</code>.",
         "Если средств недостаточно, верните <code>false</code> без изменения баланса.",
-        "В <code>Main</code> откройте карту из шага 1 (50,000), внесите 25,000 и снимите 25,000: \"Qoldiq: \" + card.getBalance()"
+        "В <code>Main</code> снимите 25,000 с карты и выведите: \"Karta: \" + card.getCardNumber() + \" | Qoldiq: \" + card.getBalance()"
       ]
     },
     "scenario": {
@@ -138,40 +142,43 @@
         "BankCard",
         "Main"
       ],
+      "fields": [
+        "cardNumber",
+        "cardHolder",
+        "balance"
+      ],
       "methods": [
         "deposit",
         "withdraw",
-        "getBalance"
+        "getBalance",
+        "getCardNumber"
       ],
       "constructors": [
         "BankCard"
-      ],
-      "fields": [
-        "balance"
       ],
       "keywords": []
     },
     "sampleData": [
       "Amal: 2. 🏧 Xavfsiz Pul Yechish — Overdraft Himoyasi",
-      "Kutilayotgan natija: Qoldiq: 50000.0"
+      "Kutilayotgan natija: Karta: 8600 1234 5678 9012 | Qoldiq: 50000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
-    "expectedOutput": "Qoldiq: 50000.0",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Karta: \" + card.getCardNumber() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Karta: 8600 1234 5678 9012 | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Karta: \" + card.getCardNumber() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>deposit, withdraw, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>Kutilayotgan natija</code>: Qoldiq: 50000.0"
+        "<code>deposit, withdraw, getBalance, getCardNumber</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Karta: 8600 1234 5678 9012 | Qoldiq: 50000.0"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
-        "<code>deposit, withdraw, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Qoldiq: 50000.0"
+        "<code>deposit, withdraw, getBalance, getCardNumber</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Karta: 8600 1234 5678 9012 | Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -198,19 +205,19 @@
         "<code>BankCard</code> klassida <code>private int pin = 1234;</code> maydonini e'lon qiling.",
         "<code>public boolean verifyPin(int inputPin)</code>: agar kiritilgan PIN to'g'ri bo'lsa <code>true</code>, aks holda <code>false</code> qaytarsin.",
         "<code>public boolean changePin(int oldPin, int newPin)</code>: eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va <code>true</code> qaytarsin.",
-        "<code>Main</code>da o'sha kartamiz PIN kodini 1234 bilan tekshiring va: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring."
+        "<code>Main</code>da kartamiz PIN kodini 1234 bilan tekshiring va: \"PIN to'g'ri: \" + card.verifyPin(1234) + \" | Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "In <code>BankCard</code> class, declare <code>private int pin = 1234;</code>.",
         "<code>public boolean verifyPin(int inputPin)</code>: return true if entered PIN matches, false otherwise.",
         "<code>public boolean changePin(int oldPin, int newPin)</code>: change PIN and return true only if oldPin is correct.",
-        "In <code>Main</code>, verify PIN with 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)"
+        "In <code>Main</code>, verify PIN with 1234: \"PIN to'g'ri: \" + card.verifyPin(1234) + \" | Qoldiq: \" + card.getBalance()"
       ],
       "ru": [
         "В классе <code>BankCard</code> объявите поле <code>private int pin = 1234;</code>.",
         "<code>public boolean verifyPin(int inputPin)</code>: верните true если введенный PIN совпадает, иначе false.",
         "<code>public boolean changePin(int oldPin, int newPin)</code>: меняйте PIN и возвращайте true только если старый PIN верен.",
-        "В <code>Main</code> проверьте PIN 1234: \"PIN to'g'ri: \" + card.verifyPin(1234)"
+        "В <code>Main</code> проверьте PIN 1234: \"PIN to'g'ri: \" + card.verifyPin(1234) + \" | Qoldiq: \" + card.getBalance()"
       ]
     },
     "scenario": {
@@ -233,31 +240,32 @@
       ],
       "fields": [
         "balance",
-        "pin"
+        "pin",
+        "cardHolder"
       ],
       "keywords": []
     },
     "sampleData": [
       "Amal: 3. 🔒 4-Xonali PIN Kod Xavfsizligi",
-      "Kutilayotgan natija: PIN to'g'ri: true"
+      "Kutilayotgan natija: PIN to'g'ri: true | Qoldiq: 50000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
-    "expectedOutput": "PIN to'g'ri: true",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234) + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "PIN to'g'ri: true | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234) + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>verifyPin, changePin, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>Kutilayotgan natija</code>: PIN to'g'ri: true"
+        "<code>Kutilayotgan natija</code>: PIN to'g'ri: true | Qoldiq: 50000.0"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
         "<code>verifyPin, changePin, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: PIN to'g'ri: true"
+        "<code>Результат</code>: PIN to'g'ri: true | Qoldiq: 50000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -283,17 +291,17 @@
       "uz": [
         "<code>BankCard</code>da <code>private double dailyLimit = 100000.0;</code> maydoni va <code>public BankCard(double initialBalance, double dailyLimit)</code> konstruktorini qo'shing.",
         "<code>public boolean spend(double amount)</code>: agar summa > 0 va dailyLimit hamda balance dan oshmasa, balandlikdan va limitdan ayirsin va true qaytarsin.",
-        "<code>Main</code>da 50,000 balansli kartaga 25,000 depozit qilib, 30,000 sarflang (spend) va qoldiq balansni chiqaring."
+        "<code>Main</code>da 50,000 balans va 100,000 limitli karta ochib, 25,000 depozit qiling, 30,000 sarflang (spend) va: \"Xarid: 30000.0 | Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "In <code>BankCard</code>, add <code>private double dailyLimit = 100000.0;</code> and constructor <code>public BankCard(double initialBalance, double dailyLimit)</code>.",
         "<code>public boolean spend(double amount)</code>: if amount > 0 and amount <= dailyLimit and amount <= balance, deduct from balance and dailyLimit and return true.",
-        "In <code>Main</code>, open card with 50,000 balance and 100,000 daily limit, deposit 25,000, spend 30,000, and print: \"Qoldiq balans: \" + card.getBalance()"
+        "In <code>Main</code>, open card with 50,000 balance and 100,000 limit, deposit 25,000, spend 30,000, and print: \"Xarid: 30000.0 | Qoldiq: \" + card.getBalance()"
       ],
       "ru": [
         "В <code>BankCard</code> добавьте поле <code>private double dailyLimit = 100000.0;</code> и конструктор <code>public BankCard(double initialBalance, double dailyLimit)</code>.",
         "<code>public boolean spend(double amount)</code>: если amount > 0 и amount <= dailyLimit и amount <= balance, спишите с баланса и лимита и верните true.",
-        "В <code>Main</code> создайте карту с балансом 50,000 и лимитом 100,000, внесите 25,000, потратьте 30,000 и выведите: \"Qoldiq balans: \" + card.getBalance()"
+        "В <code>Main</code> откройте карту с балансом 50,000 и лимитом 100,000, внесите 25,000, потратьте 30,000 и выведите: \"Xarid: 30000.0 | Qoldiq: \" + card.getBalance()"
       ]
     },
     "scenario": {
@@ -315,31 +323,32 @@
       ],
       "fields": [
         "balance",
-        "dailyLimit"
+        "dailyLimit",
+        "cardHolder"
       ],
       "keywords": []
     },
     "sampleData": [
       "Amal: 4. 🛡️ Kunlik Xarid Limiti (Daily Limit)",
-      "Kutilayotgan natija: Qoldiq balans: 45000.0"
+      "Kutilayotgan natija: Xarid: 30000.0 | Qoldiq: 45000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
-    "expectedOutput": "Qoldiq balans: 45000.0",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance, double dailyLimit) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Xarid: 30000.0 | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Xarid: 30000.0 | Qoldiq: 45000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance, double dailyLimit) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Xarid: 30000.0 | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>spend, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>Kutilayotgan natija</code>: Qoldiq balans: 45000.0"
+        "<code>Kutilayotgan natija</code>: Xarid: 30000.0 | Qoldiq: 45000.0"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
         "<code>spend, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Qoldiq balans: 45000.0"
+        "<code>Результат</code>: Xarid: 30000.0 | Qoldiq: 45000.0"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -352,33 +361,33 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "5. 👤 Karta Egasi Shaxsi (Cardholder KYC)",
-      "en": "5. User KYC",
-      "ru": "5. Профиль KYC"
+      "uz": "5. 🪪 16-Xonali Karta Raqami Validatsiyasi (Card Number Validation)",
+      "en": "5. 16-Digit Card Number Validation",
+      "ru": "5. Валидация 16-значного номера карты"
     },
     "story": {
-      "uz": "Bank tizimida karta anonim bo'la olmaydi. Karta shaxsi tasdiqlangan mijoz 'Ali Valiyev' nomiga rasmiylashtiriladi.",
-      "en": "In Uzum & Payme FinTech ecosystem: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.",
-      "ru": "В экосистеме Uzum & Payme FinTech: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi."
+      "uz": "Bank xavfsizlik talabiga ko'ra, karta raqami faqat 16 ta raqamdan iborat bo'lishi shart. Biz karta raqamini xavfsiz yangilovchi va uzunligini tekshiruvchi 'setCardNumber' metodini qo'shamiz!",
+      "en": "Per banking security standards, a card number must contain exactly 16 digits. We implement a setCardNumber method with validation.",
+      "ru": "По банковским стандартам номер карты должен содержать ровно 16 цифр. Мы добавляем метод setCardNumber с валидацией."
     },
     "steps": {
       "uz": [
-        "<code>BankCard</code>da <code>private String cardHolder;</code> maydonini qo'shing.",
-        "Konstruktor: <code>public BankCard(String cardHolder, double initialBalance)</code> orqali mijoz nomini biriktiring.",
-        "<code>public String getCardHolder()</code> getteri.",
-        "<code>Main</code>da 'Ali Valiyev' nomiga karta ochib (50,000), 25,000 to'ldirib, 25,000 yeching va: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance() deb chiqaring."
+        "<code>BankCard</code>da <code>public boolean setCardNumber(String newCardNumber)</code> metodini qo'shing.",
+        "Agar <code>newCardNumber != null</code> bo'lsa va probellarsiz uzunligi 16 ta raqam bo'lsa, <code>this.cardNumber = newCardNumber;</code> qilib <code>true</code> qaytarsin.",
+        "Aks holda (uzunligi 16 bo'lmasa) raqamni o'zgartirmasdan <code>false</code> qaytarsin.",
+        "<code>Main</code>da kartamiz raqamini '9860 1111 2222 3333' ga yangilab: \"Yangi karta: \" + card.getCardNumber() + \" | Tasdiqlandi: \" + ok deb chiqaring."
       ],
       "en": [
-        "In <code>BankCard</code>, add <code>private String cardHolder;</code> field.",
-        "Constructor: <code>public BankCard(String cardHolder, double initialBalance)</code>.",
-        "<code>public String getCardHolder()</code> getter.",
-        "In <code>Main</code>, create card for Ali Valiyev (50,000), deposit 25,000, withdraw 25,000, and print: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()"
+        "In <code>BankCard</code>, implement <code>public boolean setCardNumber(String newCardNumber)</code>.",
+        "If <code>newCardNumber != null</code> and without spaces length is 16, update cardNumber and return <code>true</code>.",
+        "Otherwise, return <code>false</code> without altering cardNumber.",
+        "In <code>Main</code>, update card number to '9860 1111 2222 3333' and print: \"Yangi karta: \" + card.getCardNumber() + \" | Tasdiqlandi: \" + ok"
       ],
       "ru": [
-        "В <code>BankCard</code> добавьте поле <code>private String cardHolder;</code>.",
-        "Конструктор: <code>public BankCard(String cardHolder, double initialBalance)</code>.",
-        "Геттер <code>public String getCardHolder()</code>.",
-        "В <code>Main</code> создайте карту для Ali Valiyev (50,000), внесите 25,000, снимите 25,000 и выведите: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance()"
+        "В <code>BankCard</code> реализуйте метод <code>public boolean setCardNumber(String newCardNumber)</code>.",
+        "Если <code>newCardNumber != null</code> и длина без пробелов равна 16, обновите номер и верните <code>true</code>.",
+        "Иначе верните <code>false</code> без изменений.",
+        "В <code>Main</code> обновите номер карты на '9860 1111 2222 3333' и выведите: \"Yangi karta: \" + card.getCardNumber() + \" | Tasdiqlandi: \" + ok"
       ]
     },
     "scenario": {
@@ -391,40 +400,42 @@
         "BankCard",
         "Main"
       ],
+      "fields": [
+        "cardNumber",
+        "cardHolder",
+        "balance"
+      ],
       "methods": [
-        "getCardHolder",
+        "setCardNumber",
+        "getCardNumber",
         "getBalance"
       ],
       "constructors": [
         "BankCard"
       ],
-      "fields": [
-        "cardHolder",
-        "balance"
-      ],
       "keywords": []
     },
     "sampleData": [
-      "Amal: 5. 👤 Foydalanuvchi Shaxsi va KYC (16+)",
-      "Kutilayotgan natija: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
+      "Amal: 5. 🪪 16-Xonali Karta Raqami Validatsiyasi",
+      "Kutilayotgan natija: Yangi karta: 9860 1111 2222 3333 | Tasdiqlandi: true"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
-    "expectedOutput": "Mijoz: Ali Valiyev | Qoldiq: 50000.0",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setCardNumber(String newCardNumber) {\n        if (newCardNumber != null) {\n            String digits = newCardNumber.replaceAll(\"\\\\s+\", \"\");\n            if (digits.length() == 16) {\n                this.cardNumber = newCardNumber;\n                return true;\n            }\n        }\n        return false;\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        boolean ok = card.setCardNumber(\"9860 1111 2222 3333\");\n        System.out.println(\"Yangi karta: \" + card.getCardNumber() + \" | Tasdiqlandi: \" + ok);\n    }\n}",
+    "expectedOutput": "Yangi karta: 9860 1111 2222 3333 | Tasdiqlandi: true",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setCardNumber(String newCardNumber) {\n        if (newCardNumber != null) {\n            String digits = newCardNumber.replaceAll(\"\\\\s+\", \"\");\n            if (digits.length() == 16) {\n                this.cardNumber = newCardNumber;\n                return true;\n            }\n        }\n        return false;\n    }\n\n    public String getCardNumber() {\n        return this.cardNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        boolean ok = card.setCardNumber(\"9860 1111 2222 3333\");\n        System.out.println(\"Yangi karta: \" + card.getCardNumber() + \" | Tasdiqlandi: \" + ok);\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
-        "<code>getCardHolder, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
-        "<code>Kutilayotgan natija</code>: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
+        "<code>setCardNumber, getCardNumber, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
+        "<code>Kutilayotgan natija</code>: Yangi karta: 9860 1111 2222 3333 | Tasdiqlandi: true"
       ],
       "breakdownRu": [
         "<code>BankCard, Main</code>: Классы архитектуры задачи.",
-        "<code>getCardHolder, getBalance</code>: Бизнес-операции и методы.",
-        "<code>Результат</code>: Mijoz: Ali Valiyev | Qoldiq: 50000.0"
+        "<code>setCardNumber, getCardNumber, getBalance</code>: Бизнес-операции и методы.",
+        "<code>Результат</code>: Yangi karta: 9860 1111 2222 3333 | Tasdiqlandi: true"
       ],
       "pitfalls": "Maydonlarni public qoldirish yoki manfiy qiymatlarni tekshirmasdan setter yozish xavfsizlik qoidalarini buzadi.",
       "cw2Tip": "Westminster CW2 (50%) Console Order tizimida har bir tovar, hisob va xarid maydoni qat'iy inkapsulyatsiya qilingan bo'lishi shart."
@@ -487,7 +498,9 @@
       ],
       "fields": [
         "isBlocked",
-        "balance"
+        "balance",
+        "cardNumber",
+        "cardHolder"
       ],
       "keywords": []
     },
@@ -496,13 +509,13 @@
       "Kutilayotgan natija: Karta bloklangan: true | Yechish: false"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
     "expectedOutput": "Karta bloklangan: true | Yechish: false",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>lockCard, unlockCard, isLocked, withdraw</code>: Berilgan biznes talablari va operatsiyalar.",
@@ -574,7 +587,9 @@
       ],
       "fields": [
         "cashback",
-        "balance"
+        "balance",
+        "cardNumber",
+        "cardHolder"
       ],
       "keywords": []
     },
@@ -583,13 +598,13 @@
       "Kutilayotgan natija: Qoldiq: 50000.0 | Keshbek: 500.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
     "expectedOutput": "Qoldiq: 50000.0 | Keshbek: 500.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>earnCashback, getCashback, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
@@ -660,7 +675,8 @@
       ],
       "fields": [
         "phoneNumber",
-        "cardHolder"
+        "cardHolder",
+        "cardNumber"
       ],
       "keywords": []
     },
@@ -669,13 +685,13 @@
       "Kutilayotgan natija: Mijoz: Ali Valiyev | SMS: +998901234567"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
     "expectedOutput": "Mijoz: Ali Valiyev | SMS: +998901234567",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>setPhoneNumber, getPhoneNumber, getCardHolder</code>: Berilgan biznes talablari va operatsiyalar.",
@@ -747,7 +763,9 @@
       ],
       "fields": [
         "transactionCount",
-        "balance"
+        "balance",
+        "cardNumber",
+        "cardHolder"
       ],
       "keywords": []
     },
@@ -756,13 +774,13 @@
       "Kutilayotgan natija: Amallar: 2 | Qoldiq: 50000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Amallar: 2 | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>deposit, withdraw, getTransactionCount, getBalance</code>: Berilgan biznes talablari va operatsiyalar.",
@@ -835,7 +853,8 @@
       "fields": [
         "cardHolder",
         "balance",
-        "pin"
+        "pin",
+        "cardNumber"
       ],
       "keywords": []
     },
@@ -844,13 +863,13 @@
       "Kutilayotgan natija: Muvaffaqiyatli: true | Qoldiq: 50000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin;\n    private double cashback = 0.0;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double balance, int pin) {\n        this.cardHolder = cardHolder;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.cashback += amount * 0.02;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "solution": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance, int pin) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (enteredPin == this.pin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Muvaffaqiyatli: true | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
       "theoryRu": "Инкапсуляция защищает внутренние поля объекта от прямого доступа с помощью модификатора private и обеспечивает контролируемый доступ через методы с валидацией.",
-      "cleanCode": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin;\n    private double cashback = 0.0;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double balance, int pin) {\n        this.cardHolder = cardHolder;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.cashback += amount * 0.02;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+      "cleanCode": "class BankCard {\n    private String cardNumber;\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public BankCard(String cardNumber, String cardHolder, double initialBalance, int pin) {\n        this.cardNumber = cardNumber;\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (enteredPin == this.pin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"8600 1234 5678 9012\", \"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
       "breakdown": [
         "<code>BankCard, Main</code>: Tizim arxitekturasi uchun zarur klasslar.",
         "<code>pay, getBalance, getCardHolder</code>: Berilgan biznes talablari va operatsiyalar.",

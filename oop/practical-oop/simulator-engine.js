@@ -458,7 +458,8 @@
             }
           });
 
-          const numMatches = Array.from(argsStr.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
+          const argsWithoutStrings = argsStr.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/g, "");
+          const numMatches = Array.from(argsWithoutStrings.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
           if (numMatches.length > 0) {
             card.balance = numMatches[0];
             card.initialBalance = numMatches[0];
@@ -499,7 +500,8 @@
               card.holder = str.toUpperCase();
             }
           });
-          const numMatches = Array.from(argsStr.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
+          const argsWithoutStrings = argsStr.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/g, "");
+          const numMatches = Array.from(argsWithoutStrings.matchAll(/([0-9]+(?:\.[0-9]+)?)/g)).map(x => parseFloat(x[1]));
           if (numMatches.length > 0) {
             card.balance = numMatches[0];
             card.initialBalance = numMatches[0];
@@ -697,7 +699,7 @@
 
           <div class="live-inspect-box">
             <span>🔍 Obyekt Xotirasi:</span>
-            <code>${c.cardType || 'BankCard'}@heap[${c.varName}] { balance: ${c.balance}.0, cardHolder: ${c.holder ? `"${c.holder}"` : 'null'}, pin: ${c.pin || 1234}, isLocked: ${c.isLocked ? 'true' : 'false'} };</code>
+            <code>${c.cardType || 'BankCard'}@heap[${c.varName}] { cardNumber: "${c.cardNumber || '•••• •••• •••• ••••'}", cardHolder: "${c.holder || 'null'}", balance: ${c.balance}.0, isLocked: ${c.isLocked ? 'true' : 'false'} };</code>
           </div>
         </div>
       `;

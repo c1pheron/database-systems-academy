@@ -355,11 +355,20 @@
           left: 0 !important;
           width: 100% !important;
           height: 100% !important;
-          padding: 16px !important;
+          padding: 12px 14px !important;
           margin: 0 !important;
           border: none !important;
           box-sizing: border-box !important;
-          overflow: auto !important;
+        }
+
+        .code-highlight-backdrop {
+          display: block !important;
+          overflow: hidden !important;
+          pointer-events: none !important;
+          user-select: none !important;
+          -webkit-user-select: none !important;
+          background: transparent !important;
+          z-index: 1 !important;
         }
 
         .code-highlight-backdrop code,
@@ -373,16 +382,12 @@
           color: inherit !important;
         }
 
-        .code-highlight-backdrop {
-          display: none !important;
-          pointer-events: none !important;
-        }
-
         .code-textarea {
-          z-index: 10 !important;
-          background: #0d0a1f !important;
-          color: #f8fafc !important;
-          -webkit-text-fill-color: #f8fafc !important;
+          overflow: auto !important;
+          z-index: 2 !important;
+          background: transparent !important;
+          color: transparent !important;
+          -webkit-text-fill-color: transparent !important;
           caret-color: #38bdf8 !important;
           resize: none !important;
           outline: none !important;
@@ -400,8 +405,8 @@
 
         .code-textarea::selection {
           background: rgba(168, 85, 247, 0.45) !important;
-          color: #fff !important;
-          -webkit-text-fill-color: #fff !important;
+          color: transparent !important;
+          -webkit-text-fill-color: transparent !important;
         }
 
         /* IntelliJ IDEA Darcula Token Colors */
