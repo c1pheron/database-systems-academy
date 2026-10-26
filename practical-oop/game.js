@@ -99,14 +99,29 @@
     if (!code || typeof code !== "string") return false;
     const trimmed = code.trim();
     if (trimmed.length < 25) return false;
-    return /\bclass\s+[A-Za-z0-9_]+\s*\{[\s\S]*\}/.test(trimmed);
+    return /\bclass\s+[A-Za-z0-9_]+/i.test(trimmed) && trimmed.includes("{");
+  }
+
+  function getAnySavedCode(chId) {
+    const prefixes = [
+      STORAGE_PREFIX_CODE,
+      "oop_practical_v4_code_q_",
+      "oop_practical_v3_code_q_",
+      "oop_practical_v2_code_q_",
+      "oop_practical_code_q_"
+    ];
+    for (const pref of prefixes) {
+      const c = localStorage.getItem(pref + chId);
+      if (isSubstantialJavaCode(c)) return c;
+    }
+    return null;
   }
 
   function getLatestSubstantialCode(upToIndex) {
     for (let p = upToIndex; p >= 0; p--) {
       const prevCh = CHALLENGES[p];
       if (prevCh) {
-        const prevSaved = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
+        const prevSaved = getAnySavedCode(prevCh.id);
         if (isSubstantialJavaCode(prevSaved)) {
           return prevSaved;
         }
@@ -120,8 +135,7 @@
     const editor = document.getElementById("codeEditor");
     if (ch && editor) {
       const val = editor.value;
-      const prev = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
-      // Faqat to'liq kod bo'lsa yoki avvalgi kod bo'sh bo'lsa saqlaymiz ("class " kabi to'liqsiz parchalarni saqlab yubormaymiz)
+      const prev = getAnySavedCode(ch.id);
       if (isSubstantialJavaCode(val) || !isSubstantialJavaCode(prev)) {
         localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, val);
       }
@@ -129,35 +143,35 @@
   }
 
   function loadSavedCode(ch, index, fallbackCode) {
-    // 1-masala doimo bo'sh ochiladi — talaba noldan o'zi yozadi!
-    if (index === 0) {
-      const saved0 = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
-      return (saved0 !== null) ? saved0 : "";
-    }
-
-    // 1. Agar ushbu topshiriq allaqachon yechilgan bo'lsa (solvedQuestions da bor):
-    const saved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
-    if (solvedQuestions.has(ch.id) && isSubstantialJavaCode(saved)) {
-      return saved;
-    }
-
-    // 2. Agar ushbu topshiriqda talaba to'liq kod yozib saqlagan bo'lsa:
+    // 1. Agar ushbu topshiriq uchun saqlangan to'liq kod bo'lsa:
+    const saved = getAnySavedCode(ch.id);
     if (isSubstantialJavaCode(saved)) {
       return saved;
     }
 
-    // 3. Aks holda (topshiriq hali yechilmagan yoki ichida faqat "class " kabi noto'liq parcha bo'lsa):
-    // A) Agar oldingi bosqichdan o'tayotgan bo'lsak va fallbackCode to'liq bo'lsa:
+    // 2. Agar oldingi bosqichdan o'tayotgan bo'lsak va fallbackCode to'liq bo'lsa:
     if (isSubstantialJavaCode(fallbackCode)) {
       localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, fallbackCode);
       return fallbackCode;
     }
 
-    // B) Orqadagi eng oxirgi yechilgan/yozilgan to'liq kodni olib kelamiz:
+    // 3. Orqadagi eng oxirgi yechilgan/yozilgan to'liq kodni olib kelamiz:
     const latestCode = getLatestSubstantialCode(index - 1);
     if (latestCode) {
       localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, latestCode);
       return latestCode;
+    }
+
+    // 4. Ushbu topshiriqning starterCode maydoni:
+    if (ch.starterCode && ch.starterCode.trim().length > 0) {
+      return ch.starterCode;
+    }
+
+    // 5. Agar 2 yoki undan keyingi masala bo'lsa, avvalgi masalaning yechimidan boshlaymiz:
+    if (index > 0 && CHALLENGES[index - 1] && CHALLENGES[index - 1].solution) {
+      const prevSol = CHALLENGES[index - 1].solution;
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, prevSol);
+      return prevSol;
     }
 
     return "";
