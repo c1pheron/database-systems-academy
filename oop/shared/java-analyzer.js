@@ -253,11 +253,13 @@
           // Regex to locate the field declaration on any line
           const fieldDeclRegex = new RegExp(`\\b(?:(?:public|private|protected|final|static|volatile)\\s+)*([A-Za-z0-9_<>\\[\\]]+)\\s+${fieldName}\\s*(?:=[^;]+)?\\s*;`);
           let found = false;
+          let hasInlineInit = false;
 
           for (let i = 0; i < lines.length; i++) {
             const m = lines[i].match(fieldDeclRegex);
             if (m) {
               found = true;
+              hasInlineInit = /=\s*[^;]+;/.test(lines[i]);
               const actualType = m[1];
               const lineNum = i + 1;
 
@@ -288,7 +290,7 @@
           } else {
             // Check if field is actually used / assigned
             const occurrences = (cleanCode.match(new RegExp(`\\b${fieldName}\\b`, "g")) || []).length;
-            if (occurrences < 2) {
+            if (occurrences < 2 && !hasInlineInit) {
               issues.push({
                 line: findLineNumber(new RegExp(`\\b${fieldName}\\b`)),
                 title: `'${fieldName}' maydoniga qiymat berilmagan`,

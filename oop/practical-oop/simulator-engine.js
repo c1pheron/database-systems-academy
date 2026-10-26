@@ -412,6 +412,24 @@
 
     
     
+        toggleCardReveal() {
+      this.currentState.isCardRevealed = !this.currentState.isCardRevealed;
+      this.render(true);
+      if (this.currentState.isCardRevealed) {
+        this.showPhoneToast("👁️ getBalance() chaqirildi! Karta ma'lumotlari xavfsiz ochildi.");
+        clearTimeout(this._revealTimer);
+        this._revealTimer = setTimeout(() => {
+          if (this.currentState && this.currentState.isCardRevealed) {
+            this.currentState.isCardRevealed = false;
+            this.render(true);
+            this.showPhoneToast("🙈 Karta xavfsizlik uchun qayta yashirildi (Inkapsulyatsiya).");
+          }
+        }, 5000);
+      } else {
+        this.showPhoneToast("🙈 Karta qayta yashirildi (Inkapsulyatsiya).");
+      }
+    },
+
     testMethodClick(methodName) {
       const msgs = {
         deposit: "💳 deposit() metodi faol! Kartadagi real balans kodingizdagi chaqiruv orqali belgilanadi.",
@@ -779,11 +797,20 @@
 
       const hasDeposit = hasMethod("deposit");
       const hasWithdraw = hasMethod("withdraw");
+      const hasGetBalance = hasMethod("getbalance");
       const hasLock = hasMethod("lockcard") || hasMethod("lock");
       const chId = (this.currentChallenge && this.currentChallenge.id) || 1;
 
-      const otherMethods = declared.filter(m => !['deposit', 'withdraw', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase()));
+      const otherMethods = declared.filter(m => !['deposit', 'withdraw', 'getbalance', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase()));
       const txList = c.txList || [];
+
+      // MASKING & REVEAL (Inkapsulyatsiya - maxfiy saqlangan ma'lumotlar)
+      const isRev = Boolean(s.isCardRevealed);
+      const maskedNumber = isRev ? (c.cardNumber || '8600 1234 5678 9012') : (c.cardNumber ? (c.cardNumber.slice(0, 4) + ' •••• •••• ••••') : '•••• •••• •••• ••••');
+      const maskedHolder = isRev ? (c.holder || 'ALI VALIYEV') : '•••••••• ••••••••';
+      const maskedExp = isRev ? (c.expiryDate || '12/28') : '••/••';
+      const maskedCvv = isRev ? (c.cvv || '777') : '•••';
+      const maskedBal = isRev ? `${Number(c.balance).toLocaleString()} UZS` : '•••••• UZS';
 
       return `
         <div class="sim-scene card-scene animate-card-appear">
@@ -796,15 +823,15 @@
               <div class="multi-card-pills">
                 ${cards.map((item, idx) => `
                   <button type="button" class="card-pill-btn ${idx === activeIdx ? 'active' : ''}" onclick="window.SimulatorEngine.selectCard(${idx})">
-                    💳 ${item.varName} • ${Number(item.balance).toLocaleString()} UZS
+                    💳 ${item.varName} • ${isRev ? Number(item.balance).toLocaleString() + ' UZS' : '•••• UZS'}
                   </button>
                 `).join('')}
               </div>
             </div>
           ` : ''}
 
-          <!-- SMARTPHONE CARD GRAPHIC (EXACT USER VALUES) -->
-          <div class="humo-card card-${(c.brand || 'uzcard').toLowerCase()} ${c.isLocked ? 'card-locked' : ''}">
+          <!-- SMARTPHONE CARD GRAPHIC (CLICK TO TOGGLE REVEAL VIA GETBALANCE) -->
+          <div class="humo-card card-${(c.brand || 'uzcard').toLowerCase()} ${c.isLocked ? 'card-locked' : ''} ${isRev ? 'card-revealed-glow' : 'card-masked-mode'}" onclick="window.SimulatorEngine.toggleCardReveal()" title="Karta ustiga bosib getBalance() orqali ochish / yashirish">
             <div class="humo-top">
               <div style="display:flex; align-items:center; gap:6px;">
                 <span class="humo-logo">${c.brand || 'UZCARD'}</span>
@@ -812,61 +839,56 @@
                 ${c.isLocked ? '<span class="card-lock-badge">🔒 BLOKLANGAN</span>' : ''}
               </div>
               <div class="humo-top-right">
+                <span class="card-privacy-badge ${isRev ? 'revealed' : 'masked'}">${isRev ? '👁️ Ochiq' : '🙈 Maxfiy'}</span>
                 <span class="contactless-wave">📶 </span>
                 <span class="chip-icon">🎴</span>
               </div>
             </div>
 
-            <!-- 16 xonali karta raqami -->
+            <!-- 16 xonali karta raqami (Maxfiy / Ochiq) -->
             <div class="card-num-row">
-              ${c.cardNumber ? `
-                <span class="card-num-full">${c.cardNumber}</span>
-              ` : `
-                <span class="card-num-full card-num-masked" title="Karta raqami kodingizda biriktirilmagan">
-                  •••• &nbsp;•••• &nbsp;•••• &nbsp;••••
-                </span>
-              `}
+              <span class="card-num-full ${isRev ? '' : 'card-masked-text'}">${maskedNumber}</span>
             </div>
 
-            <!-- Amal qilish muddati va CVV (Talaba kodi yoki avtomatik standart) -->
+            <!-- Amal qilish muddati va CVV (Maxfiy / Ochiq) -->
             <div class="card-mid-row">
               <div class="card-exp-box">
                 <span class="card-tiny-lbl">VALID THRU</span>
-                <span class="card-exp-val">${c.expiryDate || '12/28'}</span>
+                <span class="card-exp-val ${isRev ? '' : 'card-masked-text'}">${maskedExp}</span>
               </div>
               <div class="card-cvv-box">
                 <span class="card-tiny-lbl">CVV/CVC</span>
-                <span class="card-cvv-val">${c.cvv || '777'}</span>
+                <span class="card-cvv-val ${isRev ? '' : 'card-masked-text'}">${maskedCvv}</span>
               </div>
             </div>
 
-            <!-- Karta egasi va Balans -->
+            <!-- Karta egasi va Balans (Maxfiy / Ochiq) -->
             <div class="card-bottom">
               <div class="card-holder-box">
                 <div class="card-lbl">KARTA EGASI</div>
-                ${c.holder ? `
-                  <div class="card-val card-val-named">${c.holder}</div>
-                ` : `
-                  <div class="card-val card-val-empty">
-                    <span class="dots-ph">•••••••• ••••••••</span>
-                    <span class="unassigned-chip">Biriktirilmagan</span>
-                  </div>
-                `}
+                <div class="card-val card-val-named ${isRev ? '' : 'card-masked-text'}">${maskedHolder}</div>
               </div>
               <div class="card-bal-box" style="text-align:right;">
                 <div class="card-lbl">BALANS</div>
-                <div class="card-bal">${Number(c.balance).toLocaleString()} UZS</div>
+                <div class="card-bal ${isRev ? '' : 'card-masked-text'}">${maskedBal}</div>
               </div>
             </div>
           </div>
 
-          <!-- KICHIK IXCHAM TO'RTBURCHAK METOD TUGMALARI (COMPACT SQUARE BUTTONS) -->
+          <!-- KICHIK IXCHAM TO'RTBURCHAK METOD TUGMALARI -->
           <div class="phone-methods-box">
             <div class="pmb-title-row">
               <span class="pmb-title">⚡ METODLAR (ILOVAGA ULANGAN)</span>
               <span class="pmb-count">${declared.length} ta</span>
             </div>
             <div class="pmb-grid">
+              <!-- getBalance Button (Revelator) -->
+              <button type="button" class="pmb-btn ${hasGetBalance ? 'active btn-revelator' : 'locked'}" onclick="window.SimulatorEngine.toggleCardReveal()" title="getBalance() orqali kartadagi maxfiy ma'lumotlarni ko'rish">
+                <span class="pmb-icon">${isRev ? '👁️' : '🙈'}</span>
+                <span class="pmb-lbl">getBalance</span>
+                <span class="pmb-dot ${hasGetBalance ? 'dot-active' : 'dot-locked'}">${hasGetBalance ? '✅' : '🔒'}</span>
+              </button>
+
               <!-- Deposit Button -->
               <button type="button" class="pmb-btn ${hasDeposit ? 'active' : 'locked'}" onclick="window.SimulatorEngine.testMethodClick('deposit')" title="deposit() metodi">
                 <span class="pmb-icon">💳</span>
@@ -921,7 +943,7 @@
                       <span class="tx-sub">${tx.sub}</span>
                     </div>
                   </div>
-                  <span class="tx-sum ${tx.isPositive ? 'pos' : 'neg'}">${tx.amountStr}</span>
+                  <span class="tx-sum ${tx.isPositive ? 'pos' : 'neg'}">${isRev ? tx.amountStr : '•••• UZS'}</span>
                 </div>
               `).join('') : `
                 <div class="tx-empty">
