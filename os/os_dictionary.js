@@ -4792,6 +4792,7 @@
             <div style="display: flex; gap: 8px; align-items: center;">
               <span class="os-cat-tag">${escapeHtml(item.catName)}</span>
               <button class="os-copy-btn" onclick="window.copyToClipboard('${escapeAttr(item.cmd)}')">📋 Nusxalash</button>
+              <button class="os-copy-btn" style="background:rgba(56,189,248,0.18); border-color:#38bdf8; color:#38bdf8;" onclick="if(window.insertKaliToken){window.insertKaliToken('${escapeAttr(item.cmd)}'); if(window.closeOsDictionary)window.closeOsDictionary();}">⚡ Terminalga</button>
             </div>
           </div>
 
@@ -4896,8 +4897,13 @@
   }
 
   // Global open / close
-  root.openOsDictionary = function () {
+  root.openOsDictionary = function (initialSearch) {
     if (typeof document === "undefined") return;
+    const weeklyModal = document.getElementById("modalWeeklyCommands");
+    if (weeklyModal) {
+      weeklyModal.style.display = "none";
+      weeklyModal.classList.remove("active");
+    }
     let overlay = document.getElementById("osDictOverlay");
     if (!overlay) {
       document.body.insertAdjacentHTML("beforeend", buildDictionaryModalHtml());
@@ -4905,10 +4911,10 @@
       bindDictionaryEvents();
     }
     overlay.classList.add("active");
-    renderDictionaryEntries();
+    renderDictionaryEntries(initialSearch || "");
     const input = document.getElementById("osDictSearchInput");
     if (input) {
-      input.value = "";
+      input.value = initialSearch || "";
       setTimeout(() => input.focus(), 60);
     }
   };

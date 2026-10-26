@@ -3037,6 +3037,129 @@ permitted by applicable law.
   }
 
   // --- Initialization ---
+  
+  // --- Weekly Commands Modal Logic ---
+  function initWeeklyCommandsModal() {
+    const modal = document.getElementById("modalWeeklyCommands");
+    if (!modal) return;
+
+    const btnOpenHud = document.getElementById("btnOpenWeeklyCommands");
+    const btnOpenHdr = document.getElementById("btnHdrWeeklyCommands");
+    const btnOpenAct = document.getElementById("btnActionWeeklyCommands");
+    const btnClose = document.getElementById("btnCloseWeeklyCommands");
+    const searchInput = document.getElementById("weeklyCmdsSearchInput");
+    const grid = document.getElementById("weeklyCommandsGrid");
+    const countBadge = document.getElementById("weeklyCmdsCountBadge");
+
+    function renderList(query = "") {
+      if (!grid) return;
+      const cmds = window.WEEKLY_COMMANDS_DATA || [];
+      const qLower = query.toLowerCase().trim();
+
+      const filtered = cmds.filter(c => {
+        if (!qLower) return true;
+        return (
+          c.cmd.toLowerCase().includes(qLower) ||
+          c.name.toLowerCase().includes(qLower) ||
+          (c.desc && c.desc.toLowerCase().includes(qLower)) ||
+          (c.category && c.category.toLowerCase().includes(qLower))
+        );
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${filtered.length} ta buyruq`;
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 30px; text-align: center; color: #94a3b8;">
+            <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+            <div style="font-size: 14px; color: #fff; font-weight: 700;">Mos keluvchi buyruq topilmadi</div>
+            <div style="font-size: 12px; margin-top: 4px;">Boshqa so'z bilan qidirib ko'ring.</div>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        return `
+          <div class="weekly-cmd-card" data-cmd="${escapeHtml(item.cmd)}" data-search="${escapeHtml(item.dictSearch || item.cmd)}">
+            <div>
+              <div class="weekly-cmd-top">
+                <span class="weekly-cmd-name-badge">${escapeHtml(item.cmd)}</span>
+                <span class="weekly-cmd-cat-tag">${escapeHtml(item.category || 'Linux')}</span>
+              </div>
+              <div class="weekly-cmd-title">${escapeHtml(item.name)}</div>
+              <div class="weekly-cmd-syntax">${escapeHtml(item.syntax || item.cmd)}</div>
+              <div class="weekly-cmd-desc">${escapeHtml(item.desc || '')}</div>
+            </div>
+            <div class="weekly-cmd-footer">
+              <span class="weekly-cmd-dict-link">📖 Lug'atda O'qish →</span>
+              <button type="button" class="weekly-cmd-insert-btn" title="Terminalga yozish">⚡ Terminalga</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      // Bind clicks to cards
+      grid.querySelectorAll(".weekly-cmd-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+          // If clicked insert button
+          if (e.target.closest(".weekly-cmd-insert-btn")) {
+            e.stopPropagation();
+            const cmdName = card.dataset.cmd;
+            closeModal();
+            insertKaliToken(cmdName);
+            return;
+          }
+
+          // Otherwise open dictionary
+          const searchKey = card.dataset.search || card.dataset.cmd;
+          closeModal();
+          if (typeof window.openOsDictionary === "function") {
+            window.openOsDictionary(searchKey);
+          }
+        });
+      });
+    }
+
+    function openModal() {
+      modal.style.display = "flex";
+      modal.classList.add("active");
+      if (searchInput) {
+        searchInput.value = "";
+        setTimeout(() => searchInput.focus(), 60);
+      }
+      renderList();
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+      modal.classList.remove("active");
+    }
+
+    if (btnOpenHud) btnOpenHud.addEventListener("click", openModal);
+    if (btnOpenHdr) btnOpenHdr.addEventListener("click", openModal);
+    if (btnOpenAct) btnOpenAct.addEventListener("click", openModal);
+    if (btnClose) btnClose.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        renderList(e.target.value);
+      });
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        closeModal();
+      }
+    });
+  }
+
   function init() {
     cacheElements();
     loadProgress();
@@ -3066,6 +3189,7 @@ permitted by applicable law.
     state.arena.onTriggerEvent = () => openEventModal();
 
     bindEvents();
+    initWeeklyCommandsModal();
     initKaliTerminal();
     renderSectorBar();
     updateHUD();

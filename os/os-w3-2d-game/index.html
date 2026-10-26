@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
 
-  <link rel="stylesheet" href="styles.css?v=20261017_blue_v2">
+  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v15">
 </head>
 <body>
 
@@ -60,6 +60,7 @@
     </div>
 
     <div class="hud-actions">
+      <button id="btnOpenWeeklyCommands" class="btn btn-weekly-cmds" title="Ushbu modulda o'rganiladigan barcha buyruqlar ro'yxati"><span>⚡</span> <span>Haftalik Buyruqlar</span></button>
       <button id="btnOpenDictionary" class="btn btn-dictionary" title="Barcha Linux buyruqlari qidiruvi (Ctrl+K)"><span>📖</span> <span>Lug'at</span></button>
       <button id="btnOpenMap" class="btn" title="150 ta savollar xaritasi">🗺️ Xarita</button>
       <button id="btnToggleSound" class="btn" title="Ovozni yoqish / o'chirish">🔊</button>
@@ -210,6 +211,7 @@
             <span id="sectorSubTitle">1-Qavat: Kirish va Navigatsiya</span>
           </div>
           <div style="display:flex; gap:6px; align-items:center;">
+            <button class="btn btn-sm btn-weekly-hdr" id="btnHdrWeeklyCommands" title="Ushbu modul buyruqlari ro'yxati"><span>📋</span> <span>Buyruqlar</span></button>
             <button class="btn" id="btnPrevQ" style="padding:4px 10px;">◀ Oldingi</button>
             <button class="btn" id="btnNextQ" style="padding:4px 10px;">Keyingi ▶</button>
           </div>
@@ -270,6 +272,7 @@
               <button class="btn btn-primary" id="btnRunBash">▶ Buyruqni Bajarish (Enter)</button>
               <button class="btn" id="btnShowHint">💡 Maslahat Olish</button>
               <button class="btn" id="btnPreviewExpected">👁 Kutilayotgan Chiqish</button>
+              <button class="btn btn-weekly-action" id="btnActionWeeklyCommands" title="Ushbu haftada o'rganiladigan barcha buyruqlar ro'yxati"><span>⚡</span> <span>Modul Buyruqlari</span></button>
             </div>
           </div>
 
@@ -283,6 +286,31 @@
   </main>
 
   <!-- Modals: Map, Incident -->
+  
+  <!-- Weekly Commands Encyclopedia Modal -->
+  <div class="kali-modal" id="modalWeeklyCommands" style="display:none;">
+    <div class="kali-modal-content weekly-cmds-modal-content">
+      <div class="kali-modal-header">
+        <div class="kali-modal-title">
+          <span>⚡</span> <span id="weeklyCmdsModalTitle">3-Modul (Jarayonlar, Signallar & IPC): Barcha Buyruqlar Ro'yxati</span>
+        </div>
+        <button class="kali-modal-close" id="btnCloseWeeklyCommands">✕</button>
+      </div>
+      <div class="weekly-cmds-subbar">
+        <div class="weekly-cmds-desc" id="weeklyCmdsModalDesc">
+          Ushbu modulda o'rganilishi shart bo'lgan barcha Linux buyruqlari. Har bir buyruq ustiga bosib, ensiklopediyada to'liq sintaksis, bayroqlar va amaliy misollarni o'rganing!
+        </div>
+        <div class="weekly-cmds-search-wrap">
+          <input type="text" id="weeklyCmdsSearchInput" class="weekly-cmds-search" placeholder="🔍 Buyruq nomi yoki tavsif bo'yicha qidirish..." autocomplete="off">
+          <span class="weekly-cmds-count-badge" id="weeklyCmdsCountBadge">0 ta buyruq</span>
+        </div>
+      </div>
+      <div class="kali-modal-body weekly-cmds-body">
+        <div id="weeklyCommandsGrid" class="weekly-commands-grid"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="kali-modal" id="modalOfficeEvent" style="display:none;">
     <div class="kali-modal-content">
       <div class="kali-modal-header">
@@ -320,13 +348,14 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/virtual_fs.js?v=20261026_os_fix_v14"></script>
+  <script src="data/virtual_fs.js?v=20261026_os_cmds_v15"></script>
   <script src="data/questions_1_50.js?v=20261026_os_fix_v14"></script>
   <script src="data/questions_51_100.js?v=20261026_os_fix_v14"></script>
   <script src="data/questions_101_150.js?v=20261026_os_fix_v14"></script>
+  <script src="data/weekly_commands.js?v=20261026_os_cmds_v15"></script>
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
-  <script src="../os_dictionary.js?v=20261016_v12"></script>
-  <script src="game.js?v=20261026_os_fix_v14"></script>
+  <script src="../os_dictionary.js?v=20261026_os_cmds_v15"></script>
+  <script src="game.js?v=20261026_os_cmds_v15"></script>
 </body>
 </html>
