@@ -131,18 +131,6 @@
     }
     return "";
   }
-    // Keyingi masalalarda avvalgi masalalar kodi uzluksiz davom etadi
-    for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
-      const prevCh = CHALLENGES[prevIdx];
-      if (prevCh) {
-        const prevSaved = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
-        if (prevSaved && prevSaved.trim().length > 0) {
-          return prevSaved;
-        }
-      }
-    }
-    return "";
-  }
 
   function updateMemoryDisplay(ch, code) {
     const memEl = document.getElementById("memoryContentText") || document.querySelector(".live-inspect-box code");
