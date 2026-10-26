@@ -95,40 +95,71 @@
     renderStrip();
   }
 
-  function saveCurrentCode() {
-    const ch = CHALLENGES[currentQIndex];
-    const editor = document.getElementById("codeEditor");
-    if (ch && editor) {
-      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, editor.value);
-    }
+    function isSubstantialJavaCode(code) {
+    if (!code || typeof code !== "string") return false;
+    const trimmed = code.trim();
+    if (trimmed.length < 25) return false;
+    return /\bclass\s+[A-Za-z0-9_]+\s*\{[\s\S]*\}/.test(trimmed);
   }
 
-  function loadSavedCode(ch, index, fallbackCode) {
-    // 1. Agar joriy masala uchun saqlangan kod bo'lsa, o'shani qaytaramiz
-    const saved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
-    if (saved !== null && saved.trim().length > 0) {
-      return saved;
-    }
-    // 1-masala doimo bo'sh ochiladi — talaba noldan o'zi yozadi!
-    if (index === 0) {
-      return "";
-    }
-    // 2. Agar oldingi topshiriqdan o'tayotgan bo'lsak va editor da kod bor bo'lsa, meros olamiz!
-    if (fallbackCode && fallbackCode.trim().length > 0) {
-      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, fallbackCode);
-      return fallbackCode;
-    }
-    // 3. Aks holda avvalgi barcha yechilgan/saqlangan masalalarni orqadan qidiramiz
-    for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
-      const prevCh = CHALLENGES[prevIdx];
+  function getLatestSubstantialCode(upToIndex) {
+    for (let p = upToIndex; p >= 0; p--) {
+      const prevCh = CHALLENGES[p];
       if (prevCh) {
         const prevSaved = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
-        if (prevSaved && prevSaved.trim().length > 0) {
-          localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, prevSaved);
+        if (isSubstantialJavaCode(prevSaved)) {
           return prevSaved;
         }
       }
     }
+    return "";
+  }
+
+  function saveCurrentCode() {
+    const ch = CHALLENGES[currentQIndex];
+    const editor = document.getElementById("codeEditor");
+    if (ch && editor) {
+      const val = editor.value;
+      const prev = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
+      // Faqat to'liq kod bo'lsa yoki avvalgi kod bo'sh bo'lsa saqlaymiz ("class " kabi to'liqsiz parchalarni saqlab yubormaymiz)
+      if (isSubstantialJavaCode(val) || !isSubstantialJavaCode(prev)) {
+        localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, val);
+      }
+    }
+  }
+
+  function loadSavedCode(ch, index, fallbackCode) {
+    // 1-masala doimo bo'sh ochiladi — talaba noldan o'zi yozadi!
+    if (index === 0) {
+      const saved0 = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
+      return (saved0 !== null) ? saved0 : "";
+    }
+
+    // 1. Agar ushbu topshiriq allaqachon yechilgan bo'lsa (solvedQuestions da bor):
+    const saved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
+    if (solvedQuestions.has(ch.id) && isSubstantialJavaCode(saved)) {
+      return saved;
+    }
+
+    // 2. Agar ushbu topshiriqda talaba to'liq kod yozib saqlagan bo'lsa:
+    if (isSubstantialJavaCode(saved)) {
+      return saved;
+    }
+
+    // 3. Aks holda (topshiriq hali yechilmagan yoki ichida faqat "class " kabi noto'liq parcha bo'lsa):
+    // A) Agar oldingi bosqichdan o'tayotgan bo'lsak va fallbackCode to'liq bo'lsa:
+    if (isSubstantialJavaCode(fallbackCode)) {
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, fallbackCode);
+      return fallbackCode;
+    }
+
+    // B) Orqadagi eng oxirgi yechilgan/yozilgan to'liq kodni olib kelamiz:
+    const latestCode = getLatestSubstantialCode(index - 1);
+    if (latestCode) {
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, latestCode);
+      return latestCode;
+    }
+
     return "";
   }
 
@@ -218,7 +249,7 @@
     const oldCh = CHALLENGES[currentQIndex];
     const editor = document.getElementById("codeEditor");
     const currentCode = editor ? editor.value : "";
-    if (oldCh && currentCode && currentCode.trim().length > 0) {
+    if (oldCh && isSubstantialJavaCode(currentCode)) {
       localStorage.setItem(STORAGE_PREFIX_CODE + oldCh.id, currentCode);
     }
 
@@ -653,20 +684,12 @@
       if (btnInheritPrev) {
         btnInheritPrev.addEventListener("click", () => {
           if (currentQIndex > 0) {
-            let foundCode = "";
-            for (let p = currentQIndex - 1; p >= 0; p--) {
-              const prevCh = CHALLENGES[p];
-              const pCode = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
-              if (pCode && pCode.trim().length > 0) {
-                foundCode = pCode;
-                break;
-              }
-            }
+            const foundCode = getLatestSubstantialCode(currentQIndex - 1);
             if (foundCode) {
               const ed = document.getElementById("codeEditor");
               if (ed) {
                 ed.value = foundCode;
-                saveCurrentCode();
+                localStorage.setItem(STORAGE_PREFIX_CODE + CHALLENGES[currentQIndex].id, foundCode);
                 if (window.JavaEditorEnhancer) {
                   window.JavaEditorEnhancer.updateHighlighting();
                   window.JavaEditorEnhancer.syncScroll();
@@ -679,7 +702,7 @@
                 updateMemoryDisplay(CHALLENGES[currentQIndex], ed.value);
               }
             } else {
-              alert("Avvalgi topshiriqlarda saqlangan kod topilmadi.");
+              alert("Avvalgi topshiriqlarda to'liq kod topilmadi.");
             }
           } else {
             alert("Bu 1-topshiriq bo'lgani sababli avvalgi bosqich mavjud emas.");

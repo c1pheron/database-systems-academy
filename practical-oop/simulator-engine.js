@@ -502,10 +502,10 @@
             cvv: "",
             lastTxMsg: "",
             isLocked: false,
-            transactions: []
+            txList: []
           };
 
-          // Parse constructor arguments strictly from code
+          // Parse constructor arguments
           const strMatches = Array.from(argsStr.matchAll(/["']([^"']+)["']/g)).map(x => x[1]);
           strMatches.forEach(str => {
             const cleanDigits = str.replace(/[^0-9]/g, "");
@@ -527,6 +527,14 @@
           if (numMatches.length > 0) {
             card.balance = numMatches[0];
             card.initialBalance = numMatches[0];
+            card.txList.push({
+              type: "initial",
+              icon: "🏦",
+              title: "Hisob ochilishi",
+              sub: "Boshlang'ich mablag'",
+              amountStr: "+" + numMatches[0].toLocaleString() + " UZS",
+              isPositive: true
+            });
           }
 
           cards.push(card);
@@ -551,7 +559,7 @@
             cvv: "",
             lastTxMsg: "",
             isLocked: false,
-            transactions: []
+            txList: []
           };
           const strMatches = Array.from(argsStr.matchAll(/["']([^"']+)["']/g)).map(x => x[1]);
           strMatches.forEach(str => {
@@ -573,24 +581,32 @@
           if (numMatches.length > 0) {
             card.balance = numMatches[0];
             card.initialBalance = numMatches[0];
+            card.txList.push({
+              type: "initial",
+              icon: "🏦",
+              title: "Hisob ochilishi",
+              sub: "Boshlang'ich mablag'",
+              amountStr: "+" + numMatches[0].toLocaleString() + " UZS",
+              isPositive: true
+            });
           }
           cards.push(card);
           seenVars.add("card");
         }
       }
 
-      // 2. Sequential operations and explicit property assignments on each card
+      // 2. Sequential operations and property assignments on each card
       cards.forEach(card => {
         const v = card.varName;
 
-        // Check holder assignment: card.setCardHolder("..."), card.setHolder("..."), or card.cardHolder = "..."
+        // Check holder assignment
         const holderAssign = new RegExp(v + "\\.(?:setCardHolder|setHolder)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.cardHolder\\s*=\\s*['\"]([^'\"]+)['\"]");
         const hm = code.match(holderAssign);
         if (hm) {
           card.holder = (hm[1] || hm[2]).toUpperCase();
         }
 
-        // Check card number assignment: card.setCardNumber("...") or card.cardNumber = "..."
+        // Check card number assignment
         const numAssign = new RegExp(v + "\\.setCardNumber\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.cardNumber\\s*=\\s*['\"]([^'\"]+)['\"]");
         const nm = code.match(numAssign);
         if (nm) {
@@ -598,21 +614,21 @@
           card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
         }
 
-        // Check expiry date assignment: card.setExpiryDate("...") or card.expiryDate = "..."
+        // Check expiry date assignment
         const expAssign = new RegExp(v + "\\.set(?:ExpiryDate|ExpireDate)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.(?:expiryDate|expireDate)\\s*=\\s*['\"]([^'\"]+)['\"]");
         const em = code.match(expAssign);
         if (em) {
           card.expiryDate = em[1] || em[2];
         }
 
-        // Check CVV assignment: card.setCvv("...") or card.cvv = "..."
+        // Check CVV assignment
         const cvvAssign = new RegExp(v + "\\.set(?:Cvv|Cvc)\\s*\\(\\s*['\"]?([0-9]{3})['\"]?\\s*\\)|" + v + "\\.(?:cvv|cvc)\\s*=\\s*['\"]?([0-9]{3})['\"]?");
         const cm = code.match(cvvAssign);
         if (cm) {
           card.cvv = cm[1] || cm[2];
         }
 
-        // Check brand assignment: card.setBrand("...") or card.brand = "..."
+        // Check brand assignment
         const brandAssign = new RegExp(v + "\\.set(?:Brand|Network)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.(?:brand|network)\\s*=\\s*['\"]([^'\"]+)['\"]");
         const bm = code.match(brandAssign);
         if (bm) {
@@ -635,12 +651,26 @@
           if (op === "deposit" && amt > 0) {
             card.balance += amt;
             card.lastTxMsg = `+${amt.toLocaleString()} UZS Depozit qilindi!`;
-            card.transactions.push({ type: "deposit", amount: amt, msg: `+${amt.toLocaleString()} UZS` });
+            card.txList.unshift({
+              type: "deposit",
+              icon: "💳",
+              title: "Pul kirim (deposit)",
+              sub: "Muvaffaqiyatli",
+              amountStr: "+" + amt.toLocaleString() + " UZS",
+              isPositive: true
+            });
           } else if (op === "withdraw") {
             if (!card.isLocked && amt > 0 && amt <= card.balance) {
               card.balance -= amt;
               card.lastTxMsg = `-${amt.toLocaleString()} UZS Yechildi!`;
-              card.transactions.push({ type: "withdraw", amount: amt, msg: `-${amt.toLocaleString()} UZS` });
+              card.txList.unshift({
+                type: "withdraw",
+                icon: "🏧",
+                title: "Pul yechish (withdraw)",
+                sub: "Muvaffaqiyatli",
+                amountStr: "-" + amt.toLocaleString() + " UZS",
+                isPositive: false
+              });
             } else if (card.isLocked) {
               card.lastTxMsg = "🚫 Karta bloklangan!";
             } else {
@@ -650,38 +680,51 @@
             if (!card.isLocked && amt > 0 && amt <= card.balance) {
               card.balance -= amt;
               card.lastTxMsg = `-${amt.toLocaleString()} UZS Xarid qilindi!`;
-              card.transactions.push({ type: "spend", amount: amt, msg: `-${amt.toLocaleString()} UZS` });
+              card.txList.unshift({
+                type: "spend",
+                icon: "🛒",
+                title: "Xarid to'lovi",
+                sub: "Muvaffaqiyatli",
+                amountStr: "-" + amt.toLocaleString() + " UZS",
+                isPositive: false
+              });
             }
           }
         }
       });
 
-      // 3. Fallbacks directly from general code if not explicitly on card
+      // 3. Fallbacks directly from general code if not explicitly set on card
       cards.forEach(card => {
         if (!card.holder) {
-          const nameM = code.match(/(?:cardHolder|holder|name|mijoz|owner)\\s*=\\s*["']([^"']+)["']/i) ||
-                        code.match(/["']([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+)["']/);
+          const nameM = code.match(/(?:cardHolder|holder|name|mijoz|owner)\\s*=\\s*['\"]([^'\"]+)['\"]/i) ||
+                        code.match(/['\"]([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+)['\"]/);
           if (nameM && !nameM[1].toLowerCase().includes("bank") && !nameM[1].toLowerCase().includes("uzs")) {
             card.holder = nameM[1].toUpperCase();
           }
         }
         if (!card.cardNumber) {
-          const cardNumMatch = code.match(/["']?((?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})\\s*(?:[0-9]{4}\\s*){3}[0-9]{4}|(?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})[0-9]{12})["']?/);
+          const cardNumMatch = code.match(/['\"]?((?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})\\s*(?:[0-9]{4}\\s*){3}[0-9]{4}|(?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})[0-9]{12})['\"]?/);
           if (cardNumMatch) {
             const clean = cardNumMatch[1].replace(/[^0-9]/g, "");
             card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
           }
         }
         if (!card.expiryDate) {
-          const expM = code.match(/["'](0[1-9]|1[0-2])\/([2-3][0-9])["']/);
+          const expM = code.match(/['\"](0[1-9]|1[0-2])\/([2-3][0-9])['\"]/);
           if (expM) {
             card.expiryDate = expM[1] + "/" + expM[2];
+          } else {
+            // Default agar kiritilmagan bo'lsa
+            card.expiryDate = "12/28";
           }
         }
         if (!card.cvv) {
-          const cvvM = code.match(/(?:cvv|cvc)\\s*=\\s*["']?([0-9]{3})["']?/i);
+          const cvvM = code.match(/(?:cvv|cvc)\\s*=\\s*['\"]?([0-9]{3})['\"]?/i);
           if (cvvM) {
             card.cvv = cvvM[1];
+          } else {
+            // Default agar kiritilmagan bo'lsa
+            card.cvv = "777";
           }
         }
         if (!card.brand) {
@@ -696,10 +739,8 @@
             card.brand = "VISA";
           } else if (card.cardNumber.startsWith("5")) {
             card.brand = "MASTERCARD";
-          } else if (card.cardNumber) {
-            card.brand = "UZCARD";
           } else {
-            card.brand = "KARTA";
+            card.brand = "UZCARD";
           }
         }
       });
@@ -742,6 +783,7 @@
       const chId = (this.currentChallenge && this.currentChallenge.id) || 1;
 
       const otherMethods = declared.filter(m => !['deposit', 'withdraw', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase()));
+      const txList = c.txList || [];
 
       return `
         <div class="sim-scene card-scene animate-card-appear">
@@ -762,10 +804,10 @@
           ` : ''}
 
           <!-- SMARTPHONE CARD GRAPHIC (EXACT USER VALUES) -->
-          <div class="humo-card card-${(c.brand || 'karta').toLowerCase()} ${c.isLocked ? 'card-locked' : ''}">
+          <div class="humo-card card-${(c.brand || 'uzcard').toLowerCase()} ${c.isLocked ? 'card-locked' : ''}">
             <div class="humo-top">
               <div style="display:flex; align-items:center; gap:6px;">
-                <span class="humo-logo">${c.brand || 'KARTA'}</span>
+                <span class="humo-logo">${c.brand || 'UZCARD'}</span>
                 <span class="card-var-badge">${c.varName || 'card'}</span>
                 ${c.isLocked ? '<span class="card-lock-badge">🔒 BLOKLANGAN</span>' : ''}
               </div>
@@ -775,7 +817,7 @@
               </div>
             </div>
 
-            <!-- 16 xonali karta raqami (Faqat talaba kiritganda ko'rinadi) -->
+            <!-- 16 xonali karta raqami -->
             <div class="card-num-row">
               ${c.cardNumber ? `
                 <span class="card-num-full">${c.cardNumber}</span>
@@ -786,27 +828,19 @@
               `}
             </div>
 
-            <!-- Amal qilish muddati va CVV (Faqat talaba kiritganda ko'rinadi) -->
+            <!-- Amal qilish muddati va CVV (Talaba kodi yoki avtomatik standart) -->
             <div class="card-mid-row">
               <div class="card-exp-box">
                 <span class="card-tiny-lbl">VALID THRU</span>
-                ${c.expiryDate ? `
-                  <span class="card-exp-val">${c.expiryDate}</span>
-                ` : `
-                  <span class="card-exp-val card-val-empty" title="Karta muddati kodingizda biriktirilmagan">••/••</span>
-                `}
+                <span class="card-exp-val">${c.expiryDate || '12/28'}</span>
               </div>
               <div class="card-cvv-box">
                 <span class="card-tiny-lbl">CVV/CVC</span>
-                ${c.cvv ? `
-                  <span class="card-cvv-val">${c.cvv}</span>
-                ` : `
-                  <span class="card-cvv-val card-val-empty" title="CVV kodingizda biriktirilmagan">•••</span>
-                `}
+                <span class="card-cvv-val">${c.cvv || '777'}</span>
               </div>
             </div>
 
-            <!-- Karta egasi va Balans (Koddagi amallar asosida) -->
+            <!-- Karta egasi va Balans -->
             <div class="card-bottom">
               <div class="card-holder-box">
                 <div class="card-lbl">KARTA EGASI</div>
@@ -826,116 +860,82 @@
             </div>
           </div>
 
-          ${c.lastTxMsg ? `<div class="tx-badge">${c.lastTxMsg}</div>` : ''}
+          <!-- KICHIK IXCHAM TO'RTBURCHAK METOD TUGMALARI (COMPACT SQUARE BUTTONS) -->
+          <div class="phone-methods-box">
+            <div class="pmb-title-row">
+              <span class="pmb-title">⚡ METODLAR (ILOVAGA ULANGAN)</span>
+              <span class="pmb-count">${declared.length} ta</span>
+            </div>
+            <div class="pmb-grid">
+              <!-- Deposit Button -->
+              <button type="button" class="pmb-btn ${hasDeposit ? 'active' : 'locked'}" onclick="window.SimulatorEngine.testMethodClick('deposit')" title="deposit() metodi">
+                <span class="pmb-icon">💳</span>
+                <span class="pmb-lbl">deposit</span>
+                <span class="pmb-dot ${hasDeposit ? 'dot-active' : 'dot-locked'}">${hasDeposit ? '✅' : '🔒'}</span>
+              </button>
 
-          <!-- KODINGIZDAGI METODLAR (INTERAKTIV ILОВА TUGMALARI) -->
-          <div class="phone-methods-section">
-            <div class="phone-methods-header">
-              <div class="pm-title-row">
-                <span class="pm-title-icon">⚡</span>
-                <span class="pm-title-text">Kodingizdagi Metodlar</span>
+              <!-- Withdraw Button -->
+              <button type="button" class="pmb-btn ${hasWithdraw ? 'active' : 'locked'}" onclick="window.SimulatorEngine.testMethodClick('withdraw')" title="withdraw() metodi">
+                <span class="pmb-icon">🏧</span>
+                <span class="pmb-lbl">withdraw</span>
+                <span class="pmb-dot ${hasWithdraw ? 'dot-active' : 'dot-locked'}">${hasWithdraw ? '✅' : '🔒'}</span>
+              </button>
+
+              <!-- Lock Button (agar yozilgan bo'lsa yoki chId >= 6) -->
+              ${(hasLock || chId >= 6) ? `
+                <button type="button" class="pmb-btn ${hasLock ? 'active' : 'locked'}" onclick="window.SimulatorEngine.testMethodClick('lockCard')" title="lockCard() metodi">
+                  <span class="pmb-icon">🔒</span>
+                  <span class="pmb-lbl">lockCard</span>
+                  <span class="pmb-dot ${hasLock ? 'dot-active' : 'dot-locked'}">${hasLock ? '✅' : '🔒'}</span>
+                </button>
+              ` : ''}
+
+              <!-- Helper Getters -->
+              ${otherMethods.slice(0, 3).map(m => `
+                <button type="button" class="pmb-btn active" onclick="window.SimulatorEngine.testMethodClick('${m.name}')" title="${m.name}() metodi">
+                  <span class="pmb-icon">⚡</span>
+                  <span class="pmb-lbl">${m.name}</span>
+                  <span class="pmb-dot dot-active">✅</span>
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- TRANZAKSIYALAR TARIXI (TRANSACTION HISTORY) -->
+          <div class="phone-tx-section">
+            <div class="tx-header">
+              <div class="tx-title-group">
+                <span class="tx-title-icon">📜</span>
+                <span class="tx-title">Tranzaksiyalar Tarixi</span>
               </div>
-              <span class="pm-count-badge">${declared.length} ta faol</span>
+              <span class="tx-count-pill">${txList.length} ta operatsiya</span>
             </div>
 
-            <div class="phone-methods-list">
-              <!-- 1. DEPOSIT METODI TUGMASI -->
-              ${hasDeposit ? `
-                <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('deposit')" title="Kodingizdagi deposit() metodi">
-                  <div class="bam-left">
-                    <span class="bam-icon">💳</span>
-                    <div class="bam-info">
-                      <span class="bam-sig">void <strong>deposit</strong>(amount)</span>
-                      <span class="bam-desc">Pul Kiritish Amali</span>
+            <div class="tx-list">
+              ${txList.length > 0 ? txList.map(tx => `
+                <div class="tx-row ${tx.type}">
+                  <div class="tx-left">
+                    <span class="tx-type-icon">${tx.icon}</span>
+                    <div class="tx-meta">
+                      <span class="tx-name">${tx.title}</span>
+                      <span class="tx-sub">${tx.sub}</span>
                     </div>
                   </div>
-                  <span class="bam-pill active">✅ Kodingizda faol</span>
-                </button>
-              ` : `
-                <div class="btn-app-method locked" title="Kodingizda 'deposit' metodini yarating">
-                  <div class="bam-left">
-                    <span class="bam-icon">🔒</span>
-                    <div class="bam-info">
-                      <span class="bam-sig">void <strong>deposit</strong>(amount)</span>
-                      <span class="bam-desc">Kodingizda kutilmoqda</span>
-                    </div>
-                  </div>
-                  <span class="bam-pill locked">🔒 Hali yozilmagan</span>
+                  <span class="tx-sum ${tx.isPositive ? 'pos' : 'neg'}">${tx.amountStr}</span>
+                </div>
+              `).join('') : `
+                <div class="tx-empty">
+                  <span class="tx-empty-icon">📂</span>
+                  <span>Hozircha tranzaksiyalar amalga oshirilmadi</span>
                 </div>
               `}
-
-              <!-- 2. WITHDRAW METODI TUGMASI -->
-              ${hasWithdraw ? `
-                <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('withdraw')" title="Kodingizdagi withdraw() metodi">
-                  <div class="bam-left">
-                    <span class="bam-icon">🏧</span>
-                    <div class="bam-info">
-                      <span class="bam-sig">boolean <strong>withdraw</strong>(amount)</span>
-                      <span class="bam-desc">Xavfsiz Pul Yechish</span>
-                    </div>
-                  </div>
-                  <span class="bam-pill active">✅ Kodingizda faol</span>
-                </button>
-              ` : `
-                <div class="btn-app-method locked" title="2-bosqichda ushbu metodni yozasiz">
-                  <div class="bam-left">
-                    <span class="bam-icon">🔒</span>
-                    <div class="bam-info">
-                      <span class="bam-sig">boolean <strong>withdraw</strong>(amount)</span>
-                      <span class="bam-desc">${chId === 1 ? "2-bosqichda kodingizga qo'shasiz" : "Kodingizda kutilmoqda"}</span>
-                    </div>
-                  </div>
-                  <span class="bam-pill locked">${chId === 1 ? "🔒 2-bosqichda ochiladi" : "🔒 Kutilmoqda"}</span>
-                </div>
-              `}
-
-              <!-- 3. LOCKCARD METODI TUGMASI (Agar yozilgan bo'lsa yoki chId >= 6) -->
-              ${(hasLock || chId >= 6) ? (`
-                ${hasLock ? `
-                  <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('lockCard')" title="Kodingizdagi lockCard() metodi">
-                    <div class="bam-left">
-                      <span class="bam-icon">🔒</span>
-                      <div class="bam-info">
-                        <span class="bam-sig">void <strong>lockCard</strong>()</span>
-                        <span class="bam-desc">Kartani Muzlatish</span>
-                      </div>
-                    </div>
-                    <span class="bam-pill active">✅ Kodingizda faol</span>
-                  </button>
-                ` : `
-                  <div class="btn-app-method locked">
-                    <div class="bam-left">
-                      <span class="bam-icon">🔒</span>
-                      <div class="bam-info">
-                        <span class="bam-sig">void <strong>lockCard</strong>()</span>
-                        <span class="bam-desc">6-bosqichda kodingizga qo'shasiz</span>
-                      </div>
-                    </div>
-                    <span class="bam-pill locked">🔒 6-bosqichda ochiladi</span>
-                  </div>
-                `}
-              `) : ''}
-
-              <!-- 4. BOSHQA ANIKLANGAN METODLAR (Getter va Yordamchi metodlar) -->
-              ${otherMethods.length > 0 ? `
-                <div class="bam-other-strip">
-                  <span class="bam-other-lbl">🔍 Kodingizdagi boshqa metodlar:</span>
-                  <div class="bam-chips">
-                    ${otherMethods.map(m => `
-                      <button type="button" class="bam-chip" onclick="window.SimulatorEngine.testMethodClick('${m.name}')" title="${m.name}() metodini sinash">
-                        ⚡ ${m.name}()
-                      </button>
-                    `).join('')}
-                  </div>
-                </div>
-              ` : ''}
             </div>
           </div>
 
           <!-- HEAP MEMORY INSPECTOR -->
           <div class="live-inspect-box">
             <span>🔍 Obyekt Xotirasi (Heap):</span>
-            <code>${c.cardType || 'BankCard'}@heap[${c.varName}] { cardNumber: "${c.cardNumber || '•••• •••• •••• ••••'}", cardHolder: "${c.holder || 'null'}", balance: ${c.balance}.0, isLocked: ${c.isLocked ? 'true' : 'false'} };</code>
+            <code>${c.cardType || 'BankCard'}@heap[${c.varName}] { cardNumber: "${c.cardNumber || '8600 1234 5678 9012'}", cardHolder: "${c.holder || 'Ali Valiyev'}", balance: ${c.balance}.0, isLocked: ${c.isLocked ? 'true' : 'false'} };</code>
           </div>
         </div>
       `;
