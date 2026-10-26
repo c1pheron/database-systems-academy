@@ -17,17 +17,17 @@
       "ru": "1. Базовая карта"
     },
     "story": {
-      "uz": "Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.",
+      "uz": "FinTech Uzum/Payme ekotizimida mijoz Ali Valiyev yangi bank kartasi ochmoqda. Balans 'private double balance;' bo'lib, uni faqat musbat summa bilan to'ldirish (deposit) mumkin.",
       "en": "In Uzum & Payme FinTech ecosystem: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.",
       "ru": "В экосистеме Uzum & Payme FinTech: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin."
     },
     "steps": {
       "uz": [
         "<code>BankCard</code> klassida <code>private double balance;</code> maydoni.",
-        "Konstruktor <code>public BankCard(double initialBalance)</code>.",
-        "<code>public void deposit(double amount)</code> (amount > 0 bo<code>lsa qo</code>shadi).",
+        "Konstruktor: <code>public BankCard(double initialBalance)</code>.",
+        "<code>public void deposit(double amount)</code> (amount > 0 bo'lsa balansga qo'shadi).",
         "<code>public double getBalance()</code> getteri.",
-        "<code>Main</code>da 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring."
+        "<code>Main</code>da 50,000 so'mlik karta ochib, 25,000 depozit qiling va: \"Balans: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "<code>BankCard</code> in class <code>private double balance;</code> maydoni.",
@@ -45,7 +45,7 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCard klassida private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFinTech Uzum/Payme ekotizimida mijoz Ali Valiyev yangi bank kartasi ochmoqda. Balans 'private double balance;' bo'lib, uni faqat musbat summa bilan to'ldirish (deposit) mumkin.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. BankCard klassida private double balance; maydoni.\n2. Konstruktor: public BankCard(double initialBalance).\n3. public void deposit(double amount) metodi: agar amount > 0 bo'lsa, balansga qo'shadi.\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. BankCard in class private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Bank kartasining balansi 'private double balance;' bo'lishi shart. Uni faqat musbat summa bilan to'ldirish mumkin.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. BankCard в классе private double balance; maydoni.\n2. Konstruktor public BankCard(double initialBalance).\n3. public void deposit(double amount) (amount > 0 bolsa qoshadi).\n4. public double getBalance() getteri.\n5. Mainda 50,000 so'mlik karta ochib, 25,000 depozit qiling va konsolga: \"Balans: \" + card.getBalance() deb выведите в консоль."
     },
@@ -104,16 +104,16 @@
       "ru": "2. Безопасное снятие"
     },
     "story": {
-      "uz": "'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.",
+      "uz": "Oldingi 1-bosqichda ochilgan kartamizda 75,000 so'm bor. Endi yangi karta ochmasdan, aynan o'sha kartamizdan pul yechish (withdraw) funksiyasini qo'shamiz!",
       "en": "In Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.",
       "ru": "В экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak."
     },
     "steps": {
       "uz": [
-        "<code>SecureCard</code> klassida <code>private double balance;</code>.",
-        "<code>public boolean withdraw(double amount)</code> (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring."
+        "1-bosqichdagi <code>BankCard</code> kodingizga <code>public boolean withdraw(double amount)</code> metodini qo'shing.",
+        "Agar <code>amount > 0 && amount <= this.balance</code> bo'lsa, balandlikdan ayirib <code>true</code> qaytarsin.",
+        "Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan <code>false</code> qaytarsin.",
+        "<code>Main</code>da 1-bosqichdagi kartani ochib (50,000), 25,000 to'ldiring va 25,000 yechib: \"Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "<code>SecureCard</code> in class <code>private double balance;</code>.",
@@ -129,7 +129,7 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nOldingi 1-bosqichda yaratgan 'BankCard' kodingizga endi pul yechish (withdraw) funksiyasini qo'shamiz! Bu metod hisobda yetarli mablag' borligini tekshirishi va overdraftdan (ortiqcha yechishdan) himoyalashi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassiga 'public boolean withdraw(double amount)' metodini qo'shing.\n2. Agar 'amount > 0' va 'amount <= this.balance' bo'lsa, balandlikdan ayirib 'true' qaytarsin.\n3. Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan 'false' qaytarsin.\n4. 'Main' metodida 80,000 so'mlik kartadan 30,000 so'm yeching ('card.withdraw(30000.0);') va konsolga: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nOldingi 1-bosqichda ochilgan kartamizda 75,000 so'm bor. Endi yangi karta ochmasdan, aynan o'sha kartamizdan pul yechish (withdraw) funksiyasini qo'shamiz! Bu metod hisobda yetarli mablag' borligini tekshirishi va overdraftdan (ortiqcha yechishdan) himoyalashi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 1-bosqichdagi 'BankCard' kodingizga 'public boolean withdraw(double amount)' metodini qo'shing.\n2. Agar 'amount > 0' va 'amount <= this.balance' bo'lsa, balandlikdan ayirib 'true' qaytarsin.\n3. Mablag' yetarli bo'lmasa, balansni o'zgartirmasdan 'false' qaytarsin.\n4. 'Main'da o'sha kartamizdan (50,000 ochib, 25,000 depozit qilingan) 25,000 yeching ('card.withdraw(25000.0);') va: \"Qoldiq: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SecureCard in class private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'withdraw' balandlikdan ortiqcha pul yechishga yo'l qo'ymasligi kerak.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SecureCard в классе private double balance;.\n2. public boolean withdraw(double amount) (amount > 0 && amount <= balance bo'lsa ayiradi va true qaytaradi).\n3. public double getBalance().\n4. Mainda 80,000 dan 30,000 yeching va konsolga: \"Qoldiq: \" + card.getBalance() deb выведите в консоль."
     },
@@ -139,6 +139,7 @@
         "Main"
       ],
       "methods": [
+        "deposit",
         "withdraw",
         "getBalance"
       ],
@@ -155,7 +156,7 @@
       "Kutilayotgan natija: Qoldiq: 50000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(80000.0);\n        card.withdraw(30000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
+    "solution": "class BankCard {\n    private double balance;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance());\n    }\n}",
     "expectedOutput": "Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
@@ -188,16 +189,16 @@
       "ru": "3. PIN безопасность"
     },
     "story": {
-      "uz": "Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.",
+      "uz": "Kartamizdan begona odamlar pul yecholmasligi uchun 'BankCard'ga 4 xonali PIN kod himoyasi qo'shiladi. Boshlang'ich PIN 1234 qilib o'rnatiladi.",
       "en": "In Uzum & Payme FinTech ecosystem: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.",
       "ru": "В экосистеме Uzum & Payme FinTech: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin."
     },
     "steps": {
       "uz": [
-        "<code>CardPin</code> klassida <code>private int pin;</code>.",
-        "<code>public boolean verifyPin(int inputPin)</code>.",
-        "<code>public boolean changePin(int oldPin, int newPin)</code>.",
-        "<code>Main</code>da 1234 kodli karta ochib, tekshiring va konsolga: \"PIN to<code>g</code>ri: \" + cp.verifyPin(1234) deb chiqaring."
+        "<code>BankCard</code> klassida <code>private int pin = 1234;</code> maydonini e'lon qiling.",
+        "<code>public boolean verifyPin(int inputPin)</code>: agar kiritilgan PIN to'g'ri bo'lsa <code>true</code>, aks holda <code>false</code> qaytarsin.",
+        "<code>public boolean changePin(int oldPin, int newPin)</code>: eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va <code>true</code> qaytarsin.",
+        "<code>Main</code>da o'sha kartamiz PIN kodini 1234 bilan tekshiring va: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring."
       ],
       "en": [
         "<code>CardPin</code> in class <code>private int pin;</code>.",
@@ -213,7 +214,7 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank kartangizni yanada xavfsiz qilish uchun endi 4 xonali PIN kod himoyasini qo'shamiz!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassida 'private int pin;' maydonini e'lon qiling (boshlang'ich qiymati 1234).\n2. 'public boolean verifyPin(int inputPin)' metodi: agar kiritilgan PIN to'g'ri bo'lsa 'true', aks holda 'false' qaytarsin.\n3. 'public boolean changePin(int oldPin, int newPin)' metodi: eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va 'true' qaytarsin.\n4. 'Main'da 'BankCard card = new BankCard(50000.0);' ochib, PINni tekshiring va konsolga: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKartamizdan begona odamlar pul yecholmasligi uchun 'BankCard'ga 4 xonali PIN kod himoyasi qo'shiladi. Boshlang'ich PIN 1234 qilib o'rnatiladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard' klassida 'private int pin = 1234;' maydonini e'lon qiling.\n2. 'public boolean verifyPin(int inputPin)': agar kiritilgan PIN to'g'ri bo'lsa 'true', aks holda 'false' qaytarsin.\n3. 'public boolean changePin(int oldPin, int newPin)': eski PIN to'g'ri bo'lsagina yangisiga o'zgartirsin va 'true' qaytarsin.\n4. 'Main'da o'sha kartamiz PIN kodini 1234 bilan tekshiring va konsolga: \"PIN to'g'ri: \" + card.verifyPin(1234) deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CardPin in class private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Karta PIN kodi faqat 'verifyPin' va 'changePin' orqali tekshirilishi va o'zgartirilishi mumkin.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CardPin в классе private int pin;.\n2. public boolean verifyPin(int inputPin).\n3. public boolean changePin(int oldPin, int newPin).\n4. Mainda 1234 kodli karta ochib, tekshiring va konsolga: \"PIN togri: \" + cp.verifyPin(1234) deb выведите в консоль."
     },
@@ -224,12 +225,14 @@
       ],
       "methods": [
         "verifyPin",
-        "changePin"
+        "changePin",
+        "getBalance"
       ],
       "constructors": [
         "BankCard"
       ],
       "fields": [
+        "balance",
         "pin"
       ],
       "keywords": []
@@ -239,7 +242,7 @@
       "Kutilayotgan natija: PIN to'g'ri: true"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
+    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean verifyPin(int inputPin) {\n        return this.pin == inputPin;\n    }\n\n    public boolean changePin(int oldPin, int newPin) {\n        if (this.pin == oldPin) {\n            this.pin = newPin;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"PIN to'g'ri: \" + card.verifyPin(1234));\n    }\n}",
     "expectedOutput": "PIN to'g'ri: true",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
@@ -272,17 +275,15 @@
       "ru": "4. Дневной лимит"
     },
     "story": {
-      "uz": "Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.",
+      "uz": "Katta summadagi firibgarliklardan saqlash uchun 'BankCard'ga kunlik limit 'private double dailyLimit = 100000.0;' belgilanadi.",
       "en": "In Uzum & Payme FinTech ecosystem: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.",
       "ru": "В экосистеме Uzum & Payme FinTech: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi."
     },
     "steps": {
       "uz": [
-        "<code>LimitedCard</code> klassida <code>private double balance;</code>, <code>private double dailyLimit;</code>.",
-        "Konstruktor <code>public LimitedCard(double balance, double dailyLimit)</code>.",
-        "<code>public boolean spend(double amount)</code>.",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni chiqaring."
+        "<code>BankCard</code>da <code>private double dailyLimit = 100000.0;</code> maydoni va <code>public BankCard(double initialBalance, double dailyLimit)</code> konstruktorini qo'shing.",
+        "<code>public boolean spend(double amount)</code>: agar summa > 0 va dailyLimit hamda balance dan oshmasa, balandlikdan va limitdan ayirsin va true qaytarsin.",
+        "<code>Main</code>da 50,000 balansli kartaga 25,000 depozit qilib, 30,000 sarflang (spend) va qoldiq balansni chiqaring."
       ],
       "en": [
         "<code>LimitedCard</code> in class <code>private double balance;</code>, <code>private double dailyLimit;</code>.",
@@ -300,7 +301,7 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFiribgarlikdan saqlash uchun 'BankCard'ga kunlik xarid limiti 'private double dailyLimit;' kiritamiz.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private double dailyLimit = 50000.0;' maydonini qo'shing.\n2. 'public boolean spend(double amount)' metodi: agar 'amount > 0' va 'amount <= this.dailyLimit' hamda 'amount <= this.balance' bo'lsa, balansdan va limitdan ayirib 'true' qaytarsin.\n3. 'Main'da 200,000 balansli karta ochib, 30,000 sarflang ('card.spend(30000.0);') va konsolga: \"Qoldiq balans: \" + card.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nKatta summadagi firibgarliklardan saqlash uchun 'BankCard'ga kunlik limit 'private double dailyLimit = 100000.0;' belgilanadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private double dailyLimit = 100000.0;' maydoni va 'public BankCard(double initialBalance, double dailyLimit)' konstruktorini qo'shing.\n2. 'public boolean spend(double amount)': agar summa > 0 va dailyLimit hamda balance dan oshmasa, balandlikdan va limitdan ayirsin va true qaytarsin.\n3. 'Main'da 50,000 balansli kartaga 25,000 depozit qilib, 30,000 sarflang (spend) va qoldiq balansni chiqaring: \"Qoldiq balans: \" + card.getBalance().",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. LimitedCard in class private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Firibgarlikdan saqlash uchun karta kunlik xarid limitiga  ega bo'ladi.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. LimitedCard в классе private double balance;, private double dailyLimit;.\n2. Konstruktor public LimitedCard(double balance, double dailyLimit).\n3. public boolean spend(double amount).\n4. public double getBalance().\n5. Mainda 200,000 balans va 50,000 limitli karta ochib, 30,000 sarflang va qoldiq balansni выведите в консоль."
     },
@@ -317,6 +318,7 @@
         "BankCard"
       ],
       "fields": [
+        "balance",
         "dailyLimit"
       ],
       "keywords": []
@@ -326,8 +328,8 @@
       "Kutilayotgan natija: Qoldiq balans: 170000.0"
     ],
     "starterCode": "",
-    "solution": "class BankCard {\n    private double balance;\n    private double dailyLimit = 50000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(200000.0, 50000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
-    "expectedOutput": "Qoldiq balans: 170000.0",
+    "solution": "class BankCard {\n    private double balance;\n    private int pin = 1234;\n    private double dailyLimit = 100000.0;\n\n    public BankCard(double initialBalance) {\n        this.balance = initialBalance;\n    }\n\n    public BankCard(double initialBalance, double dailyLimit) {\n        this.balance = initialBalance;\n        this.dailyLimit = dailyLimit;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public boolean spend(double amount) {\n        if (amount > 0 && amount <= this.dailyLimit && amount <= this.balance) {\n            this.balance -= amount;\n            this.dailyLimit -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(50000.0, 100000.0);\n        card.deposit(25000.0);\n        card.spend(30000.0);\n        System.out.println(\"Qoldiq balans: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Qoldiq balans: 45000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -354,21 +356,21 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "5. 👤 Foydalanuvchi Shaxsi va KYC (16+)",
+      "uz": "5. 👤 Karta Egasi Shaxsi (Cardholder KYC)",
       "en": "5. User KYC",
       "ru": "5. Профиль KYC"
     },
     "story": {
-      "uz": "Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.",
+      "uz": "Bank tizimida karta anonim bo'la olmaydi. Karta shaxsi tasdiqlangan mijoz 'Ali Valiyev' nomiga rasmiylashtiriladi.",
       "en": "In Uzum & Payme FinTech ecosystem: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.",
       "ru": "В экосистеме Uzum & Payme FinTech: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi."
     },
     "steps": {
       "uz": [
-        "<code>UserProfile</code>da <code>private String name;</code>, <code>private int age;</code>.",
-        "<code>public boolean setAge(int age)</code>.",
-        "<code>public int getAge()</code>, <code>public String getName()</code>.",
-        "<code>Main</code>da 20 yoshli Anvarni e'lon qilib chiqaring: \"Mijoz: Anvar | Yoshi: 20\"."
+        "<code>BankCard</code>da <code>private String cardHolder;</code> maydonini qo'shing.",
+        "Konstruktor: <code>public BankCard(String cardHolder, double initialBalance)</code> orqali mijoz nomini biriktiring.",
+        "<code>public String getCardHolder()</code> getteri.",
+        "<code>Main</code>da 'Ali Valiyev' nomiga karta ochib (50,000), 25,000 to'ldirib, 25,000 yeching va: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance() deb chiqaring."
       ],
       "en": [
         "<code>UserProfile</code>da <code>private String name;</code>, <code>private int age;</code>.",
@@ -384,25 +386,25 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nFoydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib chiqaring: \"Mijoz: Anvar | Yoshi: 20\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank tizimida karta anonim bo'la olmaydi. Karta shaxsi tasdiqlangan mijoz 'Ali Valiyev' nomiga rasmiylashtiriladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private String cardHolder;' maydonini qo'shing.\n2. Konstruktor: 'public BankCard(String cardHolder, double initialBalance)' orqali mijoz nomini biriktiring.\n3. 'public String getCardHolder()' getteri.\n4. 'Main'da 'Ali Valiyev' nomiga karta ochib, 25,000 to'ldirib, 25,000 yeching va konsolga: \"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib print to console: \"Mijoz: Anvar | Yoshi: 20\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Foydalanuvchi yoshi 'age' faqat 16 dan yuqori bo'lganda qabul qilinadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. UserProfileda private String name;, private int age;.\n2. public boolean setAge(int age).\n3. public int getAge(), public String getName().\n4. Mainda 20 yoshli Anvarni e'lon qilib выведите в консоль: \"Mijoz: Anvar | Yoshi: 20\"."
     },
     "requirements": {
       "classes": [
-        "UserProfile",
+        "BankCard",
         "Main"
       ],
       "methods": [
-        "setAge",
-        "getAge",
-        "getName"
+        "getCardHolder",
+        "getBalance"
       ],
       "constructors": [
-        "UserProfile"
+        "BankCard"
       ],
       "fields": [
-        "age"
+        "cardHolder",
+        "balance"
       ],
       "keywords": []
     },
@@ -411,8 +413,8 @@
       "Kutilayotgan natija: Mijoz: Anvar | Yoshi: 20"
     ],
     "starterCode": "",
-    "solution": "class UserProfile {\n    private String name;\n    private int age;\n\n    public UserProfile(String name, int age) {\n        this.name = name;\n        this.age = age >= 16 ? age : 16;\n    }\n\n    public boolean setAge(int age) {\n        if (age >= 16) {\n            this.age = age;\n            return true;\n        }\n        return false;\n    }\n\n    public int getAge() {\n        return this.age;\n    }\n\n    public String getName() {\n        return this.name;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        UserProfile up = new UserProfile(\"Anvar\", 20);\n        System.out.println(\"Mijoz: \" + up.getName() + \" | Yoshi: \" + up.getAge());\n    }\n}",
-    "expectedOutput": "Mijoz: Anvar | Yoshi: 20",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin = 1234;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Mijoz: Ali Valiyev | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -439,21 +441,21 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "6. 💱 Valyuta Hamyoni — So'm va Dollar",
+      "uz": "6. 🚫 Kartani Muzlatish va Xavfsiz Qulflash",
       "en": "6. Multi-Currency Wallet",
       "ru": "6. Мультивалютный кошелек"
     },
     "story": {
-      "uz": "'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.",
+      "uz": "Agar Ali Valiyev kartasini yo'qotib qo'ysa, tizimda darhol muzlatib qo'yish kerak ('isBlocked'). Karta bloklanganida hech qanday pul yechilmaydi!",
       "en": "In Uzum & Payme FinTech ecosystem: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.",
       "ru": "В экосистеме Uzum & Payme FinTech: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi."
     },
     "steps": {
       "uz": [
-        "<code>Wallet</code>da <code>private double uzs;</code>, <code>private double usd;</code>.",
-        "<code>public void convertUsdToUzs(double amountUsd, double rate)</code>.",
-        "<code>public double getUzs()</code>, <code>public double getUsd()</code>.",
-        "<code>Main</code>da 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb chiqaring."
+        "<code>BankCard</code>da <code>private boolean isBlocked = false;</code> maydonini qo'shing.",
+        "<code>public void lockCard()</code>, <code>public void unlockCard()</code>, <code>public boolean isLocked()</code> metodlari.",
+        "<code>withdraw</code> metodida karta bloklangan bo'lsa <code>false</code> qaytarsin (<code>if (this.isBlocked) return false;</code>).",
+        "<code>Main</code>da kartani bloklab, 10,000 yechishga urinib ko'ring va natijani chiqaring."
       ],
       "en": [
         "<code>Wallet</code>da <code>private double uzs;</code>, <code>private double usd;</code>.",
@@ -469,25 +471,27 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nAgar Ali Valiyev kartasini yo'qotib qo'ysa, tizimda darhol muzlatib qo'yish kerak ('isBlocked'). Karta bloklanganida hech qanday pul yechilmaydi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private boolean isBlocked = false;' maydonini qo'shing.\n2. 'public void lockCard()', 'public void unlockCard()', 'public boolean isLocked()' metodlari.\n3. 'withdraw' metodida karta bloklangan bo'lsa 'false' qaytarsin ('if (this.isBlocked) return false;').\n4. 'Main'da kartani bloklab, 10,000 yechishga urinib ko'ring va: \"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: 'Wallet' klassi UZS va USD hisoblarini alohida saqlaydi va kurs  bo'yicha ayirboshlaydi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. Walletda private double uzs;, private double usd;.\n2. public void convertUsdToUzs(double amountUsd, double rate).\n3. public double getUzs(), public double getUsd().\n4. Mainda 100 USD ni 12800 kursda konvertatsiya qiling va konsolga: \"So'm balansi: \" + w.getUzs() deb выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "Wallet",
+        "BankCard",
         "Main"
       ],
       "methods": [
-        "convertUsdToUzs",
-        "getUzs"
+        "lockCard",
+        "unlockCard",
+        "isLocked",
+        "withdraw"
       ],
       "constructors": [
-        "Wallet"
+        "BankCard"
       ],
       "fields": [
-        "uzs",
-        "usd"
+        "isBlocked",
+        "balance"
       ],
       "keywords": []
     },
@@ -496,8 +500,8 @@
       "Kutilayotgan natija: So'm balansi: 1280000.0"
     ],
     "starterCode": "",
-    "solution": "class Wallet {\n    private double uzs;\n    private double usd;\n\n    public Wallet(double uzs, double usd) {\n        this.uzs = uzs;\n        this.usd = usd;\n    }\n\n    public void convertUsdToUzs(double amountUsd, double rate) {\n        if (amountUsd > 0 && amountUsd <= this.usd) {\n            this.usd -= amountUsd;\n            this.uzs += amountUsd * rate;\n        }\n    }\n\n    public double getUzs() {\n        return this.uzs;\n    }\n\n    public double getUsd() {\n        return this.usd;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        Wallet w = new Wallet(0.0, 100.0);\n        w.convertUsdToUzs(100.0, 12800.0);\n        System.out.println(\"So'm balansi: \" + w.getUzs());\n    }\n}",
-    "expectedOutput": "So'm balansi: 1280000.0",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private boolean isBlocked = false;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (!this.isBlocked && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.lockCard();\n        boolean ok = card.withdraw(10000.0);\n        System.out.println(\"Karta bloklangan: \" + card.isLocked() + \" | Yechish: \" + ok);\n    }\n}",
+    "expectedOutput": "Karta bloklangan: true | Yechish: false",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -524,21 +528,22 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "7. 🎁 Avtomatik Keshbek Hamyoni",
+      "uz": "7. 🎁 Avtomatik Keshbek Tizimi (Cashback)",
       "en": "7. Cashback Wallet",
       "ru": "7. Кэшбэк кошелек"
     },
     "story": {
-      "uz": "Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.",
+      "uz": "Mijoz Ali Valiyev har safar to'lov qilganda kartasiga 2% keshbek avtomatik yig'ilib boradi ('private double cashback = 0.0;').",
       "en": "In Uzum & Payme FinTech ecosystem: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.",
       "ru": "В экосистеме Uzum & Payme FinTech: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi."
     },
     "steps": {
       "uz": [
-        "<code>CashbackWallet</code>da <code>private double cashback = 0.0;</code>.",
-        "<code>public void earnCashback(double spendAmount)</code>.",
-        "<code>public double getCashback()</code>.",
-        "<code>Main</code>da 100,000 so<code>m xariddan keshbek hisoblang: \"Keshbek: 2000.0 so</code>m\"."
+        "<code>BankCard</code>da <code>private double cashback = 0.0;</code> maydoni.",
+        "<code>public void earnCashback(double spendAmount)</code>: agar spendAmount > 0 bo'lsa, 2% keshbek qo'shadi.",
+        "<code>public double getCashback()</code>: yig'ilgan keshbekni qaytaradi.",
+        "<code>withdraw</code> metodida pul muvaffaqiyatli yechilsa, avtomatik <code>earnCashback(amount)</code> chaqirilsin.",
+        "<code>Main</code>da 25,000 yechilgandan keyin qoldiq balans va keshbekni chiqaring."
       ],
       "en": [
         "<code>CashbackWallet</code>da <code>private double cashback = 0.0;</code>.",
@@ -554,22 +559,26 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nHar bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nMijoz Ali Valiyev har safar to'lov qilganda kartasiga 2% keshbek avtomatik yig'ilib boradi ('private double cashback = 0.0;').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private double cashback = 0.0;' maydoni.\n2. 'public void earnCashback(double spendAmount)': agar spendAmount > 0 bo'lsa, 2% keshbek qo'shadi.\n3. 'public double getCashback()': yig'ilgan keshbekni qaytaradi.\n4. 'withdraw' metodida pul muvaffaqiyatli yechilsa, avtomatik 'earnCashback(amount)' chaqirilsin.\n5. 'Main'da 25,000 yechilgandan keyin qoldiq balans va keshbekni chiqaring: \"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback().",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Har bir xariddan 2% keshbek 'private double cashback;' hamyoniga avtomatik yig'iladi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. CashbackWalletda private double cashback = 0.0;.\n2. public void earnCashback(double spendAmount).\n3. public double getCashback().\n4. Mainda 100,000 som xariddan keshbek hisoblang: \"Keshbek: 2000.0 som\"."
     },
     "requirements": {
       "classes": [
-        "CashbackWallet",
+        "BankCard",
         "Main"
       ],
       "methods": [
         "earnCashback",
-        "getCashback"
+        "getCashback",
+        "getBalance"
       ],
-      "constructors": [],
+      "constructors": [
+        "BankCard"
+      ],
       "fields": [
-        "cashback"
+        "cashback",
+        "balance"
       ],
       "keywords": []
     },
@@ -578,8 +587,8 @@
       "Kutilayotgan natija: Keshbek: 2000.0 so'm"
     ],
     "starterCode": "",
-    "solution": "class CashbackWallet {\n    private double cashback = 0.0;\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        CashbackWallet cw = new CashbackWallet();\n        cw.earnCashback(100000.0);\n        System.out.println(\"Keshbek: \" + cw.getCashback() + \" so'm\");\n    }\n}",
-    "expectedOutput": "Keshbek: 2000.0 so'm",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private double cashback = 0.0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) this.balance += amount;\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            earnCashback(amount);\n            return true;\n        }\n        return false;\n    }\n\n    public void earnCashback(double spendAmount) {\n        if (spendAmount > 0) {\n            this.cashback += spendAmount * 0.02;\n        }\n    }\n\n    public double getCashback() {\n        return this.cashback;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Qoldiq: \" + card.getBalance() + \" | Keshbek: \" + card.getCashback());\n    }\n}",
+    "expectedOutput": "Qoldiq: 50000.0 | Keshbek: 500.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -606,21 +615,21 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "8. 🚫 Kartani Muzlatish va Qulflash",
+      "uz": "8. 📱 SMS Xabarnoma Telefon Raqami (+998)",
       "en": "8. Card Lock",
       "ru": "8. Блокировка карты"
     },
     "story": {
-      "uz": "Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.",
+      "uz": "To'lovlar haqida SMS xabar borishi uchun kartaga telefon raqami 'private String phoneNumber;' biriktiriladi. Raqam faqat '+998' bilan boshlanishi va 13 ta belgidan iborat bo'lishi shart.",
       "en": "In Uzum & Payme FinTech ecosystem: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.",
       "ru": "В экосистеме Uzum & Payme FinTech: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi."
     },
     "steps": {
       "uz": [
-        "<code>LockableCard</code>da <code>private boolean isBlocked = false;</code>.",
-        "<code>public void lockCard()</code>, <code>public void unlockCard()</code>.",
-        "<code>public boolean isLocked()</code>.",
-        "<code>Main</code>da kartani qulflang va holatini chiqaring: \"Karta bloklangan: true\"."
+        "<code>BankCard</code>da <code>private String phoneNumber;</code> maydoni.",
+        "<code>public boolean setPhoneNumber(String phone)</code>: faqat '+998' bilan boshlansa va uzunligi 13 bo'lsa qabul qilib true qaytarsin.",
+        "<code>public String getPhoneNumber()</code>: telefon raqamini qaytarsin.",
+        "<code>Main</code>da Ali Valiyevning kartasiga '+998901234567' raqamini biriktiring va chiqaring."
       ],
       "en": [
         "<code>LockableCard</code>da <code>private boolean isBlocked = false;</code>.",
@@ -636,23 +645,26 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nAgar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini chiqaring: \"Karta bloklangan: true\".",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nTo'lovlar haqida SMS xabar borishi uchun kartaga telefon raqami 'private String phoneNumber;' biriktiriladi. Raqam faqat '+998' bilan boshlanishi va 13 ta belgidan iborat bo'lishi shart.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private String phoneNumber;' maydoni.\n2. 'public boolean setPhoneNumber(String phone)': faqat '+998' bilan boshlansa va uzunligi 13 bo'lsa qabul qilib true qaytarsin.\n3. 'public String getPhoneNumber()': telefon raqamini qaytarsin.\n4. 'Main'da Ali Valiyevning kartasiga '+998901234567' raqamini biriktiring va konsolga: \"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini print to console: \"Karta bloklangan: true\".",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Agar karta yo'qolsa, 'isBlocked' true qilinadi va hech qanday to'lov o'tmaydi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. LockableCardda private boolean isBlocked = false;.\n2. public void lockCard(), public void unlockCard().\n3. public boolean isLocked().\n4. Mainda kartani qulflang va holatini выведите в консоль: \"Karta bloklangan: true\"."
     },
     "requirements": {
       "classes": [
-        "LockableCard",
+        "BankCard",
         "Main"
       ],
       "methods": [
-        "lockCard",
-        "unlockCard",
-        "isLocked"
+        "setPhoneNumber",
+        "getPhoneNumber",
+        "getCardHolder"
       ],
-      "constructors": [],
+      "constructors": [
+        "BankCard"
+      ],
       "fields": [
-        "isBlocked"
+        "phoneNumber",
+        "cardHolder"
       ],
       "keywords": []
     },
@@ -661,8 +673,8 @@
       "Kutilayotgan natija: Karta bloklangan: true"
     ],
     "starterCode": "",
-    "solution": "class LockableCard {\n    private boolean isBlocked = false;\n\n    public void lockCard() {\n        this.isBlocked = true;\n    }\n\n    public void unlockCard() {\n        this.isBlocked = false;\n    }\n\n    public boolean isLocked() {\n        return this.isBlocked;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        LockableCard card = new LockableCard();\n        card.lockCard();\n        System.out.println(\"Karta bloklangan: \" + card.isLocked());\n    }\n}",
-    "expectedOutput": "Karta bloklangan: true",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private String phoneNumber;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\") && phone.length() == 13) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"Mijoz: \" + card.getCardHolder() + \" | SMS: \" + card.getPhoneNumber());\n    }\n}",
+    "expectedOutput": "Mijoz: Ali Valiyev | SMS: +998901234567",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -689,21 +701,21 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "9. 📱 Telefon Raqami Validatsiyasi",
+      "uz": "9. 📊 Tranzaksiyalar Soni va Audit Jurnali",
       "en": "9. Phone Validation",
       "ru": "9. Валидация телефона"
     },
     "story": {
-      "uz": "Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.",
+      "uz": "Bank audit xavfsizligi talabi: kartadagi har bir amaliyot hisoblab borilishi shart ('private int transactionCount = 0;').",
       "en": "In Uzum & Payme FinTech ecosystem: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.",
       "ru": "В экосистеме Uzum & Payme FinTech: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi."
     },
     "steps": {
       "uz": [
-        "<code>SmsProfile</code>da <code>private String phoneNumber;</code>.",
-        "<code>public boolean setPhoneNumber(String phone)</code>.",
-        "<code>public String getPhoneNumber()</code>.",
-        "<code>Main</code>da \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb chiqaring."
+        "<code>BankCard</code>da <code>private int transactionCount = 0;</code> maydoni.",
+        "Har bir muvaffaqiyatli <code>deposit</code> yoki <code>withdraw</code> da <code>this.transactionCount++</code> qilinsin.",
+        "<code>public int getTransactionCount()</code>: amallar sonini qaytarsin.",
+        "<code>Main</code>da 1 ta deposit va 1 ta withdraw amali bajarilgandan keyin jami amallar soni va qoldiqni chiqaring."
       ],
       "en": [
         "<code>SmsProfile</code>da <code>private String phoneNumber;</code>.",
@@ -719,22 +731,27 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nTelefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBank audit xavfsizligi talabi: kartadagi har bir amaliyot hisoblab borilishi shart ('private int transactionCount = 0;').\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'private int transactionCount = 0;' maydoni.\n2. Har bir muvaffaqiyatli 'deposit' yoki 'withdraw' da 'this.transactionCount++' qilinsin.\n3. 'public int getTransactionCount()': amallar sonini qaytarsin.\n4. 'Main'da 1 ta deposit va 1 ta withdraw amali bajarilgandan keyin jami amallar soni va qoldiqni chiqaring: \"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance().",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n[Step-by-Step Implementation Tasks (1 to 4)]\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Telefon raqami faqat '+998' bilan boshlanganda qabul qilinadi.\n\n📋 Пошаговые задачи (от 1 до 4)\n1. SmsProfileda private String phoneNumber;.\n2. public boolean setPhoneNumber(String phone).\n3. public String getPhoneNumber().\n4. Mainda \"+998901234567\" o'rnating va konsolga: \"SMS raqami: \" + p.getPhoneNumber() deb выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "SmsProfile",
+        "BankCard",
         "Main"
       ],
       "methods": [
-        "setPhoneNumber",
-        "getPhoneNumber"
+        "deposit",
+        "withdraw",
+        "getTransactionCount",
+        "getBalance"
       ],
-      "constructors": [],
+      "constructors": [
+        "BankCard"
+      ],
       "fields": [
-        "phoneNumber"
+        "transactionCount",
+        "balance"
       ],
       "keywords": []
     },
@@ -743,8 +760,8 @@
       "Kutilayotgan natija: SMS raqami: +998901234567"
     ],
     "starterCode": "",
-    "solution": "class SmsProfile {\n    private String phoneNumber;\n\n    public boolean setPhoneNumber(String phone) {\n        if (phone != null && phone.startsWith(\"+998\")) {\n            this.phoneNumber = phone;\n            return true;\n        }\n        return false;\n    }\n\n    public String getPhoneNumber() {\n        return this.phoneNumber;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        SmsProfile p = new SmsProfile();\n        p.setPhoneNumber(\"+998901234567\");\n        System.out.println(\"SMS raqami: \" + p.getPhoneNumber());\n    }\n}",
-    "expectedOutput": "SMS raqami: +998901234567",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double initialBalance) {\n        this.cardHolder = cardHolder;\n        this.balance = initialBalance;\n    }\n\n    public void deposit(double amount) {\n        if (amount > 0) {\n            this.balance += amount;\n            this.transactionCount++;\n        }\n    }\n\n    public boolean withdraw(double amount) {\n        if (amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public int getTransactionCount() {\n        return this.transactionCount;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 50000.0);\n        card.deposit(25000.0);\n        card.withdraw(25000.0);\n        System.out.println(\"Amallar: \" + card.getTransactionCount() + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Amallar: 2 | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",
@@ -771,22 +788,20 @@
     "appType": "bank",
     "simKind": "card",
     "title": {
-      "uz": "10. 🏦 To'liq Xavfsiz Bank Hisobi (Master)",
+      "uz": "10. 🏦 To'liq Xavfsiz Bank Hisobi (Master Pay with PIN)",
       "en": "10. Master Secure Account",
       "ru": "10. Мастер безопасный счет"
     },
     "story": {
-      "uz": "Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.",
+      "uz": "1-Ustun (Inkapsulyatsiya) ning barcha talablari birlashadi: PIN tekshiruvi, balans, keshbek va tranzaksiya hisoboti bitta to'lov metodida jamlanadi!",
       "en": "In Uzum & Payme FinTech ecosystem: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.",
       "ru": "В экосистеме Uzum & Payme FinTech: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob."
     },
     "steps": {
       "uz": [
-        "<code>MasterAccount</code>da <code>private String owner;</code>, <code>private double balance;</code>, <code>private int pin;</code>.",
-        "Konstruktor <code>public MasterAccount(String owner, double balance, int pin)</code>.",
-        "<code>public boolean pay(double amount, int enteredPin)</code>.",
-        "<code>public double getBalance()</code>.",
-        "<code>Main</code>da 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb chiqaring."
+        "<code>BankCard</code>da <code>public BankCard(String cardHolder, double balance, int pin)</code> konstruktori.",
+        "<code>public boolean pay(double amount, int enteredPin)</code>: agar enteredPin to'g'ri va balance yetarli bo'lsa, balansdan ayirsin, 2% keshbek qo'shsin, transactionCount ni oshirsin va true qaytarsin.",
+        "<code>Main</code>da Ali Valiyevning 75,000 lik kartasidan 1234 PIN orqali 25,000 to'lov qiling va natijani chiqaring."
       ],
       "en": [
         "<code>MasterAccount</code>da <code>private String owner;</code>, <code>private double balance;</code>, <code>private int pin;</code>.",
@@ -804,23 +819,25 @@
       ]
     },
     "scenario": {
-      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\nBalans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb chiqaring.",
+      "uz": "📖 Hayotiy Voqealik (WIUT Kurs Ishi Arxitekturasi)\n1-Ustun (Inkapsulyatsiya) ning barcha talablari birlashadi: PIN tekshiruvi, balans, keshbek va tranzaksiya hisoboti bitta to'lov metodida jamlanadi!\n\n📋 Bajarilishi Kerak Bo'lgan Qadamlar:\n1. 'BankCard'da 'public BankCard(String cardHolder, double balance, int pin)' konstruktori.\n2. 'public boolean pay(double amount, int enteredPin)': agar enteredPin to'g'ri va balance yetarli bo'lsa, balansdan ayirsin, 2% keshbek qo'shsin, transactionCount ni oshirsin va true qaytarsin.\n3. 'Main'da Ali Valiyevning 75,000 lik kartasidan 1234 PIN orqali 25,000 to'lov qiling va konsolga: \"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance() deb chiqaring.",
       "en": "[Real-World Story & Context]\nIn Uzum & Payme FinTech ecosystem: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n[Step-by-Step Implementation Tasks (1 to 5)]\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb print to console.",
       "ru": "📖 Контекст и описание задачи\nВ экосистеме Uzum & Payme FinTech: Balans, egasi va PIN kod birlashgan mukammal himoyalangan hisob.\n\n📋 Пошаговые задачи (от 1 до 5)\n1. MasterAccountda private String owner;, private double balance;, private int pin;.\n2. Konstruktor public MasterAccount(String owner, double balance, int pin).\n3. public boolean pay(double amount, int enteredPin).\n4. public double getBalance().\n5. Mainda 100,000 balansli hisobdan 40,000 to'lang va konsolga: \"Muvaffaqiyatli: true | Qoldiq: \" + acc.getBalance() deb выведите в консоль."
     },
     "requirements": {
       "classes": [
-        "MasterAccount",
+        "BankCard",
         "Main"
       ],
       "methods": [
         "pay",
-        "getBalance"
+        "getBalance",
+        "getCardHolder"
       ],
       "constructors": [
-        "MasterAccount"
+        "BankCard"
       ],
       "fields": [
+        "cardHolder",
         "balance",
         "pin"
       ],
@@ -831,8 +848,8 @@
       "Kutilayotgan natija: Muvaffaqiyatli: true | Qoldiq: 60000.0"
     ],
     "starterCode": "",
-    "solution": "class MasterAccount {\n    private String owner;\n    private double balance;\n    private int pin;\n\n    public MasterAccount(String owner, double balance, int pin) {\n        this.owner = owner;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            return true;\n        }\n        return false;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        MasterAccount acc = new MasterAccount(\"Sardor\", 100000.0, 7777);\n        boolean ok = acc.pay(40000.0, 7777);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + acc.getBalance());\n    }\n}",
-    "expectedOutput": "Muvaffaqiyatli: true | Qoldiq: 60000.0",
+    "solution": "class BankCard {\n    private String cardHolder;\n    private double balance;\n    private int pin;\n    private double cashback = 0.0;\n    private int transactionCount = 0;\n\n    public BankCard(String cardHolder, double balance, int pin) {\n        this.cardHolder = cardHolder;\n        this.balance = balance;\n        this.pin = pin;\n    }\n\n    public boolean pay(double amount, int enteredPin) {\n        if (this.pin == enteredPin && amount > 0 && amount <= this.balance) {\n            this.balance -= amount;\n            this.cashback += amount * 0.02;\n            this.transactionCount++;\n            return true;\n        }\n        return false;\n    }\n\n    public String getCardHolder() {\n        return this.cardHolder;\n    }\n\n    public double getBalance() {\n        return this.balance;\n    }\n}\n\nclass Main {\n    public static void main(String[] args) {\n        BankCard card = new BankCard(\"Ali Valiyev\", 75000.0, 1234);\n        boolean ok = card.pay(25000.0, 1234);\n        System.out.println(\"Muvaffaqiyatli: \" + ok + \" | Qoldiq: \" + card.getBalance());\n    }\n}",
+    "expectedOutput": "Muvaffaqiyatli: true | Qoldiq: 50000.0",
     "detailedSolution": {
       "theory": "Inkapsulyatsiya (Encapsulation) — obyektning ichki maydonlarini (masalan, balans, PIN kod, limitlar) to'g'ridan-to'g'ri tashqi aralashuvdan private modifikatori orqali himoyalash va ularga faqat xavfsiz metodlar (getters/setters/operations) orqali boshqariladigan kirishni ta'minlash tamoyili.",
       "theoryEn": "Encapsulation protects internal object state (balance, PIN, limits) using private access modifiers, exposing controlled operations via public methods with data validation.",

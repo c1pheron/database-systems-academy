@@ -630,6 +630,19 @@
           updateMemoryDisplay(curCh, editor.value);
         }
       });
+
+      // Ensure code editor immediately gains focus when clicking anywhere inside editor area on Desktop/PC
+      const codeWrapper = document.querySelector(".code-wrapper");
+      const codeViewport = document.getElementById("codeViewport");
+      [codeWrapper, codeViewport].forEach(el => {
+        if (el) {
+          el.addEventListener("click", (e) => {
+            if (editor && document.activeElement !== editor && !e.target.closest("button") && !e.target.closest(".code-autocomplete-dropdown")) {
+              editor.focus();
+            }
+          });
+        }
+      });
     }
 
     // 7. Terminal Interactive Resize & Quick Control Handlers
