@@ -2422,3 +2422,201 @@ body {
   background: rgba(147, 51, 234, 0.35) !important;
   color: #f3e8ff !important;
 }
+
+
+/* ============================================================================
+   CARD BRAND GRADIENTS & USER-DRIVEN STYLES (PROFESSOR ADA)
+   ============================================================================ */
+.humo-card.card-uzcard {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%) !important;
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.4) !important;
+}
+
+.humo-card.card-humo {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 50%, #9a3412 100%) !important;
+  box-shadow: 0 15px 35px rgba(234, 88, 12, 0.4) !important;
+}
+
+.humo-card.card-visa {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 50%, #172554 100%) !important;
+  box-shadow: 0 15px 35px rgba(29, 78, 216, 0.4) !important;
+}
+
+.humo-card.card-mastercard {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%) !important;
+  box-shadow: 0 15px 35px rgba(185, 28, 28, 0.4) !important;
+}
+
+.humo-card.card-karta {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #0f172a 100%) !important;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.5) !important;
+}
+
+.card-val-empty {
+  opacity: 0.45;
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 1.5px;
+}
+
+/* ============================================================================
+   PHONE APP METHOD ACTION BUTTONS (NO DRIFT, VISUAL BINDING ONLY)
+   ============================================================================ */
+.btn-app-method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(2, 6, 23, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.btn-app-method.active {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(6, 78, 59, 0.18);
+}
+
+.btn-app-method.active:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.15);
+  border-color: rgba(16, 185, 129, 0.7);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+
+.btn-app-method.active:active {
+  transform: scale(0.98);
+  filter: brightness(0.95);
+}
+
+.btn-app-method.locked {
+  opacity: 0.55;
+  border: 1px dashed rgba(100, 116, 139, 0.35);
+  cursor: default;
+}
+
+.bam-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bam-icon {
+  font-size: 16px;
+}
+
+.bam-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.bam-sig {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #f1f5f9;
+}
+
+.bam-sig strong {
+  color: #38bdf8;
+}
+
+.bam-sub {
+  font-size: 9.5px;
+  color: #94a3b8;
+}
+
+.bam-pill {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.bam-pill.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.bam-pill.locked {
+  background: rgba(100, 116, 139, 0.2);
+  color: #94a3b8;
+  border: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+.bam-other-strip {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(148, 163, 184, 0.15);
+}
+
+.bam-other-lbl {
+  display: block;
+  font-size: 9.5px;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+
+.bam-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.bam-chip {
+  padding: 3px 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  color: #cbd5e1;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bam-chip:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.bam-chip:active {
+  transform: scale(0.96);
+}
+
+/* PHONE ACTION TOAST NOTIFICATION */
+.phone-action-toast {
+  position: absolute;
+  top: 60px;
+  left: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid #38bdf8;
+  color: #f8fafc;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 11px;
+  line-height: 1.4;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.phone-action-toast.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}

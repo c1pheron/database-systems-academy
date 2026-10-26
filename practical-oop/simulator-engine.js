@@ -412,91 +412,41 @@
 
     
     
-    execSimMethod(methodName, argVal) {
-      if (!this.currentState) return;
-      const kind = this.currentChallenge ? this.currentChallenge.simKind : "";
+    testMethodClick(methodName) {
+      const msgs = {
+        deposit: "💳 deposit() metodi faol! Kartadagi real balans kodingizdagi chaqiruv orqali belgilanadi.",
+        withdraw: "🏧 withdraw() metodi faol! Xavfsiz pul yechish kodingizdagi tekshiruvlar orqali amalga oshadi.",
+        lockCard: "🔒 lockCard() xavfsizlik metodi kodingizda muvaffaqiyatli mavjud!",
+        unlockCard: "🔓 unlockCard() metodi kodingizda muvaffaqiyatli mavjud!",
+        getBalance: "👁️ getBalance() orqali kartadagi real balans tekshirilmoqda.",
+        getCardHolder: "👤 getCardHolder() orqali karta egasi nomi qaytarilmoqda.",
+        getCardNumber: "🔢 getCardNumber() orqali karta raqami tekshirilmoqda."
+      };
+      const text = msgs[methodName] || `⚡ ${methodName}() metodi ilovaga muvaffaqiyatli bog'langan!`;
+      this.showPhoneToast(text);
+    },
 
-      if (kind === "card") {
-        const cards = this.currentState.cards || [];
-        const activeIdx = (this.currentState.activeCardIdx !== undefined && this.currentState.activeCardIdx < cards.length) ? this.currentState.activeCardIdx : 0;
-        const card = cards[activeIdx] || cards[0];
-        if (!card) return;
-
-        if (methodName === "deposit") {
-          const amt = Number(argVal) || 25000;
-          card.balance = (Number(card.balance) || 0) + amt;
-          card.lastTxMsg = `+${amt.toLocaleString()} UZS depozit qilindi! Balans: ${Number(card.balance).toLocaleString()} UZS`;
-          if (!card.transactions) card.transactions = [];
-          card.transactions.unshift({ type: "deposit", amount: amt, time: new Date().toLocaleTimeString() });
-          this.currentState.balance = card.balance;
-        } else if (methodName === "withdraw") {
-          const amt = Number(argVal) || 10000;
-          if (card.isLocked) {
-            card.lastTxMsg = "🚫 Xatolik: Karta bloklangan! Mablag' yechib bo'lmaydi.";
-          } else if (amt > card.balance) {
-            card.lastTxMsg = `⚠️ Yetarli mablag' mavjud emas! (Balans: ${Number(card.balance).toLocaleString()} UZS)`;
-          } else {
-            card.balance = (Number(card.balance) || 0) - amt;
-            card.lastTxMsg = `-${amt.toLocaleString()} UZS muvaffaqiyatli yechildi! Qoldiq: ${Number(card.balance).toLocaleString()} UZS`;
-            if (!card.transactions) card.transactions = [];
-            card.transactions.unshift({ type: "withdraw", amount: amt, time: new Date().toLocaleTimeString() });
-            this.currentState.balance = card.balance;
-          }
-        } else if (methodName === "toggleLock") {
-          card.isLocked = !card.isLocked;
-          card.lastTxMsg = card.isLocked ? "🔒 Karta bloklandi! Xaridlar to'xtatildi." : "🔓 Karta blokdan chiqarildi!";
-          this.currentState.isLocked = card.isLocked;
-        } else if (methodName === "spend") {
-          const amt = Number(argVal) || 15000;
-          if (card.isLocked) {
-            card.lastTxMsg = "🚫 Xatolik: Karta bloklangan!";
-          } else if (amt > card.balance) {
-            card.lastTxMsg = "⚠️ Yetarli mablag' mavjud emas!";
-          } else {
-            card.balance = (Number(card.balance) || 0) - amt;
-            card.lastTxMsg = `-${amt.toLocaleString()} UZS xarid qilindi!`;
-            this.currentState.balance = card.balance;
-          }
-        } else if (methodName === "earnCashback") {
-          const amt = Number(argVal) || 5000;
-          card.balance = (Number(card.balance) || 0) + amt;
-          card.lastTxMsg = `🎁 +${amt.toLocaleString()} UZS keshbek qo'shildi!`;
-          this.currentState.balance = card.balance;
+    showPhoneToast(message) {
+      if (typeof document === "undefined") return;
+      let toastEl = document.getElementById("phoneActionToast");
+      if (!toastEl) {
+        const body = document.querySelector(".phone-screen-body");
+        if (body) {
+          toastEl = document.createElement("div");
+          toastEl.id = "phoneActionToast";
+          toastEl.className = "phone-action-toast";
+          body.appendChild(toastEl);
         }
-
-        // Re-render phone screen
-        this.render(true);
-
-        // Update live heap text display
-        if (typeof document !== "undefined") {
-          const memEl = document.getElementById("memoryContentText") || document.querySelector(".live-inspect-box code");
-          if (memEl) {
-            memEl.textContent = `${card.cardType || 'BankCard'}@heap[${card.varName}] { cardNumber: "${card.cardNumber || '8600 ...'}", cardHolder: "${card.holder || 'null'}", balance: ${card.balance}.0, isLocked: ${card.isLocked ? 'true' : 'false'} };`;
-          }
-        }
-      } else if (kind === "bulb") {
-        if (methodName === "turnOn") this.currentState.isOn = true;
-        if (methodName === "turnOff") this.currentState.isOn = false;
-        this.render(true);
-      } else if (kind === "product") {
-        if (methodName === "buy" && this.currentState.stock > 0) {
-          this.currentState.stock--;
-          this.currentState.bought = (this.currentState.bought || 0) + 1;
-        } else if (methodName === "restock") {
-          this.currentState.stock += 5;
-        }
-        this.render(true);
-      } else if (kind === "counter") {
-        if (methodName === "increment") this.currentState.count++;
-        if (methodName === "decrement" && this.currentState.count > 0) this.currentState.count--;
-        this.render(true);
-      } else if (kind === "coffee") {
-        if (methodName === "brew" && this.currentState.waterMl >= 50 && this.currentState.beansGrams >= 15) {
-          this.currentState.waterMl -= 50;
-          this.currentState.beansGrams -= 15;
-          this.currentState.brewed = (this.currentState.brewed || 0) + 1;
-        }
-        this.render(true);
+      }
+      if (toastEl) {
+        toastEl.textContent = message;
+        toastEl.classList.remove("show");
+        void toastEl.offsetWidth; // trigger reflow
+        toastEl.classList.add("show");
+        clearTimeout(this._toastTimer);
+        this._toastTimer = setTimeout(() => {
+          if (toastEl) toastEl.classList.remove("show");
+        }, 3000);
       }
     },
 
@@ -526,7 +476,7 @@
       const cards = [];
       const cardTypeRegex = /(?:BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard|CashbackCard|VipCard)/;
 
-      // 1. Match instantiated cards: e.g. "BankCard card = new BankCard(50000.0);" or "var card2 = new BankCard(...)"
+      // 1. Instantiation matching: new BankCard(...)
       const instRegex = /(?:([A-Za-z0-9_]+)\s+)?([a-zA-Z_$][a-zA-Z0-9_$]*)\s*=\s*new\s+([A-Za-z0-9_]+)\s*\(([^)]*)\)/g;
       let m;
       const seenVars = new Set();
@@ -543,25 +493,30 @@
           const card = {
             varName: varName,
             cardType: constructedType || declaredType || "BankCard",
+            brand: "",
             balance: 0,
             initialBalance: 0,
             holder: "",
             cardNumber: "",
-            expiryDate: "12/28",
-            cvv: "777",
+            expiryDate: "",
+            cvv: "",
             lastTxMsg: "",
             isLocked: false,
             transactions: []
           };
 
-          // Parse constructor arguments
+          // Parse constructor arguments strictly from code
           const strMatches = Array.from(argsStr.matchAll(/["']([^"']+)["']/g)).map(x => x[1]);
           strMatches.forEach(str => {
             const cleanDigits = str.replace(/[^0-9]/g, "");
             if (cleanDigits.length === 16) {
               card.cardNumber = cleanDigits.replace(/(.{4})/g, "$1 ").trim();
-            } else if (cleanDigits.length === 12 || cleanDigits.length === 13) {
-              card.phone = str;
+            } else if (/^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(str)) {
+              card.expiryDate = str;
+            } else if (/^[0-9]{3}$/.test(str)) {
+              card.cvv = str;
+            } else if (/^(UZCARD|HUMO|VISA|MASTERCARD)$/i.test(str)) {
+              card.brand = str.toUpperCase();
             } else if (/[a-zA-Z]/.test(str)) {
               card.holder = str.toUpperCase();
             }
@@ -572,16 +527,13 @@
           if (numMatches.length > 0) {
             card.balance = numMatches[0];
             card.initialBalance = numMatches[0];
-            if (numMatches.length > 1) {
-              card.dailyLimit = numMatches[1];
-            }
           }
 
           cards.push(card);
         }
       }
 
-      // If no explicit variable assignment was found, but "new BankCard(...)" exists:
+      // If no explicit variable assignment found, but "new BankCard(...)" exists:
       if (cards.length === 0) {
         const genericNew = /new\s+(BankCard|GoldCard|PlatinumCard|Card|SecureCard|LimitedCard|CashbackCard|VipCard)\s*\(([^)]*)\)/.exec(code);
         if (genericNew) {
@@ -590,12 +542,13 @@
           const card = {
             varName: "card",
             cardType: constructedType,
+            brand: "",
             balance: 0,
             initialBalance: 0,
             holder: "",
             cardNumber: "",
-            expiryDate: "12/28",
-            cvv: "777",
+            expiryDate: "",
+            cvv: "",
             lastTxMsg: "",
             isLocked: false,
             transactions: []
@@ -605,6 +558,12 @@
             const cleanDigits = str.replace(/[^0-9]/g, "");
             if (cleanDigits.length === 16) {
               card.cardNumber = cleanDigits.replace(/(.{4})/g, "$1 ").trim();
+            } else if (/^(0[1-9]|1[0-2])\/[0-9]{2}$/.test(str)) {
+              card.expiryDate = str;
+            } else if (/^[0-9]{3}$/.test(str)) {
+              card.cvv = str;
+            } else if (/^(UZCARD|HUMO|VISA|MASTERCARD)$/i.test(str)) {
+              card.brand = str.toUpperCase();
             } else if (/[a-zA-Z]/.test(str)) {
               card.holder = str.toUpperCase();
             }
@@ -620,23 +579,44 @@
         }
       }
 
-      // 2. Sequential operations on each card variable
+      // 2. Sequential operations and explicit property assignments on each card
       cards.forEach(card => {
         const v = card.varName;
 
         // Check holder assignment: card.setCardHolder("..."), card.setHolder("..."), or card.cardHolder = "..."
-        const holderAssign = new RegExp(v + "\\.(?:setCardHolder|setHolder)\\s*\\(\\s*[\"']([^\"']+)[\"']\\s*\\)|" + v + "\\.cardHolder\\s*=\\s*[\"']([^\"']+)[\"']");
+        const holderAssign = new RegExp(v + "\\.(?:setCardHolder|setHolder)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.cardHolder\\s*=\\s*['\"]([^'\"]+)['\"]");
         const hm = code.match(holderAssign);
         if (hm) {
           card.holder = (hm[1] || hm[2]).toUpperCase();
         }
 
-        // Check card number assignment: card.setCardNumber("...")
-        const numAssign = new RegExp(v + "\\.setCardNumber\\s*\\(\\s*[\"']([^\"']+)[\"']\\s*\\)");
+        // Check card number assignment: card.setCardNumber("...") or card.cardNumber = "..."
+        const numAssign = new RegExp(v + "\\.setCardNumber\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.cardNumber\\s*=\\s*['\"]([^'\"]+)['\"]");
         const nm = code.match(numAssign);
         if (nm) {
-          const clean = nm[1].replace(/[^0-9]/g, "");
+          const clean = (nm[1] || nm[2]).replace(/[^0-9]/g, "");
           card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
+        }
+
+        // Check expiry date assignment: card.setExpiryDate("...") or card.expiryDate = "..."
+        const expAssign = new RegExp(v + "\\.set(?:ExpiryDate|ExpireDate)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.(?:expiryDate|expireDate)\\s*=\\s*['\"]([^'\"]+)['\"]");
+        const em = code.match(expAssign);
+        if (em) {
+          card.expiryDate = em[1] || em[2];
+        }
+
+        // Check CVV assignment: card.setCvv("...") or card.cvv = "..."
+        const cvvAssign = new RegExp(v + "\\.set(?:Cvv|Cvc)\\s*\\(\\s*['\"]?([0-9]{3})['\"]?\\s*\\)|" + v + "\\.(?:cvv|cvc)\\s*=\\s*['\"]?([0-9]{3})['\"]?");
+        const cm = code.match(cvvAssign);
+        if (cm) {
+          card.cvv = cm[1] || cm[2];
+        }
+
+        // Check brand assignment: card.setBrand("...") or card.brand = "..."
+        const brandAssign = new RegExp(v + "\\.set(?:Brand|Network)\\s*\\(\\s*['\"]([^'\"]+)['\"]\\s*\\)|" + v + "\\.(?:brand|network)\\s*=\\s*['\"]([^'\"]+)['\"]");
+        const bm = code.match(brandAssign);
+        if (bm) {
+          card.brand = (bm[1] || bm[2]).toUpperCase();
         }
 
         // Check lock/unlock
@@ -645,28 +625,26 @@
         if (lockRegex.test(code)) card.isLocked = true;
         if (unlockRegex.test(code)) card.isLocked = false;
 
-        // Sequential operations: deposit, withdraw, spend
+        // Sequential operations: deposit, withdraw, spend called in code
         const opRegex = new RegExp(v + "\\.(deposit|withdraw|spend|pay)\\s*\\(\\s*([0-9]+(?:\\.[0-9]+)?)\\s*\\)", "g");
         let opM;
         while ((opM = opRegex.exec(code)) !== null) {
           const op = opM[1];
           const amt = parseFloat(opM[2]);
 
-          if (op === "deposit") {
-            if (amt > 0) {
-              card.balance += amt;
-              card.lastTxMsg = `+${amt.toLocaleString()} UZS Depozit qilindi!`;
-              card.transactions.push({ type: "deposit", amount: amt, msg: `+${amt.toLocaleString()} UZS` });
-            }
+          if (op === "deposit" && amt > 0) {
+            card.balance += amt;
+            card.lastTxMsg = `+${amt.toLocaleString()} UZS Depozit qilindi!`;
+            card.transactions.push({ type: "deposit", amount: amt, msg: `+${amt.toLocaleString()} UZS` });
           } else if (op === "withdraw") {
             if (!card.isLocked && amt > 0 && amt <= card.balance) {
               card.balance -= amt;
               card.lastTxMsg = `-${amt.toLocaleString()} UZS Yechildi!`;
               card.transactions.push({ type: "withdraw", amount: amt, msg: `-${amt.toLocaleString()} UZS` });
             } else if (card.isLocked) {
-              card.lastTxMsg = `❌ Karta bloklangan!`;
+              card.lastTxMsg = "🚫 Karta bloklangan!";
             } else {
-              card.lastTxMsg = `❌ Mablag' yetarli emas!`;
+              card.lastTxMsg = "⚠️ Mablag' yetarli emas!";
             }
           } else if (op === "spend" || op === "pay") {
             if (!card.isLocked && amt > 0 && amt <= card.balance) {
@@ -678,32 +656,53 @@
         }
       });
 
-      // 3. Fallback for cardholder name if not explicitly set on card:
+      // 3. Fallbacks directly from general code if not explicitly on card
       cards.forEach(card => {
         if (!card.holder) {
-          const nameM = code.match(/(?:cardHolder|holder|name|mijoz|owner)\s*=\s*["']([^"']+)["']/i) ||
-                        code.match(/["']([A-Z][a-z]+(?:\s+[A-Z][a-z]+)+)["']/);
+          const nameM = code.match(/(?:cardHolder|holder|name|mijoz|owner)\\s*=\\s*["']([^"']+)["']/i) ||
+                        code.match(/["']([A-Z][a-z]+(?:\\s+[A-Z][a-z]+)+)["']/);
           if (nameM && !nameM[1].toLowerCase().includes("bank") && !nameM[1].toLowerCase().includes("uzs")) {
             card.holder = nameM[1].toUpperCase();
           }
         }
-        // Fallback for 16-digit card number if user wrote one in code
         if (!card.cardNumber) {
-          const cardNumMatch = code.match(/["']?((?:8600|9860|4000|5400)\s*(?:[0-9]{4}\s*){3}[0-9]{4}|(?:8600|9860|4000|5400)[0-9]{12})["']?/);
+          const cardNumMatch = code.match(/["']?((?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})\\s*(?:[0-9]{4}\\s*){3}[0-9]{4}|(?:8600|9860|4[0-9]{3}|5[1-5][0-9]{2})[0-9]{12})["']?/);
           if (cardNumMatch) {
             const clean = cardNumMatch[1].replace(/[^0-9]/g, "");
             card.cardNumber = clean.replace(/(.{4})/g, "$1 ").trim();
           }
         }
-      });
-
-      // 4. Sync balance with stdout if available
-      if (stdout && cards.length > 0) {
-        const outBalM = stdout.match(/(?:Balans|Qoldiq|Balance)[^0-9]*([0-9]+(?:\.[0-9]+)?)/i);
-        if (outBalM) {
-          cards[cards.length - 1].balance = parseFloat(outBalM[1]);
+        if (!card.expiryDate) {
+          const expM = code.match(/["'](0[1-9]|1[0-2])\/([2-3][0-9])["']/);
+          if (expM) {
+            card.expiryDate = expM[1] + "/" + expM[2];
+          }
         }
-      }
+        if (!card.cvv) {
+          const cvvM = code.match(/(?:cvv|cvc)\\s*=\\s*["']?([0-9]{3})["']?/i);
+          if (cvvM) {
+            card.cvv = cvvM[1];
+          }
+        }
+        if (!card.brand) {
+          const brandM = code.match(/\\b(UZCARD|HUMO|VISA|MASTERCARD)\\b/i);
+          if (brandM) {
+            card.brand = brandM[1].toUpperCase();
+          } else if (card.cardNumber.startsWith("8600")) {
+            card.brand = "UZCARD";
+          } else if (card.cardNumber.startsWith("9860")) {
+            card.brand = "HUMO";
+          } else if (card.cardNumber.startsWith("4")) {
+            card.brand = "VISA";
+          } else if (card.cardNumber.startsWith("5")) {
+            card.brand = "MASTERCARD";
+          } else if (card.cardNumber) {
+            card.brand = "UZCARD";
+          } else {
+            card.brand = "KARTA";
+          }
+        }
+      });
 
       return { cards };
     },
@@ -740,11 +739,15 @@
       const hasDeposit = hasMethod("deposit");
       const hasWithdraw = hasMethod("withdraw");
       const hasLock = hasMethod("lockcard") || hasMethod("lock");
-      const hasUnlock = hasMethod("unlockcard") || hasMethod("unlock");
       const chId = (this.currentChallenge && this.currentChallenge.id) || 1;
+
+      const otherMethods = declared.filter(m => !['deposit', 'withdraw', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase()));
 
       return `
         <div class="sim-scene card-scene animate-card-appear">
+          <!-- PHONE ACTION TOAST FEEDBACK -->
+          <div id="phoneActionToast" class="phone-action-toast"></div>
+
           ${cards.length > 1 ? `
             <div class="multi-card-bar">
               <span class="multi-card-lbl">KARTALAR (${cards.length} ta):</span>
@@ -758,11 +761,11 @@
             </div>
           ` : ''}
 
-          <!-- SMARTPHONE CARD GRAPHIC -->
-          <div class="humo-card ${c.isLocked ? 'card-locked' : ''}">
+          <!-- SMARTPHONE CARD GRAPHIC (EXACT USER VALUES) -->
+          <div class="humo-card card-${(c.brand || 'karta').toLowerCase()} ${c.isLocked ? 'card-locked' : ''}">
             <div class="humo-top">
               <div style="display:flex; align-items:center; gap:6px;">
-                <span class="humo-logo">${c.cardNumber && c.cardNumber.startsWith('8600') ? 'UZCARD' : 'HUMO'}</span>
+                <span class="humo-logo">${c.brand || 'KARTA'}</span>
                 <span class="card-var-badge">${c.varName || 'card'}</span>
                 ${c.isLocked ? '<span class="card-lock-badge">🔒 BLOKLANGAN</span>' : ''}
               </div>
@@ -772,7 +775,7 @@
               </div>
             </div>
 
-            <!-- To'liq 16 xonali karta raqami -->
+            <!-- 16 xonali karta raqami (Faqat talaba kiritganda ko'rinadi) -->
             <div class="card-num-row">
               ${c.cardNumber ? `
                 <span class="card-num-full">${c.cardNumber}</span>
@@ -783,19 +786,27 @@
               `}
             </div>
 
-            <!-- Amal qilish muddati va CVV -->
+            <!-- Amal qilish muddati va CVV (Faqat talaba kiritganda ko'rinadi) -->
             <div class="card-mid-row">
               <div class="card-exp-box">
                 <span class="card-tiny-lbl">VALID THRU</span>
-                <span class="card-exp-val">${c.expiryDate || '••/••'}</span>
+                ${c.expiryDate ? `
+                  <span class="card-exp-val">${c.expiryDate}</span>
+                ` : `
+                  <span class="card-exp-val card-val-empty" title="Karta muddati kodingizda biriktirilmagan">••/••</span>
+                `}
               </div>
               <div class="card-cvv-box">
                 <span class="card-tiny-lbl">CVV/CVC</span>
-                <span class="card-cvv-val">${c.cvv || '•••'}</span>
+                ${c.cvv ? `
+                  <span class="card-cvv-val">${c.cvv}</span>
+                ` : `
+                  <span class="card-cvv-val card-val-empty" title="CVV kodingizda biriktirilmagan">•••</span>
+                `}
               </div>
             </div>
 
-            <!-- Karta egasi va Balans -->
+            <!-- Karta egasi va Balans (Koddagi amallar asosida) -->
             <div class="card-bottom">
               <div class="card-holder-box">
                 <div class="card-lbl">KARTA EGASI</div>
@@ -817,7 +828,7 @@
 
           ${c.lastTxMsg ? `<div class="tx-badge">${c.lastTxMsg}</div>` : ''}
 
-          <!-- INTERACTIVE METHODS & LIVE ACTIONS PANEL -->
+          <!-- KODINGIZDAGI METODLAR (INTERAKTIV ILОВА TUGMALARI) -->
           <div class="phone-methods-section">
             <div class="phone-methods-header">
               <div class="pm-title-row">
@@ -828,98 +839,92 @@
             </div>
 
             <div class="phone-methods-list">
-              <!-- 1. DEPOSIT METODI -->
-              <div class="phone-method-item ${hasDeposit ? 'method-unlocked' : 'method-locked'}">
-                <div class="pm-row-top">
-                  <div class="pm-sig">
-                    <span class="pm-kw">void</span> <strong class="pm-fn">deposit</strong>(<span class="pm-arg">amount</span>)
-                  </div>
-                  ${hasDeposit ? `
-                    <span class="pm-badge active">✅ Kodingizda faol</span>
-                  ` : `
-                    <span class="pm-badge locked">🔒 Kutilmoqda</span>
-                  `}
-                </div>
-                ${hasDeposit ? `
-                  <div class="pm-action-row">
-                    <button type="button" class="btn-phone-op btn-op-deposit" onclick="window.SimulatorEngine.execSimMethod('deposit', 25000)" title="Kartaga +25,000 UZS kirim qilish">
-                      +25,000 UZS
-                    </button>
-                    <button type="button" class="btn-phone-op btn-op-deposit" onclick="window.SimulatorEngine.execSimMethod('deposit', 50000)" title="Kartaga +50,000 UZS kirim qilish">
-                      +50,000 UZS
-                    </button>
-                    <button type="button" class="btn-phone-op btn-op-deposit" onclick="window.SimulatorEngine.execSimMethod('deposit', 100000)" title="Kartaga +100,000 UZS kirim qilish">
-                      +100,000 UZS
-                    </button>
-                  </div>
-                ` : `
-                  <div class="pm-hint-text">Kodingizda <code>deposit(amount)</code> metodini yaratsangiz, bu yerda kartaga pul tushirish tugmalari ochiladi!</div>
-                `}
-              </div>
-
-              <!-- 2. WITHDRAW METODI -->
-              <div class="phone-method-item ${hasWithdraw ? 'method-unlocked' : 'method-locked'}">
-                <div class="pm-row-top">
-                  <div class="pm-sig">
-                    <span class="pm-kw">${hasWithdraw ? 'boolean/void' : 'boolean'}</span> <strong class="pm-fn">withdraw</strong>(<span class="pm-arg">amount</span>)
-                  </div>
-                  ${hasWithdraw ? `
-                    <span class="pm-badge active">✅ Kodingizda faol</span>
-                  ` : (chId === 1 ? `
-                    <span class="pm-badge locked">🔒 2-bosqichda ochiladi</span>
-                  ` : `
-                    <span class="pm-badge locked">🔒 Kutilmoqda</span>
-                  `)}
-                </div>
-                ${hasWithdraw ? `
-                  <div class="pm-action-row">
-                    <button type="button" class="btn-phone-op btn-op-withdraw" onclick="window.SimulatorEngine.execSimMethod('withdraw', 10000)" title="Kartadan -10,000 UZS yechish">
-                      -10,000 UZS
-                    </button>
-                    <button type="button" class="btn-phone-op btn-op-withdraw" onclick="window.SimulatorEngine.execSimMethod('withdraw', 25000)" title="Kartadan -25,000 UZS yechish">
-                      -25,000 UZS
-                    </button>
-                    <button type="button" class="btn-phone-op btn-op-withdraw" onclick="window.SimulatorEngine.execSimMethod('withdraw', 50000)" title="Kartadan -50,000 UZS yechish">
-                      -50,000 UZS
-                    </button>
-                  </div>
-                ` : `
-                  <div class="pm-hint-text">${chId === 1 ? "2-masalada 'withdraw' metodini qo'shib, kartadan xavfsiz pul yechishni boshlaysiz!" : "Kodingizda <code>withdraw(amount)</code> metodini yaratsangiz, pul yechish tugmalari ochiladi!"}</div>
-                `}
-              </div>
-
-              <!-- 3. LOCK/UNLOCK METODI (Agar kodingizda bo'lsa yoki chId >= 6) -->
-              ${(hasLock || hasUnlock || chId >= 6) ? `
-                <div class="phone-method-item ${hasLock ? 'method-unlocked' : 'method-locked'}">
-                  <div class="pm-row-top">
-                    <div class="pm-sig">
-                      <span class="pm-kw">void</span> <strong class="pm-fn">lockCard</strong>() / <strong class="pm-fn">unlockCard</strong>()
+              <!-- 1. DEPOSIT METODI TUGMASI -->
+              ${hasDeposit ? `
+                <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('deposit')" title="Kodingizdagi deposit() metodi">
+                  <div class="bam-left">
+                    <span class="bam-icon">💳</span>
+                    <div class="bam-info">
+                      <span class="bam-sig">void <strong>deposit</strong>(amount)</span>
+                      <span class="bam-desc">Pul Kiritish Amali</span>
                     </div>
-                    ${hasLock ? `
-                      <span class="pm-badge active">✅ Kodingizda faol</span>
-                    ` : `
-                      <span class="pm-badge locked">🔒 Kutilmoqda</span>
-                    `}
                   </div>
-                  ${hasLock ? `
-                    <div class="pm-action-row">
-                      <button type="button" class="btn-phone-op btn-op-lock" onclick="window.SimulatorEngine.execSimMethod('toggleLock')">
-                        ${c.isLocked ? '🔓 Qulfdan Chiqarish' : '🔒 Kartani Muzlatish (Lock)'}
+                  <span class="bam-pill active">✅ Kodingizda faol</span>
+                </button>
+              ` : `
+                <div class="btn-app-method locked" title="Kodingizda 'deposit' metodini yarating">
+                  <div class="bam-left">
+                    <span class="bam-icon">🔒</span>
+                    <div class="bam-info">
+                      <span class="bam-sig">void <strong>deposit</strong>(amount)</span>
+                      <span class="bam-desc">Kodingizda kutilmoqda</span>
+                    </div>
+                  </div>
+                  <span class="bam-pill locked">🔒 Hali yozilmagan</span>
+                </div>
+              `}
+
+              <!-- 2. WITHDRAW METODI TUGMASI -->
+              ${hasWithdraw ? `
+                <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('withdraw')" title="Kodingizdagi withdraw() metodi">
+                  <div class="bam-left">
+                    <span class="bam-icon">🏧</span>
+                    <div class="bam-info">
+                      <span class="bam-sig">boolean <strong>withdraw</strong>(amount)</span>
+                      <span class="bam-desc">Xavfsiz Pul Yechish</span>
+                    </div>
+                  </div>
+                  <span class="bam-pill active">✅ Kodingizda faol</span>
+                </button>
+              ` : `
+                <div class="btn-app-method locked" title="2-bosqichda ushbu metodni yozasiz">
+                  <div class="bam-left">
+                    <span class="bam-icon">🔒</span>
+                    <div class="bam-info">
+                      <span class="bam-sig">boolean <strong>withdraw</strong>(amount)</span>
+                      <span class="bam-desc">${chId === 1 ? "2-bosqichda kodingizga qo'shasiz" : "Kodingizda kutilmoqda"}</span>
+                    </div>
+                  </div>
+                  <span class="bam-pill locked">${chId === 1 ? "🔒 2-bosqichda ochiladi" : "🔒 Kutilmoqda"}</span>
+                </div>
+              `}
+
+              <!-- 3. LOCKCARD METODI TUGMASI (Agar yozilgan bo'lsa yoki chId >= 6) -->
+              ${(hasLock || chId >= 6) ? (`
+                ${hasLock ? `
+                  <button type="button" class="btn-app-method active" onclick="window.SimulatorEngine.testMethodClick('lockCard')" title="Kodingizdagi lockCard() metodi">
+                    <div class="bam-left">
+                      <span class="bam-icon">🔒</span>
+                      <div class="bam-info">
+                        <span class="bam-sig">void <strong>lockCard</strong>()</span>
+                        <span class="bam-desc">Kartani Muzlatish</span>
+                      </div>
+                    </div>
+                    <span class="bam-pill active">✅ Kodingizda faol</span>
+                  </button>
+                ` : `
+                  <div class="btn-app-method locked">
+                    <div class="bam-left">
+                      <span class="bam-icon">🔒</span>
+                      <div class="bam-info">
+                        <span class="bam-sig">void <strong>lockCard</strong>()</span>
+                        <span class="bam-desc">6-bosqichda kodingizga qo'shasiz</span>
+                      </div>
+                    </div>
+                    <span class="bam-pill locked">🔒 6-bosqichda ochiladi</span>
+                  </div>
+                `}
+              `) : ''}
+
+              <!-- 4. BOSHQA ANIKLANGAN METODLAR (Getter va Yordamchi metodlar) -->
+              ${otherMethods.length > 0 ? `
+                <div class="bam-other-strip">
+                  <span class="bam-other-lbl">🔍 Kodingizdagi boshqa metodlar:</span>
+                  <div class="bam-chips">
+                    ${otherMethods.map(m => `
+                      <button type="button" class="bam-chip" onclick="window.SimulatorEngine.testMethodClick('${m.name}')" title="${m.name}() metodini sinash">
+                        ⚡ ${m.name}()
                       </button>
-                    </div>
-                  ` : `
-                    <div class="pm-hint-text">6-masalada kartani muzlatish (lock/unlock) xavfsizlik funksiyasini kiritasiz.</div>
-                  `}
-                </div>
-              ` : ''}
-
-              <!-- 4. BOSHQALAR (GETTERLAR VA YORDAMCHI METODLAR) -->
-              ${declared.filter(m => !['deposit', 'withdraw', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase())).length > 0 ? `
-                <div class="pm-other-methods">
-                  <span class="pm-other-lbl">🔍 Kodingizdagi boshqa aniqlangan metodlar:</span>
-                  <div class="pm-other-tags">
-                    ${declared.filter(m => !['deposit', 'withdraw', 'lockcard', 'lock', 'unlockcard', 'unlock'].includes(m.name.toLowerCase())).map(m => `
-                      <span class="pm-tag">${m.name}()</span>
                     `).join('')}
                   </div>
                 </div>
