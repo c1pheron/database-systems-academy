@@ -3038,7 +3038,99 @@ permitted by applicable law.
 
   // --- Initialization ---
   
-  // --- Weekly Commands Modal Logic ---
+  // --- Weekly Commands & Command Detail Box Logic ---
+  let activeDetailCmd = null;
+
+  function openCommandDetailBox(cmdName) {
+    const modal = document.getElementById("modalCommandDetail");
+    if (!modal) return;
+
+    // Search command in dictionary first, then weekly commands data
+    const dictCmd = (typeof window.findDictionaryCommand === "function") ? window.findDictionaryCommand(cmdName) : null;
+    const weeklyCmds = window.WEEKLY_COMMANDS_DATA || [];
+    const wCmd = weeklyCmds.find(c => c.cmd.toLowerCase() === (cmdName || "").toLowerCase().trim());
+
+    const item = dictCmd || wCmd || {
+      cmd: cmdName,
+      name: cmdName + " Buyrug'i",
+      category: "Linux",
+      syntax: cmdName,
+      desc: "Debian 12 Kali Linux operatsion tizimi buyrug'i."
+    };
+
+    activeDetailCmd = item.cmd;
+
+    const elBadge = document.getElementById("cmdDetailBadge");
+    const elTitle = document.getElementById("cmdDetailTitle");
+    const elCat = document.getElementById("cmdDetailCategory");
+    const elDesc = document.getElementById("cmdDetailDesc");
+    const elSyntax = document.getElementById("cmdDetailSyntax");
+    const elRules = document.getElementById("cmdDetailRules");
+    const elFlagsSection = document.getElementById("cmdDetailFlagsSection");
+    const elFlagsGrid = document.getElementById("cmdDetailFlagsGrid");
+    const elExampleSection = document.getElementById("cmdDetailExampleSection");
+    const elExample = document.getElementById("cmdDetailExample");
+    const elAnalogySection = document.getElementById("cmdDetailAnalogySection");
+    const elAnalogy = document.getElementById("cmdDetailAnalogy");
+
+    if (elBadge) elBadge.textContent = item.cmd;
+    if (elTitle) elTitle.textContent = item.name || (item.cmd + " Buyrug'i");
+    if (elCat) elCat.textContent = item.catName || item.category || "Linux";
+    if (elDesc) elDesc.innerHTML = formatInlineMarkdown(item.desc || "Topshiriqni terminalda bajaring.");
+    if (elSyntax) elSyntax.textContent = item.syntax || item.cmd;
+
+    if (elRules) {
+      if (item.syntaxRules) {
+        elRules.style.display = "block";
+        elRules.innerHTML = "<b>📐 Qoida:</b> " + formatInlineMarkdown(item.syntaxRules);
+      } else {
+        elRules.style.display = "none";
+      }
+    }
+
+    if (elFlagsSection && elFlagsGrid) {
+      if (item.flags && item.flags.length > 0) {
+        elFlagsSection.style.display = "flex";
+        elFlagsGrid.innerHTML = item.flags.map(f => `
+          <div class="cmd-detail-flag-row">
+            <span class="cmd-detail-flag-key">${escapeHtml(f.flag)}</span>
+            <span class="cmd-detail-flag-desc">${escapeHtml(f.desc)}</span>
+          </div>
+        `).join("");
+      } else {
+        elFlagsSection.style.display = "none";
+      }
+    }
+
+    if (elExample && elExampleSection) {
+      const ex = item.example || item.syntax || item.cmd;
+      elExample.textContent = ex;
+    }
+
+    if (elAnalogy && elAnalogySection) {
+      if (item.analogy) {
+        elAnalogySection.style.display = "flex";
+        elAnalogy.textContent = item.analogy;
+      } else {
+        elAnalogySection.style.display = "none";
+      }
+    }
+
+    modal.style.display = "flex";
+    modal.classList.add("active");
+  }
+
+  function closeCommandDetailBox() {
+    const modal = document.getElementById("modalCommandDetail");
+    if (modal) {
+      modal.style.display = "none";
+      modal.classList.remove("active");
+    }
+  }
+
+  window.openCommandDetailBox = openCommandDetailBox;
+  window.closeCommandDetailBox = closeCommandDetailBox;
+
   function initWeeklyCommandsModal() {
     const modal = document.getElementById("modalWeeklyCommands");
     if (!modal) return;
@@ -3050,6 +3142,45 @@ permitted by applicable law.
     const searchInput = document.getElementById("weeklyCmdsSearchInput");
     const grid = document.getElementById("weeklyCommandsGrid");
     const countBadge = document.getElementById("weeklyCmdsCountBadge");
+
+    // Command Detail Box buttons
+    const btnDetailClose = document.getElementById("btnCmdDetailClose");
+    const btnDetailX = document.getElementById("btnCloseCmdDetail");
+    const btnDetailInsert = document.getElementById("btnCmdDetailInsert");
+    const btnDetailCopy = document.getElementById("btnCmdDetailCopy");
+    const detailModal = document.getElementById("modalCommandDetail");
+
+    if (btnDetailClose) btnDetailClose.addEventListener("click", closeCommandDetailBox);
+    if (btnDetailX) btnDetailX.addEventListener("click", closeCommandDetailBox);
+    if (detailModal) {
+      detailModal.addEventListener("click", (e) => {
+        if (e.target === detailModal) closeCommandDetailBox();
+      });
+    }
+
+    if (btnDetailInsert) {
+      btnDetailInsert.addEventListener("click", () => {
+        if (activeDetailCmd) {
+          closeCommandDetailBox();
+          closeModal();
+          insertKaliToken(activeDetailCmd);
+        }
+      });
+    }
+
+    if (btnDetailCopy) {
+      btnDetailCopy.addEventListener("click", () => {
+        if (activeDetailCmd) {
+          if (typeof window.copyToClipboard === "function") {
+            window.copyToClipboard(activeDetailCmd);
+          } else {
+            navigator.clipboard.writeText(activeDetailCmd);
+          }
+          btnDetailCopy.textContent = "✓ Nusxalandi";
+          setTimeout(() => { btnDetailCopy.textContent = "📋 Nusxalash"; }, 1500);
+        }
+      });
+    }
 
     function renderList(query = "") {
       if (!grid) return;
@@ -3083,7 +3214,7 @@ permitted by applicable law.
 
       grid.innerHTML = filtered.map(item => {
         return `
-          <div class="weekly-cmd-card" data-cmd="${escapeHtml(item.cmd)}" data-search="${escapeHtml(item.dictSearch || item.cmd)}">
+          <div class="weekly-cmd-card" data-cmd="${escapeHtml(item.cmd)}" title="Batafsil o'qish uchun bosing">
             <div>
               <div class="weekly-cmd-top">
                 <span class="weekly-cmd-name-badge">${escapeHtml(item.cmd)}</span>
@@ -3094,17 +3225,17 @@ permitted by applicable law.
               <div class="weekly-cmd-desc">${escapeHtml(item.desc || '')}</div>
             </div>
             <div class="weekly-cmd-footer">
-              <span class="weekly-cmd-dict-link">📖 Lug'atda O'qish →</span>
+              <span class="weekly-cmd-dict-link">📖 Batafsil O'qish →</span>
               <button type="button" class="weekly-cmd-insert-btn" title="Terminalga yozish">⚡ Terminalga</button>
             </div>
           </div>
         `;
       }).join("");
 
-      // Bind clicks to cards
+      // Bind clicks to cards -> Open Command Detail Box!
       grid.querySelectorAll(".weekly-cmd-card").forEach(card => {
         card.addEventListener("click", (e) => {
-          // If clicked insert button
+          // If clicked insert button directly
           if (e.target.closest(".weekly-cmd-insert-btn")) {
             e.stopPropagation();
             const cmdName = card.dataset.cmd;
@@ -3113,12 +3244,9 @@ permitted by applicable law.
             return;
           }
 
-          // Otherwise open dictionary
-          const searchKey = card.dataset.search || card.dataset.cmd;
-          closeModal();
-          if (typeof window.openOsDictionary === "function") {
-            window.openOsDictionary(searchKey);
-          }
+          // Otherwise open the sleek Command Detail Box!
+          const cmdName = card.dataset.cmd;
+          openCommandDetailBox(cmdName);
         });
       });
     }
@@ -3154,8 +3282,12 @@ permitted by applicable law.
     }
 
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.style.display === "flex") {
-        closeModal();
+      if (e.key === "Escape") {
+        if (detailModal && detailModal.style.display === "flex") {
+          closeCommandDetailBox();
+        } else if (modal && modal.style.display === "flex") {
+          closeModal();
+        }
       }
     });
   }

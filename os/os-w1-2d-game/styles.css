@@ -3801,3 +3801,405 @@ input.kali-inline-cmd-input {
   background: #38bdf8 !important;
   color: #03111e !important;
 }
+
+
+
+/* =========================================================================
+   COMMAND DETAIL MODAL BOX (BOXDAN O'QIB OLADI)
+   ========================================================================= */
+.cmd-detail-modal-box {
+  max-width: 680px !important;
+  width: 95% !important;
+  max-height: 85vh !important;
+  background: #09101f !important;
+  border: 1px solid #38bdf8 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.3) !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  animation: cmdBoxPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes cmdBoxPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cmd-detail-header {
+  padding: 14px 18px !important;
+  background: #0d172c !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.cmd-detail-title-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.cmd-detail-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
+}
+
+.cmd-detail-title {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+}
+
+.cmd-detail-category {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+}
+
+.cmd-detail-body {
+  padding: 16px 20px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  flex: 1 !important;
+}
+
+.cmd-detail-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.cmd-detail-section-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.cmd-detail-desc {
+  font-size: 13px !important;
+  color: #e2e8f0 !important;
+  line-height: 1.6 !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  border-left: 3px solid #38bdf8 !important;
+}
+
+.cmd-detail-syntax {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important;
+  color: #34d399 !important;
+  background: #050b14 !important;
+  border: 1px solid rgba(52, 211, 153, 0.3) !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+}
+
+.cmd-detail-rules {
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  line-height: 1.45 !important;
+  padding: 0 4px !important;
+}
+
+.cmd-detail-flags-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  max-height: 220px !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+}
+
+.cmd-detail-flag-row {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  background: #0c1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+}
+
+.cmd-detail-flag-key {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #fbbf24 !important;
+  white-space: nowrap !important;
+  background: rgba(251, 191, 36, 0.1) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+}
+
+.cmd-detail-flag-desc {
+  font-size: 11.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.35 !important;
+}
+
+.cmd-detail-example {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: #e2e8f0 !important;
+  background: #050b14 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+}
+
+.cmd-detail-analogy-box {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-analogy-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-analogy-text {
+  font-size: 12px !important;
+  color: #f1f5f9 !important;
+  line-height: 1.5 !important;
+  font-style: italic !important;
+}
+
+.cmd-detail-footer {
+  padding: 12px 18px !important;
+  background: #0d172c !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.2) !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+}
+
+/* =========================================================================
+   OS ENCYCLOPEDIA MODAL FALLBACK STYLES (NEVER SPREAD OUT UNSTYLED)
+   ========================================================================= */
+.os-dict-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(4, 7, 15, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease !important;
+}
+
+.os-dict-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.os-dict-modal {
+  background: #090e1a !important;
+  border: 1px solid #38bdf8 !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  height: 88vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 189, 248, 0.25) !important;
+  overflow: hidden !important;
+}
+
+.os-dict-header {
+  padding: 14px 20px !important;
+  background: #0f172a !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.os-dict-title {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.os-dict-close {
+  background: transparent !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+}
+
+.os-dict-controls {
+  padding: 12px 18px !important;
+  background: #060913 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.os-dict-search-input {
+  width: 100% !important;
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  outline: none !important;
+}
+
+.os-cat-pills {
+  display: flex !important;
+  gap: 6px !important;
+  overflow-x: auto !important;
+  padding-bottom: 4px !important;
+}
+
+.os-cat-pill {
+  background: #0f172a !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  font-size: 11.5px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+.os-cat-pill.active {
+  background: #0284c7 !important;
+  color: #fff !important;
+  border-color: #38bdf8 !important;
+}
+
+.os-dict-body {
+  overflow-y: auto !important;
+  padding: 16px 20px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.os-dict-card {
+  background: #0c1426 !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+}
+
+.os-cmd-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  margin-right: 8px !important;
+}
+
+.os-cmd-title {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.os-cat-tag {
+  font-size: 11px !important;
+  background: rgba(148, 163, 184, 0.15) !important;
+  color: #94a3b8 !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+.os-copy-btn {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #7dd3fc !important;
+  font-size: 11px !important;
+  padding: 3px 8px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+.os-copy-btn:hover {
+  background: #38bdf8 !important;
+  color: #03111e !important;
+}
+
+.os-code-snippet {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: #34d399 !important;
+  background: #060c18 !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  margin-top: 4px !important;
+}
+
+.os-flags-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  margin-top: 6px !important;
+}
+
+.os-flag-item {
+  display: flex !important;
+  gap: 8px !important;
+  font-size: 11.5px !important;
+  background: #080f1e !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+}
+
+.os-flag-name {
+  font-family: 'JetBrains Mono', monospace !important;
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+.os-analogy-box {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-left: 3px solid #38bdf8 !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  margin-top: 8px !important;
+  font-size: 11.5px !important;
+  color: #e2e8f0 !important;
+}

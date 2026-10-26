@@ -17,7 +17,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
 
-  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v15">
+  <link rel="stylesheet" href="../os_dictionary.css?v=20261026_os_cmds_v16">
+  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v16">
 </head>
 <body>
 
@@ -288,6 +289,64 @@
   <!-- Modals: Map, Incident -->
   
   <!-- Weekly Commands Encyclopedia Modal -->
+  
+  <!-- Command Detail Box Modal (Boxdan o'qib oladi) -->
+  <div class="kali-modal" id="modalCommandDetail" style="display:none;">
+    <div class="kali-modal-content cmd-detail-modal-box">
+      <div class="kali-modal-header cmd-detail-header">
+        <div class="cmd-detail-title-group">
+          <span class="cmd-detail-badge" id="cmdDetailBadge">pwd</span>
+          <div>
+            <div class="cmd-detail-title" id="cmdDetailTitle">Joriy Ishchi Katalogni Ko'rish</div>
+            <div class="cmd-detail-category" id="cmdDetailCategory">📁 Navigatsiya &amp; Inodelar</div>
+          </div>
+        </div>
+        <button class="kali-modal-close" id="btnCloseCmdDetail">✕</button>
+      </div>
+
+      <div class="kali-modal-body cmd-detail-body">
+        <!-- 1. Tavsif (Description) -->
+        <div class="cmd-detail-section">
+          <div class="cmd-detail-section-title">📝 Tavsif &amp; Vazifasi:</div>
+          <div class="cmd-detail-desc" id="cmdDetailDesc"></div>
+        </div>
+
+        <!-- 2. Sintaksis (Syntax) -->
+        <div class="cmd-detail-section">
+          <div class="cmd-detail-section-title">📌 Sintaksis:</div>
+          <div class="cmd-detail-syntax" id="cmdDetailSyntax"></div>
+          <div class="cmd-detail-rules" id="cmdDetailRules" style="display:none;"></div>
+        </div>
+
+        <!-- 3. Eng Muhim Bayroqlar (Flags) -->
+        <div class="cmd-detail-section" id="cmdDetailFlagsSection" style="display:none;">
+          <div class="cmd-detail-section-title">🚩 Eng Muhim Bayroqlar &amp; Variantlar:</div>
+          <div class="cmd-detail-flags-grid" id="cmdDetailFlagsGrid"></div>
+        </div>
+
+        <!-- 4. Amaliy Misol (Example) -->
+        <div class="cmd-detail-section" id="cmdDetailExampleSection">
+          <div class="cmd-detail-section-title">💡 Amaliy Misol (Debian Server):</div>
+          <div class="cmd-detail-example" id="cmdDetailExample"></div>
+        </div>
+
+        <!-- 5. Real Hayotiy Analogi (Analogy) -->
+        <div class="cmd-detail-section" id="cmdDetailAnalogySection">
+          <div class="cmd-detail-analogy-box">
+            <div class="cmd-detail-analogy-title">🏢 Real Hayotiy Analogi (Feynman uslubida):</div>
+            <div class="cmd-detail-analogy-text" id="cmdDetailAnalogy"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cmd-detail-footer">
+        <button type="button" class="btn btn-secondary" id="btnCmdDetailCopy">📋 Nusxalash</button>
+        <button type="button" class="btn btn-primary" id="btnCmdDetailInsert">⚡ Terminalga Qo'yish</button>
+        <button type="button" class="btn" id="btnCmdDetailClose">✕ Yopish</button>
+      </div>
+    </div>
+  </div>
+
   <div class="kali-modal" id="modalWeeklyCommands" style="display:none;">
     <div class="kali-modal-content weekly-cmds-modal-content">
       <div class="kali-modal-header">
@@ -348,14 +407,14 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/virtual_fs.js?v=20261026_os_cmds_v15"></script>
-  <script src="data/questions_1_50.js?v=20261026_os_fix_v14"></script>
-  <script src="data/questions_51_100.js?v=20261026_os_fix_v14"></script>
-  <script src="data/questions_101_150.js?v=20261026_os_fix_v14"></script>
-  <script src="data/weekly_commands.js?v=20261026_os_cmds_v15"></script>
+  <script src="data/virtual_fs.js?v=20261026_os_cmds_v16"></script>
+  <script src="data/questions_1_50.js?v=20261026_os_cmds_v16"></script>
+  <script src="data/questions_51_100.js?v=20261026_os_cmds_v16"></script>
+  <script src="data/questions_101_150.js?v=20261026_os_cmds_v16"></script>
+  <script src="data/weekly_commands.js?v=20261026_os_cmds_v16"></script>
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
-  <script src="../os_dictionary.js?v=20261026_os_cmds_v15"></script>
-  <script src="game.js?v=20261026_os_cmds_v15"></script>
+  <script src="../os_dictionary.js?v=20261026_os_cmds_v16"></script>
+  <script src="game.js?v=20261026_os_cmds_v16"></script>
 </body>
 </html>
