@@ -453,6 +453,8 @@
     const taskUmlPanel = document.getElementById("taskUmlPanel");
     const leftPane = document.querySelector(".left-pane");
 
+    const btnQuickUmlToggle = document.getElementById("btnQuickUmlToggle");
+
     if (btnViewTask && btnViewUml && taskTextPanel && taskUmlPanel) {
       btnViewTask.addEventListener("click", () => {
         btnViewTask.classList.add("active");
@@ -462,6 +464,10 @@
         if (leftPane) leftPane.classList.remove("uml-focus-mode");
         const ws = document.querySelector(".workspace");
         if (ws) ws.classList.remove("uml-focus-mode");
+        if (btnQuickUmlToggle) {
+          btnQuickUmlToggle.innerHTML = "📊 Diagramma";
+          btnQuickUmlToggle.classList.remove("active");
+        }
       });
 
       btnViewUml.addEventListener("click", () => {
@@ -472,6 +478,10 @@
         if (leftPane) leftPane.classList.add("uml-focus-mode");
         const ws = document.querySelector(".workspace");
         if (ws) ws.classList.add("uml-focus-mode");
+        if (btnQuickUmlToggle) {
+          btnQuickUmlToggle.innerHTML = "📝 Masala";
+          btnQuickUmlToggle.classList.add("active");
+        }
         if (window.UMLRenderer) {
           window.UMLRenderer.state.isUserInteracted = false;
         }
@@ -487,6 +497,16 @@
       if (btnReturnToEditor) {
         btnReturnToEditor.addEventListener("click", () => {
           btnViewTask.click();
+        });
+      }
+
+      if (btnQuickUmlToggle) {
+        btnQuickUmlToggle.addEventListener("click", () => {
+          if (btnViewUml.classList.contains("active")) {
+            btnViewTask.click();
+          } else {
+            btnViewUml.click();
+          }
         });
       }
     }

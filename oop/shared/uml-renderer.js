@@ -414,9 +414,9 @@ class Order {
             </div>
 
             <!-- Viewport & Transform Canvas Layer -->
-            <div id="umlViewport" class="uml-viewport" style="flex:1; width:100%; height:100%; position:relative; overflow:hidden; cursor:grab; touch-action:none;">
+            <div id="umlViewport" class="uml-viewport" style="flex:1 1 auto; width:100%; height:100%; min-height:380px; position:relative; overflow:hidden; cursor:grab; touch-action:none;">
               <div id="umlTransformLayer" style="position:absolute; top:0; left:0; width:${totalWidth}px; height:${totalHeight}px; transform-origin:0 0; will-change:transform;">
-                <svg id="umlSvgCanvas" xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}" style="overflow:visible; font-family:'JetBrains Mono', monospace;">
+                <svg id="umlSvgCanvas" xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}" style="overflow:visible; font-family:'JetBrains Mono', monospace; display:block;">
                 </svg>
               </div>
             </div>
@@ -425,28 +425,12 @@ class Order {
         this.state.initializedContainerId = containerId;
         this.attachInteractiveEvents(containerId);
       } else {
-        // Update badge and svg canvas size
+        // Update badge
         const badge = container.querySelector("#umlClassBadge");
         if (badge) badge.textContent = badgeLabel;
-
-        const transformLayer = container.querySelector("#umlTransformLayer");
-        if (transformLayer) {
-          transformLayer.style.width = `${totalWidth}px`;
-          transformLayer.style.height = `${totalHeight}px`;
-        }
-
-        const svgCanvas = container.querySelector("#umlSvgCanvas");
-        if (svgCanvas) {
-          svgCanvas.setAttribute("width", totalWidth);
-          svgCanvas.setAttribute("height", totalHeight);
-          svgCanvas.setAttribute("viewBox", `0 0 ${totalWidth} ${totalHeight}`);
-        }
       }
 
       // Generate Inner SVG Elements
-      const svgCanvas = container.querySelector("#umlSvgCanvas");
-      if (!svgCanvas) return;
-
       let inner = `
         <defs>
           <filter id="umlShadow" x="-10%" y="-10%" width="120%" height="120%">
@@ -605,10 +589,21 @@ class Order {
         });
       });
 
-      svgCanvas.innerHTML = inner;
+      const transformLayer = container.querySelector("#umlTransformLayer");
+      if (transformLayer) {
+        transformLayer.style.width = `${totalWidth}px`;
+        transformLayer.style.height = `${totalHeight}px`;
+        transformLayer.innerHTML = `
+          <svg id="umlSvgCanvas" xmlns="http://www.w3.org/2000/svg" width="${totalWidth}" height="${totalHeight}" viewBox="0 0 ${totalWidth} ${totalHeight}" style="overflow:visible; font-family:'JetBrains Mono', monospace; display:block;">
+            ${inner}
+          </svg>
+        `;
+      }
 
       if (!this.state.isUserInteracted || (options && options.forceFit)) {
-        setTimeout(() => this.fitToView(containerId), 40);
+        setTimeout(() => this.fitToView(containerId), 30);
+        setTimeout(() => this.fitToView(containerId), 150);
+        setTimeout(() => this.fitToView(containerId), 350);
       } else {
         this.updateTransform(containerId);
       }
@@ -794,8 +789,9 @@ class Order {
       const viewport = container.querySelector("#umlViewport");
       if (!viewport) return;
 
-      const vw = viewport.clientWidth || container.clientWidth || 360;
-      const vh = viewport.clientHeight || container.clientHeight || 300;
+      const rect = viewport.getBoundingClientRect();
+      const vw = Math.max(300, rect.width || viewport.clientWidth || container.clientWidth || 360);
+      const vh = Math.max(260, rect.height || viewport.clientHeight || container.clientHeight || 360);
       const tw = this.state.totalWidth || 480;
       const th = this.state.totalHeight || 380;
 
