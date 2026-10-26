@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.min.js"></script>
 
-  <link rel="stylesheet" href="../os_dictionary.css?v=20261026_os_cmds_v18">
-  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v18">
+  <link rel="stylesheet" href="../os_dictionary.css?v=20261026_os_cmds_v19">
+  <link rel="stylesheet" href="styles.css?v=20261026_os_cmds_v19">
 </head>
 <body>
 
@@ -350,6 +350,21 @@
           <div class="cmd-detail-flags-grid" id="cmdDetailFlagsGrid"></div>
         </div>
 
+        
+        <!-- 4. Eng Mashhur Bayroqlar Kombinatsiyalari (Flag Combinations) -->
+        <div class="cmd-detail-section" id="cmdDetailCombosSection" style="display:none;">
+          <div class="cmd-detail-section-title">🔥 Eng Ko'p Ishlatiladigan Professional Kombinatsiyalar:</div>
+          <div class="cmd-detail-combos-grid" id="cmdDetailCombosGrid"></div>
+        </div>
+
+        <!-- 5. Kapot Ostida: Linux Yadrosi & Tizim Chaqiruvlari (Kernel / System Calls) -->
+        <div class="cmd-detail-section" id="cmdDetailUnderTheHoodSection" style="display:none;">
+          <div class="cmd-detail-kernel-box">
+            <div class="cmd-detail-kernel-title">⚙️ Kapot Ostida (Linux Kernel &amp; Inode / Syscalls):</div>
+            <div class="cmd-detail-kernel-text" id="cmdDetailUnderTheHood"></div>
+          </div>
+        </div>
+
         <!-- 4. Amaliy Misol (Example) -->
         <div class="cmd-detail-section" id="cmdDetailExampleSection">
           <div class="cmd-detail-section-title">💡 Amaliy Misol (Debian Server):</div>
@@ -361,6 +376,14 @@
           <div class="cmd-detail-analogy-box">
             <div class="cmd-detail-analogy-title">🏢 Real Hayotiy Analogi (Feynman uslubida):</div>
             <div class="cmd-detail-analogy-text" id="cmdDetailAnalogy"></div>
+          </div>
+        </div>
+
+        <!-- 7. Ehtiyot Bo'lish Kerak Bo'lgan Xatolar (Pitfalls & Warning) -->
+        <div class="cmd-detail-section" id="cmdDetailPitfallsSection" style="display:none;">
+          <div class="cmd-detail-pitfall-box">
+            <div class="cmd-detail-pitfall-title">⚠️ Ehtiyot Bo'ling &amp; Ko'p Uchraydigan Xatolar:</div>
+            <div class="cmd-detail-pitfall-text" id="cmdDetailPitfalls"></div>
           </div>
         </div>
       </div>
@@ -410,14 +433,14 @@
   </div>
 
   <!-- Scripts -->
-  <script src="data/virtual_fs.js?v=20261026_os_cmds_v18"></script>
-  <script src="data/questions_1_50.js?v=20261026_os_cmds_v18"></script>
-  <script src="data/questions_51_100.js?v=20261026_os_cmds_v18"></script>
-  <script src="data/questions_101_150.js?v=20261026_os_cmds_v18"></script>
-  <script src="data/weekly_commands.js?v=20261026_os_cmds_v18"></script>
+  <script src="data/virtual_fs.js?v=20261026_os_cmds_v19"></script>
+  <script src="data/questions_1_50.js?v=20261026_os_cmds_v19"></script>
+  <script src="data/questions_51_100.js?v=20261026_os_cmds_v19"></script>
+  <script src="data/questions_101_150.js?v=20261026_os_cmds_v19"></script>
+  <script src="data/weekly_commands.js?v=20261026_os_cmds_v19"></script>
   <script src="data/command_anatomy.js"></script>
   <script src="engine2d.js"></script>
-  <script src="../os_dictionary.js?v=20261026_os_cmds_v18"></script>
-  <script src="game.js?v=20261026_os_cmds_v18"></script>
+  <script src="../os_dictionary.js?v=20261026_os_cmds_v19"></script>
+  <script src="game.js?v=20261026_os_cmds_v19"></script>
 </body>
 </html>

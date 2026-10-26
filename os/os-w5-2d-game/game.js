@@ -3055,18 +3055,26 @@ permitted by applicable law.
       }
     }
 
-    // Search command in dictionary first, then weekly commands data
-    const dictCmd = (typeof window.findDictionaryCommand === "function") ? window.findDictionaryCommand(cmdName) : null;
+    // Search command in weekly commands data first, then dictionary
     const weeklyCmds = window.WEEKLY_COMMANDS_DATA || [];
     const wCmd = weeklyCmds.find(c => c.cmd.toLowerCase() === (cmdName || "").toLowerCase().trim());
+    const dictCmd = (typeof window.findDictionaryCommand === "function") ? window.findDictionaryCommand(cmdName) : null;
 
-    const item = dictCmd || wCmd || {
-      cmd: cmdName,
-      name: cmdName + " Buyrug'i",
-      category: "Linux",
-      syntax: cmdName,
-      desc: "Debian 12 Kali Linux operatsion tizimi buyrug'i."
-    };
+    // Merge: wCmd takes full priority for rich, deep, up-to-date weekly details
+    const item = Object.assign({}, dictCmd || {}, wCmd || {}, {
+      cmd: (wCmd && wCmd.cmd) || (dictCmd && dictCmd.cmd) || cmdName,
+      name: (wCmd && wCmd.name) || (dictCmd && dictCmd.name) || (cmdName + " Buyrug'i"),
+      category: (wCmd && wCmd.category) || (dictCmd && dictCmd.catName) || (dictCmd && dictCmd.category) || "Linux",
+      desc: (wCmd && wCmd.desc) || (dictCmd && dictCmd.desc) || "Debian 12 Kali Linux operatsion tizimi buyrug'i.",
+      syntax: (wCmd && wCmd.syntax) || (dictCmd && dictCmd.syntax) || cmdName,
+      syntaxRules: (wCmd && wCmd.syntaxRules) || (dictCmd && dictCmd.syntaxRules) || "",
+      flags: (wCmd && wCmd.flags) || (dictCmd && dictCmd.flags) || [],
+      combos: (wCmd && wCmd.combos) || (dictCmd && dictCmd.combos) || [],
+      underTheHood: (wCmd && wCmd.underTheHood) || (dictCmd && dictCmd.underTheHood) || "",
+      example: (wCmd && wCmd.example) || (dictCmd && dictCmd.example) || cmdName,
+      analogy: (wCmd && wCmd.analogy) || (dictCmd && dictCmd.analogy) || "",
+      pitfalls: (wCmd && wCmd.pitfalls) || (dictCmd && dictCmd.pitfalls) || ""
+    });
 
     activeDetailCmd = item.cmd;
 
@@ -3078,16 +3086,22 @@ permitted by applicable law.
     const elRules = document.getElementById("cmdDetailRules");
     const elFlagsSection = document.getElementById("cmdDetailFlagsSection");
     const elFlagsGrid = document.getElementById("cmdDetailFlagsGrid");
+    const elCombosSection = document.getElementById("cmdDetailCombosSection");
+    const elCombosGrid = document.getElementById("cmdDetailCombosGrid");
+    const elUnderTheHoodSection = document.getElementById("cmdDetailUnderTheHoodSection");
+    const elUnderTheHood = document.getElementById("cmdDetailUnderTheHood");
     const elExampleSection = document.getElementById("cmdDetailExampleSection");
     const elExample = document.getElementById("cmdDetailExample");
     const elAnalogySection = document.getElementById("cmdDetailAnalogySection");
     const elAnalogy = document.getElementById("cmdDetailAnalogy");
+    const elPitfallsSection = document.getElementById("cmdDetailPitfallsSection");
+    const elPitfalls = document.getElementById("cmdDetailPitfalls");
 
     if (elBadge) elBadge.textContent = item.cmd;
-    if (elTitle) elTitle.textContent = item.name || (item.cmd + " Buyrug'i");
-    if (elCat) elCat.textContent = item.catName || item.category || "Linux";
-    if (elDesc) elDesc.innerHTML = formatInlineMarkdown(item.desc || "Topshiriqni terminalda bajaring.");
-    if (elSyntax) elSyntax.textContent = item.syntax || item.cmd;
+    if (elTitle) elTitle.textContent = item.name;
+    if (elCat) elCat.textContent = item.category;
+    if (elDesc) elDesc.innerHTML = formatInlineMarkdown(item.desc);
+    if (elSyntax) elSyntax.textContent = item.syntax;
 
     if (elRules) {
       if (item.syntaxRules) {
@@ -3098,6 +3112,7 @@ permitted by applicable law.
       }
     }
 
+    // 1. Single Flags
     if (elFlagsSection && elFlagsGrid) {
       if (item.flags && item.flags.length > 0) {
         elFlagsSection.style.display = "flex";
@@ -3112,17 +3127,69 @@ permitted by applicable law.
       }
     }
 
+    // 2. Professional Flag Combinations
+    if (elCombosSection && elCombosGrid) {
+      if (item.combos && item.combos.length > 0) {
+        elCombosSection.style.display = "flex";
+        elCombosGrid.innerHTML = item.combos.map(c => `
+          <div class="cmd-detail-combo-card">
+            <div class="cmd-detail-combo-header">
+              <span class="cmd-detail-combo-badge">${escapeHtml(c.combo)}</span>
+              <span class="cmd-detail-combo-title">${escapeHtml(c.title || '')}</span>
+              <button type="button" class="btn-combo-insert" data-combo="${escapeHtml(c.combo)}" title="Terminalga kiritish">⚡ Kiritish</button>
+            </div>
+            <div class="cmd-detail-combo-desc">${escapeHtml(c.desc)}</div>
+          </div>
+        `).join("");
+
+        elCombosGrid.querySelectorAll(".btn-combo-insert").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const comboCmd = btn.dataset.combo;
+            returnToWeeklyCommandsOnClose = false;
+            closeCommandDetailBox();
+            closeModal();
+            insertKaliToken(comboCmd);
+          });
+        });
+      } else {
+        elCombosSection.style.display = "none";
+      }
+    }
+
+    // 3. Under the Hood (Kernel / System Calls)
+    if (elUnderTheHoodSection && elUnderTheHood) {
+      if (item.underTheHood) {
+        elUnderTheHoodSection.style.display = "flex";
+        elUnderTheHood.innerHTML = formatInlineMarkdown(item.underTheHood);
+      } else {
+        elUnderTheHoodSection.style.display = "none";
+      }
+    }
+
+    // 4. Practical Example
     if (elExample && elExampleSection) {
       const ex = item.example || item.syntax || item.cmd;
       elExample.textContent = ex;
     }
 
+    // 5. Analogy
     if (elAnalogy && elAnalogySection) {
       if (item.analogy) {
         elAnalogySection.style.display = "flex";
         elAnalogy.textContent = item.analogy;
       } else {
         elAnalogySection.style.display = "none";
+      }
+    }
+
+    // 6. Pitfalls & Warnings
+    if (elPitfallsSection && elPitfalls) {
+      if (item.pitfalls) {
+        elPitfallsSection.style.display = "flex";
+        elPitfalls.innerHTML = formatInlineMarkdown(item.pitfalls);
+      } else {
+        elPitfallsSection.style.display = "none";
       }
     }
 

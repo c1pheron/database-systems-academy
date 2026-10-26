@@ -4243,3 +4243,120 @@ input.kali-inline-cmd-input {
   overflow: hidden !important;
   animation: cmdBoxPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
+
+
+
+/* =========================================================================
+   FLAG COMBINATIONS & KERNEL UNDER-THE-HOOD STYLING
+   ========================================================================= */
+.cmd-detail-combos-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.cmd-detail-combo-card {
+  background: #081120 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-left: 3px solid #38bdf8 !important;
+  border-radius: 7px !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.cmd-detail-combo-card:hover {
+  background: #0d1a33 !important;
+  border-color: #38bdf8 !important;
+}
+
+.cmd-detail-combo-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.cmd-detail-combo-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+.cmd-detail-combo-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  flex: 1 !important;
+}
+
+.btn-combo-insert {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-combo-insert:hover {
+  background: #38bdf8 !important;
+  color: #030a16 !important;
+}
+
+.cmd-detail-combo-desc {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  line-height: 1.45 !important;
+}
+
+.cmd-detail-kernel-box {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.6), rgba(15, 23, 42, 0.85)) !important;
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+  border-left: 3px solid #a855f7 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-kernel-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #c084fc !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-kernel-text {
+  font-size: 12px !important;
+  color: #e2e8f0 !important;
+  line-height: 1.55 !important;
+}
+
+.cmd-detail-pitfall-box {
+  background: linear-gradient(135deg, rgba(69, 26, 3, 0.5), rgba(15, 23, 42, 0.85)) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-left: 3px solid #f59e0b !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-pitfall-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #fbbf24 !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-pitfall-text {
+  font-size: 12px !important;
+  color: #fde68a !important;
+  line-height: 1.55 !important;
+}
