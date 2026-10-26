@@ -103,7 +103,8 @@
     }
   }
 
-  function loadSavedCode(ch, index) {
+  function loadSavedCode(ch, index, fallbackCode) {
+    // 1. Agar joriy masala uchun saqlangan kod bo'lsa, o'shani qaytaramiz
     const saved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
     if (saved !== null && saved.trim().length > 0) {
       return saved;
@@ -112,6 +113,24 @@
     if (index === 0) {
       return "";
     }
+    // 2. Agar oldingi topshiriqdan o'tayotgan bo'lsak va editor da kod bor bo'lsa, meros olamiz!
+    if (fallbackCode && fallbackCode.trim().length > 0) {
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, fallbackCode);
+      return fallbackCode;
+    }
+    // 3. Aks holda avvalgi barcha yechilgan/saqlangan masalalarni orqadan qidiramiz
+    for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
+      const prevCh = CHALLENGES[prevIdx];
+      if (prevCh) {
+        const prevSaved = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
+        if (prevSaved && prevSaved.trim().length > 0) {
+          localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, prevSaved);
+          return prevSaved;
+        }
+      }
+    }
+    return "";
+  }
     // Keyingi masalalarda avvalgi masalalar kodi uzluksiz davom etadi
     for (let prevIdx = index - 1; prevIdx >= 0; prevIdx--) {
       const prevCh = CHALLENGES[prevIdx];
@@ -206,6 +225,15 @@
 
   function switchChallenge(index) {
     if (index < 0 || index >= CHALLENGES.length) return;
+
+    // 1. MUHIM: currentQIndex o'zgarishidan oldin joriy koddagi o'zgarishlarni darhol saqlaymiz!
+    const oldCh = CHALLENGES[currentQIndex];
+    const editor = document.getElementById("codeEditor");
+    const currentCode = editor ? editor.value : "";
+    if (oldCh && currentCode && currentCode.trim().length > 0) {
+      localStorage.setItem(STORAGE_PREFIX_CODE + oldCh.id, currentCode);
+    }
+
     currentQIndex = index;
     saveState();
 
@@ -215,13 +243,13 @@
     const taskScenario = document.getElementById("taskScenario");
     const codeEditor = document.getElementById("codeEditor");
     const terminalBody = document.getElementById("terminalOutput");
-    const currQBadge = document.getElementById("currQBadge");
-    const currTierName = document.getElementById("currTierName");
+    const currQBadge = document.getElementById("currentQNumBadge");
+    const currTierName = document.getElementById("currentTierName");
     const btnPrevQ = document.getElementById("btnPrevQ");
     const btnNextQ = document.getElementById("btnNextQ");
 
     if (currQBadge) {
-      currQBadge.textContent = `📍 ${currentQIndex + 1}-Masala / ${CHALLENGES.length}`;
+      currQBadge.textContent = `📌 ${currentQIndex + 1}-Masala / ${CHALLENGES.length}`;
     }
     if (currTierName) {
       currTierName.textContent = ch.tierName || "";
@@ -245,7 +273,11 @@
     }
 
     if (codeEditor) {
-      codeEditor.value = loadSavedCode(ch, currentQIndex);
+      const codeToLoad = loadSavedCode(ch, currentQIndex, currentCode);
+      codeEditor.value = codeToLoad;
+      if (codeToLoad && codeToLoad.trim().length > 0) {
+        localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, codeToLoad);
+      }
     }
 
     if (terminalBody) {
@@ -301,6 +333,8 @@
     const terminal = document.getElementById("terminalOutput");
     if (!ch || !editor || !terminal) return;
 
+    saveCurrentCode();
+
     terminal.className = "terminal-body";
     terminal.textContent = "⏳ OpenJDK JVM da kompilyatsiya qilinmoqda va barcha OOP qoidalari tekshirilmoqda...";
 
@@ -336,6 +370,7 @@
                      (isExactSolution && (runResult.success || runResult.networkError));
 
     if (isPassed) {
+      saveCurrentCode();
       terminal.className = "terminal-body success";
       solvedQuestions.add(ch.id);
       saveState();
@@ -623,6 +658,46 @@
         }
       });
     }
+
+    
+      // 5b. Avvalgi topshiriqdagi kodni tiklash (Inherit Previous Code)
+      const btnInheritPrev = document.getElementById("btnInheritPrev");
+      if (btnInheritPrev) {
+        btnInheritPrev.addEventListener("click", () => {
+          if (currentQIndex > 0) {
+            let foundCode = "";
+            for (let p = currentQIndex - 1; p >= 0; p--) {
+              const prevCh = CHALLENGES[p];
+              const pCode = localStorage.getItem(STORAGE_PREFIX_CODE + prevCh.id);
+              if (pCode && pCode.trim().length > 0) {
+                foundCode = pCode;
+                break;
+              }
+            }
+            if (foundCode) {
+              const ed = document.getElementById("codeEditor");
+              if (ed) {
+                ed.value = foundCode;
+                saveCurrentCode();
+                if (window.JavaEditorEnhancer) {
+                  window.JavaEditorEnhancer.updateHighlighting();
+                  window.JavaEditorEnhancer.syncScroll();
+                  window.JavaEditorEnhancer.scanCodeForClasses();
+                  window.JavaEditorEnhancer.renderChipsBar();
+                }
+                if (window.SimulatorEngine) {
+                  window.SimulatorEngine.triggerAction(ed.value, "", false);
+                }
+                updateMemoryDisplay(CHALLENGES[currentQIndex], ed.value);
+              }
+            } else {
+              alert("Avvalgi topshiriqlarda saqlangan kod topilmadi.");
+            }
+          } else {
+            alert("Bu 1-topshiriq bo'lgani sababli avvalgi bosqich mavjud emas.");
+          }
+        });
+      }
 
     // 6. Live Diagram & Code update on typing (Simulator & Memory update only on Run/Test click to prevent flashing)
     const editor = document.getElementById("codeEditor");
