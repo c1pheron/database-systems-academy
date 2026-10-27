@@ -126,6 +126,27 @@
           this.currentState.lastTxMsg = activeCard.lastTxMsg || "";
           this.currentState.isLocked = Boolean(activeCard.isLocked);
           this.currentState.declaredMethods = this.detectMethodsFromCode(code);
+
+          // Auto-reveal fields called in code or printed to stdout
+          this.currentState.revealed = this.currentState.revealed || {};
+          if (/(?:\.|\b)get(?:expirydate|expiredate|expiry)\s*\(/i.test(code) || /getExpiryDate|getexpirydate/i.test(stdout)) {
+            this.currentState.revealed.expiryDate = true;
+          }
+          if (/(?:\.|\b)getbalance\s*\(/i.test(code) || /getBalance|getbalance/i.test(stdout)) {
+            this.currentState.revealed.balance = true;
+          }
+          if (/(?:\.|\b)get(?:cardholder|holder)\s*\(/i.test(code) || /getCardHolder|getcardholder/i.test(stdout)) {
+            this.currentState.revealed.holder = true;
+          }
+          if (/(?:\.|\b)get(?:cardnumber|number)\s*\(/i.test(code) || /getCardNumber|getcardnumber/i.test(stdout)) {
+            this.currentState.revealed.cardNumber = true;
+          }
+          if (/(?:\.|\b)get(?:cvv|cvc)\s*\(/i.test(code) || /getCvv|getcvv/i.test(stdout)) {
+            this.currentState.revealed.cvv = true;
+          }
+          if (/(?:\.|\b)get(?:cardtype|brand)\s*\(/i.test(code) || /getCardType|getcardtype/i.test(stdout)) {
+            this.currentState.revealed.cardType = true;
+          }
           break;
         case "atm":
           this.currentState.balance = 60000;
@@ -727,31 +748,31 @@
     },
 
     testMethodClick(methodName) {
-      const lower = methodName.toLowerCase();
+      const lower = (methodName || "").toLowerCase();
       const activeIdx = this.currentState.activeCardIdx || 0;
       const c = (this.currentState.cards && this.currentState.cards[activeIdx]) || {};
 
-      if (lower === 'getbalance') {
+      if (lower.includes('balance') || lower.includes('balans')) {
         this.revealField('balance');
         return;
       }
-      if (lower === 'getcardholder' || lower === 'getholder') {
+      if (lower.includes('holder') || lower.includes('owner')) {
         this.revealField('holder');
         return;
       }
-      if (lower === 'getcardnumber' || lower === 'getnumber') {
+      if (lower.includes('number') || lower.includes('pan')) {
         this.revealField('cardNumber');
         return;
       }
-      if (lower === 'getexpirydate' || lower === 'getexpiredate') {
+      if (lower.includes('expiry') || lower.includes('expire')) {
         this.revealField('expiryDate');
         return;
       }
-      if (lower === 'getcvv' || lower === 'getcvc') {
+      if (lower.includes('cvv') || lower.includes('cvc')) {
         this.revealField('cvv');
         return;
       }
-      if (lower === 'getcardtype' || lower === 'getbrand') {
+      if (lower.includes('type') || lower.includes('brand')) {
         this.revealField('cardType');
         return;
       }
@@ -763,20 +784,12 @@
         this.openActionModal('withdraw');
         return;
       }
-      if (lower === 'lockcard' || lower === 'lock') {
+      if (lower.includes('lock')) {
         this.toggleCardLock();
         return;
       }
-      if (lower === 'unlockcard' || lower === 'unlock') {
-        this.toggleCardLock(false);
-        return;
-      }
-      if (lower === 'verifypin') {
+      if (lower.includes('pin')) {
         this.openPinModal('verify');
-        return;
-      }
-      if (lower === 'changepin') {
-        this.openPinModal('change');
         return;
       }
 
@@ -811,19 +824,44 @@
 
     detectMethodsFromCode(code) {
       if (!code || typeof code !== "string") return [];
-      const methodRegex = /(?:public|protected|private)?\s*(?:static\s+)?(void|int|long|double|boolean|String|BankCard|Card|SecureCard)\s+([a-zA-Z0-9_]+)\s*\(([^)]*)\)\s*\{/g;
       const methods = [];
       const seen = new Set();
+
+      // 1. Broad Java method declaration regex (matches any return type, modifier, formatting)
+      const methodRegex = /(?:public|protected|private)?\s*(?:static\s+)?(?:final\s+)?([A-Za-z0-9_<>\[\]]+)\s+([a-zA-Z_$][a-zA-Z0-9_$]*)\s*\(([^)]*)\)\s*\{/g;
       let m;
       while ((m = methodRegex.exec(code)) !== null) {
         const returnType = m[1];
         const name = m[2];
         const params = m[3].trim();
-        if (name !== "main" && !seen.has(name)) {
-          seen.add(name);
+        if (name !== "main" && !seen.has(name.toLowerCase())) {
+          seen.add(name.toLowerCase());
           methods.push({ returnType, name, params });
         }
       }
+
+      // 2. Keyword & method-call scans (even before compiling or in main)
+      const commonCheck = [
+        { key: "getExpiryDate", rx: /(?:^|\W)get(?:expirydate|expiredate|expiry)\s*\(/i, ret: "String" },
+        { key: "getBalance", rx: /(?:^|\W)getbalance\s*\(/i, ret: "double" },
+        { key: "getCardHolder", rx: /(?:^|\W)get(?:cardholder|holder)\s*\(/i, ret: "String" },
+        { key: "getCardNumber", rx: /(?:^|\W)get(?:cardnumber|number)\s*\(/i, ret: "String" },
+        { key: "getCvv", rx: /(?:^|\W)get(?:cvv|cvc)\s*\(/i, ret: "String" },
+        { key: "getCardType", rx: /(?:^|\W)get(?:cardtype|brand)\s*\(/i, ret: "String" },
+        { key: "deposit", rx: /(?:^|\W)deposit\s*\(/i, ret: "void" },
+        { key: "withdraw", rx: /(?:^|\W)withdraw\s*\(/i, ret: "boolean" },
+        { key: "verifyPin", rx: /(?:^|\W)verifypin\s*\(/i, ret: "boolean" },
+        { key: "lockCard", rx: /(?:^|\W)lock(?:card)?\s*\(/i, ret: "void" },
+        { key: "unlockCard", rx: /(?:^|\W)unlock(?:card)?\s*\(/i, ret: "void" }
+      ];
+
+      commonCheck.forEach(item => {
+        if (!seen.has(item.key.toLowerCase()) && item.rx.test(code)) {
+          seen.add(item.key.toLowerCase());
+          methods.push({ returnType: item.ret, name: item.key, params: "" });
+        }
+      });
+
       return methods;
     },
 
@@ -952,6 +990,34 @@
           cards.push(card);
           seenVars.add("card");
         }
+      }
+
+      // Default card preview if no instance created yet in user code
+      if (cards.length === 0) {
+        cards.push({
+          varName: "card",
+          cardType: "BankCard",
+          brand: "UZCARD",
+          balance: 50000,
+          initialBalance: 50000,
+          holder: "ALI VALIYEV",
+          cardNumber: "8600 1234 5678 9012",
+          expiryDate: "12/28",
+          cvv: "777",
+          lastTxMsg: "",
+          isLocked: false,
+          txList: [
+            {
+              type: "initial",
+              icon: "🏦",
+              title: "Hisob ochilishi",
+              sub: "Boshlang'ich mablag'",
+              amountStr: "+50,000 UZS",
+              isPositive: true
+            }
+          ]
+        });
+        seenVars.add("card");
       }
 
       // 2. Sequential operations and property assignments on each card
@@ -1136,15 +1202,21 @@
       const declared = s.declaredMethods || [];
       const hasMethod = (name) => declared.some(m => m.name.toLowerCase() === name.toLowerCase());
 
-      const hasDeposit = hasMethod("deposit");
-      const hasWithdraw = hasMethod("withdraw");
-      const hasGetBalance = hasMethod("getbalance");
-      const hasHolder = hasMethod("getcardholder") || hasMethod("getholder");
-      const hasNumber = hasMethod("getcardnumber") || hasMethod("getnumber");
-      const hasExp = hasMethod("getexpirydate") || hasMethod("getexpiredate");
-      const hasCvv = hasMethod("getcvv") || hasMethod("getcvc");
-      const hasPin = hasMethod("verifypin") || hasMethod("changepin");
-      const hasLock = hasMethod("lockcard") || hasMethod("lock") || hasMethod("unlockcard") || hasMethod("unlock");
+      let codeRaw = "";
+      if (typeof document !== "undefined") {
+        const ed = document.getElementById("codeEditor");
+        if (ed) codeRaw = ed.value || "";
+      }
+
+      const hasDeposit = hasMethod("deposit") || /\bdeposit\s*\(/i.test(codeRaw);
+      const hasWithdraw = hasMethod("withdraw") || /\bwithdraw\s*\(/i.test(codeRaw);
+      const hasGetBalance = hasMethod("getbalance") || /\bgetbalance\s*\(/i.test(codeRaw);
+      const hasHolder = hasMethod("getcardholder") || hasMethod("getholder") || /get(?:cardholder|holder)\s*\(/i.test(codeRaw);
+      const hasNumber = hasMethod("getcardnumber") || hasMethod("getnumber") || /get(?:cardnumber|number)\s*\(/i.test(codeRaw);
+      const hasExp = hasMethod("getexpirydate") || hasMethod("getexpiredate") || hasMethod("getexpiry") || /get(?:expirydate|expiredate|expiry)\s*\(/i.test(codeRaw);
+      const hasCvv = hasMethod("getcvv") || hasMethod("getcvc") || /get(?:cvv|cvc)\s*\(/i.test(codeRaw);
+      const hasPin = hasMethod("verifypin") || hasMethod("changepin") || /pin/i.test(codeRaw);
+      const hasLock = hasMethod("lockcard") || hasMethod("lock") || hasMethod("unlockcard") || hasMethod("unlock") || /lock/i.test(codeRaw);
       const chId = (this.currentChallenge && this.currentChallenge.id) || 1;
 
       const primaryNames = ['deposit', 'withdraw', 'getbalance', 'getcardholder', 'getholder', 'getcardnumber', 'getnumber', 'getexpirydate', 'getexpiredate', 'getcvv', 'getcvc', 'getcardtype', 'getbrand', 'lockcard', 'lock', 'unlockcard', 'unlock', 'verifypin', 'changepin'];

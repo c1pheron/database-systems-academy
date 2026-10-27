@@ -133,41 +133,57 @@
   function saveCurrentCode() {
     const ch = CHALLENGES[currentQIndex];
     const editor = document.getElementById("codeEditor");
-    if (ch && editor) {
-      const val = editor.value;
-      const prev = getAnySavedCode(ch.id);
-      if (isSubstantialJavaCode(val) || !isSubstantialJavaCode(prev)) {
-        localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, val);
-      }
+    if (!ch || !editor) return;
+    const val = editor.value;
+
+    localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, val);
+    if (val.trim() === "") {
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id + "_cleared", "true");
+    } else {
+      localStorage.removeItem(STORAGE_PREFIX_CODE + ch.id + "_cleared");
     }
   }
 
   function loadSavedCode(ch, index, fallbackCode) {
-    // 1. Agar ushbu topshiriq uchun saqlangan to'liq kod bo'lsa:
-    const saved = getAnySavedCode(ch.id);
-    if (isSubstantialJavaCode(saved)) {
-      return saved;
+    if (!ch) return "";
+
+    // 1. Agar foydalanuvchi ataylab kodni tozalagan bo'lsa (cleared):
+    if (localStorage.getItem(STORAGE_PREFIX_CODE + ch.id + "_cleared") === "true") {
+      return "";
     }
 
-    // 2. Agar oldingi bosqichdan o'tayotgan bo'lsak va fallbackCode to'liq bo'lsa:
+    // 2. Agar ushbu topshiriq uchun to'g'ridan-to'g'ri saqlangan kod bo'lsa:
+    const directSaved = localStorage.getItem(STORAGE_PREFIX_CODE + ch.id);
+    if (directSaved !== null) {
+      return directSaved;
+    }
+
+    // 3. Eski versiyalardan saqlangan to'liq kod bo'lsa:
+    const oldSaved = getAnySavedCode(ch.id);
+    if (isSubstantialJavaCode(oldSaved)) {
+      localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, oldSaved);
+      return oldSaved;
+    }
+
+    // 4. Agar oldingi bosqichdan o'tayotgan bo'lsak va fallbackCode to'liq bo'lsa:
     if (isSubstantialJavaCode(fallbackCode)) {
       localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, fallbackCode);
       return fallbackCode;
     }
 
-    // 3. Orqadagi eng oxirgi yechilgan/yozilgan to'liq kodni olib kelamiz:
+    // 5. Orqadagi eng oxirgi yechilgan/yozilgan to'liq kodni olib kelamiz:
     const latestCode = getLatestSubstantialCode(index - 1);
     if (latestCode) {
       localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, latestCode);
       return latestCode;
     }
 
-    // 4. Ushbu topshiriqning starterCode maydoni:
+    // 6. Ushbu topshiriqning starterCode maydoni:
     if (ch.starterCode && ch.starterCode.trim().length > 0) {
       return ch.starterCode;
     }
 
-    // 5. Agar 2 yoki undan keyingi masala bo'lsa, avvalgi masalaning yechimidan boshlaymiz:
+    // 7. Agar 2 yoki undan keyingi masala bo'lsa, avvalgi masalaning yechimidan boshlaymiz:
     if (index > 0 && CHALLENGES[index - 1] && CHALLENGES[index - 1].solution) {
       const prevSol = CHALLENGES[index - 1].solution;
       localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, prevSol);
@@ -483,27 +499,46 @@
     const editor = document.getElementById("codeEditor");
     if (!ch || !editor) return;
 
-    if (confirm("Kodni tozalab, ushbu topshiriqni qaytadan boshlamoqchimisiz?")) {
-      editor.value = "";
-      localStorage.removeItem(STORAGE_PREFIX_CODE + ch.id);
-      saveCurrentCode();
-      if (window.JavaEditorEnhancer) {
-        window.JavaEditorEnhancer.updateHighlighting();
-        window.JavaEditorEnhancer.syncScroll();
-        window.JavaEditorEnhancer.scanCodeForClasses();
-        window.JavaEditorEnhancer.renderChipsBar();
-      }
-      if (window.SimulatorEngine) {
-        window.SimulatorEngine.setChallenge(ch);
-        window.SimulatorEngine.triggerAction("", "", false);
-      }
-      updateMemoryDisplay(ch, "");
-      if (umlMode === "live") updateUMLDiagram();
-      const terminal = document.getElementById("terminalOutput");
-      if (terminal) {
-        terminal.className = "terminal-body";
-        terminal.textContent = "Tayyor. Kodingizni yozib, 'Ishga Tushirish va Tekshirish' tugmasini bosing.";
-      }
+    editor.value = "";
+    localStorage.setItem(STORAGE_PREFIX_CODE + ch.id, "");
+    localStorage.setItem(STORAGE_PREFIX_CODE + ch.id + "_cleared", "true");
+
+    const oldPrefixes = [
+      "oop_practical_v4_code_q_",
+      "oop_practical_v3_code_q_",
+      "oop_practical_v2_code_q_",
+      "oop_practical_code_q_"
+    ];
+    oldPrefixes.forEach(p => localStorage.removeItem(p + ch.id));
+
+    if (window.JavaEditorEnhancer) {
+      window.JavaEditorEnhancer.updateHighlighting();
+      window.JavaEditorEnhancer.syncScroll();
+      window.JavaEditorEnhancer.scanCodeForClasses();
+      window.JavaEditorEnhancer.renderChipsBar();
+    }
+    if (window.SimulatorEngine) {
+      window.SimulatorEngine.setChallenge(ch);
+      window.SimulatorEngine.triggerAction("", "", false);
+    }
+    updateMemoryDisplay(ch, "");
+    if (umlMode === "live") updateUMLDiagram();
+    const terminal = document.getElementById("terminalOutput");
+    if (terminal) {
+      terminal.className = "terminal-body";
+      terminal.textContent = "Tayyor. Kodingizni yozib, 'Ishga Tushirish va Tekshirish' tugmasini bosing.";
+    }
+
+    // Mobil va Desktop muhitida fokusni va kursor pozitsiyasini darhol faollashtirish
+    editor.focus();
+    editor.setSelectionRange(0, 0);
+    setTimeout(() => {
+      editor.focus();
+      editor.setSelectionRange(0, 0);
+    }, 40);
+
+    if (window.SimulatorEngine && typeof window.SimulatorEngine.showPhoneToast === "function") {
+      window.SimulatorEngine.showPhoneToast("🗑️ Kod tozalandi! Yangi kodingizni yozishingiz mumkin.");
     }
   }
 
@@ -704,6 +739,7 @@
               if (ed) {
                 ed.value = foundCode;
                 localStorage.setItem(STORAGE_PREFIX_CODE + CHALLENGES[currentQIndex].id, foundCode);
+                localStorage.removeItem(STORAGE_PREFIX_CODE + CHALLENGES[currentQIndex].id + "_cleared");
                 if (window.JavaEditorEnhancer) {
                   window.JavaEditorEnhancer.updateHighlighting();
                   window.JavaEditorEnhancer.syncScroll();
@@ -724,26 +760,37 @@
         });
       }
 
-    // 6. Live Diagram & Code update on typing (Simulator & Memory update only on Run/Test click to prevent flashing)
+    // 6. Live Diagram, Simulator & Code update on typing (with smooth 150ms debounce)
     const editor = document.getElementById("codeEditor");
     if (editor) {
+      let simInputTimer = null;
       editor.addEventListener("input", () => {
         saveCurrentCode();
         if (umlMode === "live" && taskUmlPanel && taskUmlPanel.style.display !== "none") {
           updateUMLDiagram();
         }
+        clearTimeout(simInputTimer);
+        simInputTimer = setTimeout(() => {
+          if (window.SimulatorEngine) {
+            window.SimulatorEngine.triggerAction(editor.value, "", false);
+          }
+          updateMemoryDisplay(CHALLENGES[currentQIndex], editor.value);
+        }, 150);
       });
 
-      // Ensure code editor immediately gains focus when clicking anywhere inside editor area on Desktop/PC
+      // Ensure code editor immediately gains focus when clicking or tapping anywhere inside editor area
       const codeWrapper = document.querySelector(".code-wrapper");
       const codeViewport = document.getElementById("codeViewport");
-      [codeWrapper, codeViewport].forEach(el => {
+      const codeSurface = document.getElementById("codeEditorSurface");
+      [codeWrapper, codeViewport, codeSurface].forEach(el => {
         if (el) {
-          el.addEventListener("click", (e) => {
+          const doFocus = (e) => {
             if (editor && document.activeElement !== editor && !e.target.closest("button") && !e.target.closest(".code-autocomplete-dropdown")) {
               editor.focus();
             }
-          });
+          };
+          el.addEventListener("click", doFocus);
+          el.addEventListener("touchstart", doFocus, { passive: true });
         }
       });
     }

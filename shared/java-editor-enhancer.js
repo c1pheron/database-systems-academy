@@ -211,7 +211,7 @@
     },
 
     createUIElements() {
-      const wrapper = this.codeArea.closest(".editor-wrapper");
+      const wrapper = this.codeArea.closest(".code-wrapper") || this.codeArea.closest(".editor-wrapper") || this.codeArea.closest(".editor-section");
       if (wrapper && !document.getElementById("smartSuggestionChipsBar")) {
         const chipsBar = document.createElement("div");
         chipsBar.id = "smartSuggestionChipsBar";
@@ -1545,7 +1545,7 @@
     positionDropdown(cursorPos) {
       if (!this.codeArea || !this.dropdownEl) return;
       const coords = this.getCaretCoordinates(this.codeArea, cursorPos);
-      const wrapper = this.codeArea.closest(".editor-wrapper");
+      const wrapper = this.codeArea.closest(".code-wrapper") || this.codeArea.closest(".editor-wrapper") || this.codeArea.closest(".editor-section");
       const wrapperRect = wrapper ? wrapper.getBoundingClientRect() : { top: 0, left: 0, width: 600, height: 400 };
 
       let top = coords.top - wrapperRect.top + 6;
