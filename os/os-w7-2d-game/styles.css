@@ -1,0 +1,4378 @@
+/* ============================================================================
+   WIUT OPERATING SYSTEMS (5COSC041C) — WEEK 1 NOC & DATA CENTER THEME
+   Deep Matrix Obsidian (#080c14), Terminal Emerald (#10b981), Cyber Cyan (#10b981),
+   Amber Alert (#f59e0b) and Platinum (#f8fafc).
+   ============================================================================ */
+
+:root {
+  --bg-deep: #070b14;
+  --bg-panel: #0c1322;
+  --bg-card: #10192e;
+  --bg-card-hover: #17233f;
+  --bg-input: #080d1a;
+  --bg-terminal: #080d1a;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(56, 189, 248, 0.35);
+  --border-emerald: rgba(45, 212, 191, 0.4);
+  --border-amber: rgba(245, 158, 11, 0.45);
+  --border-active: #38bdf8;
+
+  --text-primary: #f0f6fc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --accent-cyan: #0284c7;
+  --accent-cyan-bright: #38bdf8;
+  --accent-emerald: #2dd4bf;
+  --accent-emerald-bright: #38bdf8;
+  --accent-emerald-soft: rgba(56, 189, 248, 0.15);
+  --accent-amber: #f59e0b;
+  --accent-amber-bright: #fbbf24;
+  --accent-ruby: #f43f5e;
+
+  --shadow-matrix: 0 10px 30px rgba(0, 0, 0, 0.7);
+  --radius-md: 10px;
+  --radius-sm: 6px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+html, body {
+  width: 100% !important;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-deep);
+  background-image: radial-gradient(circle at 50% 0%, #10192e 0%, #070b14 85%);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================================
+   TOP EXECUTIVE HUD
+   ============================================================================ */
+.top-hud {
+  background: rgba(12, 19, 34, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  z-index: 25;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-back {
+  background: #10192e !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-back:hover {
+  background: #17233f !important;
+  border-color: #60a5fa !important;
+  color: #93c5fd !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.4) !important;
+}
+
+.btn-dictionary {
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(12, 19, 34, 0.9)) !important;
+  border: 1px solid #38bdf8 !important;
+  color: #f0f6fc !important;
+  font-weight: 600 !important;
+}
+
+.btn-dictionary:hover {
+  background: #0284c7 !important;
+  color: #fff !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.5) !important;
+}
+
+.brand-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-emblem {
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #16243d, #0b1424);
+  border: 1px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--accent-emerald-bright);
+  box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.brand-title .badge-os {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--accent-emerald);
+  color: var(--accent-emerald-bright);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.brand-sub {
+  font-size: 11px;
+  color: var(--accent-cyan-bright);
+}
+
+.hud-stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat-pill {
+  background: rgba(16, 25, 46, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  padding: 5px 12px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.stat-val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.stat-val.gold {
+  color: var(--accent-amber-bright);
+}
+
+.stat-val.emerald {
+  color: var(--accent-emerald-bright);
+}
+
+.stat-val.cyan {
+  color: var(--accent-cyan-bright);
+}
+
+.progress-wrap {
+  width: 75px;
+  height: 6px;
+  background: #1b263b;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-left: 4px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-emerald));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.hud-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hud-actions .btn {
+  background: #10192e;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #f0f6fc;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  background: #17233f;
+  border-color: #38bdf8;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7);
+  border-color: #38bdf8;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  border-color: #93c5fd;
+  color: #fff;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+}
+
+.btn-event {
+  background: linear-gradient(135deg, #b45309, #f59e0b);
+  border-color: #fbbf24;
+  color: #261300;
+  font-weight: 700;
+  animation: pulseAmber 2.2s infinite ease-in-out;
+}
+
+@keyframes pulseAmber {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 18px rgba(245, 158, 11, 0.7); }
+}
+
+/* ============================================================================
+   10 SECTORS NAVIGATION BAR
+   ============================================================================ */
+
+
+.sector-bar::-webkit-scrollbar {
+  height: 5px;
+}
+
+.sector-bar::-webkit-scrollbar-thumb {
+  background: var(--border-cyan);
+  border-radius: 4px;
+}
+
+
+
+.sector-pill span {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.sector-pill:hover {
+  background: #18241d;
+  border-color: var(--border-cyan);
+  color: #fff;
+}
+
+.sector-pill.active {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(16, 185, 129, 0.25));
+  border-color: var(--accent-cyan);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.35);
+}
+
+.sector-pill .pill-count {
+  background: rgba(0, 0, 0, 0.4);
+  font-size: 10.5px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  color: var(--accent-cyan-bright);
+  flex-shrink: 0 !important;
+}
+
+/* ============================================================================
+   MAIN 2-COLUMN LAYOUT
+   ============================================================================ */
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 14px 18px;
+  flex: 1;
+  max-width: 1740px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ============================================================================
+   PANEL CARDS
+   ============================================================================ */
+.panel-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-matrix);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-header {
+  background: #10192e;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ============================================================================
+   2D NOC CANVAS & TICKER
+   ============================================================================ */
+.canvas-wrap {
+  position: relative;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  background: #050811;
+  border-bottom: 1px solid var(--border-subtle);
+  display: block !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+#gameCanvas {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  max-height: 240px !important;
+  aspect-ratio: 860 / 340;
+  object-fit: cover !important;
+  cursor: default;
+}
+
+.office-ticker {
+  background: #090f1d;
+  border-top: 1px solid rgba(6, 182, 212, 0.15);
+  padding: 7px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.ticker-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ticker-badge {
+  background: rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   VIRTUAL LINUX FS SCHEMA & VIEWER TABS
+   ============================================================================ */
+.schema-tabs {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  background: #0b1222;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.schema-tab {
+  background: #111a2d;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: var(--text-secondary);
+  border-radius: 5px;
+  padding: 4px 9px;
+  font-size: 11.5px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  transition: all 0.15s ease;
+}
+
+.schema-tab:hover {
+  background: #18241d;
+  border-color: var(--border-cyan);
+  color: #fff;
+}
+
+.schema-tab.active {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-weight: 600;
+}
+
+.table-scroll {
+  padding: 12px;
+  max-height: 380px;
+  min-height: 280px;
+  overflow-y: auto;
+  background: var(--bg-terminal);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+.fs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fs-table th {
+  background: #0f192d;
+  color: var(--accent-cyan-bright);
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border-cyan);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fs-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+}
+
+.fs-table tr:hover td {
+  background: rgba(6, 182, 212, 0.08);
+  color: #fff;
+}
+
+.badge-perm {
+  color: var(--accent-emerald-bright);
+  font-weight: 600;
+}
+
+.badge-inode {
+  color: var(--accent-amber-bright);
+}
+
+.badge-file {
+  color: #fff;
+  font-weight: 600;
+}
+
+.badge-dir {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.badge-symlink {
+  color: #ec4899;
+  font-style: italic;
+}
+
+/* ============================================================================
+   RIGHT COLUMN: MISSION DOSSIER & QUESTION STRIP
+   ============================================================================ */
+.q-strip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  background: #0c1322;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+  overflow-x: auto;
+}
+
+.q-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  background: #10192e;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #64748b;
+  font-size: 10.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.q-dot:hover {
+  border-color: #38bdf8;
+  color: #f0f6fc;
+}
+
+.q-dot.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+.q-dot.solved {
+  background: rgba(45, 212, 191, 0.15);
+  border-color: #2dd4bf;
+  color: #2dd4bf;
+}
+
+.q-dot.solved.active {
+  background: #2dd4bf;
+  border-color: #99f6e4;
+  color: #070b14;
+  font-weight: 800;
+}
+
+.mission-body {
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mission-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge-diff {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.badge-source {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid var(--accent-amber);
+  color: var(--accent-amber-bright);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.mission-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.story-box {
+  background: rgba(18, 28, 50, 0.6);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 0 6px 6px 0;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.task-box {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #ecfdf5;
+  line-height: 1.55;
+}
+
+.task-box b, .task-box code {
+  color: var(--accent-emerald-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+}
+
+/* ============================================================================
+   BASH TERMINAL WORKBENCH
+   ============================================================================ */
+.terminal-window {
+  background: #080d1a;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+}
+
+.terminal-header {
+  background: #0c1322;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.t-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.t-dot.red { background: #ef4444; }
+.t-dot.yellow { background: #f59e0b; }
+.t-dot.green { background: #10b981; }
+
+.terminal-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-cyan-bright);
+  letter-spacing: 0.3px;
+}
+
+.terminal-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-output {
+  padding: 12px;
+  min-height: 120px;
+  max-height: 220px;
+  overflow-y: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #34d399;
+  background: #04070e;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  background: #080d1a;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 6px 10px;
+  gap: 8px;
+}
+
+.terminal-prompt {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-cyan-bright);
+  white-space: nowrap;
+}
+
+.terminal-prompt .user { color: #10b981; }
+.terminal-prompt .path { color: #34d399; }
+
+#bashInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  padding: 4px 0;
+  caret-color: var(--accent-emerald-bright);
+}
+
+/* ============================================================================
+   TOKEN QUICK-BAR
+   ============================================================================ */
+.token-bar {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.token-btn {
+  background: #111a2d;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: var(--accent-cyan-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.token-btn:hover {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--accent-cyan);
+  color: #fff;
+}
+
+/* ============================================================================
+   ACTION BAR & FEEDBACK
+   ============================================================================ */
+.action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-left, .action-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hint-box {
+  display: none;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #fef3c7;
+  line-height: 1.5;
+}
+
+.feedback-box {
+  display: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.feedback-box.success {
+  display: block;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--accent-emerald);
+  color: #d1fae5;
+}
+
+.feedback-box.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid var(--accent-ruby);
+  color: #fee2e2;
+}
+
+/* ============================================================================
+   MODALS (MAP, EVENT, SOLUTION)
+   ============================================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 15, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPop 0.2s ease-out;
+}
+
+@keyframes modalPop {
+  0% { transform: scale(0.95); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-header {
+  background: #142036;
+  border-bottom: 1px solid var(--border-cyan);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  background: #0e172a;
+  border-top: 1px solid var(--border-subtle);
+  padding: 10px 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Map Grid */
+.map-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.map-item {
+  background: #131b16;
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.map-item:hover {
+  background: #1a2744;
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.map-item.solved {
+  border-color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.map-item.current {
+  border-color: var(--accent-cyan-bright);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Event Choices */
+.event-choice-btn {
+  background: #141f36;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.event-choice-btn:hover {
+  background: #1c2b4a;
+  border-color: var(--accent-amber-bright);
+  transform: translateX(4px);
+}
+
+/* ============================================================================
+   TERMINAL MODE SWITCH PILLS & CONTROLS
+   ============================================================================ */
+.terminal-mode-switch {
+  display: flex;
+  align-items: center;
+  background: #0b1325;
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-sm);
+  padding: 2px;
+  gap: 2px;
+}
+
+.mode-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11.5px;
+  padding: 4px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  user-select: none;
+}
+
+.mode-btn:hover {
+  color: #fff;
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.mode-btn.active {
+  background: var(--accent-cyan);
+  color: #03131d;
+  font-weight: 700;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.btn-xs {
+  padding: 2px 7px;
+  font-size: 11px;
+}
+
+.mode-tab {
+  background: #111b2f;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  color: var(--text-secondary);
+}
+
+.mode-tab.active {
+  background: rgba(6, 182, 212, 0.25);
+  border-color: var(--accent-cyan-bright);
+  color: var(--accent-cyan-bright);
+  font-weight: 700;
+}
+
+/* ============================================================================
+   COMMAND & FLAG ANATOMY INTERACTIVE ACCORDION CARD (BATAFSIL)
+   ============================================================================ */
+.cmd-info-card {
+  margin: 10px 0;
+  border-radius: 8px;
+  background: #0c1322;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.cmd-info-card:hover {
+  border-color: #38bdf8;
+}
+
+.cmd-card-toggle {
+  width: 100%;
+  background: #10192e;
+  border: none;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13px;
+  transition: background 0.15s ease;
+}
+
+.cmd-card-toggle:hover {
+  background: #17233f;
+}
+
+.cmd-card-toggle.open {
+  background: #17233f;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.cmd-card-toggle.open {
+  background: #21262d;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cmd-card-toggle-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cmd-badge-icon {
+  font-size: 14px;
+}
+
+.cmd-badge-title {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-amber-bright);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.cmd-badge-code {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.cmd-card-toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.cmd-toggle-arrow {
+  font-size: 13px;
+  color: var(--accent-cyan-bright);
+  transition: transform 0.25s ease;
+}
+
+.cmd-card-toggle.open .cmd-toggle-arrow {
+  transform: rotate(180deg);
+}
+
+.cmd-card-body {
+  padding: 12px 14px;
+  background: #060b17;
+  border-top: 1px solid rgba(6, 182, 212, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 320px;
+  overflow-y: auto;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cmd-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cmd-sec-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cmd-sec-head.cyan { color: var(--accent-cyan-bright); }
+.cmd-sec-head.amber { color: var(--accent-amber-bright); }
+.cmd-sec-head.emerald { color: var(--accent-emerald-bright); }
+.cmd-sec-head.ruby { color: #f87171; }
+
+.cmd-sec-text {
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.45;
+  padding-left: 2px;
+}
+
+.cmd-flag-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.cmd-flag-row {
+  background: #0d1527;
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 0 6px 6px 0;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cmd-flag-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cmd-flag-tag {
+  background: rgba(6, 182, 212, 0.2);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+.cmd-flag-name {
+  font-weight: 700;
+  color: #fff;
+  font-size: 11.5px;
+}
+
+.cmd-flag-pos {
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+.cmd-flag-purpose {
+  color: var(--text-secondary);
+  font-size: 11.5px;
+}
+
+.cmd-flag-risk {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #fca5a5;
+  font-size: 11px;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* ============================================================================
+   CLI TOUCH BAR FOR QUICK LINUX KEYS (DESKTOP & MOBILE)
+   ============================================================================ */
+.cli-touch-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  background: #080d19;
+  border-top: 1px solid rgba(6, 182, 212, 0.2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.cli-key-btn {
+  background: #111a2e;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  color: var(--accent-cyan-bright);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: all 0.15s ease;
+}
+
+.cli-key-btn:hover {
+  background: #1c2b4d;
+  border-color: var(--accent-cyan);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.cli-key-btn:active {
+  transform: translateY(1px);
+  background: var(--accent-cyan);
+  color: #03131d;
+}
+
+/* ============================================================================
+   EXPANDED CLI MASTER MODE & FULLSCREEN TTY CONSOLE
+   ============================================================================ */
+
+/* CLI Master Mode (Wide Stage) */
+body.mode-cli-master .main-grid {
+  grid-template-columns: 1fr;
+  max-width: 1300px;
+}
+
+body.mode-cli-master .left-col {
+  display: none;
+}
+
+body.mode-cli-master .terminal-window {
+  min-height: 520px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+body.mode-cli-master .terminal-output {
+  min-height: 400px;
+  max-height: 580px;
+  font-size: 13.5px;
+}
+
+body.mode-cli-master #bashInput {
+  font-size: 14.5px;
+}
+
+/* Fullscreen Debian 12 TTY Mode */
+.terminal-window.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  background: #03060c !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.terminal-fullscreen-bar {
+  background: #070e1c;
+  border-bottom: 1px solid var(--accent-cyan);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fs-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.fs-badge {
+  background: var(--accent-cyan);
+  color: #03141f;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.fs-qtitle {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fs-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btn-exit-fs {
+  background: #dc2626 !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.btn-exit-fs:hover {
+  background: #ef4444 !important;
+}
+
+.terminal-window.is-fullscreen .terminal-header {
+  padding: 6px 16px !important;
+}
+
+.terminal-window.is-fullscreen .terminal-output {
+  flex: 1 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  padding: 16px 20px !important;
+}
+
+.terminal-window.is-fullscreen .terminal-input-row {
+  padding: 10px 16px !important;
+  background: #060b17 !important;
+  border-top: 1px solid var(--border-cyan) !important;
+}
+
+.terminal-window.is-fullscreen #bashInput {
+  font-size: 15px !important;
+}
+
+/* ============================================================================
+   KALI LINUX WORKBENCH CARD (Integrated in Left Column & Fullscreen Toggle)
+   ============================================================================ */
+
+.panel-card.terminal-card {
+  background: #000000;
+  border: 1px solid var(--border-cyan);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
+  margin-top: 14px;
+}
+
+.terminal-card .panel-header {
+  background: #080d19;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.terminal-card-tabs {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.terminal-card-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.btn-expand-terminal {
+  background: #059669 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-color: #34d399 !important;
+}
+
+.btn-expand-terminal:hover {
+  background: #0369a1 !important;
+}
+
+/* Fullscreen Mode for the Terminal Card */
+.panel-card.terminal-card.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  z-index: 99999 !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+
+
+.terminal-card:not(.is-fullscreen) .kali-fullscreen-bar {
+  display: none !important;
+}
+
+.terminal-card.is-fullscreen .kali-fullscreen-bar {
+  display: flex !important;
+}
+
+.terminal-card.is-fullscreen .workbench-pane#paneKaliTerminal {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+.terminal-card.is-fullscreen .kali-screen {
+  flex: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  font-size: 14px !important;
+}
+
+.terminal-card.is-fullscreen .kali-touch-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+/* Kali Fullscreen Top Floating Bar */
+.kali-fullscreen-bar {
+  height: 42px;
+  min-height: 42px;
+  background: #080c14;
+  border-bottom: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  gap: 8px;
+  flex-shrink: 0;
+  z-index: 100;
+}
+
+.kt-fs-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: #34d399;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.kt-fs-logo {
+  font-size: 18px;
+}
+
+.kt-fs-brand {
+  letter-spacing: 0.5px;
+}
+
+.kt-fs-task-badge {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.kt-fs-progress {
+  background: #022c22;
+  border: 1px solid #059669;
+  color: #34d399;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.kt-fs-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* Workbench Panes */
+.workbench-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Kali Screen in normal mode */
+.terminal-card:not(.is-fullscreen) .kali-screen {
+  height: 360px;
+  min-height: 280px;
+  max-height: 440px;
+  background: #000000;
+  overflow-y: auto;
+  padding: 12px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  cursor: text;
+  user-select: text;
+}
+
+.kt-task-btn {
+  background: #0f172a;
+  border: 1px solid #334155;
+  color: #f8fafc;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.15s ease;
+}
+
+.kt-task-btn:hover {
+  background: #1e293b;
+  border-color: #059669;
+  color: #34d399;
+}
+
+.kt-stat-pill {
+  background: #022c22;
+  border: 1px solid #059669;
+  color: #34d399;
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.kt-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.kt-action-btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #e2e8f0;
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-family: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.kt-action-btn:hover {
+  background: #334155;
+  color: #fff;
+  border-color: #059669;
+}
+
+.kt-btn-2d {
+  background: #1e1b4b;
+  border-color: #6366f1;
+  color: #a5b4fc;
+}
+
+.kt-btn-2d:hover {
+  background: #312e81;
+  border-color: #818cf8;
+  color: #fff;
+}
+
+/* Kali Full Terminal Screen */
+.kali-screen {
+  flex: 1;
+  min-height: 0;
+  background: #000000;
+  overflow-y: auto;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #e2e8f0;
+  -webkit-overflow-scrolling: touch;
+  cursor: text;
+  user-select: text;
+}
+
+.kali-screen::-webkit-scrollbar {
+  width: 6px;
+}
+
+.kali-screen::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+.kali-stream {
+  word-break: break-word;
+  white-space: pre-wrap;
+  font-family: inherit;
+}
+
+/* Prompt Colors */
+.k-green {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.k-blue {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.k-white {
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+.kali-active-prompt {
+  margin-top: 6px;
+  font-family: inherit;
+}
+
+.kali-p-row1 {
+  line-height: 1.35;
+}
+
+.kali-p-row2 {
+  line-height: 1.35;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.kali-inline-cmd-input {
+  flex: 1;
+  min-width: 60px;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: #f8fafc !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 15px !important;
+  line-height: 1.35 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  caret-color: #00ff88 !important;
+}
+
+/* Engine Switcher */
+.terminal-engine-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #090e1a;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.btn-engine-pill {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-engine-pill:hover {
+  color: #fff;
+}
+
+.btn-engine-pill.active {
+  background: #1e293b;
+  color: #34d399;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* In-Terminal Interactive Editor Overlay (nano / vim) */
+.terminal-editor-overlay {
+  position: absolute;
+  inset: 0;
+  background: #050811;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  border-bottom: 1px solid #334155;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.editor-textarea {
+  flex: 1;
+  background: #000000;
+  color: #e2e8f0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13.5px;
+  padding: 12px;
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+}
+
+.editor-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 5px 12px;
+  display: flex;
+  gap: 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  border-top: 1px solid #1e293b;
+}
+
+/* WASM Real Linux Screen */
+.wasm-term-screen {
+  width: 100%;
+  height: 380px;
+  min-height: 280px;
+  max-height: 480px;
+  background: #000000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.wasm-loader {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #34d399;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  padding: 16px;
+}
+
+.wasm-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #34d399;
+  border-radius: 50%;
+  animation: wasmSpin 0.8s linear infinite;
+}
+
+@keyframes wasmSpin {
+  to { transform: rotate(360deg); }
+}
+
+.wasm-xterm-box {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: #000000;
+  padding: 4px;
+  overflow: hidden;
+}
+
+body.terminal-is-fullscreen {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.terminal-card.is-fullscreen .wasm-term-screen {
+  flex: 1 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+.terminal-card.is-fullscreen .wasm-xterm-box {
+  flex: 1 !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* ============================================================================
+   2-MODE SEGMENTED CONTROL: MASALA YECHISH VS ERKIN CLI
+   ============================================================================ */
+.cli-mode-segmented-bar {
+  display: flex;
+  gap: 8px;
+  background: #0c1322;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-bottom: 12px;
+}
+
+.cli-mode-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cli-mode-pill:hover {
+  background: rgba(56, 189, 248, 0.08);
+  color: #f0f6fc;
+}
+
+.cli-mode-pill.active {
+  background: #10192e;
+  border-color: #38bdf8;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+.cli-mode-pill .mode-icon {
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.cli-mode-pill .mode-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.cli-mode-pill .mode-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f8fafc;
+  line-height: 1.25;
+}
+
+.cli-mode-pill .mode-sub {
+  font-size: 10.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.cli-mode-pill.active .mode-title {
+  color: #34d399;
+}
+
+.cli-mode-pill.active .mode-sub {
+  color: #cbd5e1;
+}
+
+/* Terminal Active Mode Badge */
+.terminal-active-mode-badge {
+  background: rgba(6, 182, 212, 0.15);
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+/* In-Terminal Quick Task & Action Bar */
+.terminal-task-bar {
+  background: #060a14;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.tt-text {
+  color: var(--accent-cyan-bright);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tt-actions {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.tt-btn {
+  background: #142036;
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: #e2e8f0;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.tt-btn:hover {
+  background: var(--accent-cyan);
+  color: #080c14;
+  border-color: var(--accent-cyan-bright);
+}
+
+/* Floating High-Contrast Fullscreen Exit Button */
+.btn-floating-exit-fs {
+  position: fixed !important;
+  top: 10px !important;
+  right: 12px !important;
+  z-index: 10000000 !important;
+  background: #dc2626 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #f87171 !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  display: none;
+  cursor: pointer !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(8px);
+}
+
+.btn-floating-exit-fs:hover {
+  background: #b91c1c !important;
+}
+
+.terminal-card.is-fullscreen .btn-floating-exit-fs {
+  display: block !important;
+}
+
+/* Prominent Batafsil Button */
+.batafsil-btn-wrap {
+  margin: 10px 0 12px 0;
+}
+
+.btn-batafsil {
+  width: 100%;
+  background: linear-gradient(135deg, #16243d 0%, #0e172a 100%);
+  border: 1.5px solid var(--accent-cyan);
+  color: var(--accent-cyan-bright);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(6, 182, 212, 0.2);
+}
+
+.btn-batafsil:hover {
+  background: var(--accent-cyan);
+  color: #080c14;
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.5);
+}
+
+/* History Entries in Stream */
+.kali-history-entry {
+  margin: 6px 0;
+}
+
+.kali-cmd-line1 {
+  line-height: 1.35;
+}
+
+.kali-cmd-line2 {
+  line-height: 1.35;
+}
+
+.kali-cmd-stdout {
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  margin: 3px 0;
+}
+
+.kali-cmd-stderr {
+  color: #f87171;
+  white-space: pre-wrap;
+  font-family: inherit;
+  margin: 3px 0;
+}
+
+.kali-grade-success {
+  color: #4ade80;
+  font-weight: 600;
+  margin: 6px 0;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 6px 10px;
+  border-left: 3px solid #22c55e;
+  border-radius: 4px;
+}
+
+.kali-grade-error {
+  color: #fca5a5 !important;
+  background: rgba(220, 38, 38, 0.14) !important;
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  border-left: 3px solid #ef4444 !important;
+  border-radius: 6px !important;
+  padding: 5px 9px !important;
+  margin: 4px 0 6px 0 !important;
+  font-size: 11.5px !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  box-sizing: border-box !important;
+}
+
+.kali-meta-card,
+#kaliCurrentTaskCard {
+  color: #34d399 !important;
+  background: rgba(8, 14, 28, 0.95) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  border-left: 3px solid #34d399 !important;
+  border-radius: 6px !important;
+  padding: 5px 9px !important;
+  margin: 4px 0 6px 0 !important;
+  font-size: 12px !important;
+  line-height: 1.35 !important;
+  white-space: normal !important;
+  box-sizing: border-box !important;
+}
+
+/* Touch Quick Bar */
+.kali-touch-bar {
+  background: #0a0f1d;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.kt-key-btn {
+  background: #111827;
+  border: 1px solid #374151;
+  color: #f3f4f6;
+  border-radius: 5px;
+  padding: 7px 11px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  user-select: none;
+  transition: background 0.1s;
+}
+
+.kt-key-btn:active {
+  background: #374151;
+  transform: scale(0.96);
+}
+
+.kt-key-nav {
+  background: #1e293b;
+  border-color: #059669;
+  color: #34d399;
+}
+
+/* Modals */
+.kali-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 100000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+}
+
+.kali-modal.active {
+  display: flex;
+}
+
+.kali-modal-content {
+  background: #090e1a;
+  border: 1px solid #059669;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+}
+
+.kt-modal-lg {
+  max-width: 780px;
+}
+
+.kali-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #060a12;
+  border-bottom: 1px solid #1e293b;
+}
+
+.kali-modal-title {
+  font-weight: 700;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.kt-title-code {
+  background: #1e293b;
+  color: #34d399;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12.5px;
+}
+
+.kali-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.kali-modal-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.kali-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #e2e8f0;
+}
+
+.kali-modal-footer {
+  padding: 10px 16px;
+  background: #060a12;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kt-meta-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.kt-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #1e293b;
+  color: #34d399;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.kt-task-story {
+  background: #060a14;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  color: #cbd5e1;
+}
+
+.kt-task-req {
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.kt-req-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #34d399;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+}
+
+.kt-req-text {
+  font-size: 13.5px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.kt-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.kt-modal-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN & MOBILE PHONE OPTIMIZATION (100% CONTAINMENT)
+   ============================================================================ */
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .top-hud {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+
+  .hud-stats {
+    width: 100%;
+    order: 3;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+  }
+
+  .stat-pill {
+    flex: 1 1 auto;
+    justify-content: center;
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .hud-actions {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .main-grid {
+    grid-template-columns: 1fr;
+    padding: 8px 10px;
+    gap: 12px;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .canvas-wrap {
+    max-height: 240px;
+    overflow: hidden;
+  }
+
+  #gameCanvas {
+    max-height: 240px;
+    width: 100%;
+    height: auto;
+  }
+
+  .terminal-card:not(.is-fullscreen) .kali-screen {
+    height: 380px;
+    min-height: 320px;
+    max-height: 480px;
+    font-size: 12.5px;
+    padding: 10px 12px;
+  }
+
+  .action-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-left, .action-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .action-bar .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .kali-fullscreen-bar {
+    padding: 4px 8px;
+    height: auto;
+    min-height: 42px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-hud {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 8px 10px !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .brand-box {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .brand-title {
+    font-size: 13px !important;
+  }
+
+  .brand-sub {
+    font-size: 11px !important;
+  }
+
+  .brand-emblem {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 17px !important;
+  }
+
+  .btn-back {
+    padding: 4px 8px !important;
+    font-size: 11px !important;
+  }
+
+  .hud-stats {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 6px !important;
+  }
+
+  .hud-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .hud-actions .btn {
+    padding: 6px 10px !important;
+    font-size: 11.5px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    min-width: max-content !important;
+  }
+
+  .main-grid {
+    padding: 6px 8px !important;
+    gap: 10px !important;
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .canvas-wrap {
+    max-height: 200px !important;
+  }
+
+  #gameCanvas {
+    max-height: 200px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .cli-mode-segmented-bar {
+    grid-template-columns: 1fr !important;
+    gap: 6px !important;
+  }
+
+  .cli-mode-pill {
+    padding: 7px 10px !important;
+  }
+
+  .cli-mode-pill .mode-title {
+    font-size: 12px !important;
+  }
+
+  .cli-mode-pill .mode-sub {
+    font-size: 10px !important;
+  }
+
+  .panel-header {
+    padding: 6px 10px !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .panel-title {
+    font-size: 12px !important;
+  }
+
+  .terminal-engine-switch {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .btn-engine-pill {
+    flex: 1 !important;
+    text-align: center !important;
+  }
+
+  .q-strip {
+    gap: 4px !important;
+    padding: 6px 8px !important;
+    overflow-x: auto !important;
+  }
+
+  .q-dot {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 10px !important;
+  }
+
+  .mission-body {
+    padding: 10px 12px !important;
+  }
+
+  .mission-title {
+    font-size: 14.5px !important;
+  }
+
+  .terminal-card:not(.is-fullscreen) .kali-screen {
+    height: 340px !important;
+  }
+
+  .terminal-card:not(.is-fullscreen) .wasm-term-screen {
+    height: 340px !important;
+  }
+
+  .kali-screen {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .terminal-card.is-fullscreen {
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+  }
+
+  .terminal-card.is-fullscreen .kali-screen,
+  .terminal-card.is-fullscreen .wasm-term-screen,
+  .terminal-card.is-fullscreen .wasm-xterm-box {
+    height: 100% !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+  }
+
+  .kali-touch-bar {
+    padding: 4px 6px !important;
+    gap: 4px !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .kt-key-btn {
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .modal-dialog, .kali-modal-content {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 10px auto !important;
+    padding: 12px !important;
+  }
+}
+
+
+
+/* ============================================================================
+   ACADEMIC CASE STUDY DOSSIER (DATABASE SYSTEMS STANDARD)
+   ============================================================================ */
+.academic-case-dossier {
+  background: #080e1d !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 14px 16px !important;
+  margin: 10px 0 14px 0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+.case-section-header {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: var(--accent-cyan-bright) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.8px !important;
+  margin: 0 0 8px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.case-narrative-box {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13.5px !important;
+  line-height: 1.75 !important;
+  color: #f1f5f9 !important;
+  margin-bottom: 12px !important;
+}
+
+.case-narrative-box p {
+  margin: 0 0 10px 0 !important;
+  line-height: 1.7 !important;
+}
+
+.case-narrative-box p:last-child {
+  margin-bottom: 0 !important;
+}
+
+.case-narrative-box strong {
+  color: #34d399 !important;
+  font-weight: 600 !important;
+}
+
+.case-tasks-box {
+  border-top: 1px solid rgba(6, 182, 212, 0.25) !important;
+  padding-top: 12px !important;
+}
+
+.case-instruction-pill {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  padding: 10px 14px !important;
+  background: rgba(6, 182, 212, 0.08) !important;
+  border: 1px solid rgba(6, 182, 212, 0.25) !important;
+  border-radius: 6px !important;
+  color: #f8fafc !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+
+.sector-bar {
+  background: #080d1a !important;
+  border-bottom: 1px solid rgba(6, 182, 212, 0.25) !important;
+  padding: 8px 14px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 8px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--accent-cyan) transparent !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.sector-bar::-webkit-scrollbar {
+  height: 5px !important;
+}
+
+.sector-bar::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan) !important;
+  border-radius: 4px !important;
+}
+
+.sector-pill {
+  background: rgba(14, 23, 42, 0.8) !important;
+  border: 1px solid rgba(6, 182, 212, 0.3) !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 6px !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  height: 32px !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.sector-pill:hover {
+  border-color: var(--accent-cyan-bright) !important;
+  color: #f8fafc !important;
+}
+
+.sector-pill.active {
+  background: rgba(6, 182, 212, 0.22) !important;
+  border-color: #10b981 !important;
+  color: #f8fafc !important;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.35) !important;
+}
+
+.sector-pill span {
+  white-space: nowrap !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+}
+
+.sector-pill .pill-count {
+  background: rgba(6, 182, 212, 0.2) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 10.5px !important;
+  color: #00ff88 !important;
+  font-weight: 600 !important;
+}
+
+
+
+
+/* ==========================================================================
+   AUTHENTIC KALI LINUX TERMINAL & SMART HYBRID ENGINE (ZERO DELAY, 100% POSIX)
+   ========================================================================== */
+.terminal-os-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  padding: 4px 10px !important;
+  border-radius: 20px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  font-size: 11.5px !important;
+  color: #34d399 !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+}
+
+.os-dot-live {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  box-shadow: 0 0 8px #22c55e !important;
+  animation: pulseLive 2s infinite ease-in-out !important;
+}
+
+@keyframes pulseLive {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+.kali-screen {
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 280px !important;
+  max-height: 480px !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  overflow-y: auto !important;
+  padding: 12px 14px !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: #e2e8f0 !important;
+  -webkit-overflow-scrolling: touch !important;
+  cursor: text !important;
+  user-select: text !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+.kali-active-prompt {
+  margin-top: 6px !important;
+  margin-left: 0 !important;
+  padding: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  text-align: left !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+}
+
+.kali-p-row1 {
+  line-height: 1.35 !important;
+  font-family: inherit !important;
+  user-select: none !important;
+  display: flex !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.kali-p-row2 {
+  line-height: 1.35 !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.k-green {
+  color: #22c55e !important;
+  font-weight: 700 !important;
+}
+
+.k-blue {
+  color: #34d399 !important;
+  font-weight: 700 !important;
+}
+
+.k-red {
+  color: #ef4444 !important;
+  font-weight: 700 !important;
+}
+
+.k-white {
+  color: #f8fafc !important;
+  font-weight: 700 !important;
+}
+
+/* 100% Transparent, Native Inline Input — ZERO WHITE BOX */
+.kali-inline-cmd-input,
+input.kali-inline-cmd-input {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-width: 60px !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  color: #f8fafc !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 14.5px !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+  padding: 0 0 0 4px !important;
+  margin: 0 !important;
+  caret-color: #00ff88 !important; /* Glowing cyan cursor */
+}
+
+.kali-inline-cmd-input:focus,
+.kali-inline-cmd-input:hover,
+.kali-inline-cmd-input:active {
+  outline: none !important;
+  border: none !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+
+/* ==========================================================================
+   FULLSCREEN & TERMINAL SCROLL GUARANTEES (PROMPT ALWAYS 100% VISIBLE)
+   ========================================================================== */
+.terminal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  position: relative !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+}
+
+.kali-screen {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  min-height: 280px !important;
+  max-height: 480px !important;
+  background: #000000 !important;
+  background-color: #000000 !important;
+  overflow-y: auto !important;
+  padding: 14px 14px 44px 14px !important; /* Large bottom padding ensures input NEVER hides */
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: #e2e8f0 !important;
+  -webkit-overflow-scrolling: touch !important;
+  cursor: text !important;
+  user-select: text !important;
+  box-sizing: border-box !important;
+  text-align: left !important;
+}
+
+/* Fullscreen Mode on terminal card */
+.panel-card.terminal-card.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  z-index: 99999 !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* Keep panel header visible in fullscreen with prominent exit button */
+.terminal-card.is-fullscreen .panel-header {
+  display: flex !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  padding: 0 16px !important;
+  background: #080c16 !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3) !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+  z-index: 100 !important;
+}
+
+.terminal-card.is-fullscreen .terminal-container {
+  flex: 1 1 auto !important;
+  height: calc(100% - 46px) !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.terminal-card.is-fullscreen .kali-screen {
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  max-height: none !important;
+  font-size: 14.5px !important;
+  padding: 16px 18px 50px 18px !important; /* Ample bottom room in fullscreen */
+}
+
+.terminal-card.is-fullscreen .kali-touch-bar {
+  flex-shrink: 0 !important;
+  position: relative !important;
+  bottom: 0 !important;
+  z-index: 50 !important;
+  background: #080d1a !important;
+}
+
+/* Floating Exit Button for extra safety */
+.btn-floating-exit-fs {
+  display: none;
+}
+
+.terminal-card.is-fullscreen .btn-floating-exit-fs {
+  display: flex !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 12px !important;
+  z-index: 1000 !important;
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 5px 12px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* ==========================================================================
+   KALI LINUX TERMINAL: BULLETPROOF FULLSCREEN & SCROLL ENGINE (V5)
+   ========================================================================== */
+
+/* Split Mode vs Fullscreen Mode Bar Visibility */
+.terminal-card:not(.is-fullscreen) .kali-fullscreen-bar {
+  display: none !important;
+}
+
+.terminal-card.is-fullscreen .panel-header {
+  display: none !important;
+}
+
+/* Dedicated Fullscreen Top Bar */
+.terminal-card.is-fullscreen .kali-fullscreen-bar {
+  display: flex !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  max-height: 46px !important;
+  background: #080d1a !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.3) !important;
+  padding: 0 16px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+}
+
+.kali-fullscreen-bar .kfs-left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.kali-fullscreen-bar .kfs-logo {
+  font-size: 18px !important;
+}
+
+.kali-fullscreen-bar .kfs-title {
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  color: #34d399 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  letter-spacing: 0.3px !important;
+}
+
+.kali-fullscreen-bar .kfs-right {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.btn-kfs-clear {
+  background: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: #e2e8f0 !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.btn-kfs-clear:hover {
+  background: #334155 !important;
+}
+
+.btn-kfs-exit {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 1.5px solid #f87171 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  padding: 6px 18px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 12px rgba(239, 68, 68, 0.5) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-kfs-exit:hover {
+  background: #dc2626 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Floating Exit Button (Extra Redundancy) */
+.btn-floating-exit-fs {
+  display: none !important;
+}
+
+.terminal-card.is-fullscreen .btn-floating-exit-fs {
+  display: flex !important;
+  position: fixed !important;
+  top: 8px !important;
+  right: 14px !important;
+  z-index: 10000 !important;
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border: 1px solid #fca5a5 !important;
+  border-radius: 6px !important;
+  padding: 6px 14px !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Fullscreen Card Container */
+.panel-card.terminal-card.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  z-index: 999999 !important;
+  background: #000000 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+/* Terminal Container in Fullscreen */
+.terminal-card.is-fullscreen .terminal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: calc(100% - 46px) !important;
+  max-height: calc(100% - 46px) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kali Screen in Fullscreen: Takes exactly remaining space MINUS touch bar */
+.terminal-card.is-fullscreen .kali-screen {
+  display: block !important;
+  flex: 1 1 0% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  background: #000000 !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 16px 18px 80px 18px !important; /* 80px bottom padding guarantees prompt is 100% visible */
+  box-sizing: border-box !important;
+}
+
+/* Touch Bar in Fullscreen: Pinned to bottom, non-collapsible */
+.terminal-card.is-fullscreen .kali-touch-bar {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  max-height: 44px !important;
+  background: #080d1a !important;
+  border-top: 1px solid #1e293b !important;
+  z-index: 50 !important;
+  position: relative !important;
+  bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Split Mode (Normal) Terminal Card */
+.terminal-card:not(.is-fullscreen) .terminal-container {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  width: 100% !important;
+}
+
+.terminal-card:not(.is-fullscreen) .kali-screen {
+  min-height: 320px !important;
+  max-height: 480px !important;
+  height: 380px !important;
+  background: #000000 !important;
+  overflow-y: scroll !important;
+  padding: 14px 14px 60px 14px !important;
+  box-sizing: border-box !important;
+}
+
+.terminal-card:not(.is-fullscreen) .kali-touch-bar {
+  flex-shrink: 0 !important;
+  height: 42px !important;
+}
+
+/* Active Prompt Margin Guarantee */
+.kali-active-prompt {
+  margin-top: 10px !important;
+  margin-bottom: 24px !important;
+  min-height: 48px !important;
+  display: block !important;
+}
+
+/* High Visibility Cyan Scrollbar */
+.kali-screen::-webkit-scrollbar {
+  width: 10px !important;
+}
+.kali-screen::-webkit-scrollbar-track {
+  background: #070b14 !important;
+}
+.kali-screen::-webkit-scrollbar-thumb {
+  background: #34d399 !important;
+  border-radius: 5px !important;
+  border: 2px solid #070b14 !important;
+}
+.kali-screen::-webkit-scrollbar-thumb:hover {
+  background: #059669 !important;
+}
+
+/* Ensure duplicate floating button is completely removed */
+.btn-floating-exit-fs {
+  display: none !important;
+}
+
+/* ==========================================================================
+   V8: 1-TIME FLOATING TOAST + ZERO-JUMP ROCK-SOLID PROMPT
+   ========================================================================== */
+
+/* 1-Time Floating Toast Notification */
+.terminal-floating-toast {
+  position: fixed !important;
+  top: 18px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-40px) !important;
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%) !important;
+  color: #ffffff !important;
+  border: 1.5px solid #34d399 !important;
+  border-radius: 8px !important;
+  padding: 10px 24px !important;
+  font-family: 'JetBrains Mono', 'Inter', monospace !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 16px rgba(16, 185, 129, 0.5) !important;
+  z-index: 10000000 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.terminal-floating-toast.show {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+.terminal-floating-toast.error {
+  background: linear-gradient(135deg, #b91c1c 0%, #ef4444 100%) !important;
+  border-color: #f87171 !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), 0 0 16px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* OVERRIDE ALL BOTTOM PADDING: EXACT 6px, NO 60px/80px GAPS */
+.kali-screen,
+.terminal-card .kali-screen,
+.terminal-card:not(.is-fullscreen) .kali-screen,
+.terminal-card.is-fullscreen .kali-screen {
+  padding-top: 12px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  padding-bottom: 6px !important;
+  box-sizing: border-box !important;
+}
+
+/* OVERRIDE PROMPT MARGIN: EXACT 2px BOTTOM MARGIN */
+.kali-active-prompt {
+  margin-top: 6px !important;
+  margin-bottom: 2px !important;
+  min-height: 36px !important;
+  display: block !important;
+}
+
+/* Ensure prompt rows have steady heights */
+.kali-p-row1 {
+  line-height: 1.35 !important;
+  margin-bottom: 2px !important;
+}
+
+.kali-p-row2 {
+  line-height: 1.35 !important;
+  display: flex !important;
+  align-items: center !important;
+  min-height: 22px !important;
+}
+
+.kali-inline-cmd-input,
+input.kali-inline-cmd-input {
+  height: 22px !important;
+  line-height: 22px !important;
+  box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   V9: MINIMAL FULLSCREEN TOPBAR, COLORLESS X, TINY PTICHKA TOAST
+   ========================================================================== */
+
+/* Fullscreen Topbar: Ultra Slim, Clean, Sleek */
+.terminal-card.is-fullscreen .kali-fullscreen-bar {
+  display: flex !important;
+  height: 36px !important;
+  min-height: 36px !important;
+  max-height: 36px !important;
+  background: #000000 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 0 10px !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  z-index: 1000 !important;
+  box-sizing: border-box !important;
+}
+
+.kfs-minimal-title {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+/* Colorless, Minimal X Exit Button */
+.btn-kfs-exit {
+  background: transparent !important;
+  color: #94a3b8 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  padding: 2px 10px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-kfs-exit:hover,
+.btn-kfs-exit:active {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  transform: none !important;
+}
+
+.btn-kfs-clear {
+  background: #111827 !important;
+  border: 1px solid #1f2937 !important;
+  color: #9ca3af !important;
+  font-size: 11px !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+}
+
+.btn-kfs-clear:hover {
+  background: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+/* Fullscreen Container adjusts to 36px header */
+.terminal-card.is-fullscreen .terminal-container {
+  height: calc(100% - 36px) !important;
+  max-height: calc(100% - 36px) !important;
+}
+
+/* Tiny Minimalist Ptichka Toast (Checkmark Badge) */
+.terminal-floating-toast {
+  position: fixed !important;
+  top: 10px !important;
+  right: 14px !important;
+  left: auto !important;
+  transform: translateY(-20px) scale(0.85) !important;
+  background: #059669 !important;
+  color: #ffffff !important;
+  border: 1px solid #10b981 !important;
+  border-radius: 20px !important;
+  padding: 3px 11px !important;
+  font-family: 'JetBrains Mono', 'Inter', monospace !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4) !important;
+  z-index: 10000000 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.terminal-floating-toast.show {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+.terminal-floating-toast.error {
+  background: #dc2626 !important;
+  border-color: #f87171 !important;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4) !important;
+}
+
+
+/* Clean Minimal HUD: Floor Sector Navigation Bar Hidden */
+.sector-bar, #sectorNavList {
+  display: none !important;
+}
+
+
+
+/* =========================================================================
+   UNIVERSAL SLEEK CYBERPUNK BUTTON SYSTEM (NO MORE WHITE BUTTONS)
+   ========================================================================= */
+.btn {
+  background: #0d172c !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #f1f5f9 !important;
+  border-radius: 8px !important;
+  padding: 6px 14px !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  user-select: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45) !important;
+  text-decoration: none !important;
+  line-height: 1.35 !important;
+  outline: none !important;
+}
+
+.btn:hover {
+  background: #172749 !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.btn-sm {
+  padding: 4px 10px !important;
+  font-size: 11.5px !important;
+  border-radius: 6px !important;
+}
+
+/* Primary Cyber Action Button (▶ Buyruqni Bajarish) */
+.btn-primary {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45) !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb, #38bdf8) !important;
+  border-color: #93c5fd !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.65) !important;
+}
+
+/* Navigation Buttons (◀ Oldingi / Keyingi ▶) */
+#btnPrevQ, #btnNextQ {
+  background: #0f1c38 !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  color: #93c5fd !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: 7px !important;
+}
+
+#btnPrevQ:hover, #btnNextQ:hover {
+  background: rgba(56, 189, 248, 0.22) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Terminal Utility Buttons (🧹 Tozalash / ⛶ To'liq Ekran) */
+#btnClearKaliScreen, #btnToggleKaliFs {
+  background: #0b1426 !important;
+  border: 1px solid rgba(148, 163, 184, 0.3) !important;
+  color: #cbd5e1 !important;
+  font-weight: 500 !important;
+  border-radius: 6px !important;
+}
+
+#btnClearKaliScreen:hover, #btnToggleKaliFs:hover {
+  background: rgba(56, 189, 248, 0.16) !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
+}
+
+/* Evaluation Utility Buttons (💡 Maslahat Olish / 👁 Kutilayotgan Chiqish) */
+#btnShowHint {
+  background: #141f33 !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #fde68a !important;
+  font-weight: 600 !important;
+}
+
+#btnShowHint:hover {
+  background: rgba(245, 158, 11, 0.2) !important;
+  border-color: #f59e0b !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4) !important;
+}
+
+#btnPreviewExpected {
+  background: #0e1a33 !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #7dd3fc !important;
+  font-weight: 600 !important;
+}
+
+#btnPreviewExpected:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: #38bdf8 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4) !important;
+}
+
+/* Weekly Commands Trigger Buttons */
+.btn-weekly-cmds {
+  background: linear-gradient(135deg, #0e7490, #0369a1) !important;
+  border: 1px solid #38bdf8 !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.35) !important;
+}
+
+.btn-weekly-cmds:hover {
+  background: linear-gradient(135deg, #0891b2, #0284c7) !important;
+  border-color: #67e8f9 !important;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6) !important;
+  color: #ffffff !important;
+}
+
+.btn-weekly-hdr {
+  background: #0f1f3d !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  font-weight: 600 !important;
+  padding: 4px 10px !important;
+  font-size: 11.5px !important;
+}
+
+.btn-weekly-hdr:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: #38bdf8 !important;
+  color: #fff !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.35) !important;
+}
+
+.btn-weekly-action {
+  background: #0b1a36 !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+}
+
+.btn-weekly-action:hover {
+  background: rgba(56, 189, 248, 0.22) !important;
+  border-color: #67e8f9 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45) !important;
+}
+
+/* =========================================================================
+   WEEKLY COMMANDS MODAL & CARDS STYLING
+   ========================================================================= */
+.weekly-cmds-modal-content {
+  max-width: 900px !important;
+  max-height: 85vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background: #080f1d !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.25) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.weekly-cmds-subbar {
+  padding: 12px 18px !important;
+  background: #0c1628 !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.18) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.weekly-cmds-desc {
+  font-size: 12.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.5 !important;
+}
+
+.weekly-cmds-search-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.weekly-cmds-search {
+  flex: 1 !important;
+  background: #050b15 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  color: #ffffff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  outline: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.weekly-cmds-search:focus {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
+  background: #081120 !important;
+}
+
+.weekly-cmds-count-badge {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  white-space: nowrap !important;
+}
+
+.weekly-cmds-body {
+  overflow-y: auto !important;
+  padding: 16px 18px !important;
+  flex: 1 !important;
+}
+
+.weekly-commands-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  gap: 14px !important;
+}
+
+.weekly-cmd-card {
+  background: #0c1628 !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  border-radius: 9px !important;
+  padding: 12px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  transition: all 0.2s ease !important;
+  cursor: pointer !important;
+  position: relative !important;
+}
+
+.weekly-cmd-card:hover {
+  background: #11203b !important;
+  border-color: #38bdf8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 14px rgba(56, 189, 248, 0.3) !important;
+}
+
+.weekly-cmd-top {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 6px !important;
+}
+
+.weekly-cmd-name-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  padding: 2px 8px !important;
+  border-radius: 5px !important;
+}
+
+.weekly-cmd-cat-tag {
+  font-size: 10.5px !important;
+  background: rgba(148, 163, 184, 0.15) !important;
+  color: #94a3b8 !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  font-weight: 600 !important;
+}
+
+.weekly-cmd-title {
+  font-size: 12.5px !important;
+  font-weight: 700 !important;
+  color: #f8fafc !important;
+  margin-bottom: 6px !important;
+  line-height: 1.35 !important;
+}
+
+.weekly-cmd-syntax {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  color: #34d399 !important;
+  background: #060c17 !important;
+  padding: 5px 8px !important;
+  border-radius: 5px !important;
+  border: 1px solid rgba(52, 211, 153, 0.2) !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+}
+
+.weekly-cmd-desc {
+  font-size: 11.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.45 !important;
+  margin-bottom: 10px !important;
+  flex: 1 !important;
+}
+
+.weekly-cmd-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.12) !important;
+  padding-top: 8px !important;
+  margin-top: auto !important;
+}
+
+.weekly-cmd-dict-link {
+  font-size: 11px !important;
+  color: #38bdf8 !important;
+  font-weight: 700 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.weekly-cmd-card:hover .weekly-cmd-dict-link {
+  color: #7dd3fc !important;
+  text-decoration: underline !important;
+}
+
+.weekly-cmd-insert-btn {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  color: #7dd3fc !important;
+  font-size: 10.5px !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.weekly-cmd-insert-btn:hover {
+  background: #38bdf8 !important;
+  color: #03111e !important;
+}
+
+
+
+/* =========================================================================
+   COMMAND DETAIL MODAL BOX (BOXDAN O'QIB OLADI)
+   ========================================================================= */
+.cmd-detail-modal-box {
+  max-width: 680px !important;
+  width: 95% !important;
+  max-height: 85vh !important;
+  background: #09101f !important;
+  border: 1px solid #38bdf8 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(56, 189, 248, 0.3) !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  animation: cmdBoxPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+@keyframes cmdBoxPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.cmd-detail-header {
+  padding: 14px 18px !important;
+  background: #0d172c !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.cmd-detail-title-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.cmd-detail-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  padding: 4px 12px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25) !important;
+}
+
+.cmd-detail-title {
+  font-size: 14.5px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  line-height: 1.3 !important;
+}
+
+.cmd-detail-category {
+  font-size: 11px !important;
+  color: #94a3b8 !important;
+  margin-top: 2px !important;
+}
+
+.cmd-detail-body {
+  padding: 16px 20px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+  flex: 1 !important;
+}
+
+.cmd-detail-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.cmd-detail-section-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.cmd-detail-desc {
+  font-size: 13px !important;
+  color: #e2e8f0 !important;
+  line-height: 1.6 !important;
+  background: rgba(15, 23, 42, 0.6) !important;
+  padding: 10px 12px !important;
+  border-radius: 8px !important;
+  border-left: 3px solid #38bdf8 !important;
+}
+
+.cmd-detail-syntax {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12.5px !important;
+  color: #34d399 !important;
+  background: #050b14 !important;
+  border: 1px solid rgba(52, 211, 153, 0.3) !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+}
+
+.cmd-detail-rules {
+  font-size: 11.5px !important;
+  color: #94a3b8 !important;
+  line-height: 1.45 !important;
+  padding: 0 4px !important;
+}
+
+.cmd-detail-flags-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  max-height: 220px !important;
+  overflow-y: auto !important;
+  padding-right: 4px !important;
+}
+
+.cmd-detail-flag-row {
+  display: flex !important;
+  gap: 10px !important;
+  align-items: flex-start !important;
+  background: #0c1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+}
+
+.cmd-detail-flag-key {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #fbbf24 !important;
+  white-space: nowrap !important;
+  background: rgba(251, 191, 36, 0.1) !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+}
+
+.cmd-detail-flag-desc {
+  font-size: 11.5px !important;
+  color: #cbd5e1 !important;
+  line-height: 1.35 !important;
+}
+
+.cmd-detail-example {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: #e2e8f0 !important;
+  background: #050b14 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  padding: 8px 12px !important;
+  border-radius: 6px !important;
+}
+
+.cmd-detail-analogy-box {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9)) !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-analogy-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-analogy-text {
+  font-size: 12px !important;
+  color: #f1f5f9 !important;
+  line-height: 1.5 !important;
+  font-style: italic !important;
+}
+
+.cmd-detail-footer {
+  padding: 12px 18px !important;
+  background: #0d172c !important;
+  border-top: 1px solid rgba(56, 189, 248, 0.2) !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+}
+
+/* =========================================================================
+   OS ENCYCLOPEDIA MODAL FALLBACK STYLES (NEVER SPREAD OUT UNSTYLED)
+   ========================================================================= */
+.os-dict-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(4, 7, 15, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease !important;
+}
+
+.os-dict-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.os-dict-modal {
+  background: #090e1a !important;
+  border: 1px solid #38bdf8 !important;
+  border-radius: 12px !important;
+  width: 100% !important;
+  max-width: 960px !important;
+  height: 88vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(56, 189, 248, 0.25) !important;
+  overflow: hidden !important;
+}
+
+.os-dict-header {
+  padding: 14px 20px !important;
+  background: #0f172a !important;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.os-dict-title {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.os-dict-close {
+  background: transparent !important;
+  border: none !important;
+  color: #94a3b8 !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+}
+
+.os-dict-controls {
+  padding: 12px 18px !important;
+  background: #060913 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.os-dict-search-input {
+  width: 100% !important;
+  background: #0d1527 !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 8px 14px !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  outline: none !important;
+}
+
+.os-cat-pills {
+  display: flex !important;
+  gap: 6px !important;
+  overflow-x: auto !important;
+  padding-bottom: 4px !important;
+}
+
+.os-cat-pill {
+  background: #0f172a !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  color: #94a3b8 !important;
+  padding: 4px 10px !important;
+  border-radius: 6px !important;
+  font-size: 11.5px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+.os-cat-pill.active {
+  background: #0284c7 !important;
+  color: #fff !important;
+  border-color: #38bdf8 !important;
+}
+
+.os-dict-body {
+  overflow-y: auto !important;
+  padding: 16px 20px !important;
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.os-dict-card {
+  background: #0c1426 !important;
+  border: 1px solid rgba(56, 189, 248, 0.22) !important;
+  border-radius: 10px !important;
+  padding: 14px 16px !important;
+}
+
+.os-cmd-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  padding: 3px 10px !important;
+  border-radius: 6px !important;
+  margin-right: 8px !important;
+}
+
+.os-cmd-title {
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+}
+
+.os-cat-tag {
+  font-size: 11px !important;
+  background: rgba(148, 163, 184, 0.15) !important;
+  color: #94a3b8 !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+}
+
+.os-copy-btn {
+  background: rgba(56, 189, 248, 0.12) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  color: #7dd3fc !important;
+  font-size: 11px !important;
+  padding: 3px 8px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+}
+
+.os-copy-btn:hover {
+  background: #38bdf8 !important;
+  color: #03111e !important;
+}
+
+.os-code-snippet {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+  color: #34d399 !important;
+  background: #060c18 !important;
+  border: 1px solid rgba(52, 211, 153, 0.25) !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  margin-top: 4px !important;
+}
+
+.os-flags-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 6px !important;
+  margin-top: 6px !important;
+}
+
+.os-flag-item {
+  display: flex !important;
+  gap: 8px !important;
+  font-size: 11.5px !important;
+  background: #080f1e !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+}
+
+.os-flag-name {
+  font-family: 'JetBrains Mono', monospace !important;
+  color: #fbbf24 !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+}
+
+.os-analogy-box {
+  background: rgba(15, 23, 42, 0.8) !important;
+  border-left: 3px solid #38bdf8 !important;
+  padding: 8px 12px !important;
+  border-radius: 4px !important;
+  margin-top: 8px !important;
+  font-size: 11.5px !important;
+  color: #e2e8f0 !important;
+}
+
+
+
+/* =========================================================================
+   COMMAND DETAIL MODAL BOX - HIGHEST Z-INDEX LAYER (20000005)
+   HAR QANDAY MODALDAN VA OYNADAN OLDINDA CHIQADI!
+   ========================================================================= */
+#modalCommandDetail.kali-modal,
+#modalCommandDetail {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 20000005 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(4, 7, 15, 0.88) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+#modalCommandDetail.kali-modal.active,
+#modalCommandDetail.active {
+  display: flex !important;
+}
+
+#modalCommandDetail .cmd-detail-modal-box {
+  position: relative !important;
+  z-index: 20000010 !important;
+  max-width: 680px !important;
+  width: 95% !important;
+  max-height: 85vh !important;
+  background: #09101f !important;
+  border: 1px solid #38bdf8 !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 45px rgba(56, 189, 248, 0.45) !important;
+  border-radius: 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+  animation: cmdBoxPop 0.22s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+
+
+/* =========================================================================
+   FLAG COMBINATIONS & KERNEL UNDER-THE-HOOD STYLING
+   ========================================================================= */
+.cmd-detail-combos-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.cmd-detail-combo-card {
+  background: #081120 !important;
+  border: 1px solid rgba(56, 189, 248, 0.25) !important;
+  border-left: 3px solid #38bdf8 !important;
+  border-radius: 7px !important;
+  padding: 8px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.cmd-detail-combo-card:hover {
+  background: #0d1a33 !important;
+  border-color: #38bdf8 !important;
+}
+
+.cmd-detail-combo-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.cmd-detail-combo-badge {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  background: rgba(56, 189, 248, 0.12) !important;
+  padding: 2px 8px !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+}
+
+.cmd-detail-combo-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  flex: 1 !important;
+}
+
+.btn-combo-insert {
+  background: rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.35) !important;
+  color: #38bdf8 !important;
+  border-radius: 4px !important;
+  padding: 2px 8px !important;
+  font-size: 12px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.btn-combo-insert:hover {
+  background: #38bdf8 !important;
+  color: #030a16 !important;
+}
+
+.cmd-detail-combo-desc {
+  font-size: 12px !important;
+  color: #94a3b8 !important;
+  line-height: 1.45 !important;
+}
+
+.cmd-detail-kernel-box {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.6), rgba(15, 23, 42, 0.85)) !important;
+  border: 1px solid rgba(168, 85, 247, 0.35) !important;
+  border-left: 3px solid #a855f7 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-kernel-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #c084fc !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-kernel-text {
+  font-size: 12px !important;
+  color: #e2e8f0 !important;
+  line-height: 1.55 !important;
+}
+
+.cmd-detail-pitfall-box {
+  background: linear-gradient(135deg, rgba(69, 26, 3, 0.5), rgba(15, 23, 42, 0.85)) !important;
+  border: 1px solid rgba(245, 158, 11, 0.35) !important;
+  border-left: 3px solid #f59e0b !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+}
+
+.cmd-detail-pitfall-title {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  color: #fbbf24 !important;
+  margin-bottom: 4px !important;
+}
+
+.cmd-detail-pitfall-text {
+  font-size: 12px !important;
+  color: #fde68a !important;
+  line-height: 1.55 !important;
+}
+
+/* Restart / Reset Button Styling */
+.btn-reset {
+  background: rgba(225, 29, 72, 0.15) !important;
+  border-color: rgba(225, 29, 72, 0.45) !important;
+  color: #fda4af !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-reset:hover {
+  background: rgba(225, 29, 72, 0.35) !important;
+  border-color: #f43f5e !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(225, 29, 72, 0.5) !important;
+}

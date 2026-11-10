@@ -4360,3 +4360,19 @@ input.kali-inline-cmd-input {
   color: #fde68a !important;
   line-height: 1.55 !important;
 }
+
+/* Restart / Reset Button Styling */
+.btn-reset {
+  background: rgba(225, 29, 72, 0.15) !important;
+  border-color: rgba(225, 29, 72, 0.45) !important;
+  color: #fda4af !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-reset:hover {
+  background: rgba(225, 29, 72, 0.35) !important;
+  border-color: #f43f5e !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 12px rgba(225, 29, 72, 0.5) !important;
+}

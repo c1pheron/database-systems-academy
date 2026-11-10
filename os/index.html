@@ -50,7 +50,7 @@
         <div class="header-stats">
           <div class="stat-chip">
             <span class="label">Bajarildi:</span>
-            <span id="hudSolvedTotal" class="val cyan">0 / 900</span>
+            <span id="hudSolvedTotal" class="val cyan">0 / 1350</span>
           </div>
           <div class="stat-chip">
             <span class="label">Reyting Bali:</span>
@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <button id="btnOpenDictionary" class="btn-dictionary" title="Barcha 6 haftalik Linux buyruqlari ensiklopediyasi (Ctrl+K)">
+        <button id="btnOpenDictionary" class="btn-dictionary" title="Barcha 9 haftalik Linux buyruqlari ensiklopediyasi (Ctrl+K)">
           <span>🔍</span> <span>Lug'at &amp; Qidiruv</span> <span class="kbd-shortcut">Ctrl+K</span>
         </button>
       </div>
@@ -77,7 +77,7 @@
         <span>🐧</span> Debian 12 &amp; Linux Operatsion Tizimi Arxitekturasini Egallang
       </h2>
       <p class="hero-desc">
-        Xush kelibsiz! Linux yadrosi (Kernel) "kapot ostida" qanday ishlashini o'rganing: fayl tizimi va inodelardan tortib, professional Bash avtomatlashtirish, jarayonlar hayot sikli (Signals &amp; fork), CPU rejalashtirish, virtual xotira sahifalari (Paging) va Docker konteynerlarigacha bo'lgan 6 ta korporativ modul va 900 ta amaliy topshiriq!
+        Xush kelibsiz! Linux yadrosi (Kernel) "kapot ostida" qanday ishlashini o'rganing: fayl tizimi va inodelardan tortib, professional Bash avtomatlashtirish, jarayonlar hayot sikli (Signals &amp; fork), CPU rejalashtirish, virtual xotira sahifalari (Paging) va Docker konteynerlarigacha bo'lgan 9 ta korporativ modul va 1,350 ta amaliy topshiriq!
       </p>
 
       <div class="hero-progress-box">
@@ -93,8 +93,8 @@
 
     <!-- 6 Modules Quest Map -->
     <div class="section-headline">
-      <h3 class="section-title">🗺️ O'quv Yo'nalishi &amp; 6 ta Korporativ Modul</h3>
-      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">6 Modul • 900 ta Amaliy Keys • Haqiqiy Kali CLI</span>
+      <h3 class="section-title">🗺️ O'quv Yo'nalishi &amp; 9 ta Korporativ Modul</h3>
+      <span style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">9 Modul • 1,350 ta Amaliy Keys • Haqiqiy Kali CLI</span>
     </div>
 
     <div class="modules-grid">
@@ -279,8 +279,97 @@
         </div>
       </article>
 
-    </div>
+      <!-- Week 7 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🗄️</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">7-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Fayl Tizimi, Inodelar &amp; Docker Compose</h4>
+          <p class="module-desc">
+            Inodelar va bloklar darajasida tahlil (stat, ls -i), Qattiq va Simvolik havolalar (ln vs ln -s), disk fragmentatsiyasi, Docker ko'p bosqichli buildlari (Multistage), xususiy tarmoqlar (bridge/host), doimiy hajmlar (Volumes) va Docker Compose multi-container klasteri.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Inodes &amp; stat</span>
+            <span class="topic-chip">Hard vs Soft Links</span>
+            <span class="topic-chip">Docker Multistage</span>
+            <span class="topic-chip">Docker Compose Clustered</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w7ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w7-2d-game/index.html" class="btn-launch">7-Modulga Kirish →</a>
+        </div>
+      </article>
 
+      <!-- Week 8 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">⚡</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">8-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Jarayonlar Sinxronizatsiyasi &amp; Mutex</h4>
+          <p class="module-desc">
+            Parallelizm va poyga holati (Race Condition), Kritik bo'limning 3 ta oltin qoidasi (Mutual Exclusion, Progress, Bounded Waiting), Peterson algoritmi, Python threading (Thread, join), Mutex qulflari (threading.Lock, with lock:), Semaphorlar (Semaphore, BoundedSemaphore), Condition variables va Bounded Buffer.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">Race Conditions &amp; dis</span>
+            <span class="topic-chip">Peterson &amp; TestAndSet</span>
+            <span class="topic-chip">threading.Lock() &amp; with lock:</span>
+            <span class="topic-chip">Semaphores &amp; Condition</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w8ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w8-2d-game/index.html" class="btn-launch">8-Modulga Kirish →</a>
+        </div>
+      </article>
+
+      <!-- Week 9 Card -->
+      <article class="module-card">
+        <div>
+          <div class="module-topbar">
+            <div class="module-icon-wrap">🔒</div>
+            <div class="module-badges">
+              <span class="badge-tag badge-week">9-Modul</span>
+              <span class="badge-tag badge-count">150 Keys</span>
+            </div>
+          </div>
+          <h4 class="module-card-title">Tupiklar (Deadlocks) &amp; Bankir Algoritmi</h4>
+          <p class="module-desc">
+            Tupikning 4 ta Coffman zaruriy sharti, Resurs Taqsimoti Grafigi (RAG) va sikllar tahlili, Deadlock Prevention (Resurslarni tartiblash - Havender), Deadlock Avoidance (Safe State vs Unsafe State), Bankir Algoritmi (Safety &amp; Request matritsalari), Wait-For Graph (WFG) deteksiyasi, qutulish va Ostrich yondashuvi.
+          </p>
+          <div class="module-topics-list">
+            <span class="topic-chip">4 Coffman Conditions</span>
+            <span class="topic-chip">RAG &amp; WFG Reduction</span>
+            <span class="topic-chip">Banker's Algorithm</span>
+            <span class="topic-chip">Lock Ordering &amp; CW1</span>
+          </div>
+        </div>
+        <div class="module-card-footer">
+          <div class="module-progress-info">
+            <span class="module-stat-text">O'zlashtirish:</span>
+            <span id="w9ProgressVal" class="module-stat-val">0 / 150</span>
+          </div>
+          <a href="os-w9-2d-game/index.html" class="btn-launch">9-Modulga Kirish →</a>
+        </div>
+      </article>
+
+    </div>
   </main>
 
   <!-- Application Logic & Dictionary Scripts -->

@@ -89,7 +89,9 @@ questions.forEach(q => {
   }
 
   // Test that Command Anatomy card is generated with 5 points
-  const cardHtml = anatomy.formatCommandCard(q.flagAnatomy);
+  const cmd = String(q.canonical || "");
+  const analyzed = anatomy.analyze(cmd, q);
+  const cardHtml = anatomy.renderCardHtml(analyzed);
   if (!cardHtml || cardHtml.length < 50 || !cardHtml.includes("cmd-section")) {
     missingCards++;
     console.error(`Command card missing/empty for Q#${q.id}: ${q.canonical}`);

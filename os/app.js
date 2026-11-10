@@ -8,12 +8,13 @@
 
   // Linux SysAdmin Karyera Pog'onalari
   const CAREER_LADDER = [
-    { threshold: 0,   title: "Intern Linux SysAdmin (Boshlovchi)", avatar: "🌱" },
-    { threshold: 100, title: "Linux Junior Operator (Debian 12)", avatar: "🐧" },
-    { threshold: 250, title: "Shell Scripting & PAM Muhandisi", avatar: "⚡" },
-    { threshold: 450, title: "Kernel & Process Debugger (IPC / fork)", avatar: "🔬" },
-    { threshold: 650, title: "DevOps & Container Specialist (Docker)", avatar: "🐳" },
-    { threshold: 850, title: "Bosh Tizim Arxitektori (Chief Systems CTO)", avatar: "👑" }
+    { threshold: 0,    title: "Intern Linux SysAdmin (Boshlovchi)", avatar: "🌱" },
+    { threshold: 150,  title: "Linux Junior Operator (Debian 12)", avatar: "🐧" },
+    { threshold: 300,  title: "Shell Scripting & PAM Muhandisi", avatar: "⚡" },
+    { threshold: 500,  title: "Kernel & Process Debugger (IPC / fork)", avatar: "🔬" },
+    { threshold: 750,  title: "Virtual Memory & Docker Architect", avatar: "🐳" },
+    { threshold: 1000, title: "Concurrency & Synchronization Specialist", avatar: "🚥" },
+    { threshold: 1250, title: "Bosh Tizim Arxitektori (Chief Systems CTO)", avatar: "👑" }
   ];
 
   const MODULE_STORAGE_KEYS = {
@@ -22,7 +23,10 @@
     3: "WIUT_OS_W3_PROGRESS",
     4: "WIUT_OS_W4_PROGRESS",
     5: "WIUT_OS_W5_PROGRESS",
-    6: "WIUT_OS_W6_PROGRESS"
+    6: "WIUT_OS_W6_PROGRESS",
+    7: "WIUT_OS_W7_PROGRESS",
+    8: "WIUT_OS_W8_PROGRESS",
+    9: "WIUT_OS_W9_PROGRESS"
   };
 
   // State
@@ -30,9 +34,9 @@
     userName: "Linux Administrator",
     userHandle: "@sysadmin",
     totalSolved: 0,
-    totalChallenges: 900,
+    totalChallenges: 1350,
     totalCapital: 0,
-    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 }
   };
 
   // 1. Initialize Telegram Mini App SDK
@@ -66,7 +70,7 @@
     let grandTotalSolved = 0;
     let grandTotalCapital = 0;
 
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 9; w++) {
       const key = MODULE_STORAGE_KEYS[w];
       try {
         const raw = localStorage.getItem(key);
@@ -123,7 +127,7 @@
     if (progressPercent) progressPercent.textContent = `${pct}% Bajarildi`;
 
     // Individual week cards
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 9; w++) {
       const wEl = document.getElementById(`w${w}ProgressVal`);
       if (wEl) {
         const count = state.moduleProgress[w] || 0;
