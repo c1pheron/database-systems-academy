@@ -594,7 +594,7 @@
 
           <div class="gateway-stats-box">
             <span style="font-size:12px; color:var(--text-muted);" data-i18n="portal_mastery">O'zlashtirish:</span>
-            <span id="dsGrandStat" style="font-weight:700; color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0 / 900</span>
+            <span id="dsGrandStat" style="font-weight:700; color:var(--accent-gold-bright); font-family:'JetBrains Mono', monospace;">0 / 1350</span>
           </div>
         </div>
 
@@ -773,17 +773,20 @@
         let oopTotal = 0;
         let totalCapital = 0;
 
-        // 1. Database Systems (1-6)
+        // 1. Database Systems (1-9)
         const dsKeyMap = {
           1: ["DS_W1_PROGRESS", "ACADEMY_DS_W1_PROGRESS"],
           2: ["DS_W2_PROGRESS", "ACADEMY_DS_W2_PROGRESS"],
           3: ["DS_W3_PROGRESS", "ACADEMY_DS_W3_PROGRESS_V1", "ACADEMY_DS_W3_DDL_PROGRESS_V2"],
           4: ["DS_W4_PROGRESS", "wiut_ds_w4_luxury_hq_v2"],
           5: ["DS_W5_PROGRESS", "wiut_ds_w5_hq_state_v1"],
-          6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"]
+          6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"],
+          7: ["DS_W7_PROGRESS", "wiut_ds_w7_hq_state_v1"],
+          8: ["DS_W8_PROGRESS", "wiut_ds_w8_hq_state_v1"],
+          9: ["DS_W9_PROGRESS", "wiut_ds_w9_hq_state_v1"]
         };
 
-        for (let w = 1; w <= 6; w++) {
+        for (let w = 1; w <= 9; w++) {
           const keys = dsKeyMap[w] || [];
           for (const k of keys) {
             try {
@@ -861,7 +864,7 @@
         const progressBar = document.getElementById("grandProgressBar");
         const progressPercent = document.getElementById("grandProgressPercent");
 
-        if (dsEl) dsEl.textContent = `${dsTotal} / 900`;
+        if (dsEl) dsEl.textContent = `${dsTotal} / 1350`;
         if (osEl) osEl.textContent = `${osTotal} / 900`;
         if (oopEl) oopEl.textContent = `${oopTotal} / 900`;
         if (practicalOopEl) practicalOopEl.textContent = `${practicalOopTotal} / 40`;

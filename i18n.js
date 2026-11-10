@@ -240,7 +240,16 @@
       hub_w5_btn: "5-Modulga Kirish →",
       hub_w6_title: "NoSQL Klasterlar & Big Data",
       hub_w6_desc: "Hujjatli (MongoDB), Kalit-Qiymat (Redis) va Keng Ustunli (Cassandra) arxitekturalar, CAP teoremasi va yuqori yuklamali tizimlar muhandisligi.",
-      hub_w6_btn: "6-Modulga Kirish →"
+      hub_w6_btn: "6-Modulga Kirish →",
+      hub_w7_title: "FD, Normalizatsiya (1NF–BCNF) & Oyna Funksiyalari",
+      hub_w7_desc: "Funksional bog'liqliklar (FD), Armstrong aksiomalari, anomaliyalarni yo'qotish, 1NF-BCNF, SQL Window Functions (OVER, PARTITION BY, RANK) va CTE.",
+      hub_w7_btn: "7-Modulga Kirish →",
+      hub_w8_title: "NoSQL Ma'lumotlar Bazalari & MongoDB/Redis",
+      hub_w8_desc: "CAP teoremasi, BASE modeli, gorizontal Sharding, MongoDB hujjatli modeli & Aggregation Pipeline ($match, $group), Redis kalit-qiymat kesh klasterlari.",
+      hub_w8_btn: "8-Modulga Kirish →",
+      hub_w9_title: "Baza Xavfsizligi (Security) & Tranzaksiyalar (ACID)",
+      hub_w9_desc: "CIA triadasi, PostgreSQL rollar va huquqlar (GRANT/REVOKE), SQL Injection himoyasi, xavfsiz VIEWlar, ACID tranzaksiyalari, 2PL qulflar va Deadlocklar.",
+      hub_w9_btn: "9-Modulga Kirish →"
     },
 
     ru: {
@@ -469,7 +478,16 @@
       hub_w5_btn: "Войти в Модуль 5 →",
       hub_w6_title: "Кластеры NoSQL и Big Data",
       hub_w6_desc: "Документные (MongoDB), Ключ-Значение (Redis) и Колоночные (Cassandra) архитектуры, теорема CAP и высокопроизводительные распределенные системы.",
-      hub_w6_btn: "Войти в Модуль 6 →"
+      hub_w6_btn: "Войти в Модуль 6 →",
+      hub_w7_title: "ФЗ, Нормализация (1NF–BCNF) и Оконные Функции",
+      hub_w7_desc: "Функциональные зависимости (ФЗ), аксиомы Армстронга, устранение аномалий, 1NF-BCNF, SQL Window Functions (OVER, PARTITION BY, RANK) и CTE.",
+      hub_w7_btn: "Войти в Модуль 7 →",
+      hub_w8_title: "Базы Данных NoSQL: MongoDB и Redis",
+      hub_w8_desc: "Теорема CAP, модель BASE, горизонтальный шардинг, документоориентированная MongoDB и Aggregation Pipeline ($match, $group), кэширование в Redis.",
+      hub_w8_btn: "Войти в Модуль 8 →",
+      hub_w9_title: "Безопасность БД (Security) и Транзакции (ACID)",
+      hub_w9_desc: "Триада CIA, роли и права PostgreSQL (GRANT/REVOKE), защита от SQLi, безопасные VIEW, свойства ACID, 2PL блокировки и дэдлоки.",
+      hub_w9_btn: "Войти в Модуль 9 →"
     },
 
     en: {
@@ -698,7 +716,16 @@
       hub_w5_btn: "Enter Module 5 →",
       hub_w6_title: "NoSQL Clusters & Big Data",
       hub_w6_desc: "Document (MongoDB), Key-Value (Redis), and Wide-Column (Cassandra) architectures, CAP theorem trade-offs, and high-throughput distributed systems engineering.",
-      hub_w6_btn: "Enter Module 6 →"
+      hub_w6_btn: "Enter Module 6 →",
+      hub_w7_title: "FDs, Normalization (1NF–BCNF) & Window Functions",
+      hub_w7_desc: "Functional Dependencies (FD), Armstrong's Axioms, anomaly resolution, 1NF-BCNF decomposition, SQL Window Functions (OVER, PARTITION BY, RANK), and CTEs.",
+      hub_w7_btn: "Enter Module 7 →",
+      hub_w8_title: "NoSQL Databases: MongoDB & Redis",
+      hub_w8_desc: "CAP theorem, BASE model, horizontal Sharding, MongoDB document model & Aggregation Pipeline ($match, $group), and Redis in-memory cache clusters.",
+      hub_w8_btn: "Enter Module 8 →",
+      hub_w9_title: "Database Security & Transaction Management (ACID)",
+      hub_w9_desc: "CIA triad, PostgreSQL roles and privileges (GRANT/REVOKE), SQL Injection prevention, secure views, ACID transactions, 2PL locking, and Deadlocks.",
+      hub_w9_btn: "Enter Module 9 →"
     }
   };
 

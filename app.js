@@ -15,7 +15,10 @@
     { threshold: 450, title: "Katta SQL So'rovlar Me'mori" },
     { threshold: 600, title: "Tranzaksiyalar & ACID Yetakchisi" },
     { threshold: 750, title: "NoSQL & Taqsimlangan Klaster Eksperti" },
-    { threshold: 850, title: "Bosh Arxitektor & Hamkor (Penthouse)" }
+    { threshold: 900, title: "Normalizatsiya & Window Functions Eksperti" },
+    { threshold: 1050, title: "NoSQL & MongoDB/Redis Klaster Me'mori" },
+    { threshold: 1200, title: "Baza Xavfsizligi & ACID Bosh Arxitektori" },
+    { threshold: 1300, title: "Bosh Baza Arxitektori & Hamkor (Penthouse VIP)" }
   ];
 
   const MODULE_STORAGE_KEYS = {
@@ -24,7 +27,10 @@
     3: ["DS_W3_PROGRESS", "ACADEMY_DS_W3_PROGRESS_V1", "ACADEMY_DS_W3_DDL_PROGRESS_V2"],
     4: ["DS_W4_PROGRESS", "wiut_ds_w4_luxury_hq_v2"],
     5: ["DS_W5_PROGRESS", "wiut_ds_w5_hq_state_v1"],
-    6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"]
+    6: ["DS_W6_PROGRESS", "wiut_ds_w6_hq_state_v1"],
+    7: ["DS_W7_PROGRESS", "wiut_ds_w7_hq_state_v1"],
+    8: ["DS_W8_PROGRESS", "wiut_ds_w8_hq_state_v1"],
+    9: ["DS_W9_PROGRESS", "wiut_ds_w9_hq_state_v1"]
   };
 
   // State
@@ -32,9 +38,9 @@
     userName: "Ma'lumotlar Me'mori",
     userHandle: "@explorer",
     totalSolved: 0,
-    totalChallenges: 900,
+    totalChallenges: 1350,
     totalCapital: 0,
-    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0 }
   };
 
   // 1. Initialize Telegram Mini App SDK
@@ -68,7 +74,7 @@
     let grandTotalSolved = 0;
     let grandTotalCapital = 0;
 
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 9; w++) {
       const keys = MODULE_STORAGE_KEYS[w];
       let foundData = null;
 
@@ -139,7 +145,7 @@
     if (elProgressPercent) elProgressPercent.textContent = `${percentage}% ${completedText}`;
 
     // Per-Module Card Progress
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 9; w++) {
       const solved = state.moduleProgress[w] || 0;
       const valEl = document.getElementById(`w${w}ProgressVal`);
       if (valEl) {
