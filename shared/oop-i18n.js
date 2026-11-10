@@ -52,6 +52,14 @@
       hub_w6_desc: "23 ta GoF Patternlar (Singleton, Factory, Builder, Decorator, Adapter, Strategy, Observer) va Westminster Assessment 2 (50%) Console Order tizimini qurish.",
       hub_w6_btn: "6-Modulga Kirish →",
 
+      hub_w7_title: "Polimorfizm & Dinamik Metod Bog'lanishi",
+      hub_w7_desc: "Universal pult konsepsiyasi, @Override, Overloading, Erta va Kech bog'lanish (VTable), Upcasting, Downcasting, Workshop TW 7 SmartHome Hub va CW2 polimorfik mahsulotlar savati.",
+      hub_w7_btn: "7-Modulga Kirish →",
+
+      hub_w8_title: "SOLID, Istisnolar & PC Lab Mock Test",
+      hub_w8_desc: "DRY, KISS, YAGNI prinsiplari, Java Exception shajarasi, Checked vs Unchecked, try-catch-finally, throw/throws, Custom Exceptions, Workshop TW 8 StepTracker va rasmiy 'Chorsu Grill House' Mock Testi.",
+      hub_w8_btn: "8-Modulga Kirish →",
+
       // Weekly Game Simulator UI
       back_hub: "← OOP Hubga Qaytish",
       rating_score: "Reyting Bali:",
@@ -123,6 +131,14 @@
       hub_w6_desc: "23 паттерна GoF (Singleton, Factory, Builder, Decorator, Adapter, Strategy, Observer) и курсовая работа Westminster Assessment 2 (50%).",
       hub_w6_btn: "Войти в Модуль 6 →",
 
+      hub_w7_title: "Полиморфизм и Динамическое Связывание",
+      hub_w7_desc: "Концепция универсального пульта, @Override, Overloading, раннее и позднее связывание (VTable), Upcasting, Downcasting, Workshop TW 7 SmartHome Hub и полиморфная корзина CW2.",
+      hub_w7_btn: "Войти в Модуль 7 →",
+
+      hub_w8_title: "SOLID, Исключения и PC Lab Mock Test",
+      hub_w8_desc: "Принципы DRY, KISS, YAGNI, иерархия исключений Java, Checked vs Unchecked, try-catch-finally, throw/throws, Custom Exceptions, Workshop TW 8 StepTracker и официальный Mock Test 'Chorsu Grill House'.",
+      hub_w8_btn: "Войти в Модуль 8 →",
+
       // Weekly Game Simulator UI
       back_hub: "← Назад в OOP Hub",
       rating_score: "Рейтинг:",
@@ -193,6 +209,14 @@
       hub_w6_title: "GoF Design Patterns & CW2 Console App",
       hub_w6_desc: "23 GoF Patterns (Singleton, Factory, Builder, Decorator, Adapter, Strategy, Observer) and Westminster Assessment 2 (50%) Console Order Application.",
       hub_w6_btn: "Enter Module 6 →",
+
+      hub_w7_title: "Polymorphism & Dynamic Method Dispatch",
+      hub_w7_desc: "Universal remote analogy, @Override, Overloading, Early vs Late Binding (VTable), Upcasting, Downcasting, Workshop TW 7 SmartHome Hub, and CW2 polymorphic products cart.",
+      hub_w7_btn: "Enter Module 7 →",
+
+      hub_w8_title: "SOLID, Exceptions & PC Lab Mock Test",
+      hub_w8_desc: "DRY, KISS, YAGNI design principles, Java Exception hierarchy, Checked vs Unchecked, try-catch-finally, throw/throws, Custom Exceptions, Workshop TW 8 StepTracker, and official 'Chorsu Grill House' Mock Test.",
+      hub_w8_btn: "Enter Module 8 →",
 
       // Weekly Game Simulator UI
       back_hub: "← Back to OOP Hub",

@@ -22,7 +22,9 @@
     3: "WIUT_OOP_W3_PROGRESS",
     4: "WIUT_OOP_W4_PROGRESS",
     5: "WIUT_OOP_W5_PROGRESS",
-    6: "WIUT_OOP_W6_PROGRESS"
+    6: "WIUT_OOP_W6_PROGRESS",
+    7: "WIUT_OOP_W7_PROGRESS",
+    8: "WIUT_OOP_W8_PROGRESS"
   };
 
   // State
@@ -30,9 +32,9 @@
     userName: "Java Developer",
     userHandle: "@java_dev",
     totalSolved: 0,
-    totalChallenges: 900,
+    totalChallenges: 1200,
     totalPoints: 0,
-    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }
+    moduleProgress: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0 }
   };
 
   function getLang() {
@@ -74,7 +76,7 @@
   function loadProgress() {
     let grandSolved = 0;
 
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 8; w++) {
       const key = MODULE_STORAGE_KEYS[w];
       try {
         const raw = localStorage.getItem(key);
@@ -131,7 +133,7 @@
     if (elPercent) elPercent.textContent = `${percent}% ${isEn ? "Completed" : "Bajarildi"}`;
 
     // Week Module Stat values
-    for (let w = 1; w <= 6; w++) {
+    for (let w = 1; w <= 8; w++) {
       const elVal = document.getElementById(`w${w}ProgressVal`);
       if (elVal) {
         elVal.textContent = `${state.moduleProgress[w]} / 150`;
